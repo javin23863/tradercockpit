@@ -1,0 +1,9 @@
+{
+  "slug": "v06-evals",
+  "topic": "shipping LLM features without evals is flying blind",
+  "beats": [
+    { "kind": "hook", "concept": "a new prompt version flies blind through fog with a dead instrument panel toward a hidden regression ridge", "techniques": ["dead-instrument-panel-null-gauges", "drifting-fog-veil-bands", "terrain-proximity-regression-silhouette", "version-aircraft-banking-glide", "no-instruments-blind-alarm"] },
+    { "kind": "insight", "concept": "an eval harness runs each version through a test-case grid while an LLM-judge diamond stamps a score", "techniques": ["test-case-grid-scanline-resolve", "version-conveyor-feed", "llm-judge-rotating-diamond-stamp", "score-readout-tally"] },
+    { "kind": "proof", "concept": "an eval gate with a red barrier that drops to block the regressing version and a green barrier that lifts to ship the better one", "techniques": ["pass-fail-gate-barrier-drop-and-lift", "twin-lane-version-race", "score-trend-puck-chip", "on-evidence-seal-stamp"] }
+  ]
+}

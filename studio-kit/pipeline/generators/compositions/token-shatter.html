@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #04050c; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// TOKEN-SHATTER — a packed mass of glowing "token" cubes charges, then DETONATES: fragments burst
+// outward with spin + motion, a white-hot bloom flash + an expanding shockwave ring. Centered + proportional
+// to 9:16 (subject lives in the central safe area; fragments expand to ~frame edge then vaporize).
+// Deterministic seek-capture.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, easeOut, mix3, grainVignette, PAL } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+
+const W = 1080, H = 1920;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x04050c, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.82; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x04050c, 0.03);
+const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 120);
+
+const composer = new EffectComposer(renderer); composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(W, H), 0.42, 0.7, 0.62); // HIGH threshold + modest strength: only the hottest shards glow, no full-frame wash. NOTE: do NOT also pass html3d --bloom (double-bloom clips green → magenta).
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.022, vignette: 0.42 }));
+composer.addPass(grainPass);
+
+const rnd = mulberry32(70241);
+const CYAN = [0.30, 0.92, 1.0], VIOLET = [0.62, 0.42, 1.0], ORANGE = [1.0, 0.52, 0.12], WHITE = [1.4, 1.3, 1.1];
+
+// ---- the token mass: instanced cubes packed in a sphere ----
+const COUNT = 240;
+const geo = new THREE.BoxGeometry(0.22, 0.22, 0.22);
+const mat = new THREE.MeshBasicMaterial({ toneMapped: false });
+const mesh = new THREE.InstancedMesh(geo, mat, COUNT);
+mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+scene.add(mesh);
+const bp = [], dir = [], spd = [], axis = [], ph = [];
+for (let i = 0; i < COUNT; i++) {
+  // uniform point in sphere r<=1.45
+  let x, y, z, d2;
+  do { x = rnd() * 2 - 1; y = rnd() * 2 - 1; z = rnd() * 2 - 1; d2 = x*x + y*y + z*z; } while (d2 > 1);
+  const r = Math.cbrt(rnd()) * 1.45;
+  const len = Math.sqrt(d2) || 1;
+  const base = new THREE.Vector3(x/len*r, y/len*r, z/len*r);
+  bp.push(base);
+  dir.push(base.clone().normalize().add(new THREE.Vector3((rnd()-0.5)*0.4, (rnd()-0.5)*0.4, (rnd()-0.5)*0.4)).normalize());
+  spd.push(1.15 + rnd() * 1.25);
+  axis.push(new THREE.Vector3(rnd()-0.5, rnd()-0.5, rnd()-0.5).normalize());
+  ph.push(rnd() * Math.PI * 2);
+}
+
+// ---- shockwave ring + core flash ----
+const ringMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0, toneMapped: false, side: THREE.DoubleSide });
+const ring = new THREE.Mesh(new THREE.TorusGeometry(1.0, 0.085, 12, 140), ringMat); scene.add(ring);
+const flashMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0, toneMapped: false });
+const flash = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 24), flashMat); scene.add(flash);
+
+const dummy = new THREE.Object3D();
+const col = new THREE.Color();
+const tDet = 1.6; // beat 6 spans 16.5-19.5s; detonation lands on the VO word "obliterated" @18.12s (1.62s into the beat)
+
+window.__seek = (t) => {
+  const intro = easeOut(clamp01(t / 0.5));
+  const dt = Math.max(0, t - tDet);
+  const ee = easeOut(clamp01(dt / 1.7));
+  // camera: slow push + sharp shake on detonation, settling
+  const shake = Math.exp(-dt * 7) * (t >= tDet ? 1 : 0);
+  const camz = 6.6 - easeOut(clamp01(t / 4)) * 0.7;
+  camera.position.set(Math.sin(t * 57) * 0.06 * shake, Math.cos(t * 63) * 0.06 * shake, camz);
+  camera.lookAt(0, 0, 0);
+
+  for (let i = 0; i < COUNT; i++) {
+    let p, s, b, c;
+    if (t < tDet) {
+      const charge = clamp01(t / tDet);
+      const jit = (1 - charge) * 0.03;
+      const k = 1 - charge * 0.14; // contract inward as it charges
+      p = new THREE.Vector3(
+        bp[i].x * k + Math.sin(t * 9 + ph[i]) * jit,
+        bp[i].y * k + Math.cos(t * 8 + ph[i]) * jit,
+        bp[i].z * k + Math.sin(t * 10 + ph[i]) * jit);
+      s = 1 + charge * 0.18 + Math.sin(t * 12 + ph[i]) * 0.05;
+      b = (0.45 + charge * charge * 1.25) * intro;         // glow up, but NOT a white blob
+      c = mix3(CYAN, WHITE, charge * charge * 0.7);
+    } else {
+      const dist = ee * spd[i] * 5.2;                       // spread far + fast so they don't pile white at center
+      p = bp[i].clone().addScaledVector(dir[i], dist);
+      p.y -= ee * ee * 0.5; // faint gravity
+      s = Math.max(0.12, 1.1 * (1 - ee * 0.5));             // stay readable (don't vanish to dots)
+      b = (2.2 * (1 - ee * 0.7) + 0.4);                     // hot at burst → glowing ember (floor 0.4, never grey)
+      c = mix3(WHITE, ORANGE, clamp01(dt / 0.4));           // white-hot → orange embers (no violet → no grey-pink)
+    }
+    dummy.position.copy(p);
+    dummy.rotation.set(t * 1.4 * axis[i].x + ph[i], t * 1.4 * axis[i].y, t * 1.4 * axis[i].z);
+    dummy.scale.setScalar(Math.max(0.001, s * 0.9));
+    dummy.updateMatrix();
+    mesh.setMatrixAt(i, dummy.matrix);
+    col.setRGB(c[0] * b, c[1] * b, c[2] * b);
+    mesh.setColorAt(i, col);
+  }
+  mesh.instanceMatrix.needsUpdate = true;
+  if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+
+  // shockwave ring — FACING camera (slight tilt for depth), sweeps outward
+  const rs = 0.5 + ee * 4.2;
+  ring.scale.set(rs, rs, rs);
+  ring.rotation.set(0.35, 0, t * 0.2);
+  ringMat.opacity = Math.exp(-dt * 2.0) * (t >= tDet ? 1.0 : 0) * (1 - ee * 0.25);
+  ringMat.color.setRGB(...mix3(WHITE, CYAN, clamp01(dt)));
+
+  // core flash — small + brief (1-2 frames), not a frame-filling white sphere
+  const fl = Math.exp(-dt * 11) * (t >= tDet ? 1 : 0);
+  flash.scale.setScalar(0.8 + ee * 0.7);
+  flashMat.opacity = fl * 0.7;
+
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

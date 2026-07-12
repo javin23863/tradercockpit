@@ -1,0 +1,39 @@
+{
+  "slug": "v04-specdecode",
+  "topic": "speculative decoding doubles tokens per second",
+  "beats": [
+    {
+      "kind": "hook",
+      "concept": "serial one-token-at-a-time conveyor capped by a hard speed ceiling",
+      "techniques": [
+        "serial single-file conveyor with a hard speed-ceiling hatch bar",
+        "needle-against-ceiling rate gauge (needle pinned low, taps a red ceiling marker)",
+        "single-occupancy serial lock (one active token-cell on the rail, queued tokens blocked)",
+        "one-token step-counter on the active cell (#N ticks per beat)",
+        "tokens/sec readout capped at ~1x with stuck-at-ceiling escalation"
+      ]
+    },
+    {
+      "kind": "insight",
+      "concept": "tiny draft model emits a guess-token batch; big verifier checks the whole batch in one sweep, accepting a green prefix run and rejecting the tail",
+      "techniques": [
+        "fast draft-runner emitting a left-to-right speculative guess-token batch row (spring-pop per emit)",
+        "single-pass verifier sweep-bar traveling across the entire batch at once",
+        "contiguous green accept-streak prefix + red reject tail decided as the sweep passes each chip",
+        "accept-streak underline bracket + running accept tally",
+        "1-pass-N-tokens verifier badge with fire-impact ring on sweep launch"
+      ]
+    },
+    {
+      "kind": "proof",
+      "concept": "tokens/sec speedometer needle sweeps from 1x to 2x while bulk-accepted tokens fill a throughput meter to double the baseline",
+      "techniques": [
+        "tokens/sec sweep speedometer (1x ghost needle held + live needle slam to 2x via spring overshoot)",
+        "x2 hero snap with rotate-settle synced to the spoken word 'doubles'",
+        "sweep-arc highlight from 1x to live rate on the dial face",
+        "bulk-accept throughput meter filling to 2x past a dashed 1x baseline marker",
+        "streaming accepted-token chip bulk-flow into the meter (index-seeded sin-hash lifecycle)"
+      ]
+    }
+  ]
+}

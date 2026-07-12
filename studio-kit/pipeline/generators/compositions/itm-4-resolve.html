@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: #06060c; overflow: hidden; }
+  canvas { display: block; }
+</style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// ORDER FROM NOISE (itm-4-resolve) — ~1500 flickering particles start as a chaotic turbulent cloud and RESOLVE/LERP into a
+// clean ordered 3D cubic lattice. Brightness rises as order increases (noise→structure). Slow orbital camera + eased dolly.
+// Reads as "patterns sharpening, meaning from noise." Authored in Three.js, seeked by t for deterministic seek-capture.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, smoothstep, easeOut, easeInOut, mix3 } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { grainVignette } from './mg-core.js';
+
+const W = 1080, H = 1920, DUR = 5, TAU = Math.PI * 2;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+renderer.setClearColor(0x06060c, 1);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x06060c, 0.05);
+const camera = new THREE.PerspectiveCamera(48, W / H, 0.1, 100);
+// composer: RenderPass → OutputPass → grainVignette finisher (vignette + grain + dither). NO bloom — additive particles
+// already glow; bloom would wash them to solid white. Glow = AdditiveBlending + soft sprite.
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.02, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+// ---- deterministic RNG (seek-capture must be frame-deterministic; NO Math.random) ----
+const rnd = mulberry32(20260624);
+
+// ---- soft radial-gradient sprite for glowing additive points ----
+function softDot() {
+  const s = 64, c = document.createElement('canvas'); c.width = c.height = s;
+  const g = c.getContext('2d');
+  const grad = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.28, 'rgba(255,255,255,0.78)');
+  grad.addColorStop(0.6, 'rgba(255,255,255,0.20)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, s, s);
+  const tex = new THREE.CanvasTexture(c); tex.needsUpdate = true; return tex;
+}
+const dotTex = softDot();
+
+// ---- ORDERED TARGET: a clean cubic lattice (GX×GY×GZ), centered on origin ----
+const GX = 11, GY = 11, GZ = 13, STEP = 0.52;
+const lattice = [];
+for (let ix = 0; ix < GX; ix++)
+  for (let iy = 0; iy < GY; iy++)
+    for (let iz = 0; iz < GZ; iz++) {
+      lattice.push([
+        (ix - (GX - 1) / 2) * STEP,
+        (iy - (GY - 1) / 2) * STEP,
+        (iz - (GZ - 1) / 2) * STEP,
+      ]);
+    }
+const N = lattice.length; // 11*11*13 = 1573 ≈ 1500
+
+// ---- per-particle CHAOS start + ORDERED target + flicker/stagger params ----
+const chaos = new Float32Array(N * 3);   // turbulent random start
+const order = new Float32Array(N * 3);   // clean lattice target
+const phase = new Float32Array(N);       // flicker phase
+const fspd  = new Float32Array(N);       // flicker speed
+const stag  = new Float32Array(N);       // resolve-stagger [0..1] (when this particle snaps)
+const oDist = new Float32Array(N);       // distance of the ordered slot from core (depth grade)
+let maxODist = 0;
+
+for (let i = 0; i < N; i++) {
+  const t = lattice[i];
+  order[i * 3] = t[0]; order[i * 3 + 1] = t[1]; order[i * 3 + 2] = t[2];
+  const od = Math.hypot(t[0], t[1], t[2]);
+  oDist[i] = od; maxODist = Math.max(maxODist, od);
+
+  // chaotic start: random point in a large turbulent sphere shell, swirled
+  const u = rnd() * TAU, v = Math.acos(2 * rnd() - 1);
+  const rad = 2.6 + Math.pow(rnd(), 0.7) * 4.4;
+  let cx = Math.sin(v) * Math.cos(u) * rad;
+  let cy = Math.sin(v) * Math.sin(u) * rad;
+  let cz = Math.cos(v) * rad;
+  // add curl-ish swirl displacement so the cloud reads as turbulent, not a clean shell
+  cx += Math.sin(cy * 1.1 + cz * 0.7) * 0.9;
+  cy += Math.cos(cz * 1.3 - cx * 0.5) * 0.9;
+  cz += Math.sin(cx * 0.9 + cy * 1.2) * 0.9;
+  chaos[i * 3] = cx; chaos[i * 3 + 1] = cy; chaos[i * 3 + 2] = cz;
+
+  phase[i] = rnd() * TAU;
+  fspd[i] = 7.0 + rnd() * 11.0;
+  stag[i] = rnd();
+}
+
+// ---- Points geometry (position + color, both rewritten each seek) ----
+const pos = new Float32Array(N * 3);
+const col = new Float32Array(N * 3);
+for (let i = 0; i < N; i++) { pos[i * 3] = chaos[i * 3]; pos[i * 3 + 1] = chaos[i * 3 + 1]; pos[i * 3 + 2] = chaos[i * 3 + 2]; }
+const geo = new THREE.BufferGeometry();
+geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+const mat = new THREE.PointsMaterial({
+  size: 0.17, map: dotTex, vertexColors: true, transparent: true,
+  depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true,
+});
+const points = new THREE.Points(geo, mat);
+scene.add(points);
+
+// a few brighter "anchor" nodes at lattice corners/center to give the structure focal punch
+const anchorIdx = [];
+{
+  const want = [
+    [0, 0, 0], [GX - 1, 0, 0], [0, GY - 1, 0], [0, 0, GZ - 1],
+    [GX - 1, GY - 1, GZ - 1], [GX - 1, GY - 1, 0], [GX - 1, 0, GZ - 1], [0, GY - 1, GZ - 1],
+    [(GX - 1) / 2 | 0, (GY - 1) / 2 | 0, (GZ - 1) / 2 | 0],
+  ];
+  want.forEach(([ix, iy, iz]) => anchorIdx.push((ix * GY + iy) * GZ + iz));
+}
+
+// ---- palette ----
+const VIOLET = [0.42, 0.30, 1.0];
+const CYAN = [0.16, 0.86, 0.96];
+
+// focal hierarchy: brightest at the core, dissolving to faint at the edges / in fog.
+// kept generous so the RESOLVED lattice still reads as a bright unified structure (order = the whole grid lights up).
+const centerWeight = d => 0.42 + 0.58 * (1 - smoothstep(maxODist * 0.55, maxODist * 1.15, d));
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  const ord = easeInOut(p);            // global order 0→1 (noise → structure)
+
+  for (let i = 0; i < N; i++) {
+    // per-particle resolve: a wave that sweeps from the core outward, snapping nodes by depth + stagger
+    const lead = clamp01((oDist[i] / maxODist) * 0.55 + stag[i] * 0.45);
+    const local = easeOut(clamp01((ord - lead * 0.6) / (1 - lead * 0.6 + 1e-3)));
+
+    const cx = chaos[i * 3], cy = chaos[i * 3 + 1], cz = chaos[i * 3 + 2];
+    const ox = order[i * 3], oy = order[i * 3 + 1], oz = order[i * 3 + 2];
+
+    // turbulence amplitude shrinks as the particle resolves (chaos calms into the grid)
+    const turb = (1 - local) * 0.55;
+    const wob = Math.sin(t * fspd[i] * 0.18 + phase[i]) * turb;
+    const x = cx + (ox - cx) * local + wob;
+    const y = cy + (oy - cy) * local + Math.cos(t * fspd[i] * 0.16 + phase[i]) * turb;
+    const z = cz + (oz - cz) * local + wob * 0.7;
+    pos[i * 3] = x; pos[i * 3 + 1] = y; pos[i * 3 + 2] = z;
+
+    // brightness: flicker hard + DIM in noise phase, settle to a steady BRIGHT glow as order rises (meaning from noise)
+    const flick = 0.5 + 0.5 * Math.sin(t * fspd[i] + phase[i]);
+    const noiseBright = (0.06 + 0.30 * flick) * (1 - local);   // dim, chaotic flicker — fades out as it resolves
+    const orderBright = 1.55 * local;                          // strong rising steady glow
+    const cw = centerWeight(oDist[i]);
+    const b = (noiseBright + orderBright) * cw;
+
+    // color: violet-dominant noise → cyan-charged order (the structure cools to clean cyan as it locks in)
+    const cr = mix3(VIOLET, CYAN, 0.85 * local);
+    col[i * 3] = cr[0] * b;
+    col[i * 3 + 1] = cr[1] * b;
+    col[i * 3 + 2] = (cr[2] * b) + VIOLET[2] * 0.12 * cw * (1 - local); // residual violet haze only in the noise
+  }
+
+  // anchor nodes: extra brightness as structure locks in
+  anchorIdx.forEach(i => {
+    const lead = clamp01((oDist[i] / maxODist) * 0.55 + stag[i] * 0.45);
+    const local = easeOut(clamp01((ord - lead * 0.6) / (1 - lead * 0.6 + 1e-3)));
+    const cw = centerWeight(oDist[i]);
+    const boost = (0.6 + 1.7 * local) * cw;
+    const cr = mix3(VIOLET, CYAN, 0.85 * local);
+    col[i * 3] = cr[0] * boost;
+    col[i * 3 + 1] = cr[1] * boost;
+    col[i * 3 + 2] = cr[2] * boost;
+  });
+
+  geo.attributes.position.needsUpdate = true;
+  geo.attributes.color.needsUpdate = true;
+
+  // grow the points as order locks (resolved lattice reads sharper + brighter)
+  mat.size = 0.14 + 0.08 * ord;
+
+  // camera: starts at an oblique angle on the turbulent cloud, then eases toward a near-AXIS-ALIGNED, pulled-back view
+  // so the resolving lattice snaps into clean screen-aligned rows/columns (the grid READS as a grid). Real eased dolly.
+  const orbit = easeInOut(p);
+  const ang = -0.85 * (1 - orbit);              // oblique noise → ~0 (looking down -Z) as order locks → clean grid read
+  const radius = 9.6 - easeOut(p) * 3.0;        // 9.6 → 6.6 : dolly in, but hold the whole lattice in frame face-on
+  camera.position.set(Math.sin(ang) * radius, 0.6 * Math.sin(t * 0.34 + 0.2) - 0.05, Math.cos(ang) * radius);
+  camera.lookAt(0, 0, 0);
+  // a whisper of scene spin for parallax in the noise phase, easing to ZERO so the locked grid stays perfectly aligned
+  scene.rotation.y = 0.10 * (1 - orbit);
+
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+
+// prime first frame then signal ready
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

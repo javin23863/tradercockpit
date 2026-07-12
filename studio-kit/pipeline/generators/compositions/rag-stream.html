@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #04050c; overflow: hidden; } canvas { display: block; } </style>
+<!-- importmap so the jsm postprocessing modules' bare `import from 'three'` resolves to our local build -->
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// RAG: "give the model YOUR data" — streams of data particles flow INWARD from all sides and ignite a glowing core.
+// 4th distinct form (not network/torus/crystal). Real SELECTIVE UnrealBloom (only the bright core + arriving particles
+// glow; dark bg stays black) + ACES. Deterministic → seek-capture. AI-topic hero for the topic queue. 1080x1920, 6s.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, easeInExpo, easeOut, softDot, orbitCamera, curlSwirl, grainVignette, PAL, TAU } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+
+const W = 1080, H = 1920, DUR = 6;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x04050c, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.9; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x04050c, 0.05);
+const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 100);
+const rnd = mulberry32(11235813);
+const dotTex = softDot(THREE, 'tight');
+
+// selective bloom: threshold keeps the dark bg out, only HDR-bright (emissive>1 / hot particles) glow
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(W, H), 0.5, 0.38, 0.16); // strength, radius, threshold
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.022, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+// ---- glowing core (HDR-bright so it blooms; toneMapped:false keeps it hot through ACES) ----
+const coreMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0.4, 0.62, 0.82), toneMapped: false });
+const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.22, 1), coreMat);
+scene.add(core);
+const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: dotTex, color: new THREE.Color(0.3, 0.45, 0.6), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false }));
+halo.scale.setScalar(1.4); scene.add(halo);
+
+// ---- inbound data streams: particles travel from an outer shell INTO the core, accelerating, igniting on arrival ----
+const NP = 3200;
+const dir = new Float32Array(NP * 3), r0 = new Float32Array(NP), phase = new Float32Array(NP), spd = new Float32Array(NP), tint = new Float32Array(NP);
+for (let i = 0; i < NP; i++) {
+  // cluster into ~16 filaments so it reads as STREAMS, not random rain
+  const stream = Math.floor(rnd() * 16);
+  const sa = (stream / 16) * TAU + (rnd() - 0.5) * 0.35;
+  const sb = Math.acos(2 * ((stream % 5) / 5 + (rnd() - 0.5) * 0.18) - 1);
+  dir[i*3] = Math.sin(sb) * Math.cos(sa); dir[i*3+1] = Math.cos(sb) * 0.85; dir[i*3+2] = Math.sin(sb) * Math.sin(sa);
+  r0[i] = 5.5 + rnd() * 3.5; phase[i] = rnd(); spd[i] = 0.5 + rnd() * 0.6; tint[i] = rnd();
+}
+const ppos = new Float32Array(NP * 3), pcol = new Float32Array(NP * 3);
+const pgeo = new THREE.BufferGeometry();
+pgeo.setAttribute('position', new THREE.BufferAttribute(ppos, 3));
+pgeo.setAttribute('color', new THREE.BufferAttribute(pcol, 3));
+const points = new THREE.Points(pgeo, new THREE.PointsMaterial({ size: 0.085, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true, toneMapped: false }));
+scene.add(points);
+
+window.__seek = (t) => {
+  const p01 = clamp01(t / DUR);
+  const intro = easeOut(clamp01(t / 0.8));
+  for (let i = 0; i < NP; i++) {
+    const p = ((t * 0.17 * spd[i] + phase[i]) % 1 + 1) % 1;   // 0 outer → 1 core (loops)
+    const reach = 1 - easeInExpo(p);                          // radius factor 1→0, accelerating inward
+    const rr = r0[i] * reach;
+    const wob = 0.18 * reach;                                 // curl wobble fades as it nears the core (tight filaments)
+    const cs = curlSwirl(dir[i*3] * 3, dir[i*3+1] * 3, dir[i*3+2] * 3, t + phase[i] * 6, wob);
+    ppos[i*3] = dir[i*3] * rr + cs[0]; ppos[i*3+1] = dir[i*3+1] * rr + cs[1]; ppos[i*3+2] = dir[i*3+2] * rr + cs[2];
+    const hot = p * p;                                        // ignite near the core
+    const b = (0.1 + hot * 0.7) * intro;
+    const m = clamp01(0.25 + p * 0.9);                        // violet far → cyan near
+    pcol[i*3]   = (PAL.violet[0] * (1 - m) + PAL.cyan[0] * m) * b + hot * 0.4 * b;
+    pcol[i*3+1] = (PAL.violet[1] * (1 - m) + PAL.cyan[1] * m) * b + hot * 0.5 * b;
+    pcol[i*3+2] = (PAL.violet[2] * (1 - m) + PAL.cyan[2] * m) * b + hot * 0.5 * b;
+  }
+  pgeo.attributes.position.needsUpdate = true; pgeo.attributes.color.needsUpdate = true;
+  const cp = (1 + 0.12 * Math.sin(t * 3.0)) * intro;
+  core.scale.setScalar(Math.max(0.001, cp)); core.rotation.set(t * 0.2, t * 0.3, 0);
+  halo.scale.setScalar((2.6 + 0.5 * Math.sin(t * 3.0)) * intro);
+  orbitCamera(camera, { t, p: p01, ang0: -0.4, angSpan: 1.1, rad0: 7.2, radPull: 1.0, height: 1.3, bob: 0.3, bobSpeed: 0.32 });
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

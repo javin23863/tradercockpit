@@ -1,0 +1,39 @@
+{
+  "slug": "v08-guardrails",
+  "topic": "one user message can hijack your whole agent",
+  "beats": [
+    {
+      "kind": "hook",
+      "concept": "a smuggled 'ignore all instructions' payload rides the user-message token stream into the SYSTEM CORE and the agent obeys (hijacked)",
+      "techniques": [
+        "left-to-right user-message token-chip stream-flow (index-seeded looping benign chips on a flowing-dash rail)",
+        "smuggled malicious payload chip riding the stream with a red sneak-creep toward the core",
+        "system-core hijack-flip (calm SYSTEM disc recolors to a red OBEYING state with an alert ring slam)",
+        "HIJACKED slam-stamp (rotate-settle, word-synced to 'obeys')",
+        "obeyed-injected-commands tally with scale-snap"
+      ]
+    },
+    {
+      "kind": "insight",
+      "concept": "a guardrail scanner gate sweeps the input stream, flags the payload red, yanks it into a sealing quarantine box, while legit chips pass green to the core",
+      "techniques": [
+        "guardrail scanner gate with a vertical sweeping scan-beam (looping beam pass + scan grid)",
+        "flag-and-lock on a tripped chip (FLAGGED tag + padlock swap)",
+        "quarantine-box yank-arc (sin-lift arc pulling the payload off-rail into a hazard-hatch box with a dropping lid + lock seal)",
+        "green pass-through lane (benign chips recolor green and check past the gate to the core)",
+        "screened-inputs tally count-up"
+      ]
+    },
+    {
+      "kind": "proof",
+      "concept": "split verdict — the attack slams a red BLOCKED barrier into quarantine while the real request glides clean through a green gate to a RUNNING core; threats-blocked ticks up; 0 reached the model",
+      "techniques": [
+        "two-lane blocked-vs-passed verdict (red barrier slam + quarantine padlock-seal lane vs green clean-pass-to-core lane)",
+        "barrier-slam recoil with exp-decay kick + shock ring + hazard hatch",
+        "core-RUNNING illumination on a verified pass (✓ spring-pop check)",
+        "threats-blocked count-up tally with scale-snap",
+        "0-reached-the-model seal stamp (pill seal, word-synced to 'through')"
+      ]
+    }
+  ]
+}

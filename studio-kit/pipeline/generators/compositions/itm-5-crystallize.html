@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: #06060c; overflow: hidden; }
+  canvas { display: block; }
+</style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// ITM 5 — CRYSTALLIZE: a thought crystallizes. Hundreds of streaming points converge inward from all directions along
+// eased paths and collapse into a single glowing crystalline core (icosahedron wireframe + point shell) that ignites
+// bright at the end. A final bloom-like flash via ADDITIVE DENSITY (no bloom pass). Camera eases to a hero framing.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, smoothstep, easeOut, easeInOut, mix3 } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { grainVignette } from './mg-core.js';
+
+const W = 1080, H = 1920, DUR = 5;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+renderer.setClearColor(0x06060c, 1);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x06060c, 0.075);
+const camera = new THREE.PerspectiveCamera(48, W / H, 0.1, 100);
+// composer: RenderPass → OutputPass → grainVignette finisher. NO bloom — additive points already glow; the final
+// flash is achieved by COLLAPSING density into the core (additive over-saturation), not a bloom pass.
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.02, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+// ---- deterministic RNG ----
+const rnd = mulberry32(20260624);
+
+// ---- soft circular sprite for glowing points ----
+function softDot() {
+  const s = 64, c = document.createElement('canvas'); c.width = c.height = s;
+  const g = c.getContext('2d');
+  const grad = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.25, 'rgba(255,255,255,0.85)');
+  grad.addColorStop(0.55, 'rgba(255,255,255,0.22)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, s, s);
+  const tex = new THREE.CanvasTexture(c); tex.needsUpdate = true; return tex;
+}
+const dotTex = softDot();
+
+const COL_VIOLET = [0.42, 0.30, 1.0];
+const COL_CYAN = [0.16, 0.86, 0.96];
+const WHITE = [1.0, 1.0, 1.0];
+
+// ---- icosahedron geometry: the crystalline core (wireframe edges + vertex shell) ----
+const icoGeo = new THREE.IcosahedronGeometry(1.0, 1); // detail 1 → richer wireframe lattice
+const icoPos = icoGeo.attributes.position;
+// dedup vertices for the point-shell so each lattice node is one glowing dot
+const coreVerts = [];
+{
+  const seen = new Set();
+  for (let i = 0; i < icoPos.count; i++) {
+    const x = icoPos.getX(i), y = icoPos.getY(i), z = icoPos.getZ(i);
+    const key = `${x.toFixed(3)}_${y.toFixed(3)}_${z.toFixed(3)}`;
+    if (seen.has(key)) continue; seen.add(key);
+    coreVerts.push([x, y, z]);
+  }
+}
+
+// ---- streaming points: hundreds, each starts far out along a direction, converges to a final resting target ----
+// Final targets are a layered crystalline shell — core lattice nodes + a denser point cloud hugging the icosahedron.
+const N = 1400;
+const streams = [];
+const CORE_R = 1.05;
+for (let i = 0; i < N; i++) {
+  // final target on/near the crystal: mostly a shell of radius ~CORE_R, some pulled onto exact lattice nodes
+  let tx, ty, tz;
+  if (i % 11 === 0 && coreVerts.length) {
+    const v = coreVerts[(i * 7 + 3) % coreVerts.length];
+    const jj = 0.04;
+    tx = v[0] * CORE_R + (rnd() - 0.5) * jj;
+    ty = v[1] * CORE_R + (rnd() - 0.5) * jj;
+    tz = v[2] * CORE_R + (rnd() - 0.5) * jj;
+  } else {
+    // fibonacci-ish shell direction, slight radial jitter → faceted-looking crust
+    const u = rnd() * 2 - 1;
+    const phi = rnd() * Math.PI * 2;
+    const r = Math.sqrt(1 - u * u);
+    const rad = CORE_R * (0.82 + rnd() * 0.42);
+    tx = Math.cos(phi) * r * rad;
+    ty = u * rad;
+    tz = Math.sin(phi) * r * rad;
+  }
+  // start: far out along a random direction, large radius (streaming in from all directions)
+  const su = rnd() * 2 - 1;
+  const sphi = rnd() * Math.PI * 2;
+  const sr = Math.sqrt(1 - su * su);
+  const startRad = 7.0 + rnd() * 10.0;
+  const sx = Math.cos(sphi) * sr * startRad;
+  const sy = su * startRad;
+  const sz = Math.sin(sphi) * sr * startRad;
+  // a curved approach: a control point offset tangentially so paths arc (not straight radial lines)
+  const tang = [(rnd() - 0.5), (rnd() - 0.5), (rnd() - 0.5)];
+  const cx = (sx + tx) * 0.5 + tang[0] * 3.0;
+  const cy = (sy + ty) * 0.5 + tang[1] * 3.0;
+  const cz = (sz + tz) * 0.5 + tang[2] * 3.0;
+  const delay = rnd() * 0.34;          // staggered ignition of streams
+  const span = 0.5 + rnd() * 0.34;     // travel duration fraction
+  const startDist = Math.hypot(sx, sy, sz);
+  streams.push({ sx, sy, sz, cx, cy, cz, tx, ty, tz, delay, span, startDist, seed: rnd() });
+}
+
+// ---- points geometry (the streaming + settled cloud) ----
+const sPos = new Float32Array(N * 3), sCol = new Float32Array(N * 3);
+const sGeo = new THREE.BufferGeometry();
+sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
+sGeo.setAttribute('color', new THREE.BufferAttribute(sCol, 3));
+const sMat = new THREE.PointsMaterial({ size: 0.085, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+const streamPoints = new THREE.Points(sGeo, sMat);
+scene.add(streamPoints);
+
+// ---- core lattice node points (brighter, bigger — the crystal's vertices) ----
+const cPos = new Float32Array(coreVerts.length * 3), cCol = new Float32Array(coreVerts.length * 3);
+coreVerts.forEach((v, k) => { cPos[k * 3] = v[0] * CORE_R; cPos[k * 3 + 1] = v[1] * CORE_R; cPos[k * 3 + 2] = v[2] * CORE_R; });
+const cGeo = new THREE.BufferGeometry();
+cGeo.setAttribute('position', new THREE.BufferAttribute(cPos, 3));
+cGeo.setAttribute('color', new THREE.BufferAttribute(cCol, 3));
+const cMat = new THREE.PointsMaterial({ size: 0.34, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+const corePoints = new THREE.Points(cGeo, cMat);
+scene.add(corePoints);
+
+// ---- icosahedron WIREFRAME (the crystalline lattice edges), additive, color-driven each frame ----
+const wireGeo = new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(CORE_R, 1));
+const wireCount = wireGeo.attributes.position.count;
+const wCol = new Float32Array(wireCount * 3);
+wireGeo.setAttribute('color', new THREE.BufferAttribute(wCol, 3));
+const wireMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+const wire = new THREE.LineSegments(wireGeo, wireMat);
+scene.add(wire);
+
+// ---- central glow core: a single bright additive sprite that ignites at the end (the flash via density) ----
+const flashGeo = new THREE.BufferGeometry();
+flashGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([0, 0, 0]), 3));
+flashGeo.setAttribute('color', new THREE.BufferAttribute(new Float32Array([0, 0, 0]), 3));
+const flashMat = new THREE.PointsMaterial({ size: 5.5, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+const flash = new THREE.Points(flashGeo, flashMat);
+scene.add(flash);
+
+// ---- quadratic bezier for arced approach paths ----
+function bez(p0, c, p1, t) {
+  const it = 1 - t;
+  return it * it * p0 + 2 * it * t * c + t * t * p1;
+}
+
+// ---- per-frame paint of the streaming cloud ----
+function paintStreams(t) {
+  const p = clamp01(t / DUR);
+  const conv = easeInOut(p);            // overall convergence progress
+  for (let i = 0; i < N; i++) {
+    const s = streams[i];
+    // local travel progress for this stream (delayed + spanned, eased-out so they decelerate into the core)
+    const local = clamp01((p - s.delay) / s.span);
+    const e = easeOut(local);
+    const x = bez(s.sx, s.cx, s.tx, e);
+    const y = bez(s.sy, s.cy, s.ty, e);
+    const z = bez(s.sz, s.cz, s.tz, e);
+    sPos[i * 3] = x; sPos[i * 3 + 1] = y; sPos[i * 3 + 2] = z;
+    // brightness: dim/violet while far, igniting to cyan→white as it nears the core and as the crystal ignites
+    const settle = e;                                   // 0 far → 1 docked
+    const ignite = smoothstep(0.7, 1.0, p);             // global ignition near the end
+    // depth-grade: a point only at full brightness when it's actually arrived (settle high) and near center
+    const dist = Math.hypot(x, y, z);
+    const depthFade = 1.0 - smoothstep(2.2, 7.0, dist); // faint while still out in the fog
+    const base = 0.10 + 0.55 * settle;
+    const warm = mix3(COL_VIOLET, COL_CYAN, clamp01(settle * 0.85 + ignite * 0.3));
+    const hot = mix3(warm, WHITE, ignite * settle);
+    const b = (base + ignite * 0.9 * settle) * (0.30 + 0.70 * depthFade);
+    sCol[i * 3] = hot[0] * b;
+    sCol[i * 3 + 1] = hot[1] * b;
+    sCol[i * 3 + 2] = hot[2] * b;
+  }
+  sGeo.attributes.position.needsUpdate = true;
+  sGeo.attributes.color.needsUpdate = true;
+  return conv;
+}
+
+function paintCore(t) {
+  const p = clamp01(t / DUR);
+  // core fades up as streams arrive, then IGNITES bright-white at the end
+  const arrive = smoothstep(0.45, 0.85, p);
+  const ignite = smoothstep(0.74, 1.0, p);
+  const pulse = 0.85 + 0.15 * Math.sin(t * 6.0);
+  // lattice node points
+  for (let k = 0; k < coreVerts.length; k++) {
+    const warm = mix3(COL_CYAN, WHITE, ignite);
+    const b = (0.18 * arrive + 1.5 * ignite) * pulse;
+    cCol[k * 3] = warm[0] * b;
+    cCol[k * 3 + 1] = warm[1] * b;
+    cCol[k * 3 + 2] = warm[2] * b;
+  }
+  cGeo.attributes.color.needsUpdate = true;
+  // wireframe edges
+  const wcol = mix3(COL_VIOLET, COL_CYAN, clamp01(arrive));
+  const whot = mix3(wcol, WHITE, ignite);
+  const wb = (0.12 * arrive + 0.95 * ignite) * (0.9 + 0.1 * Math.sin(t * 4.0));
+  for (let k = 0; k < wireCount; k++) {
+    wCol[k * 3] = whot[0] * wb;
+    wCol[k * 3 + 1] = whot[1] * wb;
+    wCol[k * 3 + 2] = whot[2] * wb;
+  }
+  wireGeo.attributes.color.needsUpdate = true;
+  // central density flash — the bloom-like burst, driven purely by additive over-saturation at the very end
+  const flashE = smoothstep(0.80, 1.0, p);
+  const fb = 0.04 + Math.pow(flashE, 2.2) * 2.6;        // ramps hard at the end → ignites bright
+  const fcol = mix3(COL_CYAN, WHITE, flashE);
+  flashGeo.attributes.color.array[0] = fcol[0] * fb;
+  flashGeo.attributes.color.array[1] = fcol[1] * fb;
+  flashGeo.attributes.color.array[2] = fcol[2] * fb;
+  flashGeo.attributes.color.needsUpdate = true;
+  flashMat.size = 3.0 + flashE * 5.0;                   // the glow widens as it ignites
+}
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  // CAMERA: a real eased dolly-in + gentle orbit that settles to a hero framing on the ignited crystal.
+  const orbit = easeInOut(p);
+  const ang = 0.85 - orbit * 0.95;                      // slow orbit, eases to rest
+  const radius = 9.6 - easeOut(p) * 6.2;                // dolly from wide to close hero distance
+  const lift = 1.4 - easeInOut(p) * 1.55;               // descend from above to near eye-level
+  camera.position.set(Math.sin(ang) * radius, lift, Math.cos(ang) * radius);
+  camera.lookAt(0, 0, 0);
+  // a faint slow scene spin adds parallax/life to the crust as it crystallizes
+  scene.rotation.y = t * 0.10;
+
+  paintStreams(t);
+  paintCore(t);
+
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+
+// prime first frame then signal ready
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

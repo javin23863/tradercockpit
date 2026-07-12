@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: #06060c; overflow: hidden; }
+  canvas { display: block; }
+</style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// NEURAL GENESIS — a 3D node-network igniting + connecting, slow orbital camera, depth fog, emissive pulse.
+// Authored in Three.js (the wide-creative-range path Hyperframes proves), seeked by t for deterministic capture.
+import * as THREE from './three.module.js';
+import { grainVignette } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+
+const W = 1080, H = 1920, DUR = 6;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true, alpha: false });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+renderer.setClearColor(0x06060c, 1);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x06060c, 0.105);
+const camera = new THREE.PerspectiveCamera(48, W / H, 0.1, 100);
+// composer: RenderPass → OutputPass → grainVignette finisher (vignette + grain + dither). NO bloom — additive particles
+// already glow and would wash to white under bloom. Completes the band-free engine.
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.02, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+// ---- deterministic RNG ----
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const rnd = mulberry32(20260624);
+
+// ---- soft circular sprite for glowing points ----
+function softDot() {
+  const s = 64, c = document.createElement('canvas'); c.width = c.height = s;
+  const g = c.getContext('2d');
+  const grad = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.25, 'rgba(255,255,255,0.85)');
+  grad.addColorStop(0.55, 'rgba(255,255,255,0.25)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, s, s);
+  const tex = new THREE.CanvasTexture(c); tex.needsUpdate = true; return tex;
+}
+const dotTex = softDot();
+
+// ---- build node cloud (fibonacci sphere, jittered, varied radius for depth) ----
+const N = 150;
+const nodes = [];
+let maxDist = 0;
+for (let i = 0; i < N; i++) {
+  const y = 1 - (i / (N - 1)) * 2;
+  const r = Math.sqrt(1 - y * y);
+  const phi = i * Math.PI * (3 - Math.sqrt(5));
+  const rad = 2.0 + (rnd() - 0.5) * 1.5;
+  const jx = (rnd() - 0.5) * 0.5, jy = (rnd() - 0.5) * 0.5, jz = (rnd() - 0.5) * 0.5;
+  const x = Math.cos(phi) * r * rad + jx;
+  const yy = y * rad + jy;
+  const z = Math.sin(phi) * r * rad + jz;
+  const dist = Math.hypot(x, yy, z);
+  maxDist = Math.max(maxDist, dist);
+  nodes.push({ x, y: yy, z, dist, hub: false });
+}
+// promote a few hubs (most-connected look) — biggest, brightest
+const hubIdx = [3, 27, 61, 94, 122, 140];
+hubIdx.forEach(i => { if (nodes[i]) nodes[i].hub = true; });
+
+// ---- edges: connect each node to nearest neighbors (k=2), dedup; reveal inside-out ----
+const edges = [];
+const seen = new Set();
+for (let i = 0; i < N; i++) {
+  const d = [];
+  for (let j = 0; j < N; j++) if (j !== i) d.push([j, Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y, nodes[i].z - nodes[j].z)]);
+  d.sort((a, b) => a[1] - b[1]);
+  const k = nodes[i].hub ? 4 : 2;
+  for (let m = 0; m < k; m++) {
+    const j = d[m][0];
+    const key = i < j ? `${i}_${j}` : `${j}_${i}`;
+    if (seen.has(key) || d[m][1] > 1.7) continue;
+    seen.add(key);
+    const mid = Math.hypot((nodes[i].x + nodes[j].x) / 2, (nodes[i].y + nodes[j].y) / 2, (nodes[i].z + nodes[j].z) / 2);
+    edges.push({ a: i, b: j, mid });
+  }
+}
+
+// ---- geometry: points (regular + hubs) + line segments ----
+const COL_VIOLET = [0.42, 0.30, 1.0];
+const COL_CYAN = [0.16, 0.86, 0.96];
+
+function makePoints(filter, size) {
+  const idx = []; for (let i = 0; i < N; i++) if (filter(nodes[i])) idx.push(i);
+  const pos = new Float32Array(idx.length * 3), col = new Float32Array(idx.length * 3);
+  idx.forEach((i, k) => { pos[k * 3] = nodes[i].x; pos[k * 3 + 1] = nodes[i].y; pos[k * 3 + 2] = nodes[i].z; });
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const m = new THREE.PointsMaterial({ size, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+  const p = new THREE.Points(g, m); scene.add(p);
+  return { idx, col, attr: g.attributes.color };
+}
+const pts = makePoints(n => !n.hub, 0.16);
+const hubs = makePoints(n => n.hub, 0.42);
+
+const lpos = new Float32Array(edges.length * 6), lcol = new Float32Array(edges.length * 6);
+edges.forEach((e, k) => {
+  lpos[k * 6] = nodes[e.a].x; lpos[k * 6 + 1] = nodes[e.a].y; lpos[k * 6 + 2] = nodes[e.a].z;
+  lpos[k * 6 + 3] = nodes[e.b].x; lpos[k * 6 + 4] = nodes[e.b].y; lpos[k * 6 + 5] = nodes[e.b].z;
+});
+const lg = new THREE.BufferGeometry();
+lg.setAttribute('position', new THREE.BufferAttribute(lpos, 3));
+lg.setAttribute('color', new THREE.BufferAttribute(lcol, 3));
+const lines = new THREE.LineSegments(lg, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+scene.add(lines);
+
+// ---- helpers ----
+const clamp01 = x => Math.max(0, Math.min(1, x));
+const easeOut = x => 1 - Math.pow(1 - x, 3);
+const easeInOut = x => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+const smoothstep = (e0, e1, x) => { const t = clamp01((x - e0) / (e1 - e0)); return t * t * (3 - 2 * t); };
+// focal hierarchy: brightest at the core, dissolving to a sparse faint shell at the edges
+const centerWeight = dist => 0.22 + 0.78 * (1 - smoothstep(1.7, 4.0, dist));
+
+// activation: a wave that travels OUT from the core, igniting nodes by depth
+function activation(dist, t) {
+  return Math.max(0, Math.sin(dist * 1.55 - t * 2.15)) ** 1.6;
+}
+function nodeIntro(dist, t) { return easeOut(clamp01((t - dist / maxDist * 1.3) / 0.55)); }
+
+function paintPoints(group, t, glow) {
+  group.idx.forEach((i, k) => {
+    const n = nodes[i];
+    const intro = nodeIntro(n.dist, t);
+    const act = activation(n.dist, t);
+    const base = 0.16 + (n.hub ? 0.12 : 0);
+    const mixT = clamp01(act * 1.1);
+    const cw = centerWeight(n.dist) * glow * intro;
+    const r = (COL_VIOLET[0] * base + COL_CYAN[0] * act) * cw;
+    const g = (COL_VIOLET[1] * base + COL_CYAN[1] * act) * cw;
+    const b = (COL_VIOLET[2] * base + COL_CYAN[2] * (0.4 + 0.6 * mixT) * act) * cw + COL_VIOLET[2] * base * 0.5 * intro * centerWeight(n.dist);
+    group.col[k * 3] = r; group.col[k * 3 + 1] = g; group.col[k * 3 + 2] = b;
+  });
+  group.attr.needsUpdate = true;
+}
+
+function paintLines(t) {
+  edges.forEach((e, k) => {
+    const reveal = 1.0 + e.mid / maxDist * 2.3;
+    const a = easeOut(clamp01((t - reveal) / 0.6));
+    const actA = activation(nodes[e.a].dist, t), actB = activation(nodes[e.b].dist, t);
+    const avg = (actA + actB) / 2;
+    const cw = centerWeight(e.mid);
+    const lb = a * (0.18 + 0.62 * avg) * cw;
+    const r = COL_VIOLET[0] * lb + COL_CYAN[0] * avg * a * 0.5 * cw;
+    const g = COL_VIOLET[1] * lb + COL_CYAN[1] * avg * a * 0.5 * cw;
+    const b = COL_VIOLET[2] * lb;
+    for (const o of [0, 3]) { lcol[k * 6 + o] = r; lcol[k * 6 + o + 1] = g; lcol[k * 6 + o + 2] = b; }
+  });
+  lines.geometry.attributes.color.needsUpdate = true;
+}
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  // slow orbital camera with a gentle dolly-in and vertical drift (real camera move, eased)
+  const orbit = easeInOut(p);
+  const ang = -0.55 + orbit * 1.15;
+  const radius = 7.4 - easeOut(p) * 1.7;
+  camera.position.set(Math.sin(ang) * radius, 0.9 * Math.sin(t * 0.32 + 0.3) - 0.2, Math.cos(ang) * radius);
+  camera.lookAt(0, 0, 0);
+  // slow scene spin adds parallax depth on top of the orbit
+  scene.rotation.y = t * 0.06;
+  paintPoints(pts, t, 1.5);
+  paintPoints(hubs, t, 1.9);
+  paintLines(t);
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+
+// prime first frame then signal ready
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

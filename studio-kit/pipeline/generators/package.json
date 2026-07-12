@@ -1,0 +1,19 @@
+{
+  "name": "ai-video-studio-generators",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The studio's generator tools: cinematic shot-pack/prompt authoring, the Hyperframes ($0 Three.js) renderer, local voiceover, and the QA attention gate. Bring your own LLM via llm.cjs (LLM_BASE_URL/LLM_API_KEY/LLM_MODEL, OPENAI_API_KEY, or Ollama), or run with no key for ready-to-paste prompts.",
+  "type": "commonjs",
+  "scripts": {
+    "shot-pack": "node generate-shot-pack.cjs",
+    "render": "node html3d-render.cjs",
+    "vo": "node gen-vo.cjs",
+    "qa": "node qa-attention-gate.cjs",
+    "learn": "node build-video-skills.cjs",
+    "diagnose": "node diagnose-generation.cjs"
+  },
+  "dependencies": {
+    "puppeteer": "^23.0.0",
+    "minimist": "^1.2.8"
+  }
+}

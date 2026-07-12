@@ -1,0 +1,9 @@
+{
+  "slug": "v05-memory",
+  "topic": "agents that forget are useless — give them persistent memory",
+  "beats": [
+    { "kind": "hook", "concept": "context window wiped to blank every session — a goldfish reset loop, memories evaporating, RETAINED stuck at 0%", "techniques": ["session-wipe-flash", "memory-token-grid-fill", "memory-evaporation-sparks", "retained-zero-gauge", "reset-loop-session-counter"] },
+    { "kind": "insight", "concept": "write what matters down a pipe into a growing memory-card store, then load the whole stack back up into the next run", "techniques": ["write-pipe-to-store", "memory-card-stack-grow", "load-pipe-recall", "session-handoff-arc"] },
+    { "kind": "proof", "concept": "dual continuity timeline — a broken resetting sawtooth vs a compounding staircase that carries context forward", "techniques": ["dual-continuity-timeline", "resetting-sawtooth-line", "compounding-staircase-line", "context-survives-seal"] }
+  ]
+}

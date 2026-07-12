@@ -1,0 +1,33 @@
+{
+ "arsenal_version": 1,
+ "created": "2026-06-24",
+ "target_size_gb": 10,
+ "current_assets": 22,
+ "current_size_mb": 160,
+ "honesty_note": "Sample pull via arsenal-fetch.cjs: CC0 HDRIs, CC0 PBR texture sets, and CC0 props from Poly Haven. Per-asset catalog of what is actually on disk = `_INDEX-assets.json` (machine-written, the real source of truth). Re-run `node arsenal-fetch.cjs --hdris N --textures N --models N` to grow the library. Login-gated / very large hauls (Epic sample projects, MetaHuman, Megascans) are listed in the sources below but must be downloaded manually from their official pages.",
+ "pulled_2026_06_24": {"hdris": 8, "textures": 6, "models": 8, "tool": "arsenal-fetch.cjs", "catalog": "_INDEX-assets.json"},
+ "buckets": ["references", "unreal", "three-hyperframes", "remotion", "voice", "captions", "finishing", "audio", "stock", "fonts", "tribev2"],
+ "sources": [
+ {"tool": "unreal", "name": "Epic Sample Projects (City Sample, Electric Dreams, Valley of the Ancient, Slay, Hillside, Game Animation Sample)", "url": "https://dev.epicgames.com/community/unreal-engine/learning", "license": "UE-EULA", "usable": true, "bucket": "unreal/sample-projects", "gated": "epic-login", "size_hint": "multi-GB"},
+ {"tool": "unreal", "name": "Fab Free Content (weekly) + marketplace", "url": "https://www.fab.com/", "license": "UE-EULA/royalty-free", "usable": true, "bucket": "unreal/environments", "gated": "epic-login"},
+ {"tool": "unreal", "name": "Sci-Fi Robot Character Pack (rigged to Epic skeleton)", "url": "https://www.unrealengine.com/marketplace/en-US/product/sci-fi-robot-character-pack", "license": "royalty-free", "usable": true, "bucket": "unreal/robots", "gated": "epic-login"},
+ {"tool": "unreal", "name": "Modular Sci-Fi Corridors and Rooms", "url": "https://www.unrealengine.com/marketplace/en-US/product/modular-sci-fi-corridors-and-rooms-asset-pack", "license": "royalty-free", "usable": true, "bucket": "unreal/environments", "gated": "epic-login"},
+ {"tool": "unreal", "name": "HOLOGRAM VFX With Niagara + Energy Beam Pack V2 + Epic 50+ free Niagara", "url": "https://www.unrealengine.com/news/discover-over-50-free-niagara-systems-ready-to-use-in-unreal-engine-5-7", "license": "UE-EULA/royalty-free", "usable": true, "bucket": "unreal/niagara-fx", "gated": "epic-login"},
+ {"tool": "unreal", "name": "MetaHuman", "url": "https://www.metahuman.com/download", "license": "UE-EULA", "usable": true, "bucket": "unreal/metahuman", "gated": "epic-login"},
+ {"tool": "unreal", "name": "Sketchfab free robots/drones (CC-BY, credit)", "url": "https://sketchfab.com/DomineSama/collections/robots-n-drones-free-dl-e37415e78d944d1a8c0a5c79de2fdd4e", "license": "CC-BY", "usable": true, "bucket": "unreal/robots", "gated": "none"},
+ {"tool": "three-hyperframes", "name": "Shadertoy", "url": "https://www.shadertoy.com/", "license": "varies (check per shader)", "usable": false, "bucket": "three-hyperframes/shaders", "gated": "none"},
+ {"tool": "three-hyperframes", "name": "three.js examples + drei/R3F", "url": "https://threejs.org/examples/", "license": "MIT", "usable": true, "bucket": "three-hyperframes/r3f-examples", "gated": "none"},
+ {"tool": "three-hyperframes", "name": "Poly Haven HDRIs (CC0)", "url": "https://polyhaven.com/hdris", "license": "CC0", "usable": true, "bucket": "three-hyperframes/hdris", "gated": "none"},
+ {"tool": "remotion", "name": "Remotion templates + locomotion (62 free) + MotionForge", "url": "https://www.remotion.dev/templates/", "license": "MIT", "usable": true, "bucket": "remotion/templates", "gated": "none"},
+ {"tool": "references", "name": "Vimeo Best Motion Design / Motion Design Awards", "url": "https://vimeo.com/channels/bestmotiondesign", "license": "STUDY-only", "usable": false, "bucket": "references/mograph", "gated": "none"},
+ {"tool": "references", "name": "Territory / Perception / GMUNK / Jayse Hansen / Ash Thorp (FUI)", "url": "https://www.schoolofmotion.com/blog/12-incredible-futuristic-ui-reels", "license": "STUDY-only", "usable": false, "bucket": "references/fui-hud", "gated": "none"},
+ {"tool": "references", "name": "William Faucher / CGHOW / pwnisher (Unreal cine study)", "url": "https://www.youtube.com/@WilliamFaucher", "license": "STUDY-only", "usable": false, "bucket": "references/unreal-cine", "gated": "none"},
+ {"tool": "finishing", "name": "Free film-emulation LUTs (.cube) + grain plates + light-leak overlays", "url": "https://freshluts.com/", "license": "royalty-free (verify per pack)", "usable": true, "bucket": "finishing/luts", "gated": "none"},
+ {"tool": "audio", "name": "Sonniss GDC free SFX packs (multi-GB, royalty-free)", "url": "https://sonniss.com/gameaudiogdc", "license": "royalty-free", "usable": true, "bucket": "audio/sfx-whoosh", "gated": "none", "size_hint": "several-GB"},
+ {"tool": "audio", "name": "Freesound (CC) + Pixabay SFX/Music + YouTube Audio Library", "url": "https://freesound.org/", "license": "CC (verify per sound)", "usable": true, "bucket": "audio/music-beds", "gated": "none"},
+ {"tool": "fonts", "name": "Google Fonts (OFL) — JetBrains Mono, Space Mono, Orbitron, Rajdhani, Chakra Petch, Share Tech Mono", "url": "https://fonts.google.com/", "license": "OFL", "usable": true, "bucket": "fonts/fui-mono", "gated": "none"},
+ {"tool": "stock", "name": "Pexels / Pixabay / Mixkit / Coverr / Videvo (free b-roll)", "url": "https://www.pexels.com/videos/", "license": "free-use (verify per clip)", "usable": true, "bucket": "stock/broll", "gated": "none"},
+ {"tool": "materials", "name": "ambientCG + textures.com + Quixel Megascans", "url": "https://ambientcg.com/", "license": "CC0 / free-in-UE", "usable": true, "bucket": "unreal/materials", "gated": "none"}
+ ],
+ "assets": []
+}

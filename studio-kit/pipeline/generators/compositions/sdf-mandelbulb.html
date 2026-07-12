@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #04050c; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// SDF MANDELBULB — a RAYMARCHED power-8 Mandelbulb fractal (the iconic 3D fractal; orbit-trap colored, fresnel rim).
+// 10th hero form: the SAME raymarch class but a totally distinct silhouette — an organic, infinitely-detailed fractal
+// bulb, unlike the smooth metaball blob or the woven gyroid lattice. Full polished stack: fresnel + ACES + bloom +
+// CHOKED streak (fractal = distributed brights) + grainVignette finisher. Deterministic seek-capture. 1080x1920, 6s.
+import * as THREE from './three.module.js';
+import { clamp01, easeOut, anamorphicStreak, grainVignette } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+
+const W = 1080, H = 1920;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x04050c, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.78; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+const mat = new THREE.ShaderMaterial({
+  uniforms: { uTime: { value: 0 }, uRes: { value: new THREE.Vector2(W, H) }, uIntro: { value: 0 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`,
+  fragmentShader: `precision highp float; varying vec2 vUv; uniform float uTime; uniform vec2 uRes; uniform float uIntro;
+    // power-8 Mandelbulb distance estimator + orbit trap (the min radius reached = a surface-coloring field)
+    float mandelDE(vec3 p, out float trap){
+      vec3 z = p; float dr = 1.0; float r = 0.0; const float power = 8.0; trap = 1e10;
+      for(int i=0;i<7;i++){
+        r = length(z); if(r > 2.0) break;
+        float theta = acos(clamp(z.z/r, -1.0, 1.0)); float phi = atan(z.y, z.x);
+        dr = pow(r, power-1.0)*power*dr + 1.0;
+        float zr = pow(r, power); theta *= power; phi *= power;
+        z = zr*vec3(sin(theta)*cos(phi), sin(theta)*sin(phi), cos(theta)) + p;
+        trap = min(trap, r);
+      }
+      return 0.5*log(max(r, 1e-6))*r/dr;
+    }
+    float map(vec3 p, out float trap){ return mandelDE(p, trap); }
+    vec3 calcN(vec3 p){ vec2 e = vec2(0.0008, 0.0); float tr;
+      return normalize(vec3(
+        map(p+e.xyy, tr)-map(p-e.xyy, tr), map(p+e.yxy, tr)-map(p-e.yxy, tr), map(p+e.yyx, tr)-map(p-e.yyx, tr))); }
+    void main(){ vec2 uv = vUv*2.0 - 1.0; uv.x *= uRes.x/uRes.y;
+      vec3 ro = vec3(0.0, 0.0, 3.5); vec3 rd = normalize(vec3(uv, -2.7)); // pulled back + narrower → bulb fits with margin
+      float a = uTime*0.2; mat2 R = mat2(cos(a), -sin(a), sin(a), cos(a)); ro.xz = R*ro.xz; rd.xz = R*rd.xz;
+      float b = 0.42; mat2 RX = mat2(cos(b), -sin(b), sin(b), cos(b)); ro.yz = RX*ro.yz; rd.yz = RX*rd.yz;
+      float t = 0.0; bool hit = false; float d; float trap = 0.0;
+      for(int i=0;i<90;i++){ d = map(ro + rd*t, trap); if(d < 0.0006){ hit = true; break; } t += d*0.85; if(t > 6.0) break; }
+      vec3 col = vec3(0.015, 0.015, 0.04);
+      if(hit){ vec3 p = ro + rd*t; vec3 n = calcN(p);
+        float fres = pow(1.0 - max(dot(n, -rd), 0.0), 2.0);
+        vec3 deep = vec3(0.05, 0.03, 0.16), violet = vec3(0.50, 0.30, 1.0), cyan = vec3(0.16, 0.90, 0.98);
+        float tc = clamp(trap * 1.3, 0.0, 1.0);                 // orbit-trap → violet↔cyan banding across the fractal
+        col = mix(deep, mix(violet, cyan, tc), 0.12 + 0.26*fres); // DARK fractal body (bumpy surface = high fres everywhere, so lean on it LESS)
+        col += cyan * pow(fres, 5.0) * 0.6;                      // tight crisp emissive rim accent only on the sharpest edges
+        float diff = max(dot(n, normalize(vec3(0.5, 0.7, 0.4))), 0.0);
+        col += violet * diff * 0.22;
+        col *= mix(1.1, 0.55, clamp((t - 2.6) / 1.6, 0.0, 1.0)); // depth fade → far lobes dim, focal hierarchy
+      }
+      gl_FragColor = vec4(col * uIntro, 1.0); }`,
+});
+scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat));
+
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, cam));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.35, 0.4, 0.6)); // low strength + high threshold → only hot rim accents bloom (no wash)
+// CHOKED streak — a fractal has DISTRIBUTED brights (host-suitability rule: high threshold + low strength)
+const streakPass = new ShaderPass(anamorphicStreak(THREE, W, H, { strength: 0.9, threshold: 0.72, spread: 4.0 }));
+composer.addPass(streakPass);
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.022, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+window.__seek = (t) => {
+  mat.uniforms.uTime.value = t;
+  mat.uniforms.uIntro.value = easeOut(clamp01(t / 0.8));
+  streakPass.uniforms.uStrength.value = 0.9 * easeOut(clamp01((t - 0.5) / 1.0));
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: #06060c; overflow: hidden; }
+  canvas { display: block; }
+</style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// EMBEDDING SPACE — a vast 3D cloud of 2000+ tiny glowing coordinates; the camera FLIES THROUGH it.
+// Strong parallax (near points streak past, far points fog out), bright anchor points pulse, violet→cyan depth grade.
+// Authored in Three.js, seeked by t for deterministic seek-capture. Mirrors neural-genesis.html structure/quality.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, smoothstep, easeOut, easeInOut, mix3 } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { grainVignette } from './mg-core.js';
+
+const W = 1080, H = 1920, DUR = 5;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+renderer.setClearColor(0x06060c, 1);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+// Depth fog so far points dissolve into the void while near points read sharp — the fly-through depth cue.
+// Kept moderate so the cloud reads as MANY sharp points in depth, not a washed grey haze.
+scene.fog = new THREE.FogExp2(0x06060c, 0.055);
+const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 100);
+// composer: RenderPass → OutputPass → grainVignette finisher (vignette + grain + dither). NO bloom — additive particles
+// already glow and would wash to white under bloom. Glow = AdditiveBlending + soft sprite.
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.02, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+// ---- deterministic RNG ----
+const rnd = mulberry32(20260624);
+
+// ---- soft circular sprite for glowing points ----
+function softDot() {
+  const s = 64, c = document.createElement('canvas'); c.width = c.height = s;
+  const g = c.getContext('2d');
+  const grad = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.22, 'rgba(255,255,255,0.9)');
+  grad.addColorStop(0.5, 'rgba(255,255,255,0.28)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, s, s);
+  const tex = new THREE.CanvasTexture(c); tex.needsUpdate = true; return tex;
+}
+const dotTex = softDot();
+
+// ---- build the embedding cloud: a long deep slab of points the camera flies down the Z axis through ----
+// Points live across a tall/wide field and a LONG z-corridor; we recycle (wrap) any point that passes behind the camera
+// so the cloud feels endless during the fly-through. Each point carries its own size, hue-bias and pulse phase.
+const N = 3000;
+const FIELD_X = 6.5;     // half-width of the corridor (tighter → points FILL the frame in depth)
+const FIELD_Y = 11.5;    // half-height (portrait)
+const Z_NEAR = 4.0;      // wrap plane just behind the camera's leading edge
+const Z_SPAN = 56.0;     // depth of the corridor ahead
+const pts = [];
+for (let i = 0; i < N; i++) {
+  // bias toward the central axis so there's a dense focal core with a thinning halo (depth-graded brightness later)
+  const rx = (rnd() - 0.5) * 2, ry = (rnd() - 0.5) * 2;
+  const x = Math.sign(rx) * Math.pow(Math.abs(rx), 1.5) * FIELD_X;
+  const y = Math.sign(ry) * Math.pow(Math.abs(ry), 1.5) * FIELD_Y;
+  const z = Z_NEAR - rnd() * Z_SPAN;            // somewhere down the corridor ahead
+  const radial = Math.hypot(x, y);
+  const hue = clamp01(rnd() * 0.85 + radial / FIELD_Y * 0.15); // outer points lean a touch more violet
+  const size = 0.045 + rnd() * 0.11;            // many small SHARP points
+  const anchor = rnd() < 0.04;                  // ~4% brighter 'anchor' coordinates that pulse
+  const phase = rnd() * Math.PI * 2;
+  const flicker = 0.6 + rnd() * 0.4;
+  pts.push({ x, y, z, hue, size: anchor ? size * 2.4 : size, anchor, phase, flicker });
+}
+
+// ---- geometry: one Points cloud (regular + anchors share buffers; per-vertex size via color-luminance + base size split) ----
+// We split into two draw groups so anchors can use a larger material size while sharing the wrap logic.
+const COL_VIOLET = [0.42, 0.30, 1.0];
+const COL_CYAN = [0.16, 0.86, 0.96];
+
+function makeGroup(filter, size) {
+  const idx = []; for (let i = 0; i < N; i++) if (filter(pts[i])) idx.push(i);
+  const pos = new Float32Array(idx.length * 3), col = new Float32Array(idx.length * 3);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const m = new THREE.PointsMaterial({ size, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+  const p = new THREE.Points(g, m); scene.add(p);
+  return { idx, pos, col, posAttr: g.attributes.position, colAttr: g.attributes.color };
+}
+const cloud = makeGroup(p => !p.anchor, 0.13);
+const anchors = makeGroup(p => p.anchor, 0.30);
+
+// camera travels +flyDist down the corridor; wrap a point forward by Z_SPAN whenever it slips behind the wrap plane
+function wrappedZ(baseZ, camZ) {
+  let z = baseZ;
+  // bring z into the visible window [camZ - Z_SPAN, camZ + Z_NEAR): recycle points that passed the camera
+  while (z > camZ + Z_NEAR) z -= Z_SPAN;
+  while (z < camZ + Z_NEAR - Z_SPAN) z += Z_SPAN;
+  return z;
+}
+
+// depth-graded focal brightness: sharp+bright through the mid-field, dim very-near & fogged far
+function depthGrade(distAhead) {
+  // distAhead = how far in front of the camera the point sits (0..Z_SPAN)
+  const near = smoothstep(0.0, 1.6, distAhead);          // ramp up out of the immediate foreground
+  const far = 1.0 - smoothstep(20.0, 42.0, distAhead);   // wider lit corridor → more points glow in depth
+  return clamp01(near * far);
+}
+
+function paintGroup(group, t, camZ, glow) {
+  group.idx.forEach((ii, k) => {
+    const p = pts[ii];
+    const z = wrappedZ(p.z, camZ);
+    const distAhead = z - camZ;                 // positive = ahead (camera looks toward +? we look down -Z, see __seek)
+    group.pos[k * 3] = p.x;
+    group.pos[k * 3 + 1] = p.y;
+    group.pos[k * 3 + 2] = z;
+    // brightness: depth grade × per-point flicker × (anchor pulse | steady twinkle)
+    const dg = depthGrade(camZ - z);            // camera flies toward -Z, so points ahead have z < camZ → camZ - z > 0
+    const tw = 0.7 + 0.3 * Math.sin(t * 2.4 + p.phase) * p.flicker;
+    const pulse = p.anchor ? (0.55 + 0.45 * Math.pow(Math.max(0, Math.sin(t * 1.8 + p.phase)), 2.0)) : 1.0;
+    const lum = glow * dg * tw * pulse;
+    // violet→cyan grade by depth: near-focal points lean cyan (the 'in focus' bright core), outer/edge lean violet
+    const focal = clamp01(dg);
+    const cyanMix = clamp01(focal * 0.85 + (p.anchor ? 0.15 : 0.0));
+    const r = (COL_VIOLET[0] * (1 - cyanMix) + COL_CYAN[0] * cyanMix) * lum;
+    const g = (COL_VIOLET[1] * (1 - cyanMix) + COL_CYAN[1] * cyanMix) * lum;
+    const b = (COL_VIOLET[2] * (1 - cyanMix) + COL_CYAN[2] * cyanMix) * lum + COL_VIOLET[2] * 0.18 * dg;
+    group.col[k * 3] = r; group.col[k * 3 + 1] = g; group.col[k * 3 + 2] = b;
+  });
+  group.posAttr.needsUpdate = true;
+  group.colAttr.needsUpdate = true;
+}
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  // FLY-THROUGH: a real eased dolly down -Z, accelerating in then easing out at the end of the run.
+  const fly = easeInOut(p);
+  const camZ = 2.0 - fly * (Z_SPAN * 0.78);     // travels deep into the corridor
+  // gentle banking drift so it feels like piloting through coordinates, not a rail — subtle parallax sway
+  const sway = easeOut(p);
+  camera.position.set(
+    Math.sin(t * 0.42 + 0.4) * 1.15 * sway,
+    Math.cos(t * 0.33) * 0.9 * sway - 0.1,
+    camZ
+  );
+  // look slightly ahead down the corridor with a touch of the sway so near streaks rake across frame
+  camera.lookAt(Math.sin(t * 0.42) * 0.5 * sway, Math.cos(t * 0.33) * 0.4 * sway, camZ - 8.0);
+  // slow roll adds depth-rotation parallax across the whole field
+  camera.rotation.z += Math.sin(t * 0.25) * 0.05;
+
+  paintGroup(cloud, t, camZ, 2.1);
+  paintGroup(anchors, t, camZ, 2.9);
+
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+
+// prime first frame then signal ready
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

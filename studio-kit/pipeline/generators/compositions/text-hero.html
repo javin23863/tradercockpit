@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #05060d; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// TEXT HERO — extruded/beveled 3D TYPOGRAPHY ("HERO"), per-letter kinetic stagger reveal (rise + spring pop), fresnel
+// material so the beveled edges glow, rim bloom + ACES + aurora backdrop. 7th distinct form (3D type — the one untried
+// form-type). The AE "kinetic typography in 3D" technique (playbook §2). Deterministic seek-capture. 1080x1920, 6s.
+import * as THREE from './three.module.js';
+import { clamp01, easeOutExpo, backOut, staggerP, orbitCamera, fresnelMaterial, gradientMeshMaterial, grainVignette, PAL } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { FontLoader } from './jsm/loaders/FontLoader.js';
+import { TextGeometry } from './jsm/geometries/TextGeometry.js';
+
+const W = 1080, H = 1920, DUR = 6, FPS = 30;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x05060d, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.95; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 200);
+
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.5, 0.45, 0.5)); // glow the beveled edges
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.022, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+const bg = new THREE.Mesh(new THREE.SphereGeometry(60, 32, 24), gradientMeshMaterial(THREE, { amp: 0.1 }));
+scene.add(bg);
+
+const fresnelMat = fresnelMaterial(THREE, { intensity: 1.3, power: 2.3, rimA: PAL.violet, rimB: PAL.cyan });
+
+new FontLoader().load('./fonts/helvetiker_bold.typeface.json', (font) => {
+  const WORD = 'HERO', SIZE = 0.9, GAP = 0.14;
+  const metas = [];
+  for (const ch of WORD) {
+    const g = new TextGeometry(ch, { font, size: SIZE, depth: 0.4, curveSegments: 8, bevelEnabled: true, bevelThickness: 0.06, bevelSize: 0.04, bevelSegments: 4 });
+    g.computeBoundingBox();
+    const w = g.boundingBox.max.x - g.boundingBox.min.x;
+    g.center();
+    metas.push({ g, w });
+  }
+  const total = metas.reduce((s, m) => s + m.w + GAP, 0) - GAP;
+  let cx = -total / 2;
+  const letters = [];
+  for (const m of metas) {
+    const mesh = new THREE.Mesh(m.g, fresnelMat);
+    mesh.userData.baseX = cx + m.w / 2;
+    mesh.position.x = mesh.userData.baseX;
+    scene.add(mesh);
+    letters.push(mesh);
+    cx += m.w + GAP;
+  }
+
+  window.__seek = (t) => {
+    bg.material.uniforms.uTime.value = t;
+    const frame = t * FPS;
+    fresnelMat.uniforms.intensity.value = 1.3;
+    letters.forEach((L, i) => {
+      const sp = staggerP(frame, i, 16, 7);            // each letter 7 frames after the last, 16-frame reveal
+      const e = easeOutExpo(sp);
+      const pop = backOut(sp, 2.2);
+      L.scale.setScalar(Math.max(0.001, 0.3 + 0.7 * pop));
+      L.position.x = L.userData.baseX;
+      L.position.y = (1 - e) * -1.4;                    // rise up into place
+      L.position.z = (1 - e) * 1.0;                     // come forward
+      L.rotation.x = (1 - e) * 0.6;                     // tip up into place
+      L.rotation.y = Math.sin(t * 0.5 + i * 0.7) * 0.06;
+    });
+    orbitCamera(camera, { t, p: clamp01(t / DUR), ang0: -0.12, angSpan: 0.28, rad0: 8.0, radPull: 0.6, height: 0.2, bob: 0.2, bobSpeed: 0.3 });
+    grainPass.uniforms.uTime.value = t * 60.0;
+    composer.render();
+  };
+  window.__seek(0);
+  window.__ready = true;
+});
+</script>
+</body>
+</html>

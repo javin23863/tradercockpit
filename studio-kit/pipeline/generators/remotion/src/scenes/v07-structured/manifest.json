@@ -1,0 +1,41 @@
+{
+  "slug": "v07-structured",
+  "topic": "stop parsing prose — make the LLM return strict JSON",
+  "beats": [
+    {
+      "kind": "hook",
+      "concept": "a messy free-text prose blob slams a brittle parser, fracturing it with red error sparks while a status light flips to ERROR and a retry counter climbs",
+      "techniques": [
+        "wobbling free-text prose-blob (sin-perturbed closed-path outline leaking unstructured words)",
+        "brittle parser-plate fracture (deterministic jagged crack paths spreading + widening with impact)",
+        "red error-spark burst per blob-slam (radial sin-hash ejecta with decay)",
+        "parser-status-light flip to ERROR (blinking red pip + SyntaxError readout)",
+        "retry-loop counter climb on repeated parse failure",
+        "decaying impact screen-shake on the spoken break word"
+      ]
+    },
+    {
+      "kind": "insight",
+      "concept": "a rigid schema die-stamp descends and presses the output through key-cavities; clean aligned JSON key:value fields snap into pre-cut slots and a schema-lock seal sets",
+      "techniques": [
+        "descending schema die-stamp press with contact-squash flash",
+        "key-cavity cut-outs in the die underside (only fitting values pass)",
+        "field-into-slot snap with per-field spring overshoot (sequential cascade)",
+        "dashed pre-cut output slot bed the fields lock into",
+        "schema-lock padlock seal that sets once all fields snapped",
+        "valid-fields N/total tally"
+      ]
+    },
+    {
+      "kind": "proof",
+      "concept": "rows of responses flip red ERROR to green VALID in a cascade, a parse-success ring fills to 100%, the big status light hard-flips to VALID, and the retry odometer counts down to a zero-snap",
+      "techniques": [
+        "per-row status-pip flip cascade (red ERROR to green VALID, staggered)",
+        "parse-success fill ring climbing to 100% (strokeDasharray arc)",
+        "big parser-status-light hard flip ERROR to VALID",
+        "retry-loop odometer count-DOWN with a zero-snap on the spoken word",
+        "validated-row check-pip with VALID label"
+      ]
+    }
+  ]
+}

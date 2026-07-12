@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #04050a; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// HERO REIGNITE — a 25s 3-act hero reveal: ACT 1 IGNITION (a core comes online, violet/cyan, rising) → ACT 2
+// DESTABILIZE (color bleeds to red/amber, the core destabilizes, a cage contracts, it goes nearly dark) →
+// ACT 3 RETURN (from the dark it re-ignites BRIGHTER than before — the comeback). Faceted fresnel crystal core
+// (mg-core), living gradient-mesh backdrop, depth particles that converge/scatter/rush-back, anamorphic streak,
+// grain finish.
+// Deterministic seek-capture (window.__seek(t) + __ready). 1080x1920, 25s.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, easeOut, backOut, smoothstep, mix3, softDot, orbitCamera, curlNoise, fresnelMaterial, gradientMeshMaterial, anamorphicStreak, grainVignette, PAL } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+
+const W = 1080, H = 1920, DUR = 25;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x04050a, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.95; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x04050a, 0.065);
+const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 100);
+const composer = new EffectComposer(renderer); composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(W, H), 0.45, 0.5, 0.64);
+composer.addPass(bloom);
+const streakPass = new ShaderPass(anamorphicStreak(THREE, W, H, { strength: 0.9, threshold: 0.86, spread: 4.0, tint: [0.45, 0.85, 1.0] }));
+composer.addPass(streakPass);
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.045, vignette: 0.50 }));
+composer.addPass(grainPass);
+const rnd = mulberry32(50500);
+
+// palette anchors
+const VIOLET = PAL.violet, CYAN = PAL.cyan, RED = [1.0, 0.15, 0.11], AMBER = [1.0, 0.52, 0.12];
+
+// ---- living gradient-mesh backdrop (depth + a color field that bleeds red under lockdown) ----
+const bg = new THREE.Mesh(new THREE.SphereGeometry(16, 32, 32), gradientMeshMaterial(THREE, { cA: [0.02, 0.02, 0.05], cB: VIOLET, cC: CYAN, amp: 0.30 }));
+scene.add(bg);
+
+// ---- the crystal core: faceted icosahedron + fresnel rim ----
+const geo = new THREE.IcosahedronGeometry(1.4, 1).toNonIndexed(); geo.computeVertexNormals();
+const fres = fresnelMaterial(THREE, { rimA: VIOLET, rimB: CYAN, power: 2.5, intensity: 1.5 });
+const crystal = new THREE.Mesh(geo, fres); scene.add(crystal);
+
+// faint structure shell + a glowing heart
+const wire = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.55, 1)),
+  new THREE.LineBasicMaterial({ color: new THREE.Color().fromArray(CYAN), transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false }));
+scene.add(wire);
+const dotTex = softDot(THREE, 'wide');
+const heart = new THREE.Sprite(new THREE.SpriteMaterial({ map: dotTex, color: 0xffffff, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+heart.scale.setScalar(1.6); scene.add(heart);
+
+// ---- the "export-order" cage: a red wireframe that contracts around the core during lockdown ----
+const cage = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2.1, 0)),
+  new THREE.LineBasicMaterial({ color: new THREE.Color().fromArray(RED), transparent: true, opacity: 0.0, blending: THREE.AdditiveBlending, depthWrite: false }));
+scene.add(cage);
+
+// ---- depth particles (converge in act 1, scatter offline, rush back on return) ----
+const NP = 680;
+const pbase = new Float32Array(NP * 3), pcol = new Float32Array(NP * 3), ppos = new Float32Array(NP * 3);
+for (let i = 0; i < NP; i++) {
+  const r = 3.0 + rnd() * 3.6, th = rnd() * Math.PI * 2, ph = Math.acos(2 * rnd() - 1);
+  pbase[i*3] = r * Math.sin(ph) * Math.cos(th); pbase[i*3+1] = r * Math.cos(ph) * 0.72; pbase[i*3+2] = r * Math.sin(ph) * Math.sin(th);
+  const c = rnd() > 0.5 ? VIOLET : CYAN; const d = 0.20 + rnd() * 0.24;
+  pcol[i*3] = c[0]*d; pcol[i*3+1] = c[1]*d; pcol[i*3+2] = c[2]*d;
+}
+const pgeo = new THREE.BufferGeometry();
+pgeo.setAttribute('position', new THREE.BufferAttribute(ppos, 3));
+pgeo.setAttribute('color', new THREE.BufferAttribute(pcol, 3));
+const pmat = new THREE.PointsMaterial({ size: 0.11, map: dotTex, vertexColors: true, transparent: true, opacity: 1.0, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+scene.add(new THREE.Points(pgeo, pmat));
+
+const sm = (e0, e1, x) => smoothstep(e0, e1, x);
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  // ── narrative envelope ──
+  const ignite = easeOut(clamp01(t / 1.2));                       // act 1 power-on
+  const lock   = sm(7.5, 11.5, t) * (1 - sm(18.0, 21.0, t));      // red tension: peaks ~12–17s
+  const dark   = sm(10.5, 13.5, t) * (1 - sm(16.5, 19.5, t));     // the offline trough: ~1 at 13.5–16.5s
+  const ret    = sm(18.5, 24.5, t);                               // the return surge
+  let energy = 0.95 * ignite;
+  energy *= (1 - 0.93 * dark);                                    // collapse toward black when forced offline
+  energy += ret * 0.38;                                           // return a touch brighter than launch (NOT a white-out)
+  energy = Math.min(energy, 1.34);                                // hard cap → never blow to white
+
+  // ── color: violet/cyan → red/amber under lockdown, back on return ──
+  const a = mix3(VIOLET, RED, lock), b = mix3(CYAN, AMBER, lock);
+  fres.uniforms.rimA.value.setRGB(a[0], a[1], a[2]);
+  fres.uniforms.rimB.value.setRGB(b[0], b[1], b[2]);
+  fres.uniforms.intensity.value = 1.5 * energy;
+  bg.material.uniforms.uTime.value = t;
+  const bgB = mix3(VIOLET, RED, lock * 0.9), bgC = mix3(CYAN, AMBER, lock * 0.9);
+  bg.material.uniforms.cB.value.setRGB(bgB[0], bgB[1], bgB[2]);
+  bg.material.uniforms.cC.value.setRGB(bgC[0], bgC[1], bgC[2]);
+  bg.material.uniforms.uAmp.value = 0.30 * (0.35 + 0.65 * energy);
+
+  // ── core transform: pop in, instability jitter under lockdown, overshoot on return ──
+  const introPop = backOut(clamp01(t / 1.0));
+  const scl = Math.max(0.001, introPop * (1 - 0.24 * dark) * (1 + 0.12 * ret));
+  crystal.scale.setScalar(scl); wire.scale.setScalar(scl);
+  const jit = lock * 0.07;
+  crystal.position.set(Math.sin(t * 47.0) * jit, Math.cos(t * 41.0) * jit, 0);
+  wire.position.copy(crystal.position);
+  crystal.rotation.set(t * 0.13 + Math.sin(t * 30.0) * lock * 0.05, t * 0.30, Math.sin(t * 23.0) * lock * 0.04);
+  wire.rotation.copy(crystal.rotation);
+  wire.material.opacity = 0.22 * energy;
+  wire.material.color.setRGB(b[0], b[1], b[2]);
+  heart.scale.setScalar((0.85 + 0.28 * Math.sin(t * 2.2)) * energy);
+  heart.material.color.setRGB(0.7 + 0.3 * (1 - lock), 0.75 - 0.4 * lock, 0.9 - 0.5 * lock);
+
+  // ── cage contracts during lockdown ──
+  cage.material.opacity = lock * 0.55;
+  cage.scale.setScalar(2.4 - lock * 0.55 + dark * 0.0);
+  cage.rotation.set(-t * 0.18, t * 0.10, t * 0.06);
+
+  // ── streak: cyan flare in act 1/return, red under lockdown, dims when offline ──
+  const stTint = mix3([0.45, 0.85, 1.0], [1.0, 0.30, 0.20], lock);
+  streakPass.uniforms.uTint.value.set(stTint[0], stTint[1], stTint[2]);
+  streakPass.uniforms.uStrength.value = 0.7 * energy + ret * 0.45;
+  grainPass.uniforms.uTime.value = t * 60.0;
+  bloom.strength = 0.40 + 0.12 * ret;
+
+  // ── particles: converge (act1) → scatter (offline) → rush back (return) ──
+  let rscale = 1.0 - 0.30 * ignite + 0.55 * dark - 0.45 * ret;
+  const drift = 0.18 * energy;
+  for (let i = 0; i < NP; i++) {
+    const bx = pbase[i*3] * rscale, by = pbase[i*3+1] * rscale, bz = pbase[i*3+2] * rscale;
+    const d = curlNoise(bx * 0.5 + t * 0.12, by * 0.5, bz * 0.5 - t * 0.1, 0.4);
+    ppos[i*3] = bx + d[0] * drift; ppos[i*3+1] = by + d[1] * drift; ppos[i*3+2] = bz + d[2] * drift;
+  }
+  pgeo.attributes.position.needsUpdate = true;
+  pmat.opacity = clamp01(0.25 + 0.85 * energy);
+
+  // ── camera: eased orbit + a push-in that lands on the return ──
+  orbitCamera(camera, { t, p, ang0: -0.55, angSpan: 1.5, rad0: 10.6, radPull: 1.0 + ret * 0.7, height: 0.9, bob: 0.30, bobSpeed: 0.28 });
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

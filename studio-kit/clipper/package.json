@@ -1,0 +1,13 @@
+{
+  "name": "yt-clipper",
+  "version": "1.0.0",
+  "description": "Drop a YouTube URL or video file → get clipped, subtitled short clips in the output/ folder.",
+  "license": "MIT",
+  "private": true,
+  "engines": { "node": ">=16" },
+  "scripts": {
+    "start": "node clip.js",
+    "transcribe": "node transcribe.js",
+    "check": "node check-deps.js"
+  }
+}

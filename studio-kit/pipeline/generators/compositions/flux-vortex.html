@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #05060d; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// VORTEX — a glowing torus of streaming light particles spiralling around a ring (a distinct, organic 3D form,
+// NOT the node-network/HUD look). Deterministic (pure fn of t) → seek-capture renders it frame-accurately.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, easeOut, easeInOut, mix3, softDot, orbitCamera, grainVignette, PAL } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+
+const W = 1080, H = 1920, DUR = 6, TAU = Math.PI * 2;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x05060d, 1);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x05060d, 0.085);
+const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 100);
+// composer: RenderPass → OutputPass → grainVignette finisher (vignette + grain + dither). NO bloom — additive particles
+// already glow and would wash to white under bloom. Completes the band-free engine 10/10.
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.02, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+const rnd = mulberry32(72026624);
+const dotTex = softDot(THREE);
+
+// ---- particles on a torus (major ring R, minor tube r) ----
+const P = 6500, R = 1.95;
+const a0 = new Float32Array(P), b0 = new Float32Array(P), rr = new Float32Array(P), spd = new Float32Array(P), jit = new Float32Array(P);
+for (let i = 0; i < P; i++) {
+  a0[i] = rnd() * TAU;
+  b0[i] = rnd() * TAU;
+  rr[i] = 0.16 + Math.pow(rnd(), 0.6) * 0.34;     // tighter tube = a DEFINED luminous ring (visible hole)
+  spd[i] = 0.85 + rnd() * 0.5;
+  jit[i] = rnd();
+}
+const pos = new Float32Array(P * 3), col = new Float32Array(P * 3);
+const geo = new THREE.BufferGeometry();
+geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
+const mat = new THREE.PointsMaterial({ size: 0.10, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+scene.add(new THREE.Points(geo, mat));
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  for (let i = 0; i < P; i++) {
+    const a = a0[i] + t * 0.40 * spd[i];          // flow around the ring
+    const b = b0[i] + t * 0.62;                    // spiral around the tube → vortex
+    const tube = rr[i];
+    const rad = R + tube * Math.cos(b);
+    // organic curl shimmer so it breathes instead of reading as a rigid torus
+    const sx = Math.sin(a * 3.0 + t * 1.3 + jit[i] * 6) * 0.07;
+    const sy = Math.cos(a * 2.0 - t * 1.1) * 0.06;
+    const sz = Math.sin(b * 2.0 + t) * 0.06;
+    pos[i*3]   = rad * Math.cos(a) + sx;
+    pos[i*3+1] = tube * Math.sin(b) + sy;
+    pos[i*3+2] = rad * Math.sin(a) + sz;
+    // base ring always glows (a luminous shell); a brighter pulse sweeps around it
+    const pulse = Math.max(0, Math.sin(a - t * 1.7)) ** 2.0;
+    const intro = easeOut(clamp01((t - (a0[i] / TAU) * 1.1) / 0.5));
+    const m = 0.5 + 0.5 * Math.sin(a0[i]);          // smooth violet↔cyan around the ring
+    const base = mix3(PAL.violet, PAL.cyan, m);
+    const k = (0.36 + pulse * 0.8) * intro * 0.92;
+    col[i*3]   = base[0] * k + pulse * 0.35 * k;
+    col[i*3+1] = base[1] * k + pulse * 0.45 * k;
+    col[i*3+2] = base[2] * k + pulse * 0.30 * k;
+  }
+  geo.attributes.position.needsUpdate = true;
+  geo.attributes.color.needsUpdate = true;
+  // camera: looks down at the tilted ring, slow orbit + gentle dolly + bob (real 3D camera move)
+  orbitCamera(camera, { t, p, ang0: -0.35, angSpan: 1.5, rad0: 6.0, radPull: 0.7, height: 4.2, bob: 0.3, bobSpeed: 0.3 });
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body { margin: 0; padding: 0; background: #06060c; overflow: hidden; }
+  canvas { display: block; }
+</style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// 6-REVEAL — THE REVEAL. Camera PULLS BACK to disclose the whole system as a calm, elegant rotating
+// wireframe neural structure (nodes + edges) resolved in the void, glow SETTLING. Center kept clear
+// (a hollow outer shell) for the title overlaid later in ffmpeg. Slow, resolved, cinematic.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, smoothstep, easeOut, easeInOut, mix3 } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { grainVignette } from './mg-core.js';
+
+const W = 1080, H = 1920, DUR = 5;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+renderer.setClearColor(0x06060c, 1);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x06060c, 0.062);
+const camera = new THREE.PerspectiveCamera(48, W / H, 0.1, 100);
+// composer: RenderPass → OutputPass → grainVignette finisher (vignette + grain + dither). NO bloom —
+// additive particles already glow and bloom would wash them to solid white.
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.02, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+// ---- deterministic RNG ----
+const rnd = mulberry32(20260624);
+
+// ---- soft circular sprite for glowing points ----
+function softDot() {
+  const s = 64, c = document.createElement('canvas'); c.width = c.height = s;
+  const g = c.getContext('2d');
+  const grad = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.25, 'rgba(255,255,255,0.85)');
+  grad.addColorStop(0.55, 'rgba(255,255,255,0.25)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, s, s);
+  const tex = new THREE.CanvasTexture(c); tex.needsUpdate = true; return tex;
+}
+const dotTex = softDot();
+
+// ---- palette (shared across all 6 scenes) ----
+const COL_VIOLET = [0.42, 0.30, 1.0];
+const COL_CYAN = [0.16, 0.86, 0.96];
+
+// ---- build the neural structure: a HOLLOW spherical shell (center stays clear for the title) ----
+// Nodes live in an outer band (rInner..rOuter); the interior is left sparse/empty by construction.
+const N = 360;
+const nodes = [];
+const R_INNER = 2.4, R_OUTER = 3.9;
+let maxDist = 0;
+for (let i = 0; i < N; i++) {
+  // fibonacci sphere for an even angular spread, varied radius for the shell thickness + depth
+  const y = 1 - (i / (N - 1)) * 2;
+  const r = Math.sqrt(Math.max(0, 1 - y * y));
+  const phi = i * Math.PI * (3 - Math.sqrt(5));
+  const rad = R_INNER + (R_OUTER - R_INNER) * Math.pow(rnd(), 0.65);
+  const jx = (rnd() - 0.5) * 0.30, jy = (rnd() - 0.5) * 0.30, jz = (rnd() - 0.5) * 0.30;
+  const x = Math.cos(phi) * r * rad + jx;
+  const yy = y * rad + jy;
+  const z = Math.sin(phi) * r * rad + jz;
+  const dist = Math.hypot(x, yy, z);
+  maxDist = Math.max(maxDist, dist);
+  nodes.push({ x, y: yy, z, dist, hub: false, ph: rnd() * Math.PI * 2 });
+}
+// promote a scatter of hubs (the brightest landmarks of the resolved structure)
+const hubIdx = [11, 47, 88, 133, 179, 221, 268, 311, 344];
+hubIdx.forEach(i => { if (nodes[i]) nodes[i].hub = true; });
+
+// ---- edges: nearest-neighbour graph across the shell, deduped ----
+const edges = [];
+const seen = new Set();
+for (let i = 0; i < N; i++) {
+  const d = [];
+  for (let j = 0; j < N; j++) if (j !== i) d.push([j, Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y, nodes[i].z - nodes[j].z)]);
+  d.sort((a, b) => a[1] - b[1]);
+  const k = nodes[i].hub ? 5 : 3;
+  for (let m = 0; m < k; m++) {
+    const j = d[m][0];
+    const key = i < j ? `${i}_${j}` : `${j}_${i}`;
+    if (seen.has(key) || d[m][1] > 1.5) continue;
+    seen.add(key);
+    const mid = Math.hypot((nodes[i].x + nodes[j].x) / 2, (nodes[i].y + nodes[j].y) / 2, (nodes[i].z + nodes[j].z) / 2);
+    edges.push({ a: i, b: j, mid, ph: rnd() * Math.PI * 2 });
+  }
+}
+
+// ---- faint background dust for depth (small sharp glints far in the fog) ----
+const DUST = 520;
+const dustPos = new Float32Array(DUST * 3), dustCol = new Float32Array(DUST * 3), dustBase = [];
+for (let i = 0; i < DUST; i++) {
+  const u = rnd() * 2 - 1, t = rnd() * Math.PI * 2, rr = 5.5 + rnd() * 7.0;
+  const s = Math.sqrt(Math.max(0, 1 - u * u));
+  const x = Math.cos(t) * s * rr, y = u * rr, z = Math.sin(t) * s * rr;
+  dustPos[i * 3] = x; dustPos[i * 3 + 1] = y; dustPos[i * 3 + 2] = z;
+  dustBase.push({ d: Math.hypot(x, y, z), ph: rnd() * Math.PI * 2, tone: rnd() });
+}
+const dustGeo = new THREE.BufferGeometry();
+dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+dustGeo.setAttribute('color', new THREE.BufferAttribute(dustCol, 3));
+const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({ size: 0.07, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true }));
+scene.add(dust);
+
+// ---- points geometry (regular nodes + bright hubs) ----
+function makePoints(filter, size) {
+  const idx = []; for (let i = 0; i < N; i++) if (filter(nodes[i])) idx.push(i);
+  const pos = new Float32Array(idx.length * 3), col = new Float32Array(idx.length * 3);
+  idx.forEach((i, k) => { pos[k * 3] = nodes[i].x; pos[k * 3 + 1] = nodes[i].y; pos[k * 3 + 2] = nodes[i].z; });
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  const m = new THREE.PointsMaterial({ size, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true });
+  const p = new THREE.Points(g, m); scene.add(p);
+  return { idx, col, attr: g.attributes.color };
+}
+const pts = makePoints(n => !n.hub, 0.14);
+const hubs = makePoints(n => n.hub, 0.40);
+
+// ---- line segments ----
+const lpos = new Float32Array(edges.length * 6), lcol = new Float32Array(edges.length * 6);
+edges.forEach((e, k) => {
+  lpos[k * 6] = nodes[e.a].x; lpos[k * 6 + 1] = nodes[e.a].y; lpos[k * 6 + 2] = nodes[e.a].z;
+  lpos[k * 6 + 3] = nodes[e.b].x; lpos[k * 6 + 4] = nodes[e.b].y; lpos[k * 6 + 5] = nodes[e.b].z;
+});
+const lg = new THREE.BufferGeometry();
+lg.setAttribute('position', new THREE.BufferAttribute(lpos, 3));
+lg.setAttribute('color', new THREE.BufferAttribute(lcol, 3));
+const lines = new THREE.LineSegments(lg, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+scene.add(lines);
+
+// ---- focal hierarchy + settle ----
+// depth-grade: brightest on the side of the shell nearest the camera/core focal band, fainter into fog.
+const shellWeight = dist => 0.30 + 0.70 * (1 - smoothstep(R_INNER + 0.2, R_OUTER + 0.6, dist));
+
+// breathing shimmer that quiets over the clip (glow settling)
+function breath(ph, t, calm) {
+  return (0.5 + 0.5 * Math.sin(t * 1.1 + ph)) * (0.55 + 0.45 * (1 - calm)) + 0.45 * calm;
+}
+
+function paintPoints(group, t, glow, calm) {
+  group.idx.forEach((i, k) => {
+    const n = nodes[i];
+    const sw = shellWeight(n.dist);
+    const br = breath(n.ph, t, calm);
+    const base = (0.42 + (n.hub ? 0.20 : 0)) * br;
+    // violet core tone resolving with a cool cyan accent on hubs; everything depth-graded by shellWeight
+    const accent = (n.hub ? 0.5 : 0.22) * (0.6 + 0.4 * calm);
+    const r = (COL_VIOLET[0] * base + COL_CYAN[0] * accent * br) * sw * glow;
+    const g = (COL_VIOLET[1] * base + COL_CYAN[1] * accent * br) * sw * glow;
+    const b = (COL_VIOLET[2] * base + COL_CYAN[2] * accent * br) * sw * glow;
+    group.col[k * 3] = r; group.col[k * 3 + 1] = g; group.col[k * 3 + 2] = b;
+  });
+  group.attr.needsUpdate = true;
+}
+
+function paintLines(t, glow, calm) {
+  edges.forEach((e, k) => {
+    const sw = shellWeight(e.mid);
+    const br = breath(e.ph, t, calm);
+    const lb = (0.16 + 0.20 * br) * sw * glow;
+    const accent = COL_CYAN[0] * 0.12 * br * sw * glow;
+    const r = COL_VIOLET[0] * lb + accent;
+    const g = COL_VIOLET[1] * lb + COL_CYAN[1] * 0.12 * br * sw * glow;
+    const b = COL_VIOLET[2] * lb;
+    for (const o of [0, 3]) { lcol[k * 6 + o] = r; lcol[k * 6 + o + 1] = g; lcol[k * 6 + o + 2] = b; }
+  });
+  lines.geometry.attributes.color.needsUpdate = true;
+}
+
+function paintDust(t, calm) {
+  for (let i = 0; i < DUST; i++) {
+    const d = dustBase[i];
+    const fade = 1 - smoothstep(5.5, 12.5, d.d);
+    const tw = 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(t * 0.9 + d.ph));
+    const amp = 0.16 * fade * tw * (0.7 + 0.3 * calm);
+    const c = mix3(COL_VIOLET, COL_CYAN, d.tone);
+    dustCol[i * 3] = c[0] * amp; dustCol[i * 3 + 1] = c[1] * amp; dustCol[i * 3 + 2] = c[2] * amp;
+  }
+  dustGeo.attributes.color.needsUpdate = true;
+}
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  // THE PULLBACK: camera dollies OUT (radius grows, eased) revealing the whole structure, then settles.
+  const pull = easeOut(p);
+  const radius = 5.4 + pull * 4.8;                    // 5.4 → ~10.2, eased out (fast then resolving slow)
+  const ang = -0.35 + easeInOut(p) * 0.62;            // a slow gentle orbit during the pull
+  const ny = 0.7 * Math.sin(t * 0.22 + 0.4) + 0.4 * pull;  // soft vertical drift, lifting slightly
+  camera.position.set(Math.sin(ang) * radius, ny, Math.cos(ang) * radius);
+  camera.lookAt(0, 0, 0);
+  // the structure rotates slowly and calmly on its own axis (elegant, resolved)
+  scene.rotation.y = t * 0.085;
+  scene.rotation.x = Math.sin(t * 0.18) * 0.04;
+
+  // glow settles: 'calm' rises 0→1 over the clip, quieting the breathing shimmer into a steady glow.
+  const calm = easeInOut(p);
+  const glow = 1.55 - 0.20 * calm;                   // a touch hotter at first, resolving to even & soft
+
+  paintPoints(pts, t, glow, calm);
+  paintPoints(hubs, t, glow * 1.15, calm);
+  paintLines(t, glow, calm);
+  paintDust(t, calm);
+
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+
+// prime first frame then signal ready
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

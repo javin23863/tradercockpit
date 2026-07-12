@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>html,body{margin:0;padding:0;background:#05070d;overflow:hidden}#c{display:block}</style>
+<script type="importmap">
+{ "imports": {
+  "three": "./three.module.js",
+  "three/addons/": "./jsm/"
+} }
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+
+const W = window.innerWidth, H = window.innerHeight;
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.4;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x070a12, 0.020);
+const camera = new THREE.PerspectiveCamera(36, W / H, 0.1, 200);
+
+const easeInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+const clamp01 = t => Math.max(0, Math.min(1, t));
+const lerp = (a,b,t) => a + (b-a)*t;
+
+// ---------- PBR room ----------
+const texLoader = new THREE.TextureLoader();
+function pbr(dir, repeat) {
+  const load = (f, srgb) => { const t = texLoader.load(`./textures/${dir}/${f}`); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(repeat,repeat); if (srgb) t.colorSpace=THREE.SRGBColorSpace; return t; };
+  return new THREE.MeshStandardMaterial({ map: load('diff.jpg',true), normalMap: load('nor.jpg',false), roughnessMap: load('rough.jpg',false), roughness: 1.0, metalness: 0.0 });
+}
+const ROOM = 16;
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(ROOM, ROOM), pbr('concrete', 4));
+floor.rotation.x = -Math.PI/2; floor.receiveShadow = true; scene.add(floor);
+function wall(x,z,ry){ const m=new THREE.Mesh(new THREE.PlaneGeometry(ROOM,9), pbr('brick',2.5)); m.position.set(x,4.5,z); m.rotation.y=ry; m.receiveShadow=true; scene.add(m); }
+wall(0,-ROOM/2,0); wall(-ROOM/2,0,Math.PI/2); wall(ROOM/2,0,-Math.PI/2);
+
+// ---------- lights ----------
+const ambient = new THREE.AmbientLight(0x2a3142, 0.30); scene.add(ambient);
+const key = new THREE.SpotLight(0xffce9e, 0, 45, Math.PI/5.5, 0.5, 1.3); // warm dawn through window
+key.position.set(-6, 10, 5); key.castShadow = true;
+key.shadow.mapSize.set(2048,2048); key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02;
+scene.add(key); scene.add(key.target);
+const rim = new THREE.PointLight(0x39d6ff, 0, 26, 2); rim.position.set(4, 3.4, -2.5); scene.add(rim); // cyan AI rim
+
+// ---------- power core (the "switch on" accent, catches bloom) ----------
+const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.16, 2), new THREE.MeshBasicMaterial({ color: 0x8fefff }));
+core.position.set(0.3, 1.05, 0.78); core.visible = false; scene.add(core);
+const coreLight = new THREE.PointLight(0x67e8ff, 0, 6, 2); coreLight.position.copy(core.position); scene.add(coreLight);
+
+// ---------- HDRI ----------
+let envReady=false;
+new RGBELoader().load('./hdris/office_night.hdr', (hdr)=>{ hdr.mapping=THREE.EquirectangularReflectionMapping; scene.environment=hdr; scene.background=hdr; scene.backgroundIntensity=0.04; scene.environmentIntensity=0.18; envReady=true; maybeReady(); });
+
+// ---------- character ----------
+let mixer=null, robot=null, modelReady=false;
+new GLTFLoader().load('./models/RobotExpressive.glb', (gltf)=>{
+  robot=gltf.scene; robot.scale.set(0.7,0.7,0.7); robot.position.set(0.3,0,0.5); robot.rotation.y=-0.28;
+  robot.traverse(o=>{ if(o.isMesh){ o.castShadow=true; o.receiveShadow=true; } });
+  scene.add(robot);
+  mixer=new THREE.AnimationMixer(robot);
+  const clips=gltf.animations; const pick=n=>clips.find(c=>c.name===n)||null;
+  const idle=pick('Idle')||clips[0];           // calm breathing wake — no gesture (avoids the "holding a gun" read)
+  if(idle){ mixer.clipAction(idle).play(); }
+  modelReady=true; maybeReady();
+}, undefined, e=>console.log('GLB error', e&&e.message));
+
+function maybeReady(){ if(envReady&&modelReady) window.__ready=true; }
+
+// ---------- deterministic timeline (0..5s) ----------
+window.__seek=(t)=>{
+  const T=5.0, p=clamp01(t/T);
+  if(mixer) mixer.setTime(t);
+  // the WAKE: dim -> dawn (capped, moody — never blown out)
+  const rise=easeInOut(clamp01((t-0.4)/2.6));
+  renderer.toneMappingExposure=lerp(0.12,0.62,rise);
+  key.intensity=lerp(0,3.0,rise);
+  rim.intensity=lerp(0,1.8,easeInOut(clamp01((t-1.3)/2.2)));
+  scene.environmentIntensity=lerp(0.08,0.30,rise);
+  // power core ignites
+  const on=easeInOut(clamp01((t-1.7)/1.6));
+  core.visible=on>0.01; core.scale.setScalar(lerp(0.2,1.0,on)); core.material.color.setRGB(0.4*on+0.1,0.9*on,1.0*on);
+  coreLight.intensity=lerp(0,3.2,on);
+  // camera: slow dolly-in + gentle rise, full-figure framing with headroom (model is tall: floating head)
+  const e=easeInOut(p);
+  camera.position.set(lerp(-1.8,-0.7,e), lerp(2.6,2.9,e), lerp(15.0,11.2,e));
+  camera.lookAt(0.3,2.15,0.5);
+  key.target.position.set(0.3,2.0,0.5);
+  renderer.render(scene,camera);
+};
+</script>
+</body>
+</html>

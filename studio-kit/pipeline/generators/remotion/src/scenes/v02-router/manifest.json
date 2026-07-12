@@ -1,0 +1,60 @@
+{
+  "slug": "v02-router",
+  "beats": [
+    {
+      "kind": "hook",
+      "componentName": "SceneHook",
+      "concept": "The Budget Furnace: one overpriced \"$$$ PREMIUM MODEL\" core devours every incoming request. A torrent of glowing request-token particles rains from the top and ",
+      "techniques": [
+        "deterministic particle-system torrent (46 index-seeded request tokens looping top->core with funnel-convergence pull via pow-eased lerp)",
+        "convergence funnel cone (SVG converging guide-lines + flowing dashed center spine via animated strokeDashoffset)",
+        "devouring core with impact-cadence pulse, animated spark ring, expanding shockwave per feed impact, and inner aperture flash",
+        "physics-ish parabolic coin ejecta (sin-arc flight, flip rotation via scaleX, opacity life-cycle) launched per consumed request",
+        "liquid-fill draining tank (clipPath-masked multi-wave SVG surface paths + bright surface line + level ticks + draining drip droplets) that empties as the model feeds",
+        "fast-rising mono COST odometer counter with deterministic thousands formatting, red recolor + scale-kick synced to spoken words",
+        "narration word-sync gating (spoke('draining')/'budget') drives drain spikes, red recolor, OVERPAYING flip, and danger wash",
+        "ambient overpay backdrop (blurred radial glow + floating dollar embers, no opaque background paint)",
+        "solid dark backings (rgba(8,6,18,0.72)) under translucent liquid/highlights for high-contrast legibility"
+      ],
+      "layers": 7
+    },
+    {
+      "kind": "insight",
+      "componentName": "SceneInsight",
+      "concept": "Difficulty-based ROUTING shown as a particle pipeline in isometric perspective. Request-token chips rain down onto a central rotating ROUTER/diamond gate; the g",
+      "techniques": [
+        "isometric/3D-perspective diverging lanes (skewed trapezoid floors + perspective depth-rungs + receding scale)",
+        "deterministic particle system (26 sin-hash seeded request chips on a looping fall->inspect->route lifecycle)",
+        "physics-ish parabolic routing flings with comet trails along each lane spine",
+        "router diamond gate with counter-rotating inner diamond + live difficulty-meter sweep + three lit directional exit ports",
+        "per-chip difficulty meter that determines lane assignment for an ~80/~/20 split",
+        "liquid catch-basin fill (rising fillOpacity volume + wobbling quadratic surface highlight)",
+        "word-synced throughput snap (volumes climb then ease to 80% on 'eighty' and 20% on 'twenty', with snap-flash scale + LOCKED pills; MID is the honest remainder to 100)",
+        "dashed traffic-flow pulse lines + animated strokeDashoffset along lane spines and intake stream",
+        "side-rail draw-on via strokeDashoffset reveal synced to lane build-out",
+        "staged spring choreography (title -> lanes draw outward -> gate snaps -> stream begins -> tallies resolve)"
+      ],
+      "layers": 12
+    },
+    {
+      "kind": "proof",
+      "componentName": "SceneProof",
+      "concept": "A BEFORE vs AFTER monthly-cost comparison on a keynote pedestal. Two liquid-filled \"bill\" bars stand side by side: the BEFORE bar fills tall to $1000; on \"Sixty",
+      "techniques": [
+        "liquid-fill columns with wobbling meniscus (SVG path Q-curves + highlight stroke)",
+        "bar-race liquid drain: AFTER column collapses 100%->40% height on the spoken word 'sixty'",
+        "physics slam with spring overshoot + tilt-settle for the -60% hero slab",
+        "impact shockwave: dual concentric expanding rings with thinning stroke, radius-clamped in-frame",
+        "decaying screen-shake via exp() envelope on a shared transform group",
+        "deterministic currency particle-system (rising $ coins off BEFORE + draining droplets off AFTER, index-seeded sin-hash loops)",
+        "held-value QUALITY pill pinned at 100 with twin === quality marks + dash-offset checkmark draw",
+        "perspective floor grid with converging verticals + soft blurred floor-glow puddles",
+        "savings delta bracket with end-caps connecting the two column tops + ghost drained-zone fill + 40% gridline",
+        "gradient-clipped hero typography (WebkitBackgroundClip text) with layered drop-shadow glow",
+        "vertical wipe-in center divider with a glowing lead dot",
+        "word-synced staging: fill -> quality-pin -> drain+slam+shockwave -> resolve caption"
+      ],
+      "layers": 8
+    }
+  ]
+}

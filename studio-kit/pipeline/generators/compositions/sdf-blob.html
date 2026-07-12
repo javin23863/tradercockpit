@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #04050c; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// SDF BLOB — a RAYMARCHED morphing metaball (fullscreen fragment-shader SDF, opSmoothUnion + central-difference normals +
+// fresnel shading). 8th distinct form, and a NEW rendering CLASS for the engine (raymarching, not mesh/particles). Liquid
+// chrome/energy blob, slow camera orbit, fresnel rim → bloom + ACES. Deterministic seek-capture. 1080x1920, 6s.
+import * as THREE from './three.module.js';
+import { clamp01, easeOut, anamorphicStreak, grainVignette } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+
+const W = 1080, H = 1920;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x04050c, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+const mat = new THREE.ShaderMaterial({
+  uniforms: { uTime: { value: 0 }, uRes: { value: new THREE.Vector2(W, H) }, uIntro: { value: 0 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`,
+  fragmentShader: `precision highp float; varying vec2 vUv; uniform float uTime; uniform vec2 uRes; uniform float uIntro;
+    float sdSphere(vec3 p, float r){ return length(p) - r; }
+    float smin(float a, float b, float k){ float h = clamp(0.5 + 0.5*(b-a)/k, 0.0, 1.0); return mix(b, a, h) - k*h*(1.0-h); }
+    float map(vec3 p){ float t = uTime;
+      vec3 a = vec3(sin(t*0.7)*0.85, cos(t*0.5)*0.7, sin(t*0.3)*0.5);
+      vec3 b = vec3(cos(t*0.6)*0.95, sin(t*0.8)*0.6, cos(t*0.4)*0.6);
+      vec3 c = vec3(sin(t*0.4+2.0)*0.7, cos(t*0.7+1.0)*0.85, sin(t*0.9)*0.5);
+      float d = sdSphere(p - a, 0.7);
+      d = smin(d, sdSphere(p - b, 0.6), 0.5);
+      d = smin(d, sdSphere(p - c, 0.65), 0.5);
+      d = smin(d, sdSphere(p, 0.55), 0.45);
+      return d; }
+    vec3 calcN(vec3 p){ vec2 e = vec2(0.0012, 0.0); return normalize(vec3(
+      map(p+e.xyy)-map(p-e.xyy), map(p+e.yxy)-map(p-e.yxy), map(p+e.yyx)-map(p-e.yyx))); }
+    void main(){ vec2 uv = vUv*2.0 - 1.0; uv.x *= uRes.x/uRes.y;
+      vec3 ro = vec3(0.0, 0.0, 4.6); vec3 rd = normalize(vec3(uv, -1.9));
+      float a = uTime*0.16; mat2 R = mat2(cos(a), -sin(a), sin(a), cos(a));
+      ro.xz = R*ro.xz; rd.xz = R*rd.xz;
+      float t = 0.0; bool hit = false; float d;
+      for(int i=0;i<96;i++){ d = map(ro + rd*t); if(d < 0.0015){ hit = true; break; } t += d; if(t > 12.0) break; }
+      vec3 col = vec3(0.02, 0.02, 0.05);
+      if(hit){ vec3 p = ro + rd*t; vec3 n = calcN(p);
+        float fres = pow(1.0 - max(dot(n, -rd), 0.0), 2.5);
+        vec3 core = vec3(0.07, 0.05, 0.20), violet = vec3(0.46, 0.30, 1.0), cyan = vec3(0.16, 0.88, 0.97);
+        col = mix(core, mix(violet, cyan, fres), fres);
+        col += cyan * pow(fres, 5.0) * 0.9;
+        float diff = max(dot(n, normalize(vec3(0.5, 0.8, 0.5))), 0.0);
+        col += violet * diff * 0.35;
+        col *= 1.4;
+      }
+      gl_FragColor = vec4(col * uIntro, 1.0); }`,
+});
+scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat));
+
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, cam));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.55, 0.45, 0.5));
+// anamorphic lens-STREAK: the blob's hot cyan fresnel rim is a CONCENTRATED bright on near-black — the streak's textbook
+// host, it CANNOT wash here. A long horizontal cinematic flare through the brightest rim points (mg-core).
+const streakPass = new ShaderPass(anamorphicStreak(THREE, W, H, { strength: 1.9, threshold: 0.62, spread: 4.6 }));
+composer.addPass(streakPass);
+composer.addPass(new OutputPass());
+// finishing pass (LAST): vignette + grain + triangular dither → band-free dark gradient (grain low per file-size caveat)
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.022, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+window.__seek = (t) => {
+  mat.uniforms.uTime.value = t;
+  mat.uniforms.uIntro.value = easeOut(clamp01(t / 0.7));
+  streakPass.uniforms.uStrength.value = 1.9 * easeOut(clamp01((t - 0.4) / 0.9)); // flare fades in after the blob forms
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>html,body{margin:0;padding:0;background:#04050d;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// AI-CORTEX — a DENSE volumetric neural network: ~440 nodes, ~1500 glowing connections, hundreds of signal
+// pulses flowing through it, fog depth + DOF feel, strong bloom, a cinematic camera flying through. Detail =
+// many small SHARP glowing elements layered in depth (not a few big soft blobs). Seeked by t for capture.
+import * as THREE from './three.module.js';
+import { grainVignette } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+
+const W = 1080, H = 1920, DUR = 6;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x04050d, 1);
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x04050d, 0.058);          // deep fog → real depth falloff
+const camera = new THREE.PerspectiveCamera(52, W / H, 0.1, 200);
+
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.95, 0.7, 0.16)); // strength, radius, threshold
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.022, vignette: 0.5 }));
+composer.addPass(grainPass);
+
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const rnd = mulberry32(913377);
+// small SHARP glowing sprite (tight core = crisp detail, not a soft blob)
+function sharpDot(){const s=64,c=document.createElement('canvas');c.width=c.height=s;const g=c.getContext('2d');
+  const gr=g.createRadialGradient(s/2,s/2,0,s/2,s/2,s/2);
+  gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(0.18,'rgba(255,255,255,0.9)');
+  gr.addColorStop(0.42,'rgba(255,255,255,0.25)');gr.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=gr;g.fillRect(0,0,s,s);const t=new THREE.CanvasTexture(c);t.needsUpdate=true;return t;}
+const dot = sharpDot();
+
+// ---- dense node volume: a flattened ellipsoid "cortex" (fibonacci shells + jitter, varied depth) ----
+const N = 440;
+const nodes = [];
+for (let i = 0; i < N; i++) {
+  const y = 1 - (i / (N - 1)) * 2;
+  const r = Math.sqrt(Math.max(0, 1 - y * y));
+  const phi = i * Math.PI * (3 - Math.sqrt(5));
+  const shell = 1.4 + Math.pow(rnd(), 0.6) * 3.0;            // varied radius → volumetric, not a shell
+  const x = Math.cos(phi) * r * shell * 1.25 + (rnd() - 0.5) * 0.5;
+  const yy = y * shell * 1.55 + (rnd() - 0.5) * 0.5;          // taller ellipsoid
+  const z = Math.sin(phi) * r * shell * 1.25 + (rnd() - 0.5) * 0.5;
+  nodes.push({ x, y: yy, z, seed: rnd(), hub: rnd() > 0.9 });
+}
+// ---- edges: each node → k nearest within radius (dense connectivity) ----
+const edges = [];
+const seen = new Set();
+for (let i = 0; i < N; i++) {
+  const d = [];
+  for (let j = 0; j < N; j++) if (j !== i) { const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dz=nodes[i].z-nodes[j].z; d.push([j, dx*dx+dy*dy+dz*dz]); }
+  d.sort((a,b)=>a[1]-b[1]);
+  const k = nodes[i].hub ? 7 : 4;
+  for (let m = 0; m < k; m++) { const j=d[m][0]; const key=i<j?i+'_'+j:j+'_'+i; if(seen.has(key)||d[m][1]>3.4)continue; seen.add(key); edges.push({a:i,b:j}); }
+}
+
+const COL_IDLE=[0.10,0.16,0.52], COL_HOT=[0.55,0.96,1.0], COL_HUB=[0.55,0.32,1.0], COL_PULSE=[0.6,0.97,1.0], COL_EDGE=[0.05,0.11,0.34];
+
+// node points
+const npos=new Float32Array(N*3), ncol=new Float32Array(N*3);
+nodes.forEach((n,k)=>{npos[k*3]=n.x;npos[k*3+1]=n.y;npos[k*3+2]=n.z;});
+const ng=new THREE.BufferGeometry();
+ng.setAttribute('position',new THREE.BufferAttribute(npos,3));
+ng.setAttribute('color',new THREE.BufferAttribute(ncol,3));
+const nodePts=new THREE.Points(ng,new THREE.PointsMaterial({size:0.17,map:dot,vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,sizeAttenuation:true}));
+scene.add(nodePts);
+
+// edges
+const lpos=new Float32Array(edges.length*6), lcol=new Float32Array(edges.length*6);
+edges.forEach((e,k)=>{const a=nodes[e.a],b=nodes[e.b];lpos[k*6]=a.x;lpos[k*6+1]=a.y;lpos[k*6+2]=a.z;lpos[k*6+3]=b.x;lpos[k*6+4]=b.y;lpos[k*6+5]=b.z;});
+const lg=new THREE.BufferGeometry();
+lg.setAttribute('position',new THREE.BufferAttribute(lpos,3));
+lg.setAttribute('color',new THREE.BufferAttribute(lcol,3));
+const lines=new THREE.LineSegments(lg,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));
+scene.add(lines);
+
+// traveling signal pulses — one per edge, flowing along it
+const ppos=new Float32Array(edges.length*3), pcol=new Float32Array(edges.length*3);
+const pg=new THREE.BufferGeometry();
+pg.setAttribute('position',new THREE.BufferAttribute(ppos,3));
+pg.setAttribute('color',new THREE.BufferAttribute(pcol,3));
+const pulses=new THREE.Points(pg,new THREE.PointsMaterial({size:0.12,map:dot,vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,sizeAttenuation:true}));
+scene.add(pulses);
+const ePhase=edges.map(()=>rnd()), eSpeed=edges.map(()=>0.35+rnd()*0.5);
+
+// faint atmospheric dust for depth
+const D=320, dpos=new Float32Array(D*3), dcol=new Float32Array(D*3);
+for(let i=0;i<D;i++){dpos[i*3]=(rnd()-0.5)*22;dpos[i*3+1]=(rnd()-0.5)*26;dpos[i*3+2]=(rnd()-0.5)*22;const c=0.06+rnd()*0.10;dcol[i*3]=c*0.4;dcol[i*3+1]=c*0.7;dcol[i*3+2]=c;}
+const dg=new THREE.BufferGeometry();
+dg.setAttribute('position',new THREE.BufferAttribute(dpos,3));
+dg.setAttribute('color',new THREE.BufferAttribute(dcol,3));
+scene.add(new THREE.Points(dg,new THREE.PointsMaterial({size:0.07,map:dot,vertexColors:true,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,sizeAttenuation:true})));
+
+const clamp01=x=>Math.max(0,Math.min(1,x));
+const easeOut=x=>1-Math.pow(1-x,3);
+// activation: a moving 3D focus orbits the cortex; nodes near it ignite (the "thought" sweeping through)
+function focus(t){const a=t*0.9;return [Math.cos(a)*2.4, Math.sin(t*0.6)*2.0, Math.sin(a*1.1)*2.4];}
+function nodeAct(n,t){const f=focus(t);const dx=n.x-f[0],dy=n.y-f[1],dz=n.z-f[2];const d2=dx*dx+dy*dy+dz*dz;return Math.exp(-d2/5.5);}
+
+window.__seek=(t)=>{
+  const intro=easeOut(clamp01(t/1.3));
+  const fcache=new Float32Array(N);
+  for(let k=0;k<N;k++){const n=nodes[k];const act=nodeAct(n,t);fcache[k]=act;
+    const twinkle=0.55+0.45*Math.sin(t*2.0+n.seed*30.0);
+    const base=(n.hub?0.34:0.20)*twinkle*intro;
+    const ci=n.hub?COL_HUB:COL_IDLE;
+    ncol[k*3]  =(ci[0]*base+(COL_HOT[0]-ci[0])*act)*intro+COL_HOT[0]*act*0.6*intro;
+    ncol[k*3+1]=(ci[1]*base+(COL_HOT[1]-ci[1])*act)*intro+COL_HOT[1]*act*0.6*intro;
+    ncol[k*3+2]=(ci[2]*base+(COL_HOT[2]-ci[2])*act)*intro+COL_HOT[2]*act*0.6*intro;
+  }
+  ng.attributes.color.needsUpdate=true;
+  for(let k=0;k<edges.length;k++){const e=edges[k],a=nodes[e.a],b=nodes[e.b];
+    const fl=Math.max(fcache[e.a],fcache[e.b]);
+    const eb=intro*(0.07+fl*0.9)*2.2;
+    lcol[k*6]=(COL_EDGE[0]+COL_PULSE[0]*fl*0.6)*eb;lcol[k*6+1]=(COL_EDGE[1]+COL_PULSE[1]*fl*0.6)*eb;lcol[k*6+2]=(COL_EDGE[2]+COL_PULSE[2]*fl*0.6)*eb;
+    lcol[k*6+3]=lcol[k*6];lcol[k*6+4]=lcol[k*6+1];lcol[k*6+5]=lcol[k*6+2];
+    const u=(t*eSpeed[k]+ePhase[k])%1;
+    ppos[k*3]=a.x+(b.x-a.x)*u;ppos[k*3+1]=a.y+(b.y-a.y)*u;ppos[k*3+2]=a.z+(b.z-a.z)*u;
+    const pb=intro*(0.22+fcache[e.a]*1.1)*Math.sin(u*Math.PI);
+    pcol[k*3]=COL_PULSE[0]*pb;pcol[k*3+1]=COL_PULSE[1]*pb;pcol[k*3+2]=COL_PULSE[2]*pb;
+  }
+  lg.attributes.color.needsUpdate=true;
+  pg.attributes.position.needsUpdate=true;pg.attributes.color.needsUpdate=true;
+
+  // cinematic camera: slow orbit + push-in, a little vertical drift → flies through the cortex with parallax
+  const p=clamp01(t/DUR), orbit=-0.5+easeOut(p)*0.9+t*0.04;
+  const radius=10.5-easeOut(p)*3.4;
+  camera.position.set(Math.sin(orbit)*radius, Math.sin(t*0.28)*1.4, Math.cos(orbit)*radius);
+  camera.lookAt(0,0,0);
+  grainPass.uniforms.uTime.value=t*60.0;
+  composer.render();
+};
+window.__seek(0);
+window.__ready=true;
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #04050c; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// GLASS KNOT — a flowing translucent glass torus-knot (fresnel-glass: see-through faces, glowing cyan rim) over a living
+// domain-warped aurora backdrop. 6th distinct form (smooth flowing glass, not a faceted gem / particles / tunnel). Bloom on
+// the rim, ACES. Deterministic seek-capture. Maps to "context window / connected reasoning". 1080x1920, 6s.
+import * as THREE from './three.module.js';
+import { clamp01, easeOut, backOut, orbitCamera, gradientMeshMaterial, grainVignette, PAL } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { BokehPass } from './jsm/postprocessing/BokehPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+
+const W = 1080, H = 1920, DUR = 6;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x04050c, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.88; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 200);
+
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+// DoF rack-focus: knot sharp, aurora backdrop softens — cinematic depth separation
+const bokeh = new BokehPass(scene, camera, { focus: 5.2, aperture: 0.0007, maxblur: 0.012 });
+composer.addPass(bokeh);
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.45, 0.45, 0.5)); // threshold isolates the bright rim on the opaque knot
+composer.addPass(new OutputPass());
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.022, vignette: 0.4 }));
+composer.addPass(grainPass);
+
+// living aurora backdrop (dim, won't bloom)
+const bg = new THREE.Mesh(new THREE.SphereGeometry(60, 32, 24), gradientMeshMaterial(THREE, { amp: 0.1 }));
+scene.add(bg);
+
+// glass torus-knot: fresnel-glass shader (see-through faces, glowing cyan silhouette), double-sided so internal loops read
+const glassMat = new THREE.ShaderMaterial({
+  uniforms: { rimCol: { value: new THREE.Color().fromArray(PAL.cyan) }, coreCol: { value: new THREE.Color(0.06, 0.04, 0.16) }, power: { value: 2.5 }, intensity: { value: 1.2 } },
+  vertexShader: `varying vec3 vN; varying vec3 vV;
+    void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }`,
+  fragmentShader: `varying vec3 vN; varying vec3 vV; uniform vec3 rimCol; uniform vec3 coreCol; uniform float power; uniform float intensity;
+    void main(){ float f = pow(1.0 - max(dot(normalize(vN), normalize(vV)), 0.0), power);
+      vec3 col = mix(coreCol, rimCol, f); col += rimCol * pow(f, 5.0) * 0.6;
+      gl_FragColor = vec4(col * intensity, 1.0); }`,
+});
+const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.25, 0.4, 220, 32, 2, 3), glassMat);
+scene.add(knot);
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  bg.material.uniforms.uTime.value = t;
+  const intro = backOut(clamp01(t / 1.0));
+  knot.scale.setScalar(Math.max(0.001, intro));
+  knot.rotation.set(t * 0.18, t * 0.26, t * 0.07);
+  glassMat.uniforms.intensity.value = 1.2 * easeOut(clamp01(t / 0.7));
+  orbitCamera(camera, { t, p, ang0: -0.45, angSpan: 1.3, rad0: 5.6, radPull: 0.7, height: 0.6, bob: 0.4, bobSpeed: 0.28 });
+  grainPass.uniforms.uTime.value = t * 60.0;
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>

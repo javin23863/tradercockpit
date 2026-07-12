@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 dashboard.html
 postiz/.env
+studio-kit/assets/samples/
+studio-kit/**/node_modules/
+studio-kit/**/output/

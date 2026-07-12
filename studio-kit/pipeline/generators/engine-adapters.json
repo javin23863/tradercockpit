@@ -1,0 +1,43 @@
+{
+  "_note": "Per-ENGINE prompt-adaptation rules the generator auto-injects so every prompt removes that engine's known weaknesses. Data (craft), edited freely; loaded by generate-shot-pack.cjs --engine=<key>. Distilled from the Hell Grind / commercial workflows + reference clips. Verify caps as engines update.",
+  "seedance": {
+    "label": "Seedance 2.0 (CS 2.0) — text/image-to-video",
+    "rules": [
+      "HARD CAP: keep each shot prompt <= 3000 characters. If longer, tighten — one main idea + one main action + one camera strategy per shot.",
+      "Seedance historically performs better with CHINESE prompts AND Chinese packs ~1-2 chars/word (vs 5-10 English), fitting more info under the 3000-char cap. Offer a Chinese variant for dense shots (verify current behavior).",
+      "SPATIAL AWARENESS is the weakness: NEVER stage a character ENTERING from outside INTO a room (it invents extra doors / teleports). Put the CAMERA INSIDE facing inward; push the camera FURTHER IN to kill the 'too many doors' artifact.",
+      "ONE audio track only: environmental SFX only, NO music, NO subtitles (music can't be separated in post — add music when editing).",
+      "REFERENCE ORDER matters: the asset described first in the prompt must be attached first (hero before location).",
+      "Spell out CAMERA MOVE + SHOT SIZE per beat (push-in medium->closeup, super-low-angle on boots). Beats that don't land -> make the shot longer + complete the action.",
+      "Put FAILURE-MODE HANDLES inside the prompt ('do not drift the <small prop>'), not as side-notes.",
+      "Batch 8, skim for composition, stop + fix the prompt if several share the same mistake (~1/64 usable)."
+    ]
+  },
+  "nano_banana_pro": {
+    "label": "Nano Banana Pro / GPT-image — still image generation",
+    "rules": [
+      "FIGHT PLASTICKY (its default): add 'light atmospheric haze' + 'film grain' + 'crush the blacks for shadow depth' + specific practical-light keywords.",
+      "Weak SPATIAL AWARENESS: describe a NEW location in WORDS, do NOT upload a location image into the generator (it crams uploaded rooms in — e.g. a room outdoors).",
+      "Batch 4: with a detailed prompt it's consistent, so if something's off the PROMPT is the bug — fix it, don't just re-roll.",
+      "Editing an image loses detail each pass: re-edit from the clean SOURCE, or regenerate FROM SCRATCH with the full prompt + no reference to lock a clean version.",
+      "Generate locations at 3/4 or CCTV angle (never head-on) for depth the video model can hold.",
+      "Character/product SHEETS: gray background (#7A7A7A), single-face (erase duplicates), closeup + full-body panels — higher win-rate."
+    ]
+  },
+  "kling": {
+    "label": "Kling — image/text-to-video",
+    "rules": [
+      "Strong at smooth realistic human motion — describe motion move-by-move (not 'he dances': 'two head nods, shoulder roll, knee dip on the beat').",
+      "Lock start (+ optionally end) frame for a controlled hero motion; describe only the motion between.",
+      "Keep the style-prefix look consistent; env-SFX audio discipline as with any single-track engine."
+    ]
+  },
+  "higgsfield": {
+    "label": "Higgsfield — generate_image / generate_video (multi-model)",
+    "rules": [
+      "Use generate_image for the start/end FRAMES and character/prop sheets, generate_video for the motion between.",
+      "models_explore(action:'recommend') to pick the best model per shot before generating; upscale/reframe/motion_control for edits (don't re-generate).",
+      "virality_predictor on the cut for a hook/retention read; keep the env-SFX audio discipline."
+    ]
+  }
+}

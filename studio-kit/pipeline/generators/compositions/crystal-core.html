@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style> html, body { margin: 0; padding: 0; background: #05060d; overflow: hidden; } canvas { display: block; } </style>
+<script type="importmap">{ "imports": { "three": "./three.module.js" } }</script>
+</head>
+<body>
+<script type="module">
+// CRYSTAL CORE — a faceted gem/crystal hero with a FRESNEL rim shader (violet faces → cyan silhouette edge, dark
+// refractive interior), a faint wireframe shell, a glowing heart, drifting context particles. A SOLID form — distinct
+// from the node-network and the particle-torus. Real shader craft. Deterministic → seek-capture. 1080x1920, 6s.
+import * as THREE from './three.module.js';
+import { mulberry32, clamp01, easeOut, backOut, softDot, orbitCamera, curlSwirl, fresnelMaterial, anamorphicStreak, grainVignette, PAL } from './mg-core.js';
+import { EffectComposer } from './jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from './jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from './jsm/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from './jsm/postprocessing/ShaderPass.js';
+import { OutputPass } from './jsm/postprocessing/OutputPass.js';
+
+const W = 1080, H = 1920, DUR = 6;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1); renderer.setClearColor(0x05060d, 1);
+// (harvested): ACES Filmic tone mapping + sRGB — the "#1 flat-WebGL fix" (animation-mastery-playbook §3).
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x05060d, 0.07);
+const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 100);
+// selective bloom: HIGH threshold → only the bright cyan fresnel RIM glows, the violet faces stay crisp
+const composer = new EffectComposer(renderer);
+composer.setSize(W, H);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.60, 0.5, 0.58)); // strength, radius, threshold (lowered for streak headroom)
+// anamorphic lens-STREAK after bloom: ONLY the very hottest rim points (high threshold) throw a long thin horizontal flare —
+// a cinematic accent, not a wash (mg-core, harvested 2026-06-24). High threshold keeps the violet faces + soft rim crisp.
+const streakPass = new ShaderPass(anamorphicStreak(THREE, W, H, { strength: 1.2, threshold: 0.82, spread: 4.0 }));
+composer.addPass(streakPass);
+composer.addPass(new OutputPass());
+// finishing pass (LAST): vignette + film grain + triangular dither → kills dark-gradient banding in sRGB (mg-core)
+const grainPass = new ShaderPass(grainVignette(THREE, W, H, { grain: 0.04, vignette: 0.45 }));
+composer.addPass(grainPass);
+const rnd = mulberry32(31415926);
+
+// ---- the crystal: faceted icosahedron + fresnel-rim shader ----
+let geo = new THREE.IcosahedronGeometry(1.75, 1).toNonIndexed();
+geo.computeVertexNormals(); // flat per-face normals = gem facets
+const fresnelMat = fresnelMaterial(THREE, { intensity: 1.9, power: 2.4 });
+const crystal = new THREE.Mesh(geo, fresnelMat);
+scene.add(crystal);
+
+// faint wireframe shell (structure) + a glowing heart
+const wire = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.9, 1)),
+  new THREE.LineBasicMaterial({ color: new THREE.Color().fromArray(PAL.cyan), transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false }));
+scene.add(wire);
+const dotTex = softDot(THREE, 'wide');
+const heart = new THREE.Sprite(new THREE.SpriteMaterial({ map: dotTex, color: 0xffffff, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+heart.scale.setScalar(1.6); scene.add(heart);
+
+// ---- drifting context particles (depth) ----
+const NP = 500;
+const pbase = new Float32Array(NP * 3), pcol = new Float32Array(NP * 3), ppos = new Float32Array(NP * 3);
+for (let i = 0; i < NP; i++) {
+  const r = 3.0 + rnd() * 3.5, th = rnd() * Math.PI * 2, ph = Math.acos(2 * rnd() - 1);
+  pbase[i*3] = r * Math.sin(ph) * Math.cos(th); pbase[i*3+1] = r * Math.cos(ph) * 0.7; pbase[i*3+2] = r * Math.sin(ph) * Math.sin(th);
+  const c = rnd() > 0.5 ? PAL.violet : PAL.cyan; const d = 0.18 + rnd() * 0.22;
+  pcol[i*3] = c[0]*d; pcol[i*3+1] = c[1]*d; pcol[i*3+2] = c[2]*d;
+}
+const pgeo = new THREE.BufferGeometry();
+pgeo.setAttribute('position', new THREE.BufferAttribute(ppos, 3));
+pgeo.setAttribute('color', new THREE.BufferAttribute(pcol, 3));
+scene.add(new THREE.Points(pgeo, new THREE.PointsMaterial({ size: 0.10, map: dotTex, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true })));
+
+window.__seek = (t) => {
+  const p = clamp01(t / DUR);
+  const intro = backOut(clamp01(t / 0.9));               // grow in with overshoot
+  crystal.scale.setScalar(Math.max(0.001, intro));
+  wire.scale.setScalar(Math.max(0.001, intro) * 1.0);
+  crystal.rotation.set(t * 0.14, t * 0.32, 0);
+  wire.rotation.copy(crystal.rotation);
+  fresnelMat.uniforms.intensity.value = 1.9 * easeOut(clamp01(t / 0.7));
+  streakPass.uniforms.uStrength.value = 1.2 * easeOut(clamp01((t - 0.4) / 1.0)); // streak fades in after the gem forms
+  grainPass.uniforms.uTime.value = t * 60.0; // shimmer the grain
+  heart.scale.setScalar((1.3 + 0.35 * Math.sin(t * 2.4)) * easeOut(clamp01((t - 0.3) / 0.8)));
+  for (let i = 0; i < NP; i++) {
+    const d = curlSwirl(pbase[i*3], pbase[i*3+1], pbase[i*3+2], t, 0.22);
+    ppos[i*3] = pbase[i*3] + d[0]; ppos[i*3+1] = pbase[i*3+1] + d[1]; ppos[i*3+2] = pbase[i*3+2] + d[2];
+  }
+  pgeo.attributes.position.needsUpdate = true;
+  orbitCamera(camera, { t, p, ang0: -0.5, angSpan: 1.2, rad0: 6.2, radPull: 0.9, height: 0.9, bob: 0.35, bobSpeed: 0.3 });
+  composer.render();
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>
