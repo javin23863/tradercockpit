@@ -112,7 +112,12 @@ Production:
 
 ## Open items
 
-- Operator: record A-roll for video #1; product waitlist/landing URL (no website
-  exists yet — needed as CTA destination; separate task).
+- Operator: record A-roll for video #1.
+- Landing page BUILT (`site/index.html`, 2026-07-13): "gauntlet" game-onboarding
+  concept — visitor picks a guru strategy, 12-phase funnel executes it on-page
+  (Algory-HUD palette from cockpit tailwind config; simulated demo clearly labeled;
+  paper-only disclaimer). Concept sources: algory.app design truth + FB reel
+  "video-game onboardings, gamify your product". Needs hosting (GitHub Pages) +
+  final YouTube channel URL swap once channel exists.
 - Create the TraderCockpit YouTube channel (brand channel on existing Google account).
 - Meta creds → IG/FB legs live (`meta_setup.py`).

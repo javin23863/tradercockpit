@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TraderCockpit — most strategies die here. that's the point.</title>
+<meta name="description" content="TraderCockpit runs trading strategies through 12 phases of statistical torture. Watch the gauntlet execute one right now.">
+<style>
+:root{
+  --bg:#08030a; --bg-soft:#0d0510; --panel:#0a0407; --elev:#160a12;
+  --line:#3a0d1a; --ink:#F5E8EA; --dim:#c89aa3; --faint:#7a4a52;
+  --accent:#FF1744; --accent-soft:#7a142e;
+  --ok:#00E676; --warn:#FF9100; --bad:#FF5E79; --run:#2196F3;
+  --mono:"Cascadia Mono",Consolas,ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);line-height:1.55;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 1.2rem}
+
+/* ---------- boot screen ---------- */
+#boot{position:fixed;inset:0;background:var(--bg);z-index:50;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .6s}
+#boot.done{opacity:0;pointer-events:none}
+#bootlog{width:min(640px,90vw);font-size:.85rem;color:var(--ok);text-shadow:0 0 8px rgba(0,230,118,.45)}
+#bootlog .dim{color:var(--faint)}
+#bootlog .accent{color:var(--accent)}
+#boot .skip{position:absolute;bottom:2rem;color:var(--faint);font-size:.75rem;letter-spacing:.15em}
+/* scanlines over everything */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.14) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+
+/* ---------- hero ---------- */
+header{padding:4.5rem 0 2rem;text-align:center;position:relative}
+.sig{color:var(--faint);font-size:.72rem;letter-spacing:.35em;text-transform:uppercase}
+h1{font-size:clamp(1.7rem,4.6vw,3.1rem);font-weight:700;margin:.8rem 0 .4rem;letter-spacing:-.01em}
+h1 .x{color:var(--accent);text-shadow:0 0 18px rgba(255,23,68,.6)}
+.sub{color:var(--dim);max-width:640px;margin:0 auto;font-size:.95rem}
+.sub b{color:var(--ink)}
+
+/* ---------- gauntlet chamber ---------- */
+#chamber{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--bg-soft));
+  border-radius:10px;margin:2.2rem auto 0;padding:1.4rem;position:relative;
+  box-shadow:0 0 60px rgba(255,23,68,.07),inset 0 0 120px rgba(0,0,0,.5)}
+.chamber-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;
+  border-bottom:1px solid var(--line);padding-bottom:.8rem;margin-bottom:1rem}
+.chamber-head .t{color:var(--dim);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase}
+.tag{font-size:.62rem;letter-spacing:.18em;color:var(--warn);border:1px solid var(--warn);
+  border-radius:3px;padding:.15rem .5rem;opacity:.9}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin:.4rem 0 1.1rem}
+.chip{font-family:var(--mono);font-size:.8rem;color:var(--dim);background:var(--elev);
+  border:1px solid var(--line);border-radius:5px;padding:.5rem .9rem;cursor:pointer;transition:all .15s}
+.chip:hover{color:var(--ink);border-color:var(--accent-soft)}
+.chip.sel{color:var(--ink);border-color:var(--accent);box-shadow:0 0 14px rgba(255,23,68,.35)}
+#initiate{display:block;margin:0 auto;font-family:var(--mono);font-size:1rem;letter-spacing:.22em;
+  color:var(--ink);background:var(--accent-soft);border:1px solid var(--accent);border-radius:6px;
+  padding:.85rem 2.4rem;cursor:pointer;text-transform:uppercase;transition:all .2s}
+#initiate:hover:not(:disabled){background:var(--accent);color:#fff;box-shadow:0 0 30px rgba(255,23,68,.55)}
+#initiate:disabled{opacity:.35;cursor:default}
+.hint{text-align:center;color:var(--faint);font-size:.7rem;margin-top:.6rem}
+
+/* run grid */
+#rungrid{display:none;grid-template-columns:1.1fr .9fr;gap:1.2rem;margin-top:1.3rem}
+#rungrid.on{display:grid}
+@media(max-width:760px){#rungrid{grid-template-columns:1fr}}
+.phases{display:flex;flex-direction:column;gap:.3rem}
+.ph{display:flex;align-items:center;gap:.6rem;font-size:.74rem;color:var(--faint);
+  border-left:2px solid var(--line);padding:.28rem .6rem;transition:all .2s}
+.ph .n{width:1.4rem;color:var(--faint)}
+.ph .nm{flex:1}
+.ph .kill{color:var(--bad);opacity:0;font-variant-numeric:tabular-nums}
+.ph.live{color:var(--ink);border-left-color:var(--run);background:rgba(33,150,243,.06)}
+.ph.live .n{color:var(--run)}
+.ph.done{color:var(--dim);border-left-color:var(--accent)}
+.ph.done .kill{opacity:1}
+.ph.clear{border-left-color:var(--ok)}
+.ph.clear .kill{color:var(--ok)}
+.right{display:flex;flex-direction:column;gap:.9rem}
+#mc{width:100%;height:190px;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.count{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem;text-align:center}
+.count .big{font-size:2.1rem;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 16px rgba(255,23,68,.35)}
+.count .lbl{font-size:.66rem;color:var(--faint);letter-spacing:.25em;text-transform:uppercase}
+#termbox{background:#050208;border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem;
+  height:130px;overflow-y:auto;font-size:.68rem;color:var(--dim)}
+#termbox .k{color:var(--bad)} #termbox .g{color:var(--ok)} #termbox .b{color:var(--run)}
+
+/* verdict */
+#verdict{display:none;margin-top:1.3rem;border:1px solid var(--accent);border-radius:8px;
+  background:linear-gradient(180deg,rgba(255,23,68,.08),transparent);padding:1.3rem;text-align:center}
+#verdict.on{display:block;animation:vin .5s ease}
+@keyframes vin{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+#verdict .vh{font-size:1.35rem;font-weight:700;color:var(--accent);letter-spacing:.06em;text-shadow:0 0 20px rgba(255,23,68,.5)}
+#verdict .vh.lucky{color:var(--warn);text-shadow:0 0 20px rgba(255,145,0,.5)}
+#verdict p{color:var(--dim);font-size:.85rem;max-width:560px;margin:.6rem auto 0}
+#verdict .again{margin-top:1rem;display:inline-block;color:var(--dim);font-size:.75rem;cursor:pointer;border-bottom:1px dashed var(--faint)}
+
+/* ---------- sections ---------- */
+section{padding:4.2rem 0 1rem}
+h2{font-size:1.25rem;letter-spacing:.08em;margin-bottom:1.4rem}
+h2::before{content:"// ";color:var(--accent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1.2rem}
+.card h3{font-size:.9rem;color:var(--ink);margin-bottom:.5rem}
+.card h3::before{content:"▸ ";color:var(--accent)}
+.card p{font-size:.8rem;color:var(--dim)}
+.quote{border-left:3px solid var(--accent);padding:.6rem 1.1rem;margin:2rem 0;color:var(--dim);font-size:.95rem}
+.quote b{color:var(--ink)}
+
+/* pyramid strip */
+.strip{display:flex;flex-direction:column;gap:.35rem;max-width:560px;margin:1.5rem auto 0}
+.strip .row{display:flex;justify-content:space-between;font-size:.76rem;color:var(--dim);
+  border:1px solid var(--line);border-radius:4px;padding:.5rem .9rem;background:var(--panel)}
+.strip .row.hi{border-color:var(--accent);color:var(--ink);box-shadow:0 0 18px rgba(255,23,68,.18)}
+
+/* CTA */
+#cta{text-align:center;padding-bottom:3rem}
+.ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+.btn{font-family:var(--mono);letter-spacing:.14em;font-size:.85rem;border-radius:6px;padding:.8rem 1.6rem;
+  cursor:pointer;text-transform:uppercase;border:1px solid var(--line);color:var(--dim);background:var(--elev)}
+.btn.primary{border-color:var(--accent);color:var(--ink);background:var(--accent-soft)}
+.btn.primary:hover{background:var(--accent);color:#fff;text-decoration:none;box-shadow:0 0 26px rgba(255,23,68,.5)}
+.btn:hover{color:var(--ink);text-decoration:none}
+
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--faint);font-size:.68rem;text-align:center}
+footer .warnline{color:var(--warn);margin-bottom:.5rem}
+@media (prefers-reduced-motion: reduce){
+  #boot{display:none}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div id="boot" title="click to skip">
+  <div id="bootlog"></div>
+  <div class="skip">CLICK TO SKIP</div>
+</div>
+
+<header class="wrap">
+  <div class="sig">TRADERCOCKPIT // STRATEGY EXECUTION CHAMBER</div>
+  <h1>Most trading strategies <span class="x">die here</span>.<br>That's the point.</h1>
+  <p class="sub">Every backtest you've ever been sold showed you the winners. TraderCockpit is the machine
+    that runs a strategy through <b>12 phases of statistical torture</b> and tells you the truth —
+    before the market charges you for it.</p>
+
+  <div id="chamber" class="wrap">
+    <div class="chamber-head">
+      <span class="t">GAUNTLET // AWAITING CANDIDATE</span>
+      <span class="tag">SIMULATED DEMO — REAL FUNNEL LIVES IN THE APP</span>
+    </div>
+    <div class="chips" id="chips"></div>
+    <button id="initiate">Initiate Gauntlet</button>
+    <div class="hint">pick a strategy the internet sold you. watch what an honest pipeline does to it.</div>
+
+    <div id="rungrid">
+      <div class="phases" id="phases"></div>
+      <div class="right">
+        <div class="count"><div class="big" id="alive">1,024</div><div class="lbl">variants alive</div></div>
+        <canvas id="mc" width="460" height="190"></canvas>
+        <div id="termbox"></div>
+      </div>
+    </div>
+
+    <div id="verdict">
+      <div class="vh" id="vh"></div>
+      <p id="vp"></p>
+      <span class="again" id="again">run another strategy through it</span>
+    </div>
+  </div>
+</header>
+
+<section class="wrap" id="why">
+  <h2>why a machine that kills strategies</h2>
+  <div class="cards">
+    <div class="card"><h3>No lying allowed</h3>
+      <p>Nothing on the deck is ever synthesized to look good. If Monte-Carlo paths weren't recorded, the panel says
+      "MC PATHS NOT RECORDED" — it doesn't draw pretty fakes. Absence is stated, never decorated.</p></div>
+    <div class="card"><h3>Evidence or it didn't happen</h3>
+      <p>"SURVIVOR" status requires a finished run with provenance-matched receipts. Fresh strategies read UNTESTED.
+      The words "validated" and "robust" are locked behind cleared gates — they cannot appear otherwise.</p></div>
+    <div class="card"><h3>Paper-only by design</h3>
+      <p>TraderCockpit is a research instrument, not a bot. Order routing is hard-blocked in code.
+      It exists to tell you whether an edge is real — not to promise you one.</p></div>
+  </div>
+  <div class="quote">The gurus' incentive is to convince you their strategy works.
+    <b>Our machine's only job is to prove yours doesn't — and fail.</b>
+    When it can't kill a strategy after 12 phases, that survival means something.</div>
+</section>
+
+<section class="wrap" id="machine">
+  <h2>what actually runs inside</h2>
+  <div class="cards">
+    <div class="card"><h3>Genesis funnel</h3><p>Thousands of strategy variants enter a gated pipeline.
+      Each phase is a filter with teeth: data integrity, parameter plateaus, walk-forward, resampled and
+      shuffled Monte-Carlo, cost stress, regime splits, alpha decay.</p></div>
+    <div class="card"><h3>MC theater</h3><p>The same deterministic simulations the gates graded, drawn as
+      spaghetti clouds — your equity curve against a hundred alternate universes. If your curve only wins
+      in the universe you backtested, you'll see it.</p></div>
+    <div class="card"><h3>Honest ledger</h3><p>Every candidate ever bred is counted — including the ones
+      culled before admission. Odometers run off the ledger census, not marketing math.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="views">
+  <h2>the game everyone else is playing</h2>
+  <p class="sub" style="margin:0 0 .5rem">Trading YouTube sells the bottom of this pyramid. We build for the top.</p>
+  <div class="strip">
+    <div class="row hi"><span>honest, evidence-gated tooling</span><span>rare</span></div>
+    <div class="row"><span>"my secret indicator" courses</span><span>everywhere</span></div>
+    <div class="row"><span>signal groups &amp; lambo thumbnails</span><span>everywhere</span></div>
+    <div class="row"><span>screenshots of demo accounts</span><span>everywhere</span></div>
+  </div>
+</section>
+
+<section class="wrap" id="cta">
+  <h2>watch it execute strategies for real</h2>
+  <p class="sub">On the channel we take strategies the internet worships — ICT, SMC, supply &amp; demand,
+    price action — code them honestly, and publish whatever the gauntlet says. No winners promised.
+    Receipts guaranteed.</p>
+  <div class="ctas">
+    <a class="btn primary" href="https://www.youtube.com/@TraderCockpit" rel="noopener">▶ Watch the executions</a>
+    <a class="btn" href="mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20waitlist" rel="noopener">Join the waitlist</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="warnline">RESEARCH INSTRUMENT — PAPER TRADING ONLY. NOT FINANCIAL ADVICE. NO PERFORMANCE IS PROMISED OR IMPLIED.</div>
+    <div>The gauntlet demo above is a simulation for illustration; real runs produce real, reproducible receipts inside the app.</div>
+    <div style="margin-top:.5rem">TRADERCOCKPIT © 2026</div>
+  </div>
+</footer>
+
+<script>
+"use strict";
+/* ---------- deterministic rng per strategy (no Math.random needed, and repeatable) ---------- */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);
+  t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+/* ---------- boot sequence ---------- */
+const BOOT=[
+ ["TRADERCOCKPIT OS v1.0 — command deck bootstrap",""],
+ ["mounting honest ledger .......... ","OK"],
+ ["arming gate array [12 phases] ... ","OK"],
+ ["order routing ................... ","<span class='accent'>HARD-BLOCKED (paper-only)</span>"],
+ ["marketing department ............ ","<span class='dim'>NOT FOUND</span>"],
+ ["loading gauntlet ................ ","OK"],
+];
+const boot=document.getElementById("boot"),blog=document.getElementById("bootlog");
+let bootDone=false;
+function endBoot(){if(!bootDone){bootDone=true;boot.classList.add("done")}}
+boot.addEventListener("click",endBoot);
+(function type(i){
+  if(i>=BOOT.length){setTimeout(endBoot,650);return}
+  const d=document.createElement("div");d.innerHTML="<span class='dim'>&gt;</span> "+BOOT[i][0]+BOOT[i][1];
+  blog.appendChild(d);setTimeout(()=>type(i+1),i===0?520:300);
+})(0);
+
+/* ---------- gauntlet data ---------- */
+const STRATS=[
+ {n:"ICT / Smart Money", s:11, flavor:"liquidity sweeps and kill zones"},
+ {n:"SMC Order Blocks", s:23, flavor:"institutional footprints"},
+ {n:"Supply & Demand", s:37, flavor:"zones drawn after the move"},
+ {n:"MA Golden Cross", s:41, flavor:"the 1970s called"},
+ {n:"RSI Reversal", s:53, flavor:"oversold can stay oversold"},
+ {n:"Breakout + Volume", s:67, flavor:"every backtest's darling"},
+];
+const PHASES=[
+ ["01","spec parse & sanity","malformed logic"],
+ ["02","data integrity","lookahead bias"],
+ ["03","in-sample fit","never had an edge"],
+ ["04","parameter plateau","knife-edge params"],
+ ["05","walk-forward","curve-fit to the past"],
+ ["06","MC resample","fragile trade order"],
+ ["07","MC shuffle","edge = luck"],
+ ["08","cost & slippage stress","spread ate it"],
+ ["09","regime split","one-regime wonder"],
+ ["10","alpha decay","edge already gone"],
+ ["11","portfolio overlap","clone of a survivor"],
+ ["12","capacity & final gate","couldn't scale"],
+];
+const chipsEl=document.getElementById("chips"),phasesEl=document.getElementById("phases"),
+ initBtn=document.getElementById("initiate"),grid=document.getElementById("rungrid"),
+ aliveEl=document.getElementById("alive"),term=document.getElementById("termbox"),
+ verdict=document.getElementById("verdict"),vh=document.getElementById("vh"),vp=document.getElementById("vp"),
+ mc=document.getElementById("mc"),ctx=mc.getContext("2d");
+let sel=null,running=false;
+
+STRATS.forEach((s,i)=>{
+  const b=document.createElement("button");b.className="chip";b.textContent=s.n;
+  b.onclick=()=>{if(running)return;document.querySelectorAll(".chip").forEach(c=>c.classList.remove("sel"));
+    b.classList.add("sel");sel=s;initBtn.disabled=false};
+  chipsEl.appendChild(b);
+});
+initBtn.disabled=true;
+
+function buildPhases(){phasesEl.innerHTML="";return PHASES.map(p=>{
+  const d=document.createElement("div");d.className="ph";
+  d.innerHTML=`<span class="n">${p[0]}</span><span class="nm">${p[1]}</span><span class="kill"></span>`;
+  phasesEl.appendChild(d);return d})}
+function log(html){const d=document.createElement("div");d.innerHTML=html;term.appendChild(d);term.scrollTop=term.scrollHeight}
+function fmt(n){return n.toLocaleString("en-US")}
+
+/* MC spaghetti: paths drift, most decay */
+function drawMC(rng,prog,survRatio){
+  const W=mc.width,H=mc.height;ctx.fillStyle="#050208";ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle="rgba(58,13,26,.9)";ctx.beginPath();ctx.moveTo(0,H*.55);ctx.lineTo(W,H*.55);ctx.stroke();
+  const paths=42,r2=mulberry32(sel.s*97+1);
+  for(let p=0;p<paths;p++){
+    const lucky=r2()<survRatio;let y=H*.55,x=0;
+    ctx.beginPath();ctx.moveTo(x,y);
+    const drift=lucky? -.16 : (r2()*.5-.14);
+    for(let i=1;i<=90;i++){
+      x=i/90*W*prog; y+=(r2()-.5)*7+drift; y=Math.max(8,Math.min(H-8,y));
+      ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle=lucky?"rgba(0,230,118,.5)":"rgba(255,94,121,.16)";ctx.stroke();
+  }
+  ctx.fillStyle="rgba(245,232,234,.45)";ctx.font="10px monospace";
+  ctx.fillText("MC THEATER — SIMULATED",8,14);
+}
+
+function runGauntlet(){
+  if(!sel||running)return;running=true;
+  initBtn.disabled=true;grid.classList.add("on");verdict.classList.remove("on");term.innerHTML="";
+  const rng=mulberry32(sel.s),rows=buildPhases();
+  /* survivors: mostly 0, occasionally a handful — honest theater */
+  const luckyRun=rng()<.25, finalSurv=luckyRun?Math.floor(rng()*4)+1:0;
+  let alive=1024;aliveEl.textContent=fmt(alive);
+  log(`<span class="b">&gt; candidate: ${sel.n}</span> — ${sel.flavor}`);
+  log(`&gt; breeding 1,024 parameter variants… seeded through PHASE G`);
+  let i=0;
+  (function phase(){
+    if(i>0){rows[i-1].classList.remove("live");rows[i-1].classList.add("done")}
+    if(i>=PHASES.length){
+      drawMC(rng,1,finalSurv>0?.06:.015);
+      vh.textContent=finalSurv===0?`SURVIVORS: 0 — EDGE WAS LUCK`:`SURVIVORS: ${finalSurv} of 1,024`;
+      vh.className="vh"+(finalSurv>0?" lucky":"");
+      vp.textContent=finalSurv===0
+        ?`Every variant of "${sel.n}" died before the final gate in this simulation. That's not an insult — it's the median outcome of honest testing, and knowing it costs you nothing here. Finding out live costs an account.`
+        :`${finalSurv} variants crawled out alive — which earns them exactly one label: UNTESTED-IN-FORWARD. In the real app they'd go to paper lanes under alpha-decay watch, not to a sales page.`;
+      verdict.classList.add("on");running=false;initBtn.disabled=false;
+      log(`<span class="${finalSurv?'g':'k'}">&gt; gauntlet complete — ${finalSurv} survivor(s)</span>`);
+      return;
+    }
+    const row=rows[i];row.classList.add("live");
+    const isLast=i===PHASES.length-1;
+    let killFrac=.25+rng()*.45;
+    if(isLast){killFrac=(alive-finalSurv)/alive}
+    else if(alive<=finalSurv+2){killFrac=0}
+    const kills=Math.min(alive-(isLast?finalSurv:0),Math.round(alive*killFrac));
+    alive-=kills;
+    setTimeout(()=>{
+      aliveEl.textContent=fmt(alive);
+      row.querySelector(".kill").textContent=kills>0?`-${fmt(kills)} ${PHASES[i][2]}`:"clear";
+      if(kills===0)row.classList.add("clear");
+      drawMC(rng,(i+1)/PHASES.length,.03);
+      if(kills>0)log(`&gt; phase ${PHASES[i][0]} <span class="k">culled ${fmt(kills)}</span> — ${PHASES[i][2]}`);
+      else log(`&gt; phase ${PHASES[i][0]} <span class="g">clear</span>`);
+      i++;phase();
+    },560);
+  })();
+}
+initBtn.addEventListener("click",runGauntlet);
+document.getElementById("again").addEventListener("click",()=>{
+  verdict.classList.remove("on");grid.classList.remove("on");
+  document.getElementById("chamber").scrollIntoView({behavior:"smooth"});
+});
+drawMC(mulberry32(1),0,.02);
+</script>
+</body>
+</html>
