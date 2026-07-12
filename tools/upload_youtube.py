@@ -39,28 +39,19 @@ def get_service():
     return build("youtube", "v3", credentials=creds)
 
 
-def main():
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("video")
-    p.add_argument("--title", required=True)
-    p.add_argument("--description", default="")
-    p.add_argument("--tags", nargs="*", default=[])
-    p.add_argument("--category", default="22", help="YouTube category id (22=People & Blogs, 27=Education, 28=Sci/Tech)")
-    p.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
-    p.add_argument("--thumbnail", help="optional PNG/JPG thumbnail")
-    args = p.parse_args()
-
+def upload(video, title, description="", tags=None, category="22", privacy="private", thumbnail=None):
+    """Upload one video; returns the YouTube URL."""
     yt = get_service()
     body = {
         "snippet": {
-            "title": args.title,
-            "description": args.description,
-            "tags": args.tags,
-            "categoryId": args.category,
+            "title": title,
+            "description": description,
+            "tags": tags or [],
+            "categoryId": category,
         },
-        "status": {"privacyStatus": args.privacy, "selfDeclaredMadeForKids": False},
+        "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False},
     }
-    media = MediaFileUpload(args.video, chunksize=8 * 1024 * 1024, resumable=True)
+    media = MediaFileUpload(video, chunksize=8 * 1024 * 1024, resumable=True)
     request = yt.videos().insert(part="snippet,status", body=body, media_body=media)
 
     response = None
@@ -71,9 +62,23 @@ def main():
     video_id = response["id"]
     print(f"Uploaded: https://youtu.be/{video_id}")
 
-    if args.thumbnail:
-        yt.thumbnails().set(videoId=video_id, media_body=MediaFileUpload(args.thumbnail)).execute()
+    if thumbnail:
+        yt.thumbnails().set(videoId=video_id, media_body=MediaFileUpload(thumbnail)).execute()
         print("Thumbnail set.")
+    return f"https://youtu.be/{video_id}"
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("video")
+    p.add_argument("--title", required=True)
+    p.add_argument("--description", default="")
+    p.add_argument("--tags", nargs="*", default=[])
+    p.add_argument("--category", default="22", help="YouTube category id (22=People & Blogs, 27=Education, 28=Sci/Tech)")
+    p.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
+    p.add_argument("--thumbnail", help="optional PNG/JPG thumbnail")
+    args = p.parse_args()
+    upload(args.video, args.title, args.description, args.tags, args.category, args.privacy, args.thumbnail)
 
 
 if __name__ == "__main__":
