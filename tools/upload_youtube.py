@@ -39,7 +39,8 @@ def get_service():
     return build("youtube", "v3", credentials=creds)
 
 
-def upload(video, title, description="", tags=None, category="22", privacy="private", thumbnail=None):
+def upload(video, title, description="", tags=None, category="22", privacy="private", thumbnail=None,
+           synthetic=False):
     """Upload one video; returns the YouTube URL."""
     yt = get_service()
     body = {
@@ -49,7 +50,9 @@ def upload(video, title, description="", tags=None, category="22", privacy="priv
             "tags": tags or [],
             "categoryId": category,
         },
-        "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False},
+        "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False,
+                   # honest altered/synthetic disclosure for AI-voiced faceless videos
+                   "containsSyntheticMedia": bool(synthetic)},
     }
     media = MediaFileUpload(video, chunksize=8 * 1024 * 1024, resumable=True)
     request = yt.videos().insert(part="snippet,status", body=body, media_body=media)
@@ -77,8 +80,11 @@ def main():
     p.add_argument("--category", default="22", help="YouTube category id (22=People & Blogs, 27=Education, 28=Sci/Tech)")
     p.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
     p.add_argument("--thumbnail", help="optional PNG/JPG thumbnail")
+    p.add_argument("--synthetic", action="store_true",
+                   help="declare altered/synthetic (AI-generated) content honestly")
     args = p.parse_args()
-    upload(args.video, args.title, args.description, args.tags, args.category, args.privacy, args.thumbnail)
+    upload(args.video, args.title, args.description, args.tags, args.category, args.privacy,
+           args.thumbnail, synthetic=args.synthetic)
 
 
 if __name__ == "__main__":

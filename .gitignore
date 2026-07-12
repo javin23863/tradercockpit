@@ -8,3 +8,5 @@ postiz/.env
 studio-kit/assets/samples/
 studio-kit/**/node_modules/
 studio-kit/**/output/
+studio-kit/tribev2/
+tools/token_channel.json

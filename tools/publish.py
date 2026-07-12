@@ -141,6 +141,8 @@ def main():
     p.add_argument("--thumbnail")
     p.add_argument("--platforms", nargs="+", default=["youtube", "instagram", "facebook"],
                    choices=["youtube", "instagram", "facebook"])
+    p.add_argument("--synthetic", action="store_true",
+                   help="declare altered/synthetic (AI VO / AI visuals) on YouTube upload")
     p.add_argument("--dry-run", action="store_true", help="validate config + file, publish nothing")
     args = p.parse_args()
 
@@ -164,7 +166,8 @@ def main():
     if "youtube" in args.platforms:
         from upload_youtube import upload
         results["youtube"] = upload(str(video), args.title, args.description or args.caption,
-                                    args.tags, privacy=args.privacy, thumbnail=args.thumbnail)
+                                    args.tags, privacy=args.privacy, thumbnail=args.thumbnail,
+                                    synthetic=args.synthetic)
     if "facebook" in args.platforms:
         results["facebook"] = publish_facebook(video, args.caption)
     if "instagram" in args.platforms:

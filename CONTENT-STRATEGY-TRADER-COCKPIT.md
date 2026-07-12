@@ -72,14 +72,23 @@ TikTok via `publish.py`.
 
 ## Rule zero — co-pilot, not replacement (our version)
 
-**DECIDED 2026-07-13: operator on camera, face + voice. Channel name: TraderCockpit.**
+**REVISED 2026-07-13 (supersedes on-camera decision): FACELESS + AUTOMATED.
+Channel name: TraderCockpit.**
 
-Format = hybrid: operator records talking-head A-roll (phone/webcam, plain takes,
-no editing skill needed); OpenMontage does everything else — cockpit screen-capture
-B-roll, motion graphics, cuts, captions (faster-whisper word-level), music, 16:9
-master + 9:16 vertical cut. Kokoro TTS reserved for B-roll narration inserts only,
-never the whole video. Human face + real receipts = the anti-slop layer the
-algorithm rewards; engine = the edit bay.
+Format = data-essay: Kokoro VO over real cockpit/gauntlet footage, motion-graphic
+concept cards (studio-kit compositions), kinetic captions. Pipeline runs via
+`tools/produce.py` (VO → captions → assemble → shorts → publish).
+
+Anti-slop guardrails (mandatory — faceless lives or dies on these):
+1. Every video anchored on REAL screen captures + verified numbers. No generic
+   stock-footage padding. The receipts ARE the face.
+2. YouTube altered/synthetic disclosure set on upload (`--synthetic` flag,
+   `status.containsSyntheticMedia`) — honest labeling, no gaming.
+3. Target 8–12 min data-essays, not 20-min talking-head lengths — faceless
+   retention math is different.
+4. MONTAGE-CRAFT rulebook + attention QA (TRIBE, internal) gate every cut.
+5. If retention/distribution stalls after 5–8 uploads, revisit the on-camera
+   hybrid — the algorithm's verdict outranks preference.
 
 ## Production loop (per video)
 

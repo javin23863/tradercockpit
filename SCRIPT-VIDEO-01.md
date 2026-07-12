@@ -1,7 +1,14 @@
 # VIDEO #1 — "I Tried to Code ICT. It's Not Even Possible."
 
-Channel: youtube.com/@Thetradercockpit · Target length: 16–20 min (Revelio format,
-211k views @ 12.9k subs = 16:1 proven demand) · CTA: https://javin23863.github.io/soical/
+**FORMAT REVISED 2026-07-13: FACELESS + AUTOMATED.** Production source of truth =
+`productions/video-01/vo.txt` (12 VO sections, Kokoro) + one visual per section in
+`productions/video-01/visuals/NN-*.mp4|png`, assembled by `tools/produce.py`.
+Target length ~10 min (faceless retention math). A-roll beats below kept as the
+narrative skeleton; "you on camera" columns are superseded. Upload with
+`publish.py --synthetic --category 27`.
+
+Channel: youtube.com/@Thetradercockpit · Proven demand: Revelio format,
+211k views @ 12.9k subs = 16:1 · CTA: https://javin23863.github.io/soical/
 
 **Every number below is verified against on-disk artifacts (fact sheet 2026-07-13).
 Do not round up, do not improve. The honesty IS the hook.**

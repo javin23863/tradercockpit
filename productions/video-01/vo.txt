@@ -1,0 +1,38 @@
+# Each "## NN visual-slug" block = one VO section = one visual in visuals/NN-*.mp4|png
+# Verified numbers only — see SCRIPT-VIDEO-01.md honesty checklist.
+
+## 01 odometer-coldopen
+This week, three hundred forty nine thousand, nine hundred and fourteen trading strategies were bred inside one machine. One hundred eleven thousand, nine hundred sixty six of them made it to the starting line. And the number that have earned the word validated? Zero. Not because they all failed. Because this system refuses to say that word until a strategy survives twelve phases of statistical torture. But before any of that could happen, the machine hit a wall nobody on trading YouTube talks about. It tried to code ICT. And it turns out — you literally can't.
+
+## 02 deck-pan
+This is TraderCockpit. A research machine with one job: prove that trading strategies don't work. And fail. When it can't kill a strategy after twelve rounds, that survival actually means something. Today: why the internet's favorite strategy can't even enter the arena, what can, and what honest testing looks like at industrial scale.
+
+## 03 yaml-receipt
+Here's the config file, unedited. Quote: deliberately absent — Wyckoff, Elliott Wave, Order Blocks, ICT. Structural concepts NOT expressible in this vocabulary. Approximating them and keeping the famous name would be a mislabel. End quote. The machine's own rulebook bans it from testing ICT. Why?
+
+## 04 falsifiable-card
+Because a strategy has to be written as exact, falsifiable rules before it can be tested. When does a level count as swept? Which candle closes the order block? Ten ICT traders will give ten different answers — and every one of them is unfalsifiable in the moment and obvious in hindsight. If it can't be written as code, it can't be tested. If it can't be tested, it can't be disproven. And a method that can't be disproven isn't a method. It's a horoscope with a Discord server.
+
+## 05 three-drawings
+And to be fair — this is not saying ICT traders are stupid. It's saying the famous name can't be pinned down honestly. Everyone who claims they backtested ICT actually tested their own private interpretation. A different strategy, wearing the brand.
+
+## 06 concept-cards
+So what CAN be coded? Ten textbook concepts, each with decades of literature behind it. Donchian channel breakouts and breakdowns — the nineteen sixties trend rules. The golden cross. EMA momentum. RSI mean reversion, and its momentum cousin. Volatility squeeze breakouts. ATR expansion. Inside bar compression. Bollinger band mean reversion. Boring? Maybe. Testable? Completely. Every one is exact rules, no interpretation, no vibes.
+
+## 07 funnel-capture
+Each concept gets bred into thousands of parameter variants — eight thousand and forty two candidates per market. Then the funnel: parse check, look-ahead bias check, fixture evaluation, duplicate signal kill, and every survivor is replayed twice — if the two runs don't match exactly, it dies. Across forty six market scopes: three hundred forty nine thousand nine hundred fourteen bred. Two hundred twenty five thousand nine hundred ninety six unique survivors. One hundred eleven thousand nine hundred sixty six admitted.
+
+## 08 untested-badges
+And here's the part that matters. Admitted does not mean works. Admitted means honest enough to be worth torturing. In this system every single one of them carries the same label: UNTESTED. Compare that to every backtest site on earth, where one green equity curve gets called profitable.
+
+## 09 gauntlet-phases
+Because next comes the gauntlet. Twelve phases. Intake baseline. Out-of-sample retest. Session timing stress. Cost stress at two to three times real slippage. Monte Carlo parameter perturbation — two hundred simulations per candidate. Monte Carlo trade shuffle — if your edge disappears when the trade order changes, it was luck. Walk-forward with frozen parameters. A walk-forward correlation gate. Final out-of-sample. And a governance battery: deflated Sharpe ratio, probability of backtest overfitting, combinatorial cross-validation. Each phase exists because somebody, somewhere, got fooled without it.
+
+## 10 sizing-receipt
+Has the machine ever said no to something that looked great? Here's a real receipt from a real run on real Dow futures data. One sizing configuration: plus one hundred twenty nine percent net improvement, stable across subperiods — adopted. Another configuration: plus one hundred thirty percent — nearly identical headline — refused, because the gains were concentrated in too few time periods. A third: the grading made results forty one percent worse, and the system printed exactly that. A machine that can't say no is a marketing department.
+
+## 11 series-hook
+So that's the setup. One hundred eleven thousand strategies are sitting in the arena, and the battery runs next — on camera, in the next videos. Whatever survives, survives. Whatever dies, dies publicly. If someone's charging you nine hundred ninety seven dollars for a strategy that's on the kill list… maybe wait a week.
+
+## 12 cta-outro
+There's a mini version of the gauntlet you can run in your browser right now — link below. Pick the strategy the internet sold you, and watch what an honest pipeline does to it. And one more thing, stated plainly: this is a research instrument. Paper only, by design. It will never place a trade, and nothing here promises you profit. That's the point. Subscribe for the executions.
