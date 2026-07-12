@@ -72,11 +72,14 @@ TikTok via `publish.py`.
 
 ## Rule zero — co-pilot, not replacement (our version)
 
-OpenMontage renders, Kokoro voices, Claude scripts — but every video is anchored on
-real cockpit screen recordings and real pipeline receipts. That's the "face, voice,
-experience, proof" layer the algorithm rewards. Open question for operator: show your
-own face/voice for retention + trust, or stay faceless-with-real-receipts (higher
-slop-label risk; substance must carry it).
+**DECIDED 2026-07-13: operator on camera, face + voice. Channel name: TraderCockpit.**
+
+Format = hybrid: operator records talking-head A-roll (phone/webcam, plain takes,
+no editing skill needed); OpenMontage does everything else — cockpit screen-capture
+B-roll, motion graphics, cuts, captions (faster-whisper word-level), music, 16:9
+master + 9:16 vertical cut. Kokoro TTS reserved for B-roll narration inserts only,
+never the whole video. Human face + real receipts = the anti-slop layer the
+algorithm rewards; engine = the edit bay.
 
 ## Production loop (per video)
 
@@ -88,9 +91,28 @@ slop-label risk; substance must carry it).
    (IG/FB pending Meta creds; TikTok manual).
 6. Log result; feed retention/CTR back into idea selection.
 
+## Video #1 (picked)
+
+Idea #3: **"I coded ICT, SMC, supply & demand and price action into one algorithm.
+Then I tested all of them. Receipts inside."**
+
+Why first: it is literally what the esq genesis pipeline already did (~19,931
+candidates through the 12-phase funnel), and the exact cold-open that carried the
+38k-view source video — a proven hook we own the real version of. Anti-guru payoff:
+the honest numbers, whatever they are.
+
+Production:
+1. Outlier-check the hook variants (ICT tested / SMC tested / "I tested every
+   trading strategy") — confirm starving-audience signature before scripting.
+2. Claude script: cold open ≤15s, receipts from real cockpit runs, no profit claims.
+3. Operator records A-roll takes against the script (bullet points, not word-for-word).
+4. Screen-capture cockpit: genesis funnel, MC displays, alpha-decay panels.
+5. OpenMontage assembly → 16:9 long-form + 9:16 shorts cut (funnel-phase moments).
+6. `publish.py` → YouTube (live) — IG/FB once Meta creds land.
+
 ## Open items
 
-- Operator decisions: channel name, face/voice on camera or not, product waitlist URL.
+- Operator: record A-roll for video #1; product waitlist/landing URL (no website
+  exists yet — needed as CTA destination; separate task).
+- Create the TraderCockpit YouTube channel (brand channel on existing Google account).
 - Meta creds → IG/FB legs live (`meta_setup.py`).
-- No website/landing page exists yet anywhere — needed as the funnel destination
-  before videos CTA anywhere. Separate task.
