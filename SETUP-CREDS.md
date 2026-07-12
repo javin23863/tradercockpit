@@ -24,8 +24,12 @@ Then:
 2. Open https://developers.facebook.com/tools/explorer → select your app → **Generate Access Token** with these permissions:
    `pages_show_list, pages_read_engagement, pages_manage_posts, publish_video, instagram_basic, instagram_content_publish`
 3. Make it long-lived: **Tools → Access Token Debugger** → paste token → **Extend Access Token** (60 days).
-4. In Graph Explorer, GET `me/accounts` with that token → copy your Page's **`id`** → `META_PAGE_ID`, and the Page's **`access_token`** → `META_PAGE_TOKEN`. (A Page token obtained from a long-lived user token does not expire.)
-5. GET `{page-id}?fields=instagram_business_account` → copy the id → `META_IG_USER_ID`.
+4. **Automated from here** — run (App ID + secret are on your app's Settings → Basic page):
+   ```powershell
+   cd C:\Users\MSI\Desktop\OpenMontage-Skill\OpenMontage
+   .venv\Scripts\python ..\tools\meta_setup.py --app-id APPID --app-secret SECRET --user-token PASTED_TOKEN
+   ```
+   This exchanges the token for a long-lived one, fetches the non-expiring Page token + IG business id, and writes `META_PAGE_ID` / `META_IG_USER_ID` / `META_PAGE_TOKEN` into `.env`. No manual Graph Explorer digging.
 
 ## 3. Backblaze B2 (Instagram only, ~5 min)
 
