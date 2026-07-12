@@ -2,10 +2,12 @@
 """OpenMontage pipeline dashboard — probes live state, writes dashboard.html, opens it.
 
 Static file regenerated on every run (double-click dashboard.bat). No server.
+--serve runs a localhost-only http.server that rebuilds the page on every GET,
+with a 30s meta-refresh — live view while renders run (dashboard-live.bat).
 Shows: publish-leg readiness, GPU, engine pins, recent renders, git state, quick links.
 Never prints or embeds secret values — only presence booleans from publish.py --dry-run.
 
-Run: python dashboard.py [--no-open]
+Run: python dashboard.py [--no-open | --serve]
 """
 import html
 import os
@@ -91,7 +93,7 @@ def badge(ok, yes="READY", no="MISSING"):
     return f'<span class="badge {cls}">{txt}</span>'
 
 
-def main():
+def build_page(refresh=0):
     legs = leg_status()
     pins = env_pins()
     head, tree, remote = git_state()
@@ -119,7 +121,8 @@ def main():
 
     pin_rows = "".join(f"<tr><td>{k}</td><td><code>{html.escape(v)}</code></td></tr>" for k, v in pins.items())
 
-    page = f"""<!doctype html><html><head><meta charset="utf-8">
+    meta_refresh = f'<meta http-equiv="refresh" content="{refresh}">' if refresh else ""
+    page = f"""<!doctype html><html><head><meta charset="utf-8">{meta_refresh}
 <title>OpenMontage Pipeline</title>
 <style>
  body{{background:#14161a;color:#d8dce2;font:14px/1.5 'Segoe UI',sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem}}
@@ -158,7 +161,7 @@ def main():
 <tr><td>dry-run creds check</td><td><code>python tools\\publish.py x --title x --dry-run</code></td></tr>
 <tr><td>Meta creds fill</td><td><code>python tools\\meta_setup.py --app-id .. --app-secret .. --user-token ..</code></td></tr>
 <tr><td>production dashboard</td><td><code>cd OpenMontage &amp;&amp; python -m backlot open</code> (per-video board)</td></tr>
-<tr><td>refresh this page</td><td>re-run <code>dashboard.bat</code></td></tr>
+<tr><td>refresh this page</td><td>re-run <code>dashboard.bat</code>, or <code>dashboard-live.bat</code> for auto-refresh every 30s</td></tr>
 </table>
 
 <h2>Docs</h2>
@@ -171,7 +174,38 @@ def main():
 </p>
 </body></html>"""
 
-    OUT.write_text(page, encoding="utf-8")
+    return page
+
+
+def serve(port=8788):
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            body = build_page(refresh=30).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *args):
+            pass
+
+    # localhost only — never expose creds-adjacent status on the LAN
+    srv = HTTPServer(("127.0.0.1", port), Handler)
+    if "--no-open" not in sys.argv:
+        import webbrowser
+        webbrowser.open(f"http://127.0.0.1:{port}")
+    print(f"live dashboard at http://127.0.0.1:{port} — Ctrl+C to stop")
+    srv.serve_forever()
+
+
+def main():
+    if "--serve" in sys.argv:
+        serve()
+        return
+    OUT.write_text(build_page(), encoding="utf-8")
     print(f"wrote {OUT}")
     if "--no-open" not in sys.argv:
         os.startfile(OUT)  # noqa
