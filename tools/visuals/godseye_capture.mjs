@@ -129,6 +129,29 @@ async function findAppPage(browser) {
   throw new Error(`no page found with url starting with ${APP_ORIGIN} — is GodsEye actually loaded?`)
 }
 
+// click a DOM target: literal id, "layer:NAME" (checkbox by row label), or
+// "basemap:MODE" ( #basemaps button ). Returns true if it clicked something.
+async function clickTarget(page, idOrLayer) {
+  return page.evaluate((idOrLayer) => {
+    if (idOrLayer.startsWith('layer:')) {
+      const name = idOrLayer.slice('layer:'.length)
+      const row = [...document.querySelectorAll('#layers label.layer-row')].find((l) => l.textContent?.includes(name))
+      const box = row?.querySelector('input[type=checkbox]')
+      if (!box) return false
+      box.click(); return true
+    }
+    if (idOrLayer.startsWith('basemap:')) {
+      const mode = idOrLayer.slice('basemap:'.length)
+      const btn = document.querySelector(`#basemaps button[data-mode="${mode}"]`)
+      if (!btn) return false
+      btn.click(); return true
+    }
+    const el = document.getElementById(idOrLayer)
+    if (!el) return false
+    el.click(); return true
+  }, idOrLayer)
+}
+
 // -- per-shot execution -------------------------------------------------------
 async function runShot(page, shot, outDir, n) {
   if (shot.utcHour !== undefined) {
@@ -253,6 +276,14 @@ async function runShot(page, shot, outDir, n) {
   } else {
     await flyTo(3)
     await sleep((shot.settleSec ?? 4) * 1000) // let 3D tiles stream in before recording
+    // View-bboxed scans (ships-sub / gate-scan / dark-scan) MUST run after the camera
+    // arrives, so they subscribe to THIS view (the strait) rather than the previous
+    // shot's location. Then wait for the feed to populate before recording starts.
+    for (const id of shot.scanAfter ?? []) {
+      const ok = await clickTarget(page, id)
+      if (!ok) throw new Error(`scanAfter target not found: ${id}`)
+    }
+    if (shot.scanAfter?.length) await sleep((shot.scanWaitSec ?? 5) * 1000)
     await startRecorder()
   }
 

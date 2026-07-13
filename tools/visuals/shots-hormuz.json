@@ -1,47 +1,60 @@
 [
   {
-    "name": "approach-coldopen",
-    "lon": 56.35, "lat": 26.6, "height": 220000,
-    "headingDeg": 320, "pitchDeg": -45,
-    "fromHeight": 18000000, "flyDurationSec": 8,
-    "caption": "STRAIT OF HORMUZ — 2026-07-13 04:00 GULF TIME",
-    "holdSec": 12
+    "name": "01-approach-coldopen",
+    "lon": 56.5, "lat": 26.5, "height": 150000,
+    "headingDeg": 315, "pitchDeg": -48,
+    "fromHeight": 18000000, "flyDurationSec": 9,
+    "caption": "STRAIT OF HORMUZ — LIVE, 2026-07-13",
+    "orbitDegPerSec": 1.2,
+    "holdSec": 24
   },
   {
-    "name": "strait-flyover",
-    "lon": 57.4, "lat": 25.7, "height": 130000,
-    "headingDeg": 310, "pitchDeg": -30,
-    "caption": "20% OF GLOBAL OIL TRANSITS HERE — 39 KM AT ITS NARROWEST",
-    "settleSec": 6, "holdSec": 20
+    "name": "02-strait-ships",
+    "lon": 56.5, "lat": 26.55, "height": 115000,
+    "headingDeg": 320, "pitchDeg": -55,
+    "clickIds": ["layer:SHIPS"],
+    "scanAfter": ["ships-sub"],
+    "orbitDegPerSec": 2.0,
+    "caption": "LIVE AIS — EVERY TANKER IN THE STRAIT",
+    "settleSec": 9, "holdSec": 34
   },
   {
-    "name": "strait-orbit",
-    "lon": 56.35, "lat": 26.55, "height": 160000,
-    "headingDeg": 0, "pitchDeg": -60,
-    "orbitDegPerSec": 3.5,
-    "caption": "HORMUZ GATE — TANKER TRAFFIC UNDER CONSTANT WATCH",
-    "settleSec": 6, "holdSec": 30
+    "name": "03-gate-scan",
+    "lon": 56.45, "lat": 26.62, "height": 105000,
+    "headingDeg": 0, "pitchDeg": -62,
+    "scanAfter": ["gate-scan", "dark-scan"],
+    "orbitDegPerSec": 2.5,
+    "caption": "HORMUZ GATE — CROSSINGS & DARK VESSELS",
+    "settleSec": 9, "holdSec": 40
   },
   {
-    "name": "military-flights-topdown",
-    "lon": 51.0, "lat": 29.5, "height": 2200000,
-    "headingDeg": 0, "pitchDeg": -80,
+    "name": "05-gulf-infra",
+    "lon": 51.5, "lat": 27.6, "height": 480000,
+    "headingDeg": 20, "pitchDeg": -68,
+    "fromHeight": 3200000, "flyDurationSec": 10,
+    "clickIds": ["layer:CRITICAL INFRA"],
+    "caption": "20M BARRELS A DAY — NO ROUTE REPLACES HORMUZ",
+    "holdSec": 28
+  },
+  {
+    "name": "10-military",
+    "lon": 52.0, "lat": 27.0, "height": 1500000,
+    "headingDeg": 10, "pitchDeg": -74,
+    "preset": "FLIR",
+    "clickIds": ["layer:MILITARY"],
+    "orbitDegPerSec": 1.5,
     "caption": "MILITARY AIRCRAFT — TRACKED LIVE",
-    "settleSec": 6, "holdSec": 15
+    "settleSec": 7, "holdSec": 26
   },
   {
-    "name": "gulf-infra-topdown",
-    "lon": 52.3, "lat": 26.8, "height": 900000,
-    "headingDeg": 20, "pitchDeg": -80,
-    "caption": "PIPELINES · PORTS · REFINERIES — NO ROUTE REPLACES HORMUZ",
-    "settleSec": 6, "holdSec": 15
-  },
-  {
-    "name": "gulf-night",
-    "lon": 52.5, "lat": 26.3, "height": 1400000,
-    "headingDeg": 0, "pitchDeg": -85,
+    "name": "11-outro-dusk",
+    "lon": 55.5, "lat": 25.6, "height": 340000,
+    "headingDeg": 300, "pitchDeg": -52,
+    "preset": "DUSK",
     "clickIds": ["basemap:aerial"],
-    "caption": "THE GULF AFTER DARK",
-    "settleSec": 8, "holdSec": 15
+    "utcHour": 15,
+    "orbitDegPerSec": 1.5,
+    "caption": "THE GULF — THE WATCH CONTINUES",
+    "settleSec": 8, "holdSec": 24
   }
 ]
