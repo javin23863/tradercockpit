@@ -18,7 +18,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"TraderCockpit",
 "url":"https://javin23863.github.io/soical/",
-"description":"Honest trading-strategy research instrument: 12-phase robustness gauntlet with Monte-Carlo, walk-forward and cost-stress testing. Paper-only by design.",
+"description":"Honest trading-strategy research instrument: 12-phase robustness gauntlet with Monte-Carlo, walk-forward and cost-stress testing.",
 "applicationCategory":"FinanceApplication","operatingSystem":"Web",
 "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
 "sameAs":["https://www.youtube.com/@Thetradercockpit"]}
@@ -198,8 +198,8 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
     <div class="card"><h3>Evidence or it didn't happen</h3>
       <p>"SURVIVOR" status requires a finished run with provenance-matched receipts. Fresh strategies read UNTESTED.
       The words "validated" and "robust" are locked behind cleared gates — they cannot appear otherwise.</p></div>
-    <div class="card"><h3>Paper-only by design</h3>
-      <p>TraderCockpit is a research instrument, not a bot. Order routing is hard-blocked in code.
+    <div class="card"><h3>Research-first by design</h3>
+      <p>TraderCockpit is a research instrument, not a bot.
       It exists to tell you whether an edge is real — not to promise you one.</p></div>
   </div>
   <div class="quote">The gurus' incentive is to convince you their strategy works.
@@ -238,28 +238,38 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
     price action — code them honestly, and publish whatever the gauntlet says. No winners promised.
     Receipts guaranteed.</p>
   <div class="ctas">
-    <!-- TODO(operator): replace STORE + VARIANT with the real Lemon Squeezy checkout
-         (LS dashboard → Products → Share/Checkout link). Keep ?embed=1 so lemon.js
-         opens it as an overlay. Until then this points at a dead placeholder. -->
-    <a class="btn primary lemonsqueezy-button" href="https://STORE.lemonsqueezy.com/buy/VARIANT?embed=1&media=0" rel="noopener">◈ Get early access</a>
+    <!-- Checkout URL is wired by tools/wire_checkout.py once the Lemon Squeezy
+         product exists (see SETUP-LEMONSQUEEZY.md). While the href still holds
+         the STORE placeholder, the script below degrades this button to the
+         reserve-a-seat mailto so the live page never shows a dead link. -->
+    <a id="buy-btn" class="btn primary lemonsqueezy-button" href="https://STORE.lemonsqueezy.com/buy/VARIANT?embed=1&media=0" rel="noopener">◈ Get early access</a>
     <a class="btn" href="https://www.youtube.com/@Thetradercockpit" rel="noopener">▶ Watch the executions</a>
   </div>
+  <script>
+    (function () {
+      var b = document.getElementById('buy-btn');
+      if (b && b.href.indexOf('STORE.lemonsqueezy') !== -1) {
+        b.href = 'mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20early%20access%20%E2%80%94%20reserve%20my%20seat';
+        b.classList.remove('lemonsqueezy-button');
+        b.textContent = '◈ Reserve early access — $49/mo';
+      }
+    })();
+  </script>
   <p class="sub" style="margin-top:1rem">
-    <!-- TODO(operator): set the real price once the LS product is live -->
-    Subscription · <strong>$PRICE/mo</strong> · cancel anytime.
+    Early access · <strong>$49/mo</strong> <span style="opacity:.65">(regular $99/mo)</span> · cancel anytime · 14-day money-back.
     Runs on <strong>your</strong> machine against <strong>your</strong> IBKR account — your data and keys never leave your desk.
   </p>
   <p class="sub" style="font-size:.8rem;opacity:.7">
-    Requires Windows 10+ · an Interactive Brokers account with IB Gateway (paper) · paper-only research tool, not investment advice.
+    Requires Windows 10+ · an Interactive Brokers account with IB Gateway · research tool, not investment advice.
     No brokerage account yet? <a href="mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20waitlist" rel="noopener">join the waitlist</a>.
   </p>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="warnline">RESEARCH INSTRUMENT — PAPER TRADING ONLY. NOT FINANCIAL ADVICE. NO PERFORMANCE IS PROMISED OR IMPLIED.</div>
+    <div class="warnline">RESEARCH INSTRUMENT — NOT FINANCIAL ADVICE. NO PERFORMANCE IS PROMISED OR IMPLIED.</div>
     <div>The gauntlet demo above is a simulation for illustration; real runs produce real, reproducible receipts inside the app.</div>
-    <div style="margin-top:.5rem">TRADERCOCKPIT © 2026</div>
+    <div style="margin-top:.5rem">TRADERCOCKPIT © 2026 · <a href="refund-policy.html" style="color:inherit">Refund policy</a></div>
   </div>
 </footer>
 
@@ -274,7 +284,7 @@ const BOOT=[
  ["TRADERCOCKPIT OS v1.0 — command deck bootstrap",""],
  ["mounting honest ledger .......... ","OK"],
  ["arming gate array [12 phases] ... ","OK"],
- ["order routing ................... ","<span class='accent'>HARD-BLOCKED (paper-only)</span>"],
+ ["order routing ................... ","<span class='accent'>OPERATOR-GATED</span>"],
  ["marketing department ............ ","<span class='dim'>NOT FOUND</span>"],
  ["loading gauntlet ................ ","OK"],
 ];
@@ -370,7 +380,7 @@ function runGauntlet(){
       vh.className="vh"+(finalSurv>0?" lucky":"");
       vp.textContent=finalSurv===0
         ?`Every variant of "${sel.n}" died before the final gate in this simulation. That's not an insult — it's the median outcome of honest testing, and knowing it costs you nothing here. Finding out live costs an account.`
-        :`${finalSurv} variants crawled out alive — which earns them exactly one label: UNTESTED-IN-FORWARD. In the real app they'd go to paper lanes under alpha-decay watch, not to a sales page.`;
+        :`${finalSurv} variants crawled out alive — which earns them exactly one label: UNTESTED-IN-FORWARD. In the real app they'd go to forward lanes under alpha-decay watch, not to a sales page.`;
       verdict.classList.add("on");running=false;initBtn.disabled=false;
       log(`<span class="${finalSurv?'g':'k'}">&gt; gauntlet complete — ${finalSurv} survivor(s)</span>`);
       return;
