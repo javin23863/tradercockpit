@@ -37,6 +37,7 @@ const MODE = arg('--mode', 'hooks');
 const OUTPUT = path.resolve(arg('--output', path.join(ROOT, 'output')));
 const WHISPER_MODEL = arg('--model', 'small');
 const SCRIPT_FILE = arg('--script');
+const SRT_IN = arg('--srt'); // pre-made transcript — skips whisper entirely
 const KEEP_SOURCE = flag('--keep-source');
 const REFRAME = flag('--reframe');
 
@@ -53,7 +54,7 @@ async function checkDeps() {
   if (!which('ffmpeg')) missing.push('ffmpeg');
   if (!which('ffprobe')) missing.push('ffprobe (comes with ffmpeg)');
   const useApi = process.env.USE_OPENAI_WHISPER === '1' && process.env.OPENAI_API_KEY;
-  if (!useApi && !which('whisper')) missing.push('whisper');
+  if (!SRT_IN && !useApi && !which('whisper')) missing.push('whisper');
   // yt-dlp is only required for URL mode — we'll check later if URL is given
   return missing;
 }
@@ -192,14 +193,20 @@ async function pickSegmentsAI(cues, duration, n) {
   }));
 }
 
-// Vertical 9:16 auto-reframe via the sibling auto-reframe.py — center-crop by default (subject-tracking
-// once a detector/trajectory is wired). Best-effort: a reframe failure never fails the clip.
-function reframeVertical(inFile) {
-  const out = inFile.replace(/\.mp4$/i, '.vertical.mp4');
-  const py = which('python') ? 'python' : (which('python3') ? 'python3' : null);
-  if (!py) { log.warn('  ↳ --reframe skipped: python not found'); return null; }
+// Vertical 9:16: cut the RAW source, center-crop, THEN burn subs sized for the vertical frame.
+// (Burning on 16:9 first cropped the text off both edges.) Best-effort: failure never fails the clip.
+// ponytail: center-crop only; wire auto-reframe.py subject-tracking if talking heads drift off-center.
+async function reframeVertical(videoPath, seg, srtSlicePath, outFile) {
+  const out = outFile.replace(/\.mp4$/i, '.vertical.mp4');
+  const subPath = srtSlicePath.replace(/\\/g, '/').replace(/^([A-Z]):/i, '$1\\:');
+  const style = "FontName=Arial Bold,FontSize=13,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=3,Outline=2,Shadow=1,Alignment=2,MarginV=120";
   try {
-    require('child_process').execFileSync(py, [path.join(ROOT, 'auto-reframe.py'), '--input', inFile, '--output', out], { stdio: 'ignore' });
+    await run('ffmpeg', [
+      '-y', '-ss', String(seg.start), '-t', String(seg.duration), '-i', videoPath,
+      '-vf', `crop=ih*9/16:ih,scale=1080:1920,subtitles='${subPath}':force_style='${style}'`,
+      '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
+      '-c:a', 'aac', '-b:a', '128k', out, '-loglevel', 'error',
+    ]);
     return out;
   } catch (e) { log.warn(`  ↳ reframe failed: ${e.message}`); return null; }
 }
@@ -246,12 +253,18 @@ async function main() {
     throw new Error(`Not a URL or existing file: ${target}`);
   }
 
-  // Transcribe
-  const audioPath = await extractAudio(videoPath, TEMP);
-  const useApi = process.env.USE_OPENAI_WHISPER === '1' && process.env.OPENAI_API_KEY;
-  const srtPath = useApi
-    ? await transcribeOpenAI(audioPath, TEMP)
-    : await transcribeLocal(audioPath, TEMP, WHISPER_MODEL);
+  // Transcribe (or reuse a supplied SRT)
+  let srtPath;
+  if (SRT_IN) {
+    srtPath = path.resolve(SRT_IN);
+    log.step(2, 4, `Using supplied transcript: ${srtPath}`);
+  } else {
+    const audioPath = await extractAudio(videoPath, TEMP);
+    const useApi = process.env.USE_OPENAI_WHISPER === '1' && process.env.OPENAI_API_KEY;
+    srtPath = useApi
+      ? await transcribeOpenAI(audioPath, TEMP)
+      : await transcribeLocal(audioPath, TEMP, WHISPER_MODEL);
+  }
 
   // Pick segments
   const srtText = fs.readFileSync(srtPath, 'utf8');
@@ -292,7 +305,7 @@ async function main() {
       // ffmpeg's subtitles filter can read straight from the output-folder SRT
       await clipAndBurn(videoPath, sliceOutSrt, seg, outFile);
       log.info(`✓ ${base}.mp4  +  ${base}.srt  (start=${seg.start}s, ${seg.duration}s)`);
-      if (REFRAME) { const v = reframeVertical(outFile); if (v) log.info(`  ↳ vertical 9:16 → ${path.basename(v)}`); }
+      if (REFRAME) { const v = await reframeVertical(videoPath, seg, sliceOutSrt, outFile); if (v) log.info(`  ↳ vertical 9:16 → ${path.basename(v)}`); }
     } catch (e) {
       log.warn(`✗ ${base}.mp4: ${e.message}`);
     }

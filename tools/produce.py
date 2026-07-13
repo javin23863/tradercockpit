@@ -149,19 +149,27 @@ def stage_assemble(prod: Path):
                     "-c:v", "libx264", "-preset", "medium", "-crf", "19",
                     "-c:a", "aac", "-b:a", "192k", "-shortest",
                     str(build / "master.mp4")], check=True, cwd=build, capture_output=True)
+    # caption-free copy for the shorts lane (clipper burns its own 9:16-sized captions)
+    subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
+                    "-i", str(build / "vo-full.wav"),
+                    "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
+                    str(build / "master-clean.mp4")], check=True, cwd=build, capture_output=True)
     log(f"master: {build / 'master.mp4'}")
 
 
 def stage_shorts(prod: Path):
     clipper = HUB / "studio-kit" / "clipper"
-    master = prod / "build" / "master.mp4"
+    master = prod / "build" / "master-clean.mp4"  # caption-free; clipper burns its own
+    if not master.exists():
+        master = prod / "build" / "master.mp4"
     if not master.exists():
         sys.exit("run --stage assemble first")
     if not (clipper / "node_modules").exists():
         log("installing clipper deps (one-time)...")
         subprocess.run(["npm", "install"], cwd=clipper, check=True, shell=True)
     log("clipper: highlight pick + 9:16 reframe...")
-    subprocess.run(["node", "clip.js", "--input", str(master), "--reframe"],
+    subprocess.run(["node", "clip.js", str(master), "--reframe",
+                    "--srt", str(prod / "build" / "captions.srt")],
                    cwd=clipper, check=True, shell=True)
     log(f"shorts in {clipper / 'output'}")
 
