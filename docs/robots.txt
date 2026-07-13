@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://javin23863.github.io/tradercockpit/sitemap.xml
