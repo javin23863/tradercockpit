@@ -8,6 +8,14 @@ details) so they cannot be automated.
 
 Time: ~20 minutes. Do them in order.
 
+## 0. (Optional but recommended) Buy the domain — ~$10/yr, 5 min
+`tradercockpit.com` is taken. **thetradercockpit.com is available** and matches the
+YouTube handle @Thetradercockpit exactly; `tradercockpit.io` / `.app` / `.net` are
+also free. Buy at Cloudflare Registrar (at-cost) or Porkbun/Namecheap, then tell me —
+I do the rest (CNAME file, GitHub Pages custom-domain config, canonical/OG/sitemap
+rewrite, HTTPS enforce). Until then the site is live at the branded Pages URL:
+https://javin23863.github.io/tradercockpit/
+
 ## 1. Create the account + store (~10 min)
 1. https://app.lemonsqueezy.com/register — use your business email.
 2. Verify the email, then create a store:
