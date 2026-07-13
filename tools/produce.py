@@ -130,13 +130,33 @@ def stage_assemble(prod: Path):
         part = build / f"part-{m['num']}.mp4"
         if not part.exists():
             log(f"section {m['num']}: {vis.name} -> {dur:.1f}s")
-            src = (["-loop", "1", "-t", f"{dur:.3f}", "-i", str(vis)] if vis.suffix.lower() == ".png"
-                   else ["-stream_loop", "-1", "-t", f"{dur:.3f}", "-i", str(vis)])
-            subprocess.run([FFMPEG, "-y", *src, "-vf",
-                            "scale=1920:1080:force_original_aspect_ratio=decrease,"
-                            "pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=30,format=yuv420p",
-                            "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "20",
-                            str(part)], check=True, capture_output=True)
+            scale_vf = ("scale=1920:1080:force_original_aspect_ratio=decrease,"
+                        "pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=30,format=yuv420p")
+            enc = ["-an", "-c:v", "libx264", "-preset", "fast", "-crf", "20", str(part)]
+            if vis.suffix.lower() == ".png":
+                cmd = [FFMPEG, "-y", "-loop", "1", "-t", f"{dur:.3f}", "-i", str(vis),
+                       "-vf", scale_vf, *enc]
+            else:
+                vd = float(subprocess.run(
+                    ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                     "-of", "csv=p=0", str(vis)],
+                    check=True, capture_output=True, text=True).stdout.strip())
+                if vd >= dur or dur > 2 * vd:
+                    # long enough (trim), or too short for one bounce (loop restart,
+                    # least-bad fallback — log it so the gap is a known cut, not a surprise)
+                    if dur > 2 * vd:
+                        log(f"  WARN {vis.name} {vd:.1f}s < half of {dur:.1f}s -> loop restart visible")
+                    cmd = [FFMPEG, "-y", "-stream_loop", "-1", "-t", f"{dur:.3f}",
+                           "-i", str(vis), "-vf", scale_vf, *enc]
+                else:
+                    # shorter than the VO: append the reversed tail (boomerang) —
+                    # seamless direction flip instead of a jump-cut loop restart
+                    tail = min(dur - vd + 0.5, vd)
+                    cmd = [FFMPEG, "-y", "-i", str(vis), "-sseof", f"-{tail:.3f}",
+                           "-i", str(vis), "-filter_complex",
+                           f"[1:v]reverse[r];[0:v][r]concat=n=2:v=1,{scale_vf}[v]",
+                           "-map", "[v]", "-t", f"{dur:.3f}", *enc]
+            subprocess.run(cmd, check=True, capture_output=True)
         parts.append(part)
     concat = build / "concat.txt"
     concat.write_text("".join(f"file '{p.name}'\n" for p in parts), encoding="utf-8")
