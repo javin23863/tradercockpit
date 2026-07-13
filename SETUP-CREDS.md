@@ -31,7 +31,11 @@ Then:
    ```
    This exchanges the token for a long-lived one, fetches the non-expiring Page token + IG business id, and writes `META_PAGE_ID` / `META_IG_USER_ID` / `META_PAGE_TOKEN` into `.env`. No manual Graph Explorer digging.
 
-## 3. Backblaze B2 (Instagram only, ~5 min)
+## 3. Backblaze B2 (Instagram only) — DONE 2026-07-13
+
+Wired automatically: existing B2 key reaches `openmontage-publish-staging`; `B2_*` written to `.env`. Steps below only needed if the key is ever rotated.
+
+### (original manual steps, for reference)
 
 Meta ingests Reels from a public URL, so `publish.py` stages the file on B2 with a 6-hour presigned link. You already have a B2 account.
 
