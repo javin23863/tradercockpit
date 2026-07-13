@@ -1,0 +1,47 @@
+[
+  {
+    "name": "approach-coldopen",
+    "lon": 56.35, "lat": 26.6, "height": 220000,
+    "headingDeg": 320, "pitchDeg": -45,
+    "fromHeight": 18000000, "flyDurationSec": 8,
+    "caption": "STRAIT OF HORMUZ — 2026-07-13 04:00 GULF TIME",
+    "holdSec": 12
+  },
+  {
+    "name": "strait-flyover",
+    "lon": 57.4, "lat": 25.7, "height": 130000,
+    "headingDeg": 310, "pitchDeg": -30,
+    "caption": "20% OF GLOBAL OIL TRANSITS HERE — 39 KM AT ITS NARROWEST",
+    "settleSec": 6, "holdSec": 20
+  },
+  {
+    "name": "strait-orbit",
+    "lon": 56.35, "lat": 26.55, "height": 160000,
+    "headingDeg": 0, "pitchDeg": -60,
+    "orbitDegPerSec": 3.5,
+    "caption": "HORMUZ GATE — TANKER TRAFFIC UNDER CONSTANT WATCH",
+    "settleSec": 6, "holdSec": 30
+  },
+  {
+    "name": "military-flights-topdown",
+    "lon": 51.0, "lat": 29.5, "height": 2200000,
+    "headingDeg": 0, "pitchDeg": -80,
+    "caption": "MILITARY AIRCRAFT — TRACKED LIVE",
+    "settleSec": 6, "holdSec": 15
+  },
+  {
+    "name": "gulf-infra-topdown",
+    "lon": 52.3, "lat": 26.8, "height": 900000,
+    "headingDeg": 20, "pitchDeg": -80,
+    "caption": "PIPELINES · PORTS · REFINERIES — NO ROUTE REPLACES HORMUZ",
+    "settleSec": 6, "holdSec": 15
+  },
+  {
+    "name": "gulf-night",
+    "lon": 52.5, "lat": 26.3, "height": 1400000,
+    "headingDeg": 0, "pitchDeg": -85,
+    "clickIds": ["basemap:aerial"],
+    "caption": "THE GULF AFTER DARK",
+    "settleSec": 8, "holdSec": 15
+  }
+]

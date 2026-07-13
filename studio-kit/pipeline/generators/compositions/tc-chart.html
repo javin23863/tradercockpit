@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+html, body { margin: 0; padding: 0; background: #060309; overflow: hidden; }
+canvas#chart { display: block; position: absolute; inset: 0; }
+#hud { position: absolute; inset: 0; z-index: 2; font-family: "Cascadia Mono", Consolas, monospace;
+  color: #F5E8EA; }
+#sig { position: absolute; top: 4.5vh; left: 0; right: 0; text-align: center; color: #7a4a52;
+  font-size: 1.1vw; letter-spacing: .6em; }
+#top { position: absolute; top: 8vh; left: 6vw; right: 6vw; }
+#kicker { color: #FF1744; font-size: 1.3vw; letter-spacing: .3em; margin-bottom: 1.2vh;
+  text-transform: uppercase; text-shadow: 0 0 22px rgba(255,23,68,.7); }
+#title { font-size: 2.5vw; font-weight: 700; line-height: 1.25; white-space: pre-wrap;
+  text-shadow: 0 2px 30px rgba(0,0,0,.85); }
+#title .hl { color: #FF1744; text-shadow: 0 0 26px rgba(255,23,68,.6); }
+#bottom { position: absolute; bottom: 5vh; left: 6vw; right: 6vw; display: flex;
+  align-items: flex-end; justify-content: space-between; gap: 3vw; }
+#bignum-wrap { flex: 0 0 auto; }
+#bignum { font-size: 5.6vw; font-weight: 700; font-variant-numeric: tabular-nums; opacity: 0;
+  text-shadow: 0 0 50px rgba(255,23,68,.45), 0 2px 24px rgba(0,0,0,.9); }
+#bignum .delta { font-size: 2.2vw; margin-left: .6vw; }
+#bignumlbl { color: #c89aa3; font-size: 1.1vw; letter-spacing: .28em; margin-top: .6vh; text-transform: uppercase; opacity: 0; }
+#lines { display: flex; flex-direction: column; gap: 1vh; flex: 1 1 auto; max-width: 40vw; }
+#lines .ln { font-size: 1.35vw; color: #e8d5d9; border-left: .28vw solid #3a0d1a;
+  padding: .6vh 1.2vw; text-align: left; opacity: 0; background: rgba(6,3,9,.62);
+  backdrop-filter: blur(2px); box-shadow: 0 0 30px rgba(0,0,0,.5); }
+#lines .ln b { color: #fff } .ok { color: #00E676 } .bad { color: #FF5E79 } .warn { color: #FF9100 }
+#scan { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,.13) 0 2px, transparent 2px 5px); }
+</style>
+</head>
+<body>
+<canvas id="chart" width="1920" height="1080"></canvas>
+<div id="hud">
+  <div id="sig">TRADERCOCKPIT</div>
+  <div id="top">
+    <div id="kicker"></div>
+    <div id="title"></div>
+  </div>
+  <div id="bottom">
+    <div id="bignum-wrap">
+      <div id="bignum"></div>
+      <div id="bignumlbl"></div>
+    </div>
+    <div id="lines"></div>
+  </div>
+</div>
+<div id="scan"></div>
+<script type="module">
+// TC-CHART — TraderCockpit chart card: cfg.json-driven Canvas2D line chart (HUD-styled to match
+// tc-card's crimson/cyan palette) + optional small inset second series (VIX twin) + peak/level/now
+// markers + big-number callout + footer lines. No 3D bg -- the chart IS the visual. Deterministic 1920x1080.
+import { clamp01, easeOut } from './mg-core.js';
+
+const W = 1920, H = 1080;
+const CRIMSON = '#FF1744', CYAN = '#29E5FA', INK_GRID = 'rgba(245,232,234,0.14)';
+const cfg = await fetch('cfg.json').then(r => r.json()).catch(() => ({ title: 'TC CHART', series: [] }));
+
+const canvas = document.getElementById('chart');
+const ctx = canvas.getContext('2d');
+
+// ---- HUD text (same treatment as tc-card) ----
+const $ = id => document.getElementById(id);
+if (cfg.sig) $('sig').textContent = cfg.sig;
+$('kicker').textContent = cfg.kicker || '';
+const titleHTML = (cfg.title || '').replace(/\*\*(.+?)\*\*/g, '<span class="hl">$1</span>');
+const lines = (cfg.lines || []).map(h => {
+  const d = document.createElement('div'); d.className = 'ln'; d.innerHTML = h;
+  $('lines').appendChild(d); return d;
+});
+
+const series = cfg.series || [];
+const main = series[0] || { dates: [], closes: [] };
+const inset = series[1] || null;
+const markers = cfg.markers || [];
+const bignum = cfg.bignum || null;
+
+// total clip duration in seconds (written into cfg.json by the render script alongside the card
+// fields) -- drives the line-draw pacing. Falls back to a sane default for standalone --still previews.
+const DUR = cfg.dur || 12;
+const T_DRAW = DUR * 0.6;      // line-draw completes 60% through
+const T_TITLE = 0.9, T_LINE = 0.5, STAG = 0.6;
+
+// ---- chart geometry ----
+const CH = { x: W * 0.065, y: H * 0.30, w: W * 0.87, h: H * 0.40 };
+const INS = { x: W * 0.70, y: H * 0.10, w: W * 0.24, h: H * 0.13 };
+
+function scales(closes, pad = 0.08) {
+  const lo = Math.min(...closes), hi = Math.max(...closes);
+  const span = (hi - lo) || 1;
+  const lo2 = lo - span * pad, hi2 = hi + span * pad;
+  return { lo: lo2, hi: hi2 };
+}
+
+function drawLine(rect, dates, closes, color, p, yScale) {
+  const n = closes.length;
+  if (n < 2) return;
+  const visible = Math.max(1, Math.round(n * p));
+  const { lo, hi } = yScale;
+  const xAt = i => rect.x + (i / (n - 1)) * rect.w;
+  const yAt = v => rect.y + rect.h - ((v - lo) / (hi - lo)) * rect.h;
+
+  ctx.save();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 3;
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 14;
+  ctx.beginPath();
+  for (let i = 0; i < visible; i++) {
+    const x = xAt(i), y = yAt(closes[i]);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  ctx.restore();
+  return { xAt, yAt, lastIdx: visible - 1 };
+}
+
+function drawGrid(rect, lo, hi, dates) {
+  ctx.save();
+  ctx.strokeStyle = INK_GRID;
+  ctx.lineWidth = 1;
+  ctx.font = `${W * 0.0095}px "Cascadia Mono", Consolas, monospace`;
+  ctx.fillStyle = 'rgba(245,232,234,0.55)';
+  const rows = 4;
+  for (let r = 0; r <= rows; r++) {
+    const y = rect.y + (r / rows) * rect.h;
+    ctx.beginPath(); ctx.moveTo(rect.x, y); ctx.lineTo(rect.x + rect.w, y); ctx.stroke();
+    const val = hi - (r / rows) * (hi - lo);
+    ctx.fillText(val.toFixed(val > 1000 ? 0 : 2), rect.x + rect.w + 12, y + 4);
+  }
+  // sparse x-axis labels: first, mid, last
+  if (dates.length) {
+    const idxs = [0, Math.floor((dates.length - 1) / 2), dates.length - 1];
+    ctx.textAlign = 'center';
+    for (const i of idxs) {
+      const x = rect.x + (i / (dates.length - 1)) * rect.w;
+      ctx.fillText(dates[i], x, rect.y + rect.h + 26);
+    }
+    ctx.textAlign = 'left';
+  }
+  ctx.restore();
+}
+
+function nearestIdx(dates, dateStr) {
+  if (!dateStr) return dates.length - 1;
+  let best = 0, bestDiff = Infinity;
+  for (let i = 0; i < dates.length; i++) {
+    const diff = Math.abs(new Date(dates[i]) - new Date(dateStr));
+    if (diff < bestDiff) { bestDiff = diff; best = i; }
+  }
+  return best;
+}
+
+window.__seek = (t) => {
+  ctx.clearRect(0, 0, W, H);
+  const p = easeOut(clamp01(t / T_DRAW));
+
+  if (main.closes && main.closes.length) {
+    const yScale = scales(main.closes);
+    drawGrid(CH, yScale.lo, yScale.hi, main.dates);
+    const geo = drawLine(CH, main.dates, main.closes, CRIMSON, p, yScale);
+
+    // last-price tag at the right edge, once the line reaches it
+    if (geo && p >= 0.98) {
+      const lastV = main.closes[main.closes.length - 1];
+      const x = geo.xAt(main.closes.length - 1), y = geo.yAt(lastV);
+      ctx.save();
+      ctx.fillStyle = CRIMSON;
+      ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+      const tagW = 120, tagH = 34;
+      const tagX = Math.min(x + 10, W - tagW - 8); // keep tag on-canvas at the right edge
+      ctx.fillStyle = 'rgba(255,23,68,0.16)';
+      ctx.strokeStyle = CRIMSON; ctx.lineWidth = 1.5;
+      ctx.fillRect(tagX, y - tagH / 2, tagW, tagH);
+      ctx.strokeRect(tagX, y - tagH / 2, tagW, tagH);
+      ctx.fillStyle = '#fff';
+      ctx.font = `bold ${W * 0.011}px "Cascadia Mono", Consolas, monospace`;
+      ctx.fillText(lastV.toFixed(lastV > 1000 ? 0 : 2), tagX + 10, y + 5);
+      ctx.restore();
+    }
+
+    // markers fade in after the line finishes drawing
+    const mp = easeOut(clamp01((t - T_DRAW) / 0.6));
+    if (mp > 0) {
+      ctx.save();
+      ctx.globalAlpha = mp;
+      markers.forEach((m, k) => {
+        const stagP = easeOut(clamp01((t - T_DRAW - k * 0.25) / 0.5));
+        if (stagP <= 0) return;
+        ctx.globalAlpha = mp * stagP;
+        ctx.font = `bold ${W * 0.011}px "Cascadia Mono", Consolas, monospace`;
+        if (m.style === 'level') {
+          const y = geo.yAt(m.value);
+          ctx.strokeStyle = CYAN; ctx.setLineDash([8, 6]); ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(CH.x, y); ctx.lineTo(CH.x + CH.w, y); ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = CYAN;
+          ctx.fillText(m.label || '', CH.x + 8, y - 8);
+        } else {
+          const idx = nearestIdx(main.dates, m.date);
+          const x = geo.xAt(idx), y = geo.yAt(m.value);
+          const col = m.style === 'now' ? CRIMSON : '#FFC400';
+          ctx.fillStyle = col;
+          ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - 34); ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.stroke();
+          // right-align labels near the right edge so they never clip off-canvas
+          if (x > CH.x + CH.w * 0.82) { ctx.textAlign = 'right'; ctx.fillText(m.label || '', x + 6, y - 42); ctx.textAlign = 'left'; }
+          else ctx.fillText(m.label || '', x - 20, y - 42);
+        }
+      });
+      ctx.restore();
+    }
+  }
+
+  // inset second series (e.g. VIX)
+  if (inset && inset.closes && inset.closes.length) {
+    const ip = easeOut(clamp01(t / T_DRAW));
+    const iScale = scales(inset.closes, 0.15);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(41,229,250,0.35)';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(INS.x, INS.y, INS.w, INS.h);
+    ctx.fillStyle = 'rgba(6,3,9,0.4)';
+    ctx.fillRect(INS.x, INS.y, INS.w, INS.h);
+    ctx.font = `${W * 0.0085}px "Cascadia Mono", Consolas, monospace`;
+    ctx.fillStyle = CYAN;
+    ctx.fillText((inset.label || '').toUpperCase(), INS.x, INS.y - 8);
+    drawLine(INS, inset.dates, inset.closes, CYAN, ip, iScale);
+    if (ip >= 0.98) {
+      const lastV = inset.closes[inset.closes.length - 1];
+      ctx.fillStyle = '#fff';
+      ctx.fillText(lastV.toFixed(2), INS.x + INS.w - 46, INS.y + INS.h + 20);
+    }
+    ctx.restore();
+  }
+
+  // ---- HUD overlay text ----
+  const tp = easeOut(clamp01(t / T_TITLE));
+  const n = Math.round(titleHTML.replace(/<[^>]+>/g, '').length * tp);
+  let out = '', vis = 0, i = 0;
+  while (i < titleHTML.length && vis < n) {
+    if (titleHTML[i] === '<') { const j = titleHTML.indexOf('>', i); out += titleHTML.slice(i, j + 1); i = j + 1; }
+    else { out += titleHTML[i]; i++; vis++; }
+  }
+  $('title').innerHTML = out + (tp < 1 && Math.floor(t * 3) % 2 ? '▌' : '');
+
+  if (bignum) {
+    const bp = easeOut(clamp01((t - T_DRAW - 0.1) / 0.7));
+    $('bignum').style.opacity = bp;
+    $('bignumlbl').style.opacity = bp;
+    const deltaClass = (bignum.delta || '').trim().startsWith('-') ? 'bad' : 'ok';
+    $('bignum').innerHTML = `${bignum.value}${bignum.delta ? ` <span class="delta ${deltaClass}">${bignum.delta}</span>` : ''}`;
+    $('bignumlbl').textContent = bignum.label || '';
+  }
+
+  lines.forEach((ln, k) => {
+    const lp = easeOut(clamp01((t - T_DRAW - 0.3 - k * STAG) / T_LINE));
+    ln.style.opacity = lp; ln.style.transform = `translateY(${12 * (1 - lp)}px)`;
+    ln.style.borderLeftColor = lp >= 1 ? '#FF1744' : '#3a0d1a';
+  });
+};
+window.__seek(0);
+window.__ready = true;
+</script>
+</body>
+</html>
