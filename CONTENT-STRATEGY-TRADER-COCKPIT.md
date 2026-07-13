@@ -1,5 +1,51 @@
 # Trader Cockpit — YouTube Traffic Strategy
 
+## SUPERSEDED 2026-07-13 — NEWS-FIRST PIVOT
+
+Channel repositions: **trust-first finance news channel**, not product-first quant-
+tooling channel. Daily videos on asset classes, indices, and the day's news — how it
+moves viewers' portfolios. Visual identity: **God's Eye** (real 3D globe intel app —
+Cesium, live layers: military flights, ships, night lights, Gulf infrastructure, oil
+futures) anchors footage, plus charts/TA. Persona unchanged: the machine watches
+markets and reports (Rule zero below stays in force).
+
+**Format:** daily machine-persona news essay over God's Eye globe footage + HUD
+chart cards. Replaces the 8–12 min data-essay target below for the daily spine.
+
+**Length (operator ruling 2026-07-13):** video #1 ships at its natural ~6 min; from
+video #2 onward target **8+ minutes** — the YouTube mid-roll ad threshold — and
+structure for watch time (cold open ≤15s, chapter hooks, no dead sections). AdSense
+is part of the revenue plan alongside the product funnel; length and retention are
+optimized together, never padded (padding kills retention, which kills distribution,
+which kills both revenue legs).
+
+**Product status:** Trader Cockpit gauntlet is NEVER pitched in videos. One soft link
+in the description only (see `SEO-CHANNEL.md`), nothing on camera. Occasional evergreen
+"Gauntlet" videos still get produced — the old Pillar 1/2/Video-#1 material below is
+now that lane, not the daily spine.
+
+**Hard content rules — KEPT VERBATIM, still in force** (see "Hard content rules"
+below): no profit claims, every number shown is a real render of real data, no slop.
+
+**Topic scope (operator ruling 2026-07-13):** anything that can move markets — economic
+news of the day, Fed policy, economic calendar (CPI/NFP/FOMC), earnings-season macro,
+headline/geopolitical events. Political stories qualify ONLY through their economic
+tie-in ("what it does to your portfolio"), never as politics for its own sake — the
+channel stays inside the finance niche because finance CPM pays more and the audience
+compounds. Litmus per topic: can the machine name the affected asset class in one
+sentence? No → skip.
+
+**Cadence:** daily. Same 5–8-upload algorithm-verdict checkpoint as before (Anti-slop
+guardrail #5 below) — judge the news format only after 5–8 uploads land.
+
+**Video #1 (new):** Strait of Hormuz / US-Iran war — market impact. What the conflict
+does to oil futures, indices, and portfolios. Supersedes "Video #1 (picked)" below,
+which moves to the evergreen Gauntlet lane.
+
+Everything below this line is the pre-pivot product-first strategy — kept for history.
+Sections the pivot overrides are marked inline; the rest (persona rules, production
+mechanics, hard content rules) still applies.
+
 Source playbook: "How To Beat The New YouTube Algorithm With Claude AI" (Shane Hummus,
 2026-06-14, youtu.be/-0f-IpXfJpg). Applied to the esq cockpit (`javin23863/futures`,
 `apps/cockpit`), product name: **Trader Cockpit**. Videos produced by OpenMontage
@@ -23,6 +69,8 @@ Source playbook: "How To Beat The New YouTube Algorithm With Claude AI" (Shane H
 
 ## Pillar 1 — Category (be first, not better)
 
+*(SUPERSEDED 2026-07-13 — evergreen Gauntlet lane only, not the daily news spine. See pivot at top.)*
+
 The trading niche ocean = signal sellers, lambo thumbnails, guru courses. Nobody owns
 the opposite corner. Our puddle:
 
@@ -38,6 +86,8 @@ Second lane (build-in-public): "watch an AI-assisted solo dev build a JARVIS tra
 cockpit" — dev-tools audience, feeds the same funnel.
 
 ## Pillar 2 — Ideas (outlier filter)
+
+*(SUPERSEDED 2026-07-13 — evergreen Gauntlet lane only. See pivot at top.)*
 
 Hunt criteria before scripting ANY video: existing video >100k views, channel <100k
 subs, view:sub ≥5:1, weak packaging → starving audience. Copy the idea, never the
@@ -62,6 +112,9 @@ Idea intake loop (weekly, ~30 min): YouTube search niche keywords → collect ou
 → dump into Claude → sharpened titles/angles → pick 1-2 → produce.
 
 ## Pillar 3 — Right views (revenue pyramid)
+
+*(SUPERSEDED 2026-07-13 — product is no longer the front door; the daily news spine is
+trust-first with no in-video pitch. See pivot at top. Kept for the evergreen Gauntlet lane.)*
 
 Trading/quant tooling = high-ticket niche tier ($100–$5k+ per 1k views potential).
 Views target is SMALL: 1k right viewers > 100k wrong ones. Monetization = product
@@ -115,6 +168,9 @@ Anti-slop guardrails (mandatory — faceless lives or dies on these):
 6. Log result; feed retention/CTR back into idea selection.
 
 ## Video #1 (picked)
+
+*(SUPERSEDED 2026-07-13 — new Video #1 = Hormuz/US-Iran market impact, see pivot at
+top. This ICT/SMC pick moves to the evergreen Gauntlet lane.)*
 
 Idea #3: **"I coded ICT, SMC, supply & demand and price action into one algorithm.
 Then I tested all of them. Receipts inside."**

@@ -11,3 +11,7 @@ studio-kit/**/output/
 studio-kit/tribev2/
 tools/token_channel.json
 productions/*/build/
+productions/*/ge-raw/
+productions/*/ge-retake/
+productions/*/visuals/*.mp4
+studio-kit/pipeline/generators/compositions/cfg.json

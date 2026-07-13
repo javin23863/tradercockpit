@@ -3,50 +3,47 @@
 Channel: youtube.com/@Thetradercockpit · Apply via `tools/channel_seo.py`
 (needs one-time re-consent — broader `youtube` scope than upload token).
 
-## Channel description (applied by script)
+## Channel description (applied by script) — REVISED 2026-07-13, news-first pivot
 
-> Every trading strategy the internet sells you — coded honestly and executed
-> through 12 phases of statistical torture. ICT, SMC, supply & demand, price
-> action: if it can be written as falsifiable rules, it enters the gauntlet.
-> Monte-Carlo shuffles, walk-forward, cost stress at 3x slippage, deflated
-> Sharpe — whatever survives, survives. Whatever dies, dies on camera.
+> A machine that watches markets in near-real-time and reports what matters — asset
+> classes, indices, and the geopolitics moving them, translated into what it means
+> for your portfolio. Oil, equities, rates, currencies, chokepoints: if it moves
+> markets, the machine tracks it and says so plainly.
 >
-> No signals. No courses. No lambo. A research machine that refuses to say
-> "validated" until the receipts exist — and publishes the kill list either way.
+> No signals. No courses. No lambo. Nothing here is financial advice and no
+> performance is promised or implied — this is a news instrument, not a trading
+> service.
 >
-> Research instrument, paper-only by design. Nothing here is financial advice
-> and no performance is promised or implied.
->
-> 🧪 Run the mini-gauntlet: https://javin23863.github.io/soical/
+> 🧪 The machine also runs a research gauntlet — trading strategies coded honestly
+> and tested to destruction: https://javin23863.github.io/soical/
 
-## Channel keywords (applied by script)
+## Channel keywords (applied by script) — REVISED 2026-07-13, news intent
 
-trading strategy backtest, ICT trading tested, smart money concepts, SMC,
-quant trading, algorithmic trading, monte carlo trading, walk-forward analysis,
-backtest overfitting, futures trading, trading strategy tested, honest backtest
+market news today, stock market news, oil price, strait of hormuz oil,
+geopolitics markets, S&P 500 analysis, futures market, portfolio, economic
+news today, market impact analysis, oil futures, geopolitical risk markets
 
 ## Per-video SEO templates
 
-**Title patterns** (pick per video, ≤60 chars visible):
-- "I Tried to Code [X]. It's Not Even Possible."
-- "I Coded [X] and Tested [N] Variants. Honest Numbers."
-- "[N] Strategies Entered. Watch Phase [K] Kill Them."
-- "Why Your [X] Backtest Is Lying To You"
+**Title patterns** (pick per video, ≤60 chars visible) — REVISED 2026-07-13, news-first:
+- "[Event]: What It Means For Your Portfolio"
+- "The Machine Watched [X]. Here's What Matters."
+- "[Asset/Index] Today: The [N]-Second Verdict"
+- "Why [Event] Is Moving [Market] Right Now"
 
-**Description skeleton** (first 2 lines = search snippet, front-load keywords):
+**Description skeleton** (first 2 lines = search snippet, front-load keywords) — REVISED 2026-07-13:
 ```
-[Keyword-rich one-liner restating the title claim with numbers.]
-[Second line: the honest verdict/counts.]
+[Keyword-rich one-liner: what happened + why it moves markets.]
+[Second line: what it means for your portfolio, plainly.]
 
 ⏱ Chapters
 00:00 [hook]
 ...
 
-🧪 Run the mini-gauntlet in your browser: https://javin23863.github.io/soical/
-📊 The machine: 12-phase robustness pipeline — MC shuffle, walk-forward,
-cost stress, deflated Sharpe. Paper-only research instrument.
+📡 The machine tracks asset classes, indices, and geopolitics in near-real-time.
+🧪 It also runs a research gauntlet on trading strategies: https://javin23863.github.io/soical/
 
-Research/education only. Not financial advice. No performance promised.
+News/education only. Not financial advice. No performance promised.
 ```
 
 **Tags** (12–15 per video): mix 3 exact-match ("ict strategy tested"),
@@ -58,17 +55,20 @@ Research/education only. Not financial advice. No performance promised.
 
 **Chapters:** always — timestamps from produce.py sections.json map 1:1.
 
-## Playlists (create as videos land)
+## Playlists (create as videos land) — REVISED 2026-07-13, news-first
 
-1. "The Gauntlet — strategies executed on camera" (series spine)
-2. "Why backtests lie" (methodology explainers)
-3. "Receipts" (short verdict clips)
+1. "Today in Markets" — daily news spine: what moved, why, and what it means
+   for your portfolio.
+2. "Chokepoints" — geopolitics deep-dives on the flashpoints moving oil,
+   indices, and rates.
+3. "The Gauntlet — strategies executed on camera" (kept, evergreen product
+   lane — not the daily spine).
 
-## Pinned comment template
+## Pinned comment template — REVISED 2026-07-13, news framing
 
-> The config file that bans ICT from the arena + all counts in this video are
-> real artifacts. Mini-gauntlet you can run yourself: [landing URL]. What
-> strategy should enter next? Kill list is built from these comments.
+> The machine pulls real market data and geopolitical layers live — every number
+> in this video is a real read, not a guess. What should it watch next? Drop the
+> asset, index, or region below.
 
 ## Notes
 

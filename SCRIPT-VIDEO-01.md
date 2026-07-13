@@ -5,7 +5,9 @@
 `productions/video-01/visuals/NN-*.mp4|png`, assembled by `tools/produce.py`.
 Target length ~10 min (faceless retention math). A-roll beats below kept as the
 narrative skeleton; "you on camera" columns are superseded. Upload with
-`publish.py --synthetic --category 27`.
+`publish.py --category 27` (no `--synthetic`: AI-assisted editing/TTS of own
+script + own program = not YouTube-disclosable; flag reserved for realistic
+synthetic scenes only).
 
 Channel: youtube.com/@Thetradercockpit · Proven demand: Revelio format,
 211k views @ 12.9k subs = 16:1 · CTA: https://javin23863.github.io/soical/
