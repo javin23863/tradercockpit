@@ -10,8 +10,10 @@ canvas#chart { display: block; position: absolute; inset: 0; }
 #sig { position: absolute; top: 4.5vh; left: 0; right: 0; text-align: center; color: #7a4a52;
   font-size: 1.1vw; letter-spacing: .6em; }
 #top { position: absolute; top: 8vh; left: 6vw; right: 6vw; }
-#kicker { color: #FF1744; font-size: 1.3vw; letter-spacing: .3em; margin-bottom: 1.2vh;
-  text-transform: uppercase; text-shadow: 0 0 22px rgba(255,23,68,.7); }
+#kicker { color: #FF3D5E; font-size: 1.3vw; letter-spacing: .3em; margin-bottom: 1.2vh;
+  text-transform: uppercase; text-shadow: 0 0 22px rgba(255,23,68,.7);
+  display: inline-block; background: rgba(6,3,9,.78); padding: .7vh 1vw .7vh 1.2vw;
+  border-left: .28vw solid #FF1744; }
 #title { font-size: 2.5vw; font-weight: 700; line-height: 1.25; white-space: pre-wrap;
   text-shadow: 0 2px 30px rgba(0,0,0,.85); }
 #title .hl { color: #FF1744; text-shadow: 0 0 26px rgba(255,23,68,.6); }
@@ -87,6 +89,9 @@ const T_TITLE = 0.9, T_LINE = 0.5, STAG = 0.6;
 const CH = { x: W * 0.065, y: H * 0.30, w: W * 0.87, h: H * 0.40 };
 const INS = { x: W * 0.70, y: H * 0.10, w: W * 0.24, h: H * 0.13 };
 
+// axis/tag number format: comma-grouped above 1000 so 4078 reads as a price, not a typo
+const fmt = v => v > 1000 ? Math.round(v).toLocaleString('en-US') : v.toFixed(2);
+
 function scales(closes, pad = 0.08) {
   const lo = Math.min(...closes), hi = Math.max(...closes);
   const span = (hi - lo) || 1;
@@ -128,7 +133,7 @@ function drawGrid(rect, lo, hi, dates) {
     const y = rect.y + (r / rows) * rect.h;
     ctx.beginPath(); ctx.moveTo(rect.x, y); ctx.lineTo(rect.x + rect.w, y); ctx.stroke();
     const val = hi - (r / rows) * (hi - lo);
-    ctx.fillText(val.toFixed(val > 1000 ? 0 : 2), rect.x + rect.w + 12, y + 4);
+    ctx.fillText(fmt(val), rect.x + rect.w + 12, y + 4);
   }
   // sparse x-axis labels: first, mid, last
   if (dates.length) {
@@ -162,6 +167,16 @@ window.__seek = (t) => {
     drawGrid(CH, yScale.lo, yScale.hi, main.dates);
     const geo = drawLine(CH, main.dates, main.closes, CRIMSON, p, yScale);
 
+    // series label pinned above the plot — the chart must say what it is
+    if (main.label) {
+      ctx.save();
+      ctx.font = `bold ${W * 0.012}px "Cascadia Mono", Consolas, monospace`;
+      ctx.fillStyle = CRIMSON;
+      ctx.shadowColor = CRIMSON; ctx.shadowBlur = 12;
+      ctx.fillText(main.label.toUpperCase(), CH.x, CH.y - 16);
+      ctx.restore();
+    }
+
     // last-price tag at the right edge, once the line reaches it
     if (geo && p >= 0.98) {
       const lastV = main.closes[main.closes.length - 1];
@@ -177,7 +192,7 @@ window.__seek = (t) => {
       ctx.strokeRect(tagX, y - tagH / 2, tagW, tagH);
       ctx.fillStyle = '#fff';
       ctx.font = `bold ${W * 0.011}px "Cascadia Mono", Consolas, monospace`;
-      ctx.fillText(lastV.toFixed(lastV > 1000 ? 0 : 2), tagX + 10, y + 5);
+      ctx.fillText(fmt(lastV), tagX + 10, y + 5);
       ctx.restore();
     }
 
