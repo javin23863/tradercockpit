@@ -1,0 +1,37 @@
+# Narrator = the machine (JARVIS-style system voice, kokoro bm_george).
+# Each "## NN visual-slug" block = one VO section = one visual in visuals/NN-*.mp4|png
+# Verified numbers only — every figure traces to FACTS-2026-07-13.md (sourced fact pack).
+# News video: NO product pitch. Landing link lives in the description only.
+
+## 01 approach-coldopen
+Good morning. It is Monday, July the thirteenth. While human markets slept this weekend, I did not. On Saturday night, a container ship was hit in the Strait of Hormuz, and Iran declared the strait closed until further notice. On Sunday, Iranian missiles struck targets in five Gulf countries. And on Sunday evening, when oil futures reopened, they jumped three and a half percent in the first hours. This is what I watched — and what it means for your portfolio at today's open.
+
+## 02 strait-flyover
+Here is the strait. About twenty one nautical miles wide at its narrowest point — thirty nine kilometres — between Iran and Oman. Saturday night, the Cyprus-flagged container ship G F S Galaxy was hit here — heavy engine damage, one crew member missing. Iran's Revolutionary Guard then declared the strait closed. The United States answered with an overnight strike wave — Central Command says roughly three hundred targets over three nights, one hundred forty in the latest wave. On Sunday, Iran hit back at bases in Oman, Qatar, Kuwait, Bahrain, and Jordan.
+
+## 03 gate-orbit
+Now the part the headlines flatten. Is the strait actually closed? Iran says yes. The American president said on Sunday television that it is open. The naval coordination center says a southern route, hugging the Omani coast, is running two-way traffic. Both sides are partly telling the truth. My read of the tracking data: twenty one transits on July the eleventh, against roughly one hundred forty per day before the war. War-risk insurance for one supertanker voyage now runs about eight times the pre-crisis cost. A strait does not need to be closed to stop working. It only needs to be uninsurable.
+
+## 04 chart-oil
+The oil tape. Brent crude closed Friday near seventy six dollars and fifty six cents — up about five percent on the week. That close does not include the weekend. When futures reopened Sunday evening, Brent jumped to seventy eight dollars and sixty seven cents, and W T I to seventy three dollars and eighty seven cents — both up roughly three and a half percent before Monday even began. For precedent: in March, when this conflict first closed the strait, Brent peaked near one hundred twenty six dollars.
+
+## 05 why-hormuz
+Why one waterway moves everything. The American Energy Information Administration's baseline: about twenty million barrels of oil per day pass through Hormuz — roughly one fifth of everything the planet consumes, and more than a quarter of all seaborne oil trade. Add one fifth of the world's liquefied natural gas, including ninety three percent of Qatar's exports. There is no pipe, no rail line, and no alternate route that replaces this strait. That is what the word chokepoint means.
+
+## 06 chart-indices
+Now the part I find genuinely strange. The S and P five hundred closed Friday at seven thousand five hundred seventy five — up on the day, up more than one percent on the week. The Nasdaq, similar. And the volatility index — the market's fear gauge — closed at fifteen. Fifteen is a quiet-summer number. It is not a shooting-war number. Friday's market had not seen the weekend yet. Today's market has. Watch the gap between those two facts at the open.
+
+## 07 sectors
+Where the rotation went when the ceasefire first broke on Wednesday — the last clean read I have. Energy producers up: Diamondback and Occidental more than two and a half percent, Chevron about two. Fuel burners and vacation stocks down: Carnival minus three and a half, United Airlines minus three. Utilities held as a defensive. Technology lagged. That is the standard war-premium rotation — and if the weekend follows the same script, you already know which of your holdings sit on which side of it.
+
+## 08 gold-dollar
+And the asset that is refusing to play its role: gold. The textbook says war means gold up. The tape says gold hit its all-time high near five thousand six hundred dollars back in January — before the worst of this conflict — and has since fallen to around four thousand one hundred. A firmer dollar and a ten-year treasury yield at four point five six percent have outweighed the fear trade. If you bought gold as war insurance this year, the insurance has been paying you in disappointment.
+
+## 09 scenarios
+What could happen next, clearly labeled as scenarios — not predictions. J P Morgan has warned that a sustained disruption could push Brent to one hundred twenty or one hundred thirty dollars, with overshoot risk toward one hundred fifty. Academic models of a full one-quarter Gulf export halt put oil near one hundred ten. I repeat: these are conditional models from banks and researchers. I do not predict. I am a machine that watches, and machines that predict wars have a poor employment history.
+
+## 10 catalysts
+What I am watching this week. Today: OPEC representatives meet — thirteen producing nations, with the strait on fire in the background. Ongoing: Oman is brokering talks on a two-route traffic plan for Hormuz — Iran's foreign minister met his Omani counterpart on Saturday; nothing signed yet. And the Federal Reserve does not meet until July the twenty eighth, which leaves oil and the strait as this week's only market authority.
+
+## 11 outro
+That is the weekend, as I saw it. No panic, no forecast — the numbers, their sources, and the gap between Friday's calm and Monday's reality. I am a machine that watches markets. I hold no positions, I sell no signals, and nothing I say is financial advice. Tell me below what I should watch next — an asset, an index, a region — and I will point my eye at it. Subscribe. The watch continues tomorrow.
