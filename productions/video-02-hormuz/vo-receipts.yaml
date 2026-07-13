@@ -4,67 +4,67 @@
 # attributed: true = VO names the source class on air (required for single_source claims).
 
 "01":
-  - { quote: "Monday, July the thirteenth", claim: clm-today-date }
-  - { quote: "a container ship was hit in the Strait of Hormuz", claim: clm-galaxy-hit }
-  - { quote: "Iran declared the strait closed until further notice", claim: clm-irgc-closure }
-  - { quote: "Iranian missiles struck targets in five Gulf countries", claim: clm-iran-five-states }
-  - { quote: "they jumped three and a half percent in the first hours", claim: clm-oil-reopen-move }
+  - { quote: "Monday, July thirteenth", claim: clm-today-date }
+  - { quote: "a tanker was hit inside the Strait of Hormuz", claim: clm-galaxy-hit }
+  - { quote: "Iran declared the strait closed", claim: clm-irgc-closure }
+  - { quote: "Iranian missiles landed in five Gulf countries", claim: clm-iran-five-states }
+  - { quote: "they gapped up three and a half percent", claim: clm-oil-reopen-move }
 
 "02":
-  - { quote: "twenty one nautical miles wide at its narrowest point", claim: clm-strait-width }
-  - { quote: "thirty nine kilometres", claim: clm-strait-width }
-  - { quote: "G F S Galaxy was hit here", claim: clm-galaxy-hit }
-  - { quote: "heavy engine damage, one crew member missing", claim: clm-galaxy-hit }
+  - { quote: "twenty-one nautical miles across", claim: clm-strait-width }
+  - { quote: "about thirty-nine kilometers", claim: clm-strait-width }
+  - { quote: "GFS Galaxy was hit right here", claim: clm-galaxy-hit }
+  - { quote: "heavy engine damage, one of twelve crew missing", claim: clm-galaxy-hit }
   - { quote: "declared the strait closed", claim: clm-irgc-closure }
-  - { quote: "roughly three hundred targets over three nights, one hundred forty in the latest wave", claim: clm-us-strikes-count, attributed: true }
+  - { quote: "roughly three hundred targets over three nights, a hundred and forty in the latest wave", claim: clm-us-strikes-count, attributed: true }
   - { quote: "bases in Oman, Qatar, Kuwait, Bahrain, and Jordan", claim: clm-iran-five-states }
 
 "03":
-  - { quote: "The American president said on Sunday television that it is open", claim: clm-trump-open }
-  - { quote: "a southern route, hugging the Omani coast, is running two-way traffic", claim: clm-trump-open }
-  - { quote: "twenty one transits on July the eleventh, against roughly one hundred forty per day before the war", claim: clm-transits-drop, attributed: true }
-  - { quote: "about eight times the pre-crisis cost", claim: clm-insurance-8x, attributed: true }
+  - { quote: "went on Sunday television and said it is open", claim: clm-trump-open }
+  - { quote: "a southern lane, hugging the Omani coast, is still moving traffic both ways", claim: clm-trump-open }
+  - { quote: "Twenty-one ships transited on July eleventh", claim: clm-transits-drop, attributed: true }
+  - { quote: "averaged about a hundred and forty a day", claim: clm-transits-drop, attributed: true }
+  - { quote: "roughly eight times what it did before the crisis", claim: clm-insurance-8x, attributed: true }
 
 "04":
-  - { quote: "closed Friday near seventy six dollars and fifty six cents", claim: clm-brent-friday-close }
+  - { quote: "settled Friday at seventy-six fifty-six, up about five percent on the week", claim: clm-brent-friday-close }
   - { quote: "up about five percent on the week", claim: clm-brent-week-move }
-  - { quote: "jumped to seventy eight dollars and sixty seven cents", claim: clm-brent-reopen-price }
-  - { quote: "seventy three dollars and eighty seven cents", claim: clm-wti-reopen-price }
+  - { quote: "Brent jumped to seventy-eight sixty-seven", claim: clm-brent-reopen-price }
+  - { quote: "W T I to seventy-three eighty-seven", claim: clm-wti-reopen-price }
   - { quote: "both up roughly three and a half percent", claim: clm-oil-reopen-move }
-  - { quote: "during the March crisis, when insurers pulled war-risk cover from the strait", claim: clm-march-crisis }
-  - { quote: "peaked near one hundred twenty six dollars", claim: clm-brent-march-peak }
+  - { quote: "when insurers first pulled war-risk cover from the strait", claim: clm-march-crisis }
+  - { quote: "Brent ran all the way to a hundred and twenty-six", claim: clm-brent-march-peak }
 
 "05":
-  - { quote: "about twenty million barrels of oil per day", claim: clm-hormuz-flows, attributed: true }
-  - { quote: "one fifth of everything the planet consumes", claim: clm-hormuz-flows }
-  - { quote: "more than a quarter of all seaborne oil trade", claim: clm-hormuz-flows }
-  - { quote: "one fifth of the world's liquefied natural gas", claim: clm-hormuz-flows }
-  - { quote: "ninety three percent of Qatar's exports", claim: clm-hormuz-flows }
+  - { quote: "About twenty million barrels of oil a day", claim: clm-hormuz-flows, attributed: true }
+  - { quote: "roughly a fifth of everything the world burns", claim: clm-hormuz-flows }
+  - { quote: "more than a quarter of all the oil that travels by sea", claim: clm-hormuz-flows }
+  - { quote: "about a fifth of the planet's liquefied natural gas", claim: clm-hormuz-flows }
+  - { quote: "ninety-three percent of Qatar's exports", claim: clm-hormuz-flows }
 
 "06":
-  - { quote: "seven thousand five hundred seventy five", claim: clm-spx-friday }
+  - { quote: "S and P five hundred closed Friday at seventy-five seventy-five", claim: clm-spx-friday }
   - { quote: "up more than one percent on the week", claim: clm-spx-week }
-  - { quote: "closed at fifteen", claim: clm-vix-friday }
-  - { quote: "Fifteen is a quiet-summer number", claim: clm-vix-friday }
+  - { quote: "sat at fifteen", claim: clm-vix-friday }
+  - { quote: "Fifteen is a sleepy-summer reading", claim: clm-vix-friday }
 
 "07":
-  - { quote: "ceasefire first broke on Wednesday", claim: clm-sector-rotation-wed }
-  - { quote: "Diamondback and Occidental more than two and a half percent, Chevron about two", claim: clm-sector-rotation-wed }
-  - { quote: "Carnival minus three and a half, United Airlines minus three", claim: clm-sector-rotation-wed }
+  - { quote: "Wednesday the eighth, when the ceasefire first fell apart", claim: clm-sector-rotation-wed, attributed: true }
+  - { quote: "Diamondback up three percent, Occidental two and a half, Chevron two", claim: clm-sector-rotation-wed, attributed: true }
+  - { quote: "Carnival down three and a half, United Airlines down three", claim: clm-sector-rotation-wed, attributed: true }
 
 "08":
-  - { quote: "all-time high near five thousand six hundred dollars back in January", claim: clm-gold-ath }
-  - { quote: "fallen to around four thousand one hundred", claim: clm-gold-now }
-  - { quote: "ten-year treasury yield at four point five six percent", claim: clm-ust10y }
+  - { quote: "set a record near fifty-five ninety-five back in January", claim: clm-gold-ath }
+  - { quote: "slid to around four thousand one hundred", claim: clm-gold-now }
+  - { quote: "Down about thirteen percent", claim: clm-gold-now }
+  - { quote: "ten-year Treasury yield above four and a half percent", claim: clm-ust10y }
 
 "09":
-  - { quote: "one hundred twenty or one hundred thirty dollars, with overshoot risk toward one hundred fifty", claim: clm-jpm-scenario, attributed: true }
-  - { quote: "a full one-quarter Gulf export halt put oil near one hundred ten", claim: clm-model-110, attributed: true }
+  - { quote: "push Brent to a hundred and twenty, or a hundred and thirty, with overshoot risk toward a hundred and fifty", claim: clm-jpm-scenario, attributed: true }
+  - { quote: "a full one-quarter halt in Gulf exports put crude near a hundred and ten", claim: clm-model-110, attributed: true }
 
 "10":
-  - { quote: "OPEC representatives meet — thirteen producing nations", claim: clm-opec-today }
-  - { quote: "Oman is brokering talks on a two-route traffic plan for Hormuz", claim: clm-oman-talks }
-  - { quote: "met his Omani counterpart on Saturday", claim: clm-oman-talks }
-  - { quote: "Federal Reserve does not meet until July the twenty eighth", claim: clm-fomc-next }
-
-"11": []
+  - { quote: "OPEC meets, thirteen producing nations", claim: clm-opec-today, attributed: true }
+  - { quote: "brokering a two-lane traffic deal for Hormuz", claim: clm-oman-talks, attributed: true }
+  - { quote: "met his Omani counterpart on Saturday", claim: clm-oman-talks, attributed: true }
+  - { quote: "the Federal Reserve does not meet until the twenty-eighth", claim: clm-fomc-next }

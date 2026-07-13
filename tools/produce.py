@@ -25,7 +25,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 HUB = HERE.parent
 FFMPEG = "ffmpeg"
-VOICE = "af_heart"  # kokoro default American female; swap with --voice
+VOICE = "bm_george"  # kokoro JARVIS-style British male (the machine narrator); swap with --voice
 GAP_S = 0.45        # silence between sections
 
 
