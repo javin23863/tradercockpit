@@ -10,6 +10,8 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const clickText = (t) => `(() => { const e=[...document.querySelectorAll('button,div[role=button],span,div')].find(x=>x.textContent.trim()===${JSON.stringify(t)}); if(e){e.click();return true;} return false; })()`;
 
 const CLIPS = [
+  { f: "clip-006-segment-1.vertical.mp4",
+    c: "Trump just put a 20% toll on every ship through the Strait of Hormuz - and oil ripped 10% in a day. Here's what it means for your portfolio. #oil #hormuz #stockmarket #investing #FinTok" },
   { f: "clip-003-hook-3-so-how-high-can-crude.vertical.mp4",
     c: "How high can oil actually go? Every big desk's number - Goldman, JPMorgan, gov models - on one chart. $100 to $150. None of them models it sitting still. #oil #brentcrude #stockmarket #investing #FinTok" },
   { f: "clip-001-hook-1-is-the-straight-actually-closed-.vertical.mp4",
@@ -42,23 +44,38 @@ const CLIPS = [
       await p.evaluate(new Function("return " + clickText(t))).catch(() => {});
       await sleep(600);
     }
-    // caption: TikTok prefills the FILENAME -> select-all + delete first
-    const ok = await p.evaluate(() => {
+    // caption: TikTok prefills the FILENAME, and does it LATE (after the editor mounts) —
+    // clearing once races the prefill and leaves "clip-00N....vertical" in the caption.
+    // Clear-verify-retry until the box is actually empty, then type, then verify before Post.
+    const focusCe = () => p.evaluate(() => {
       const ce = document.querySelector('div[contenteditable="true"]');
       if (!ce) return false;
       ce.scrollIntoView({ block: "center" }); ce.focus();
-      const r = document.createRange(); r.selectNodeContents(ce);
-      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
       return true;
     });
-    if (!ok) { console.log("  !! caption editor not found"); continue; }
-    await p.keyboard.press("Backspace");
-    await p.keyboard.press("Backspace");
-    await sleep(500);
+    if (!await focusCe()) { console.log("  !! caption editor not found"); continue; }
+    let cleared = false;
+    for (let a = 0; a < 6 && !cleared; a++) {
+      await sleep(1500);                       // let any late prefill land
+      await focusCe();
+      await p.keyboard.down("Control"); await p.keyboard.press("KeyA"); await p.keyboard.up("Control");
+      await p.keyboard.press("Backspace");
+      await sleep(600);
+      const txt = await p.evaluate(() => (document.querySelector('div[contenteditable="true"]') || {}).textContent || "");
+      cleared = txt.trim() === "";
+      console.log(`  clear attempt ${a + 1}: ${cleared ? "empty" : JSON.stringify(txt.slice(0, 30))}`);
+    }
+    if (!cleared) { console.log("  !! could not clear caption, SKIPPING (not posting)"); continue; }
     await p.keyboard.type(clip.c, { delay: 12 });
     await sleep(1200);
     await p.keyboard.press("Escape");   // kill hashtag dropdown
     await sleep(800);
+    const cap = await p.evaluate(() => (document.querySelector('div[contenteditable="true"]') || {}).textContent || "");
+    if (!cap.startsWith(clip.c.slice(0, 25))) {
+      console.log("  !! caption mismatch, NOT posting:", JSON.stringify(cap.slice(0, 40)));
+      continue;
+    }
+    console.log("  caption ok:", cap.length, "chars");
     const posted = await p.evaluate(() => {
       const btn = [...document.querySelectorAll("button")].find(e => e.textContent.trim() === "Post" && !e.disabled);
       if (btn) { btn.click(); return true; } return false;
