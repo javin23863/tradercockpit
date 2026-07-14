@@ -12,9 +12,16 @@ Facebook Page (IG app → Settings → Account type; then Accounts Center → li
 3. Paste all 3 here — I run `tools/meta_setup.py` and the IG + FB Reels legs go live
    in `publish.py` (B2 staging already verified).
 
-## Connect TikTok (two routes, no free direct one)
+## Connect TikTok
 
-- **Route A — Postiz (recommended, already vendored `postiz/`):**
+- **Route C — makiisthenes/TiktokAutoUploader (WIRED 2026-07-14, recommended, free, no Docker):**
+  Installed at `../TiktokAutoUploader` (venv + playwright-chromium ready). Wrapper
+  `tools/upload_tiktok.py`; integrated into `publish.py --platforms ... tiktok`.
+  **One-time (manual, interactive Chrome):** `cd ../TiktokAutoUploader && python cli.py login -n tradercockpit`.
+  After that, cookies persist in `CookiesDir/` and uploads are automatic. `publish.py --dry-run`
+  reports cookie readiness. Unofficial cookie tool — carries an account-ban disclaimer (operator accepted).
+- **Route A — Postiz (vendored `postiz/`):** official Login Kit + Content Posting API, but needs
+  Docker + TikTok app review. Heavier; use only if Route C's cookie flow gets throttled.
   1. developers.tiktok.com → register app → add **Login Kit + Content Posting API**
      → note Client Key + Secret (TikTok reviews the app; sandbox posts = private
      until audit passes, ~days).
@@ -38,14 +45,15 @@ Facebook Page (IG app → Settings → Account type; then Accounts Center → li
 - Hashtag mix per Reel (5–8): #trading #quanttrading #backtesting #ict
   #smartmoneyconcepts #algotrading + 1–2 video-specific.
 
-## Profile SEO — TikTok (@handle: `tradercockpit`)
+## Profile SEO — TikTok (@handle: `thetradercockpit`) — news channel, per BRAND.md
 
-- **Name:** `TraderCockpit — Strategy Executioner`
-- **Bio (80 chars):** `I test trading strategies to death. 12 phases. 0 mercy. Gauntlet ⬇`
-- Link in bio (needs 1k followers for clickable — put URL as text + in comments until then).
-- TikTok SEO = SPOKEN + on-screen + caption keywords ("ICT strategy tested",
-  "backtest") — the machine VO already says them; captions burned by produce.py
-  cover on-screen. Caption: hook line + 3–4 hashtags (#ict #trading #backtesting #ai).
+- **Name:** `TraderCockpit · Markets News`
+- **Bio (80 chars):** `📊 Markets, read plainly. Oil • stocks • rates → your portfolio. Not advice ⬇`
+- Link in bio (needs 1k followers for clickable — put URL as text + in comments until then):
+  youtube.com/@Thetradercockpit
+- TikTok SEO = SPOKEN + on-screen + caption keywords — the cloned VO already says the tickers +
+  events; burned word-captions cover on-screen. Caption: first-3s hook + a reply-baiting question,
+  trending sound, `#stockmarket #investing #markets #finance #FinTok` + 2–4 topical.
 - Post the SAME 9:16 renders as YT Shorts/IG Reels (one render, 4 platforms).
 
 ## Cross-platform rules

@@ -125,39 +125,43 @@ def stage_assemble(prod: Path):
         matches = sorted(visdir.glob(f"{m['num']}-*")) if visdir.exists() else []
         if not matches:
             sys.exit(f"missing visual for section {m['num']} ({m['slug']}) in {visdir}")
-        vis = matches[0]
-        dur = m["duration"] + (GAP_S if k < len(meta) - 1 else 0)
-        part = build / f"part-{m['num']}.mp4"
-        if not part.exists():
-            log(f"section {m['num']}: {vis.name} -> {dur:.1f}s")
-            scale_vf = ("scale=1920:1080:force_original_aspect_ratio=decrease,"
-                        "pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=30,format=yuv420p")
-            enc = ["-an", "-c:v", "libx264", "-preset", "fast", "-crf", "20", str(part)]
-            if vis.suffix.lower() == ".png":
-                cmd = [FFMPEG, "-y", "-loop", "1", "-t", f"{dur:.3f}", "-i", str(vis),
-                       "-vf", scale_vf, *enc]
-            else:
-                vd = float(subprocess.run(
-                    ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-                     "-of", "csv=p=0", str(vis)],
-                    check=True, capture_output=True, text=True).stdout.strip())
-                if vd >= dur or dur > 2 * vd:
-                    # long enough (trim), or too short for one bounce (loop restart,
-                    # least-bad fallback — log it so the gap is a known cut, not a surprise)
-                    if dur > 2 * vd:
-                        log(f"  WARN {vis.name} {vd:.1f}s < half of {dur:.1f}s -> loop restart visible")
-                    cmd = [FFMPEG, "-y", "-stream_loop", "-1", "-t", f"{dur:.3f}",
-                           "-i", str(vis), "-vf", scale_vf, *enc]
+        # multiple NN-* files = cuts inside the section (format v2): the section's
+        # duration is split equally across them, in sorted-name order.
+        sec_dur = m["duration"] + (GAP_S if k < len(meta) - 1 else 0)
+        for j, vis in enumerate(matches):
+            dur = sec_dur / len(matches)
+            part = build / (f"part-{m['num']}.mp4" if len(matches) == 1
+                            else f"part-{m['num']}-{j}.mp4")
+            if not part.exists():
+                log(f"section {m['num']}: {vis.name} -> {dur:.1f}s")
+                scale_vf = ("scale=1920:1080:force_original_aspect_ratio=decrease,"
+                            "pad=1920:1080:(ow-iw)/2:(oh-ih)/2,fps=30,format=yuv420p")
+                enc = ["-an", "-c:v", "h264_nvenc", "-preset", "p4", "-cq", "20", str(part)]
+                if vis.suffix.lower() == ".png":
+                    cmd = [FFMPEG, "-y", "-loop", "1", "-t", f"{dur:.3f}", "-i", str(vis),
+                           "-vf", scale_vf, *enc]
                 else:
-                    # shorter than the VO: append the reversed tail (boomerang) —
-                    # seamless direction flip instead of a jump-cut loop restart
-                    tail = min(dur - vd + 0.5, vd)
-                    cmd = [FFMPEG, "-y", "-i", str(vis), "-sseof", f"-{tail:.3f}",
-                           "-i", str(vis), "-filter_complex",
-                           f"[1:v]reverse[r];[0:v][r]concat=n=2:v=1,{scale_vf}[v]",
-                           "-map", "[v]", "-t", f"{dur:.3f}", *enc]
-            subprocess.run(cmd, check=True, capture_output=True)
-        parts.append(part)
+                    vd = float(subprocess.run(
+                        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                         "-of", "csv=p=0", str(vis)],
+                        check=True, capture_output=True, text=True).stdout.strip())
+                    if vd >= dur or dur > 2 * vd:
+                        # long enough (trim), or too short for one bounce (loop restart,
+                        # least-bad fallback — log it so the gap is a known cut, not a surprise)
+                        if dur > 2 * vd:
+                            log(f"  WARN {vis.name} {vd:.1f}s < half of {dur:.1f}s -> loop restart visible")
+                        cmd = [FFMPEG, "-y", "-stream_loop", "-1", "-t", f"{dur:.3f}",
+                               "-i", str(vis), "-vf", scale_vf, *enc]
+                    else:
+                        # shorter than the VO: append the reversed tail (boomerang) —
+                        # seamless direction flip instead of a jump-cut loop restart
+                        tail = min(dur - vd + 0.5, vd)
+                        cmd = [FFMPEG, "-y", "-i", str(vis), "-sseof", f"-{tail:.3f}",
+                               "-i", str(vis), "-filter_complex",
+                               f"[1:v]reverse[r];[0:v][r]concat=n=2:v=1,{scale_vf}[v]",
+                               "-map", "[v]", "-t", f"{dur:.3f}", *enc]
+                subprocess.run(cmd, check=True, capture_output=True)
+            parts.append(part)
     concat = build / "concat.txt"
     concat.write_text("".join(f"file '{p.name}'\n" for p in parts), encoding="utf-8")
     log("concatenating + muxing VO + burning captions...")
@@ -166,7 +170,7 @@ def stage_assemble(prod: Path):
                     "-vf", "subtitles=captions.srt:force_style="
                     "'FontName=Cascadia Mono,FontSize=13,PrimaryColour=&HEAE8F5,"
                     "OutlineColour=&H0A0308,Outline=2,Bold=1,MarginV=40'",
-                    "-c:v", "libx264", "-preset", "medium", "-crf", "19",
+                    "-c:v", "h264_nvenc", "-preset", "p5", "-cq", "19",
                     "-c:a", "aac", "-b:a", "192k", "-shortest",
                     str(build / "master.mp4")], check=True, cwd=build, capture_output=True)
     # caption-free copy for the shorts lane (clipper burns its own 9:16-sized captions)

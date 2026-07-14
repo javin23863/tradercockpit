@@ -61,14 +61,18 @@ def ken_burns(png: Path, out: Path, dur: float, dry: bool) -> None:
     """Slow zoom-in on the chart PNG so it has motion (not a static slide)."""
     frames = int(dur * 30)
     # zoompan zooms from 1.0 to ~1.12 across the clip, centered; scale up first so the
-    # zoom stays crisp, then output 1920x1080 CFR30.
-    vf = (f"scale=3840:-2,zoompan=z='min(zoom+0.0008,1.12)':d={frames}"
+    # zoom stays crisp, then output 1920x1080 CFR30. Fit-and-pad to 16:9 BEFORE zoompan —
+    # zoompan maps its window to s= exactly, so non-16:9 input (windowed TV chart region)
+    # came out squashed (video-02 defect, fixed 2026-07-14).
+    vf = (f"scale=3840:2160:force_original_aspect_ratio=decrease,"
+          f"pad=3840:2160:(ow-iw)/2:(oh-ih)/2:black,"
+          f"zoompan=z='min(zoom+0.0008,1.12)':d={frames}"
           f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=30,format=yuv420p")
     if dry:
         print(f"  [dry] ffmpeg ken-burns {png.name} -> {out.name} ({dur:.0f}s)")
         return
     subprocess.run(["ffmpeg", "-y", "-loop", "1", "-i", str(png), "-t", f"{dur:.2f}",
-                    "-vf", vf, "-c:v", "libx264", "-crf", "19", "-preset", "medium",
+                    "-vf", vf, "-c:v", "h264_nvenc", "-cq", "19", "-preset", "p5",
                     str(out)], check=True, capture_output=True)
 
 

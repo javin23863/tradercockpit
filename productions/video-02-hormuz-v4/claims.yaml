@@ -1,0 +1,574 @@
+# Claim store — video-02-hormuz. Minted at fact-pass ingest ONLY (2026-07-13).
+# Every claim: value + as_of + source + retrieved_at + status. Nothing else may mint claims.
+# status: verified | single_source | unverified  (unverified = banned from script)
+
+- id: clm-today-date
+  subject: framing
+  predicate: broadcast_date
+  value: "Tuesday 2026-07-14; last full session Monday 2026-07-13 (final closes); CPI + bank earnings release TODAY premarket"
+  as_of: 2026-07-14
+  source: calendar (fact-pack framing correction)
+  retrieved_at: 2026-07-14
+  status: verified
+
+- id: clm-oil-reopen-move
+  subject: oil futures
+  predicate: sunday_reopen_move_pct
+  value: "+3.5% Brent / +3.4% WTI"
+  as_of: 2026-07-12T18:03-04:00
+  source: CNBC 2026-07-12 "Oil prices rise as U.S. and Iran fight for control of Strait of Hormuz"
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-brent-reopen-price
+  subject: brent
+  predicate: sunday_reopen_price
+  value: 78.67
+  unit: USD/bbl
+  as_of: 2026-07-12T18:03-04:00
+  source: CNBC 2026-07-12
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-wti-reopen-price
+  subject: wti
+  predicate: sunday_reopen_price
+  value: 73.87
+  unit: USD/bbl
+  as_of: 2026-07-12T18:03-04:00
+  source: CNBC 2026-07-12
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-brent-friday-close
+  subject: brent
+  predicate: friday_close
+  value: 76.56
+  unit: USD/bbl
+  as_of: 2026-07-10
+  source: Forbes Advisor 2026-07-10; LinkedIn oil market summary 2026-07-10
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-brent-week-move
+  subject: brent
+  predicate: week_move_pct
+  value: "~+5%"
+  as_of: 2026-07-10
+  source: Forbes Advisor 2026-07-10
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-march-crisis
+  subject: strait of hormuz
+  predicate: march_2026_crisis
+  value: "Commercial shipping attacked in Hormuz Mar 3-11 (Skylight, MKD VYOM hit; tug Mussafah 2 sunk); IRGC claimed control; P&I war-risk insurance withdrawn from Mar 5"
+  as_of: 2026-03-05
+  source: Wikipedia 2026 Strait of Hormuz crisis (corroborated by CNN/AJ contemporaneous coverage)
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-brent-march-peak
+  subject: brent
+  predicate: march_2026_peak
+  value: "~126"
+  unit: USD/bbl
+  as_of: 2026-03
+  source: Wikipedia 2026 Strait of Hormuz crisis (corroborated CNN/AJ headlines)
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-galaxy-hit
+  subject: GFS Galaxy
+  predicate: struck_in_hormuz
+  value: "Cyprus-flagged container ship hit Sat night 2026-07-11; heavy engine damage; 1 of 12 crew missing"
+  as_of: 2026-07-11
+  source: CNN 2026-07-11; Wikipedia 2026 Strait of Hormuz crisis
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-irgc-closure
+  subject: strait of hormuz
+  predicate: iran_closure_declaration
+  value: "IRGC declared strait closed until further notice, Sat 2026-07-11"
+  as_of: 2026-07-11
+  source: CNN 2026-07-11; Al Jazeera 2026-07-12
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-us-strikes-count
+  subject: US strikes
+  predicate: targets_struck
+  value: "~300 targets over 3 nights per CENTCOM; ~140 in latest wave"
+  as_of: 2026-07-12
+  source: Al Jazeera 2026-07-12 (CENTCOM statement)
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-iran-five-states
+  subject: iran retaliation
+  predicate: gulf_states_struck
+  value: "Oman (Duqm), Qatar (Al Udeid, 3 wounded), Kuwait, Bahrain, Jordan — Sun 2026-07-12"
+  as_of: 2026-07-12
+  source: Al Jazeera 2026-07-12; CNN/Haaretz 2026-07-12
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-trump-open
+  subject: strait of hormuz
+  predicate: us_position
+  value: "Trump on NBC Meet the Press (aired Sun 2026-07-12): strait is open; JMIC says southern Omani-coast route running two-way traffic"
+  as_of: 2026-07-12
+  source: Al Jazeera 2026-07-12; CNN 2026-07-12; Wikipedia (JMIC route, Jun 27-29)
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-transits-drop
+  subject: hormuz traffic
+  predicate: daily_transits
+  value: "21 transits on 2026-07-11 vs ~140/day pre-war"
+  as_of: 2026-07-11
+  source: Windward Maritime Intelligence via CNN/Al Jazeera
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-insurance-8x
+  subject: war-risk insurance
+  predicate: cost_multiple_vs_precrisis
+  value: "~8x (~$2.5M per VLCC voyage)"
+  as_of: 2026-07-12T23:17Z
+  source: straits.live tracker (crowd tracker — directional)
+  retrieved_at: 2026-07-13
+  status: single_source
+
+- id: clm-strait-width
+  subject: strait of hormuz
+  predicate: width_at_narrowest
+  value: "21 nautical miles (~39 km)"
+  as_of: static-geography
+  source: EIA / standard geographic reference
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-hormuz-flows
+  subject: strait of hormuz
+  predicate: baseline_flow_share
+  value: "~20M b/d; ~20% of global petroleum liquids consumption; >25% of seaborne oil; ~19-20% of global LNG; 93% of Qatar LNG exports"
+  as_of: 2024 data
+  source: EIA, published 2025-06-16 (pre-conflict baseline, PIT-safe)
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-spx-friday
+  subject: S&P 500
+  predicate: friday_close
+  value: 7575.39
+  as_of: 2026-07-10
+  source: CNBC "Stock market news for July 10, 2026"
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-spx-week
+  subject: S&P 500
+  predicate: week_move
+  value: ">+1% (winning week); Nasdaq similar, 26,281.61"
+  as_of: 2026-07-10
+  source: CNBC 2026-07-10
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-vix-friday
+  subject: VIX
+  predicate: friday_close
+  value: 15.03
+  as_of: 2026-07-10
+  source: Yahoo Finance market summary 2026-07-10
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-sector-rotation-wed
+  subject: sector rotation
+  predicate: wednesday_2026-07-08_moves
+  value: "Diamondback +3%+, APA/Occidental +2.5%+, Chevron ~+2%; Carnival -3.5%, Norwegian -3%, United -3%, Delta ~-2%; utilities defensive, tech lagged"
+  as_of: 2026-07-08
+  source: CNBC/Yahoo 2026-07-08
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-gold-ath
+  subject: gold
+  predicate: all_time_high
+  value: "~5,595 USD/oz on 2026-01-28"
+  as_of: 2026-01-28
+  source: CNBC/Forbes/Fortune gold coverage 2026-07-10
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-gold-now
+  subject: gold
+  predicate: current_range
+  value: "~4,100 (CNBC 4,103.69 at 9am ET Fri; -10-13% from January high)"
+  as_of: 2026-07-10
+  source: CNBC 2026-07-10
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-ust10y
+  subject: 10-year treasury
+  predicate: friday_yield
+  value: "4.56%"
+  as_of: 2026-07-10
+  source: Advisor Perspectives Treasury Yields Snapshot 2026-07-10
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-jpm-scenario
+  subject: brent scenario
+  predicate: bank_scenario_range
+  value: "JPMorgan: 120-130 near-term possible, overshoot risk toward 150 — SCENARIO, not forecast-of-fact"
+  as_of: pre-2026-07-13
+  source: JPMorgan via TheStreet (pre-dating 2026-07-13)
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-model-110
+  subject: wti scenario
+  predicate: model_one_quarter_halt
+  value: "~110 USD/bbl if full one-quarter Gulf export halt — academic/CRS/World Bank model, hypothetical"
+  as_of: pre-2026-07-13
+  source: Congress.gov CRS product / World Bank blog
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-opec-today
+  subject: OPEC
+  predicate: meeting_date
+  value: "2026-07-13, representatives of 13 producing nations"
+  as_of: 2026-07-13
+  source: Investing.com / TradingEconomics OPEC calendar
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-oman-talks
+  subject: hormuz diplomacy
+  predicate: mediation_state
+  value: "Oman brokering two-route traffic plan; Araghchi met Omani FM Sat 2026-07-11; nothing signed"
+  as_of: 2026-07-12
+  source: Al Jazeera 2026-07-12; CNN 2026-07-12
+  retrieved_at: 2026-07-13
+  status: verified
+
+- id: clm-fomc-next
+  subject: federal reserve
+  predicate: next_meeting
+  value: "2026-07-28/29 (no meeting week of 07-13)"
+  as_of: 2026-07-13
+  source: Federal Reserve calendar; Forbes Fed tracker
+  retrieved_at: 2026-07-13
+  status: verified
+
+# ---- 2026-07-14 refresh (merged from FACTS-2026-07-14.md fact-pass) ----
+- id: clm-centcom-strait-open-0712
+  subject: CENTCOM X post 2026-07-12
+  predicate: declared Strait of Hormuz "open to all vessels seeking to lawfully transit"
+  value: post dated 2026-07-12 12:14 UTC (X ID 2076278945993888116)
+  as_of: 2026-07-12
+  source: CENTCOM X post (ID snowflake-decoded); RedState 07/12; Washington Times 07/12
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-centcom-transit-graphic-0712
+  subject: CENTCOM 07/12 graphic
+  predicate: claims ships/oil transited Hormuz
+  value: 800+ ships and 400+ million barrels last two months; 140+ ships last 7 days
+  as_of: 2026-07-12
+  source: CENTCOM graphic quoted by RedState 07/12 (primary=CENTCOM X post)
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-trump-blockade-toll-0713
+  subject: Trump announcement 2026-07-13
+  predicate: reinstates Iranian blockade + proposes Hormuz cargo toll
+  value: '"reinstating THE IRANIAN BLOCKADE"; US as "guardian"; 20% of cargo value charge'
+  unit: percent_of_cargo_value
+  as_of: 2026-07-13
+  source: Bloomberg 07/13; Al Jazeera 07/13; CNBC 07/13; Axios 07/13
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-iran-response-toll-0713
+  subject: Iran joint military command
+  predicate: warned response to US strait management
+  value: '"forceful response" to disruption of shipping without armed-forces authorization'
+  as_of: 2026-07-13
+  source: Iran International liveblog 07/13 / Al Jazeera
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-brent-0713
+  subject: Brent crude
+  predicate: Monday session move/level
+  value: +~4% to ~$79 (intraday high 79.42; 78.82 at 08:00 GMT); settlement unverified
+  unit: USD/bbl
+  as_of: 2026-07-13
+  source: TradingEconomics 07/13; Al Jazeera 07/13; ts2.tech 07/13
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-wti-0713
+  subject: WTI crude
+  predicate: Monday level
+  value: 74.65 (+3.24)
+  unit: USD/bbl
+  as_of: 2026-07-13
+  source: ts2.tech 07/13 (TradingEconomics "above $74")
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-spx-0713-close
+  subject: S&P 500
+  predicate: Monday close
+  value: 7547.03 (-28.36, -0.50%)
+  as_of: 2026-07-13
+  source: ts2.tech 07/13 (consistent w/ Fri 7575.39; Yahoo rounds to -0.4%)
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-nasdaq-0713-close
+  subject: Nasdaq Composite
+  predicate: Monday close
+  value: 26058.23 (-223.38, -0.85%)
+  as_of: 2026-07-13
+  source: ts2.tech 07/13 + Yahoo liveblog (identical point drop)
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-xle-0713
+  subject: XLE energy sector ETF
+  predicate: Monday close
+  value: 56.52 (+2.61%); Benzinga intraday snapshot 55.86 (+1.41%)
+  unit: USD
+  as_of: 2026-07-13
+  source: stockanalysis.com history; Benzinga 07/13
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-chip-drag-0713
+  subject: semiconductor stocks
+  predicate: Monday decline
+  value: NVDA/AMD/INTC each -3%+; XLK -1.43%
+  as_of: 2026-07-13
+  source: TradingEconomics 07/13; Benzinga 07/13
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-transit-counts-tracker
+  subject: Hormuz transits (independent tracking)
+  predicate: vessel counts
+  value: 9 vessels Sat18:00-Sun06:00 GMT (4 Iranian-flagged); 6 Thu-Fri window; 18-22/day earlier July; ~130/day peacetime; CNN 07/13 "14 vessels yesterday, half Iranian"; Lloyd's List 07/10 only 3 fuel tankers broadcasting
+  as_of: 2026-07-13
+  source: Al Jazeera 07/13; CNN 07/13; Lloyd's List via CBS 07/10
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-ukmto-tanker-0713
+  subject: tanker near Omani coast
+  predicate: struck by unidentified projectile, structural damage/fire, no casualties
+  value: incident reported by UKMTO
+  as_of: 2026-07-13
+  source: UKMTO via liveuamap 07/13; Investing.com
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-irgc-oman-radar-0713
+  subject: IRGC claim
+  predicate: struck Bahrain and Oman, destroyed long-range FPS radar in Oman
+  value: claim, not independently confirmed
+  as_of: 2026-07-13
+  source: CBS liveblog 07/13 01:57 ET
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-opec-momr-0726
+  subject: OPEC July MOMR (released 2026-07-13 12:02 UTC)
+  predicate: demand/output revisions
+  value: 2026 demand growth cut to +800k b/d (China -110k, India -60k); OPEC+ June output 36.28M b/d (+~3M vs May); 2027 growth raised +210k to 1.73M b/d
+  unit: b/d
+  as_of: 2026-07-13
+  source: Argus 07/13; Xinhua 07/13; OPECSecretariat X post ID decode
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-iea-supply-july
+  subject: global oil supply (IEA)
+  predicate: June rebound / remaining deficit
+  value: +4.1M b/d in June to 98.8M b/d; still 9.4M b/d below pre-war
+  unit: b/d
+  as_of: 2026-07-13
+  source: The National 07/13 citing IEA
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-warrisk-rates
+  subject: Hormuz war-risk insurance
+  predicate: premium range
+  value: 2-6% of vessel value (peak ~10%, <2% pre-flareup); ~$1.5-4.5M extra per voyage; quote requests falling as owners stop asking
+  as_of: 2026-07-09
+  source: The National 06/03; Insurance Journal 07/09; Fairway 2026
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-goldman-100-scenario
+  subject: Goldman Sachs Brent scenario
+  predicate: price if Hormuz stays mostly shut another month
+  value: Brent averages >$100 through 2026; $120 Q3 / $115 Q4 if severely limited traffic persists
+  unit: USD/bbl
+  as_of: 2026-06-30
+  source: OilPrice.com / Yahoo Finance (pub date not pinned; pre-2026-07-14)
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-cpi-june-consensus
+  subject: June 2026 CPI (release 07-14 08:30 ET)
+  predicate: consensus expectations
+  value: headline ~-0.1% m/m / ~+3.9% y/y (May +0.5%/+4.2%); core +0.2% m/m / ~2.85% y/y; June gasoline -10% m/m
+  as_of: 2026-07-13
+  source: IndexBox CPI preview; BLS schedule
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-bank-earnings-0714
+  subject: Q2 bank earnings
+  predicate: report Tuesday 2026-07-14 premarket
+  value: JPMorgan, Goldman Sachs, Bank of America, Wells Fargo, Citigroup; JPM consensus EPS ~$5.44-5.61
+  as_of: 2026-07-10
+  source: Motley Fool 07/10; Yahoo 07/13; intellectia
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-oman-talks-0718
+  subject: US-Iran Hormuz talks
+  predicate: next round scheduled
+  value: Saturday 2026-07-18 in Oman; US team Vance, Kushner, Witkoff, Rubio
+  as_of: 2026-07-13
+  source: CNN liveblog 07/13
+  retrieved_at: 2026-07-14
+  status: single_source
+- id: clm-fomc-odds-july
+  subject: July 28-29 FOMC
+  predicate: market-implied odds of unchanged rates
+  value: ~65%
+  unit: percent
+  as_of: 2026-07-13
+  source: IndexBox 07/13-14
+  retrieved_at: 2026-07-14
+  status: single_source
+
+# ---- 2026-07-14 CHART-TRUE block (v4). Source of truth for LEVELS = the live
+# TradingView feed read via tradingview-mcp ohlcv (daily bars), retrieved 2026-07-14.
+# These SUPERSEDE news-copy price claims above for anything spoken over a chart
+# (clm-brent-friday-close 76.56, clm-brent-0713 "~79", clm-spx-0713-close 7547,
+# clm-xle-0713 56.52, clm-gold-now 4100 — do NOT cite those on chart sections).
+- id: clm-chart-brent-fri
+  subject: brent (TVC:UKOIL 1D)
+  predicate: friday_close_on_chart
+  value: 75.22
+  unit: USD/bbl
+  as_of: 2026-07-10
+  source: TVC:UKOIL daily bar via tradingview-mcp ohlcv
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-brent-mon
+  subject: brent (TVC:UKOIL 1D)
+  predicate: monday_session_close_on_chart
+  value: "83.31 close (Sun-22:00-UTC-stamped Monday session bar; O 78.00 H 83.86 L 77.28); +10.75% vs Fri 75.22"
+  unit: USD/bbl
+  as_of: 2026-07-13
+  source: TVC:UKOIL daily bar via tradingview-mcp ohlcv
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-brent-warhigh
+  subject: brent (TVC:UKOIL 1D)
+  predicate: march_war_high_on_chart
+  value: "near 120 on the daily feed (Premium zone top ~119-120; news intraday prints 126 — chart shows ~120, speak the chart)"
+  unit: USD/bbl
+  as_of: 2026-03
+  source: TVC:UKOIL daily chart via tradingview-mcp; VERIFY exact max(high) at capture
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-spx-fri
+  subject: S&P 500 (SP:SPX 1D)
+  predicate: friday_close_on_chart
+  value: 7575.39
+  as_of: 2026-07-10
+  source: SP:SPX daily bar via tradingview-mcp ohlcv
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-spx-mon
+  subject: S&P 500 (SP:SPX 1D)
+  predicate: monday_close_on_chart
+  value: "7515.34 (-0.79% vs Fri 7575.39; Monday low 7506.41)"
+  as_of: 2026-07-13
+  source: SP:SPX daily bar via tradingview-mcp ohlcv
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-ixic-mon
+  subject: Nasdaq Composite (NASDAQ:IXIC 1D)
+  predicate: monday_close_on_chart
+  value: "25873.18 (-1.55% vs Fri 26281.61)"
+  as_of: 2026-07-13
+  source: NASDAQ:IXIC daily bar via tradingview-mcp ohlcv
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-nvda-mon
+  subject: Nvidia (NASDAQ:NVDA 1D)
+  predicate: monday_close_on_chart
+  value: "203.53 (-3.52% vs Fri close 210.96)"
+  unit: USD
+  as_of: 2026-07-13
+  source: NASDAQ:NVDA daily bar via tradingview-mcp ohlcv
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-xle-mon
+  subject: XLE (AMEX:XLE 1D)
+  predicate: monday_close_on_chart
+  value: "56.74 (+3.01% vs Fri 55.08)"
+  unit: USD
+  as_of: 2026-07-13
+  source: AMEX:XLE daily bar via tradingview-mcp ohlcv
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-gold-mon
+  subject: gold (TVC:GOLD 1D)
+  predicate: monday_close_on_chart
+  value: "4004.82 (right around 4000); January record ~5595 (chart + news agree ~5.6k) — VERIFY max(high) at capture"
+  unit: USD/oz
+  as_of: 2026-07-13
+  source: TVC:GOLD daily bar via tradingview-mcp ohlcv; clm-gold-ath corroborates January high
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-xom-mon
+  subject: Exxon Mobil (NYSE:XOM 1D)
+  predicate: monday_close_on_chart
+  value: "144.51 (+4.05% vs Fri close 138.88); Monday high 145.23"
+  unit: USD
+  as_of: 2026-07-13
+  source: NYSE:XOM daily bar via tradingview-mcp ohlcv (replay-pinned 2026-07-14)
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-cvx-mon
+  subject: Chevron (NYSE:CVX 1D)
+  predicate: monday_close_on_chart
+  value: "182.20 (+3.29% vs Fri close 176.40)"
+  unit: USD
+  as_of: 2026-07-13
+  source: NYSE:CVX daily bar via tradingview-mcp ohlcv (replay-pinned 2026-07-14)
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-us10y-mon
+  subject: US 10-year Treasury yield (TVC:US10Y 1D)
+  predicate: monday_close_on_chart
+  value: "4.624 (vs Fri close 4.561) — yields ROSE on the war session"
+  unit: percent
+  as_of: 2026-07-13
+  source: TVC:US10Y daily bar via tradingview-mcp ohlcv (replay-pinned 2026-07-14)
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-chart-jpm-mon
+  subject: JPMorgan (NYSE:JPM 1D)
+  predicate: monday_close_on_chart
+  value: "334.53 (-0.58% vs Fri close 336.47)"
+  unit: USD
+  as_of: 2026-07-13
+  source: NYSE:JPM daily bar via tradingview-mcp ohlcv (replay-pinned 2026-07-14)
+  retrieved_at: 2026-07-14
+  status: verified
+- id: clm-aj-transits-0710
+  subject: Hormuz transits (Windward via Al Jazeera 07/10 — the article ON SCREEN in section 04)
+  predicate: vessel counts as printed
+  value: "only 5 vessels tracked crossing Wednesday-early Thursday; 45 transits Monday 2026-07-06; ~130/day before the war (late Feb)"
+  as_of: 2026-07-10
+  source: Al Jazeera economy 2026-07-10 (Windward data; UKMTO threat assessment)
+  retrieved_at: 2026-07-14
+  status: verified

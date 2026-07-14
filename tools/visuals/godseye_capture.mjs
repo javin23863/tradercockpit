@@ -32,6 +32,10 @@
 // side of Cesium's real-time day/night terminator — without this, a
 // "night lights" shot silently shows nothing if it happens to be Gulf
 // daytime when you run the script.
+// WARNING (2026-07-13): setting the clock triggered a Cesium fatal that killed
+// the ge-raw3 run on its final shot — the skill rule is "NEVER set the viewer
+// clock". Avoid utcHour; shoot regions while naturally dark (Gulf ≈ 22-02 UTC)
+// or fake the look with the DUSK preset.
 //
 // # ponytail: single flat script, no framework, no config file. Reuses
 // godseye's own puppeteer-core install (a devDependency of that repo) via an
@@ -118,6 +122,20 @@ async function connectOrLaunch(puppeteer) {
   )
 }
 
+// picture-quality bump: render at full 2x scale and stream sharper 3D tiles.
+// # ponytail: SSE 8 (Cesium default 16) is the tuning knob — raise it back
+// toward 16 if the RTX 3080 stutters or tiles never finish streaming.
+async function applyQuality(page) {
+  await page.evaluate(() => {
+    const v = window.__viewer
+    v.resolutionScale = 2 // app default is min(devicePixelRatio, 2)
+    for (let i = 0; i < v.scene.primitives.length; i++) {
+      const p = v.scene.primitives.get(i)
+      if (p && p.maximumScreenSpaceError !== undefined) p.maximumScreenSpaceError = 8
+    }
+  })
+}
+
 async function findAppPage(browser) {
   const started = Date.now()
   while (Date.now() - started < 20_000) {
@@ -129,16 +147,23 @@ async function findAppPage(browser) {
   throw new Error(`no page found with url starting with ${APP_ORIGIN} — is GodsEye actually loaded?`)
 }
 
-// click a DOM target: literal id, "layer:NAME" (checkbox by row label), or
-// "basemap:MODE" ( #basemaps button ). Returns true if it clicked something.
+// click a DOM target: literal id, "layer:NAME" / "layer:NAME:off" (checkbox by
+// row label), or "basemap:MODE" ( #basemaps button ). Returns true if it acted.
+// "layer:" is idempotent — ensures the layer is ON (or OFF with the :off
+// suffix) instead of blind-toggling. LESSON (2026-07-13, ge-raw4): default-on
+// layers (CRITICAL INFRA, MILITARY) got toggled OFF by shot lists that meant
+// "make sure this is visible", so the infra shot recorded with no infra.
 async function clickTarget(page, idOrLayer) {
   return page.evaluate((idOrLayer) => {
     if (idOrLayer.startsWith('layer:')) {
-      const name = idOrLayer.slice('layer:'.length)
+      let name = idOrLayer.slice('layer:'.length)
+      let want = true
+      if (name.endsWith(':off')) { name = name.slice(0, -4); want = false }
       const row = [...document.querySelectorAll('#layers label.layer-row')].find((l) => l.textContent?.includes(name))
       const box = row?.querySelector('input[type=checkbox]')
       if (!box) return false
-      box.click(); return true
+      if (box.checked !== want) box.click()
+      return true
     }
     if (idOrLayer.startsWith('basemap:')) {
       const mode = idOrLayer.slice('basemap:'.length)
@@ -177,27 +202,7 @@ async function runShot(page, shot, outDir, n) {
   }
 
   for (const id of shot.clickIds ?? []) {
-    const ok = await page.evaluate((idOrLayer) => {
-      if (idOrLayer.startsWith('layer:')) {
-        const name = idOrLayer.slice('layer:'.length)
-        const row = [...document.querySelectorAll('#layers label.layer-row')].find((l) => l.textContent?.includes(name))
-        const box = row?.querySelector('input[type=checkbox]')
-        if (!box) return false
-        box.click()
-        return true
-      }
-      if (idOrLayer.startsWith('basemap:')) {
-        const mode = idOrLayer.slice('basemap:'.length)
-        const btn = document.querySelector(`#basemaps button[data-mode="${mode}"]`)
-        if (!btn) return false
-        btn.click()
-        return true
-      }
-      const el = document.getElementById(idOrLayer)
-      if (!el) return false
-      el.click()
-      return true
-    }, id)
+    const ok = await clickTarget(page, id)
     if (!ok) throw new Error(`click target not found: ${id}`)
   }
 
@@ -237,19 +242,38 @@ async function runShot(page, shot, outDir, n) {
       durationSec,
     )
 
-  const startRecorder = () => page.evaluate((orbitDegPerSec) => {
+  // Orbit AROUND the shot target, keeping it centered. camera.rotateRight()
+  // (the old approach) orbits around the GLOBE center — at 2°/s over a 35s
+  // hold the camera drifts ~70° of longitude and films the wrong country.
+  // Started only AFTER the camera arrives (lookAt would fight an in-flight flyTo).
+  const startOrbit = () => shot.orbitDegPerSec && page.evaluate((orbitDegPerSec, lon, lat) => {
+    const v = window.__viewer
+    const Cartesian3 = v.camera.position.constructor
+    const Matrix4 = v.camera.viewMatrix.constructor
+    const target = Cartesian3.fromDegrees(lon, lat, 0)
+    const range = Cartesian3.distance(v.camera.position, target)
+    const pitch = v.camera.pitch // negative = looking down
+    let heading = v.camera.heading
+    const rate = (orbitDegPerSec * Math.PI) / 180
+    const d = range * Math.cos(-pitch)
+    const up = range * Math.sin(-pitch)
+    let last = performance.now()
+    const remove = v.clock.onTick.addEventListener(() => {
+      const now = performance.now()
+      heading += rate * ((now - last) / 1000)
+      last = now
+      v.camera.lookAt(target, new Cartesian3(-d * Math.sin(heading), -d * Math.cos(heading), up))
+    })
+    window.__orbitRemover = () => {
+      remove()
+      v.camera.lookAtTransform(Matrix4.IDENTITY) // unlock the transform or the next flyTo misbehaves
+    }
+  }, shot.orbitDegPerSec, shot.lon, shot.lat)
+
+  const startRecorder = () => page.evaluate(() => {
     const v = window.__viewer
     const canvas = v.scene.canvas
     window.__cap = { chunks: [] }
-    if (orbitDegPerSec) {
-      const rate = (orbitDegPerSec * Math.PI) / 180
-      let last = performance.now()
-      window.__cap.orbitRemover = v.clock.onTick.addEventListener(() => {
-        const now = performance.now()
-        v.scene.camera.rotateRight(rate * ((now - last) / 1000))
-        last = now
-      })
-    }
     const rec = new MediaRecorder(canvas.captureStream(30), {
       mimeType: 'video/webm;codecs=vp9',
       videoBitsPerSecond: 12_000_000,
@@ -258,7 +282,7 @@ async function runShot(page, shot, outDir, n) {
     window.__cap.rec = rec
     window.__cap.stopped = new Promise((resolve) => (rec.onstop = resolve))
     rec.start(1000) // 1s timeslice: chunks arrive incrementally so no single evaluate() payload gets huge
-  }, shot.orbitDegPerSec)
+  })
 
   if (shot.fromHeight) {
     // cinematic zoom-in: park high over the target, record the descent flyTo itself
@@ -273,6 +297,7 @@ async function runShot(page, shot, outDir, n) {
     await sleep(2500) // let the space view settle
     await startRecorder()
     await flyTo(shot.flyDurationSec ?? 6)
+    await startOrbit()
   } else {
     await flyTo(3)
     await sleep((shot.settleSec ?? 4) * 1000) // let 3D tiles stream in before recording
@@ -284,13 +309,14 @@ async function runShot(page, shot, outDir, n) {
       if (!ok) throw new Error(`scanAfter target not found: ${id}`)
     }
     if (shot.scanAfter?.length) await sleep((shot.scanWaitSec ?? 5) * 1000)
+    await startOrbit()
     await startRecorder()
   }
 
   await sleep(shot.holdSec * 1000)
 
   await page.evaluate(() => {
-    if (window.__cap.orbitRemover) window.__cap.orbitRemover()
+    if (window.__orbitRemover) { window.__orbitRemover(); window.__orbitRemover = null }
     clearInterval(window.__capCaptionTimer)
     window.__cap.rec.stop()
   })
@@ -357,6 +383,7 @@ async function runCapture(shotlistPath, outDir) {
 
   console.log(`connected to ${APP_ORIGIN} — waiting for window.__viewer...`)
   await page.waitForFunction(() => !!window.__viewer, { timeout: 30_000 })
+  await applyQuality(page)
 
   for (let i = 0; i < shots.length; i++) {
     const n = String(i + 1).padStart(2, '0')
@@ -373,6 +400,7 @@ async function runCapture(shotlistPath, outDir) {
       console.error(`  shot failed (${e.message.slice(0, 120)}) — reloading app and retrying once`)
       await page.reload({ waitUntil: 'load' })
       await page.waitForFunction(() => !!window.__viewer, { timeout: 30_000 })
+      await applyQuality(page) // reload reset the viewer — re-apply before the retry
       await sleep(5000)
       await runShot(page, shot, outDir, n)
     }

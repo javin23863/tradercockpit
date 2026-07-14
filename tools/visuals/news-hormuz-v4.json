@@ -1,0 +1,52 @@
+[
+  {
+    "out": "02-news-blockade",
+    "url": "https://www.aljazeera.com/news/2026/7/13/trump-says-us-will-become-guardian-of-strait-of-hormuz-and-collect-tolls",
+    "label": "AL JAZEERA  -  JULY 13 2026",
+    "holdSec": 20,
+    "highlights": [
+      "reimbursed, at the rate of 20% on all cargo shipped",
+      "the number of commercial vessels passing through the strait since the latest attacks"
+    ]
+  },
+  {
+    "out": "04-news-transits",
+    "url": "https://www.aljazeera.com/economy/2026/7/10/strait-of-hormuz-shipping-grinds-to-halt-as-us-iran-resume-fighting",
+    "label": "AL JAZEERA  -  JULY 10 2026",
+    "holdSec": 22,
+    "highlights": [
+      "Only five vessels were tracked crossing the strait on Wednesday and early Thursday morning",
+      "Roughly 130 vessels transited the strait"
+    ]
+  },
+  {
+    "out": "09-why-hormuz",
+    "url": "https://www.eia.gov/todayinenergy/detail.php?id=65504",
+    "label": "U.S. EIA  -  ENERGY DATA",
+    "holdSec": 20,
+    "highlights": [
+      "20 million barrels per day",
+      "20% of global petroleum liquids consumption"
+    ]
+  },
+  {
+    "out": "10-news-supply",
+    "url": "https://www.iea.org/reports/oil-market-report-july-2026",
+    "label": "IEA OIL MARKET REPORT  -  JULY 2026",
+    "holdSec": 20,
+    "highlights": [
+      "Global oil supply rebounded by a sharp 4.1 mb/d to 98.8 mb/d in June",
+      "below pre-war levels"
+    ]
+  },
+  {
+    "out": "12-week-ahead",
+    "url": "https://www.tradingkey.com/analysis/economic/more/262024478-week-ahead-us-june-cpi-ppi-focus-q2-earnings-season-tradingkey",
+    "label": "TRADINGKEY  -  WEEK AHEAD",
+    "holdSec": 20,
+    "highlights": [
+      "June CPI",
+      "earnings season"
+    ]
+  }
+]

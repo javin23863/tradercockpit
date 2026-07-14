@@ -1,0 +1,97 @@
+# Spoken-claim receipts — video-02-hormuz-v4 (chart-true edition, 2026-07-14).
+# quote MUST be an exact substring of that section's vo.txt text.
+# Chart sections cite clm-chart-* (levels read off the TradingView feed);
+# news sections cite event claims. attributed: true = source named on air.
+
+"01":
+  - { quote: "a twenty percent toll", claim: clm-trump-blockade-toll-0713 }
+  - { quote: "more than ten percent Monday and closed at eighty-three dollars", claim: clm-chart-brent-mon }
+  - { quote: "CPI hits one hour before the open", claim: clm-cpi-june-consensus, attributed: true }
+  - { quote: "the big banks all report before the bell", claim: clm-bank-earnings-0714 }
+
+"02":
+  - { quote: "a toll at the rate of twenty percent on all cargo shipped", claim: clm-trump-blockade-toll-0713, attributed: true }
+  - { quote: "warning of a forceful response", claim: clm-iran-response-toll-0713, attributed: true }
+  - { quote: "about a fifth of the world's oil", claim: clm-hormuz-flows }
+
+"03":
+  - { quote: "Friday closed at seventy-five twenty-two", claim: clm-chart-brent-fri }
+  - { quote: "closed at eighty-three thirty-one, up more than ten percent in one day", claim: clm-chart-brent-mon }
+  - { quote: "marked the fair value of a barrel up eight dollars in one session", claim: clm-chart-brent-mon }
+  - { quote: "seventy-five twenty-two is now your first support", claim: clm-chart-brent-fri }
+  - { quote: "the March war high sits near one twenty", claim: clm-chart-brent-warhigh }
+
+"04":
+  - { quote: "only five vessels crossing over a day and a half last week", claim: clm-aj-transits-0710, attributed: true }
+  - { quote: "roughly a hundred and thirty transited every day", claim: clm-aj-transits-0710, attributed: true }
+  - { quote: "more than a hundred and forty ships made it through over the last week", claim: clm-centcom-transit-graphic-0712, attributed: true }
+  - { quote: "two to six percent of a ship's value", claim: clm-warrisk-rates, attributed: true }
+  - { quote: "millions of dollars per voyage", claim: clm-warrisk-rates, attributed: true }
+
+"05":
+  - { quote: "S and P five hundred, daily. Friday closed at seventy-five seventy-five", claim: clm-chart-spx-fri }
+  - { quote: "Monday closed at seventy-five fifteen, down about eight tenths of one percent", claim: clm-chart-spx-mon }
+  - { quote: "Energy up three percent", claim: clm-chart-xle-mon }
+  - { quote: "chips down three percent", claim: clm-chart-nvda-mon }
+  - { quote: "Friday's close at seventy-five seventy-five", claim: clm-chart-spx-fri }
+  - { quote: "Monday's low at seventy-five oh-six", claim: clm-chart-spx-mon }
+  - { quote: "loses Monday's low", claim: clm-chart-spx-mon }
+
+"06":
+  - { quote: "fell about one and a half percent Monday, closing near twenty-five thousand nine hundred", claim: clm-chart-ixic-mon }
+  - { quote: "Down about three and a half percent to two hundred three fifty-three", claim: clm-chart-nvda-mon }
+  - { quote: "closing Friday near two hundred eleven", claim: clm-chart-nvda-mon }
+  - { quote: "Friday's close near two-eleven", claim: clm-chart-nvda-mon }
+  - { quote: "Monday's close at two-oh-three fifty-three", claim: clm-chart-nvda-mon }
+
+"07":
+  - { quote: "closed Monday at fifty-six seventy-four, up three percent on the day", claim: clm-chart-xle-mon }
+  - { quote: "eighty-three dollar crude", claim: clm-chart-brent-mon }
+  - { quote: "Exxon closed Friday at one thirty-eight eighty-eight", claim: clm-chart-xom-mon }
+  - { quote: "Monday it ripped to one forty-four fifty-one, up four percent, and tagged one forty-five during the session", claim: clm-chart-xom-mon }
+  - { quote: "one seventy-six forty on Friday, one eighty-two twenty on Monday, up better than three percent", claim: clm-chart-cvx-mon }
+
+"08":
+  - { quote: "closed Monday right around four thousand", claim: clm-chart-gold-mon }
+  - { quote: "January record near fifty-six hundred", claim: clm-gold-ath }
+  - { quote: "the ten-year Treasury yield, daily", claim: clm-chart-us10y-mon }
+  - { quote: "Friday it closed at four point five six", claim: clm-chart-us10y-mon }
+  - { quote: "it rose to four point six two", claim: clm-chart-us10y-mon }
+  - { quote: "a yield north of four and a half percent", claim: clm-chart-us10y-mon }
+
+"09":
+  - { quote: "twenty million barrels of oil move through Hormuz every single day", claim: clm-hormuz-flows, attributed: true }
+  - { quote: "a fifth of world consumption", claim: clm-hormuz-flows }
+  - { quote: "more than a quarter of all seaborne oil", claim: clm-hormuz-flows }
+  - { quote: "about a fifth of global L N G", claim: clm-hormuz-flows }
+
+"10":
+  - { quote: "OPEC cut its demand growth forecast", claim: clm-opec-momr-0726, attributed: true }
+  - { quote: "global supply jumped by more than four million barrels a day in June", claim: clm-iea-supply-july, attributed: true }
+
+"11":
+  - { quote: "Monday closed at eighty-three thirty-one", claim: clm-chart-brent-mon }
+  - { quote: "The first line up is one hundred", claim: clm-goldman-100-scenario, attributed: true }
+  - { quote: "Brent averaging above a hundred, with a third-quarter path toward one twenty", claim: clm-goldman-100-scenario, attributed: true }
+  - { quote: "roughly a twenty percent move", claim: clm-chart-brent-mon }
+  - { quote: "The next line is one ten, where government models of a one-quarter halt in Gulf exports land", claim: clm-model-110, attributed: true }
+  - { quote: "Then one twenty, the March war high", claim: clm-chart-brent-warhigh }
+  - { quote: "One thirty caps JPMorgan's spike zone, one twenty to one thirty if disruption persists", claim: clm-jpm-scenario, attributed: true }
+  - { quote: "the top line, one fifty, is JPMorgan's overshoot case", claim: clm-jpm-scenario, attributed: true }
+  - { quote: "sitting still at eighty-three", claim: clm-chart-brent-mon }
+
+"12":
+  - { quote: "Eight thirty Eastern: June CPI", claim: clm-cpi-june-consensus, attributed: true }
+  - { quote: "JPMorgan, Goldman Sachs, Bank of America, Wells Fargo, and Citigroup", claim: clm-bank-earnings-0714 }
+  - { quote: "Friday it closed at three thirty-six forty-seven", claim: clm-chart-jpm-mon }
+  - { quote: "Monday, three thirty-four fifty-three, down about half a percent", claim: clm-chart-jpm-mon }
+  - { quote: "Consensus has JPMorgan earning around five and a half dollars a share", claim: clm-bank-earnings-0714, attributed: true }
+  - { quote: "Five banks report inside two hours", claim: clm-bank-earnings-0714 }
+  - { quote: "Saturday, the next round of US-Iran talks in Oman", claim: clm-oman-talks-0718, attributed: true }
+  - { quote: "the Fed meets on the twenty-eighth", claim: clm-fomc-next }
+  - { quote: "two-in-three chance rates stay put", claim: clm-fomc-odds-july, attributed: true }
+
+"13":
+  - { quote: "The scenario map runs from one hundred to one fifty", claim: clm-goldman-100-scenario, attributed: true }
+  - { quote: "The scenario map runs from one hundred to one fifty", claim: clm-jpm-scenario, attributed: true }
+  - { quote: "five bank reports, all before the opening bell", claim: clm-bank-earnings-0714 }

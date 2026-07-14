@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+/* TraderCockpit brand kit — Direction 01 "Instrument", landing-matched red/black.
+   Palette pulled from docs/index.html (--bg #08030a, --accent #FF1744).
+   Render one surface per load via ?m=avatar|banner|fbcover|wm|logo (see render_brand.cjs). */
+:root{
+  --bg:#08030a; --panel:#0a0407; --line:#3a0d1a; --ink:#F5E8EA;
+  --dim:#c89aa3; --faint:#7a4a52; --accent:#FF1744; --accent-soft:#7a142e;
+  --mono:"Cascadia Mono","Cascadia Code",Consolas,"Courier New",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:transparent;overflow:hidden;
+  font-family:var(--mono);color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{position:absolute;inset:0;display:none;align-items:center;justify-content:center}
+.solid{background:radial-gradient(120% 90% at 50% 30%,#160a12 0%,var(--bg) 62%)}
+.grid{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(58,13,26,.45) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(58,13,26,.45) 1px,transparent 1px)}
+.vig{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.72) 100%)}
+.glow{filter:drop-shadow(0 0 18px rgba(255,23,68,.45))}
+
+/* AVATAR 800x800 */
+#avatar .mark{width:600px;height:600px}
+#avatar .tc{font-size:150px;font-weight:700;letter-spacing:-.06em}
+#avatar .tc b{color:var(--accent)}
+
+/* BANNER 2560x1440 — text-safe centered 1546x423 */
+#banner .safe{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:1546px;height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+#banner .name{font-size:104px;font-weight:700;letter-spacing:.02em;line-height:1}
+#banner .name b{color:var(--accent);text-shadow:0 0 44px rgba(255,23,68,.55)}
+#banner .tag{font-size:38px;color:var(--dim);margin-top:22px;letter-spacing:.01em}
+#banner .tag i{color:var(--ink);font-style:normal}
+#banner .sub{font-size:23px;color:var(--faint);margin-top:20px;letter-spacing:.32em;text-transform:uppercase}
+#banner .ticker{position:absolute;left:0;right:0;text-align:center;font-size:22px;color:rgba(122,74,82,.5);
+  letter-spacing:.7em;white-space:nowrap}
+#banner .t-top{top:150px} #banner .t-bot{bottom:150px}
+#banner .badge{position:absolute;left:190px;top:50%;transform:translateY(-50%)}
+#banner .badge2{left:auto;right:190px}
+
+/* FACEBOOK COVER 1640x624 (content centered; mobile crops sides) */
+#fbcover .row{display:flex;align-items:center;gap:54px}
+#fbcover .mark{width:300px;height:300px}
+#fbcover .name{font-size:78px;font-weight:700;letter-spacing:.02em;line-height:1}
+#fbcover .name b{color:var(--accent);text-shadow:0 0 34px rgba(255,23,68,.5)}
+#fbcover .tag{font-size:27px;color:var(--dim);margin-top:16px}
+#fbcover .tag i{color:var(--ink);font-style:normal}
+#fbcover .sub{font-size:18px;color:var(--faint);margin-top:14px;letter-spacing:.26em;text-transform:uppercase}
+
+/* WATERMARK 150x150 — needle-only reduction, transparent bg */
+#wm .mark{width:132px;height:132px}
+
+/* LOGO 1200x320 — horizontal lockup, transparent bg */
+#logo{background:transparent}
+#logo .row{display:flex;align-items:center;gap:40px}
+#logo .mark{width:220px;height:220px}
+#logo .name{font-size:104px;font-weight:700;letter-spacing:.01em}
+#logo .name b{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- ============ AVATAR ============ -->
+<div class="stage solid" id="avatar">
+  <div class="grid"></div>
+  <div style="position:relative;display:flex;flex-direction:column;align-items:center">
+    <svg class="mark glow" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="54" fill="none" stroke="#3a0d1a" stroke-width="2"/>
+      <path d="M60 8 A52 52 0 0 0 21 100" fill="none" stroke="#7a142e" stroke-width="4" stroke-linecap="round"/>
+      <path d="M60 8 A52 52 0 0 1 99 100" fill="none" stroke="#FF1744" stroke-width="4" stroke-linecap="round"/>
+      <g stroke="#5a2230" stroke-width="2" stroke-linecap="round">
+        <line x1="60" y1="12" x2="60" y2="20"/><line x1="92" y1="30" x2="87" y2="36"/>
+        <line x1="28" y1="30" x2="33" y2="36"/><line x1="104" y1="60" x2="96" y2="60"/>
+        <line x1="16" y1="60" x2="24" y2="60"/><line x1="88" y1="88" x2="83" y2="82"/>
+        <line x1="32" y1="88" x2="37" y2="82"/>
+      </g>
+      <line x1="60" y1="60" x2="87" y2="39" stroke="#FF1744" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="60" cy="60" r="6.5" fill="#FF1744"/>
+    </svg>
+    <div class="tc" style="margin-top:-6px">T<b>C</b></div>
+  </div>
+  <div class="vig"></div>
+</div>
+
+<!-- ============ BANNER ============ -->
+<div class="stage solid" id="banner">
+  <div class="grid"></div>
+  <div class="ticker t-top">01 · 02 · 03 · 04 · 05 · 06 · 07 · 08 · 09 · 10 · 11 · 12</div>
+  <svg class="mark glow badge" viewBox="0 0 120 120" width="230" height="230">
+    <circle cx="60" cy="60" r="54" fill="none" stroke="#3a0d1a" stroke-width="2"/>
+    <path d="M60 8 A52 52 0 0 0 21 100" fill="none" stroke="#7a142e" stroke-width="4" stroke-linecap="round"/>
+    <path d="M60 8 A52 52 0 0 1 99 100" fill="none" stroke="#FF1744" stroke-width="4" stroke-linecap="round"/>
+    <line x1="60" y1="60" x2="87" y2="39" stroke="#FF1744" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="60" cy="60" r="6.5" fill="#FF1744"/>
+  </svg>
+  <svg class="mark glow badge badge2" viewBox="0 0 120 120" width="230" height="230">
+    <circle cx="60" cy="60" r="54" fill="none" stroke="#3a0d1a" stroke-width="2"/>
+    <path d="M60 8 A52 52 0 0 0 21 100" fill="none" stroke="#7a142e" stroke-width="4" stroke-linecap="round"/>
+    <path d="M60 8 A52 52 0 0 1 99 100" fill="none" stroke="#FF1744" stroke-width="4" stroke-linecap="round"/>
+    <line x1="60" y1="60" x2="87" y2="39" stroke="#FF1744" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="60" cy="60" r="6.5" fill="#FF1744"/>
+  </svg>
+  <div class="safe">
+    <div class="name">TRADER<b>COCKPIT</b></div>
+    <div class="tag">Markets, <i>read plainly.</i></div>
+    <div class="sub">Oil · Equities · Rates · Geopolitics → your portfolio</div>
+  </div>
+  <div class="ticker t-bot">@THETRADERCOCKPIT · DAILY MARKET NEWS · NOT FINANCIAL ADVICE</div>
+  <div class="vig"></div>
+</div>
+
+<!-- ============ FACEBOOK COVER ============ -->
+<div class="stage solid" id="fbcover">
+  <div class="grid"></div>
+  <div class="row" style="position:relative">
+    <svg class="mark glow" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="54" fill="none" stroke="#3a0d1a" stroke-width="2"/>
+      <path d="M60 8 A52 52 0 0 0 21 100" fill="none" stroke="#7a142e" stroke-width="4" stroke-linecap="round"/>
+      <path d="M60 8 A52 52 0 0 1 99 100" fill="none" stroke="#FF1744" stroke-width="4" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="87" y2="39" stroke="#FF1744" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="60" cy="60" r="6.5" fill="#FF1744"/>
+    </svg>
+    <div>
+      <div class="name">TRADER<b>COCKPIT</b></div>
+      <div class="tag">Markets, <i>read plainly.</i></div>
+      <div class="sub">Daily market news · @thetradercockpit</div>
+    </div>
+  </div>
+  <div class="vig"></div>
+</div>
+
+<!-- ============ WATERMARK (transparent) ============ -->
+<div class="stage" id="wm">
+  <svg class="mark glow" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="52" fill="none" stroke="#7a142e" stroke-width="5"/>
+    <path d="M60 10 A50 50 0 0 1 96 96" fill="none" stroke="#FF1744" stroke-width="7" stroke-linecap="round"/>
+    <line x1="60" y1="60" x2="86" y2="40" stroke="#FF1744" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="60" cy="60" r="10" fill="#FF1744"/>
+  </svg>
+</div>
+
+<!-- ============ LOGO LOCKUP (transparent) ============ -->
+<div class="stage" id="logo">
+  <div class="row">
+    <svg class="mark glow" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="54" fill="none" stroke="#3a0d1a" stroke-width="2.5"/>
+      <path d="M60 8 A52 52 0 0 0 21 100" fill="none" stroke="#7a142e" stroke-width="5" stroke-linecap="round"/>
+      <path d="M60 8 A52 52 0 0 1 99 100" fill="none" stroke="#FF1744" stroke-width="5" stroke-linecap="round"/>
+      <line x1="60" y1="60" x2="87" y2="39" stroke="#FF1744" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="60" cy="60" r="8" fill="#FF1744"/>
+    </svg>
+    <div class="name">Trader<b>Cockpit</b></div>
+  </div>
+</div>
+
+<script>
+const m = new URLSearchParams(location.search).get("m") || "avatar";
+const el = document.getElementById(m);
+if (el) el.style.display = "flex";
+</script>
+</body>
+</html>

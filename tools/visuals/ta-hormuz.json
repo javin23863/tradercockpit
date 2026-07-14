@@ -1,0 +1,32 @@
+[
+  {"out": "05-oil-ta", "symbol": "TVC:UKOIL", "tf": "1D", "stages": [
+    {"holdSec": 12},
+    {"holdSec": 13, "draw": [{"type": "horizontal_line", "price": 76.56, "overrides": {"linecolor": "#26A69A", "linewidth": 2}}]},
+    {"holdSec": 13, "draw": [{"type": "horizontal_line", "price": 79.42, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+  ]},
+  {"out": "06-spx-ta", "symbol": "SP:SPX", "tf": "1D", "stages": [
+    {"holdSec": 14},
+    {"holdSec": 14, "draw": [{"type": "horizontal_line", "price": 7547.03, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+    {"holdSec": 14, "draw": [{"type": "horizontal_line", "price": 7575.39, "overrides": {"linecolor": "#26A69A", "linewidth": 2}}]}
+  ]},
+  {"out": "07-xle-rotation", "symbol": "AMEX:XLE", "tf": "1D", "stages": [
+    {"holdSec": 20},
+    {"holdSec": 20, "draw": [{"type": "horizontal_line", "price": 56.52, "overrides": {"linecolor": "#26A69A", "linewidth": 2}}]}
+  ]},
+  {"out": "08-gold-ta", "symbol": "TVC:GOLD", "tf": "1W", "stages": [
+    {"holdSec": 14},
+    {"holdSec": 13, "draw": [{"type": "horizontal_line", "price": 5595, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+    {"holdSec": 13, "draw": [{"type": "horizontal_line", "price": 4100, "overrides": {"linecolor": "#26A69A", "linewidth": 2}}]}
+  ]},
+  {"out": "11-scenarios", "symbol": "TVC:UKOIL", "tf": "1W", "stages": [
+    {"holdSec": 12},
+    {"holdSec": 17, "draw": [
+      {"type": "horizontal_line", "price": 100, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}},
+      {"type": "horizontal_line", "price": 110, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+    ]},
+    {"holdSec": 17, "draw": [
+      {"type": "horizontal_line", "price": 120, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}},
+      {"type": "horizontal_line", "price": 150, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}
+    ]}
+  ]}
+]

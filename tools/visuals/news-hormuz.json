@@ -1,0 +1,56 @@
+[
+  {
+    "out": "02-news-blockade",
+    "url": "https://www.aljazeera.com/news/2026/7/13/trump-says-us-will-become-guardian-of-strait-of-hormuz-and-collect-tolls",
+    "holdSec": 22,
+    "highlights": [
+      "reimbursed, at the rate of 20% on all cargo shipped",
+      "the number of commercial vessels passing through the strait since the latest attacks"
+    ]
+  },
+  {
+    "out": "04-news-strikes",
+    "url": "https://www.insurancejournal.com/news/international/2026/07/13/877286.htm",
+    "holdSec": 23,
+    "highlights": [
+      "The US and Iran exchange tit-for-tat attacks and also offer competing narratives of who is in charge of the strait",
+      "All of the six commodity carriers that transited Hormuz on Sunday did so with their transponders turned off"
+    ]
+  },
+  {
+    "out": "05-news-transits",
+    "url": "https://www.aljazeera.com/economy/2026/7/10/strait-of-hormuz-shipping-grinds-to-halt-as-us-iran-resume-fighting",
+    "holdSec": 24,
+    "highlights": [
+      "Only five vessels were tracked crossing the strait on Wednesday and early Thursday morning",
+      "compared with 45 transits on Monday"
+    ]
+  },
+  {
+    "out": "07-why-hormuz",
+    "url": "https://www.eia.gov/todayinenergy/detail.php?id=65504",
+    "holdSec": 18,
+    "highlights": [
+      "20 million barrels per day",
+      "20% of global petroleum liquids consumption"
+    ]
+  },
+  {
+    "out": "11-news-supply",
+    "url": "https://www.iea.org/reports/oil-market-report-july-2026",
+    "holdSec": 21,
+    "highlights": [
+      "Global oil supply rebounded by a sharp 4.1 mb/d to 98.8 mb/d in June",
+      "below pre-war levels"
+    ]
+  },
+  {
+    "out": "13-catalysts",
+    "url": "https://www.tradingkey.com/analysis/economic/more/262024478-week-ahead-us-june-cpi-ppi-focus-q2-earnings-season-tradingkey",
+    "holdSec": 21,
+    "highlights": [
+      "June CPI",
+      "earnings season"
+    ]
+  }
+]

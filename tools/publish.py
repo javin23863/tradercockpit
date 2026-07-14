@@ -9,7 +9,10 @@ Reads credentials from OpenMontage/.env (see SETUP-CREDS.md):
 
 Usage:
   python publish.py video.mp4 --title "..." --caption "... #tags" \
-      --platforms youtube instagram facebook [--privacy public] [--thumbnail t.png] [--dry-run]
+      --platforms youtube instagram facebook tiktok [--privacy public] [--thumbnail t.png] [--dry-run]
+
+TikTok is opt-in (not in the default set) and uses the sibling makiisthenes/TiktokAutoUploader
+checkout (unofficial, cookie-based; one-time `cli.py login`). See tools/upload_tiktok.py.
 """
 import argparse
 import os
@@ -140,7 +143,7 @@ def main():
     p.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"], help="YouTube privacy")
     p.add_argument("--thumbnail")
     p.add_argument("--platforms", nargs="+", default=["youtube", "instagram", "facebook"],
-                   choices=["youtube", "instagram", "facebook"])
+                   choices=["youtube", "instagram", "facebook", "tiktok"])
     p.add_argument("--synthetic", action="store_true",
                    help="declare altered/synthetic (AI VO / AI visuals) on YouTube upload")
     p.add_argument("--dry-run", action="store_true", help="validate config + file, publish nothing")
@@ -151,12 +154,14 @@ def main():
         die(f"no such file: {video}")
 
     if args.dry_run:
+        from upload_tiktok import cookie_present
         checks = {
             "youtube": (HERE / "client_secret.json").exists() or (HERE / "token.json").exists(),
             "instagram": bool(os.getenv("META_IG_USER_ID") and os.getenv("META_PAGE_TOKEN")
                               and (os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID"))
                               and os.getenv("B2_BUCKET")),
             "facebook": bool(os.getenv("META_PAGE_ID") and os.getenv("META_PAGE_TOKEN")),
+            "tiktok": cookie_present(),
         }
         for plat in args.platforms:
             print(f"{plat}: {'ready' if checks[plat] else 'MISSING CREDS — see SETUP-CREDS.md'}")
@@ -172,6 +177,9 @@ def main():
         results["facebook"] = publish_facebook(video, args.caption)
     if "instagram" in args.platforms:
         results["instagram"] = publish_instagram(video, args.caption)
+    if "tiktok" in args.platforms:
+        from upload_tiktok import upload as tiktok_upload
+        results["tiktok"] = tiktok_upload(str(video), args.caption or args.title)
 
     print("\n=== published ===")
     for plat, link in results.items():

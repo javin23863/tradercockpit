@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+/* TraderCockpit thumbnail template (1280x720) — landing red/black, Graham-Stephan finance style.
+   Params via query: ?eyebrow=BRENT CRUDE&num=$120?&phrase=The Hormuz Toll&sub=... &dir=up|down
+   Rendered by render_thumb.cjs. Rules live in BRAND.md / GROWTH-AUTHORITY-PLAYBOOK.md. */
+:root{
+  --bg:#08030a; --line:#3a0d1a; --ink:#F5E8EA; --dim:#c89aa3;
+  --accent:#FF1744; --accent-soft:#7a142e; --up:#00E676;
+  --mono:"Cascadia Mono","Cascadia Code",Consolas,"Courier New",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:720px;overflow:hidden;font-family:var(--mono);color:var(--ink)}
+.frame{position:relative;width:1280px;height:720px;
+  background:radial-gradient(720px 460px at 74% 34%,#1a0a12 0%,var(--bg) 60%)}
+.grid{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(58,13,26,.4) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(58,13,26,.4) 1px,transparent 1px);background-size:64px 64px}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,transparent 45%,rgba(0,0,0,.72) 100%)}
+.content{position:absolute;left:74px;top:0;height:100%;width:820px;
+  display:flex;flex-direction:column;justify-content:center;gap:14px}
+.eyebrow{font-size:34px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:flex;align-items:center;gap:14px;font-weight:700}
+.eyebrow .arrow{font-size:30px}
+.eyebrow.down{color:var(--accent)} .eyebrow.up{color:var(--up)}
+.num{font-size:190px;font-weight:700;line-height:.86;letter-spacing:-.03em;color:var(--accent);
+  text-shadow:0 0 46px rgba(255,23,68,.4);font-variant-numeric:tabular-nums}
+.phrase{font-size:66px;font-weight:700;line-height:1.02;color:var(--ink);letter-spacing:-.01em;
+  max-width:14ch;text-wrap:balance}
+.phrase b{color:var(--accent)}
+.sub{font-size:26px;color:var(--dim);letter-spacing:.02em;margin-top:6px}
+/* fixed brand corner */
+.brand{position:absolute;right:40px;bottom:32px;display:flex;align-items:center;gap:14px}
+.brand svg{width:52px;height:52px;filter:drop-shadow(0 0 10px rgba(255,23,68,.5))}
+.brand .wm{font-size:26px;font-weight:700;letter-spacing:.01em}
+.brand .wm b{color:var(--accent)}
+.edge{position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--accent);
+  box-shadow:0 0 30px rgba(255,23,68,.6)}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="grid"></div>
+  <div class="edge"></div>
+  <div class="content">
+    <div class="eyebrow" id="eyebrow"><span class="arrow" id="arrow">▲</span><span id="eyebrow-t">BRENT CRUDE</span></div>
+    <div class="num" id="num">$120?</div>
+    <div class="phrase" id="phrase">The Hormuz Toll</div>
+    <div class="sub" id="sub"></div>
+  </div>
+  <div class="brand">
+    <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="#3a0d1a" stroke-width="3"/><path d="M60 8 A52 52 0 0 1 99 100" fill="none" stroke="#FF1744" stroke-width="7" stroke-linecap="round"/><line x1="60" y1="60" x2="87" y2="39" stroke="#FF1744" stroke-width="7" stroke-linecap="round"/><circle cx="60" cy="60" r="9" fill="#FF1744"/></svg>
+    <div class="wm">TRADER<b>COCKPIT</b></div>
+  </div>
+  <div class="vig"></div>
+</div>
+<script>
+const q = new URLSearchParams(location.search);
+const set = (id,v)=>{ if(v!=null) document.getElementById(id).textContent = v; };
+set("eyebrow-t", q.get("eyebrow"));
+set("num", q.get("num"));
+set("sub", q.get("sub"));
+const dir = q.get("dir");
+if (dir){ document.getElementById("eyebrow").className = "eyebrow "+dir;
+  document.getElementById("arrow").textContent = dir==="down" ? "▼" : "▲"; }
+// phrase supports *stars* -> red emphasis
+const ph = q.get("phrase");
+if (ph!=null){ document.getElementById("phrase").innerHTML =
+  ph.replace(/\*(.+?)\*/g,'<b>$1</b>'); }
+if (!q.get("sub")) document.getElementById("sub").style.display="none";
+</script>
+</body>
+</html>

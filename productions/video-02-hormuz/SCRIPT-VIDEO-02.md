@@ -15,7 +15,17 @@ Iran declared the Strait of Hormuz closed Saturday night; oil futures reopened S
 What the weekend means for oil, indices, gold and your portfolio at Monday's open — read by the machine that watched it live.
 
 ⏱ Chapters
-(from sections.json after assemble)
+0:00 The Strait, Live
+0:27 21 Nautical Miles
+1:01 Closed or Open? The Southern Lane
+1:41 Oil: The Weekend Reopen
+2:15 Why Hormuz Can't Be Replaced
+2:44 Indices React
+3:10 Sector Winners & Losers
+3:43 Gold & the Dollar
+4:11 Three Scenarios
+4:42 What to Watch Next
+5:08 The Watch Continues
 
 📡 The machine tracks asset classes, indices, and geopolitics in near-real-time.
 🧪 It also runs a research gauntlet on trading strategies: https://javin23863.github.io/soical/

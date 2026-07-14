@@ -193,17 +193,25 @@ async function pickSegmentsAI(cues, duration, n) {
   }));
 }
 
-// Vertical 9:16: cut the RAW source, center-crop, THEN burn subs sized for the vertical frame.
+// Vertical 9:16: cut the RAW source, crop, THEN burn subs sized for the vertical frame.
 // (Burning on 16:9 first cropped the text off both edges.) Best-effort: failure never fails the clip.
-// ponytail: center-crop only; wire auto-reframe.py subject-tracking if talking heads drift off-center.
+// CLIP_ANCHOR=right keeps the RIGHT edge (TradingView price axis + recent candles — chart-dominant
+// sources lose the axis under a center crop); default center for talking heads / general footage.
+// ponytail: static anchor only; wire auto-reframe.py subject-tracking if talking heads drift off-center.
 async function reframeVertical(videoPath, seg, srtSlicePath, outFile) {
   const out = outFile.replace(/\.mp4$/i, '.vertical.mp4');
   const subPath = srtSlicePath.replace(/\\/g, '/').replace(/^([A-Z]):/i, '$1\\:');
   const style = "FontName=Arial Bold,FontSize=13,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=3,Outline=2,Shadow=1,Alignment=2,MarginV=120";
+  // crop width MUST be an even integer (trunc(...)*2), else the 9:16 slice (e.g. 1080*9/16=607.5)
+  // rounds to a non-proportional width and the scale filter injects a non-1:1 SAR — the output is
+  // 1080x1920 in pixels but its DISPLAY aspect is off, so FB/IG render it stretched. setsar=1 pins
+  // square pixels so the final DAR is exactly 9:16.
+  const cw = 'trunc(ih*9/16/2)*2';
+  const cropX = process.env.CLIP_ANCHOR === 'right' ? `iw-${cw}` : `(iw-${cw})/2`;
   try {
     await run('ffmpeg', [
       '-y', '-ss', String(seg.start), '-t', String(seg.duration), '-i', videoPath,
-      '-vf', `crop=ih*9/16:ih,scale=1080:1920,subtitles='${subPath}':force_style='${style}'`,
+      '-vf', `crop=${cw}:ih:${cropX}:0,scale=1080:1920,setsar=1,subtitles='${subPath}':force_style='${style}'`,
       '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
       '-c:a', 'aac', '-b:a', '128k', out, '-loglevel', 'error',
     ]);

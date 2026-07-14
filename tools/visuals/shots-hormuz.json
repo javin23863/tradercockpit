@@ -3,6 +3,7 @@
     "name": "01-approach-coldopen",
     "lon": 56.5, "lat": 26.5, "height": 150000,
     "headingDeg": 315, "pitchDeg": -48,
+    "preset": "NORMAL",
     "fromHeight": 18000000, "flyDurationSec": 9,
     "caption": "STRAIT OF HORMUZ — LIVE, 2026-07-13",
     "orbitDegPerSec": 1.2,
@@ -12,19 +13,17 @@
     "name": "02-strait-ships",
     "lon": 56.5, "lat": 26.55, "height": 115000,
     "headingDeg": 320, "pitchDeg": -55,
-    "clickIds": ["layer:SHIPS"],
-    "scanAfter": ["ships-sub"],
     "orbitDegPerSec": 2.0,
-    "caption": "LIVE AIS — EVERY TANKER IN THE STRAIT",
+    "caption": "21 NAUTICAL MILES WIDE AT ITS NARROWEST",
     "settleSec": 9, "holdSec": 34
   },
   {
     "name": "03-gate-scan",
     "lon": 56.45, "lat": 26.62, "height": 105000,
     "headingDeg": 0, "pitchDeg": -62,
-    "scanAfter": ["gate-scan", "dark-scan"],
+    "scanAfter": ["gate-scan"],
     "orbitDegPerSec": 2.5,
-    "caption": "HORMUZ GATE — CROSSINGS & DARK VESSELS",
+    "caption": "SOUTHERN LANE — 21 TRANSITS JULY 11 VS ~140/DAY PRE-WAR",
     "settleSec": 9, "holdSec": 40
   },
   {
@@ -32,7 +31,7 @@
     "lon": 51.5, "lat": 27.6, "height": 480000,
     "headingDeg": 20, "pitchDeg": -68,
     "fromHeight": 3200000, "flyDurationSec": 10,
-    "clickIds": ["layer:CRITICAL INFRA"],
+    "clickIds": ["layer:CRITICAL INFRA", "cable-load", "layer:SUBMARINE CABLES"],
     "caption": "20M BARRELS A DAY — NO ROUTE REPLACES HORMUZ",
     "holdSec": 28
   },
@@ -41,7 +40,7 @@
     "lon": 52.0, "lat": 27.0, "height": 1500000,
     "headingDeg": 10, "pitchDeg": -74,
     "preset": "FLIR",
-    "clickIds": ["layer:MILITARY"],
+    "clickIds": ["layer:CONFLICT ZONES"],
     "orbitDegPerSec": 1.5,
     "caption": "MILITARY AIRCRAFT — TRACKED LIVE",
     "settleSec": 7, "holdSec": 26
@@ -52,7 +51,6 @@
     "headingDeg": 300, "pitchDeg": -52,
     "preset": "DUSK",
     "clickIds": ["basemap:aerial"],
-    "utcHour": 15,
     "orbitDegPerSec": 1.5,
     "caption": "THE GULF — THE WATCH CONTINUES",
     "settleSec": 8, "holdSec": 24

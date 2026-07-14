@@ -16,3 +16,9 @@ productions/*/ge-retake/
 productions/*/visuals/*.mp4
 studio-kit/pipeline/generators/compositions/cfg.json
 tools/handoff/shots/
+productions/*/ge-raw*/
+productions/*/news-work/
+productions/*/verify/
+productions/*/shorts/*.mp4
+productions/_voice/
+productions/sample-hormuz/
