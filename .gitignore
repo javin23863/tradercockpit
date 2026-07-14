@@ -15,3 +15,4 @@ productions/*/ge-raw/
 productions/*/ge-retake/
 productions/*/visuals/*.mp4
 studio-kit/pipeline/generators/compositions/cfg.json
+tools/handoff/shots/

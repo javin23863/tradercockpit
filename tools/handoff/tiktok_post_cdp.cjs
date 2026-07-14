@@ -1,0 +1,73 @@
+// Post the remaining shorts to TikTok by driving TikTok Studio over CDP (port 9333).
+// The cli.py/undetected-chromedriver path is broken; this uses the operator's logged-in session.
+const path = require("path");
+const puppeteer = require(path.join("C:", "Users", "MSI", "Desktop", "OpenMontage-Skill",
+  "studio-kit", "pipeline", "generators", "node_modules", "puppeteer"));
+const SHOTDIR = path.join(__dirname, "shots"); // temp dirs vanish between sessions — keep receipts repo-local
+require("fs").mkdirSync(SHOTDIR, { recursive: true });
+const S = "C:\\Users\\MSI\\Desktop\\OpenMontage-Skill\\productions\\video-02-hormuz-v4\\shorts\\";
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const clickText = (t) => `(() => { const e=[...document.querySelectorAll('button,div[role=button],span,div')].find(x=>x.textContent.trim()===${JSON.stringify(t)}); if(e){e.click();return true;} return false; })()`;
+
+const CLIPS = [
+  { f: "clip-003-hook-3-so-how-high-can-crude.vertical.mp4",
+    c: "How high can oil actually go? Every big desk's number - Goldman, JPMorgan, gov models - on one chart. $100 to $150. None of them models it sitting still. #oil #brentcrude #stockmarket #investing #FinTok" },
+  { f: "clip-001-hook-1-is-the-straight-actually-closed-.vertical.mp4",
+    c: "Is the Strait of Hormuz actually closed? Wrong question. The right one moves oil - 5 vessels last week vs 130 a day. #oil #hormuz #geopolitics #stockmarket #FinTok" },
+  { f: "clip-002-hook-2-because-83-crude-flows-straight.vertical.mp4",
+    c: "$83 crude flows straight into producer earnings. Exxon +4%, Chevron +3% on the day. The war-premium rotation, one chart deeper. #oil #energystocks #exxon #investing #FinTok" },
+  { f: "clip-004-hook-4-but-the-headline-number-matters.vertical.mp4",
+    c: "5 big banks report before the bell. The headline EPS matters less than 3 lines inside: net interest income, trading revenue, credit provisions. #banks #jpmorgan #earnings #stockmarket #FinTok" },
+];
+
+(async () => {
+  const b = await puppeteer.connect({ browserURL: "http://localhost:9333", defaultViewport: null });
+  const pages = await b.pages();
+  const p = pages.find(x => (x.url() || "").includes("tiktok")) || pages[pages.length - 1];
+  await p.bringToFront();
+
+  for (const [i, clip] of CLIPS.entries()) {
+    console.log(`\n--- [${i + 1}/${CLIPS.length}] ${clip.f}`);
+    await p.goto("https://www.tiktok.com/tiktokstudio/upload", { waitUntil: "domcontentloaded" });
+    await sleep(4000);
+    const [fc] = await Promise.all([
+      p.waitForFileChooser({ timeout: 15000 }),
+      p.evaluate(new Function("return " + clickText("Select video"))),
+    ]);
+    await fc.accept([S + clip.f]);
+    console.log("  uploaded, processing...");
+    await sleep(16000);
+    // dismiss any modals/promos
+    for (const t of ["Cancel", "Got it"]) {
+      await p.evaluate(new Function("return " + clickText(t))).catch(() => {});
+      await sleep(600);
+    }
+    // caption: TikTok prefills the FILENAME -> select-all + delete first
+    const ok = await p.evaluate(() => {
+      const ce = document.querySelector('div[contenteditable="true"]');
+      if (!ce) return false;
+      ce.scrollIntoView({ block: "center" }); ce.focus();
+      const r = document.createRange(); r.selectNodeContents(ce);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      return true;
+    });
+    if (!ok) { console.log("  !! caption editor not found"); continue; }
+    await p.keyboard.press("Backspace");
+    await p.keyboard.press("Backspace");
+    await sleep(500);
+    await p.keyboard.type(clip.c, { delay: 12 });
+    await sleep(1200);
+    await p.keyboard.press("Escape");   // kill hashtag dropdown
+    await sleep(800);
+    const posted = await p.evaluate(() => {
+      const btn = [...document.querySelectorAll("button")].find(e => e.textContent.trim() === "Post" && !e.disabled);
+      if (btn) { btn.click(); return true; } return false;
+    });
+    console.log("  Post clicked:", posted);
+    await sleep(9000);
+    await p.screenshot({ path: path.join(SHOTDIR, `tt-${i + 1}.png`) });
+    console.log("  url now:", p.url());
+  }
+  b.disconnect();
+  console.log("\nDONE tiktok batch");
+})().catch(e => { console.error("ERR", e.message); process.exit(1); });
