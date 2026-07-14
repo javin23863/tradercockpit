@@ -54,6 +54,10 @@ Repo: `C:\Users\MSI\Desktop\OpenMontage-Skill`. Engine python:
   `replay` to the broadcast date so the last bar is the day you narrate.
 - **Language = portfolio-first, StockedUp voice** (vault [[Script Voice Guide — StockedUp Decode]]).
   Talk about the viewer's money and where the action is; ban "how it affects your screen".
+- **Analysis doctrine is a MANDATORY input (operator 2026-07-14):** run the `market-analysis`
+  skill (`MARKET-ANALYSIS-DOCTRINE.md`, repo root) BEFORE scripting — the script is written from
+  its `analysis-brief.md`, never straight from headlines. The brief's claims feed claims.yaml;
+  its chart list feeds the shot list. No analytical claim in VO that is not in the brief.
 - **Brand + growth doctrine are MANDATORY inputs (operator 2026-07-14):** read `BRAND.md` and
   `GROWTH-AUTHORITY-PLAYBOOK.md` (repo root) before packaging. Non-negotiables from them:
   - **Package BEFORE you produce (Galloway):** decide the ONE idea, render the thumbnail, write the
