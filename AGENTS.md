@@ -1,0 +1,76 @@
+# Repository scope
+
+- TraderCockpit owns the media, marketing, social, and public concept surface.
+- Apollo is an assistant/interface concept. The consumer runtime belongs in a separate future repository.
+- Godseye is a separate geospatial evidence product. Use only its versioned automation and evidence contracts.
+- Futures and Register are context-only unless the operator explicitly opens a task in those repositories. Do not edit, test, generate files in, stage, or clean them from this repository task.
+- Do not borrow dependencies or installations from another repository.
+
+# ponytail
+
+The `ponytail:ponytail` plugin skill is mandatory for every task in this repository. Reuse existing code and native platform features, avoid speculative abstractions, and leave the smallest verified change that satisfies the request.
+
+# deploy
+
+When the operator gives `deploy` as a direct instruction, the current task must not stage, commit, push, mutate a pull request, merge, release, or perform post-merge deployment actions.
+
+Instead, immediately create one separate project-scoped Codex task for this repository:
+
+- Resolve the saved Codex project whose canonical folder exactly matches the active repository.
+- Use model `gpt-5.6-luna` with reasoning effort `max`.
+- Target that exact project and repository folder, using the current checkout or a worktree starting from the current branch.
+- Never create a projectless deployment task.
+- If the exact project, model, or reasoning effort is unavailable, fail closed and ask the operator to correct the project configuration. Do not substitute another model or location.
+
+Pass Luna a deployment packet containing:
+
+- Repository and canonical worktree paths.
+- Current branch, base branch, and commit.
+- Pull-request URL and state, if one exists.
+- Requested deployment outcome and approved acceptance criteria.
+- Changed-file inventory and intentionally excluded files.
+- Tests, builds, claims checks, and review evidence already completed.
+- Known risks, required approvals, secrets boundaries, and rollback notes.
+
+Luna owns the repeatable deployment workflow:
+
+1. Reconfirm repository, worktree, branch, and diff state.
+2. Stage only files already reviewed by the primary task.
+3. Commit intentionally and push the intended branch.
+4. Create or update the pull request.
+5. Monitor CI and review status.
+6. Return substantive product, architecture, contract, dependency, claim, migration, credential, or scope changes to the primary task for review.
+7. Merge only after the primary task approves the final diff and evidence.
+8. Verify the default branch and the explicitly requested post-merge target.
+
+The primary task remains responsible for implementation, full-diff review, test adequacy, and merge approval. Luna performs deployment actions after that approval. One Luna task handles one repository and one pull request. Cross-repository releases require separate Luna tasks and an explicit merge order. Production publication occurs only when the operator explicitly includes it in the deployment instruction.
+
+# esq-battery-ops
+
+- **esq-battery-ops** (`~/.agents/skills/esq-battery-ops/SKILL.md`) launches, monitors, diagnoses, and recovers ESQ library-cycle battery runs.
+- Trigger: `/esq-battery-ops` or a request to monitor, resume, or triage an ESQ battery/backtest run.
+- Use the skill before doing anything else for those requests.
+
+# graphify
+
+- **graphify** (`~/.agents/skills/graphify/SKILL.md`) turns project inputs into a knowledge graph.
+- Trigger: `/graphify`.
+- Use the skill before doing anything else when the operator invokes it.
+
+# openmontage
+
+- **openmontage** (`~/.agents/skills/openmontage/SKILL.md`) produces YouTube videos, Shorts, Reels, and TikToks from a brief.
+- Trigger: `/openmontage` or any request to create or edit a video, montage, explainer, Short, or Reel.
+- Use the skill for those requests.
+
+# see-video
+
+- **see-video** (`~/.agents/skills/see-video/SKILL.md`) extracts frames from a YouTube URL, direct video URL, or local video so Codex can inspect it.
+- Trigger: `/see-video` or a request to inspect what is shown in a shared video.
+- Use the skill for those requests.
+
+# tiktok-upload
+
+- **tiktok-upload** (`~/.agents/skills/tiktok-upload/SKILL.md`) posts a finished 9:16 MP4 to TikTok using the local cookie-based uploader.
+- Trigger: `/tiktok-upload` or any request to post or upload a video to TikTok.
+- Use the skill for those requests.
