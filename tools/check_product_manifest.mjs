@@ -57,9 +57,43 @@ if (process.argv.includes('--browser')) {
     }))
     assert.equal(mobile.fits, true)
     assert.equal(mobile.boot, 'none')
+
+    await page.setViewport({ width: 1024, height: 900 })
+    await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle0' })
+    const organic = await page.evaluate(() => {
+      const canvas = document.getElementById('apollo-core')
+      const pixels = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data
+      let visible = 0
+      for (let i = 3; i < pixels.length; i += 4) if (pixels[i]) visible++
+      return { label: canvas.getAttribute('aria-label'), visible }
+    })
+    assert.match(organic.label, /bioluminescent Apollo/)
+    assert.ok(organic.visible > 100, 'organic canvas should paint a visible state')
+
+    await page.click('.chip')
+    assert.equal(await page.$eval('#apollo-state', (el) => el.textContent), 'THINKING')
+    await new Promise((resolve) => setTimeout(resolve, 700))
+    assert.equal(await page.$eval('#apollo-state', (el) => el.textContent), 'PREVIEWING')
+    await page.click('#initiate')
+    const confirmation = await page.evaluate(() => ({
+      hidden: document.getElementById('confirm-panel').hidden,
+      state: document.getElementById('apollo-state').textContent,
+      focus: document.activeElement.id,
+    }))
+    assert.deepEqual(confirmation, { hidden: false, state: 'CONFIRMING', focus: 'confirm-run' })
+    await page.click('#cancel-run')
+    assert.equal(await page.$eval('#apollo-state', (el) => el.textContent), 'PREVIEWING')
+
+    await page.click('#voice-preview')
+    const voice = await page.evaluate(() => ({
+      pressed: document.getElementById('voice-preview').getAttribute('aria-pressed'),
+      note: document.getElementById('voice-note').textContent,
+    }))
+    assert.equal(voice.pressed, 'true')
+    assert.match(voice.note, /no audio captured/)
   } finally {
     await browser.close()
     await new Promise((resolve) => server.close(resolve))
   }
-  console.log('landing manifest fallback + mobile reduced-motion: PASS')
+  console.log('landing manifest fallback + organic Apollo interaction + mobile reduced-motion: PASS')
 }

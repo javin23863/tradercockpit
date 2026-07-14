@@ -87,6 +87,7 @@ async function runShot(page, shot, outDir, number) {
   const evidencePath = `${base}.evidence.json`
   const request = {
     op: 'begin',
+    presentation: 'story',
     camera: {
       lon: shot.lon,
       lat: shot.lat,

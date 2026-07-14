@@ -28,6 +28,11 @@ Updated 2026-07-14. Pairs with `GROWTH-AUTHORITY-PLAYBOOK.md` (the growth doctri
 Semantic only (sparingly, for up/down data, never as the accent): green `#00E676`, amber `#FF9100`.
 Default is **monochrome red-on-black** — that's the look.
 
+The simulated Apollo consumer preview in `docs/index.html` is the deliberate exception: its
+bioluminescent teal/violet organic system distinguishes a future assistant interface from the
+TraderCockpit media brand. TraderCockpit navigation, publishing assets, and evidence surfaces
+remain red-on-black; do not propagate Apollo's palette into channel branding.
+
 ## Typography
 - **Brand voice = monospace** (a trading terminal): `"Cascadia Mono","Cascadia Code",Consolas,monospace`.
   Wordmark, labels, data all in mono. Tabular figures for aligned numbers.

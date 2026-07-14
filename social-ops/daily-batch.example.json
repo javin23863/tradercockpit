@@ -1,0 +1,24 @@
+{
+  "schema": "social-batch/v1",
+  "batchId": "YYYY-MM-DD",
+  "items": [
+    {
+      "id": "youtube-example",
+      "channel": "youtube",
+      "status": "draft",
+      "copy": "Draft copy prepared for operator review."
+    },
+    {
+      "id": "tiktok-example",
+      "channel": "tiktok",
+      "status": "draft",
+      "copy": "Draft short-form variant prepared for operator review."
+    },
+    {
+      "id": "email-example",
+      "channel": "email",
+      "status": "draft",
+      "copy": "Draft email prepared for operator review."
+    }
+  ]
+}

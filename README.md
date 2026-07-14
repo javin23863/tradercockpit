@@ -5,7 +5,7 @@ vertical cuts, publishing, and the marketing site. A market story goes in; a sou
 shorts, thumbnail, and platform copy come out. Trust-first: the consumer product is never
 pitched on air.
 
-The separate consumer-product repo owns ESQ Cockpit runtime behavior, releases, pricing,
+The future consumer-product repository owns runtime behavior, releases, pricing,
 platform support, and checkout. This repo may display those facts only through
 `docs/product-manifest.v1.json`; it does not reimplement or redefine the product.
 
@@ -31,7 +31,7 @@ The skills below treat all three as mandatory inputs. Change the doctrine, and e
 ```
 
 It runs: `market-analysis` (→ `analysis-brief.md`) → fact pack → script + `claims.yaml` →
-**claims gate (blocking)** → TradingView chart capture → God's Eye b-roll → cloned VO →
+**claims gate (blocking)** → TradingView chart capture → Godseye b-roll → cloned VO →
 captions → assemble → shorts → thumbnail → publish. Detail:
 [`.claude/skills/daily-news-video/SKILL.md`](.claude/skills/daily-news-video/SKILL.md).
 
