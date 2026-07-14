@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // fetch_news_shots.mjs — news-article / tweet screenshot lane for format v2.
 //
-// For each source: load the page headless (Edge via puppeteer-core, reused from
-// the godseye repo's node_modules — nothing installs here), step through
+// For each source: load the page headless (Edge via TraderCockpit's existing
+// Puppeteer dependency), step through
 // "highlight stages" (each stage red-boxes the exact sentence the VO reads and
 // scrolls it into view), screenshot each stage, then ffmpeg the stage PNGs into
 // one clip: slow Ken-Burns per stage, hard cut between stages.
@@ -18,11 +18,10 @@
 //   node tools/visuals/fetch_news_shots.mjs --dry-run <sources.json>
 
 import { execFileSync } from 'node:child_process'
-import { pathToFileURL } from 'node:url'
 import fs from 'node:fs'
 import path from 'node:path'
+import puppeteer from './puppeteer.mjs'
 
-const PUPPETEER_CORE = 'C:/Users/MSI/repos/godseye/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js'
 const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36'
 
@@ -156,7 +155,6 @@ async function run(sourcesPath, prodDir, dry, reuse) {
     return !cachedPngs(src).every((p) => fs.existsSync(p))
   })
 
-  const puppeteer = needBrowser ? (await import(pathToFileURL(PUPPETEER_CORE).href)).default : null
   const browser = needBrowser ? await puppeteer.launch({
     executablePath: EDGE, headless: 'new',
     args: ['--window-size=1920,1080', '--disable-blink-features=AutomationControlled'],

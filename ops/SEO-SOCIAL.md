@@ -33,14 +33,12 @@ Facebook Page (IG app → Settings → Account type; then Accounts Center → li
 
 ## Profile SEO — Instagram (@handle: get `tradercockpit`; fallback `thetradercockpit`)
 
-- **Name field** (searchable, ≠ handle): `TraderCockpit | Trading Strategy Tester`
-  — "trading strategy" in the name field is the biggest IG-search lever.
+- **Name field** (searchable, ≠ handle): `TraderCockpit · Markets News`
 - **Bio:**
-  > I execute trading strategies. 12 phases of statistical torture.
-  > ICT couldn't even enter. ⚙️ 0 validated — on purpose.
-  > 🧪 Run the gauntlet ⬇
-- **Link:** https://javin23863.github.io/soical/
-- Category: Science, Technology & Engineering. Reels-first; covers = HUD frames
+  > Markets, read plainly. Evidence-first analysis of oil, stocks, rates, and geopolitics.
+  > News and education, not advice. ⬇
+- **Link:** https://javin23863.github.io/tradercockpit/
+- Category: Media/News Company. Reels-first; covers = HUD frames
   with 3–4-word hooks; pin the 3 best-performing Reels.
 - Hashtag mix per Reel (5–8): #trading #quanttrading #backtesting #ict
   #smartmoneyconcepts #algotrading + 1–2 video-specific.

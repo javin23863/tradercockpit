@@ -1,0 +1,13 @@
+{
+  "schema": "product-manifest/v1",
+  "status": "waitlist",
+  "assistant": {
+    "name": "Apollo",
+    "status": "concept"
+  },
+  "verifiedCapabilities": [],
+  "cta": {
+    "label": "Join the product waitlist",
+    "url": "mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20product%20waitlist"
+  }
+}

@@ -6,7 +6,7 @@ governs how the machinery is wired.
 | Doc | Use it when |
 |---|---|
 | [`SETUP-CREDS.md`](SETUP-CREDS.md) | Wiring publishing credentials (YouTube OAuth, Meta page/IG, TikTok) into `OpenMontage/.env`. |
-| [`SETUP-LEMONSQUEEZY.md`](SETUP-LEMONSQUEEZY.md) | Standing up the storefront: Lemon Squeezy store + product, then `tools/wire_checkout.py`. |
+| [`SETUP-LEMONSQUEEZY.md`](SETUP-LEMONSQUEEZY.md) | Retired checkout instructions and the current product-manifest boundary. |
 | [`META-SEO.md`](META-SEO.md) | Facebook Page + Instagram profile SEO; what the Graph API can and cannot set. |
 | [`SEO-CHANNEL.md`](SEO-CHANNEL.md) | YouTube channel + video SEO pack (`tools/channel_seo.py`). |
 | [`SEO-SOCIAL.md`](SEO-SOCIAL.md) | Instagram + TikTok connection and profile SEO. |

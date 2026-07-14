@@ -19,13 +19,11 @@ from googleapiclient.discovery import build
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
 HERE = Path(__file__).parent
 
-DESCRIPTION = """Every trading strategy the internet sells you — coded honestly and executed through 12 phases of statistical torture. ICT, SMC, supply & demand, price action: if it can be written as falsifiable rules, it enters the gauntlet. Monte-Carlo shuffles, walk-forward, cost stress at 3x slippage, deflated Sharpe — whatever survives, survives. Whatever dies, dies on camera.
+DESCRIPTION = """TraderCockpit publishes evidence-first market analysis across oil, equities, rates, currencies, and the geopolitics moving them.
 
-No signals. No courses. No lambo. A research machine that refuses to say "validated" until the receipts exist — and publishes the kill list either way.
+No signals. No courses. No performance promises. News and education only; nothing here is financial advice.
 
-Research instrument, paper-only by design. Nothing here is financial advice and no performance is promised or implied.
-
-Run the mini-gauntlet: https://javin23863.github.io/soical/"""
+Explore the simulated product preview: https://javin23863.github.io/tradercockpit/"""
 
 KEYWORDS = ('"trading strategy backtest" "ICT trading tested" "smart money concepts" SMC '
             '"quant trading" "algorithmic trading" "monte carlo trading" "walk-forward analysis" '

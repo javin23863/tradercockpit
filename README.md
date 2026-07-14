@@ -1,15 +1,15 @@
 # TraderCockpit
 
-Two things live in this repo, and they feed each other:
+This repo owns the **TraderCockpit media operation**: market analysis, long-form videos,
+vertical cuts, publishing, and the marketing site. A market story goes in; a sourced video,
+shorts, thumbnail, and platform copy come out. Trust-first: the consumer product is never
+pitched on air.
 
-1. **The channel** — an automated daily finance-news video operation. A market story goes in;
-   a 10-12 minute YouTube video, five verticals (YT Shorts / IG Reels / FB Reels / TikTok),
-   a thumbnail, and SEO copy come out. Trust-first: the product is never pitched on air.
-2. **The product** — ESQ Cockpit, sold from the landing page in `docs/` (GitHub Pages) through
-   Lemon Squeezy. The channel is top-of-funnel; the landing page converts. The only link between
-   them is a URL in the video description.
+The separate consumer-product repo owns ESQ Cockpit runtime behavior, releases, pricing,
+platform support, and checkout. This repo may display those facts only through
+`docs/product-manifest.v1.json`; it does not reimplement or redefine the product.
 
-Channel: [@Thetradercockpit](https://youtube.com/@Thetradercockpit) · Landing: <https://javin23863.github.io/soical/>
+Channel: [@Thetradercockpit](https://youtube.com/@Thetradercockpit) · Landing: <https://javin23863.github.io/tradercockpit/>
 
 ---
 
@@ -55,12 +55,17 @@ Public uploads are operator-gated. Credentials: [`ops/SETUP-CREDS.md`](ops/SETUP
 TikTok's uploader library is broken against current Chrome; the working path is CDP
 (`tools/handoff/tiktok_post_cdp.cjs` — see the handoff).
 
-## Commerce
+## Product boundary
 
-The landing page (`docs/index.html`) is the live storefront, served by GitHub Pages. Checkout is
-Lemon Squeezy (merchant of record — no payment server of ours). Wiring:
-[`ops/SETUP-LEMONSQUEEZY.md`](ops/SETUP-LEMONSQUEEZY.md), applied by `tools/wire_checkout.py`.
-Keep the funnel honest: no pitch in the VO, link in the description only.
+The landing page (`docs/index.html`) is the marketing surface, served by GitHub Pages. Product
+availability, pricing, platform support, and checkout come only from
+`docs/product-manifest.v1.json`. Keep the funnel honest: no pitch in the VO, link in the
+description only.
+
+The current manifest is a non-transactional waitlist placeholder. It names **Apollo** only as
+the assistant concept: local-first voice, ontology-grounded answers, free composition/preview,
+and one confirmation before a verdict-producing full battery. The consumer repo must publish
+those capabilities as verified before this site may present them as available.
 
 ## Layout
 
@@ -70,8 +75,8 @@ BRAND.md, GROWTH-AUTHORITY-PLAYBOOK.md, MARKET-ANALYSIS-DOCTRINE.md   the doctri
 tools/              produce.py, publish.py, claims_gate.py, visuals/ (charts, news shots, brand, thumbnails)
 tools/handoff/      the scripts that recovered/replaced live posts — CDP drivers, recut, platform replace
 productions/        one dir per video: vo.txt, claims.yaml, receipts, charts, shorts  (v4 = the baseline)
-docs/               the landing page (GitHub Pages) — the commercial surface
-ops/                setup + SEO runbooks (creds, Lemon Squeezy, Meta/YouTube/social SEO, studio-kit wiring)
+docs/               the landing page (GitHub Pages) — the marketing surface
+ops/                setup + SEO runbooks (creds, Meta/YouTube/social SEO, studio-kit wiring)
 handoffs/           dated session handoffs — read the newest before you touch anything live
 studio-kit/         extracted ai-video-studio-kit (clipper, generators)
 archive/            superseded: the pre-pivot strategy, video-01, the universal-skill runtimes, postiz

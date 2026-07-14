@@ -8,9 +8,7 @@
 // biggest canvas (the chart pane) so toolbars/sidebars are excluded.
 //
 //   node tools/visuals/cdp_chart_shot.mjs <out.png> [width] [height]
-import { pathToFileURL } from 'node:url'
-
-const PUPPETEER_CORE = 'C:/Users/MSI/repos/godseye/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js'
+import puppeteer from './puppeteer.mjs'
 const argv = process.argv.slice(2).filter((a) => a !== '--fit')
 const FIT = process.argv.includes('--fit')  // Alt+R refit: ONLY on the first call after
 // a viewport change. It can pop the "Continue your last replay?" modal, and resuming
@@ -20,7 +18,6 @@ if (!out) { console.error('usage: cdp_chart_shot.mjs <out.png> [w] [h] [--fit]')
 
 const AD = `(()=>{let n=0;for(const f of document.querySelectorAll('iframe[src*="safeframe"],iframe[src*="googlesyn"],iframe[src*="doubleclick"]')){let x=f;for(let i=0;i<6&&x.parentElement;i++){const cs=getComputedStyle(x.parentElement);if(cs.position==='fixed'||cs.position==='absolute'){x=x.parentElement}else break}x.style.display='none';n++}return n})()`
 
-const puppeteer = (await import(pathToFileURL(PUPPETEER_CORE).href)).default
 const browser = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9222', defaultViewport: null })
 try {
   const pages = await browser.pages()

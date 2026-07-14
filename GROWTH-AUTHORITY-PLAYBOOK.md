@@ -23,8 +23,8 @@ over-invest in production.
 - Colin & Samir, "The New Rules of YouTube From Paddy Galloway."
 - Storyboard18, "YouTube strategists emerge as creators' secret weapon."
 
-**Official corroboration:** YouTube Creator Insider / Liaison + the 2025–26 algorithm shift —
-viewer *satisfaction* over raw watch time (a 7-min video at 85% retention outranks a 15-min at 50%).
+**Official corroboration:** YouTube Creator Insider / Liaison emphasizes viewer satisfaction over
+raw watch time.
 
 ### Distilled rules (enforce)
 - **Package before you produce.** Decide the ONE idea, draft the thumbnail, write the title —
@@ -32,8 +32,7 @@ viewer *satisfaction* over raw watch time (a 7-min video at 85% retention outran
 - **Retention is front-loaded.** Earn the first 30 seconds; open on the payoff/stakes, not a ramp.
 - **One clear subject per video.** No second topic competing for the click.
 - **Niche consistency.** Stay in the markets-news lane; the algorithm rewards a predictable promise.
-- **Title SEO:** primary keyword in the first ~60 characters. Ship custom captions (accessibility +
-  keyword surface; ~28% better search visibility, ~45% higher CTR with a front-loaded keyword).
+- **Title SEO:** put the primary keyword early. Ship custom captions for accessibility and search.
 - **Length serves retention, never pads.** 8+ min only because retention holds (mid-roll ads).
 
 ---
@@ -75,14 +74,14 @@ For-You ranking is officially described and every credible third party just rest
 - strategia-x, "TikTok Algorithm — what the For You Page actually rewards."
 
 ### Distilled rules (enforce)
-- **Completion rate is the strongest signal.** Cut tight; every second must earn the next. Short,
-  loopable edits beat long ones. (Engagement signals ≈40–50% of weight.)
+- **Completion rate matters.** Cut tight; every second must earn the next. Short, loopable edits
+  beat long ones.
 - **Comment velocity in the first 30 min > total comments over 24h.** Open with a question or a
   claim that invites a reply; be ready to reply fast in the first half hour.
-- **Trending sound + on-screen captions** are content signals (~35% of weight) that categorize the
-  video — use a trending/allowed sound layer and keep burned word-captions.
-- **3-phase distribution:** test pool (200–500) → expansion (5k–50k) → viral (100k+). Judge a post
-  by whether it *clears* each gate, not by day-one raw views.
+- **Relevant sound + on-screen captions** help categorize the video — use an allowed sound layer
+  and keep burned word-captions.
+- **Distribution expands from an initial audience when response is strong.** Judge posts by
+  retention and engagement quality, not day-one raw views.
 - **Post-native.** TikTok gets the clean 9:16 master (no other platform's watermark).
 
 ---
@@ -94,7 +93,7 @@ system: a dominant dollar figure or percentage plus a short, bold phrase — tex
 General CTR mechanics come from VidIQ and 1of10's A/B research.
 
 **Cross-references converging (multiple entities):**
-- VidIQ — emotional/face thumbnails up to +30% CTR; faces outperform object-only by ~25–30%.
+- VidIQ — emotional, legible thumbnails with one clear subject.
 - 1of10 and ampifire — "one dominant subject, 2–3 colors, 3–5 words" is the modern high-CTR shape.
 - Multiple finance-thumbnail breakdowns cite Graham Stephan's number-forward style as the template.
 
@@ -102,9 +101,9 @@ General CTR mechanics come from VidIQ and 1of10's A/B research.
 - **≤5 words of text**, one dominant subject, 2–3 colors.
 - **Lead with the number** (a price, a %, a dollar figure) — finance viewers click specifics.
 - **4.5:1 contrast at mobile size**; test legibility at ~120px wide.
-- **Color psychology:** **blue = trust/authority, green = growth/money** (our palette leans on both);
-  reserve a single hot accent for alerts/danger.
-- **Logo in a fixed corner every time** — consistency raises subscriber CTR ~15–20%.
+- **Use the brand palette:** red `#FF1744` on black `#08030a`; reserve green and amber for
+  semantic market data only.
+- **Logo in a fixed corner every time** for recognition and consistency.
 - **Consistent template across all uploads** (this is what `tools/visuals/thumbnail.html` enforces).
 
 ---

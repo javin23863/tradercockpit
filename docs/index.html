@@ -3,24 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TraderCockpit — Honest Trading Strategy Backtesting | 12-Phase Gauntlet</title>
-<meta name="description" content="TraderCockpit runs trading strategies — ICT, SMC, breakouts, RSI — through 12 phases of statistical torture: Monte-Carlo shuffle, walk-forward, cost stress, deflated Sharpe. Run the mini-gauntlet in your browser and watch your strategy get tested honestly.">
-<meta name="keywords" content="trading strategy backtest, ICT tested, SMC, quant trading, monte carlo trading, walk-forward analysis, backtest overfitting, honest backtest">
+<title>TraderCockpit — Test the strategy before you buy the story</title>
+<meta name="description" content="A concept preview for testing published trading strategies through an evidence-first robustness pipeline before risking money on the claim.">
+<meta name="keywords" content="trading strategy test, backtest robustness, strategy validation, Monte Carlo, walk-forward analysis">
 <link rel="canonical" href="https://javin23863.github.io/tradercockpit/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="TraderCockpit — most strategies die here. that's the point.">
-<meta property="og:description" content="Pick the strategy the internet sold you. Watch a 12-phase honest pipeline execute it — in your browser.">
+<meta property="og:title" content="TraderCockpit — Test the strategy before you buy the story">
+<meta property="og:description" content="Can the rules survive an evidence-first robustness pipeline? Concept preview; no performance promises.">
 <meta property="og:url" content="https://javin23863.github.io/tradercockpit/">
 <meta property="og:site_name" content="TraderCockpit">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TraderCockpit — the strategy execution chamber">
-<meta name="twitter:description" content="12 phases of statistical torture for trading strategies. No signals. No courses. Receipts only.">
+<meta name="twitter:title" content="TraderCockpit — Test the strategy before you buy the story">
+<meta name="twitter:description" content="Can the rules survive an evidence-first robustness pipeline? Concept preview; no performance promises.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"TraderCockpit",
+{"@context":"https://schema.org","@type":"Organization","name":"TraderCockpit",
 "url":"https://javin23863.github.io/tradercockpit/",
-"description":"Honest trading-strategy research instrument: 12-phase robustness gauntlet with Monte-Carlo, walk-forward and cost-stress testing.",
-"applicationCategory":"FinanceApplication","operatingSystem":"Web",
-"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+"description":"Media and product education for evidence-first trading-strategy research.",
 "sameAs":["https://www.youtube.com/@Thetradercockpit"]}
 </script>
 <style>
@@ -66,6 +64,17 @@ h1 .x{color:var(--accent);text-shadow:0 0 18px rgba(255,23,68,.6)}
 .chamber-head .t{color:var(--dim);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase}
 .tag{font-size:.62rem;letter-spacing:.18em;color:var(--warn);border:1px solid var(--warn);
   border-radius:3px;padding:.15rem .5rem;opacity:.9}
+.apollo-stage{display:grid;grid-template-columns:minmax(280px,1fr) minmax(240px,.75fr);align-items:center;
+  gap:1.2rem;margin:0 0 1.2rem;border:1px solid rgba(255,145,0,.25);border-radius:8px;
+  background:radial-gradient(circle at 28% 50%,rgba(255,145,0,.09),transparent 52%);overflow:hidden}
+#apollo-core{display:block;width:100%;height:auto;max-height:310px}
+.apollo-copy{padding:1rem 1.2rem 1rem 0;text-align:left}
+.apollo-name{color:#ffd27a;font-size:1.05rem;letter-spacing:.28em;text-transform:uppercase}
+.apollo-state{display:inline-block;margin:.55rem 0 .8rem;padding:.15rem .5rem;border:1px solid rgba(255,183,77,.55);
+  color:var(--warn);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase}
+.apollo-copy p{font-size:.78rem;color:var(--dim)}
+.apollo-copy .receipt{margin-top:.65rem;color:var(--faint);font-size:.68rem}
+@media(max-width:700px){.apollo-stage{grid-template-columns:1fr}.apollo-copy{padding:0 1rem 1.2rem;text-align:center}}
 .chips{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin:.4rem 0 1.1rem}
 .chip{font-family:var(--mono);font-size:.8rem;color:var(--dim);background:var(--elev);
   border:1px solid var(--line);border-radius:5px;padding:.5rem .9rem;cursor:pointer;transition:all .15s}
@@ -157,20 +166,29 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
 </div>
 
 <header class="wrap">
-  <div class="sig">TRADERCOCKPIT // STRATEGY EXECUTION CHAMBER</div>
-  <h1>Most trading strategies <span class="x">die here</span>.<br>That's the point.</h1>
-  <p class="sub">Every backtest you've ever been sold showed you the winners. TraderCockpit is the machine
-    that runs a strategy through <b>12 phases of statistical torture</b> and tells you the truth —
-    before the market charges you for it.</p>
+  <div class="sig">TRADERCOCKPIT // TEST THE CLAIM</div>
+  <h1>Before you buy the <span class="x">holy grail</span>,<br>make its rules survive the gauntlet.</h1>
+  <p class="sub">Turn a published strategy into falsifiable rules, combine it with available research concepts,
+    preview its signals, then ask whether the evidence survives a full robustness battery. This is a
+    <b>simulated waitlist concept</b>, not a shipped capability or performance result.</p>
 
   <div id="chamber" class="wrap">
     <div class="chamber-head">
       <span class="t">GAUNTLET // AWAITING CANDIDATE</span>
-      <span class="tag">SIMULATED DEMO — REAL FUNNEL LIVES IN THE APP</span>
+      <span class="tag">SIMULATED PRODUCT PREVIEW — NOT A LIVE RUN</span>
+    </div>
+    <div class="apollo-stage">
+      <canvas id="apollo-core" width="520" height="310" role="img" aria-label="Simulated solar assistant core"></canvas>
+      <div class="apollo-copy">
+        <div class="apollo-name" id="apollo-name">ASSISTANT CONCEPT</div>
+        <div class="apollo-state" id="apollo-state">LISTENING</div>
+        <p id="apollo-line">Describe the creator's rules or choose a research concept. The assistant would compose the test without deciding the verdict.</p>
+        <div class="receipt">LOCAL-FIRST VOICE · ONTOLOGY-GROUNDED · CONFIRM BEFORE FULL BATTERY</div>
+      </div>
     </div>
     <div class="chips" id="chips"></div>
     <button id="initiate">Initiate Gauntlet</button>
-    <div class="hint">pick a strategy the internet sold you. watch what an honest pipeline does to it.</div>
+    <div class="hint">choose a published strategy concept. this illustration does not test its real rules.</div>
 
     <div id="rungrid">
       <div class="phases" id="phases"></div>
@@ -190,86 +208,64 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
 </header>
 
 <section class="wrap" id="why">
-  <h2>why a machine that kills strategies</h2>
+  <h2>the claim becomes a test</h2>
   <div class="cards">
-    <div class="card"><h3>No lying allowed</h3>
-      <p>Nothing on the deck is ever synthesized to look good. If Monte-Carlo paths weren't recorded, the panel says
-      "MC PATHS NOT RECORDED" — it doesn't draw pretty fakes. Absence is stated, never decorated.</p></div>
-    <div class="card"><h3>Evidence or it didn't happen</h3>
-      <p>"SURVIVOR" status requires a finished run with provenance-matched receipts. Fresh strategies read UNTESTED.
-      The words "validated" and "robust" are locked behind cleared gates — they cannot appear otherwise.</p></div>
-    <div class="card"><h3>Research-first by design</h3>
-      <p>TraderCockpit is a research instrument, not a bot.
-      It exists to tell you whether an edge is real — not to promise you one.</p></div>
+    <div class="card"><h3>Write the actual rules</h3>
+      <p>A video title is not a strategy specification. Entry, exit, risk, market, timeframe, and unavailable details
+      must become explicit before a result can mean anything.</p></div>
+    <div class="card"><h3>Preview is not a verdict</h3>
+      <p>A signal sketch can expose broken or silent logic. Only the full battery may produce a robustness verdict,
+      and Apollo must ask before launching that run.</p></div>
+    <div class="card"><h3>Keep the receipt</h3>
+      <p>Product capabilities, availability, platforms, offers, and checkout may appear here only when supplied by
+      the consumer product through <code>product-manifest/v1</code>.</p></div>
   </div>
-  <div class="quote">The gurus' incentive is to convince you their strategy works.
-    <b>Our machine's only job is to prove yours doesn't — and fail.</b>
-    When it can't kill a strategy after 12 phases, that survival means something.</div>
+  <div class="quote">The goal is not to promise alpha. It is to test whether evidence for an edge survives the pipeline.</div>
 </section>
 
 <section class="wrap" id="machine">
-  <h2>what actually runs inside</h2>
+  <h2>what the product preview demonstrates</h2>
   <div class="cards">
-    <div class="card"><h3>Genesis funnel</h3><p>Thousands of strategy variants enter a gated pipeline.
+    <div class="card"><h3>Candidate funnel</h3><p>Strategy variants enter a gated pipeline.
       Each phase is a filter with teeth: data integrity, parameter plateaus, walk-forward, resampled and
       shuffled Monte-Carlo, cost stress, regime splits, alpha decay.</p></div>
-    <div class="card"><h3>MC theater</h3><p>The same deterministic simulations the gates graded, drawn as
-      spaghetti clouds — your equity curve against a hundred alternate universes. If your curve only wins
-      in the universe you backtested, you'll see it.</p></div>
-    <div class="card"><h3>Honest ledger</h3><p>Every candidate ever bred is counted — including the ones
-      culled before admission. Odometers run off the ledger census, not marketing math.</p></div>
+    <div class="card"><h3>Resampling view</h3><p>Conceptual paths illustrate why one historical equity curve is not enough.
+      This page generates theater only; it does not calculate evidence about the selected strategy.</p></div>
+    <div class="card"><h3>Manifest boundary</h3><p>Runtime behavior and verified capabilities are owned and
+      published by the consumer product. TraderCockpit renders those facts without redefining them.</p></div>
   </div>
 </section>
 
 <section class="wrap" id="views">
-  <h2>the game everyone else is playing</h2>
-  <p class="sub" style="margin:0 0 .5rem">Trading YouTube sells the bottom of this pyramid. We build for the top.</p>
+  <h2>the intended consumer workflow</h2>
+  <p class="sub" style="margin:0 0 .5rem">A concept sequence, not a claim that these capabilities are available today.</p>
   <div class="strip">
-    <div class="row hi"><span>honest, evidence-gated tooling</span><span>rare</span></div>
-    <div class="row"><span>"my secret indicator" courses</span><span>everywhere</span></div>
-    <div class="row"><span>signal groups &amp; lambo thumbnails</span><span>everywhere</span></div>
-    <div class="row"><span>screenshots of demo accounts</span><span>everywhere</span></div>
+    <div class="row"><span>1 · translate the published idea into rules</span><span>specify</span></div>
+    <div class="row"><span>2 · combine eligible research concepts</span><span>compose</span></div>
+    <div class="row"><span>3 · preview signal behavior without a verdict</span><span>inspect</span></div>
+    <div class="row hi"><span>4 · confirm and run the robustness battery</span><span>test</span></div>
   </div>
 </section>
 
 <section class="wrap" id="cta">
-  <h2>watch it execute strategies for real</h2>
-  <p class="sub">On the channel we take strategies the internet worships — ICT, SMC, supply &amp; demand,
-    price action — code them honestly, and publish whatever the gauntlet says. No winners promised.
-    Receipts guaranteed.</p>
+  <h2 id="product-heading">follow the evidence</h2>
+  <p class="sub" id="product-summary">TraderCockpit publishes market analysis and explains the consumer-product concept without promising a winner.</p>
+  <div class="strip" id="manifest-capabilities" hidden></div>
   <div class="ctas">
-    <!-- Checkout URL is wired by tools/wire_checkout.py once the Lemon Squeezy
-         product exists (see ops/SETUP-LEMONSQUEEZY.md). While the href still holds
-         the STORE placeholder, the script below degrades this button to the
-         reserve-a-seat mailto so the live page never shows a dead link. -->
-    <a id="buy-btn" class="btn primary lemonsqueezy-button" href="https://STORE.lemonsqueezy.com/buy/VARIANT?embed=1&media=0" rel="noopener">◈ Get early access</a>
-    <a class="btn" href="https://www.youtube.com/@Thetradercockpit" rel="noopener">▶ Watch the executions</a>
+    <a id="product-cta" class="btn primary" href="mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20product%20waitlist" rel="noopener">◈ Join the product waitlist</a>
+    <a class="btn" href="https://www.youtube.com/@Thetradercockpit" rel="noopener">▶ Watch the research</a>
   </div>
-  <script>
-    (function () {
-      var b = document.getElementById('buy-btn');
-      if (b && b.href.indexOf('STORE.lemonsqueezy') !== -1) {
-        b.href = 'mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20early%20access%20%E2%80%94%20reserve%20my%20seat';
-        b.classList.remove('lemonsqueezy-button');
-        b.textContent = '◈ Reserve early access — $49/mo';
-      }
-    })();
-  </script>
-  <p class="sub" style="margin-top:1rem">
-    Early access · <strong>$49/mo</strong> <span style="opacity:.65">(regular $99/mo)</span> · cancel anytime · 14-day money-back.
-    Runs on <strong>your</strong> machine against <strong>your</strong> IBKR account — your data and keys never leave your desk.
-  </p>
-  <p class="sub" style="font-size:.8rem;opacity:.7">
-    Requires Windows 10+ · an Interactive Brokers account with IB Gateway · research tool, not investment advice.
-    No brokerage account yet? <a href="mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20waitlist" rel="noopener">join the waitlist</a>.
+  <p class="sub" id="manifest-detail" style="margin-top:1rem">
+    Availability, pricing, supported platforms, and checkout may only be supplied by <code>product-manifest/v1</code>.
+    This waitlist is non-transactional.
   </p>
 </section>
 
 <footer>
   <div class="wrap">
     <div class="warnline">RESEARCH INSTRUMENT — NOT FINANCIAL ADVICE. NO PERFORMANCE IS PROMISED OR IMPLIED.</div>
-    <div>The gauntlet demo above is a simulation for illustration; real runs produce real, reproducible receipts inside the app.</div>
-    <div style="margin-top:.5rem">TRADERCOCKPIT © 2026 · <a href="refund-policy.html" style="color:inherit">Refund policy</a></div>
+    <div>The gauntlet above is a simulation for illustration, not a product run or performance result.</div>
+    <div style="margin-top:.5rem">TRADERCOCKPIT © 2026 · <a id="purchase-support" href="refund-policy.html" style="color:inherit">Product purchase support</a></div>
   </div>
 </footer>
 
@@ -279,13 +275,47 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
 function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);
   t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 
+/* ---------- Apollo solar-core concept: native canvas, visual state only ---------- */
+const apolloCanvas=document.getElementById("apollo-core"),solar=apolloCanvas.getContext("2d"),
+ apolloState=document.getElementById("apollo-state"),apolloLine=document.getElementById("apollo-line"),
+ reduceMotion=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let apolloMode="listening";
+function setApollo(mode,line){apolloMode=mode;apolloState.textContent=mode.toUpperCase();if(line)apolloLine.textContent=line}
+function drawApollo(now=0){
+  const t=now/1000,W=apolloCanvas.width,H=apolloCanvas.height,cx=W*.5,cy=H*.5;
+  solar.clearRect(0,0,W,H);solar.save();solar.globalCompositeOperation="screen";
+  const pulse=reduceMotion?0:Math.sin(t*(apolloMode==="running"?5:2.2))*.06;
+  const aura=solar.createRadialGradient(cx,cy,15,cx,cy,145);
+  aura.addColorStop(0,"rgba(255,255,210,.95)");aura.addColorStop(.25,"rgba(255,185,45,.55)");
+  aura.addColorStop(.65,"rgba(255,95,0,.13)");aura.addColorStop(1,"rgba(255,95,0,0)");
+  solar.fillStyle=aura;solar.beginPath();solar.arc(cx,cy,145,0,Math.PI*2);solar.fill();
+  for(let i=0;i<7;i++){
+    const a=i*Math.PI*2/7+t*(.025+(i%2)*.012),r=70,len=28+(i%3)*12;
+    const x1=cx+Math.cos(a)*r,y1=cy+Math.sin(a)*r,x2=cx+Math.cos(a+.25)*(r+len),y2=cy+Math.sin(a+.25)*(r+len);
+    solar.strokeStyle=`rgba(255,${120+i*12},20,${.22+(i%2)*.1})`;solar.lineWidth=2;
+    solar.beginPath();solar.moveTo(x1,y1);solar.quadraticCurveTo(x2,y2,cx+Math.cos(a+.5)*r,cy+Math.sin(a+.5)*r);solar.stroke();
+  }
+  for(let i=0;i<22;i++){
+    const a=i*2.399+t*(.08+(i%3)*.025),r=82+((i*19+t*16)%105),size=1+(i%3)*.65;
+    solar.fillStyle=`rgba(255,${135+(i%4)*20},35,${Math.max(.08,1-r/210)})`;
+    solar.beginPath();solar.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r,size,0,Math.PI*2);solar.fill();
+  }
+  const radius=64*(1+pulse),core=solar.createRadialGradient(cx-22,cy-26,4,cx,cy,radius);
+  core.addColorStop(0,"#fffde4");core.addColorStop(.18,"#ffe082");core.addColorStop(.55,"#ff9800");core.addColorStop(.82,"#ef4b00");core.addColorStop(1,"#4a0900");
+  solar.shadowColor="#ff9100";solar.shadowBlur=32;solar.fillStyle=core;solar.beginPath();solar.arc(cx,cy,radius,0,Math.PI*2);solar.fill();
+  solar.shadowBlur=0;solar.strokeStyle="rgba(255,238,180,.28)";solar.lineWidth=1;
+  for(let i=0;i<5;i++){solar.beginPath();solar.arc(cx,cy,28+i*8,t*(.08+i*.01)+i,Math.PI*1.15+t*(.08+i*.01)+i);solar.stroke()}
+  solar.restore();if(!reduceMotion)requestAnimationFrame(drawApollo)
+}
+drawApollo();
+
 /* ---------- boot sequence ---------- */
 const BOOT=[
  ["TRADERCOCKPIT OS v1.0 — command deck bootstrap",""],
  ["mounting honest ledger .......... ","OK"],
  ["arming gate array [12 phases] ... ","OK"],
  ["order routing ................... ","<span class='accent'>OPERATOR-GATED</span>"],
- ["marketing department ............ ","<span class='dim'>NOT FOUND</span>"],
+ ["product manifest ................ ","<span class='dim'>WAITLIST</span>"],
  ["loading gauntlet ................ ","OK"],
 ];
 const boot=document.getElementById("boot"),blog=document.getElementById("bootlog");
@@ -300,12 +330,12 @@ boot.addEventListener("click",endBoot);
 
 /* ---------- gauntlet data ---------- */
 const STRATS=[
- {n:"ICT / Smart Money", s:11, flavor:"liquidity sweeps and kill zones"},
- {n:"SMC Order Blocks", s:23, flavor:"institutional footprints"},
- {n:"Supply & Demand", s:37, flavor:"zones drawn after the move"},
- {n:"MA Golden Cross", s:41, flavor:"the 1970s called"},
- {n:"RSI Reversal", s:53, flavor:"oversold can stay oversold"},
- {n:"Breakout + Volume", s:67, flavor:"every backtest's darling"},
+ {n:"ICT / Smart Money", s:11, flavor:"creator framework concept"},
+ {n:"SMC Order Blocks", s:23, flavor:"order-block concept"},
+ {n:"Supply & Demand", s:37, flavor:"zone-based concept"},
+ {n:"MA Golden Cross", s:41, flavor:"moving-average concept"},
+ {n:"RSI Reversal", s:53, flavor:"oscillator concept"},
+ {n:"Breakout + Volume", s:67, flavor:"breakout concept"},
 ];
 const PHASES=[
  ["01","spec parse & sanity","malformed logic"],
@@ -331,7 +361,8 @@ let sel=null,running=false;
 STRATS.forEach((s,i)=>{
   const b=document.createElement("button");b.className="chip";b.textContent=s.n;
   b.onclick=()=>{if(running)return;document.querySelectorAll(".chip").forEach(c=>c.classList.remove("sel"));
-    b.classList.add("sel");sel=s;initBtn.disabled=false};
+    b.classList.add("sel");sel=s;initBtn.disabled=false;
+    setApollo("thinking",`Composition selected: ${s.n}. A real preview would still require explicit executable rules.`)};
   chipsEl.appendChild(b);
 });
 initBtn.disabled=true;
@@ -364,6 +395,7 @@ function drawMC(rng,prog,survRatio){
 
 function runGauntlet(){
   if(!sel||running)return;running=true;
+  setApollo("running","Simulated battery in progress. Apollo may orchestrate the workflow, but the recorded gates own the verdict.");
   initBtn.disabled=true;grid.classList.add("on");verdict.classList.remove("on");term.innerHTML="";
   const rng=mulberry32(sel.s),rows=buildPhases();
   /* survivors: mostly 0, occasionally a handful — honest theater */
@@ -379,13 +411,15 @@ function runGauntlet(){
       vh.textContent=finalSurv===0?`SURVIVORS: 0 — EDGE WAS LUCK`:`SURVIVORS: ${finalSurv} of 1,024`;
       vh.className="vh"+(finalSurv>0?" lucky":"");
       vp.textContent=finalSurv===0
-        ?`Every variant of "${sel.n}" died before the final gate in this simulation. That's not an insult — it's the median outcome of honest testing, and knowing it costs you nothing here. Finding out live costs an account.`
-        :`${finalSurv} variants crawled out alive — which earns them exactly one label: UNTESTED-IN-FORWARD. In the real app they'd go to forward lanes under alpha-decay watch, not to a sales page.`;
+        ?`This simulated composition did not survive the illustrated gates. A real conclusion requires executable rules, certified data, and a recorded full-battery receipt.`
+        :`Survival in this illustration is not validation. A real conclusion would still require executable rules, certified data, and a recorded full-battery receipt.`;
+      setApollo("speaking",finalSurv===0?"Illustration complete: no simulated survivors. This is not evidence about the selected strategy.":"Illustration complete: simulated survivors remain. This is not a robustness verdict.");
       verdict.classList.add("on");running=false;initBtn.disabled=false;
       log(`<span class="${finalSurv?'g':'k'}">&gt; gauntlet complete — ${finalSurv} survivor(s)</span>`);
       return;
     }
     const row=rows[i];row.classList.add("live");
+    apolloLine.textContent=`Simulated phase ${PHASES[i][0]}: ${PHASES[i][1]}.`;
     const isLast=i===PHASES.length-1;
     let killFrac=.25+rng()*.45;
     if(isLast){killFrac=(alive-finalSurv)/alive}
@@ -406,13 +440,44 @@ function runGauntlet(){
 initBtn.addEventListener("click",runGauntlet);
 document.getElementById("again").addEventListener("click",()=>{
   verdict.classList.remove("on");grid.classList.remove("on");
+  setApollo("listening","Describe the creator's rules or choose a research concept. The assistant would compose the test without deciding the verdict.");
   document.getElementById("chamber").scrollIntoView({behavior:"smooth"});
 });
 drawMC(mulberry32(1),0,.02);
 </script>
-<!-- Lemon Squeezy overlay checkout: intercepts the .lemonsqueezy-button link above
-     and opens the hosted checkout in a modal. LS is the merchant of record (handles
-     tax + subscriptions + license-key issuance); this page stays fully static. -->
-<script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+<script type="module">
+import { loadProductManifest } from "./product-manifest.mjs";
+
+try {
+  const manifest=await loadProductManifest();
+  document.documentElement.dataset.productManifest="verified";
+  if(manifest.assistant) document.getElementById("apollo-name").textContent=manifest.assistant.name;
+  if(manifest.product){
+    document.getElementById("product-heading").textContent=manifest.product.name;
+    document.getElementById("product-summary").textContent=manifest.product.summary;
+  }
+  const action=manifest.status==="available"&&manifest.checkout?manifest.checkout:manifest.cta;
+  if(action){const a=document.getElementById("product-cta");a.textContent=`◈ ${action.label}`;a.href=action.url}
+  const caps=document.getElementById("manifest-capabilities");
+  if(manifest.verifiedCapabilities.length){
+    caps.hidden=false;
+    for(const capability of manifest.verifiedCapabilities){
+      const row=document.createElement("div");row.className="row";
+      const label=document.createElement("span");label.textContent=capability.label;
+      const status=document.createElement("span");status.textContent="verified";
+      row.append(label,status);caps.appendChild(row);
+    }
+  }
+  const details=[`STATUS: ${manifest.status.toUpperCase()}`];
+  if(manifest.status!=="available")details.push("NON-TRANSACTIONAL");
+  if(manifest.status==="available"&&manifest.offer)details.push(manifest.offer.display);
+  if(manifest.platforms?.length)details.push(manifest.platforms.join(" · "));
+  document.getElementById("manifest-detail").textContent=details.join(" // ");
+  const support=manifest.refund??manifest.support;
+  if(support){const a=document.getElementById("purchase-support");a.textContent=support.label;a.href=support.url}
+} catch {
+  document.documentElement.dataset.productManifest="fallback";
+}
+</script>
 </body>
 </html>

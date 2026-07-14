@@ -14,8 +14,7 @@ Channel: youtube.com/@Thetradercockpit · Apply via `tools/channel_seo.py`
 > performance is promised or implied — this is a news instrument, not a trading
 > service.
 >
-> 🧪 The machine also runs a research gauntlet — trading strategies coded honestly
-> and tested to destruction: https://javin23863.github.io/soical/
+> 🧪 Explore the simulated product preview: https://javin23863.github.io/tradercockpit/
 
 ## Channel keywords (applied by script) — REVISED 2026-07-13, news intent
 
@@ -40,8 +39,8 @@ news today, market impact analysis, oil futures, geopolitical risk markets
 00:00 [hook]
 ...
 
-📡 The machine tracks asset classes, indices, and geopolitics in near-real-time.
-🧪 It also runs a research gauntlet on trading strategies: https://javin23863.github.io/soical/
+📡 TraderCockpit publishes market analysis and the evidence behind it.
+🧪 Simulated product preview: https://javin23863.github.io/tradercockpit/
 
 News/education only. Not financial advice. No performance promised.
 ```
@@ -61,20 +60,17 @@ News/education only. Not financial advice. No performance promised.
    for your portfolio.
 2. "Chokepoints" — geopolitics deep-dives on the flashpoints moving oil,
    indices, and rates.
-3. "The Gauntlet — strategies executed on camera" (kept, evergreen product
-   lane — not the daily spine).
+3. "The Gauntlet — product concepts explained" (evergreen education lane,
+   not the daily spine).
 
 ## Pinned comment template — REVISED 2026-07-13, news framing
 
-> The machine pulls real market data and geopolitical layers live — every number
-> in this video is a real read, not a guess. What should it watch next? Drop the
-> asset, index, or region below.
+> Sources and observation times are listed with the video. What should we examine
+> next? Drop the asset, index, or region below.
 
 ## Notes
 
 - Handle @Thetradercockpit ≠ display name. Display name should be
   "TraderCockpit" (set in YouTube Studio — API can't change display name).
-- Upload cadence beats everything: algorithm needs 5–8 uploads to find the
-  audience pocket. Judge faceless format only after that.
-- Shorts carry channel discovery early: 2–3 shorts per long-form, each ending
-  with the long-form hook.
+- Evaluate formats against the channel's own retention and referral data.
+- Reuse long-form evidence in short clips when the claim and context survive the edit.

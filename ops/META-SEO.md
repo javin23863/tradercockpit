@@ -88,7 +88,7 @@ post can be removed via API; only profile/bio edits are manual.)
   ▶️ Daily breakdowns on YouTube 👇
   ```
 - **Link**: https://www.youtube.com/@Thetradercockpit (or the landing
-  https://javin23863.github.io/soical/ — use IG "links" for both).
+  https://javin23863.github.io/tradercockpit/ — use IG "links" for both).
 
 ### IG content (once linked, publish.py handles it):
 The same 5 vertical Reels in `productions/video-02-hormuz-v4/shorts/` post via
