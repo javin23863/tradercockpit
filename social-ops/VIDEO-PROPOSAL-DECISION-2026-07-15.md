@@ -1,8 +1,21 @@
 # China Q2 vertical — proposal decision
 
-Status: research complete; media generation blocked on human proposal approval.
+Status: operator approved resuming the social-posting workflow on 2026-07-15; exact-asset publication remains fail-closed, and private production is blocked on a narration-provider decision.
 
 Target: one 45–60 second, 9:16 vertical master adaptable to YouTube Shorts, Instagram Reels, Facebook Reels, and TikTok. No public publish is authorized.
+
+## Execution receipt — 2026-07-15
+
+- Reverified the official NBS release and the existing China claims; the U.S. PPI, Bank of Canada,
+  and Federal Reserve Beige Book releases remain later-session packages.
+- The current batch remains five drafts with no master asset, claims gate, or approval fingerprint.
+- OpenMontage preflight: FFmpeg/Remotion/HyperFrames 3/3; local image generation 2/11; local video
+  generation 4/19; TTS 0/6; music generation 0/3; Pixabay music search available. The approved
+  cloned-voice route is not registered in the selected pipeline, so it cannot be substituted silently.
+- Publisher dry-run: Instagram and Facebook ready; YouTube and TikTok missing credentials.
+- The reviewed Godseye automation/evidence source is available at commit `92a00ae` in the separate
+  checkout, but TraderCockpit's hardcoded packaged capture target predates that contract. Do not claim
+  final Godseye capture readiness until an aligned packaged runtime is provided and dry-run verified.
 
 ## Concept options
 
