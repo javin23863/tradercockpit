@@ -3,6 +3,8 @@
 # credentials — never commit
 # OpenMontage/ = engine + venv + .env (cloned separately, see README)
 OpenMontage/
+# Open-Generative-AI/ = local-only Electron studio + sd.cpp models
+Open-Generative-AI/
 # token.json = YouTube upload scope; token_channel.json = channel scope (videos().update)
 tools/token.json
 tools/token_channel.json

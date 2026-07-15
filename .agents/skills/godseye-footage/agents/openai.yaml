@@ -1,0 +1,4 @@
+interface:
+  display_name: "TraderCockpit Godseye Footage"
+  short_description: "Run the canonical geospatial b-roll workflow"
+  default_prompt: "Use $godseye-footage to plan and capture verified geospatial b-roll."

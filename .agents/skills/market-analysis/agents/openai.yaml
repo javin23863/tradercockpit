@@ -1,0 +1,4 @@
+interface:
+  display_name: "TraderCockpit Market Analysis"
+  short_description: "Run the canonical evidence-first market analysis"
+  default_prompt: "Use $market-analysis to analyze this market story before scripting."

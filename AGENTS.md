@@ -10,6 +10,15 @@
 
 The `ponytail:ponytail` plugin skill is mandatory for every task in this repository. Reuse existing code and native platform features, avoid speculative abstractions, and leave the smallest verified change that satisfies the request.
 
+# zero-cost generative media
+
+- Use the project skill `.agents/skills/tradercockpit-free-media/SKILL.md` for every request to create, edit, generate, repurpose, or package social media assets, alongside any more specific production skill.
+- External provider spend is fixed at `$0`. Reject MuAPI, credits, subscriptions, paid model APIs, hosted generation, hosted MCP gateways, and paid fallbacks. Do not offer to configure them.
+- Codex image generation is allowed under the operator's existing Codex access. Offline still generation uses only `Open-Generative-AI/` with `stable-diffusion.cpp` and DreamShaper 8.
+- Video work may read the installed `openmontage` skill for its pipeline contract, but must execute only in this repository's `OpenMontage/` checkout. Never use another repository's engine, venv, models, or credentials.
+- Generated media is creative material, never a factual chart, news screenshot, geospatial observation, product proof, or evidence. Preserve source/model/seed/license provenance and existing synthetic-disclosure gates.
+- Do not create accounts, enter provider keys, top up balances, publish, schedule, or upload unless the operator explicitly authorizes that separate action.
+
 # deploy
 
 When the operator gives `deploy` as a direct instruction, the current task must not stage, commit, push, mutate a pull request, merge, release, or perform post-merge deployment actions.
@@ -61,7 +70,7 @@ The primary task remains responsible for implementation, full-diff review, test 
 
 - **openmontage** (`~/.agents/skills/openmontage/SKILL.md`) produces YouTube videos, Shorts, Reels, and TikToks from a brief.
 - Trigger: `/openmontage` or any request to create or edit a video, montage, explainer, Short, or Reel.
-- Use the skill for those requests.
+- Use the skill for those requests, then execute its pipeline from this repository's `OpenMontage/` checkout only.
 
 # see-video
 
