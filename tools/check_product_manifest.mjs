@@ -105,12 +105,16 @@ if (process.argv.includes('--browser')) {
     const organic = await page.evaluate(() => {
       const canvas = document.getElementById('apollo-core')
       const pixels = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data
-      let visible = 0
-      for (let i = 3; i < pixels.length; i += 4) if (pixels[i]) visible++
-      return { label: canvas.getAttribute('aria-label'), visible }
+      let visible = 0, warm = 0
+      for (let i = 3; i < pixels.length; i += 4) {
+        if (pixels[i]) visible++
+        if (pixels[i] && pixels[i - 3] > pixels[i - 1] * 1.35 && pixels[i - 2] > pixels[i - 1]) warm++
+      }
+      return { label: canvas.getAttribute('aria-label'), visible, warm }
     })
-    assert.match(organic.label, /bioluminescent Apollo/)
-    assert.ok(organic.visible > 100, 'organic canvas should paint a visible state')
+    assert.match(organic.label, /solar Apollo/)
+    assert.ok(organic.visible > 100, 'solar canvas should paint a visible state')
+    assert.ok(organic.warm > 100, 'solar canvas should paint a warm sun and flares')
 
     await page.click('.chip')
     assert.equal(await page.$eval('#apollo-state', (el) => el.textContent), 'THINKING')
@@ -137,5 +141,5 @@ if (process.argv.includes('--browser')) {
     await browser.close()
     await new Promise((resolve) => server.close(resolve))
   }
-  console.log('landing manifest fallback + organic Apollo interaction + mobile reduced-motion: PASS')
+  console.log('landing manifest fallback + solar Apollo interaction + mobile reduced-motion: PASS')
 }

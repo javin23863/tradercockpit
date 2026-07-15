@@ -218,7 +218,7 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
       <span class="tag">SIMULATED PRODUCT PREVIEW — NOT A LIVE RUN</span>
     </div>
     <div class="apollo-stage">
-      <canvas id="apollo-core" width="520" height="330" role="img" aria-label="Simulated bioluminescent Apollo assistant state visualization"></canvas>
+      <canvas id="apollo-core" width="520" height="330" role="img" aria-label="Simulated solar Apollo assistant with orbiting celestial bodies and solar flares"></canvas>
       <div class="apollo-copy">
         <div class="apollo-name" id="apollo-name">ASSISTANT CONCEPT</div>
         <div class="apollo-state" id="apollo-state" aria-live="polite">LISTENING</div>
@@ -353,7 +353,7 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
 function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);
   t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 
-/* ---------- Apollo organic-intelligence concept: native canvas, visual state only ---------- */
+/* ---------- Apollo solar-intelligence concept: native canvas, visual state only ---------- */
 const apolloCanvas=document.getElementById("apollo-core"),apolloContext=apolloCanvas.getContext("2d"),
  apolloState=document.getElementById("apollo-state"),apolloLine=document.getElementById("apollo-line"),
  reduceMotion=matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -363,51 +363,55 @@ function setApollo(mode,line){
   if(line)apolloLine.textContent=line;
   if(reduceMotion)drawApollo(0)
 }
-function membrane(cx,cy,rx,ry,t,phase,alpha){
-  apolloContext.beginPath();
-  for(let i=0;i<=64;i++){
-    const a=i/64*Math.PI*2,wave=Math.sin(a*3+t+phase)*5+Math.sin(a*7-t*.7+phase)*2;
-    const x=cx+Math.cos(a)*(rx+wave),y=cy+Math.sin(a)*(ry+wave*.65);
-    if(i)apolloContext.lineTo(x,y);else apolloContext.moveTo(x,y)
-  }
-  apolloContext.closePath();apolloContext.strokeStyle=`rgba(112,247,223,${alpha})`;apolloContext.stroke()
-}
 function drawApollo(now=0){
   const t=now/1000,W=apolloCanvas.width,H=apolloCanvas.height,cx=W*.5,cy=H*.5;
   const modes={listening:[.55,.45],thinking:[1.15,.8],previewing:[.8,.62],confirming:[.18,.2],running:[2.4,1],speaking:[1.35,.78]};
   const [speed,energy]=modes[apolloMode]||modes.listening,clock=reduceMotion?0:t*speed;
   apolloContext.clearRect(0,0,W,H);apolloContext.save();apolloContext.globalCompositeOperation="screen";
-  const field=apolloContext.createRadialGradient(cx,cy,8,cx,cy,195);
-  field.addColorStop(0,"rgba(232,255,251,.12)");field.addColorStop(.34,"rgba(112,247,223,.09)");
-  field.addColorStop(.7,"rgba(167,124,255,.055)");field.addColorStop(1,"rgba(6,16,21,0)");
+  const field=apolloContext.createRadialGradient(cx,cy,12,cx,cy,205);
+  field.addColorStop(0,"rgba(255,224,120,.18)");field.addColorStop(.32,"rgba(255,112,28,.09)");
+  field.addColorStop(.7,"rgba(255,23,68,.045)");field.addColorStop(1,"rgba(6,3,8,0)");
   apolloContext.fillStyle=field;apolloContext.fillRect(0,0,W,H);
 
-  const nodes=[];
-  for(let i=0;i<30;i++){
-    const ring=i%5,a=i*2.399963+clock*(.018+(i%3)*.007),base=55+ring*27;
-    const listeningPull=apolloMode==="listening"?(1-(Math.sin(clock*2+i)*.035)):1;
-    const r=(base+Math.sin(clock+i*1.7)*7*energy)*listeningPull;
-    nodes.push({x:cx+Math.cos(a)*r*1.18,y:cy+Math.sin(a)*r*.74,size:1.2+(i%4)*.45})
+  const orbitRadii=[91,132,171];
+  apolloContext.lineWidth=.8;
+  for(let i=0;i<orbitRadii.length;i++){
+    apolloContext.strokeStyle=`rgba(255,${150-i*24},${64-i*12},${.16-i*.025})`;
+    apolloContext.beginPath();apolloContext.ellipse(cx,cy,orbitRadii[i]*1.18,orbitRadii[i]*.56,(i-1)*.13,0,Math.PI*2);apolloContext.stroke()
   }
-  apolloContext.lineWidth=1;
-  for(let i=0;i<nodes.length;i++){
-    const n=nodes[i],next=nodes[(i+5)%nodes.length],alpha=.08+(i%4)*.025;
-    apolloContext.strokeStyle=`rgba(${i%2?112:167},${i%2?247:124},${i%2?223:255},${alpha})`;
-    apolloContext.beginPath();apolloContext.moveTo(n.x,n.y);apolloContext.quadraticCurveTo((n.x+next.x+cx)/3,(n.y+next.y+cy)/3,next.x,next.y);apolloContext.stroke()
+  for(let i=0;i<8;i++){
+    const ring=i%3,r=orbitRadii[ring],tilt=(ring-1)*.13,a=i*2.399963+clock*(.13+ring*.035)*(i%2?1:-1);
+    const ox=Math.cos(a)*r*1.18,oy=Math.sin(a)*r*.56,x=cx+ox*Math.cos(tilt)-oy*Math.sin(tilt),y=cy+ox*Math.sin(tilt)+oy*Math.cos(tilt);
+    const active=(apolloMode==="thinking"||apolloMode==="running")&&((i+Math.floor(clock*4))%4===0);
+    apolloContext.shadowBlur=active?16:7;apolloContext.shadowColor=active?"#fff3b0":"#ff8a2b";
+    apolloContext.fillStyle=active?"#fff3b0":i%3===0?"#ffb84d":"#f6d7a7";
+    apolloContext.beginPath();apolloContext.arc(x,y,2.2+ring*.65+(active?1:0),0,Math.PI*2);apolloContext.fill()
   }
-  for(let i=0;i<nodes.length;i++){
-    const n=nodes[i],active=(apolloMode==="thinking"||apolloMode==="running")&&((i+Math.floor(clock*8))%6===0);
-    apolloContext.shadowBlur=active?15:4;apolloContext.shadowColor=active?"#e8fffb":"#70f7df";
-    apolloContext.fillStyle=active?"rgba(232,255,251,.9)":`rgba(112,247,223,${.2+(i%3)*.08})`;
-    apolloContext.beginPath();apolloContext.arc(n.x,n.y,n.size+(active?1.2:0),0,Math.PI*2);apolloContext.fill()
-  }
-  apolloContext.shadowBlur=0;apolloContext.lineWidth=1.1;
-  membrane(cx,cy,73,52,clock,0,.28);membrane(cx,cy,92,66,-clock*.7,1.8,.18);membrane(cx,cy,118,82,clock*.45,3.1,.1);
 
-  const pulse=apolloMode==="confirming"?0:Math.sin(clock*2.2)*4*energy,core=apolloContext.createRadialGradient(cx-16,cy-18,2,cx,cy,64+pulse);
-  core.addColorStop(0,"rgba(238,255,252,.98)");core.addColorStop(.16,"rgba(112,247,223,.78)");
-  core.addColorStop(.5,"rgba(86,169,255,.38)");core.addColorStop(.78,"rgba(167,124,255,.18)");core.addColorStop(1,"rgba(6,16,21,0)");
-  apolloContext.fillStyle=core;apolloContext.beginPath();apolloContext.ellipse(cx,cy,68+pulse,51+pulse*.45,Math.sin(clock*.2)*.1,0,Math.PI*2);apolloContext.fill();
+  const pulse=apolloMode==="confirming"?0:Math.sin(clock*2.2)*3*energy,sunRadius=48+pulse;
+  apolloContext.shadowColor="#ff5c1a";apolloContext.shadowBlur=18+energy*12;apolloContext.lineWidth=1.4;
+  for(let i=0;i<8;i++){
+    const a=i/8*Math.PI*2+clock*.055,span=.18+Math.sin(clock*1.3+i)*.04,out=sunRadius+14+energy*10+(i%3)*4;
+    apolloContext.strokeStyle=`rgba(255,${78+i*13},20,${.3+energy*.18})`;
+    apolloContext.beginPath();apolloContext.arc(cx,cy,sunRadius,a-span,a+span);
+    apolloContext.bezierCurveTo(cx+Math.cos(a+span*.45)*out,cy+Math.sin(a+span*.45)*out,cx+Math.cos(a-span*.45)*out,cy+Math.sin(a-span*.45)*out,cx+Math.cos(a-span)*sunRadius,cy+Math.sin(a-span)*sunRadius);apolloContext.stroke()
+  }
+  apolloContext.shadowBlur=0;apolloContext.lineWidth=1;
+  for(let i=0;i<28;i++){
+    const a=i/28*Math.PI*2+clock*.018,ray=sunRadius+7+(1+Math.sin(clock*1.7+i*4.1))*5*energy;
+    apolloContext.strokeStyle=`rgba(255,178,62,${.12+(i%4)*.025})`;apolloContext.beginPath();
+    apolloContext.moveTo(cx+Math.cos(a)*(sunRadius+1),cy+Math.sin(a)*(sunRadius+1));apolloContext.lineTo(cx+Math.cos(a)*ray,cy+Math.sin(a)*ray);apolloContext.stroke()
+  }
+  apolloContext.shadowColor="#ff9a22";apolloContext.shadowBlur=28+energy*18;
+  const core=apolloContext.createRadialGradient(cx-15,cy-17,2,cx,cy,sunRadius);
+  core.addColorStop(0,"#fffdf0");core.addColorStop(.18,"#fff3a1");core.addColorStop(.5,"#ffb526");core.addColorStop(.78,"#ff641f");core.addColorStop(1,"#d51e16");
+  apolloContext.fillStyle=core;apolloContext.beginPath();apolloContext.arc(cx,cy,sunRadius,0,Math.PI*2);apolloContext.fill();
+  apolloContext.shadowBlur=0;
+  for(let i=0;i<16;i++){
+    const a=i*2.399963-clock*.035,r=10+(i%4)*8,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
+    apolloContext.fillStyle=`rgba(255,${92+(i%4)*20},20,${.09+(i%3)*.025})`;
+    apolloContext.beginPath();apolloContext.ellipse(x,y,4+(i%3)*2,1.4+(i%2),a,0,Math.PI*2);apolloContext.fill()
+  }
 
   if(apolloMode==="running"){
     for(let i=0;i<12;i++){
@@ -418,8 +422,8 @@ function drawApollo(now=0){
   }
   if(apolloMode==="speaking"){
     for(let i=0;i<3;i++){
-      const r=88+((clock*32+i*34)%105);apolloContext.strokeStyle=`rgba(112,247,223,${Math.max(0,.22-(r-88)/520)})`;
-      apolloContext.beginPath();apolloContext.ellipse(cx,cy,r*1.18,r*.72,0,0,Math.PI*2);apolloContext.stroke()
+      const r=69+((clock*36+i*38)%120);apolloContext.strokeStyle=`rgba(255,126,32,${Math.max(0,.28-(r-69)/480)})`;
+      apolloContext.beginPath();apolloContext.arc(cx,cy,r,0,Math.PI*2);apolloContext.stroke()
     }
   }
   apolloContext.restore();if(!reduceMotion)requestAnimationFrame(drawApollo)
