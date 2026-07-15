@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CHANNELS = {"youtube", "tiktok", "email"}
+CHANNELS = {"youtube", "instagram", "facebook", "tiktok", "email"}
 STATUSES = {"draft", "approved", "rejected"}
 
 
@@ -63,7 +63,7 @@ def validate(data):
             raise ValueError(f"{tag}.id must be non-empty and unique")
         seen.add(item_id)
         if item.get("channel") not in CHANNELS:
-            raise ValueError(f"{tag}.channel must be youtube, tiktok, or email")
+            raise ValueError(f"{tag}.channel must be one of: {', '.join(sorted(CHANNELS))}")
         if item.get("status") not in STATUSES:
             raise ValueError(f"{tag}.status must be draft, approved, or rejected")
         if not isinstance(item.get("copy"), str):
@@ -119,6 +119,14 @@ def selftest():
         raise AssertionError("incomplete approval should fail")
     except ValueError:
         pass
+    parity = {
+        **base,
+        "items": [
+            {"id": channel, "channel": channel, "status": "draft", "copy": "x"}
+            for channel in sorted(CHANNELS)
+        ],
+    }
+    assert {item["channel"] for item in validate(parity)["items"]} == CHANNELS
 
     with tempfile.TemporaryDirectory(dir=ROOT) as folder:
         temp = Path(folder)
@@ -142,7 +150,7 @@ def selftest():
             raise AssertionError("post-approval edits should fail")
         except ValueError:
             pass
-    print("social-batch self-test: 4/4 PASS")
+    print("social-batch self-test: 5/5 PASS")
 
 
 def main():

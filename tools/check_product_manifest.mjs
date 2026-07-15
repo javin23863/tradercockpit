@@ -4,25 +4,44 @@ import http from 'node:http'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { validateProductManifest } from '../docs/product-manifest.mjs'
+import { validatePrelaunchConfig } from '../docs/prelaunch-config.mjs'
 import puppeteer from './visuals/puppeteer.mjs'
 
 globalThis.location = { href: 'https://javin23863.github.io/tradercockpit/' }
 const manifest = JSON.parse(fs.readFileSync(new URL('../docs/product-manifest.v1.json', import.meta.url), 'utf8'))
+const prelaunch = JSON.parse(fs.readFileSync(new URL('../docs/prelaunch-config.v1.json', import.meta.url), 'utf8'))
 assert.equal(validateProductManifest(manifest).status, 'waitlist')
 assert.throws(() => validateProductManifest(null), /schema/)
 assert.throws(() => validateProductManifest({ ...manifest, schema: 'product-manifest/v2' }), /schema/)
 assert.throws(() => validateProductManifest({ ...manifest, cta: { label: 'Buy', url: 'javascript:alert(1)' } }), /https or mailto/)
 console.log('product-manifest/v1: 4/4 PASS')
+assert.equal(validatePrelaunchConfig(prelaunch).waitlist.status, 'pending_operator_account')
+assert.throws(() => validatePrelaunchConfig({ ...prelaunch, waitlist: { ...prelaunch.waitlist, status: 'active' } }), /username/)
+assert.throws(() => validatePrelaunchConfig({
+  ...prelaunch,
+  analytics: { ...prelaunch.analytics, status: 'active', scriptSrc: 'https://example.com/tracker.js' },
+}), /Plausible/)
+console.log('prelaunch-config/v1: 3/3 PASS')
 
 if (process.argv.includes('--browser')) {
   const docs = fileURLToPath(new URL('../docs/', import.meta.url))
   let mode = 'valid'
+  let prelaunchMode = 'pending'
+  const activePrelaunch = {
+    ...prelaunch,
+    waitlist: { ...prelaunch.waitlist, status: 'active', username: 'tradercockpit-test' },
+  }
   const server = http.createServer((request, response) => {
     const pathname = new URL(request.url, 'http://localhost').pathname
     if (pathname === '/product-manifest.v1.json') {
       if (mode === 'missing') { response.writeHead(404).end(); return }
       response.setHeader('Content-Type', 'application/json')
       response.end(mode === 'malformed' ? '{' : JSON.stringify(mode === 'unsupported' ? { ...manifest, schema: 'product-manifest/v2' } : manifest))
+      return
+    }
+    if (pathname === '/prelaunch-config.v1.json') {
+      response.setHeader('Content-Type', 'application/json')
+      response.end(JSON.stringify(prelaunchMode === 'active' ? activePrelaunch : prelaunch))
       return
     }
     const file = path.join(docs, pathname === '/' ? 'index.html' : pathname.slice(1))
@@ -48,6 +67,29 @@ if (process.argv.includes('--browser')) {
       assert.match(result.cta, /^mailto:/)
     }
     mode = 'valid'
+    prelaunchMode = 'active'
+    await page.goto(`http://127.0.0.1:${port}/?utm_source=tiktok&utm_medium=social&utm_campaign=test`, { waitUntil: 'networkidle0' })
+    const waitlist = await page.evaluate(() => ({
+      state: document.documentElement.dataset.prelaunch,
+      hidden: document.getElementById('waitlist-form').hidden,
+      action: document.getElementById('waitlist-form').action,
+      productHidden: document.getElementById('product-cta').hidden,
+      source: document.getElementById('waitlist-source').value,
+      utmSource: document.getElementById('waitlist-utm-source').value,
+      utmMedium: document.getElementById('waitlist-utm-medium').value,
+      utmCampaign: document.getElementById('waitlist-utm-campaign').value,
+    }))
+    assert.deepEqual(waitlist, {
+      state: 'waitlist-active',
+      hidden: false,
+      action: 'https://buttondown.com/api/emails/embed-subscribe/tradercockpit-test',
+      productHidden: true,
+      source: 'source-tiktok',
+      utmSource: 'tiktok',
+      utmMedium: 'social',
+      utmCampaign: 'test',
+    })
+    prelaunchMode = 'pending'
     await page.setViewport({ width: 390, height: 844 })
     await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }])
     await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle0' })

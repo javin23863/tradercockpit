@@ -6,7 +6,7 @@ One-time, interactive: `python cli.py login -n tradercockpit` (opens Chrome).
 After that, cookies in CookiesDir/ let uploads run headless-ish.
 
 Resolution order for the uploader checkout + its python:
-  dir    : $TIKTOK_UPLOADER_DIR  else  ../TiktokAutoUploader (sibling of this repo)
+  dir    : $TIKTOK_UPLOADER_DIR else ~/Desktop/TiktokAutoUploader else the legacy sibling checkout
   python : $TIKTOK_PYTHON        else  <dir>/.venv/Scripts/python.exe  else  "python"
 User (TikTok account name given at login): $TIKTOK_USER else "tradercockpit".
 """
@@ -18,8 +18,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parent.parent          # OpenMontage-Skill/
-DEFAULT_DIR = REPO.parent / "TiktokAutoUploader"        # sibling checkout
+REPO = Path(__file__).resolve().parent.parent
+_INSTALLED_DIR = Path.home() / "Desktop" / "TiktokAutoUploader"
+_LEGACY_DIR = REPO.parent / "TiktokAutoUploader"
+DEFAULT_DIR = _INSTALLED_DIR if _INSTALLED_DIR.exists() else _LEGACY_DIR
 DEFAULT_USER = "tradercockpit"
 
 

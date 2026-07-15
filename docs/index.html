@@ -180,6 +180,14 @@ h2::before{content:"// ";color:var(--accent)}
 .btn.primary{border-color:var(--accent);color:var(--ink);background:var(--accent-soft)}
 .btn.primary:hover{background:var(--accent);color:#fff;text-decoration:none;box-shadow:0 0 26px rgba(255,23,68,.5)}
 .btn:hover{color:var(--ink);text-decoration:none}
+.waitlist-form{margin:1.4rem auto 0;max-width:42rem;border:1px solid var(--line);border-radius:6px;
+  padding:1rem;background:var(--panel);text-align:left}
+.waitlist-form[hidden]{display:none}
+.waitlist-row{display:flex;gap:.7rem;align-items:end;flex-wrap:wrap}
+.waitlist-field{display:grid;gap:.35rem;flex:1 1 18rem;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
+.waitlist-field input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:5px;
+  padding:.8rem;background:var(--bg);color:var(--ink);font:inherit}
+.waitlist-note{margin:.65rem 0 0;color:var(--faint);font-size:.68rem}
 
 footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--faint);font-size:.68rem;text-align:center}
 footer .warnline{color:var(--warn);margin-bottom:.5rem}
@@ -307,9 +315,23 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
   <h2 id="product-heading">follow the evidence</h2>
   <p class="sub" id="product-summary">TraderCockpit publishes market analysis and explains the consumer-product concept without promising a winner.</p>
   <div class="strip" id="manifest-capabilities" hidden></div>
+  <form id="waitlist-form" class="waitlist-form" method="post" hidden>
+    <div class="waitlist-row">
+      <label class="waitlist-field" for="waitlist-email">DAILY MARKET MAP + PRODUCT WAITLIST
+        <input id="waitlist-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+      </label>
+      <button class="btn primary" type="submit">◈ Send confirmation</button>
+    </div>
+    <input type="hidden" name="embed" value="1">
+    <input id="waitlist-source" type="hidden" name="tag" value="source-direct">
+    <input id="waitlist-utm-source" type="hidden" name="metadata__utm_source" value="direct">
+    <input id="waitlist-utm-medium" type="hidden" name="metadata__utm_medium" value="">
+    <input id="waitlist-utm-campaign" type="hidden" name="metadata__utm_campaign" value="">
+    <p class="waitlist-note">Double opt-in: confirm the email before anything is sent. Unsubscribe anytime. Research only—not financial advice.</p>
+  </form>
   <div class="ctas">
     <a id="product-cta" class="btn primary" href="mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20product%20waitlist" rel="noopener">◈ Join the product waitlist</a>
-    <a class="btn" href="https://www.youtube.com/@Thetradercockpit" rel="noopener">▶ Watch the research</a>
+    <a id="youtube-cta" class="btn" href="https://www.youtube.com/@Thetradercockpit" rel="noopener">▶ Watch the research</a>
   </div>
   <p class="sub" id="manifest-detail" style="margin-top:1rem">
     Availability, pricing, supported platforms, and checkout may only be supplied by <code>product-manifest/v1</code>.
@@ -572,6 +594,7 @@ drawMC(mulberry32(1),0,.02);
 </script>
 <script type="module">
 import { loadProductManifest } from "./product-manifest.mjs";
+import { activatePrelaunch, loadPrelaunchConfig } from "./prelaunch-config.mjs";
 
 try {
   const manifest=await loadProductManifest();
@@ -600,6 +623,8 @@ try {
   document.getElementById("manifest-detail").textContent=details.join(" // ");
   const support=manifest.refund??manifest.support;
   if(support){const a=document.getElementById("purchase-support");a.textContent=support.label;a.href=support.url}
+  try { activatePrelaunch(await loadPrelaunchConfig(), manifest) }
+  catch { document.documentElement.dataset.prelaunch="fallback" }
 } catch {
   document.documentElement.dataset.productManifest="fallback";
 }

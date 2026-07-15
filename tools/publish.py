@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Publish one rendered video to YouTube + Instagram Reels + Facebook Reels.
 
-Reads credentials from OpenMontage/.env (see ops/SETUP-CREDS.md):
+Reads credentials from $TRADERCOCKPIT_ENV, the installed OpenMontage `.env`, or the legacy
+TraderCockpit `OpenMontage/.env` path (see ops/SETUP-CREDS.md):
   YouTube:   client_secret.json next to this script (OAuth on first run)
   Meta:      META_PAGE_ID, META_IG_USER_ID, META_PAGE_TOKEN
   B2 (IG only — Meta ingests Reels from a public URL):
@@ -25,7 +26,17 @@ import requests
 from dotenv import load_dotenv
 
 HERE = Path(__file__).parent
-load_dotenv(HERE.parent / "OpenMontage" / ".env")
+_ENV_CANDIDATES = []
+if os.getenv("TRADERCOCKPIT_ENV"):
+    _ENV_CANDIDATES.append(Path(os.environ["TRADERCOCKPIT_ENV"]))
+_ENV_CANDIDATES.extend([
+    Path.home() / "Desktop" / "OpenMontage-Skill" / "OpenMontage" / ".env",
+    HERE.parent / "OpenMontage" / ".env",
+])
+for _env_path in _ENV_CANDIDATES:
+    if _env_path.is_file():
+        load_dotenv(_env_path)
+        break
 _KEYS_ENV = Path.home() / "Desktop" / "keys.env"
 if _KEYS_ENV.exists():
     load_dotenv(_KEYS_ENV)  # existing B2/S3 creds; consumed in-process, never printed
