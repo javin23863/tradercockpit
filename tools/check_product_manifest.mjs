@@ -113,11 +113,14 @@ if (process.argv.includes('--browser')) {
         if (pixels[i] && pixels[i - 3] > pixels[i - 1] * 1.35 && pixels[i - 2] > pixels[i - 1]) warm++
       }
       return {
-        label: canvas.getAttribute('aria-label'), visible, warm,
+        label: canvas.getAttribute('aria-label'), role: canvas.getAttribute('role'), describedBy: canvas.getAttribute('aria-describedby'), tabIndex: canvas.tabIndex, visible, warm,
         socials: [...document.querySelectorAll('.social-link')].map((link) => [link.dataset.channel, link.href]),
       }
     })
     assert.match(organic.label, /solar Apollo/)
+    assert.equal(organic.role, 'button')
+    assert.equal(organic.describedBy, 'apollo-interaction-note')
+    assert.equal(organic.tabIndex, 0)
     assert.ok(organic.visible > 100, 'solar canvas should paint a visible state')
     assert.ok(organic.warm > 100, 'solar canvas should paint a warm sun and flares')
     assert.deepEqual(organic.socials, [
@@ -130,6 +133,12 @@ if (process.argv.includes('--browser')) {
     await new Promise((resolve) => setTimeout(resolve, 180))
     const pulseAfter = await page.$eval('#apollo-core', (canvas) => canvas.dataset.sunRadius)
     assert.notEqual(pulseAfter, pulseBefore, 'Apollo sun radius should pulse when motion is allowed')
+    await page.focus('#apollo-core')
+    await page.keyboard.press('Enter')
+    await new Promise((resolve) => setTimeout(resolve, 90))
+    const eruption = await page.$eval('#apollo-core', (canvas) => ({ state: canvas.dataset.eruption, energy: Number(canvas.dataset.eruptionEnergy) }))
+    assert.equal(eruption.state, 'active')
+    assert.ok(eruption.energy > .35, 'keyboard-triggered solar eruption should paint a visible energy burst')
 
     await page.click('.chip')
     assert.equal(await page.$eval('#apollo-state', (el) => el.textContent), 'THINKING')
@@ -156,5 +165,5 @@ if (process.argv.includes('--browser')) {
     await browser.close()
     await new Promise((resolve) => server.close(resolve))
   }
-  console.log('landing manifest fallback + solar Apollo interaction + mobile reduced-motion: PASS')
+  console.log('landing manifest fallback + interactive erupting solar Apollo + mobile reduced-motion: PASS')
 }
