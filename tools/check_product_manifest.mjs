@@ -101,7 +101,9 @@ if (process.argv.includes('--browser')) {
     assert.equal(mobile.boot, 'none')
 
     await page.setViewport({ width: 1024, height: 900 })
+    await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'no-preference' }])
     await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'networkidle0' })
+    await page.click('#boot')
     const organic = await page.evaluate(() => {
       const canvas = document.getElementById('apollo-core')
       const pixels = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data
@@ -110,11 +112,24 @@ if (process.argv.includes('--browser')) {
         if (pixels[i]) visible++
         if (pixels[i] && pixels[i - 3] > pixels[i - 1] * 1.35 && pixels[i - 2] > pixels[i - 1]) warm++
       }
-      return { label: canvas.getAttribute('aria-label'), visible, warm }
+      return {
+        label: canvas.getAttribute('aria-label'), visible, warm,
+        socials: [...document.querySelectorAll('.social-link')].map((link) => [link.dataset.channel, link.href]),
+      }
     })
     assert.match(organic.label, /solar Apollo/)
     assert.ok(organic.visible > 100, 'solar canvas should paint a visible state')
     assert.ok(organic.warm > 100, 'solar canvas should paint a warm sun and flares')
+    assert.deepEqual(organic.socials, [
+      ['youtube', 'https://www.youtube.com/@Thetradercockpit'],
+      ['instagram', 'https://www.instagram.com/tradercockpit/'],
+      ['tiktok', 'https://www.tiktok.com/@trader.cockpit'],
+      ['facebook', 'https://www.facebook.com/profile.php?id=61591774715570'],
+    ])
+    const pulseBefore = await page.$eval('#apollo-core', (canvas) => canvas.dataset.sunRadius)
+    await new Promise((resolve) => setTimeout(resolve, 180))
+    const pulseAfter = await page.$eval('#apollo-core', (canvas) => canvas.dataset.sunRadius)
+    assert.notEqual(pulseAfter, pulseBefore, 'Apollo sun radius should pulse when motion is allowed')
 
     await page.click('.chip')
     assert.equal(await page.$eval('#apollo-state', (el) => el.textContent), 'THINKING')
