@@ -234,6 +234,8 @@ def test_nulls_and_derived_rates_preserve_unknown_denominators(tmp_path):
 
     with pytest.raises(ValueError, match="must be finite"):
         summarize(tmp_path / "not-finite", base_manifest(), [metric_row(completion_percent="NaN")])
+    with pytest.raises(ValueError, match="must not be negative"):
+        summarize(tmp_path / "negative", base_manifest(), [metric_row(completion_percent=-1)])
 
 
 def test_pending_baseline_and_too_few_observations_are_insufficient(tmp_path):
@@ -265,6 +267,12 @@ def test_advisory_threshold_branches(tmp_path, value, verdict):
 def test_hard_guardrails_force_kill(tmp_path, guardrail_change):
     summary = summarize(tmp_path, rows=[metric_row(completion_percent=75, **guardrail_change)])
     assert summary["experiments"][0]["advisory"]["verdict"] == "kill"
+
+
+@pytest.mark.parametrize("guardrail_change", [{"claims_gate": ""}, {"corrections": ""}])
+def test_unknown_guardrails_are_insufficient_evidence(tmp_path, guardrail_change):
+    summary = summarize(tmp_path, rows=[metric_row(completion_percent=75, **guardrail_change)])
+    assert summary["experiments"][0]["advisory"]["verdict"] == "insufficient_evidence"
 
 
 def test_operator_override_requires_reason_and_cannot_override_guardrail_to_reuse(tmp_path):

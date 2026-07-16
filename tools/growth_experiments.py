@@ -7,7 +7,7 @@ import json
 import math
 import statistics
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "social-ops" / "growth-experiments.v1.json"
@@ -64,8 +64,9 @@ def _timezone(value, field):
 
 
 def _inside(root, value, field, must_exist=True):
-    relative = Path(_text(value, field))
-    if relative.is_absolute():
+    text = _text(value, field)
+    relative = Path(text)
+    if PurePosixPath(text).is_absolute() or PureWindowsPath(text).is_absolute():
         raise ValueError(f"{field} must be repo-relative")
     path = (root / relative).resolve()
     try:
@@ -96,6 +97,8 @@ def _number(row, field, tag):
         raise ValueError(f"{tag}.{field} must be numeric or blank") from error
     if not math.isfinite(number):
         raise ValueError(f"{tag}.{field} must be finite")
+    if number < 0:
+        raise ValueError(f"{tag}.{field} must not be negative")
     return number
 
 
@@ -182,7 +185,7 @@ def _operator_decision(experiment, tag):
     return decision
 
 
-def _advisory(state, rule, primary_values, observation_count, guardrail_failure):
+def _advisory(state, rule, primary_values, observation_count, guardrail_missing, guardrail_failure):
     if state == "blocked":
         return {"verdict": "blocked", "reason": "Experiment has unresolved blockers."}
     if rule["status"] == "pending_baseline":
@@ -191,6 +194,8 @@ def _advisory(state, rule, primary_values, observation_count, guardrail_failure)
         return {"verdict": "insufficient_evidence", "reason": "At least one observation is missing the primary metric."}
     if len(primary_values) < rule["minimumObservations"]:
         return {"verdict": "insufficient_evidence", "reason": f"{len(primary_values)}/{rule['minimumObservations']} required observations have a primary metric."}
+    if guardrail_missing:
+        return {"verdict": "insufficient_evidence", "reason": "At least one observation is missing a hard guardrail result."}
     if guardrail_failure:
         return {"verdict": "kill", "reason": "A hard claims or corrections guardrail failed."}
     median = statistics.median(primary_values)
@@ -348,9 +353,11 @@ def load_growth_summary(manifest_path=MANIFEST, metrics_path=METRICS, root=ROOT)
             row_number, row = metric_entry if metric_entry else (None, None)
             row_tag = f"metrics.csv row {row_number}" if row_number else "missing metrics row"
             values = {name: _metric_value(row, name, row_tag) for name in [metrics["primary"], *secondary]}
+            claims_gate = None if row is None else row.get("claims_gate", "").strip().upper()
+            corrections = None if row is None else _number(row, "corrections", row_tag)
             row_guardrails = {
-                "claims_gate_pass": None if row is None else row.get("claims_gate", "").strip().upper() == "PASS",
-                "corrections_zero": None if row is None else _number(row, "corrections", row_tag) == 0,
+                "claims_gate_pass": None if not claims_gate else claims_gate == "PASS",
+                "corrections_zero": None if corrections is None else corrections == 0,
             }
             joined.append({
                 "batchId": batch_id,
@@ -361,8 +368,12 @@ def load_growth_summary(manifest_path=MANIFEST, metrics_path=METRICS, root=ROOT)
             })
 
         primary_values = [item["metrics"][metrics["primary"]] for item in joined if item["metrics"][metrics["primary"]] is not None]
-        guardrail_failure = any(value is not True for item in joined for value in item["guardrails"].values())
-        advisory = _advisory(experiment["state"], rule, primary_values, len(joined), guardrail_failure)
+        guardrails = [value for item in joined for value in item["guardrails"].values()]
+        guardrail_missing = any(value is None for value in guardrails)
+        guardrail_failure = any(value is False for value in guardrails)
+        advisory = _advisory(
+            experiment["state"], rule, primary_values, len(joined), guardrail_missing, guardrail_failure,
+        )
         if experiment["state"] in {"measured", "decided"} and not primary_values:
             raise ValueError(f"{tag}.state {experiment['state']} requires a primary metric observation")
         if experiment["state"] == "decided":
