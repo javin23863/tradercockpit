@@ -14,6 +14,7 @@ ALLOWED_CREDENTIALS = {
     "meta.env",
     "telegram.env",
     "buttondown.env",
+    "stripe.env",
 }
 
 
