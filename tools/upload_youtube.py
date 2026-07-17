@@ -1,48 +1,94 @@
 #!/usr/bin/env python3
-"""Upload a video to YouTube via the Data API v3.
+"""Operator-only YouTube uploader with channel and post read-back checks."""
 
-One-time setup: put OAuth client_secret.json next to this script (see ops/COMPLEMENTS.md).
-First run opens a browser for consent; token cached in token.json.
-
-Usage:
-  python upload_youtube.py video.mp4 --title "My Video" --description "..." \
-      --tags tag1 tag2 --privacy unlisted --thumbnail thumb.png
-"""
 import argparse
-import sys
 from pathlib import Path
 
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
-
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
-HERE = Path(__file__).parent
+try:
+    from tools.credential_custody import credential_path
+except ModuleNotFoundError:  # direct `python tools/upload_youtube.py` execution
+    from credential_custody import credential_path
 
 
-def get_service():
-    creds = None
-    token = HERE / "token.json"
-    if token.exists():
-        creds = Credentials.from_authorized_user_file(token, SCOPES)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            secret = HERE / "client_secret.json"
-            if not secret.exists():
-                sys.exit(f"Missing {secret} — see ops/COMPLEMENTS.md for the 5-minute Google Cloud setup.")
-            creds = InstalledAppFlow.from_client_secrets_file(secret, SCOPES).run_local_server(port=0)
-        token.write_text(creds.to_json())
-    return build("youtube", "v3", credentials=creds)
+SCOPES = [
+    "https://www.googleapis.com/auth/youtube.upload",
+    "https://www.googleapis.com/auth/youtube.readonly",
+    "https://www.googleapis.com/auth/yt-analytics.readonly",
+]
+EXPECTED_CHANNEL_ID = "UCBc6RR49Qk5vtDQaw8BjH3A"
+
+
+def _google():
+    from google.auth.transport.requests import Request
+    from google.oauth2.credentials import Credentials
+    from google_auth_oauthlib.flow import InstalledAppFlow
+    from googleapiclient.discovery import build
+
+    return Request, Credentials, InstalledAppFlow, build
+
+
+def _authenticate(interactive=False):
+    token = credential_path("token.json")
+    try:
+        token_exists = token.is_file()
+    except OSError:
+        token_exists = False
+    if not token_exists and not interactive:
+        return {"status": "absent", "ready": False, "channelId": None}, None
+
+    Request, Credentials, InstalledAppFlow, build = _google()
+    prior_status = "valid"
+    try:
+        credentials = Credentials.from_authorized_user_file(token, SCOPES) if token_exists else None
+        if not credentials or not credentials.valid:
+            if credentials and credentials.expired and credentials.refresh_token:
+                credentials.refresh(Request())
+                token.write_text(credentials.to_json(), encoding="utf-8")
+                prior_status = "refreshable-expired"
+            elif interactive:
+                secret = credential_path("client_secret.json")
+                if not secret.is_file():
+                    return {"status": "absent", "ready": False, "channelId": None}, None
+                credentials = InstalledAppFlow.from_client_secrets_file(secret, SCOPES).run_local_server(port=0)
+                token.write_text(credentials.to_json(), encoding="utf-8")
+            else:
+                return {"status": "revoked", "ready": False, "channelId": None}, None
+        youtube = build("youtube", "v3", credentials=credentials, cache_discovery=False)
+        response = youtube.channels().list(part="id", mine=True).execute()
+    except Exception as error:
+        status = "revoked" if token_exists else "absent"
+        return {"status": status, "ready": False, "channelId": None, "error": str(error)}, None
+
+    items = response.get("items") or []
+    channel_id = items[0].get("id") if len(items) == 1 else None
+    if channel_id != EXPECTED_CHANNEL_ID:
+        return {
+            "status": "channel-mismatch",
+            "ready": False,
+            "channelId": channel_id,
+            "expectedChannelId": EXPECTED_CHANNEL_ID,
+        }, None
+    return {"status": prior_status, "ready": True, "channelId": channel_id}, youtube
+
+
+def probe_auth():
+    """Return absent/refreshable-expired/revoked/valid plus expected-channel proof."""
+    return _authenticate(interactive=False)[0]
+
+
+def get_service(interactive=False):
+    probe, youtube = _authenticate(interactive=interactive)
+    if not probe["ready"]:
+        raise RuntimeError(f"YouTube authentication blocked: {probe['status']}")
+    return youtube
 
 
 def upload(video, title, description="", tags=None, category="22", privacy="private", thumbnail=None,
-           synthetic=False):
-    """Upload one video; returns the YouTube URL."""
-    yt = get_service()
+           synthetic=False, interactive=False):
+    """Upload one video and return only after the inserted ID is read back."""
+    from googleapiclient.http import MediaFileUpload
+
+    youtube = get_service(interactive=interactive)
     body = {
         "snippet": {
             "title": title,
@@ -50,41 +96,56 @@ def upload(video, title, description="", tags=None, category="22", privacy="priv
             "tags": tags or [],
             "categoryId": category,
         },
-        "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False,
-                   # honest altered/synthetic disclosure for AI-voiced faceless videos
-                   "containsSyntheticMedia": bool(synthetic)},
+        "status": {
+            "privacyStatus": privacy,
+            "selfDeclaredMadeForKids": False,
+            "containsSyntheticMedia": bool(synthetic),
+        },
     }
-    media = MediaFileUpload(video, chunksize=8 * 1024 * 1024, resumable=True)
-    request = yt.videos().insert(part="snippet,status", body=body, media_body=media)
-
+    request = youtube.videos().insert(
+        part="snippet,status",
+        body=body,
+        media_body=MediaFileUpload(video, chunksize=8 * 1024 * 1024, resumable=True),
+    )
     response = None
     while response is None:
         status, response = request.next_chunk()
         if status:
             print(f"  {int(status.progress() * 100)}%", flush=True)
-    video_id = response["id"]
-    print(f"Uploaded: https://youtu.be/{video_id}")
+    video_id = response.get("id")
+    readback = youtube.videos().list(part="id,status,snippet", id=video_id).execute()
+    items = readback.get("items") or []
+    if not video_id or len(items) != 1 or items[0].get("id") != video_id:
+        raise RuntimeError("YouTube upload returned no matching read-back video")
 
     if thumbnail:
-        yt.thumbnails().set(videoId=video_id, media_body=MediaFileUpload(thumbnail)).execute()
-        print("Thumbnail set.")
-    return f"https://youtu.be/{video_id}"
+        youtube.thumbnails().set(
+            videoId=video_id, media_body=MediaFileUpload(thumbnail)
+        ).execute()
+    return {
+        "status": "published",
+        "id": video_id,
+        "url": f"https://youtu.be/{video_id}",
+        "platformResponse": {"upload": response, "readback": readback},
+    }
 
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("video")
-    p.add_argument("--title", required=True)
-    p.add_argument("--description", default="")
-    p.add_argument("--tags", nargs="*", default=[])
-    p.add_argument("--category", default="22", help="YouTube category id (22=People & Blogs, 27=Education, 28=Sci/Tech)")
-    p.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
-    p.add_argument("--thumbnail", help="optional PNG/JPG thumbnail")
-    p.add_argument("--synthetic", action="store_true",
-                   help="declare altered/synthetic (AI-generated) content honestly")
-    args = p.parse_args()
-    upload(args.video, args.title, args.description, args.tags, args.category, args.privacy,
-           args.thumbnail, synthetic=args.synthetic)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("video", type=Path)
+    parser.add_argument("--title", required=True)
+    parser.add_argument("--description", default="")
+    parser.add_argument("--tags", nargs="*", default=[])
+    parser.add_argument("--category", default="22")
+    parser.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
+    parser.add_argument("--thumbnail")
+    parser.add_argument("--synthetic", action="store_true")
+    args = parser.parse_args()
+    result = upload(
+        str(args.video), args.title, args.description, args.tags, args.category,
+        args.privacy, args.thumbnail, args.synthetic, interactive=True,
+    )
+    print(result["url"])
 
 
 if __name__ == "__main__":

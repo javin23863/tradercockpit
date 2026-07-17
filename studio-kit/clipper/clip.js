@@ -202,19 +202,47 @@ async function reframeVertical(videoPath, seg, srtSlicePath, outFile) {
   const out = outFile.replace(/\.mp4$/i, '.vertical.mp4');
   const subPath = srtSlicePath.replace(/\\/g, '/').replace(/^([A-Z]):/i, '$1\\:');
   const style = "FontName=Arial Bold,FontSize=13,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=3,Outline=2,Shadow=1,Alignment=2,MarginV=120";
+  const fitStyle = "FontName=Arial Bold,FontSize=7,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=3,Outline=2,Shadow=0,Alignment=2,MarginV=24";
   // crop width MUST be an even integer (trunc(...)*2), else the 9:16 slice (e.g. 1080*9/16=607.5)
   // rounds to a non-proportional width and the scale filter injects a non-1:1 SAR — the output is
   // 1080x1920 in pixels but its DISPLAY aspect is off, so FB/IG render it stretched. setsar=1 pins
   // square pixels so the final DAR is exactly 9:16.
   const cw = 'trunc(ih*9/16/2)*2';
   const cropX = process.env.CLIP_ANCHOR === 'right' ? `iw-${cw}` : `(iw-${cw})/2`;
+  const layout = process.env.CLIP_LAYOUT === 'fit' ? 'fit' : 'crop';
+  // Full-frame fit is the safe path for article cards, maps, and multi-chart cockpit panels.
+  // It keeps the entire approved 16:9 composition proportional inside a moving, darkened
+  // duplicate background; captions stay in the lower vertical safe zone instead of covering
+  // the evidence. Crop remains the default for source footage that was approved for a punch-in.
+  const vf = layout === 'fit'
+    ? `split=2[bg0][fg0];` +
+      `[bg0]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,gblur=sigma=44,eq=brightness=-0.34:saturation=0.55,drawgrid=w=120:h=120:t=1:c=0xFF1744@0.10,drawbox=x=0:y=0:w=16:h=ih:color=0xFF1744@0.90:t=fill[bg];` +
+      `[fg0]scale=1040:-2,pad=iw+8:ih+8:4:4:color=0xFF1744[fg];` +
+      `[bg][fg]overlay=16:350,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='TRADERCOCKPIT':fontcolor=white:fontsize=42:x=48:y=88,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='PRESSURE CHAIN // DAILY MARKET MAP':fontcolor=0xFF1744:fontsize=24:x=48:y=150,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='@thetradercockpit':fontcolor=white@0.72:fontsize=24:x=w-tw-48:y=h-86,` +
+      `setsar=1`
+    : `crop=${cw}:ih:${cropX}:0,scale=1080:1920,setsar=1`;
+  const subs = layout === 'fit'
+    ? `,subtitles='${subPath}':force_style='${fitStyle}'`
+    : `,subtitles='${subPath}':force_style='${style}'`;
+  const encode = (filter, file) => run('ffmpeg', [
+    '-y', '-filter_threads', '1', '-filter_complex_threads', '1',
+    '-ss', String(seg.start), '-t', String(seg.duration),
+    '-hwaccel', 'd3d11va', '-i', videoPath,
+    '-vf', filter,
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
+    '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-level:v', '4.2',
+    '-bf', '0', '-refs', '1', '-g', '1', '-keyint_min', '1', '-sc_threshold', '0', '-threads', '1',
+    '-c:a', 'aac', '-b:a', '128k', '-shortest', file, '-loglevel', 'error',
+  ]);
   try {
-    await run('ffmpeg', [
-      '-y', '-ss', String(seg.start), '-t', String(seg.duration), '-i', videoPath,
-      '-vf', `crop=${cw}:ih:${cropX}:0,scale=1080:1920,setsar=1,subtitles='${subPath}':force_style='${style}'`,
-      '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
-      '-c:a', 'aac', '-b:a', '128k', out, '-loglevel', 'error',
-    ]);
+    await encode(vf + subs, out);
+    // Caption-free twin for platforms whose gate demands native captions (YouTube Shorts).
+    if (process.env.CLIP_CLEAN_VERTICAL === '1') {
+      await encode(vf, out.replace(/\.vertical\.mp4$/i, '.vertical.clean.mp4'));
+    }
     return out;
   } catch (e) { log.warn(`  ↳ reframe failed: ${e.message}`); return null; }
 }
@@ -229,7 +257,7 @@ async function clipAndBurn(videoPath, srtSlicePath, seg, outFile) {
     '-i', videoPath,
     '-vf', `subtitles='${subPath}':force_style='${style}'`,
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
-    '-c:a', 'aac', '-b:a', '128k',
+    '-c:a', 'aac', '-b:a', '128k', '-shortest',
     outFile,
     '-loglevel', 'error',
   ]);

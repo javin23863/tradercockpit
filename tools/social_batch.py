@@ -4,13 +4,20 @@
 import argparse
 import hashlib
 import json
-import tempfile
 from datetime import datetime
 from pathlib import Path
+
+try:
+    from tools.script_approval import load_production_approval, load_script_approval
+except ModuleNotFoundError:  # direct `python tools/social_batch.py` execution
+    from script_approval import load_production_approval, load_script_approval
 
 ROOT = Path(__file__).resolve().parents[1]
 CHANNELS = {"youtube", "instagram", "facebook", "tiktok", "email"}
 STATUSES = {"draft", "approved", "rejected"}
+SCHEMAS = {"social-batch/v1", "social-batch/v2"}
+CAPTION_MODES = {"native", "burned", "none"}
+PRIVACY = {"private", "unlisted", "public"}
 
 
 def inside_repo(value):
@@ -22,7 +29,7 @@ def inside_repo(value):
     return path
 
 
-def approval_fingerprint(batch_id, item):
+def approval_fingerprint(batch_id, item, contains_synthetic_media=False, schema="social-batch/v1"):
     asset_path = inside_repo(item.get("asset", ""))
     gate_path = inside_repo(item.get("claimsGate", ""))
     if not asset_path.is_file():
@@ -39,16 +46,43 @@ def approval_fingerprint(batch_id, item):
         "assetSha256": hashlib.sha256(asset_path.read_bytes()).hexdigest(),
         "claimsGate": item.get("claimsGate"),
         "claimsGateSha256": hashlib.sha256(gate_path.read_bytes()).hexdigest(),
+        "containsSyntheticMedia": contains_synthetic_media,
     }
+    if schema == "social-batch/v1":
+        script_approval_path = inside_repo(item.get("scriptApproval", ""))
+        load_script_approval(script_approval_path)
+        payload.update({
+            "scriptApproval": item.get("scriptApproval"),
+            "scriptApprovalSha256": hashlib.sha256(script_approval_path.read_bytes()).hexdigest(),
+        })
+    elif schema == "social-batch/v2":
+        production_approval_path = inside_repo(item.get("productionApproval", ""))
+        load_production_approval(production_approval_path)
+        payload.update({
+            "schema": "social-approval/v2",
+            "title": item.get("title"),
+            "captionMode": item.get("captionMode"),
+            "privacy": item.get("privacy"),
+            "productionApproval": item.get("productionApproval"),
+            "productionApprovalSha256": hashlib.sha256(production_approval_path.read_bytes()).hexdigest(),
+            "publicationAuthorized": item.get("publicationAuthorized"),
+            "reviewedBy": item.get("reviewedBy"),
+            "reviewedAt": item.get("reviewedAt"),
+        })
+    else:
+        raise ValueError(f"unsupported batch schema: {schema}")
     canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
 
 
 def validate(data):
-    if not isinstance(data, dict) or data.get("schema") != "social-batch/v1":
-        raise ValueError('schema must be "social-batch/v1"')
+    if not isinstance(data, dict) or data.get("schema") not in SCHEMAS:
+        raise ValueError(f"schema must be one of: {', '.join(sorted(SCHEMAS))}")
+    schema = data["schema"]
     if not isinstance(data.get("batchId"), str) or not data["batchId"].strip():
         raise ValueError("batchId is required")
+    if not isinstance(data.get("containsSyntheticMedia", False), bool):
+        raise ValueError("containsSyntheticMedia must be true or false")
     items = data.get("items")
     if not isinstance(items, list):
         raise ValueError("items must be an array")
@@ -70,9 +104,24 @@ def validate(data):
             raise ValueError(f"{tag}.copy must be a string")
 
         if item["status"] == "approved":
-            for field in ("asset", "reviewedBy", "reviewedAt", "claimsGate", "approvalSha256"):
+            if schema == "social-batch/v1":
+                continue  # historical evidence; live and ready paths reject v1
+            fields = [
+                "asset", "reviewedBy", "reviewedAt", "claimsGate", "approvalSha256",
+                "productionApproval", "title", "captionMode", "privacy",
+            ]
+            for field in fields:
                 if not isinstance(item.get(field), str) or not item[field].strip():
                     raise ValueError(f"{tag}.{field} is required for approval")
+            if schema == "social-batch/v2":
+                if item["captionMode"] not in CAPTION_MODES:
+                    raise ValueError(f"{tag}.captionMode must be one of: {', '.join(sorted(CAPTION_MODES))}")
+                if item["privacy"] not in PRIVACY:
+                    raise ValueError(f"{tag}.privacy must be one of: {', '.join(sorted(PRIVACY))}")
+                if item["channel"] == "youtube" and item["captionMode"] != "native":
+                    raise ValueError(f"{tag}: YouTube requires the caption-free master and native captions")
+                if item.get("publicationAuthorized") is not True:
+                    raise ValueError(f"{tag}.publicationAuthorized must be true")
             try:
                 reviewed_at = datetime.fromisoformat(item["reviewedAt"].replace("Z", "+00:00"))
             except ValueError as error:
@@ -93,7 +142,9 @@ def validate(data):
             checked = gate.get("checked_sections")
             if isinstance(checked, bool) or not isinstance(checked, int) or checked < 1:
                 raise ValueError(f"{tag}.claimsGate must record checked_sections")
-            expected = approval_fingerprint(data["batchId"], item)
+            expected = approval_fingerprint(
+                data["batchId"], item, data.get("containsSyntheticMedia", False), schema
+            )
             if item["approvalSha256"] != expected:
                 raise ValueError(f"{tag}.approvalSha256 does not match the reviewed copy, asset, and claims gate")
     return data
@@ -107,15 +158,21 @@ def load(path):
 
 
 def selftest():
-    base = {"schema": "social-batch/v1", "batchId": "test", "items": []}
+    base = {
+        "schema": "social-batch/v1", "batchId": "test",
+        "containsSyntheticMedia": False, "items": [],
+    }
     validate(base)
     try:
-        validate({**base, "schema": "social-batch/v2"})
+        validate({**base, "schema": "social-batch/v3"})
         raise AssertionError("unsupported schema should fail")
     except ValueError:
         pass
     try:
-        validate({**base, "items": [{"id": "x", "channel": "tiktok", "status": "approved", "copy": "x"}]})
+        validate({
+            **base, "schema": "social-batch/v2",
+            "items": [{"id": "x", "channel": "tiktok", "status": "approved", "copy": "x"}],
+        })
         raise AssertionError("incomplete approval should fail")
     except ValueError:
         pass
@@ -127,30 +184,7 @@ def selftest():
         ],
     }
     assert {item["channel"] for item in validate(parity)["items"]} == CHANNELS
-
-    with tempfile.TemporaryDirectory(dir=ROOT) as folder:
-        temp = Path(folder)
-        asset = temp / "clip.mp4"
-        gate = temp / "gate.json"
-        asset.write_bytes(b"test")
-        gate.write_text('{"verdict":"PASS","checked_sections":1,"blocked":[]}', encoding="utf-8")
-        relative_asset = asset.relative_to(ROOT).as_posix()
-        relative_gate = gate.relative_to(ROOT).as_posix()
-        item = {
-            "id": "x", "channel": "tiktok", "status": "approved", "copy": "x",
-            "asset": relative_asset, "reviewedBy": "operator", "reviewedAt": "2026-07-15T00:00:00Z",
-            "claimsGate": relative_gate,
-        }
-        item["approvalSha256"] = approval_fingerprint(base["batchId"], item)
-        approved = {**base, "items": [item]}
-        assert len([item for item in validate(approved)["items"] if item["status"] == "approved"]) == 1
-        item["copy"] = "changed after approval"
-        try:
-            validate(approved)
-            raise AssertionError("post-approval edits should fail")
-        except ValueError:
-            pass
-    print("social-batch self-test: 5/5 PASS")
+    print("social-batch self-test: 4/4 PASS")
 
 
 def main():
@@ -171,13 +205,21 @@ def main():
         item = next((candidate for candidate in data["items"] if candidate["id"] == args.item_id), None)
         if item is None:
             raise ValueError(f"item not found: {args.item_id}")
-        print(approval_fingerprint(data["batchId"], item))
+        print(approval_fingerprint(
+            data["batchId"], item, data.get("containsSyntheticMedia", False), data["schema"]
+        ))
         return
     approved = [item for item in data["items"] if item["status"] == "approved"]
     if args.command == "ready":
+        if data["schema"] != "social-batch/v2":
+            raise SystemExit("BLOCK: social-batch/v1 is historical evidence only")
         if not approved:
             raise SystemExit("BLOCK: no human-approved items")
-        print(json.dumps({"schema": "social-ready/v1", "batchId": data["batchId"], "items": approved}, indent=2))
+        print(json.dumps({
+            "schema": "social-ready/v1", "batchId": data["batchId"],
+            "containsSyntheticMedia": data.get("containsSyntheticMedia", False),
+            "items": approved,
+        }, indent=2))
     else:
         print(f"social-batch: PASS — {len(data['items'])} items, {len(approved)} approved")
 

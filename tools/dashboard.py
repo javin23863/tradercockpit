@@ -10,6 +10,7 @@ Never prints or embeds secret values — only presence booleans from publish.py 
 Run: python dashboard.py [--no-open | --serve]
 """
 import html
+import json
 import os
 import subprocess
 import sys
@@ -25,6 +26,7 @@ HUB = Path(__file__).resolve().parent.parent
 ENGINE = HUB / "OpenMontage"
 PY = ENGINE / ".venv" / "Scripts" / "python.exe"
 OUT = HUB / "dashboard.html"
+SOCIAL = HUB / "social-ops" / "analytics-latest.json"
 
 SAFE_ENV_KEYS = ["VIDEO_GEN_LOCAL_ENABLED", "VIDEO_GEN_LOCAL_MODEL", "B2_BUCKET", "B2_S3_ENDPOINT"]
 
@@ -98,6 +100,95 @@ def badge(ok, yes="READY", no="MISSING"):
     return f'<span class="badge {cls}">{txt}</span>'
 
 
+def fmt_number(value):
+    if not isinstance(value, (int, float)):
+        return "—"
+    if abs(value) >= 1_000_000:
+        return f"{value / 1_000_000:.1f}M"
+    if abs(value) >= 1_000:
+        return f"{value / 1_000:.1f}K"
+    return f"{value:,.0f}"
+
+
+def load_social():
+    try:
+        return json.loads(SOCIAL.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def render_social(snapshot):
+    if not snapshot:
+        return '<section><h2>Weekly social performance</h2><div class="empty">No snapshot yet. Run <code>OpenMontage\\.venv\\Scripts\\python.exe tools\\social_analytics.py collect</code>.</div></section>'
+    sources = snapshot.get("sources", {})
+    rollup = snapshot.get("rollup", {})
+    youtube = sources.get("youtube", {})
+    kpis = [
+        ("YouTube", rollup.get("youtubeWeeklyViews"), "7-day views" if youtube.get("status") == "ready" else "new-video observed views", youtube.get("account")),
+        ("Facebook", rollup.get("facebookObservedViews"), "observed reel plays", sources.get("facebook", {}).get("account")),
+        ("Instagram", rollup.get("instagramObservedViews"), "observed reel views", sources.get("instagram", {}).get("account")),
+        ("TikTok", rollup.get("tiktokObservedViews"), "Studio post views", sources.get("tiktok", {}).get("account")),
+    ]
+    cards = "".join(
+        f'<article class="kpi"><div class="kpi-platform">{html.escape(platform)}</div><div class="kpi-value">{fmt_number(value)}</div>'
+        f'<div class="kpi-label">{html.escape(label)}</div><div class="muted">{html.escape(account or "not connected")}</div></article>'
+        for platform, value, label, account in kpis
+    )
+    weekly = youtube.get("weekly") or {}
+    youtube_quality = ""
+    if youtube.get("status") == "ready" and weekly:
+        engagement = sum(weekly.get(key) or 0 for key in ("likes", "comments", "shares"))
+        net_subscribers = (weekly.get("subscribersGained") or 0) - (weekly.get("subscribersLost") or 0)
+        average_percentage = weekly.get("averageViewPercentage")
+        percentage_text = f"{average_percentage:.2f}%" if isinstance(average_percentage, (int, float)) else "—"
+        youtube_quality = f'''<h3>YouTube audience quality</h3>
+<div class="kpis youtube-quality">
+<article class="kpi"><div class="kpi-value">{fmt_number(weekly.get("estimatedMinutesWatched"))}</div><div class="kpi-label">estimated watch minutes</div></article>
+<article class="kpi"><div class="kpi-value">{fmt_number(weekly.get("averageViewDuration"))}s</div><div class="kpi-label">average view duration</div></article>
+<article class="kpi"><div class="kpi-value">{percentage_text}</div><div class="kpi-label">average percentage viewed</div></article>
+<article class="kpi"><div class="kpi-value">{fmt_number(engagement)}</div><div class="kpi-label">likes + comments + shares</div><div class="muted">{net_subscribers:+g} net subscribers</div></article>
+</div>'''
+    status_rows = "".join(
+        f'<tr><td>{html.escape(name.title())}</td><td><span class="badge {"ok" if source.get("status") == "ready" else "warn"}">{html.escape(str(source.get("status", "unknown")).upper())}</span></td>'
+        f'<td>{html.escape(source.get("measurement") or source.get("error") or source.get("analyticsError") or "live source connected")}</td></tr>'
+        for name, source in sources.items()
+    )
+    posts = []
+    for platform, source in sources.items():
+        ranked = sorted(source.get("posts", []), key=lambda post: post.get("views") or 0, reverse=True)[:3]
+        for post in ranked:
+            engagement = sum(post.get(key) or 0 for key in ("likes", "comments", "shares", "saves"))
+            posts.append((platform, post, engagement))
+    post_rows = "".join(
+        f'<tr><td>{html.escape(platform.title())}</td><td><a href="{html.escape(post.get("url") or "#")}">{html.escape((post.get("title") or post.get("id") or "Untitled")[:94])}</a></td>'
+        f'<td>{fmt_number(post.get("views"))}</td><td>{fmt_number(engagement)}</td><td>{html.escape(post.get("privacy") or post.get("type") or "tracked")}</td></tr>'
+        for platform, post, engagement in sorted(posts, key=lambda item: item[1].get("views") or 0, reverse=True)
+    ) or '<tr><td colspan="5">No post-level data returned.</td></tr>'
+    decisions = "".join(
+        f'<article class="decision"><span class="badge warn">{html.escape(item.get("priority", "next").upper())}</span>'
+        f'<h3>{html.escape(item.get("title", ""))}</h3><p>{html.escape(item.get("evidence", ""))}</p><p class="action">{html.escape(item.get("action", ""))}</p></article>'
+        for item in snapshot.get("decisions", [])
+    )
+    daily = youtube.get("daily", [])
+    max_views = max((row.get("views") or 0 for row in daily), default=0)
+    bars = "".join(
+        f'<div class="bar-row"><span>{html.escape(str(row.get("day", ""))[5:])}</span><div class="bar" style="width:{((row.get("views") or 0) / max_views * 100) if max_views else 0:.1f}%"></div><strong>{fmt_number(row.get("views"))}</strong></div>'
+        for row in daily
+    ) or '<div class="empty">YouTube daily retention and watch-time trend will appear after the Analytics API is enabled.</div>'
+    caveats = "".join(f"<li>{html.escape(note)}</li>" for note in snapshot.get("caveats", []))
+    window = snapshot.get("window", {})
+    return f'''
+<section class="social">
+<div class="section-head"><div><h2>Weekly social performance</h2><p class="muted">Window {html.escape(window.get("start", "?"))} to {html.escape(window.get("end", "?"))} · refreshed {html.escape(snapshot.get("generatedAt", "unknown"))}</p></div><span class="badge ok">{rollup.get("connectedSources", 0)}/4 CONNECTED</span></div>
+<div class="kpis">{cards}</div>
+{youtube_quality}
+<div class="split"><div><h3>YouTube daily views</h3><div class="bars">{bars}</div></div><div><h3>Source health</h3><table><tr><th>source</th><th>status</th><th>measurement</th></tr>{status_rows}</table></div></div>
+<h3>Top observed posts</h3><table><tr><th>platform</th><th>content</th><th>views</th><th>engagement</th><th>state</th></tr>{post_rows}</table>
+<h3>Next weekly decisions</h3><div class="decisions">{decisions}</div>
+<details><summary>Measurement caveats</summary><ul>{caveats}</ul></details>
+</section>'''
+
+
 def load_growth():
     try:
         return load_growth_summary()
@@ -153,16 +244,19 @@ def build_page(refresh=0):
     wan_out = ENGINE / "projects" / "wan_smoke.mp4"
     wan = badge(True, "DONE") if wan_out.exists() else (
         '<span class="badge warn">GENERATING</span>' if wan_running() else badge(False, "NOT RUN"))
+    social_snapshot = load_social()
+    social = render_social(social_snapshot)
     growth = render_growth(load_growth())
+    tiktok_session = (social_snapshot or {}).get("sources", {}).get("tiktok", {}).get("status") == "ready"
 
     leg_rows = "".join(
         f"<tr><td>{p}</td><td>{badge(legs.get(p, False))}</td><td>{note}</td></tr>"
         for p, note in [
             ("youtube", "OAuth token cached — publish.py --platforms youtube"),
-            ("instagram", "needs META_IG_USER_ID + META_PAGE_TOKEN (run meta_setup.py)"),
-            ("facebook", "needs META_PAGE_ID + META_PAGE_TOKEN (run meta_setup.py)"),
-        ]) + '<tr><td>tiktok</td><td><span class="badge warn">MANUAL</span>' \
-             '</td><td>no free self-owned API — Upload-Post / Postiz, see ops/COMPLEMENTS.md</td></tr>'
+            ("instagram", "Meta business account + Page token connected"),
+            ("facebook", "Meta Page token connected"),
+        ]) + f'<tr><td>tiktok</td><td>{badge(tiktok_session, "SESSION", "OFFLINE")}' \
+             '</td><td>logged-in Studio over repository-local CDP; operator approval still required per asset</td></tr>'
 
     vid_rows = "".join(
         f'<tr><td><a href="file:///{html.escape(str(f).replace(chr(92), "/"))}">{html.escape(f.name)}</a></td>'
@@ -175,10 +269,10 @@ def build_page(refresh=0):
 
     meta_refresh = f'<meta http-equiv="refresh" content="{refresh}">' if refresh else ""
     page = f"""<!doctype html><html><head><meta charset="utf-8">{meta_refresh}
-<title>OpenMontage Pipeline</title>
+<title>TraderCockpit Operations</title>
 <style>
- body{{background:#14161a;color:#d8dce2;font:14px/1.5 'Segoe UI',sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem}}
- h1{{font-size:1.4rem}} h2{{font-size:1rem;color:#8ab4f8;margin-top:2rem;border-bottom:1px solid #2a2e35;padding-bottom:.3rem}}
+ body{{background:#0d1015;color:#d8dce2;font:14px/1.5 'Segoe UI',sans-serif;max-width:1180px;margin:2rem auto;padding:0 1rem}}
+ h1{{font-size:1.6rem}} h2{{font-size:1.05rem;color:#8ab4f8;margin-top:2rem;border-bottom:1px solid #2a2e35;padding-bottom:.45rem}} h3{{font-size:.9rem;color:#aeb7c4;margin:1.2rem 0 .5rem}}
  table{{border-collapse:collapse;width:100%}} td,th{{padding:.35rem .6rem;border-bottom:1px solid #23262c;text-align:left}}
  a{{color:#8ab4f8;text-decoration:none}} a:hover{{text-decoration:underline}}
  code,pre{{background:#1e2127;padding:.1rem .35rem;border-radius:4px}}
@@ -186,9 +280,19 @@ def build_page(refresh=0):
  .ok{{background:#1e3a29;color:#6fd18b}} .bad{{background:#3a1e1e;color:#e07a7a}} .warn{{background:#3a331e;color:#e0c26f}}
  .muted{{color:#7a8089;font-size:.85rem}}
  section{{margin:1.25rem 0 2.25rem}} .section-head{{display:flex;align-items:end;justify-content:space-between;gap:1rem}}
- .section-head h2{{margin-bottom:.15rem}} .section-head p{{margin:0}} .empty{{padding:1rem;background:#1e2127;border-radius:6px}}
+ .section-head h2{{margin-bottom:.15rem}} .section-head p{{margin:0}}
+ .kpis{{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin:1rem 0}}
+ .kpi{{background:#151a22;border:1px solid #252c37;border-radius:10px;padding:.85rem 1rem}}
+ .kpi-platform{{color:#8ab4f8;font-weight:600}} .kpi-value{{font-size:1.8rem;font-weight:700;margin:.25rem 0}} .kpi-label{{font-size:.82rem}}
+ .split{{display:grid;grid-template-columns:1fr 1.35fr;gap:1.2rem}}
+ .bar-row{{display:grid;grid-template-columns:44px 1fr 45px;gap:.5rem;align-items:center;margin:.4rem 0}} .bar{{height:12px;background:linear-gradient(90deg,#ff9f1c,#ffcc70);min-width:2px;border-radius:2px}}
+ .decisions{{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}} .decision{{background:#151a22;border-left:3px solid #ff9f1c;padding:.8rem 1rem}} .decision h3{{margin:.55rem 0 .2rem;color:#e5e9ef}} .decision p{{margin:.2rem 0}} .decision .action{{color:#ffcc70}}
+ .empty{{padding:1rem;background:#151a22;color:#8e97a4;border-radius:6px}} details{{margin-top:1rem;color:#8e97a4}}
+ @media(max-width:800px){{.kpis,.split,.decisions{{grid-template-columns:1fr 1fr}}}} @media(max-width:540px){{.kpis,.split,.decisions{{grid-template-columns:1fr}}}}
 </style></head><body>
-<h1>OpenMontage Pipeline &mdash; <span class="muted">generated {datetime.now():%Y-%m-%d %H:%M}</span></h1>
+<h1>TraderCockpit Operations &mdash; <span class="muted">generated {datetime.now():%Y-%m-%d %H:%M}</span></h1>
+
+{social}
 
 {growth}
 

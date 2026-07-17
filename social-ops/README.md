@@ -12,14 +12,27 @@ python tools/social_batch.py ready social-ops/daily-batch.json
 
 The `ready` command is a fail-closed handoff for a future authenticated publisher. It does not post, send email, handle credentials, or bypass platform review.
 
+The operating week is Monday–Friday daily market news, Saturday weekly recap plus next-week official
+catalysts, and Sunday analytics/process review with no post. Proven weekday/Sunday repetitions are
+delegated through `.agents/skills/social-ops-luna/SKILL.md` to exact-project `gpt-5.6-luna` / `xhigh`.
+Saturday uses `.agents/skills/weekly-market-recap/SKILL.md`; its first run stays with Sol until real
+acceptance. New providers and changed workflows stay with Sol; email consent health is not delegated.
+
+Sol owns final consumer-facing quality and pipeline implementation after every Luna run. Luna output
+is a candidate until Sol inspects the actual artifact and receipts; Sol acceptance and operator
+exact-hash publication approval are separate required gates. Quality regressions return to Sol.
+
 ## Daily loop
 
 1. Build one timestamped fact pack from primary sources and one platform-neutral analysis brief.
-2. Create one clean master asset and platform-specific copy in a dated batch.
-3. Run the claims gate and format checks. Keep every item `draft` while the asset or gate can still change.
-4. Present the exact asset and copy to the operator. Approval is recorded per item with a fingerprint.
-5. Run `ready`, then pass only its output to the authenticated publisher. A dry run is not publication.
-6. Record the public URL, publish time, corrections, and next-day metrics in `metrics.csv`.
+2. Draft the sourced script from the approved voice corpus; run claims/style checks and a read-aloud.
+3. Stop for explicit operator approval of the exact script hash in `script-approval.json`. No TTS,
+   final asset capture, assembly, or render is allowed before this separate gate passes.
+4. After script approval, create one clean master asset and platform-specific copy in a dated batch.
+5. Run the claims and format checks. Keep every item `draft` while the asset or gate can still change.
+6. Present the exact asset and copy to the operator. Publication approval is recorded separately per item with a fingerprint that includes the script-approval receipt.
+7. Run `ready`, then pass only its output to the authenticated publisher. A dry run is not publication.
+8. Record the public URL, publish time, corrections, and next-day metrics in `metrics.csv`.
 
 ## Corrections
 
@@ -35,25 +48,36 @@ cases and must be recorded in the batch notes and metrics log.
 unavailable fields blank. Keep source campaign values to `youtube`, `instagram`, `facebook`, `tiktok`, or
 `direct`. Establish a 14-day baseline before setting growth targets.
 
-## Growth experiments
-
-The canonical experiment ledger is `growth-experiments.v1.json`. Sunday review refreshes platform
-analytics first, validates the ledger, joins reviewed batch/item rows from `metrics.csv`, and displays
-the advisory verdict in the local dashboard:
+The automated source snapshot lives in `analytics-latest.json`; idempotent weekly history lives in
+`analytics-history.json`. Both are sanitized and contain no tokens, cookies, or client secrets. Refresh
+them and the local operations dashboard with:
 
 ```powershell
+OpenMontage\.venv\Scripts\python.exe tools\social_analytics.py collect
 py tools\growth_experiments.py validate
 py tools\growth_experiments.py report --json
 py tools\dashboard.py --no-open
 ```
 
-Record an operator decision only after reviewing the evidence. Reuse a winning component under a new
-experiment ID; publication still requires the exact-hash approval gate. The growth module never writes
-decisions, publishes content, activates ads, or spends money.
+On Sunday, refresh platform analytics first, validate `growth-experiments.v1.json`, then review its
+`metrics.csv` joins and advisory verdict in the dashboard. Record an operator decision in the manifest
+only after reviewing the evidence. Reuse a winning component under a new experiment ID; publication
+still requires the existing exact-hash approval gate. The growth module never writes decisions,
+publishes content, activates ads, or spends money.
+
+Sources are YouTube Data/Analytics APIs, Facebook Page + Video Insights, Instagram Business Insights,
+and the operator's logged-in TikTok Studio content table. Meta and TikTok post counters are snapshot
+counters; weekly changes become comparable after the next scheduled collection. YouTube's connected
+Analytics report supplies seven-day watch time, average duration, average percentage viewed,
+engagement, subscriber changes, and daily/video rows.
 
 ## External service gate
 
+The authenticated Gmail connector supports operational mailbox reads and draft/reply workflows. It
+is not the subscriber list or consent authority and does not enable bulk marketing sends.
+
 The landing page is pre-wired for Buttondown double opt-in and one Plausible tracker through
-`docs/prelaunch-config.v1.json`. Both remain disabled until the operator creates/approves the accounts,
-supplies the Buttondown username and Plausible site snippet/domain, configures the pending and confirmed
-redirects, and verifies a real consent receipt. Do not add a second tracker or custom email backend.
+`docs/prelaunch-config.v1.json`. Buttondown's free plan is operator-approved and its official Google
+signup is open for sign-in; collection remains disabled until the account supplies its username and
+the pending/confirmed/unsubscribe flow passes with a real consent receipt. Plausible remains disabled
+until its account, snippet, and domain are approved. Do not add a second tracker or custom email backend.
