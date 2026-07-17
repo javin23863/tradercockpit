@@ -3,8 +3,14 @@
   "waitlist": {
     "provider": "buttondown",
     "status": "pending_operator_account",
-    "username": "",
-    "allowedSources": ["youtube", "instagram", "facebook", "tiktok", "direct"]
+    "username": "tradercockpit",
+    "allowedSources": [
+      "youtube",
+      "instagram",
+      "facebook",
+      "tiktok",
+      "direct"
+    ]
   },
   "analytics": {
     "provider": "plausible",

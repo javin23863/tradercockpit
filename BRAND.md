@@ -4,7 +4,7 @@ The one source of truth for the channel's identity. Every surface (YouTube, Face
 TikTok) and every thumbnail/post pulls from here. Direction: **"Instrument"** (a cockpit gauge),
 colored to match the product landing page (`docs/index.html`) — **red on black**.
 
-Updated 2026-07-14. Pairs with `GROWTH-AUTHORITY-PLAYBOOK.md` (the growth doctrine).
+Updated 2026-07-16. Pairs with `GROWTH-AUTHORITY-PLAYBOOK.md` (the growth doctrine).
 
 ## Name & handle
 - **Name:** TraderCockpit
@@ -28,10 +28,10 @@ Updated 2026-07-14. Pairs with `GROWTH-AUTHORITY-PLAYBOOK.md` (the growth doctri
 Semantic only (sparingly, for up/down data, never as the accent): green `#00E676`, amber `#FF9100`.
 Default is **monochrome red-on-black** — that's the look.
 
-The simulated Apollo consumer preview in `docs/index.html` is the deliberate exception: its
-bioluminescent teal/violet organic system distinguishes a future assistant interface from the
-TraderCockpit media brand. TraderCockpit navigation, publishing assets, and evidence surfaces
-remain red-on-black; do not propagate Apollo's palette into channel branding.
+The simulated Apollo consumer preview in `docs/index.html` is the deliberate exception: it is a
+living warm sun with corona, flares, and orbiting bodies, reflecting Apollo as the Greek god of the
+sun. TraderCockpit navigation, publishing assets, and evidence surfaces remain red-on-black; do
+not propagate Apollo's solar palette into channel branding.
 
 ## Typography
 - **Brand voice = monospace** (a trading terminal): `"Cascadia Mono","Cascadia Code",Consolas,monospace`.

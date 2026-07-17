@@ -9,8 +9,8 @@ description: >
 
 # market-analysis
 
-Doctrine: `MARKET-ANALYSIS-DOCTRINE.md` (repo root) — read it FIRST, it is the process.
-This skill only operationalizes it. Repo: `C:\Users\MSI\Desktop\OpenMontage-Skill`.
+Doctrine: `MARKET-ANALYSIS-DOCTRINE.md` in the current repo root. Read it first. Resolve all
+paths from the active TraderCockpit checkout; never use the former desktop checkout.
 
 ## Procedure
 
@@ -43,6 +43,10 @@ charts: <each §2 link + §6 level → one chart shot, symbol + TF>
 6. **Hand off** — the brief feeds `daily-news-video` (script written FROM the brief),
    `claims.yaml` (every claim), and the chart shot list. Script may not introduce an
    analytical claim that is not in the brief.
+
+Timebox the dashboard, classification, and seven-question brief to 30 minutes. If a missing fact
+or feed prevents a defensible answer, mark the gap and choose another story; do not turn research
+into an open-ended production delay.
 
 ## Hard rules
 - Chart = LEVELS, news = EVENTS. UNVERIFIED numbers banned.

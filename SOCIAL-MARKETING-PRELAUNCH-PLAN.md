@@ -1,263 +1,185 @@
-# TraderCockpit Social & Marketing Pre-Launch Plan
+# TraderCockpit Social and Marketing Operating Plan
 
 - **Status:** Automated execution active in Codex Work
-- **Date:** 2026-07-15
-- **Audience assumption:** U.S.-market-focused self-directed investors and traders
-- **Operating timezone:** U.S. Eastern for publishing; Asia/Bangkok for production
+- **Updated:** 2026-07-16
+- **Operating timezone:** U.S. Eastern for market events; Asia/Bangkok for production
+- **External media spend:** $0
+- **Working branch:** `codex/social-marketing-execution`
 
 ## Outcome
 
-Finish the audience, publishing, measurement, and launch-handoff systems before the consumer
-product is ready. At handoff, the only missing inputs should be the product's verified manifest,
-real product media, release date, price/offer, checkout, support, and refund links.
+Finish the audience, publishing, measurement, and launch-handoff system before the consumer
+product is ready. At product handoff, the only missing inputs should be a verified
+`product-manifest/v1`, real product media, release date, offer/price, checkout, support, refund
+terms, and approval of the exact launch claims.
 
-TraderCockpit remains a trust-first financial-news brand. The product is not pitched in news VO,
-and no capability or performance claim appears before the consumer product verifies it through
-`product-manifest/v1`.
+TraderCockpit remains a trust-first daily market-news brand. News videos do not pitch the product.
+The landing link may appear in descriptions and profiles; unverified product capabilities never do.
 
-## Execution ownership transition — 2026-07-15
+## Public baseline: preserve it
 
-Planning and research are complete. This plan now runs as **Codex Work**, not as a manual checklist.
+These current uploads remain public. Forward optimization must not delete, private, replace, or
+re-upload them:
 
-Codex Work owns the end-to-end automated loop: monitor primary sources, rank stories, prepare fact
-packs and analysis briefs, generate platform assets/copy, run claims and format gates, assemble the
-exact approval batch, dry-run authenticated publishers, collect metrics, update the repo/vault, and
-continue to the next executable item without waiting for routine instructions.
+- YouTube long: https://youtu.be/zFQ3gJCVD6Y
+- YouTube Short: https://youtu.be/HW8VpcxvdAY
+- Facebook Reel: https://www.facebook.com/reel/1069078669122511
+- Instagram Reel: https://www.instagram.com/reel/Da1DaPXALWO/
+- TikTok: https://www.tiktok.com/@trader.cockpit/video/7662888296942685460
 
-Human involvement is limited to gates automation cannot safely cross:
+Corrections to future posts use the documented correction path. Weak performance is never a reason
+to erase a factual upload.
 
-- Approving the exact assets and copy before a public post or email.
-- Completing interactive account login, consent, payment, or credential steps.
-- Supplying or approving verified consumer-product facts.
-- Choosing between materially different brand, offer, legal, or launch decisions.
+## Editorial position
 
-An operator gate pauses the affected item only; Codex Work continues every independent safe task.
-No parallel manual workflow should duplicate this execution.
+The channel is known for tracing a market-moving event through the portfolio, then naming the
+observable condition that confirms or breaks the trade. The host has a view, but the view is
+separate from the facts and remains falsifiable.
 
-### Recurring trigger
+Coverage includes:
 
-Codex automation `tradercockpit-daily-market-authority` is active and runs every day at 17:30
-Asia/Bangkok (06:30 U.S. Eastern while daylight saving time is in effect). It re-derives primary-source
-facts, refreshes the backlog, prepares the five-channel-plus-email draft batch, runs local gates and
-publisher dry runs, and updates the repo/vault. It cannot post, send, authenticate, accept provider
-terms, or approve its own output.
+- economic releases, central banks, rates, earnings, and market structure;
+- elections, fiscal/trade/regulatory decisions, and political transitions with a market mechanism;
+- war, sanctions, defence, energy, shipping, supply-chain, cyber, and infrastructure events with
+  exposed assets and a timestamped official catalyst.
 
-## Verified starting point
+The script voice is calibrated from `productions/video-01/vo.txt` and
+`productions/video-02-hormuz-v4/vo.txt`, not from a generic “humanizer.” Research and rules are in
+`research/ai-script-style-2026-07-16.md` and the vault script-voice guide. Internal verification,
+claims receipts, tool names, edit decisions, and production jargon stay out of spoken copy.
 
-Already present:
+## Daily automated lane
 
-- Brand, voice, thumbnail, and per-platform doctrine in `BRAND.md` and
-  `GROWTH-AUTHORITY-PLAYBOOK.md`.
-- A sourced daily-news production workflow and fail-closed claims gate.
-- Operator-gated publishing paths for YouTube, Instagram, Facebook, and TikTok.
-- A fail-closed `social-batch/v1` approval record for YouTube, TikTok, and email.
-- A landing page that safely remains a non-transactional waitlist until a valid
-  `product-manifest/v1` supplies verified product facts.
-- A versioned Godseye evidence boundary; Godseye is optional b-roll/evidence, not the main visual
-  lane or a marketing dependency.
+One fact pack and one analysis brief feed every surface. Do not create separate research flows for
+each platform.
 
-Gaps to close before product handoff:
+1. Rank official-source stories by portfolio relevance and chartability.
+2. Run the TradingView dashboard, choose the strongest confirmation/divergence, and lock one thesis,
+   title, and thumbnail.
+3. Write the seven-question analysis brief, claims store, and script from the preferred voice
+   corpus. Run claims and advisory style audits before TTS.
+4. Build an exact narration-beat scene plan. Batch-capture only the required 4–6 charts, 1–3
+   contained source visuals, and 0–1 purposeful Godseye shot.
+5. Reuse accepted assets and narration; generate deltas only. Inspect the final export at every
+   subject-change boundary.
+6. Prepare the exact-hash approval batch. Publish only approved hashes to authenticated channels.
+7. Record post IDs/URLs, corrections, stage timings, costs, and next-day metrics in the repo/vault.
 
-- The waitlist CTA is only a `mailto:` link; there is no real subscriber capture or nurture loop.
-- The landing page has no verified analytics/event-measurement hook.
-- Instagram and Facebook are not valid channels in `social-batch/v1`, despite existing publisher
-  support.
-- No dated daily batch exists for today's news.
-- Profile/link parity, live credential readiness, and native scheduling must be rechecked from the
-  platforms rather than inferred from old handoffs.
-- A corrections policy, daily KPI scorecard, launch asset pack, and product handoff checklist are
-  not yet complete.
-- Buttondown and Plausible code paths are complete and locally tested, but their live accounts,
-  paid-plan/terms consent, exact Buttondown username, Plausible snippet, redirect settings, and real
-  receipts remain operator gates.
+### Cycle-time diagnosis
 
-## P0 — publish today's market map
+Video 03 took about 8 hours 26 minutes from the first live TradingView receipt to accepted master,
+and about 13 hours 35 minutes to the corrected cross-platform launch. The bottleneck was rework,
+not ten minutes of encoded runtime: the script/voice was not locked before asset production,
+13 sections and roughly 50 cuts plus six verticals were built before acceptance, technical gates
+passed declarations that did not prove pixels, and publisher credentials were rediscovered after
+the master was approved. The forward lane fixes those causes with an early script/style freeze,
+4–6 required charts, no more than two pre-approval verticals, delta-only regeneration, final-export
+boundary review, and publisher readiness before handoff.
 
-China's National Bureau of Statistics released the freshest confirmed macro story at 9:00 a.m.
-Bangkok. The immediate post should lead with the divergence inside the report:
+### Runtime budget
 
-- Q2 real GDP grew 4.3% year over year and 0.9% quarter over quarter, versus 5.0% year over year
-  in Q1.
-- First-half industrial value added rose 5.4% and high-tech manufacturing rose 13.3%.
-- Consumer-goods retail sales rose 1.3%, while fixed-asset investment fell 5.7% and real-estate
-  development investment fell 18.0%.
-- The portfolio question is whether production/export strength can continue to offset weak
-  domestic demand. China equities/CNH, industrial metals, Asian exporters, global cyclicals, and
-  luxury/consumer exposures are confirmation checks—not confirmed reactions.
+Target a reviewable 10–12 minute flagship in 120 minutes; escalate at 150 minutes without lowering
+accuracy or visual QA.
 
-The second same-day package is the U.S. inflation/policy handoff: June PPI at 8:30 a.m. ET /
-7:30 p.m. Bangkok, the Bank of Canada decision at 9:45 a.m. ET / 8:45 p.m. Bangkok, Fed Chair
-Kevin Warsh's Senate testimony at 10:00 a.m. ET / 9:00 p.m. Bangkok, and the Beige Book at
-2:00 p.m. ET / 1:00 a.m. Bangkok on July 16.
+| Stage | Budget |
+|---|---:|
+| Story/package lock | 10 min |
+| Facts + TradingView sweep | 20 min |
+| Analysis + script | 25 min |
+| Claims/style/scene-plan preflight | 15 min |
+| Asset capture | 25 min |
+| Delta VO + assembly | 25 min |
+| Final-export QA + handoff | 20 min |
 
-Use the final primary-source news brief for copy and links; do not insert market prices until read
-from the live chart/feed.
+If a story cannot support the flagship inside the budget, prepare a sourced 45–90 second vertical
+instead of padding or entering an open-ended rerender loop. Create at most two initial verticals;
+produce additional derivatives only after the long-form master is accepted.
 
-Source pack: [`productions/FACTS-2026-07-15.md`](productions/FACTS-2026-07-15.md).
+## Automation
 
-### Today's minimum viable package
+`tradercockpit-daily-market-authority` runs Monday–Friday at 17:30 Asia/Bangkok. It owns daily
+market-news research, drafts, asset preparation, validation, exact-hash batch assembly,
+authenticated publisher readiness, metrics, and vault freshness. It cannot create accounts, enter
+new credentials, accept provider terms, alter profiles, invent product facts, or approve a
+revised/future hash.
 
-1. **Publish now:** one 45–60 second clean vertical: “China grew 4.3%—but the headline hides two
-   economies.” Use the NBS figures and label every portfolio channel as a confirmation check.
-2. **Before 7:30 a.m. ET:** schedule a separate U.S. setup: “CPI cooled. PPI, the Bank of Canada,
-   and the Fed are next.”
-3. **After the 8:30 a.m. ET PPI release:** update the facts, chart the rates/equity reaction, run
-   the claims gate, and publish the reaction cut only after operator approval.
-4. **By noon ET:** publish the existing 10–12 minute flagship if the story passes the asset-class
-   litmus and the v4 quality floor. If it does not, the sourced vertical is the daily post; do not
-   pad a weak long-form story.
-5. Fan the same approved 9:16 master to YouTube Shorts, Instagram Reels, Facebook Reels, and
-   TikTok with platform-specific copy. No foreign watermark.
-6. Stay available for the first 30 minutes after each post. Answer factual questions with sources;
-   do not give individualized financial advice.
-7. Log publish time, correction count, 3-second hold/completion where available, shares/saves,
-   landing visits, and confirmed waitlist signups after 24 hours.
+One blocked platform does not stop the rest of the daily workflow.
 
-## P0 — next 48 hours
+`tradercockpit-saturday-weekly-market-recap` runs Saturday at 17:30. It uses
+`.agents/skills/weekly-market-recap/SKILL.md` to synthesize the completed week's economic and market
+news, cross-asset conclusions, and the coming week's official catalysts in the current format. Its
+first real run stays with Sol and stops at an approval-ready package; after acceptance it moves to
+Luna Max.
 
-| Work | Owner | Acceptance test |
-|---|---|---|
-| Replace `mailto:` with one hosted double-opt-in form | Codex Work; operator only for provider auth/choice | Test signup arrives, confirms, lands on thank-you state, exports cleanly, and records source/UTM. No custom backend. |
-| Install one analytics system | Codex Work; operator only for account consent | Page view, waitlist CTA click, confirmed signup, YouTube click, and product CTA events are visible in a test report. Do not install competing trackers. |
-| Make profile identity consistent | Codex Work audit/drafts; operator for interactive profile writes | Name, handle, avatar, bio, category, and landing link match `BRAND.md` on every active channel. Record screenshots/date. |
-| Recheck account and publisher readiness | Codex Work | Dry-run or native scheduled draft succeeds for each active platform; expired tokens/cookies are recorded as operator gates. No public test post. |
-| Add Instagram and Facebook to the existing social batch gate | Codex Work | Same fingerprint and claims-gate rules apply to all five distribution channels plus email; the existing self-test and one new channel-parity check pass. No new scheduler. |
-| Publish source/correction rules | Codex Work; operator approves public wording | Every post shows source/date; material errors receive a timestamped correction in the description or pinned comment and the batch/log is updated. No silent factual edits. |
+`tradercockpit-weekly-social-review` runs Sunday at 18:00 as the no-post analytics/process review.
+It refreshes the sanitized four-source dashboard, compares like-for-like history, assesses channel
+numbers plus production time, script/voice, visual/editing, QA, corrections, and business-process
+receipts, then records one repeat, one stop, and one controlled test for the next week. The collector
+and page are `tools/social_analytics.py` and `tools/dashboard.py`; source history is
+`social-ops/analytics-history.json`.
 
-## P1 — seven-day operating system
+The weekday and Sunday lanes run as exact-project `gpt-5.6-luna` automations at `max` reasoning.
+Sol retains Saturday's first run, new setup, workflow/contract changes, credentials/terms, and failed
+acceptance gates; Luna executes only proven packets under `.agents/skills/social-ops-luna/SKILL.md`.
+Email consent health joins that lane only after a real subscribe → confirm → unsubscribe receipt.
 
-### One daily source package, reused everywhere
+Sol remains the final quality owner and pipeline implementer for every delegated run. Luna returns a
+candidate plus exact receipts; Sol reviews the actual script, evidence, charts, cuts, audio, final
+export, and packaging before the operator's separate exact-hash publication approval can apply. A
+quality regression returns to Sol for root-cause pipeline repair; delegation never lowers a gate.
 
-Every day starts with one fact pack and one analysis brief. From that source, create:
+## Current external gates
 
-- One “Market Map” vertical: what happened, why it matters, assets affected, what is next.
-- One 10–12 minute flagship when a single story clears the topic and quality gates.
-- Two vertical cuts from the flagship: the fact/reaction and the portfolio mechanism.
-- One 200–300 word email brief with source links.
-- One YouTube title/thumbnail package prepared before production.
-- Platform-specific captions and first comments, all in one approval batch.
+- TikTok's purpose-created Chrome profile is logged in and the signature short is public. The
+  repository-local CDP path remains session-based; if the profile is offline, collection fails
+  visibly and the other connected sources continue.
+- YouTube Data and Analytics reporting are connected. The live seven-day report includes views,
+  estimated watch minutes, average view duration, average percentage viewed, engagement, and
+  subscriber changes; no values are inferred.
+- The Gmail connector is authenticated for operational mailbox reads and draft/reply workflows.
+  The operator approved Buttondown's free plan and the official Google signup is open for sign-in.
+  Landing-page collection remains disabled until the account supplies its username and the real
+  double-opt-in/confirmed/unsubscribe flow passes. Plausible attribution remains operator-gated.
+- Any live profile edit requires exact copy approval and the platform's interactive authorization.
+- Product launch assets remain placeholders until the consumer teammate supplies the verified
+  manifest and real release-candidate media.
 
-Do not build independent research/script flows for each platform.
+## Measurement
 
-### Daily cadence
+Track stage duration, first-review acceptance, edit distance, claims blocks, corrections, and
+approval-to-publication time. Audience metrics are YouTube CTR/first-30-second retention/average
+percentage viewed; vertical 3-second hold/completion/replays/shares/saves; qualified comments; and
+source-tagged landing visits to confirmed signup. Use a 14-day baseline before setting growth
+targets.
 
-| Eastern Time | Bangkok Time | Action |
-|---|---|---|
-| 6:30 a.m. | 5:30 p.m. | Rank stories by portfolio relevance, primary-source quality, and available charts. |
-| 7:00 a.m. | 6:00 p.m. | Lock the one idea, title, thumbnail, hook, and expected event times. |
-| Event + 10 min | Event + 10 min | Publish a facts-only flash only when the primary release is live and checked. |
-| Event + 60–120 min | Event + 60–120 min | Publish the approved vertical with chart/feed-confirmed levels. |
-| By noon | By 11:00 p.m. | Publish the flagship if it clears the quality gate. |
-| First 30 min | Same | Reply, capture FAQs, and escalate corrections. |
-| Next day | Next day | Record metrics and choose one lesson for the next package. |
-
-### Weekly rhythm
-
-- Sunday: week-ahead economic calendar with official release links and exact times.
-- Monday–Thursday: daily market map plus the strongest event reaction.
-- Friday: “what actually changed this week” recap; compare the week-ahead watch list with outcomes.
-- Maintain a rolling 10-story backlog, but choose breaking relevance over the backlog.
-
-### Editorial standards
-
-- Primary sources first: BLS, Federal Reserve, BEA, Census, EIA, Treasury, SEC filings, exchange
-  notices, and company investor-relations releases.
-- Every number carries a source and as-of time. Chart = levels; release/news = event.
-- Separate confirmed fact, mechanism, and scenario. Scenarios need triggers; no predictions.
-- Visible source/date on news visuals. Each named asset receives its own correct symbol/timeframe.
-- No product pitch in news VO. The landing link belongs in the description/caption.
-- Maintain a visible corrections record and never delete a correction merely because engagement
-  is weak.
-
-## P1 — owned audience and nurture
-
-The waitlist should also be the daily-news list; do not create two databases before product launch.
-
-Build three emails now:
-
-1. **Welcome:** what TraderCockpit covers, source standard, posting cadence, and not-advice notice.
-2. **Daily/weekly brief template:** the one market fact, portfolio transmission map, next catalyst,
-   and source links.
-3. **Product-ready placeholder:** announces nothing until the product manifest supplies verified
-   capabilities, platforms, offer, checkout, support, and refund facts.
-
-Tag subscribers by source campaign only (`youtube`, `instagram`, `facebook`, `tiktok`, `direct`)
-and keep export/consent receipts. Defer behavioral segmentation until the list is large enough to
-justify it.
-
-## P1 — measurement
-
-Use one small scorecard; views alone are not success.
-
-### Trust and operations
-
-- Percentage of posts published on time.
-- Claims-gate pass, block, and correction counts.
-- Source/date coverage on every factual asset.
-- Draft acceptance and edit distance.
-- Approval-to-publication time.
-
-### Audience quality
-
-- YouTube: impressions CTR, first-30-second retention, average percentage viewed.
-- Verticals: 3-second hold, completion, replays, shares/saves, and qualified comments.
-- Email: confirmed subscribers, delivery, clicks, replies, unsubscribes, and corrections.
-- Funnel: source-tagged landing visits → CTA clicks → confirmed waitlist signups.
-
-Collect a 14-day baseline before setting numeric growth targets. Optimize the weakest step in the
-funnel, not the largest vanity metric.
-
-## P2 — finish before the product arrives
-
-Prepare these artifacts with explicit placeholders, not invented product facts:
-
-- A launch landing-page copy block mapped field-for-field to `product-manifest/v1`.
-- A 60-second product-demo storyboard with slots for real capture and verified capability labels.
-- Launch-day long-form outline, two vertical hooks, email, captions, thumbnail brief, FAQ, and
-  correction/rollback copy.
-- A small press/creator kit: brand assets, channel one-liner, audience promise, source policy,
-  contact, and product fields marked `PENDING VERIFICATION`.
-- A list of relevant market-news creators/guests for editorial collaborations. Draft outreach;
-  do not claim a product partnership or send product-demo pitches before a real demo exists.
-- A two-week launch content calendar that can be scheduled only after the release date is real.
+The 2026-07-16 baseline is live at `http://127.0.0.1:8788`: YouTube Analytics reports 97 views,
+28 estimated watch minutes, 38 seconds average view duration, and 38.15% average viewed for
+2026-07-09 through 2026-07-15. Facebook reports 0 observed Reel plays, Instagram 88 observed Reel
+views, and TikTok 746 Studio views across the six visible posts. These are source-system counters,
+not a cross-platform attribution model; compare the next scheduled snapshot before changing cadence.
 
 ## Product plug-in handoff
 
-The consumer-product teammate supplies:
+The consumer teammate supplies:
 
-1. A valid `product-manifest/v1` with `generatedAt`, status, product name/summary, assistant state,
-   verified capabilities, platforms, offer, CTA/checkout, support, and refund links.
-2. Real product screenshots/video captured from the release candidate.
-3. A demo account or reproducible scripted flow.
-4. Verified price, release date, eligibility/platform limits, support SLA, refund terms, and known
+1. Valid `product-manifest/v1` data.
+2. Real screenshots/video from the release candidate and a reproducible demo flow.
+3. Verified price, release date, platform/eligibility limits, support, refund terms, and known
    limitations.
-5. Approval for the exact launch claims.
+4. Approval of the exact launch claims.
 
-Codex Work then validates the manifest, replaces media placeholders, reruns accessibility and
-claims review, generates the launch approval batch, and pauses only for operator approval before
-publishing.
+Codex validates the manifest, replaces placeholders, reruns claims/accessibility review, prepares
+the launch batch, and pauses for exact publication approval.
 
-## Definition of marketing-ready
+## Marketing-ready definition
 
-- Real double-opt-in capture and welcome email tested end to end.
-- One analytics source records the complete landing-to-signup path.
-- Every active profile matches the brand and links to the landing page.
-- Every active distribution channel is covered by an exact-asset human approval gate.
-- Daily, weekly, correction, reply, and metric-log procedures have been run on real posts.
-- At least 10 sourced story candidates and two evergreen packages are ready.
-- The launch asset pack exists with product facts clearly marked as placeholders.
-- The `product-manifest/v1` handoff fields and validation command are agreed with the product
-  teammate.
-- No unverified product, performance, availability, pricing, or checkout claim is public.
+- Daily production reaches a review master within the 150-minute ceiling on a normal story.
+- The current public baseline remains intact.
+- Each active platform has an exact-hash approval and authenticated publisher path.
+- Double-opt-in email and one analytics system pass end to end.
+- Profiles match `BRAND.md` and the landing page.
+- Corrections, replies, timing, and metrics have real operating receipts.
+- The launch placeholder pack is complete and accepts only verified product-manifest fields.
 
-When all items pass, the only remaining work is the product plug-in handoff above.
-
-## Explicitly deferred
-
-- A custom CMS, custom scheduler, custom email backend, or second analytics system.
-- Unsupervised public posting or automatic replies.
-- Paid acquisition before organic content-to-waitlist conversion is measurable.
-- Referral/affiliate mechanics before the offer and economics exist.
-- New social platforms before the current channels sustain the daily cadence for 14 days.
-- Product testimonials, case studies, and performance claims before real users and approved
-  evidence exist.
+Historical production, rejection, correction, and publication receipts belong in the append-only
+vault log. This document states current forward operations only.

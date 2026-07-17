@@ -9,8 +9,8 @@ These close the remaining gaps to a full YouTube/Shorts/Reels/TikTok pipeline. A
 `tools\upload_youtube.py` (this repo) — YouTube Data API v3 via `google-api-python-client` (installed in engine venv).
 One-time setup (user, ~5 min):
 1. https://console.cloud.google.com → new project → enable **YouTube Data API v3**
-2. OAuth consent screen (External, add yourself as test user) → Credentials → **OAuth client ID (Desktop app)** → download as `tools\client_secret.json`
-3. First run opens browser for consent; token cached in `tools\token.json`
+2. OAuth consent screen (External, add yourself as test user) → Credentials → **OAuth client ID (Desktop app)** → place it in the operator-only directory documented in `ops/SETUP-CREDS.md`
+3. Run authorization as the operator; tokens never enter the repository or an agent-readable path
 Quota: 10,000 units/day default = ~6 uploads/day. Shorts = same upload, 9:16 + `#Shorts` in title/description.
 
 ### Instagram Reels + Facebook Reels — two routes
