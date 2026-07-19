@@ -57,3 +57,6 @@ productions/*/visuals/**/*.mp4
 # qa/ + qa-sol/ = frame-audit screenshots, regenerable like verify/
 productions/*/qa/
 productions/*/qa-sol/
+
+# local browser captures and traces (regenerable evidence)
+/output/

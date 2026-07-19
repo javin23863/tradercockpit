@@ -210,6 +210,136 @@ h2::before{content:"// ";color:var(--accent)}
 
 footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--faint);font-size:.68rem;text-align:center}
 footer .warnline{color:var(--warn);margin-bottom:.5rem}
+
+/* ---------- Helios public app shell: semantic chrome, canvas graphics only ---------- */
+.helios-board{
+  --h-bg:#010101;--h-surface:#080305;--h-line:#3a0d1a;--h-hot:rgba(255,23,68,.75);
+  --h-gold:#ffb84d;--h-orange:#ff1744;--h-ink:#f5e8ea;--h-dim:#c89aa3;--h-faint:#9d6872;
+  --h-green:#00e676;--h-blue:#ff1744;--h-violet:#ff1744;--h-red:#ff1744;
+  width:min(1536px,100%);height:1024px;margin:0 auto;padding:0 8px 8px;overflow:hidden;
+  color:var(--h-dim);background:var(--h-bg);font-family:Consolas,monospace;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;position:relative;
+}
+.helios-board *{box-sizing:border-box}
+.helios-board section{padding:0}
+.helios-board h1,.helios-board h2,.helios-board h3,.helios-board p{margin:0}
+.helios-board b,.helios-board h2,.helios-board h3{font-weight:500}
+.helios-board h2::before,.helios-board h3::before{content:none}
+.helios-app-header{width:calc(100% - 11px);height:64px;display:grid;grid-template-columns:340px 1fr 430px;align-items:center;gap:12px}
+.helios-brand{padding-left:10px}
+.helios-brand small,.helios-brand strong{display:block;text-transform:uppercase;letter-spacing:.16em}
+.helios-brand small{font-size:11px;color:var(--h-ink)}
+.helios-brand small span:last-child{color:var(--h-red)}
+.helios-brand strong{font-size:22px;color:var(--h-gold);font-weight:500;margin-top:2px}
+.helios-heading{text-align:center;min-width:0}
+.helios-heading h1{font-size:29px;line-height:1;text-transform:uppercase;letter-spacing:.22em;color:var(--h-ink);font-weight:500;white-space:nowrap}
+.helios-heading p{font-size:11px;color:var(--h-faint);margin-top:7px}
+.helios-statuses{display:flex;justify-content:flex-end;gap:12px}
+.helios-status{min-width:176px;min-height:44px;border:1px solid color-mix(in srgb,var(--chip) 48%,transparent);border-radius:10px;
+  display:grid;grid-template-columns:28px 1fr;align-items:center;padding:6px 10px;background:rgba(4,4,4,.8)}
+.helios-status:first-child{width:184px}.helios-status:last-child{width:224px}
+.helios-status-icon{grid-row:1/3;width:20px;height:20px;border:1px solid var(--chip);border-radius:50%;display:grid;place-items:center;color:var(--chip);font-size:11px}
+.helios-status b{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--chip)}
+.helios-status span:last-child{font-size:11px;color:var(--h-dim)}
+.helios-decks{width:calc(100% - 11px);height:409px;display:grid;grid-template-columns:353fr 282fr 283fr 251fr 300fr;gap:10px}
+.deck-panel{height:409px;border:1px solid var(--h-line);border-radius:12px;background:
+  radial-gradient(circle at 50% 28%,rgba(255,115,22,.035),transparent 42%),
+  linear-gradient(180deg,rgba(255,255,255,.014),rgba(0,0,0,.18)),var(--h-surface);
+  box-shadow:inset 0 1px rgba(255,225,180,.04),inset 0 -25px 42px rgba(0,0,0,.35);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.deck-panel>*,.home-message,.evidence-chips,.phase-tabs,.phase-registry,.exact-evidence,.strategy-library,.status-bar,.system-controls{min-height:0}
+.home-message,.evidence-chips,.phase-tabs,.phase-registry,.exact-evidence,.strategy-library,.status-bar,.system-controls{overflow:hidden}
+.deck-panel:focus-within{border-color:var(--h-hot)}
+.deck-head{height:36px;display:flex;align-items:center;gap:8px;padding:6px 10px;white-space:nowrap}
+.deck-number{width:20px;height:20px;border:1px solid var(--h-line);border-radius:50%;display:grid;place-items:center;color:var(--h-ink);font-size:11px}
+.deck-head h2{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--h-ink);overflow:hidden;text-overflow:ellipsis}
+.deck-head h2 span{color:var(--h-dim);font-weight:400;font-size:11px}
+.panel-graphic{height:235px;position:relative;overflow:hidden;background:#010101;isolation:isolate}
+.panel-graphic::after,.motion-canvas::after,.phone-graphic::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 54%,rgba(0,0,0,.28) 78%,rgba(0,0,0,.72) 100%);box-shadow:inset 0 0 34px rgba(0,0,0,.25)}
+.panel-graphic canvas,.motion-canvas canvas,.phone-graphic canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.graphic-label{position:absolute;z-index:2;font-size:11px;line-height:1.2;color:var(--h-dim);text-shadow:0 1px 3px #000}
+.graphic-label b{display:block;color:var(--h-ink);font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.graphic-label.safe b{color:var(--h-green)}
+.home-message{height:48px;margin:0 9px 7px;border:1px solid var(--h-line);border-radius:9px;padding:7px 9px;display:grid;grid-template-columns:24px 1fr auto;gap:6px;align-items:start;background:rgba(2,2,2,.82)}
+.home-message .voice-dot{grid-row:1/3;width:22px;height:22px;border:1px solid var(--h-violet);border-radius:50%;display:grid;place-items:center;color:var(--h-violet)}
+.home-message b{font-size:11px;line-height:1;letter-spacing:.08em;color:var(--h-ink)}
+.home-message time{font-size:11px;line-height:1;color:var(--h-faint)}
+.home-message p{grid-column:2/4;font-size:11px;line-height:1.25;color:var(--h-dim)}
+.evidence-chips{height:39px;margin:0 7px 7px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--h-line);border-radius:20px;overflow:hidden;background:rgba(4,3,2,.85)}
+.evidence-chips div{display:grid;place-items:center;border-left:1px solid var(--h-line);text-align:center;padding:3px 2px}
+.evidence-chips div:first-child{border-left:0}
+.evidence-chips b{font-size:11px;line-height:1.05;color:var(--h-ink);text-transform:uppercase}
+.evidence-chips span{font-size:11px;line-height:1.05;color:var(--h-faint)}
+.evidence-chips .safe b{color:var(--h-green)}
+.deck-nav{height:47px;margin-top:auto;border-top:1px solid var(--h-line);display:grid;grid-template-columns:repeat(5,1fr);background:rgba(1,1,1,.86)}
+.deck-nav button{position:relative;min-width:0;border:0;background:transparent;color:var(--h-dim);font:inherit;font-size:11px;cursor:pointer;padding:5px 1px 7px}
+.deck-nav button span{display:block;font-size:11px;line-height:1;margin-bottom:3px}
+.deck-nav button[aria-current="page"]{color:var(--h-red)}
+.deck-nav button[aria-current="page"]::after{content:"";position:absolute;left:28%;right:28%;height:2px;bottom:2px;background:var(--h-red)}
+.deck-nav button:focus-visible,.phase-tabs button:focus-visible,.strategy-mini:focus-visible,.voice-state:focus-visible{
+  outline:2px solid var(--h-red);outline-offset:-3px;border-radius:5px}
+.phase-tabs{height:27px;display:grid;grid-template-columns:repeat(5,1fr);gap:3px;padding:0 8px 4px}
+.phase-tabs button{border:1px solid var(--h-line);border-radius:12px;background:rgba(2,2,2,.7);color:var(--h-faint);font:inherit;font-size:11px;cursor:pointer;overflow:hidden}
+.phase-tabs button[aria-pressed="true"]{border-color:var(--h-hot);color:var(--h-red)}
+.phase-registry{height:27px;margin:0 8px 6px;border:1px solid var(--h-line);border-radius:12px;padding:6px 8px;font-size:11px;color:var(--h-faint);display:flex;justify-content:space-between}
+.phase-registry b{color:var(--h-ink);letter-spacing:.12em}
+.phase-registry output{color:var(--h-red)}
+.exact-evidence{height:58px;margin:0 8px 6px;border:1px solid var(--h-line);border-radius:8px;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden}
+.exact-evidence button{border:0;border-left:1px solid var(--h-line);background:rgba(2,2,2,.55);color:var(--h-dim);font:inherit;font-size:11px;cursor:pointer;padding:4px}
+.exact-evidence button:first-child{border-left:0}.exact-evidence b{display:block;color:var(--h-ink);font-size:11px;margin-bottom:3px}
+.strategy-graph .graphic-label{width:72px;text-align:center}.strategy-library{height:91px;margin:0 8px 6px;text-align:center}
+.strategy-library>p{font-size:11px;color:var(--h-faint);margin-bottom:4px}
+.strategy-row{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.strategy-mini{height:68px;border:1px solid var(--h-line);border-radius:7px;background:rgba(2,2,2,.65);color:var(--h-dim);font:inherit;font-size:11px;cursor:pointer;padding:4px 1px;overflow:hidden}
+.strategy-mini span{display:block;width:32px;height:32px;margin:0 auto 4px;border:1px solid var(--h-hot);border-radius:50%;background:radial-gradient(circle,#ff8b20 0 3%,#351007 30%,#050202 72%);box-shadow:0 0 8px rgba(255,116,24,.25)}
+.strategy-mini[aria-pressed="true"]{border-color:var(--h-hot);color:var(--h-red)}
+.eligibility-center{position:absolute;z-index:3;left:50%;top:52%;transform:translate(-50%,-50%);width:84px;text-align:center;font-size:11px;color:var(--h-faint)}
+.eligibility-center b{display:block;color:var(--h-green);font-size:11px;letter-spacing:.08em}.status-bar{height:27px;margin:0 8px 7px;border:1px solid rgba(0,230,118,.35);border-radius:12px;padding:7px;font-size:11px;line-height:1;color:var(--h-green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.system-controls{height:90px;margin:0 8px 6px;border:1px solid var(--h-line);border-radius:8px;text-align:center;overflow:hidden;flex-shrink:0}
+.system-controls>p{height:27px;padding:5px;font-size:11px;color:var(--h-faint)}
+.control-row{height:61px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--h-line)}
+.control-row button{border:0;border-left:1px solid var(--h-line);padding:5px 1px;background:transparent;color:inherit;font:inherit;cursor:not-allowed}.control-row button:first-child{border-left:0}
+.control-row i{display:grid;place-items:center;width:21px;height:21px;margin:auto;border:1px solid var(--h-line);border-radius:50%;font-style:normal;color:var(--h-ink)}
+.control-row b,.control-row span{display:block;font-size:11px;line-height:1;margin-top:2px}.control-row b{color:var(--h-ink)}.control-row span{color:var(--h-faint)}
+.control-row button:focus-visible{outline:2px solid var(--h-red);outline-offset:-3px}
+.helios-secondary{height:292px;display:grid;grid-template-columns:1fr 235px 247px 305px;gap:28px;align-items:start;padding:16px 0 0}
+.secondary-space{height:100%;position:relative}.motion-heading{position:absolute;left:10px;bottom:2px;color:var(--h-red);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.phone-preview{height:263px;border:2px solid #413c37;border-radius:31px;padding:18px 7px 8px;background:#030303;overflow:hidden;position:relative;box-shadow:inset 0 0 0 2px #111}
+.phone-preview::before{content:"9:41";position:absolute;left:22px;top:7px;color:var(--h-ink);font-size:11px}.phone-preview::after{content:"● ᴡɪꜰɪ ▰";position:absolute;right:18px;top:7px;color:var(--h-ink);font-size:11px}
+.phone-title{text-align:center;height:20px;color:var(--h-red);font-size:11px;letter-spacing:.18em}.phone-graphic{height:125px;position:relative;overflow:hidden}
+.phone-message{height:45px;border:1px solid var(--h-line);border-radius:9px;padding:7px;font-size:11px;color:var(--h-dim)}
+.phone-message b{display:block;color:var(--h-violet);letter-spacing:.12em}.phone-status{height:27px;border:1px solid rgba(0,230,118,.35);border-radius:14px;color:var(--h-green);font-size:11px;padding:7px;margin-top:5px}
+.phone-nav{height:32px;margin-top:5px;border-top:1px solid var(--h-line);display:flex;justify-content:space-around;align-items:center;color:var(--h-dim);font-size:11px}.phone-nav b{color:var(--h-red)}
+.phone-phases{display:flex;height:22px;justify-content:space-around}.phone-phases span{width:18px;height:18px;border:1px solid var(--h-line);border-radius:50%;display:grid;place-items:center;font-size:11px}.phone-phases .on{border-color:var(--h-hot);color:var(--h-red)}
+.phone-registry{height:28px;border:1px solid var(--h-line);border-radius:13px;padding:7px;font-size:11px}.phone-cards{height:50px;margin-top:5px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.phone-cards div{border:1px solid var(--h-line);border-radius:6px;padding:7px 2px;font-size:11px;text-align:center}.phone-cards b{color:var(--h-red)}
+.apollo-principles{padding:8px 12px 0}.apollo-principles h2{font-size:23px;letter-spacing:.32em;color:var(--h-gold);font-weight:400;text-align:center}.apollo-principles>p{text-align:center;font-size:11px;line-height:1.4;color:var(--h-dim);margin:8px 0 10px}
+.apollo-principles ul{list-style:none;display:grid;gap:7px}.apollo-principles li{display:grid;grid-template-columns:25px 1fr;column-gap:8px;font-size:11px;color:var(--h-dim)}
+.apollo-principles i{grid-row:1/3;width:20px;height:20px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font-style:normal}.apollo-principles b{font-size:11px;color:var(--tone)}
+.motion-strip{width:calc(100% - 10px);height:172px;display:grid;grid-template-columns:337fr 271fr 252fr 256fr 370fr;gap:6px}
+.motion-card{height:172px;border:1px solid var(--h-hot);border-radius:12px;background:#030302;overflow:hidden;position:relative}
+.motion-card header{position:absolute;z-index:3;left:8px;right:8px;top:7px;padding:0;text-align:left;display:grid;grid-template-columns:23px 1fr;column-gap:7px}
+.motion-card header span{grid-row:1/3;width:20px;height:20px;border:1px solid var(--h-line);border-radius:50%;display:grid;place-items:center;color:var(--h-ink);font-size:11px}
+.motion-card h3{font-size:11px;letter-spacing:.12em;color:var(--h-ink);text-transform:uppercase}.motion-card p{font-size:11px;color:var(--h-faint);margin-top:2px}
+.motion-canvas{position:absolute;inset:0}.motion-dom-label{position:absolute;z-index:4;font-size:11px;color:var(--h-faint)}
+.voice-buttons{position:absolute;z-index:5;left:3px;right:3px;bottom:5px;display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.voice-state{border:0;background:transparent;color:var(--h-dim);font:inherit;font-size:11px;cursor:pointer;text-transform:uppercase}.voice-state[aria-pressed="true"]{color:var(--h-red)}
+.helios-trust{height:65px;display:grid;grid-template-columns:repeat(5,1fr);align-items:center;color:var(--h-ink);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.helios-trust div{border-left:1px solid var(--h-line);padding:5px}.helios-trust div:first-child{border-left:0}.helios-trust span{color:var(--tone);font-size:15px;margin-right:12px;vertical-align:middle}
+.legacy-preview{padding:4.5rem 1.2rem 2rem;text-align:center;position:relative}.marketing-heading{font-size:clamp(1.7rem,4.6vw,3.1rem);font-weight:700;margin:.8rem 0 .4rem;letter-spacing:-.01em}.marketing-heading .x{color:var(--accent);text-shadow:0 0 18px rgba(255,23,68,.6)}
+@media(max-width:1100px) and (min-width:761px){.helios-board{zoom:calc(100vw / 1536)}}
+@media(max-width:760px){
+  .helios-board{width:100%;height:auto;min-height:832px;padding:0 10px 10px;overflow:visible}.helios-app-header{width:100%;height:72px;display:block;text-align:center;padding-top:10px}
+  .helios-brand{padding-left:0}.helios-brand small{font-size:11px}.helios-brand strong{font-size:17px}.helios-heading{display:none}.helios-statuses{display:none}
+  .helios-decks{width:100%;height:750px;display:block}.deck-panel{height:750px;width:100%;border-radius:18px}.deck-panel[hidden]{display:none}
+  .deck-head{height:44px;justify-content:center}.deck-number{position:absolute;left:22px}.deck-head h2{font-size:11px}.deck-head h2 span{display:none}
+  .panel-graphic{height:378px}.home-message{height:76px;margin:0 12px 10px;padding:11px;font-size:11px}.home-message b,.home-message p,.home-message time{font-size:11px}
+  .evidence-chips{height:60px;margin:0 12px 10px;grid-template-columns:1fr}.evidence-chips div{display:none}.evidence-chips div:first-child{display:grid;border:0}.evidence-chips b,.evidence-chips span{font-size:11px}
+  .deck-nav{height:66px}.deck-nav button{font-size:11px;min-height:44px}.deck-nav button span{font-size:15px;margin-bottom:5px}
+  .phase-tabs{height:50px;padding:0 12px 6px}.phase-tabs button{font-size:11px;min-height:44px}.phase-registry{height:42px;margin:0 12px 8px;padding:12px;font-size:11px}
+  .exact-evidence{height:102px;margin:0 12px 10px}.exact-evidence button,.exact-evidence b{font-size:11px}.strategy-library{height:150px}.strategy-row{gap:7px}.strategy-mini{height:118px;font-size:11px}.strategy-mini span{width:58px;height:58px}.status-bar{height:44px;margin:0 12px 10px;padding:13px;font-size:11px}
+  .system-controls{height:150px}.system-controls>p{height:42px;font-size:11px;padding:12px}.control-row{height:108px}.control-row button{min-height:44px}.control-row i{width:35px;height:35px}.control-row b,.control-row span{font-size:11px}
+  .helios-secondary,.motion-strip,.helios-trust{display:none}.legacy-preview{padding-top:3rem}.graphic-label,.graphic-label b{font-size:11px}
+}
 @media (prefers-reduced-motion: reduce){
   #boot{display:none}
   .apollo-stage::before{display:none}
@@ -224,9 +354,137 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
   <div class="skip">CLICK TO SKIP</div>
 </div>
 
-<header class="wrap">
+<main id="helios-app" class="helios-board" data-active-view="home">
+  <div class="helios-app-header">
+    <div class="helios-brand"><small><span>TRADER</span><span>COCKPIT</span></small><strong>Apollo</strong></div>
+    <div class="helios-heading">
+      <h1>Helios Evidence Core v2</h1>
+      <p>Guidance concept. Evidence boundaries. Operator-gated preview.</p>
+    </div>
+    <div class="helios-statuses" aria-label="Public concept status">
+      <div class="helios-status" style="--chip:var(--h-green)"><span class="helios-status-icon" aria-hidden="true">✓</span><b>Evidence mode</b><span>Sources required</span></div>
+      <div class="helios-status" style="--chip:var(--h-violet)"><span class="helios-status-icon" aria-hidden="true">◈</span><b>Apollo concept</b><span>Simulation only</span></div>
+    </div>
+  </div>
+
+  <div class="helios-decks" aria-label="TraderCockpit concept destinations">
+    <section class="deck-panel" data-helios-view="home" aria-labelledby="deck-home-title">
+      <div class="deck-head"><span class="deck-number">1</span><h2 id="deck-home-title">Home <span>— Apollo</span></h2></div>
+      <div class="panel-graphic">
+        <canvas data-helios-motion="solar" aria-hidden="true"></canvas>
+        <span class="graphic-label" style="left:4%;top:20%"><b>Market</b>Context required</span>
+        <span class="graphic-label" style="right:3%;top:30%;text-align:right"><b>Pipeline</b>Rules incomplete</span>
+        <span class="graphic-label safe" style="left:4%;bottom:18%"><b>Evidence</b>Sources required</span>
+        <span class="graphic-label" style="right:3%;bottom:14%;text-align:right"><b>Lifecycle</b>Operator gated</span>
+      </div>
+      <div class="home-message">
+        <span class="voice-dot" aria-hidden="true">◉</span><b>Apollo concept</b><time>visual preview</time>
+        <p id="helios-voice-live" aria-live="polite">Compose rules; recorded gates own verdicts.</p>
+      </div>
+      <div class="evidence-chips" aria-label="Concept guardrails">
+        <div class="safe"><b>Evidence</b><span>No feed</span></div><div><b>Risk</b><span>Exec off</span></div>
+        <div><b>Simulation</b><span>Preview</span></div><div><b>Rules</b><span>Rules first</span></div>
+      </div>
+      <nav class="deck-nav" aria-label="Home destination navigation"></nav>
+    </section>
+
+    <section class="deck-panel" data-helios-view="test" aria-labelledby="deck-test-title">
+      <div class="deck-head"><span class="deck-number">2</span><h2 id="deck-test-title">Test <span>— Particle Genesis</span></h2></div>
+      <div class="phase-tabs" aria-label="Concept phases">
+        <button type="button" data-phase="parameter" aria-label="1 Parameter" aria-pressed="false">1</button><button type="button" data-phase="candidate" aria-label="2 Candidate" aria-pressed="true">2</button>
+        <button type="button" data-phase="refined" aria-label="3 Refined" aria-pressed="false">3</button><button type="button" data-phase="stability" aria-label="4 Stability" aria-pressed="false">4</button><button type="button" data-phase="decision" aria-label="5 Decision" aria-pressed="false">5</button>
+      </div>
+      <div class="panel-graphic">
+        <canvas data-helios-motion="genesis" aria-hidden="true"></canvas>
+        <span class="graphic-label" style="left:4%;top:22%"><b>Parameter</b>Seeded particles</span>
+        <span class="graphic-label" style="right:4%;top:30%;text-align:right"><b>Candidate</b>Concept nuclei</span>
+        <span class="graphic-label" style="right:4%;bottom:15%;text-align:right"><b>Accretion</b>Into preview</span>
+      </div>
+      <div class="phase-registry"><b>Phase registry</b><span>Active: <output id="active-phase">Candidate</output></span></div>
+      <div class="exact-evidence" aria-label="Exact evidence concept controls">
+        <button type="button" data-open-gauntlet><b>Candidate</b>Review</button><button type="button" data-open-gauntlet><b>Control</b>Walk-forward</button><button type="button" data-open-gauntlet><b>Decision</b>Confirm</button>
+      </div>
+      <nav class="deck-nav" aria-label="Test destination navigation"></nav>
+    </section>
+
+    <section class="deck-panel" data-helios-view="strategies" aria-labelledby="deck-strategies-title">
+      <div class="deck-head"><span class="deck-number">3</span><h2 id="deck-strategies-title">Strategies <span>— Knowledge Atlas</span></h2></div>
+      <div class="panel-graphic strategy-graph">
+        <canvas data-helios-motion="atlas" aria-hidden="true"></canvas>
+        <span class="graphic-label" style="left:38%;top:3%"><b>Provenance</b>Source required</span><span class="graphic-label" style="left:1%;top:27%"><b>Pipeline</b>Evidence path</span>
+        <span class="graphic-label" style="right:1%;top:27%"><b>Data</b>Not connected</span><span class="graphic-label" style="left:1%;bottom:17%"><b>Risk</b>Exposure guard</span>
+        <span class="graphic-label" style="right:1%;bottom:17%"><b>Lifecycle</b>Concept only</span><span class="graphic-label" style="left:38%;top:43%;text-align:center"><b>Core</b>Preview graph</span>
+        <span class="graphic-label" style="left:36%;bottom:3%;text-align:center"><b>Operator</b>Decision gate</span>
+      </div>
+      <div class="strategy-library"><p>Concept library · unavailable</p><div class="strategy-row">
+        <button class="strategy-mini" type="button" aria-label="Momentum strategy concept" aria-pressed="false"><span></span>Mom.</button><button class="strategy-mini" type="button" aria-label="Volatility strategy concept" aria-pressed="false"><span></span>Vol.</button>
+        <button class="strategy-mini" type="button" aria-label="Trend strategy concept" aria-pressed="true"><span></span>Trend</button><button class="strategy-mini" type="button" aria-label="Macro strategy concept" aria-pressed="false"><span></span>Macro</button><button class="strategy-mini" type="button" aria-label="Pairs strategy concept" aria-pressed="false"><span></span>Pairs</button>
+      </div></div>
+      <nav class="deck-nav" aria-label="Strategies destination navigation"></nav>
+    </section>
+
+    <section class="deck-panel" data-helios-view="live" aria-labelledby="deck-live-title">
+      <div class="deck-head"><span class="deck-number">4</span><h2 id="deck-live-title">Live <span>— Execution Eligibility</span></h2></div>
+      <div class="panel-graphic">
+        <canvas data-helios-motion="execution" aria-hidden="true"></canvas>
+        <span class="graphic-label" style="left:4%;top:27%"><b>Broker</b>Not connected</span><span class="graphic-label" style="right:4%;top:27%;text-align:right"><b>Data</b>Not connected</span>
+        <span class="graphic-label" style="left:4%;bottom:18%"><b>Confirmation</b>Required</span><span class="graphic-label" style="right:4%;bottom:18%;text-align:right"><b>Lifecycle</b>Waitlist</span>
+        <div class="eligibility-center"><b>Unavailable</b>no live authorization</div>
+      </div>
+      <div class="status-bar"><b>Status:</b> waitlist · execution off</div>
+      <nav class="deck-nav" aria-label="Live destination navigation"></nav>
+    </section>
+
+    <section class="deck-panel" data-helios-view="settings" aria-labelledby="deck-settings-title">
+      <div class="deck-head"><span class="deck-number">5</span><h2 id="deck-settings-title">Settings <span>— System Constellation</span></h2></div>
+      <div class="panel-graphic">
+        <canvas data-helios-motion="constellation" aria-hidden="true"></canvas>
+        <span class="graphic-label" style="left:35%;top:3%"><b>Voice</b>Visual only</span><span class="graphic-label" style="left:1%;top:25%"><b>Local model</b>Not configured</span>
+        <span class="graphic-label" style="right:1%;top:25%;text-align:right"><b>Cloud model</b>Not configured</span><span class="graphic-label" style="left:1%;bottom:15%"><b>Privacy</b>No data capture</span>
+        <span class="graphic-label" style="right:1%;bottom:15%;text-align:right"><b>Accessibility</b>Keyboard ready</span>
+      </div>
+      <div class="system-controls"><p><b>System controls</b> · concept status only</p><div class="control-row">
+        <button type="button" aria-disabled="true"><i aria-hidden="true">◉</i><b>Voice</b><span>Off</span></button><button type="button" aria-disabled="true"><i aria-hidden="true">◈</i><b>Local</b><span>Unset</span></button><button type="button" aria-disabled="true"><i aria-hidden="true">☁</i><b>Cloud</b><span>Unset</span></button><button type="button" aria-disabled="true"><i aria-hidden="true">⌂</i><b>Broker</b><span>None</span></button><button type="button" aria-disabled="true"><i aria-hidden="true">▣</i><b>Data</b><span>None</span></button>
+      </div></div>
+      <nav class="deck-nav" aria-label="Settings destination navigation"></nav>
+    </section>
+  </div>
+
+  <div class="helios-secondary" aria-label="Responsive and Apollo concept studies">
+    <div class="secondary-space"><span class="motion-heading">Motion study — five core dynamics</span></div>
+    <article class="phone-preview" aria-label="Mobile Home preview">
+      <div class="phone-title">Apollo</div><div class="phone-graphic"><canvas data-helios-motion="solar" aria-hidden="true"></canvas></div>
+      <div class="phone-message"><b>Apollo concept</b>Evidence-bound guidance. No live monitoring.</div><div class="phone-status">✓ Waitlist concept · no live feed</div><div class="phone-nav"><b>Home</b><span>Test</span><span>Strategies</span><span>Live</span><span>Settings</span></div>
+    </article>
+    <article class="phone-preview" aria-label="Mobile Test preview">
+      <div class="phone-title">Particle Genesis</div><div class="phone-phases"><span>1</span><span class="on">2</span><span>3</span><span>4</span><span>5</span></div>
+      <div class="phone-graphic" style="height:112px"><canvas data-helios-motion="mobile-genesis" aria-hidden="true"></canvas></div><div class="phone-registry">Active phase: <b>Candidate</b></div>
+      <div class="phone-cards"><div><b>Candidate</b><br>Preview only</div><div><b>Control</b><br>Walk-forward</div><div><b>Refined</b><br>Not scored</div></div><div class="phone-nav"><span>Home</span><b>Test</b><span>Strategies</span><span>Live</span><span>Settings</span></div>
+    </article>
+    <aside class="apollo-principles" aria-labelledby="apollo-principles-title"><h2 id="apollo-principles-title">Apollo</h2><p>A concept assistant that composes testable rules while evidence gates retain authority.</p>
+      <ul><li style="--tone:var(--h-red);color:var(--h-red)"><i aria-hidden="true">◉</i><b>Conversational concept</b><span>Plain-English preview guidance.</span></li>
+        <li style="--tone:var(--h-green);color:var(--h-green)"><i aria-hidden="true">✓</i><b>Evidence bounded</b><span>No unsupported verdicts.</span></li>
+        <li style="--tone:var(--h-red);color:var(--h-red)"><i aria-hidden="true">◇</i><b>Operator gated</b><span>No live action from this page.</span></li>
+        <li style="--tone:var(--h-red);color:var(--h-red)"><i aria-hidden="true">↻</i><b>Transparent lifecycle</b><span>Rules and receipts first.</span></li>
+        <li style="--tone:var(--h-red);color:var(--h-red)"><i aria-hidden="true">▣</i><b>Data boundary</b><span>No data is captured by this preview.</span></li></ul>
+    </aside>
+  </div>
+
+  <div class="motion-strip" aria-label="Helios motion studies">
+    <article class="motion-card"><header><span>A</span><h3>Particle Genesis</h3><p>From parameter particles to a living core.</p></header><div class="motion-canvas"><canvas data-helios-motion="genesis-study" aria-hidden="true"></canvas></div></article>
+    <article class="motion-card"><header><span>B</span><h3>Chronosphere</h3><p>Walk-forward windows become orbital shells.</p></header><div class="motion-canvas"><canvas data-helios-motion="chronosphere" aria-hidden="true"></canvas></div><span class="motion-dom-label" style="left:8%;bottom:6%">PAST</span><span class="motion-dom-label" style="right:8%;bottom:6%">FUTURE</span></article>
+    <article class="motion-card"><header><span>C</span><h3>Correlation Gravity Field</h3><p>IS and OOS fronts converge on truth.</p></header><div class="motion-canvas"><canvas data-helios-motion="correlation" aria-hidden="true"></canvas></div><span class="motion-dom-label" style="left:5%;top:32%;color:var(--h-green)">IN-SAMPLE</span><span class="motion-dom-label" style="right:5%;top:32%;color:var(--h-blue)">OUT-OF-SAMPLE</span></article>
+    <article class="motion-card"><header><span>D</span><h3>Probability Corona</h3><p>Monte Carlo envelopes as solar-wind bands.</p></header><div class="motion-canvas"><canvas data-helios-motion="probability" aria-hidden="true"></canvas></div><span class="motion-dom-label" style="right:3%;bottom:6%">99 · 95 · 75 · Median · 25 · 5 · 1</span></article>
+    <article class="motion-card"><header><span>E</span><h3>Voice States</h3><p>Five distinct living-energy morphologies.</p></header><div class="motion-canvas"><canvas data-helios-motion="voice" aria-hidden="true"></canvas></div>
+      <div class="voice-buttons" aria-label="Apollo voice-state visual preview"><button class="voice-state" type="button" data-voice-state="listening" aria-pressed="true">Listening</button><button class="voice-state" type="button" data-voice-state="reasoning" aria-pressed="false">Reasoning</button><button class="voice-state" type="button" data-voice-state="retrieving" aria-pressed="false">Retrieving</button><button class="voice-state" type="button" data-voice-state="speaking" aria-pressed="false">Speaking</button><button class="voice-state" type="button" data-voice-state="interrupted" aria-pressed="false">Interrupted</button></div>
+    </article>
+  </div>
+  <div class="helios-trust" aria-label="TraderCockpit public principles"><div style="--tone:var(--h-green)"><span aria-hidden="true">✓</span>Evidence boundaries</div><div style="--tone:var(--h-red)"><span aria-hidden="true">◇</span>Provenance required</div><div style="--tone:var(--h-red)"><span aria-hidden="true">◇</span>Operator gated</div><div style="--tone:var(--h-red)"><span aria-hidden="true">∞</span>No automated learning</div><div style="--tone:var(--h-red)"><span aria-hidden="true">☆</span>Built for traders</div></div>
+</main>
+
+<section class="wrap legacy-preview" id="gauntlet-preview">
   <div class="sig">TRADERCOCKPIT // TEST THE CLAIM</div>
-  <h1>Before you buy the <span class="x">holy grail</span>,<br>make its rules survive the gauntlet.</h1>
+  <h2 class="marketing-heading">Before you buy the <span class="x">holy grail</span>,<br>make its rules survive the gauntlet.</h2>
   <p class="sub">Turn a published strategy into falsifiable rules, combine it with available research concepts,
     preview its signals, then ask whether the evidence survives a full robustness battery. This is a
     <b>simulated waitlist concept</b>, not a shipped capability or performance result.</p>
@@ -298,7 +556,7 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
       </div>
     </nav>
   </div>
-</header>
+</section>
 
 <section class="wrap" id="why">
   <h2>the claim becomes a test</h2>
@@ -376,8 +634,56 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem}
   </div>
 </footer>
 
+<script type="module" src="./helios-motion.mjs"></script>
 <script>
 "use strict";
+/* ---------- Helios five-destination shell ---------- */
+const HELIOS_VIEWS=[
+  ["home","Home","Home","⌂"],["test","Test","Test","⚗"],["strategies","Strategies","Strat","◇"],["live","Live","Live","◉"],["settings","Settings","Set","⚙"]
+];
+const heliosApp=document.getElementById("helios-app"),heliosMobile=matchMedia("(max-width:760px)");
+function setHeliosView(view,{focus=false,writeHash=true}={}){
+  if(!HELIOS_VIEWS.some(([name])=>name===view))view="home";
+  heliosApp.dataset.activeView=view;
+  document.querySelectorAll("[data-helios-view]").forEach(panel=>{
+    panel.hidden=heliosMobile.matches&&panel.dataset.heliosView!==view;
+    panel.setAttribute("aria-current",panel.dataset.heliosView===view?"page":"false");
+  });
+  document.querySelectorAll("[data-view-target]").forEach(button=>{
+    if(button.dataset.viewTarget===view)button.setAttribute("aria-current","page");else button.removeAttribute("aria-current");
+  });
+  window.__heliosMotion?.renderAt(window.__heliosMotion.status().time);
+  if(writeHash&&location.hash!==`#${view}`)history.replaceState(null,"",`#${view}`);
+  if(focus)requestAnimationFrame(()=>document.querySelector(`[data-helios-view="${view}"] [data-view-target="${view}"]`)?.focus());
+}
+document.querySelectorAll(".deck-nav").forEach(nav=>{
+  for(const [view,label,shortLabel,icon] of HELIOS_VIEWS){
+    const button=document.createElement("button");button.type="button";button.dataset.viewTarget=view;
+    button.setAttribute("aria-label",label);button.innerHTML=`<span aria-hidden="true">${icon}</span>${shortLabel}`;button.addEventListener("click",()=>setHeliosView(view,{focus:heliosMobile.matches}));nav.appendChild(button)
+  }
+});
+heliosMobile.addEventListener("change",()=>setHeliosView(heliosApp.dataset.activeView,{writeHash:false}));
+addEventListener("hashchange",()=>setHeliosView(location.hash.slice(1),{writeHash:false}));
+setHeliosView(location.hash.slice(1)||"home",{writeHash:false});
+
+document.querySelectorAll("[data-phase]").forEach(button=>button.addEventListener("click",()=>{
+  document.querySelectorAll("[data-phase]").forEach(candidate=>candidate.setAttribute("aria-pressed",String(candidate===button)));
+  const phase=button.dataset.phase;document.getElementById("active-phase").value=phase[0].toUpperCase()+phase.slice(1)
+}));
+document.querySelectorAll(".strategy-mini").forEach(button=>button.addEventListener("click",()=>{
+  document.querySelectorAll(".strategy-mini").forEach(candidate=>candidate.setAttribute("aria-pressed",String(candidate===button)))
+}));
+document.querySelectorAll("[data-open-gauntlet]").forEach(button=>button.addEventListener("click",()=>{
+  document.getElementById("gauntlet-preview").scrollIntoView({behavior:reduceMotion?"auto":"smooth"});
+  setTimeout(()=>document.querySelector("#chips button")?.focus(),reduceMotion?0:450)
+}));
+document.querySelectorAll("[data-voice-state]").forEach(button=>button.addEventListener("click",()=>{
+  document.querySelectorAll("[data-voice-state]").forEach(candidate=>candidate.setAttribute("aria-pressed",String(candidate===button)));
+  const state=button.dataset.voiceState;
+  document.getElementById("helios-voice-live").textContent=`Apollo ${state} visual state. This remains a local simulation with no microphone or live feed.`;
+  dispatchEvent(new CustomEvent("helios:voice-state",{detail:{state}}));
+  if(typeof setApollo==="function")setApollo(state,state==="speaking"?"Visual speaking state only; no audio or live result.":undefined)
+}));
 /* ---------- deterministic rng per strategy (no Math.random needed, and repeatable) ---------- */
 function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);
   t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
