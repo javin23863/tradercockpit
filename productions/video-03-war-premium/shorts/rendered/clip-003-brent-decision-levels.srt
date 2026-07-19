@@ -1,0 +1,95 @@
+1
+00:00:00,000 --> 00:00:01,432
+Here is the primary chart:
+
+2
+00:00:01,432 --> 00:00:02,754
+Brent crude on the daily
+
+3
+00:00:02,754 --> 00:00:04,462
+timeframe. The July tenth close
+
+4
+00:00:04,462 --> 00:00:06,501
+was seventy-five twenty-two. The July
+
+5
+00:00:06,501 --> 00:00:08,980
+thirteenth close was eighty-three thirty-one.
+
+6
+00:00:08,980 --> 00:00:11,075
+Tuesday opened at eighty-four, reached
+
+7
+00:00:11,075 --> 00:00:13,168
+eighty-seven fifty-five, and closed at
+
+8
+00:00:13,168 --> 00:00:15,316
+eighty-five fifteen. That sequence says
+
+9
+00:00:15,316 --> 00:00:16,969
+the market carried the weekend
+
+10
+00:00:16,969 --> 00:00:19,173
+repricing forward instead of immediately
+
+11
+00:00:19,173 --> 00:00:20,606
+erasing it. But notice the
+
+12
+00:00:20,606 --> 00:00:22,370
+difference between a premium and
+
+13
+00:00:22,370 --> 00:00:23,581
+a panic. The close did
+
+14
+00:00:23,581 --> 00:00:25,015
+not hold the session high.
+
+15
+00:00:25,015 --> 00:00:26,337
+Buyers paid more for the
+
+16
+00:00:26,337 --> 00:00:27,935
+barrel, while the chart still
+
+17
+00:00:27,935 --> 00:00:29,367
+rejected the upper edge of
+
+18
+00:00:29,367 --> 00:00:30,855
+the day. The clean decision
+
+19
+00:00:30,855 --> 00:00:32,343
+area is now eighty-three to
+
+20
+00:00:32,343 --> 00:00:35,097
+eighty-four underneath and eighty-seven fifty-five
+
+21
+00:00:35,097 --> 00:00:37,136
+to eighty-eight overhead. Holding the
+
+22
+00:00:37,136 --> 00:00:38,954
+lower area keeps the geopolitical
+
+23
+00:00:38,954 --> 00:00:40,773
+premium intact. A completed daily
+
+24
+00:00:40,773 --> 00:00:42,000
+close above the upper area

@@ -1,0 +1,79 @@
+[
+  {
+    "out": "02a-imo-attacks",
+    "url": "https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-secretary-general-condemns-new-attacks-on-ships-in-strait-of-hormuz.aspx",
+    "label": "IMO · 08 JUL 2026",
+    "highlights": ["I condemn the attacks over the past two days against several ships transiting the Strait of Hormuz."],
+    "holdSec": 8
+  },
+  {
+    "out": "02b-imo-navigation",
+    "url": "https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-council-reaffirms-commitment-to-protecting-vital-shipping-lanes.aspx",
+    "label": "IMO COUNCIL · 13 JUL 2026",
+    "highlights": ["IMO Council reaffirms commitment to protecting vital shipping lanes"],
+    "holdSec": 8
+  },
+  {
+    "out": "02c-treasury-sanctions",
+    "url": "https://home.treasury.gov/news/press-releases/sb0562",
+    "label": "U.S. TREASURY · 14 JUL 2026",
+    "highlights": ["Today’s action includes more than 50 individuals, entities, and vessels"],
+    "holdSec": 8
+  },
+  {
+    "out": "09a-eia-flow-baseline",
+    "url": "https://www.eia.gov/outlooks/steo/report/energysecurity/article.php",
+    "label": "U.S. EIA · HISTORICAL BASELINE",
+    "highlights": ["Strait of Hormuz 20.4 20.2 20.5 20.7 14.6"],
+    "holdSec": 9
+  },
+  {
+    "out": "09b-eia-ais-warning",
+    "url": "https://www.eia.gov/outlooks/steo/report/energysecurity/article.php",
+    "label": "U.S. EIA · DATA LIMITATION",
+    "highlights": ["Since the end of February 2026, AIS signal data for ships transiting the Strait of Hormuz have become especially unreliable."],
+    "holdSec": 9
+  },
+  {
+    "out": "10a-ofac-license",
+    "url": "https://ofac.treasury.gov/recent-actions/20260714",
+    "label": "OFAC · 14 JUL 2026",
+    "highlights": ["The Department of the Treasury's Office of Foreign Assets Control (OFAC) is issuing Iran General License Z"],
+    "holdSec": 9
+  },
+  {
+    "out": "10b-eia-outlook",
+    "url": "https://www.eia.gov/outlooks/steo/report/global_oil.php?src=Petroleum-b1",
+    "label": "U.S. EIA · JUL 2026 STEO",
+    "highlights": ["Global Oil Markets"],
+    "holdSec": 9
+  },
+  {
+    "out": "12a-bls-ppi",
+    "url": "https://www.bls.gov/schedule/news_release/ppi.htm",
+    "label": "U.S. BLS · RELEASE SCHEDULE",
+    "highlights": ["June 2026 Jul. 15, 2026 08:30 AM"],
+    "holdSec": 8
+  },
+  {
+    "out": "12b-boc",
+    "url": "https://www.bankofcanada.ca/2026/07/fad-announcement-release-mpr-2026-07-15/",
+    "label": "BANK OF CANADA · 15 JUL 2026",
+    "highlights": ["Bank of Canada interest rate announcement and release of the Monetary Policy Report"],
+    "holdSec": 8
+  },
+  {
+    "out": "12c-fed-calendar",
+    "url": "https://www.federalreserve.gov/newsevents/2026-july.htm",
+    "label": "FEDERAL RESERVE · JUL 2026",
+    "highlights": ["Before the U.S. Senate Committee on Banking, Housing, and Urban Affairs"],
+    "holdSec": 8
+  },
+  {
+    "out": "12d-eia-weekly",
+    "url": "https://www.eia.gov/petroleum/supply/weekly/",
+    "label": "U.S. EIA · WEEKLY PETROLEUM",
+    "highlights": ["Weekly Petroleum Status Report"],
+    "holdSec": 8
+  }
+]

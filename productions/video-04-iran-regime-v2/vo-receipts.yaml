@@ -1,0 +1,111 @@
+"01":
+  - quote: >-
+      The International Maritime Organization's register now lists fifty-seven incidents in the region as of July sixteenth, and its newest entry is another damaged vessel near Iran.
+    claim: clm-imo-incidents-2026-07-16
+  - quote: >-
+      But Brent was around eighty-four forty-seven on the live daily bar, below yesterday's close. Energy stocks were green, the Nasdaq one hundred was down about one point three percent, and the VIX was only sixteen.
+    claim: clm-chart-brent-2026-07-16
+  - quote: >-
+      My read is straightforward. The war risk is real. Today's tape is not adding another clean oil breakout. It is showing up more clearly in tech, rates, and the dollar.
+    claim: clm-market-mechanism-2026-07-16
+
+"02":
+  - quote: >-
+      Bloomberg's current Iran coverage is centered on a widening conflict, ships avoiding Hormuz, and the consequences for oil.
+    claim: clm-bloomberg-iran-frame-2026-07-16
+  - quote: >-
+      Al Jazeera reported that the renewed U.S. blockade of vessels moving to and from Iranian ports took effect at twenty hundred GMT on Tuesday. The same report said CENTCOM announced a new wave of strikes aimed at capabilities used to attack commercial shipping in the strait.
+    claim: clm-aj-blockade-strikes-2026-07-14
+  - quote: >-
+      As of July sixteenth, it lists fifty-seven incidents and eighteen seafarer fatalities across the region. The newest entry is the BELMA, damaged near Bushehr Province on July fifteenth, with no pollution reported.
+    claim: clm-imo-incidents-2026-07-16
+  - quote: >-
+      Treasury sanctioned seven people and entities on Wednesday for supporting weapons procurement for the IRGC. A day earlier it expanded pressure on a large oil, shipping, and finance network.
+    claim: clm-treasury-irgc-procurement-2026-07-15
+
+"03":
+  - quote: >-
+      July tenth closed at seventy-five twenty-two. July thirteenth closed at eighty-three thirty-one. That was a ten point seven five percent jump in one completed session. On July fourteenth, Brent traded as high as eighty-seven fifty-five and closed at eighty-five fifteen. Wednesday closed almost flat at eighty-five oh-seven.
+    claim: clm-chart-brent-2026-07-16
+  - quote: >-
+      On the live July sixteenth bar, Brent opened at eighty-five thirty-four, traded up to eighty-six twenty-five, down to eighty-three eighty-three, and was around eighty-four forty-seven at the cutoff.
+    claim: clm-chart-brent-2026-07-16
+  - quote: >-
+      Eighty-seven fifty-five is the breakout level overhead. Eighty-three thirty-one is the completed support, with today's live low at eighty-three eighty-three sitting just above it.
+    claim: clm-chart-brent-2026-07-16
+
+"04":
+  - quote: >-
+      X L E closed Wednesday at fifty-six fifty. On the live Thursday bar it was around fifty-six ninety-six, up about eight tenths of one percent, after trading as high as fifty-seven thirty.
+    claim: clm-chart-xle-2026-07-16
+  - quote: >-
+      That matters because crude and producers are not giving the same intraday answer. Brent was lower; the energy fund was higher.
+    claim: clm-market-mechanism-2026-07-16
+  - quote: >-
+      For that, I want Brent through eighty-seven fifty-five and X L E through fifty-seven thirty on completed bars.
+    claim: clm-scenario-map-2026-07-16
+  - quote: >-
+      If X L E loses that level while Brent loses eighty-three thirty-one, the energy bid is weakening with the barrel.
+    claim: clm-scenario-map-2026-07-16
+
+"05":
+  - quote: >-
+      The Nasdaq one hundred closed Wednesday at twenty-nine thousand five hundred two point six. On the live Thursday bar it was around twenty-nine thousand one hundred twenty-three, down about one point three percent. The S and P closed Wednesday at seventy-five seventy-two point four and was around seventy-five fifty-four, down about a quarter of one percent.
+    claim: clm-chart-equity-split-2026-07-16
+  - quote: >-
+      The Nasdaq's repair level is the prior close at twenty-nine thousand five hundred two point six. The live low was twenty-nine thousand sixty-four point seven.
+    claim: clm-chart-equity-split-2026-07-16
+
+"06":
+  - quote: >-
+      The ten-year yield closed Wednesday at four point five four nine percent.
+    claim: clm-chart-rates-dollar-2026-07-16
+  - quote: >-
+      It was around four point five seven five on the live Thursday bar, up two point six basis points.
+    claim: clm-chart-rates-dollar-2026-07-16
+  - quote: >-
+      The dollar index was around one hundred point eight two seven, up roughly a third of one percent from the prior close.
+    claim: clm-chart-rates-dollar-2026-07-16
+  - quote: >-
+      Wednesday closed at four thousand sixty point eight five. The live bar was around three thousand nine hundred eighty-eight point eight, down about one point eight percent. VIX was sixteen eleven, up from fifteen sixty-seven, but still below the decision level at seventeen fifty-six.
+    claim: clm-chart-gold-vix-2026-07-16
+
+"07":
+  - quote: >-
+      First, danger around a major shipping route raises the cost and uncertainty of moving cargo. That can mean insurance, freight, delays, rerouting, and compliance checks. Second, those costs can raise the delivered price of energy and products even before a refinery loses supply. Third, higher delivered-energy risk makes the inflation and rate path less comfortable.
+    claim: clm-market-mechanism-2026-07-16
+
+"08":
+  - quote: >-
+      Brent moved from seventy-five twenty-two on July tenth to eighty-three thirty-one on July thirteenth. It reached eighty-seven fifty-five the next day.
+    claim: clm-chart-brent-2026-07-16
+  - quote: >-
+      Today's official shipping update is serious, but Brent was still below Wednesday's close at the cutoff.
+    claim: clm-imo-incidents-2026-07-16
+
+"09":
+  - quote: >-
+      Base case: elevated route risk, selective market pressure, no fresh oil breakout. Brent holds between eighty-three thirty-one and eighty-seven fifty-five. X L E holds between fifty-six fifty and fifty-seven thirty. VIX stays below seventeen fifty-six.
+    claim: clm-scenario-map-2026-07-16
+  - quote: >-
+      Escalation case: an official source reports more navigation disruption, additional vessel damage, or lost supply. Then I want price alignment: Brent closes above eighty-seven fifty-five, X L E clears fifty-seven thirty, and VIX clears seventeen fifty-six.
+    claim: clm-scenario-map-2026-07-16
+  - quote: >-
+      Relief case: an official source reports safer passage or real de-escalation. Then Brent closes below eighty-three thirty-one, X L E loses fifty-six fifty, and the Nasdaq one hundred recovers the prior close at twenty-nine thousand five hundred two point six.
+    claim: clm-scenario-map-2026-07-16
+
+"10":
+  - quote: >-
+      The next scheduled U.S. oil-data catalyst is the EIA Weekly Petroleum Status Report on Wednesday, July twenty-second, after ten thirty Eastern.
+    claim: clm-eia-next-2026-07-22
+  - quote: >-
+      Brent at eighty-seven fifty-five and eighty-three thirty-one. X L E at fifty-seven thirty and fifty-six fifty. VIX at seventeen fifty-six. Nasdaq one hundred at twenty-nine thousand five hundred two point six.
+    claim: clm-scenario-map-2026-07-16
+
+"11":
+  - quote: >-
+      Brent already repriced sharply earlier in the week and was holding near eighty-four and a half on the live bar, not breaking above Tuesday's high.
+    claim: clm-chart-brent-2026-07-16
+  - quote: >-
+      That is a selective war-risk tape. I change the call if Brent closes outside eighty-three thirty-one to eighty-seven fifty-five with an official event that explains the break.
+    claim: clm-scenario-map-2026-07-16

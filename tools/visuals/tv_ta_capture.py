@@ -36,7 +36,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 HUB = HERE.parents[1]
-TV_CLI = Path(r"C:\Users\MSI\repos\tradingview-mcp\src\cli\index.js")
+CDP_SHOT = HERE / "cdp_chart_shot.mjs"
 SETTLE_SYMBOL_S = 5   # data load after symbol/timeframe switch
 SETTLE_DRAW_S = 1.5
 
@@ -48,6 +48,16 @@ AD_HIDE_JS = ("(()=>{let n=0;for(const f of document.querySelectorAll("
               "node.parentElement);if(cs.position==='fixed'||cs.position==='absolute'){node="
               "node.parentElement}else break}node.style.display='none';n++}return n})()")
 
+# Operator ruling 2026-07-17: chart background must be white to match white news pages.
+# Overrides reset on symbol change, so reapply per shot after the symbol settles.
+WHITE_JS = ("(()=>{try{const w=TradingViewApi._chartWidgetCollection.activeChartWidget.value();"
+            "w.applyOverrides({'paneProperties.background':'#FFFFFF',"
+            "'paneProperties.backgroundType':'solid',"
+            "'paneProperties.vertGridProperties.color':'#E8E8E8',"
+            "'paneProperties.horzGridProperties.color':'#E8E8E8',"
+            "'scalesProperties.textColor':'#131722'});return 'white'}"
+            "catch(e){return 'ERR '+e.message}})()")
+
 sys.path.insert(0, str(HERE))
 from fetch_tv_charts import tv  # noqa: E402  (same CLI bridge)
 
@@ -57,9 +67,10 @@ def still(png: Path, out: Path, dur: float, dry: bool) -> None:
     Wider than 16:9 (maximized app, ~2.0): full-height RIGHT-anchored crop keeps the
     price axis, trims oldest candles. Narrower (unmaximized relaunch, seen 1304x1187):
     fit-pad instead — scaling a narrow crop straight to 1920x1080 squashes candles."""
-    vf = ("scale=-2:1080,"                                    # height always 1080
+    vf = ("crop=iw:ih-40:0:40,"                               # drop the dark app toolbar strip (visible on white theme)
+          "scale=-2:1080,"                                    # height always 1080
           "crop='min(iw,1920)':1080:'max(iw-1920,0)':0,"      # wide -> right-crop (keep axis)
-          "pad=1920:1080:(ow-iw)/2:0:black,format=yuv420p")   # narrow -> side pads, no squash
+          "pad=1920:1080:(ow-iw)/2:0:white,format=yuv420p")   # narrow -> side pads; white world
     if dry:
         print(f"  [dry] ffmpeg still {png.name} -> {out.name} ({dur:.0f}s)")
         return
@@ -142,6 +153,9 @@ def main() -> int:
         if not a.dry_run:
             time.sleep(SETTLE_SYMBOL_S)
         tv(["ui", "eval", "--js", AD_HIDE_JS], a.dry_run)
+        tv(["ui", "eval", "--js", WHITE_JS], a.dry_run)
+        if not a.dry_run:
+            time.sleep(1)
 
         drawn: list[str] = []
         clips: list[Path] = []
@@ -152,10 +166,14 @@ def main() -> int:
                     if not a.dry_run:
                         time.sleep(SETTLE_DRAW_S)
                 name = f"{shot['out']}-s{si}"
-                shotres = tv(["screenshot", "--region", "chart", "--output", name], a.dry_run)
                 if a.dry_run:
+                    print(f"  [dry] cdp chart shot {name}.png")
                     continue
-                png = Path(shotres.get("file_path") or (TV_CLI.parents[1] / "screenshots" / f"{name}.png"))
+                png = work / f"{name}.png"
+                subprocess.run(
+                    ["node", str(CDP_SHOT), str(png), "2560", "1440"],
+                    check=True,
+                )
                 clip = work / f"{name}.mp4"
                 still(png, clip, float(stage.get("holdSec", 8)), a.dry_run)
                 clips.append(clip)

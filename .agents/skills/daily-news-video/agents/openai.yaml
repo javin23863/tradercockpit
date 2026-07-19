@@ -1,0 +1,4 @@
+interface:
+  display_name: "TraderCockpit Daily News Video"
+  short_description: "Run the canonical daily finance-video workflow"
+  default_prompt: "Use $daily-news-video to produce today's sourced TraderCockpit market video."

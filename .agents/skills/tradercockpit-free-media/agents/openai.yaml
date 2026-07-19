@@ -1,0 +1,4 @@
+interface:
+  display_name: "TraderCockpit Free Media"
+  short_description: "Route social media work through verified $0 tools"
+  default_prompt: "Use $tradercockpit-free-media to create a sourced social asset without paid providers."

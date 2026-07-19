@@ -1,0 +1,25 @@
+{
+  "default": "claude",
+  "backends": {
+    "claude": {
+      "type": "cli",
+      "argv": [
+        "claude",
+        "-p"
+      ]
+    },
+    "codex": {
+      "type": "cli",
+      "argv": [
+        "codex",
+        "exec",
+        "--skip-git-repo-check"
+      ]
+    },
+    "ollama": {
+      "type": "ollama",
+      "url": "http://127.0.0.1:11434",
+      "model": "gemma3:12b"
+    }
+  }
+}

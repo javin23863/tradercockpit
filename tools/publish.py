@@ -1,46 +1,101 @@
 #!/usr/bin/env python3
-"""Publish one rendered video to YouTube + Instagram Reels + Facebook Reels.
+"""Publish one exact social-batch/v2 item after operator-held auth probes."""
 
-Reads credentials from OpenMontage/.env (see ops/SETUP-CREDS.md):
-  YouTube:   client_secret.json next to this script (OAuth on first run)
-  Meta:      META_PAGE_ID, META_IG_USER_ID, META_PAGE_TOKEN
-  B2 (IG only — Meta ingests Reels from a public URL):
-             B2_KEY_ID, B2_APP_KEY, B2_BUCKET, B2_S3_ENDPOINT
-
-Usage:
-  python publish.py video.mp4 --title "..." --caption "... #tags" \
-      --platforms youtube instagram facebook tiktok [--privacy public] [--thumbnail t.png] [--dry-run]
-
-TikTok is opt-in (not in the default set) and uses the sibling makiisthenes/TiktokAutoUploader
-checkout (unofficial, cookie-based; one-time `cli.py login`). See tools/upload_tiktok.py.
-"""
 import argparse
+import importlib.util
+import json
 import os
 import re
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
 
+try:
+    from tools.social_batch import ROOT, load as load_social_batch
+except ModuleNotFoundError:  # direct `python tools/publish.py` execution
+    from social_batch import ROOT, load as load_social_batch
+
+
 HERE = Path(__file__).parent
-load_dotenv(HERE.parent / "OpenMontage" / ".env")
+for _env_path in filter(None, [
+    Path(os.environ["TRADERCOCKPIT_ENV"]) if os.getenv("TRADERCOCKPIT_ENV") else None,
+    HERE.parent / "OpenMontage" / ".env",
+]):
+    if _env_path.is_file():
+        load_dotenv(_env_path)
+        break
 _KEYS_ENV = Path.home() / "Desktop" / "keys.env"
 if _KEYS_ENV.exists():
-    load_dotenv(_KEYS_ENV)  # existing B2/S3 creds; consumed in-process, never printed
+    load_dotenv(_KEYS_ENV)
+
+try:
+    from tools.credential_custody import load_meta_env
+except ModuleNotFoundError:
+    from credential_custody import load_meta_env
+load_meta_env()  # Meta publish creds live in operator custody, not the repo
 
 GRAPH = "https://graph.facebook.com/v25.0"
+LIVE_CHANNELS = {"youtube", "instagram", "facebook", "tiktok"}
+LOG_SCHEMA = "tradercockpit-publish-log/v2"
 
 
-def die(msg):
-    sys.exit(f"ERROR: {msg}")
+def module_available(name):
+    return importlib.util.find_spec(name) is not None
 
 
-def graph_check(resp):
-    data = resp.json()
+def youtube_readiness():
+    if not all(module_available(name) for name in ("googleapiclient", "google_auth_oauthlib")):
+        return {"status": "dependency-missing", "ready": False, "channelId": None}
+    from upload_youtube import probe_auth
+
+    return probe_auth()
+
+
+def tiktok_readiness():
+    from upload_tiktok import probe_auth
+
+    return probe_auth()
+
+
+def readiness_report():
+    return {
+        "youtube": youtube_readiness(),
+        "instagram": {
+            "status": "valid" if all([
+                os.getenv("META_IG_USER_ID"), os.getenv("META_PAGE_TOKEN"),
+                os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID"),
+                os.getenv("B2_APP_KEY") or os.getenv("AWS_SECRET_ACCESS_KEY"),
+                os.getenv("B2_BUCKET"), os.getenv("B2_S3_ENDPOINT") or os.getenv("B2_ENDPOINT_URL"),
+                module_available("boto3"),
+            ]) else "absent",
+            "ready": bool(all([
+                os.getenv("META_IG_USER_ID"), os.getenv("META_PAGE_TOKEN"),
+                os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID"),
+                os.getenv("B2_APP_KEY") or os.getenv("AWS_SECRET_ACCESS_KEY"),
+                os.getenv("B2_BUCKET"), os.getenv("B2_S3_ENDPOINT") or os.getenv("B2_ENDPOINT_URL"),
+                module_available("boto3"),
+            ])),
+        },
+        "facebook": {
+            "status": "valid" if os.getenv("META_PAGE_ID") and os.getenv("META_PAGE_TOKEN") else "absent",
+            "ready": bool(os.getenv("META_PAGE_ID") and os.getenv("META_PAGE_TOKEN")),
+        },
+        "tiktok": tiktok_readiness(),
+    }
+
+
+def readiness_checks():
+    return {platform: probe["ready"] for platform, probe in readiness_report().items()}
+
+
+def graph_check(response):
+    data = response.json()
     if "error" in data:
-        die(f"Graph API: {data['error'].get('message')}")
+        raise RuntimeError(f"Graph API: {data['error'].get('message')}")
     return data
 
 
@@ -53,22 +108,22 @@ def _b2_client():
     endpoint = os.getenv("B2_S3_ENDPOINT") or os.getenv("B2_ENDPOINT_URL")
     bucket = os.getenv("B2_BUCKET")
     if not all([key_id, app_key, bucket, endpoint]):
-        die("Instagram needs B2 creds (run b2_setup.py; keys come from keys.env or env)")
-    # B2 S3 presigned URLs need the region (e.g. us-west-004) in the SigV4 signature
-    m = re.search(r"s3\.([a-z0-9-]+)\.backblazeb2\.com", endpoint)
-    region = m.group(1) if m else "us-west-004"
-    cfg = Config(region_name=region, signature_version="s3v4")
-    return boto3.client("s3", endpoint_url=endpoint, aws_access_key_id=key_id,
-                        aws_secret_access_key=app_key, config=cfg), bucket
+        raise RuntimeError("Instagram needs B2 staging credentials")
+    match = re.search(r"s3\.([a-z0-9-]+)\.backblazeb2\.com", endpoint)
+    config = Config(region_name=match.group(1) if match else "us-west-004", signature_version="s3v4")
+    return boto3.client(
+        "s3", endpoint_url=endpoint, aws_access_key_id=key_id,
+        aws_secret_access_key=app_key, config=config,
+    ), bucket
 
 
 def b2_stage(video_path):
-    """Upload to B2, return (presigned_url, key) for cleanup. URL expires 6h."""
     s3, bucket = _b2_client()
     key = f"openmontage-staging/{Path(video_path).name}"
     s3.upload_file(str(video_path), bucket, key)
-    url = s3.generate_presigned_url("get_object", Params={"Bucket": bucket, "Key": key}, ExpiresIn=6 * 3600)
-    return url, key
+    return s3.generate_presigned_url(
+        "get_object", Params={"Bucket": bucket, "Key": key}, ExpiresIn=6 * 3600
+    ), key
 
 
 def b2_cleanup(key):
@@ -76,115 +131,215 @@ def b2_cleanup(key):
         s3, bucket = _b2_client()
         s3.delete_object(Bucket=bucket, Key=key)
     except Exception:
-        pass  # transient staging object; 6h presign already expired anyway
+        pass
 
 
 def publish_instagram(video_path, caption):
-    ig_user, token = os.getenv("META_IG_USER_ID"), os.getenv("META_PAGE_TOKEN")
-    if not (ig_user and token):
-        die("Set META_IG_USER_ID and META_PAGE_TOKEN in .env")
+    user, token = os.getenv("META_IG_USER_ID"), os.getenv("META_PAGE_TOKEN")
+    if not (user and token):
+        raise RuntimeError("Instagram credentials are absent")
     url, staged_key = b2_stage(video_path)
-    print("IG: staged on B2, creating media container...")
     try:
-        container = graph_check(requests.post(f"{GRAPH}/{ig_user}/media", data={
+        create = graph_check(requests.post(f"{GRAPH}/{user}/media", data={
             "media_type": "REELS", "video_url": url, "caption": caption, "access_token": token,
-        }))["id"]
-        for _ in range(60):  # Meta processing can take minutes
-            status = graph_check(requests.get(f"{GRAPH}/{container}",
-                                              params={"fields": "status_code", "access_token": token}))["status_code"]
+        }))
+        container = create["id"]
+        for _ in range(60):
+            status = graph_check(requests.get(
+                f"{GRAPH}/{container}", params={"fields": "status_code", "access_token": token}
+            ))["status_code"]
             if status == "FINISHED":
                 break
             if status == "ERROR":
-                die("IG processing failed — check video specs (9:16, ≤90s, h264/aac)")
+                raise RuntimeError("Instagram processing failed")
             time.sleep(10)
         else:
-            die("IG processing timed out")
-        media_id = graph_check(requests.post(f"{GRAPH}/{ig_user}/media_publish", data={
+            raise RuntimeError("Instagram processing timed out")
+        published = graph_check(requests.post(f"{GRAPH}/{user}/media_publish", data={
             "creation_id": container, "access_token": token,
-        }))["id"]
+        }))
     finally:
         b2_cleanup(staged_key)
-    permalink = graph_check(requests.get(f"{GRAPH}/{media_id}",
-                                         params={"fields": "permalink", "access_token": token})).get("permalink", media_id)
-    print(f"IG Reel published: {permalink}")
-    return permalink
+    media_id = published.get("id")
+    readback = graph_check(requests.get(
+        f"{GRAPH}/{media_id}", params={"fields": "id,permalink", "access_token": token}
+    ))
+    if not media_id or readback.get("id") != media_id or not readback.get("permalink"):
+        raise RuntimeError("Instagram returned no matching post read-back")
+    return {
+        "status": "published", "id": media_id, "url": readback["permalink"],
+        "platformResponse": {"publish": published, "readback": readback},
+    }
 
 
 def publish_facebook(video_path, caption):
     page_id, token = os.getenv("META_PAGE_ID"), os.getenv("META_PAGE_TOKEN")
     if not (page_id and token):
-        die("Set META_PAGE_ID and META_PAGE_TOKEN in .env")
+        raise RuntimeError("Facebook credentials are absent")
     start = graph_check(requests.post(f"{GRAPH}/{page_id}/video_reels", data={
         "upload_phase": "start", "access_token": token,
     }))
     video_id = start["video_id"]
-    size = Path(video_path).stat().st_size
-    with open(video_path, "rb") as f:
-        r = requests.post(start["upload_url"], data=f, headers={
-            "Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
+    with open(video_path, "rb") as video:
+        binary = requests.post(start["upload_url"], data=video, headers={
+            "Authorization": f"OAuth {token}", "offset": "0",
+            "file_size": str(Path(video_path).stat().st_size),
         })
-    if not r.json().get("success"):
-        die(f"FB binary upload failed: {r.text[:300]}")
-    graph_check(requests.post(f"{GRAPH}/{page_id}/video_reels", data={
+    if not binary.json().get("success"):
+        raise RuntimeError("Facebook binary upload failed")
+    finish = graph_check(requests.post(f"{GRAPH}/{page_id}/video_reels", data={
         "upload_phase": "finish", "video_id": video_id, "video_state": "PUBLISHED",
         "description": caption, "access_token": token,
     }))
-    print(f"FB Reel published: video id {video_id}")
-    return f"https://www.facebook.com/reel/{video_id}"
+    readback = graph_check(requests.get(
+        f"{GRAPH}/{video_id}", params={"fields": "id,permalink_url", "access_token": token}
+    ))
+    if readback.get("id") != video_id or not readback.get("permalink_url"):
+        raise RuntimeError("Facebook returned no matching post read-back")
+    return {
+        "status": "published", "id": video_id, "url": readback["permalink_url"],
+        "platformResponse": {"finish": finish, "readback": readback},
+    }
 
 
-def main():
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("video")
-    p.add_argument("--title", required=True, help="YouTube title")
-    p.add_argument("--description", default="", help="YouTube description (defaults to caption)")
-    p.add_argument("--caption", default="", help="IG/FB caption incl. hashtags")
-    p.add_argument("--tags", nargs="*", default=[])
-    p.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"], help="YouTube privacy")
-    p.add_argument("--thumbnail")
-    p.add_argument("--platforms", nargs="+", default=["youtube", "instagram", "facebook"],
-                   choices=["youtube", "instagram", "facebook", "tiktok"])
-    p.add_argument("--synthetic", action="store_true",
-                   help="declare altered/synthetic (AI VO / AI visuals) on YouTube upload")
-    p.add_argument("--dry-run", action="store_true", help="validate config + file, publish nothing")
-    args = p.parse_args()
+def load_live_item(batch_path, item_id, requested_platform=None):
+    data = load_social_batch(Path(batch_path))
+    if data["schema"] != "social-batch/v2":
+        raise ValueError("social-batch/v1 is historical evidence only and cannot publish")
+    item = next((candidate for candidate in data["items"] if candidate["id"] == item_id), None)
+    if item is None:
+        raise ValueError(f"item not found: {item_id}")
+    if item["status"] != "approved":
+        raise ValueError(f"item status is {item['status']}, not approved")
+    platform = item["channel"]
+    if platform not in LIVE_CHANNELS:
+        raise ValueError(f"item channel is not publishable: {platform}")
+    if requested_platform and requested_platform != platform:
+        raise ValueError(f"platform mismatch: item is {platform}, request is {requested_platform}")
+    return data, item
 
-    video = Path(args.video)
-    if not video.exists():
-        die(f"no such file: {video}")
+
+def _asset(item):
+    path = (ROOT / item["asset"]).resolve()
+    if not path.is_file():
+        raise ValueError("approved asset is missing")
+    return path
+
+
+def dispatch_publish(item):
+    platform, asset = item["channel"], _asset(item)
+    if platform == "youtube":
+        from upload_youtube import upload
+
+        return upload(
+            str(asset), item["title"], item["copy"], privacy=item["privacy"],
+            synthetic=item.get("containsSyntheticMedia", False), interactive=False,
+        )
+    if platform == "instagram":
+        return publish_instagram(asset, item["copy"])
+    if platform == "facebook":
+        return publish_facebook(asset, item["copy"])
+    from upload_tiktok import upload
+
+    return upload(str(asset), item["copy"] or item["title"])
+
+
+def _normalized_result(result):
+    if isinstance(result, dict):
+        platform_id = result.get("id")
+        response = result.get("platformResponse") or {}
+        readback = response.get("readback") or {}
+        readback_ids = {readback.get("id"), *(
+            item.get("id") for item in readback.get("items", []) if isinstance(item, dict)
+        )}
+        if (
+            result.get("status") == "published"
+            and platform_id
+            and result.get("url")
+            and platform_id in readback_ids
+        ):
+            return "published", platform_id, result["url"]
+    return "uploaded-unverified", None, None
+
+
+def write_publish_log(batch_path, batch_id, item, result=None, error=None):
+    path = Path(batch_path).resolve().parent / "publish_log.json"
+    if path.exists():
+        log = json.loads(path.read_text(encoding="utf-8"))
+        if log.get("schema") != LOG_SCHEMA or not isinstance(log.get("entries"), list):
+            raise ValueError(f"refusing to overwrite incompatible publish log: {path}")
+    else:
+        log = {"schema": LOG_SCHEMA, "entries": []}
+    status, platform_id, url = (
+        ("failed", None, None) if error else _normalized_result(result)
+    )
+    entry = {
+        "batchId": batch_id,
+        "itemId": item["id"],
+        "platform": item["channel"],
+        "status": status,
+        "platformId": platform_id,
+        "url": url,
+        "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "platformResponse": result.get("platformResponse") if isinstance(result, dict) else None,
+        "error": str(error) if error else None,
+    }
+    log["entries"].append(entry)
+    temporary = path.with_suffix(".json.tmp")
+    temporary.write_text(json.dumps(log, indent=2), encoding="utf-8")
+    temporary.replace(path)
+    return entry
+
+
+def publish_batch_item(batch_path, item_id, requested_platform=None):
+    data, item = load_live_item(batch_path, item_id, requested_platform)
+    probe = readiness_report()[item["channel"]]
+    if not probe["ready"]:
+        error = RuntimeError(f"{item['channel']} authentication blocked: {probe['status']}")
+        write_publish_log(batch_path, data["batchId"], item, error=error)
+        raise error
+    try:
+        result = dispatch_publish({
+            **item, "containsSyntheticMedia": data.get("containsSyntheticMedia", False)
+        })
+    except Exception as error:
+        write_publish_log(batch_path, data["batchId"], item, error=error)
+        raise
+    entry = write_publish_log(batch_path, data["batchId"], item, result=result)
+    if entry["status"] != "published":
+        raise RuntimeError(f"{item['channel']} upload is uploaded-unverified; no live ID/URL read-back")
+    return entry
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--batch", type=Path)
+    parser.add_argument("--item")
+    parser.add_argument("--platform", choices=sorted(LIVE_CHANNELS))
+    parser.add_argument("--dry-run", action="store_true", help="probe only; never upload")
+    args = parser.parse_args(argv)
 
     if args.dry_run:
-        from upload_tiktok import cookie_present
-        checks = {
-            "youtube": (HERE / "client_secret.json").exists() or (HERE / "token.json").exists(),
-            "instagram": bool(os.getenv("META_IG_USER_ID") and os.getenv("META_PAGE_TOKEN")
-                              and (os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID"))
-                              and os.getenv("B2_BUCKET")),
-            "facebook": bool(os.getenv("META_PAGE_ID") and os.getenv("META_PAGE_TOKEN")),
-            "tiktok": cookie_present(),
-        }
-        for plat in args.platforms:
-            print(f"{plat}: {'ready' if checks[plat] else 'MISSING CREDS — see ops/SETUP-CREDS.md'}")
-        sys.exit(0 if all(checks[p] for p in args.platforms) else 1)
+        if bool(args.batch) != bool(args.item):
+            parser.error("--batch and --item must be supplied together")
+        platforms = [args.platform] if args.platform else sorted(LIVE_CHANNELS)
+        if args.batch:
+            _, item = load_live_item(args.batch, args.item, args.platform)
+            platforms = [item["channel"]]
+        report = readiness_report()
+        for platform in platforms:
+            print(f"{platform}: {report[platform]['status']}")
+        return 0 if all(report[platform]["ready"] for platform in platforms) else 1
 
-    results = {}
-    if "youtube" in args.platforms:
-        from upload_youtube import upload
-        results["youtube"] = upload(str(video), args.title, args.description or args.caption,
-                                    args.tags, privacy=args.privacy, thumbnail=args.thumbnail,
-                                    synthetic=args.synthetic)
-    if "facebook" in args.platforms:
-        results["facebook"] = publish_facebook(video, args.caption)
-    if "instagram" in args.platforms:
-        results["instagram"] = publish_instagram(video, args.caption)
-    if "tiktok" in args.platforms:
-        from upload_tiktok import upload as tiktok_upload
-        results["tiktok"] = tiktok_upload(str(video), args.caption or args.title)
-
-    print("\n=== published ===")
-    for plat, link in results.items():
-        print(f"{plat}: {link}")
+    if not args.batch or not args.item:
+        parser.error("live publishing requires --batch and --item")
+    try:
+        entry = publish_batch_item(args.batch, args.item, args.platform)
+    except (OSError, ValueError, RuntimeError, json.JSONDecodeError) as error:
+        raise SystemExit(f"ERROR: {error}") from error
+    print(f"published {entry['platform']}: {entry['url']}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

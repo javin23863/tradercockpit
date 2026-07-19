@@ -1,0 +1,418 @@
+{
+  "schema": "tradercockpit-publish-log/v2",
+  "entries": [
+    {
+      "batchId": "video-05-deadline-day-launch-2026-07-17",
+      "itemId": "youtube-long-deadline-day",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "33cnTUL4ga4",
+      "url": "https://youtu.be/33cnTUL4ga4",
+      "timestamp": "2026-07-17T08:47:02.792452Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "xff2hEQ43dWKIfLPos5bD1z4AoI",
+          "id": "33cnTUL4ga4",
+          "snippet": {
+            "publishedAt": "2026-07-17T08:46:40Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Iran Oil Deadline Day Meets a Cracking AI Trade",
+            "description": "The last legal Iranian barrel cleared at one minute past midnight. The same week, the market sold the best chip earnings ever printed.\n\nThis episode walks the official record (Treasury's General License X wind-down via CBS and Axios, the Hormuz shipping halt via Al Jazeera, TSMC's filed Q2 numbers) and then works six exact chart levels: TSM's triple-tested floor, the Nasdaq 100's broken support, the S&P's nine-session band, XLE's breakout trigger, Brent's strike-week range, and the 10-year yield floor. Three cases, each with its own invalidation - the completed bars decide, not opinions.\n\nNews and education only. Not financial advice. Conditions and levels are not predictions.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/33cnTUL4ga4/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/33cnTUL4ga4/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/33cnTUL4ga4/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Iran Oil Deadline Day Meets a Cracking AI Trade",
+              "description": "The last legal Iranian barrel cleared at one minute past midnight. The same week, the market sold the best chip earnings ever printed.\n\nThis episode walks the official record (Treasury's General License X wind-down via CBS and Axios, the Hormuz shipping halt via Al Jazeera, TSMC's filed Q2 numbers) and then works six exact chart levels: TSM's triple-tested floor, the Nasdaq 100's broken support, the S&P's nine-session band, XLE's breakout trigger, Brent's strike-week range, and the 10-year yield floor. Three cases, each with its own invalidation - the completed bars decide, not opinions.\n\nNews and education only. Not financial advice. Conditions and levels are not predictions."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": true
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "7z9AKiQ5nOk0RLlSzI0hKAV0xT8",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "yHiBLj5akJEEHHf24FrQzvUWV2c",
+              "id": "33cnTUL4ga4",
+              "snippet": {
+                "publishedAt": "2026-07-17T08:46:40Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Iran Oil Deadline Day Meets a Cracking AI Trade",
+                "description": "The last legal Iranian barrel cleared at one minute past midnight. The same week, the market sold the best chip earnings ever printed.\n\nThis episode walks the official record (Treasury's General License X wind-down via CBS and Axios, the Hormuz shipping halt via Al Jazeera, TSMC's filed Q2 numbers) and then works six exact chart levels: TSM's triple-tested floor, the Nasdaq 100's broken support, the S&P's nine-session band, XLE's breakout trigger, Brent's strike-week range, and the 10-year yield floor. Three cases, each with its own invalidation - the completed bars decide, not opinions.\n\nNews and education only. Not financial advice. Conditions and levels are not predictions.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/33cnTUL4ga4/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/33cnTUL4ga4/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/33cnTUL4ga4/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "Iran Oil Deadline Day Meets a Cracking AI Trade",
+                  "description": "The last legal Iranian barrel cleared at one minute past midnight. The same week, the market sold the best chip earnings ever printed.\n\nThis episode walks the official record (Treasury's General License X wind-down via CBS and Axios, the Hormuz shipping halt via Al Jazeera, TSMC's filed Q2 numbers) and then works six exact chart levels: TSM's triple-tested floor, the Nasdaq 100's broken support, the S&P's nine-session band, XLE's breakout trigger, Brent's strike-week range, and the 10-year yield floor. Three cases, each with its own invalidation - the completed bars decide, not opinions.\n\nNews and education only. Not financial advice. Conditions and levels are not predictions."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-05-deadline-day-verticals-2026-07-17",
+      "itemId": "youtube-short-deadline-tsm-floor",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "l8BuqCo3D9M",
+      "url": "https://youtu.be/l8BuqCo3D9M",
+      "timestamp": "2026-07-17T09:01:27.621915Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "1_igFHKTqwcXyPA6OczTOS2WXJY",
+          "id": "l8BuqCo3D9M",
+          "snippet": {
+            "publishedAt": "2026-07-17T09:01:11Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "TSM's 403.50 Floor Is Being Tested",
+            "description": "TSMC printed a record quarter and the stock still fell. Now the $403.50 floor is being tested from underneath.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/l8BuqCo3D9M/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/l8BuqCo3D9M/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/l8BuqCo3D9M/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "TSM's 403.50 Floor Is Being Tested",
+              "description": "TSMC printed a record quarter and the stock still fell. Now the $403.50 floor is being tested from underneath.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": true
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "taEHr4PVWRZ70VYasAIRaIIXt1A",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "B-JWUD5CMAzwVePwPnr5ziH30_c",
+              "id": "l8BuqCo3D9M",
+              "snippet": {
+                "publishedAt": "2026-07-17T09:01:11Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "TSM's 403.50 Floor Is Being Tested",
+                "description": "TSMC printed a record quarter and the stock still fell. Now the $403.50 floor is being tested from underneath.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/l8BuqCo3D9M/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/l8BuqCo3D9M/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/l8BuqCo3D9M/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "TSM's 403.50 Floor Is Being Tested",
+                  "description": "TSMC printed a record quarter and the stock still fell. Now the $403.50 floor is being tested from underneath.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-05-deadline-day-verticals-2026-07-17",
+      "itemId": "facebook-short-deadline-tsm-floor",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "1553826106092562",
+      "url": "/reel/1553826106092562/",
+      "timestamp": "2026-07-17T09:02:02.064732Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122105376159392490"
+        },
+        "readback": {
+          "id": "1553826106092562",
+          "permalink_url": "/reel/1553826106092562/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-05-deadline-day-verticals-2026-07-17",
+      "itemId": "instagram-short-deadline-tsm-floor",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "18067283252474399",
+      "url": "https://www.instagram.com/reel/Da42RTWCkK-/",
+      "timestamp": "2026-07-17T09:03:13.971540Z",
+      "platformResponse": {
+        "publish": {
+          "id": "18067283252474399"
+        },
+        "readback": {
+          "id": "18067283252474399",
+          "permalink": "https://www.instagram.com/reel/Da42RTWCkK-/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-05-deadline-day-verticals-2026-07-17",
+      "itemId": "youtube-short-deadline-index-split",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "IQJsq4EYQXA",
+      "url": "https://youtu.be/IQJsq4EYQXA",
+      "timestamp": "2026-07-17T09:03:48.458959Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "YnBYmGXih8u2KkH479jvVkoFwto",
+          "id": "IQJsq4EYQXA",
+          "snippet": {
+            "publishedAt": "2026-07-17T09:03:31Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "The Nasdaq Broke. The S&P Held.",
+            "description": "The Nasdaq broke its support. The S&P held its band. That difference is the whole story.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/IQJsq4EYQXA/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/IQJsq4EYQXA/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/IQJsq4EYQXA/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "The Nasdaq Broke. The S&P Held.",
+              "description": "The Nasdaq broke its support. The S&P held its band. That difference is the whole story.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": true
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "9KsE-ffGP2OHlT7ByRUHeoAybZw",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "FpbX5qfdFW23qHqvYWR-7gpg_wg",
+              "id": "IQJsq4EYQXA",
+              "snippet": {
+                "publishedAt": "2026-07-17T09:03:31Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "The Nasdaq Broke. The S&P Held.",
+                "description": "The Nasdaq broke its support. The S&P held its band. That difference is the whole story.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/IQJsq4EYQXA/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/IQJsq4EYQXA/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/IQJsq4EYQXA/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "The Nasdaq Broke. The S&P Held.",
+                  "description": "The Nasdaq broke its support. The S&P held its band. That difference is the whole story.\n\nFull breakdown: https://youtu.be/33cnTUL4ga4\n\nNews and education only. Not financial advice. Levels are conditions, not predictions."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-05-deadline-day-verticals-2026-07-17",
+      "itemId": "facebook-short-deadline-index-split",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "898471110001791",
+      "url": "/reel/898471110001791/",
+      "timestamp": "2026-07-17T09:04:05.034444Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122105377665392490"
+        },
+        "readback": {
+          "id": "898471110001791",
+          "permalink_url": "/reel/898471110001791/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-05-deadline-day-verticals-2026-07-17",
+      "itemId": "instagram-short-deadline-index-split",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "18071105546390143",
+      "url": "https://www.instagram.com/reel/Da42fOaFQBn/",
+      "timestamp": "2026-07-17T09:04:58.997564Z",
+      "platformResponse": {
+        "publish": {
+          "id": "18071105546390143"
+        },
+        "readback": {
+          "id": "18071105546390143",
+          "permalink": "https://www.instagram.com/reel/Da42fOaFQBn/"
+        }
+      },
+      "error": null
+    }
+  ]
+}

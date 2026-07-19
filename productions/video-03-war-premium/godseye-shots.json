@@ -1,0 +1,27 @@
+[
+  {
+    "name": "hormuz-evidence-approach",
+    "lon": 56.5,
+    "lat": 26.5,
+    "height": 150000,
+    "headingDeg": 315,
+    "pitchDeg": -48,
+    "preset": "NORMAL",
+    "fromHeight": 18000000,
+    "flyDurationSec": 9,
+    "orbitDegPerSec": 1.2,
+    "holdSec": 24
+  },
+  {
+    "name": "gulf-watch-dusk",
+    "lon": 55.5,
+    "lat": 25.6,
+    "height": 340000,
+    "headingDeg": 300,
+    "pitchDeg": -52,
+    "preset": "DUSK",
+    "orbitDegPerSec": 1.5,
+    "settleSec": 8,
+    "holdSec": 24
+  }
+]

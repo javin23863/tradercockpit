@@ -1,0 +1,32 @@
+{
+  "schema": "social-batch/v1",
+  "batchId": "2026-07-16-china-growth-split",
+  "containsSyntheticMedia": true,
+  "items": [
+    {
+      "id": "china-growth-split-youtube-long",
+      "channel": "youtube",
+      "status": "rejected",
+      "title": "China's 4.3% Growth Split: Supply Strong, Demand Soft",
+      "asset": "productions/video-04-china-split/build/master-final.mp4",
+      "assetSha256": "f69ed3e57c794749f7e73b43dd84cf7787e1cd3d0d1fbd303ff354c03ec03037",
+      "claimsGate": "productions/video-04-china-split/build/claims-gate.json",
+      "claimsGateSha256": "ecdc7dcd1e54a5b92ac94e4d5c8b092c74ea848d1318f8be37a8621aa9c4ed2b",
+      "rejectedBy": "operator",
+      "rejectedAt": "2026-07-16T16:59:51Z",
+      "publicationAuthorized": false,
+      "rejectionReasons": [
+        "operator rejected the script and editorial voice",
+        "China was the wrong lead for the dominant Iran-war market regime",
+        "the YouTube master contains inaccurate burned captions"
+      ],
+      "priorApproval": {
+        "reviewedBy": "operator-explicit-exact-hash-approval",
+        "reviewedAt": "2026-07-16T13:59:10Z",
+        "approvalSha256": "7cf3813229dcdbdf682f9c2db187ca2646c990743e993634dfd35882d1a8d9a4",
+        "status": "invalidated"
+      },
+      "copy": "China just reported 4.3% Q2 GDP growth. The headline is respectable; the tape is split: mainland cash equities closed lower, FXI rose in the prior U.S. session, copper held higher in a live bar, and USDCNH was slightly weaker.\n\nThis is a verified market read, not a forecast. Watch Shanghai 3,867.6012–3,955.5781 and USDCNH 6.77210; the next official catalyst is the July 31 NBS PMI release.\n\nSources: National Bureau of Statistics of China and TradingView charts. News and education only—not financial advice.\n#China #Markets #Macro #TradingView"
+    }
+  ]
+}

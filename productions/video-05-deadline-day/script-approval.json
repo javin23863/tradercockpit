@@ -1,0 +1,31 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/video-05-deadline-day/vo.txt",
+  "scriptSha256": "d6f357db52dda5060df972e93d728edf1f31951f4f572d60a42e948ebb355ec5",
+  "reviewedBy": "operator (read v3 solo script on Telegram, hash d6f357db announced; replied 'approved script' in session)",
+  "reviewedAt": "2026-07-17T08:55:00Z",
+  "gates": {
+    "styleGate": "PASS 0 warnings at 2103 words",
+    "claimsGate": "PASS 9 sections, 12 claims, 36 receipts",
+    "chartsBeforeScript": "6 chart clips captured before scripting; white-theme recapture planned for the same symbols/levels per operator ruling"
+  },
+  "history": [
+    {
+      "scriptSha256": "6a6b6f8240d925e65d642a7e045bccb252420b7a51ee6d69772ca8e1e223470d",
+      "outcome": "superseded before review - operator set 10-12 minute target (Telegram msg 38); chart-depth expansion added ~475 words"
+    },
+    {
+      "scriptSha256": "7b1d472091b35663c3234d253ee1fb85981591126b1c3a6c80b472d20e5ba8f5",
+      "outcome": "superseded by operator ruling msg 47: single Apollo voice, 10-12 min; v2 8:06 duo master also rejected on voice-merge + transitions (msgs 43-44)"
+    }
+  ],
+  "blocks": [
+    "tts",
+    "asset-generation",
+    "render",
+    "derivatives",
+    "publish"
+  ],
+  "nextGate": "Operator approves this exact scriptSha256; any edit invalidates it and requires a new hash."
+}

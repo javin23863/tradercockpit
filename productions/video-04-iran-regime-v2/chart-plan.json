@@ -1,0 +1,57 @@
+[
+  {"out": "03-brent", "symbol": "TVC:UKOIL", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 83.31,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 87.55,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+   ]},
+  {"out": "04-xle", "symbol": "AMEX:XLE", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 56.50,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 57.30,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+   ]},
+  {"out": "05-ndx", "symbol": "NASDAQ:NDX", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 29502.60,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 29064.72,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]},
+  {"out": "05b-spx", "symbol": "SP_DLY:SPX", "tf": "1D",
+   "stages": [
+     {"holdSec": 8},
+     {"holdSec": 8, "draw": [{"type": "horizontal_line", "price": 7572.40,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]},
+  {"out": "06-us10y", "symbol": "TVC:US10Y", "tf": "1D",
+   "stages": [
+     {"holdSec": 8},
+     {"holdSec": 8, "draw": [{"type": "horizontal_line", "price": 4.549,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]},
+  {"out": "06b-dxy", "symbol": "TVC:DXY", "tf": "1D",
+   "stages": [
+     {"holdSec": 8},
+     {"holdSec": 8, "draw": [{"type": "horizontal_line", "price": 100.495,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]},
+  {"out": "06c-gold", "symbol": "TVC:GOLD", "tf": "1D",
+   "stages": [
+     {"holdSec": 8},
+     {"holdSec": 8, "draw": [{"type": "horizontal_line", "price": 4060.85,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]},
+  {"out": "06d-vix", "symbol": "CBOE:VIX", "tf": "1D",
+   "stages": [
+     {"holdSec": 8},
+     {"holdSec": 8, "draw": [{"type": "horizontal_line", "price": 17.56,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+     {"holdSec": 8}
+   ]}
+]

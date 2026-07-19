@@ -3,6 +3,8 @@
 # credentials — never commit
 # OpenMontage/ = engine + venv + .env (cloned separately, see README)
 OpenMontage/
+# Open-Generative-AI/ = local-only Electron studio + sd.cpp models
+Open-Generative-AI/
 # token.json = YouTube upload scope; token_channel.json = channel scope (videos().update)
 tools/token.json
 tools/token_channel.json
@@ -38,3 +40,23 @@ studio-kit/**/node_modules/
 studio-kit/**/output/
 studio-kit/tribev2/
 studio-kit/pipeline/generators/compositions/cfg.json
+
+# generated media, round 2 (2026-07-17 sweep) — new layouts the old patterns miss
+# build-rejected-*/ = archived rejected masters · shorts/recut-v*/ = re-cut verticals
+productions/*/build-rejected*/
+productions/*/shorts/**/*.mp4
+productions/*/source-footage/
+productions/*/godseye-work*/
+productions/*/*.wav
+productions/*/*.mp4
+productions/*/visuals/**/*.mp4
+
+# sqlite side files leaked from readonly Manager snapshots
+.manager-*.db-shm
+.manager-*.db-wal
+# qa/ + qa-sol/ = frame-audit screenshots, regenerable like verify/
+productions/*/qa/
+productions/*/qa-sol/
+
+# local browser captures and traces (regenerable evidence)
+/output/

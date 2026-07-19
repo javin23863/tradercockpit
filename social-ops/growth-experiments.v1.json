@@ -1,0 +1,201 @@
+{
+  "schema": "tradercockpit-growth-experiments/v1",
+  "updatedAt": "2026-07-16T12:00:00+07:00",
+  "paidActivation": "disabled",
+  "libraries": {
+    "audiences": [
+      {
+        "id": "audience/portfolio-news-viewer",
+        "state": "active",
+        "label": "Portfolio-aware market-news viewer",
+        "description": "Wants to understand how a verified event reaches a portfolio."
+      },
+      {
+        "id": "audience/creator-claim-checker",
+        "state": "hypothesis",
+        "label": "Creator-claim checker",
+        "description": "May want to test whether a creator's strategy claim survives robustness checks before paying for it."
+      }
+    ],
+    "angles": [
+      {
+        "id": "angle/event-to-portfolio",
+        "state": "active",
+        "label": "Event to portfolio",
+        "description": "Trace one sourced event through the assets it can affect."
+      },
+      {
+        "id": "angle/confirmation-over-headline",
+        "state": "active",
+        "label": "Confirmation over headline",
+        "description": "Show what confirms or breaks the headline interpretation."
+      },
+      {
+        "id": "angle/test-before-paying",
+        "state": "blocked",
+        "label": "Test before paying",
+        "description": "Preview a claim-checking workflow without implying that the consumer runtime exists.",
+        "unlock": "Verified consumer manifest, real product media, consent and attribution receipts, and exact launch-copy approval."
+      }
+    ],
+    "hooks": [
+      {
+        "id": "hook/immediate-consequence",
+        "state": "hypothesis",
+        "label": "Immediate consequence",
+        "description": "Lead with one sourced portfolio consequence."
+      },
+      {
+        "id": "hook/wrong-question",
+        "state": "hypothesis",
+        "label": "Wrong question",
+        "description": "Replace the popular question with the decision-relevant one."
+      },
+      {
+        "id": "hook/number-first",
+        "state": "active",
+        "label": "Number first",
+        "description": "Lead with one sourced market number and align the title and thumbnail."
+      }
+    ],
+    "formats": [
+      {
+        "id": "format/youtube-flagship",
+        "state": "active",
+        "label": "YouTube flagship",
+        "description": "One 10-12 minute thesis with packaging and evidence gates."
+      },
+      {
+        "id": "format/vertical-45-90",
+        "state": "active",
+        "label": "45-90 second vertical",
+        "description": "Clean 9:16, first-three-second hook, burned captions, and no foreign watermark."
+      },
+      {
+        "id": "format/landing",
+        "state": "active",
+        "label": "Landing page",
+        "description": "One honest waitlist page populated only from verified fields."
+      },
+      {
+        "id": "format/email",
+        "state": "blocked",
+        "label": "Consented email",
+        "description": "Email copy using the existing exact-copy approval boundary.",
+        "unlock": "Buttondown subscribe-confirm-unsubscribe acceptance receipt."
+      }
+    ],
+    "offers": [
+      {
+        "id": "offer/market-explanation",
+        "state": "active",
+        "label": "Market explanation",
+        "description": "Trust-first market explanation with no product pitch in narration."
+      },
+      {
+        "id": "offer/product-waitlist",
+        "state": "active",
+        "label": "Product waitlist",
+        "description": "The current non-transactional Apollo consumer-product waitlist."
+      },
+      {
+        "id": "offer/claim-robustness-check",
+        "state": "blocked",
+        "label": "Claim robustness check",
+        "description": "A future consumer claim-checking experience.",
+        "unlock": "A verified consumer manifest that supplies the capability and offer facts."
+      }
+    ]
+  },
+  "experiments": [
+    {
+      "id": "exp-2026-001",
+      "lane": "reuse",
+      "state": "proposed",
+      "surface": "tiktok",
+      "hypothesis": "A sourced immediate portfolio consequence will improve three-second hold versus a scene-setting opener for portfolio-aware market-news viewers.",
+      "assembly": {
+        "audience": "audience/portfolio-news-viewer",
+        "angle": "angle/event-to-portfolio",
+        "hook": "hook/immediate-consequence",
+        "format": "format/vertical-45-90",
+        "offer": "offer/market-explanation"
+      },
+      "changedComponent": "hook",
+      "comparison": "baseline",
+      "observations": [],
+      "metrics": {
+        "primary": "three_second_hold_percent",
+        "secondary": [
+          "completion_percent",
+          "shares_per_1000_views",
+          "saves_per_1000_views"
+        ],
+        "guardrails": [
+          "claims_gate_pass",
+          "corrections_zero"
+        ]
+      },
+      "decisionRule": {
+        "status": "pending_baseline",
+        "aggregation": "median",
+        "minimumObservations": null,
+        "killBelow": null,
+        "reuseAtOrAbove": null,
+        "baselineReceipt": null
+      },
+      "decision": {
+        "verdict": "pending",
+        "reason": null,
+        "decidedAt": null
+      },
+      "blockers": []
+    },
+    {
+      "id": "exp-2026-002",
+      "lane": "new",
+      "state": "blocked",
+      "surface": "landing",
+      "hypothesis": "Creator-claim checkers will choose a clearly bounded claim-check preview over an abstract robustness-engine description.",
+      "assembly": {
+        "audience": "audience/creator-claim-checker",
+        "angle": "angle/test-before-paying",
+        "hook": "hook/wrong-question",
+        "format": "format/landing",
+        "offer": "offer/product-waitlist"
+      },
+      "changedComponent": "angle",
+      "comparison": "baseline",
+      "observations": [],
+      "metrics": {
+        "primary": "confirmed_signup_rate_percent",
+        "secondary": [
+          "cta_click_rate_percent"
+        ],
+        "guardrails": [
+          "claims_gate_pass",
+          "corrections_zero"
+        ]
+      },
+      "decisionRule": {
+        "status": "pending_baseline",
+        "aggregation": "median",
+        "minimumObservations": null,
+        "killBelow": null,
+        "reuseAtOrAbove": null,
+        "baselineReceipt": null
+      },
+      "decision": {
+        "verdict": "pending",
+        "reason": null,
+        "decidedAt": null
+      },
+      "blockers": [
+        "Verified consumer manifest",
+        "Real product media",
+        "Consent and attribution receipts",
+        "Exact launch-copy approval"
+      ]
+    }
+  ]
+}

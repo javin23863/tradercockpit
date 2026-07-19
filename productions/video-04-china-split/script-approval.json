@@ -1,0 +1,22 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "rejected",
+  "script": "productions/video-04-china-split/vo.txt",
+  "scriptSha256": "9125d1e5df66ea271f21c0edbcc5ef946ab528196187539b9e20c7c5dee9e9b3",
+  "reviewedBy": "operator",
+  "reviewedAt": "2026-07-16T16:59:51Z",
+  "reasons": [
+    "generic and unapproved editorial voice versus the operator-approved Video-01/Video-02 corpus",
+    "wrong editorial lead: China displaced the dominant Iran-war market regime",
+    "wrong source hierarchy for the daily authority framing",
+    "YouTube master contains burned captions, including inaccurate caption text"
+  ],
+  "invalidates": {
+    "master": "productions/video-04-china-split/build/master-final.mp4",
+    "masterSha256": "f69ed3e57c794749f7e73b43dd84cf7787e1cd3d0d1fbd303ff354c03ec03037",
+    "socialApprovalSha256": "7cf3813229dcdbdf682f9c2db187ca2646c990743e993634dfd35882d1a8d9a4",
+    "publishingPackageSha256": "74c586a685a7e05ea7c5433e1619f0cd2bc1b3f363b89bcec2ca48c2501f5e52"
+  },
+  "blocks": ["tts", "asset-generation", "render", "derivatives", "publish"],
+  "nextGate": "A replacement Iran-war script must receive a separate explicit operator approval before TTS or visual assembly."
+}

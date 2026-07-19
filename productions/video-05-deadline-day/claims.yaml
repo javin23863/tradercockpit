@@ -1,0 +1,109 @@
+# Backstage claim store. Official sources bind events; TradingView binds prices and levels. Inferences are marked as analysis.
+
+- id: clm-ofac-waiver-2026-07-07
+  subject: OFAC Iranian oil waiver
+  predicate: revocation and wind-down deadline
+  value: "General License X (interim-deal waiver for Iranian oil sales) revoked July 7 after IRGC attacks on three tankers in the Strait of Hormuz; replacement General License X1 authorizes no new sales and allows in-process transactions to wind down only through July 17, ending 12:01am EDT; proceeds from those final sales are placed in a blocked, interest-bearing account."
+  as_of: 2026-07-07
+  source: https://www.cbsnews.com/news/us-rescinds-waiver-permitting-iranian-oil-sales-after-iranian-attacks-on-tankers/ + https://www.axios.com/2026/07/07/us-revokes-iran-oil-waivers-hormuz-strait-attacks
+  retrieved_at: 2026-07-17T06:57:40Z
+  status: verified
+
+- id: clm-hormuz-halt-2026-07-10
+  subject: Strait of Hormuz shipping
+  predicate: attributed halt and blockade reinstatement
+  value: "Al Jazeera reported July 10 that Hormuz shipping ground to a halt as US-Iran fighting resumed; the naval blockade was reinstated July 14 per follow-on reporting."
+  as_of: 2026-07-14
+  source: https://www.aljazeera.com/economy/2026/7/10/strait-of-hormuz-shipping-grinds-to-halt-as-us-iran-resume-fighting
+  retrieved_at: 2026-07-17T06:57:40Z
+  status: single_source
+
+- id: clm-tsmc-q2-2026-07-16
+  subject: TSMC second quarter 2026 results
+  predicate: reported financials
+  value: "Q2 2026: net income NT$706.56B (+77.4% YoY), revenue NT$1,270.38B (+36.0% YoY), diluted EPS NT$27.25, gross margin 67.7%, reported July 16."
+  as_of: 2026-07-16
+  source: https://pr.tsmc.com/english/news/3326 + https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000451/a2q26e_withguidancexfinal.htm
+  retrieved_at: 2026-07-17T06:57:40Z
+  status: verified
+
+- id: clm-session-2026-07-16
+  subject: July 16 US session
+  predicate: attributed session summary
+  value: "Dow -0.2%, S&P 500 -0.5%, Nasdaq Composite -1.5%; chip stocks down a second straight day; Alphabet fell more than 4% after Bloomberg reported a Gemini 3.5 Pro delay."
+  as_of: 2026-07-16
+  source: https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-16-dow-sp-500-nasdaq-103116735.html
+  retrieved_at: 2026-07-17T06:57:40Z
+  status: single_source
+
+- id: clm-chart-tsm-2026-07-17
+  subject: NYSE:TSM daily chart
+  predicate: levels and closes from TradingView
+  value: "Close 409.74 on 2026-07-16 (-2.32% from 419.48); week low 403.50 touched three times; close cluster 419.5-421.6 overhead (420 lid); month high 479.00 so close sits ~14.5% below it; overnight session indication 397.53."
+  as_of: 2026-07-17
+  source: TradingView Desktop terminal, tradingview-snapshot.json + ta-work/ohlcv-NYSE-TSM.json
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified
+
+- id: clm-chart-ndx-2026-07-17
+  subject: NASDAQ:NDX daily chart
+  predicate: levels and closes from TradingView
+  value: "Close 29025.77 on 2026-07-16, below prior close 29502.60; July floor 28814.57 touched twice; 2026-07-16 session low 28881.23 (~66 points above the floor); July high 30642.57 so close sits ~5.25% below it."
+  as_of: 2026-07-17
+  source: TradingView Desktop terminal, tradingview-snapshot.json + ta-work/ohlcv-NASDAQ-NDX.json
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified
+
+- id: clm-chart-spx-2026-07-17
+  subject: SP_DLY:SPX daily chart
+  predicate: levels and closes from TradingView
+  value: "Close 7533.77 on 2026-07-16; four highs in nine sessions between 7570 and 7581.50; week floor 7504.02 (2026-07-16 session low landed exactly there); 77-point band ~1% wide; July low 7294.18 so close sits ~3.25% above it."
+  as_of: 2026-07-17
+  source: TradingView Desktop terminal, tradingview-snapshot.json + ta-work/ohlcv-SP_DLY-SPX.json
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified
+
+- id: clm-chart-xle-2026-07-17
+  subject: AMEX:XLE daily chart
+  predicate: levels and closes from TradingView
+  value: "Close 57.02 on 2026-07-16 (+0.92% from 56.50), first close above the 56.50 ceiling in this range; 57.30 tagged and rejected twice this week; 20-day low 52.62 so the two-week climb exceeds 8%; 2026-07-16 bar opened 56.66, low 56.59 (held above the old 56.50 ceiling), closed near the high."
+  as_of: 2026-07-17
+  source: TradingView Desktop terminal, tradingview-snapshot.json + ta-work/ohlcv-AMEX-XLE.json
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified
+
+- id: clm-chart-brent-2026-07-17
+  subject: TVC:UKOIL daily chart
+  predicate: live-bar values and levels from TradingView
+  value: "Live 2026-07-17 bar: range 83.71-85.50, last 84.43 at capture; spike high 87.55 untouched since the strike week; shelf 83.31 (the close that started the move); strike-week run ~71.02 to 87.55 = ~23% repricing."
+  as_of: 2026-07-17
+  source: TradingView Desktop terminal, tradingview-snapshot.json + ta-work/ohlcv-TVC-UKOIL.json
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified
+
+- id: clm-chart-us10y-2026-07-17
+  subject: TVC:US10Y daily chart
+  predicate: levels and closes from TradingView
+  value: "Close 4.53 on 2026-07-16, down from 4.56; July high 4.64; floor 4.45 held twice this month; month range 4.36-4.64 = 28 basis points."
+  as_of: 2026-07-17
+  source: TradingView Desktop terminal, tradingview-snapshot.json + ta-work/ohlcv-TVC-US10Y.json
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified
+
+- id: clm-continuity-video04-2026-07-16
+  subject: prior video level continuity
+  predicate: published reference level
+  value: "The July 16 video named 29502.60 as the Nasdaq 100 repair level ('The Nasdaq's repair level is the prior close at twenty-nine thousand five hundred two point six')."
+  as_of: 2026-07-16
+  source: productions/video-04-iran-regime-v2/vo.txt section 05
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified
+
+- id: clm-analysis-rotation-2026-07-17
+  subject: rotation framing
+  predicate: analysis inference
+  value: "Analysis: energy closing at highs while NDX broke support reads as sector rotation while SPX holds its band; deadline mechanics harden the supply-risk floor; framing is conditional on the stated levels, with invalidations named."
+  as_of: 2026-07-17
+  source: analysis-brief.md sections 2-6 (inference over the claims above)
+  retrieved_at: 2026-07-17T07:10:00Z
+  status: verified

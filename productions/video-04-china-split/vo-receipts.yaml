@@ -1,0 +1,100 @@
+"01":
+  - quote: >-
+      China just printed four point three percent second-quarter growth. Respectable headline. Messy market. The factory side is still moving, the domestic-demand side is limping, mainland stocks sold off, and the U.S.-listed China ETF was green after the release. That is not one China signal. That is a split screen.
+    claim: clm-nbs-q2-gdp-2026-07-15
+  - quote: >-
+      My read: this is a demand story wearing a production headline. Treat four point three as a single health score and you miss the trade. I want to know which part is paying the bills, which part is waiting for the customer, and whether currency and copper agree. The headline brought a calculator. The chart brought a disagreement. Let's map it.
+    claim: clm-market-map-2026-07-16
+
+"02":
+  - quote: >-
+      The National Bureau of Statistics released the numbers on July fifteenth. Second-quarter GDP grew four point three percent year on year and zero point nine percent quarter on quarter. For the first half, growth was four point seven percent.
+    claim: clm-nbs-q2-gdp-2026-07-15
+  - quote: >-
+      That is the clean fact. No dramatic adjective required. The same release says industrial value added grew five point four percent in the first half. Equipment manufacturing grew nine point three percent. High-tech manufacturing grew thirteen point three percent. The hard side of the economy is doing the job.
+    claim: clm-nbs-industrial-2026-07-15
+
+"03":
+  - quote: >-
+      The factory data is where the headline earns its hard hat. Industrial value added at five point four percent is running faster than the headline. Equipment at nine point three and high-tech at thirteen point three say the investment is concentrated in the parts of the economy that make things, move things, and build the next production cycle.
+    claim: clm-nbs-industrial-2026-07-15
+
+"04":
+  - quote: >-
+      Here is the other half. Retail sales of consumer goods grew one point three percent in the first half. Fixed-asset investment fell five point seven percent. Real-estate development investment fell eighteen percent.
+    claim: clm-nbs-demand-2026-07-15
+
+"05":
+  - quote: >-
+      The transmission map has four links. Strong industrial and high-tech output supports goods production. Goods production leans on exports and industrial inputs. Weak household and property demand limits the breadth of the recovery. Prices then decide whether investors pay for the supply story or discount it as excess capacity.
+    claim: clm-market-map-2026-07-16
+  - quote: >-
+      The release reports exports up thirteen point four percent and imports up twenty-two point one percent. Those are trade-flow facts, not a license to declare victory for exporters. They tell me the external channel is active. They do not tell me domestic demand has caught up.
+    claim: clm-nbs-trade-2026-07-15
+
+"06":
+  - quote: >-
+      Start with Shanghai on the daily chart. The July fifteenth close was three thousand nine hundred fifty-five point five seven eight one. The July sixteenth close was three thousand eight hundred eighty-two point four one two six, after a low at three thousand eight hundred sixty-seven point six zero one two. That is a one point eight five percent close-to-close drop.
+    claim: clm-chart-sse-2026-07-16
+  - quote: >-
+      Now Shenzhen. The July fifteenth close was fourteen thousand seven hundred seventy-nine point three nine six five. The July sixteenth close was fourteen thousand four hundred eighty-eight point six five four one, after a low at fourteen thousand three hundred eighty-six point four one four zero. That is a one point nine seven percent drop.
+    claim: clm-chart-szse-2026-07-16
+  - quote: >-
+      Two cash indices, one message: mainland equities did not treat four point three percent as an all-clear. Shanghai's first floor is three thousand eight hundred sixty-seven point six zero one two. The prior close is three thousand nine hundred fifty-five point five seven eight one. Shenzhen's floor is fourteen thousand three hundred eighty-six point four one four zero.
+    claim: clm-chart-sse-2026-07-16
+
+"07":
+  - quote: >-
+      Here is the disagreement. The iShares China Large-Cap ETF closed July fourteenth at thirty-three point seven seven. On July fifteenth it closed at thirty-four point two eight and traded as high as thirty-four point five four five. That was a one point five one percent gain in the U.S. session after the N B S release.
+    claim: clm-chart-fxi-2026-07-15
+  - quote: >-
+      My level map is cleaner than the story. Thirty-three point seven seven is the prior close. Thirty-four point two eight is the last completed close. Thirty-four point five four five is the high. If the ETF holds that zone while mainland stabilizes, the split is contained. If it loses thirty-three point seven seven while cash floors give way, the divergence has ended.
+    claim: clm-chart-fxi-2026-07-15
+
+"08":
+  - quote: >-
+      Now the currency. The completed USDCNH close was six point seven six six two seven. The live daily bar opened at that level and was around six point seven six nine two six at the cutoff, with a high of six point seven seven two one zero. A higher USDCNH means a slightly weaker offshore yuan in this quote. Slightly is the important word.
+    claim: clm-chart-usdcnh-2026-07-16
+  - quote: >-
+      Copper gives the industrial side a different test. The completed close was six point three four one. The live bar was around six point three eight seven five and had traded as high as six point four one nine five. That is higher in the open bar, not proof that Chinese end-demand is suddenly strong.
+    claim: clm-chart-copper-2026-07-16
+  - quote: >-
+      There is no panic confirmation here. There is a live bar, a small move, and a decision level. Six point seven seven two one zero is where I test whether currency is adding pressure. Until a completed bar says more, I keep the claim small.
+    claim: clm-chart-usdcnh-2026-07-16
+
+"09":
+  - quote: >-
+      Now test whether this is a global liquidation story. The S and P five hundred closed July fourteenth at seven thousand five hundred forty-three point five nine. On July fifteenth it closed at seven thousand five hundred seventy-two point four zero, up zero point three eight percent.
+    claim: clm-chart-spx-2026-07-15
+
+"10":
+  - quote: >-
+      Who gets paid if production stays stronger than the customer? Equipment makers, high-tech manufacturers, exporters, and the industrial supply chain have the better first-order setup. Their mechanism is activity already visible in the official data.
+    claim: clm-market-map-2026-07-16
+
+"11":
+  - quote: >-
+      Here is the decision tree. Base case first: the split persists. Shanghai trades inside the three thousand eight hundred sixty-seven point six zero one two to three thousand nine hundred fifty-five point five seven eight one decision range. FXI holds between thirty-three point seven seven and thirty-four point five four five. USDCNH stays below six point seven seven two one zero, and copper holds above six point three four one.
+    claim: clm-scenario-level-map-2026-07-16
+  - quote: >-
+      Second, demand stress extends. I want a completed Shanghai close below three thousand eight hundred sixty-seven point six zero one two and a Shenzhen close below fourteen thousand three hundred eighty-six point four one four zero. I also want USDCNH above six point seven seven two one zero and FXI below thirty-three point seven seven. That is a cross-asset trigger, not a scary headline.
+    claim: clm-scenario-level-map-2026-07-16
+  - quote: >-
+      Third, demand repairs or the market decides the split is too pessimistic. Shanghai recovers through three thousand nine hundred fifty-five point five seven eight one. FXI holds above thirty-four point two eight and retests thirty-four point five four five. USDCNH stays at or below six point seven six six two seven, while copper holds the six point three four one to six point four one nine five range.
+    claim: clm-scenario-level-map-2026-07-16
+  - quote: >-
+      This third case needs better official demand evidence, not a single green candle. If the event and levels agree, the production story is broadening. If they disagree, I wait.
+    claim: clm-scenario-level-map-2026-07-16
+
+"12":
+  - quote: >-
+      The next official China activity catalyst on the N B S calendar is the July manufacturing P M I release on July thirty-first at nine thirty China time. It tests whether the factory signal is still holding after the GDP headline ages.
+    claim: clm-nbs-calendar-pmi-2026-07-31
+  - quote: >-
+      Before then, watch the levels, not the adjectives. Shanghai three thousand eight hundred sixty-seven point six zero one two and three thousand nine hundred fifty-five point five seven eight one. Shenzhen fourteen thousand three hundred eighty-six point four one four zero. FXI thirty-three point seven seven and thirty-four point five four five. USDCNH six point seven seven two one zero. Copper six point three four one.
+    claim: clm-scenario-level-map-2026-07-16
+
+"13":
+  - quote: >-
+      Shanghai and Shenzhen supplied the warning. FXI supplied the divergence. Copper is holding the industrial side in a live bar. CNH is a little softer. The S and P is not joining a global liquidation. That is a map, not a slogan.
+    claim: clm-market-map-2026-07-16

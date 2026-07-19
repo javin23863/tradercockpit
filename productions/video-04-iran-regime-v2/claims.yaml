@@ -1,0 +1,128 @@
+# Backstage claim store. Official sources bind events; TradingView binds prices and levels. Inferences are marked as analysis.
+
+- id: clm-bloomberg-iran-frame-2026-07-16
+  subject: Bloomberg current Iran coverage
+  predicate: editorial market frame
+  value: "The current topic page foregrounds a widening Middle East conflict, ships avoiding Hormuz, and oil-market stakes."
+  as_of: 2026-07-16
+  source: https://www.bloomberg.com/latest/strikes-on-iran
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-aj-blockade-strikes-2026-07-14
+  subject: U.S.-Iran conflict around Iranian ports and Hormuz
+  predicate: attributed blockade and strike announcement
+  value: "Al Jazeera reported the U.S. blockade of vessels transiting to and from Iranian ports took effect at 20:00 GMT July 14; CENTCOM announced a new strike wave aimed at capabilities used to attack commercial shipping in Hormuz."
+  as_of: 2026-07-14
+  source: https://www.aljazeera.com/news/2026/7/14/us-strikes-new-targets-in-iran-as-tehran-hits-gulf-states-hormuz
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-imo-incidents-2026-07-16
+  subject: confirmed Middle East shipping incidents
+  predicate: incident register status
+  value: "57 confirmed incidents and 18 confirmed seafarer fatalities as of July 16; BELMA damaged near Bushehr Province on July 15 with no pollution reported."
+  as_of: 2026-07-16
+  source: https://www.imo.org/en/mediacentre/hottopics/pages/middle-east-highlighted-incidents.aspx
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-imo-council-2026-07-13
+  subject: IMO Council position on Hormuz shipping
+  predicate: official navigation and de-escalation statement
+  value: "The Council condemned attacks on civilian commercial ships, called for de-escalation, and reaffirmed transit-passage rights."
+  as_of: 2026-07-13
+  source: https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-council-reaffirms-commitment-to-protecting-vital-shipping-lanes.aspx
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-treasury-irgc-procurement-2026-07-15
+  subject: U.S. sanctions on Iran-linked procurement
+  predicate: July 15 OFAC action
+  value: "Treasury sanctioned seven individuals and entities in an international network supporting weapons procurement for the IRGC."
+  as_of: 2026-07-15
+  source: https://home.treasury.gov/news/press-releases/sb0564
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-treasury-shipping-network-2026-07-14
+  subject: U.S. sanctions on Shamkhani-linked shipping and finance network
+  predicate: July 14 OFAC action
+  value: "Treasury intensified pressure on an oil, shipping, and finance network and said more than 200 individuals, entities, and vessels had been sanctioned under Shamkhani's patronage."
+  as_of: 2026-07-14
+  source: https://home.treasury.gov/news/press-releases/sb0562
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-chart-brent-2026-07-16
+  subject: Brent crude (TVC:UKOIL, 1D)
+  predicate: completed reference bars and live July 16 bar
+  value: "Jul 10 C 75.22; Jul 13 C 83.31 (+10.75%); Jul 14 H 87.55 C 85.15; Jul 15 C 85.07; Jul 16 live O 85.34 H 86.25 L 83.83 last 84.47 (-0.705%); live bar incomplete."
+  as_of: 2026-07-16T17:14:15Z
+  source: productions/video-04-iran-regime-v2/tradingview-snapshot.json
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-chart-xle-2026-07-16
+  subject: Energy Select Sector SPDR (AMEX:XLE, 1D)
+  predicate: prior close and live July 16 bar
+  value: "Jul 15 C 56.50; Jul 16 live O 56.66 H 57.30 L 56.595 last 56.96 (+0.814%); live bar incomplete."
+  as_of: 2026-07-16T17:14:15Z
+  source: productions/video-04-iran-regime-v2/tradingview-snapshot.json
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-chart-equity-split-2026-07-16
+  subject: Nasdaq 100 and S&P 500 (1D)
+  predicate: prior closes and live July 16 bars
+  value: "NDX Jul 15 C 29502.5959, Jul 16 live 29123.0827 (-1.286%); SPX Jul 15 C 7572.40, Jul 16 live 7554.10 (-0.242%); both live bars incomplete."
+  as_of: 2026-07-16T17:14:15Z
+  source: productions/video-04-iran-regime-v2/tradingview-snapshot.json
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-chart-rates-dollar-2026-07-16
+  subject: U.S. 10-year Treasury yield and DXY (1D)
+  predicate: prior closes and live July 16 bars
+  value: "US10Y Jul 15 C 4.549%, Jul 16 live 4.575% (+2.6 bp); DXY Jul 15 C 100.495, Jul 16 live 100.827 (+0.330%); both live bars incomplete."
+  as_of: 2026-07-16T17:14:15Z
+  source: productions/video-04-iran-regime-v2/tradingview-snapshot.json
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-chart-gold-vix-2026-07-16
+  subject: gold and VIX (1D)
+  predicate: prior closes and live July 16 bars
+  value: "Gold Jul 15 C 4060.85, Jul 16 live 3988.77 (-1.775%); VIX Jul 15 C 15.67, Jul 16 live 16.11 (+2.808%) with live H 16.54 and decision level 17.56; both live bars incomplete."
+  as_of: 2026-07-16T17:14:15Z
+  source: productions/video-04-iran-regime-v2/tradingview-snapshot.json
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-market-mechanism-2026-07-16
+  subject: Hormuz route-risk transmission
+  predicate: bounded analytical mechanism
+  value: "Confirmed navigation danger can raise freight, insurance, delay, and compliance costs; those risks can feed delivered-energy prices, inflation sensitivity, energy relative strength, and pressure on long-duration growth. This is analysis, not a claim that the conflict caused every price move."
+  as_of: 2026-07-16
+  source: productions/video-04-iran-regime-v2/analysis-brief.md
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-scenario-map-2026-07-16
+  subject: Iran/Hormuz market decision map
+  predicate: event-plus-level triggers
+  value: "Base, escalation, and relief cases use frozen TradingView levels plus explicit official-event confirmation; they are not forecasts."
+  as_of: 2026-07-16
+  source: productions/video-04-iran-regime-v2/analysis-brief.md
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+
+- id: clm-eia-next-2026-07-22
+  subject: EIA Weekly Petroleum Status Report
+  predicate: next scheduled release
+  value: "Next release July 22, 2026; summary tables are normally released after 10:30 a.m. Eastern on Wednesday."
+  as_of: 2026-07-22
+  source: https://www.eia.gov/petroleum/supply/weekly/index.php
+  retrieved_at: 2026-07-16T17:14:15Z
+  status: verified
+

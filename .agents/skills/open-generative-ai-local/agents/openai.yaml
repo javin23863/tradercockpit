@@ -1,0 +1,4 @@
+interface:
+  display_name: "Open Generative AI Local"
+  short_description: "Run the local-only Stable Diffusion studio"
+  default_prompt: "Use $open-generative-ai-local to create an offline image with the local studio."

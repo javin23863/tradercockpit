@@ -1,0 +1,44 @@
+[
+  {
+    "out": "01b-imo-count-v2",
+    "url": "https://www.imo.org/en/mediacentre/hottopics/pages/middle-east-highlighted-incidents.aspx",
+    "label": "IMO · AS OF 15 JUL 2026",
+    "highlights": ["Number of confirmed incidents as at 15 July 2026: 56", "Number of confirmed seafarer fatalities: 18"],
+    "holdSec": 8
+  },
+  {
+    "out": "02a-centcom-operation-v2",
+    "url": "https://www.centcom.mil/OPERATIONS-AND-EXERCISES/EPIC-FURY/",
+    "label": "U.S. CENTCOM · OPERATION PAGE",
+    "highlights": ["U.S. Central Command (CENTCOM) commenced Operation Epic Fury at the direction of the President of the United States."],
+    "holdSec": 9
+  },
+  {
+    "out": "02c-imo-ships-v2",
+    "url": "https://www.imo.org/en/mediacentre/hottopics/pages/middle-east-highlighted-incidents.aspx",
+    "label": "IMO · 14 JUL 2026 INCIDENTS",
+    "highlights": ["AL BAHYAH", "MOMBASA B"],
+    "holdSec": 9
+  },
+  {
+    "out": "02d-treasury-v2",
+    "url": "https://home.treasury.gov/news/press-releases/sb0562",
+    "label": "U.S. TREASURY · 14 JUL 2026",
+    "highlights": ["Today’s action includes more than 50 individuals, entities, and vessels"],
+    "holdSec": 9
+  },
+  {
+    "out": "03b-imo-navigation-v2",
+    "url": "https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-council-reaffirms-commitment-to-protecting-vital-shipping-lanes.aspx",
+    "label": "IMO COUNCIL · 13 JUL 2026",
+    "highlights": ["coordinated and sustainable return to unhindered navigation through the Strait"],
+    "holdSec": 9
+  },
+  {
+    "out": "07a-bls-ppi-v2",
+    "url": "https://www.bls.gov/news.release/ppi.nr0.htm",
+    "label": "U.S. BLS · 15 JUL 2026",
+    "highlights": ["The Producer Price Index for final demand fell 0.3 percent in June", "energy dropped 6.4 percent", "The index for final demand less foods, energy, and trade services increased 0.1 percent in June"],
+    "holdSec": 9
+  }
+]

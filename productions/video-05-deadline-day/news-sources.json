@@ -1,0 +1,64 @@
+{
+  "schema": "tradercockpit-news-source-plan/v1",
+  "cutoff": "2026-07-17T06:57:40Z",
+  "lead": "Deadline day: Iranian oil wind-down expires while the AI trade sells its best earnings",
+  "sources": [
+    {
+      "role": "official-primary",
+      "publisher": "TSMC investor relations",
+      "url": "https://pr.tsmc.com/english/news/3326",
+      "publishedAt": "2026-07-16",
+      "retrievedAt": "2026-07-17T06:57:40Z",
+      "use": "Exact Q2 2026 results: net income NT$706.56B (+77.4% YoY), revenue NT$1,270.38B (+36.0% YoY), diluted EPS NT$27.25, gross margin 67.7%, operating margin 60.3%, net margin 55.6%."
+    },
+    {
+      "role": "official-primary",
+      "publisher": "SEC (TSMC Form 6-K)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000451/a2q26e_withguidancexfinal.htm",
+      "publishedAt": "2026-07-16",
+      "retrievedAt": "2026-07-17T06:57:40Z",
+      "use": "Filed copy of the same Q2 results and guidance; backstop for every TSMC number used on air."
+    },
+    {
+      "role": "policy-event",
+      "publisher": "CBS News",
+      "url": "https://www.cbsnews.com/news/us-rescinds-waiver-permitting-iranian-oil-sales-after-iranian-attacks-on-tankers/",
+      "publishedAt": "2026-07-07",
+      "retrievedAt": "2026-07-17T06:57:40Z",
+      "use": "OFAC replaced General License X with narrower X1 after IRGC attacks on three tankers; no new Iranian oil sales, in-process transactions wind down until July 17."
+    },
+    {
+      "role": "policy-event",
+      "publisher": "Axios",
+      "url": "https://www.axios.com/2026/07/07/us-revokes-iran-oil-waivers-hormuz-strait-attacks",
+      "publishedAt": "2026-07-07",
+      "retrievedAt": "2026-07-17T06:57:40Z",
+      "use": "Corroboration of the waiver revocation trigger (Hormuz tanker attacks) and the July 17 wind-down deadline; performance-based MOU framing."
+    },
+    {
+      "role": "shipping-conflict-framing",
+      "publisher": "Al Jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/7/10/strait-of-hormuz-shipping-grinds-to-halt-as-us-iran-resume-fighting",
+      "publishedAt": "2026-07-10",
+      "retrievedAt": "2026-07-17T06:57:40Z",
+      "use": "Attributed report that Hormuz transits collapsed as fighting resumed; CENTCOM naval blockade reinstated July 14 per follow-on reporting. Battlefield casualty claims excluded."
+    },
+    {
+      "role": "market-framing",
+      "publisher": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-july-16-dow-sp-500-nasdaq-103116735.html",
+      "publishedAt": "2026-07-16",
+      "retrievedAt": "2026-07-17T06:57:40Z",
+      "use": "July 16 session framing only: Dow -0.2%, S&P 500 -0.5%, Nasdaq -1.5%; chips down a second day; Alphabet -4%+ on reported Gemini 3.5 Pro delay (attributed to Bloomberg)."
+    },
+    {
+      "role": "macro-data",
+      "publisher": "U.S. Census Bureau (advance retail sales, June 2026)",
+      "url": "https://www.census.gov/retail/sales.html",
+      "publishedAt": "2026-07-16",
+      "retrievedAt": "2026-07-17T06:57:40Z",
+      "use": "June advance retail sales +0.2% m/m versus +0.3% consensus. On-air phrasing keeps it one line; number must match the Census table before script approval."
+    }
+  ],
+  "exclusions": "No casualty counts, no battlefield claims, no unconfirmed escalation options (WSJ 'options briefed' story excluded as single-source anonymous). Price levels come exclusively from TradingView capture, never from articles."
+}

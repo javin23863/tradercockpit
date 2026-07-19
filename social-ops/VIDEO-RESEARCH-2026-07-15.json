@@ -1,0 +1,318 @@
+{
+  "version": "1.0",
+  "topic": "China Q2 2026 growth: the split between industrial and high-tech strength and weak household/property demand, explained for market participants",
+  "research_date": "2026-07-15",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "China's economy slows in the second quarter as trade tensions and weak demand weigh on growth",
+        "url": "https://apnews.com/article/95136222f87d5a1e62918f41efab00be",
+        "source": "news article",
+        "angle": "same-day headline recap",
+        "what_it_covers": "The Q2 slowdown and the broad tension between external demand and domestic weakness.",
+        "what_it_misses": "A concise, source-visible mechanism connecting the production-demand split to portfolio confirmation checks.",
+        "engagement_signal": "Published on the release day; useful as a current landscape reference, not as the numerical source of record."
+      },
+      {
+        "title": "In China's Two-Speed Economy, Old Burdens Weigh on Broader Recovery",
+        "url": "https://www.caixinglobal.com/2026-02-11/analysis-in-chinas-two-speed-economy-old-burdens-weigh-on-broader-recovery-102413669.html",
+        "source": "analysis",
+        "angle": "two-speed structural economy",
+        "what_it_covers": "The divergence between newer growth engines and older property- and demand-linked burdens.",
+        "what_it_misses": "The July Q2 data release and a short-form visual treatment built for daily market-news consumption."
+      },
+      {
+        "title": "China's Two-Speed Economy",
+        "url": "https://www.lazardassetmanagement.com/se/en_gb/research-insights/market-insights/behind-the-headlines/january-23-2026",
+        "source": "asset-manager analysis",
+        "angle": "investment implications of divergent growth",
+        "what_it_covers": "A market-oriented explanation of uneven sector performance.",
+        "what_it_misses": "A release-day, primary-source numerical update and an explicit distinction between data facts and unverified live market reaction."
+      },
+      {
+        "title": "Six charts that explain China's weakening economy",
+        "url": "https://theprint.in/world/six-charts-that-explain-chinas-weakening-economy-as-it-posts-lowest-growth-target-in-decades/2870288/",
+        "source": "chart explainer",
+        "angle": "multi-chart macro overview",
+        "what_it_covers": "A broad visual overview of weak points in the economy.",
+        "what_it_misses": "The Q2 2026 release and a focused 45-60 second portfolio mechanism."
+      }
+    ],
+    "saturated_angles": [
+      "GDP beat-or-miss headline without internal composition",
+      "generic China slowdown language without a transmission mechanism",
+      "unsourced claims that one data release automatically moved a market"
+    ],
+    "underserved_gaps": [
+      "A sub-60-second primary-source explainer showing how industrial strength, weak retail demand, and the property contraction coexist.",
+      "A portfolio-first ending that names what to verify next without inventing intraday price reactions.",
+      "A reusable daily-news visual system whose source and publication time remain visible on screen."
+    ]
+  },
+  "trending": {
+    "recent_developments": [
+      {
+        "headline": "China reported 4.3% year-over-year real GDP growth for Q2 2026",
+        "url": "https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html",
+        "date": "2026-07-15",
+        "relevance": "This is the official same-day release and the numerical source of record for the video."
+      },
+      {
+        "headline": "The World Bank's July 2026 China Economic Update examines the current growth mix and policy setting",
+        "url": "https://thedocs.worldbank.org/en/doc/0cb2fc6dd88d4db3816dc0433b5cb49b-0070012026/original/CEU-July-2026-EN.pdf",
+        "date": "2026-07",
+        "relevance": "It supplies current institutional context for interpreting the official release beyond the headline GDP figure."
+      }
+    ],
+    "active_discussions": [
+      {
+        "platform": "reddit",
+        "topic_or_url": "https://www.reddit.com/r/Economics/comments/1tg9x93/chinas_april_economic_data_underwhelms_with/",
+        "sentiment": "Confusion and debate about how output can hold up while household-linked indicators underwhelm."
+      },
+      {
+        "platform": "reddit",
+        "topic_or_url": "https://www.reddit.com/r/China/comments/1rm7naj/is_china_lowering_its_gdp_target_because_growth/",
+        "sentiment": "Skepticism about headline growth targets and interest in the quality and composition of growth."
+      },
+      {
+        "platform": "reddit",
+        "topic_or_url": "https://www.reddit.com/r/China/comments/1rk8nlm/china_economy_6_charts_explain_why_how_economic/",
+        "sentiment": "Demand for visual explanations and disagreement over which indicators best describe lived economic conditions."
+      }
+    ],
+    "timeliness_window": "hours"
+  },
+  "data_points": [
+    {
+      "claim": "China's real GDP grew 4.3% year over year in Q2 2026 and 0.9% quarter over quarter, compared with 5.0% year-over-year growth in Q1.",
+      "source_url": "https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html",
+      "source_name": "National Bureau of Statistics of China",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "hook and opening stat card"
+    },
+    {
+      "claim": "In the first half of 2026, value added of industrial enterprises above designated size rose 5.4% year over year, while value added of high-tech manufacturing rose 13.3%.",
+      "source_url": "https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html",
+      "source_name": "National Bureau of Statistics of China",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "production-strength stat card"
+    },
+    {
+      "claim": "In the first half of 2026, total retail sales of consumer goods rose 1.3% year over year.",
+      "source_url": "https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html",
+      "source_name": "National Bureau of Statistics of China",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "household-demand contrast"
+    },
+    {
+      "claim": "In the first half of 2026, fixed-asset investment excluding rural households fell 5.7% year over year and real-estate development investment fell 18.0%.",
+      "source_url": "https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html",
+      "source_name": "National Bureau of Statistics of China",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "property and investment contrast"
+    },
+    {
+      "claim": "The IMF identifies the property-sector slump and a weak social safety net as contributors to subdued consumer spending and argues for a pivot toward consumption-led growth.",
+      "source_url": "https://www.imf.org/en/news/articles/2026/02/18/cf-how-chinas-economy-can-pivot-to-consumption-led-growth",
+      "source_name": "International Monetary Fund",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "mechanism behind weak household demand"
+    },
+    {
+      "claim": "The OECD describes high precautionary saving as a constraint on consumption while noting double-digit high-tech manufacturing growth.",
+      "source_url": "https://www.oecd.org/en/publications/2026/06/oecd-economic-outlook-volume-2026-issue-1_8be0dba6/full-report/china_6526c66b.html",
+      "source_name": "Organisation for Economic Co-operation and Development",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "two-economies script anchor"
+    },
+    {
+      "claim": "The Federal Reserve notes that China represents about 18% of the world economy and that an export expansion from an already high base can affect foreign manufacturing and policy responses.",
+      "source_url": "https://www.federalreserve.gov/econres/notes/feds-notes/china-shock-2-0-how-china-ongoing-export-surge-differs-from-the-early-2000s-20260529.html",
+      "source_name": "Board of Governors of the Federal Reserve System",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "global transmission closing context"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "How can GDP keep growing while consumers and property remain weak?",
+      "Are strong exports evidence of broad strength, or a symptom of weak domestic demand?",
+      "Which portfolio assets should confirm or reject the China-demand interpretation after the release?",
+      "Why does rapid high-tech manufacturing growth not lift every part of the economy?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "A 4.3% GDP print means every part of the economy is slowing at roughly the same rate.",
+        "reality": "The official components diverge sharply: high-tech and industrial output were strong while retail, fixed investment, and property were much weaker.",
+        "source": "National Bureau of Statistics of China, 2026-07-15"
+      },
+      {
+        "myth": "Strong exports prove that domestic household demand has recovered.",
+        "reality": "External and industrial strength can coexist with subdued consumption, high precautionary saving, and property weakness.",
+        "source": "IMF and OECD 2026 China analysis"
+      },
+      {
+        "myth": "The release alone proves that copper, the yuan, luxury shares, or China equities moved in a specific direction.",
+        "reality": "Any market-reaction claim requires timestamped live-price verification; the release establishes an economic mechanism, not an automatic price move.",
+        "source": "TraderCockpit claims policy"
+      }
+    ],
+    "knowledge_level": "Market-aware beginner to intermediate: the audience recognizes GDP, retail sales, property, exports, and major asset classes, but benefits from a concise explanation of how the indicators can diverge and what to verify next.",
+    "pain_points": [
+      "Headline-only coverage does not explain the composition of growth.",
+      "Market commentary often blurs official facts with unverified price reaction.",
+      "Viewers need a short list of cross-asset confirmation checks rather than a generic bullish or bearish label."
+    ]
+  },
+  "expert_voices": [
+    {
+      "name": "International Monetary Fund staff",
+      "title_or_affiliation": "International Monetary Fund",
+      "position": "China's growth model needs a stronger household-consumption contribution; property weakness and social-safety-net gaps suppress spending.",
+      "source_url": "https://www.imf.org/en/news/articles/2026/02/18/cf-how-chinas-economy-can-pivot-to-consumption-led-growth",
+      "contrarian": false
+    },
+    {
+      "name": "OECD Economic Outlook",
+      "title_or_affiliation": "Organisation for Economic Co-operation and Development",
+      "position": "High precautionary saving constrains consumption even as high-tech manufacturing expands rapidly.",
+      "source_url": "https://www.oecd.org/en/publications/2026/06/oecd-economic-outlook-volume-2026-issue-1_8be0dba6/full-report/china_6526c66b.html",
+      "contrarian": false
+    }
+  ],
+  "angles_discovered": [
+    {
+      "name": "China Is Two Economies",
+      "hook": "China grew 4.3%—but the number hides two very different economies.",
+      "type": "data_driven",
+      "why_now": "The July 15 official release supplies a timely contrast between 13.3% high-tech manufacturing growth, 1.3% retail growth, and an 18.0% property-investment decline.",
+      "grounded_in": [
+        "Q2 GDP data point",
+        "industrial and high-tech data point",
+        "retail and property data points",
+        "audience question about divergent conditions"
+      ]
+    },
+    {
+      "name": "Strong Exports Can Warn",
+      "hook": "China's export strength may be a pressure signal, not proof that household demand is healthy.",
+      "type": "contrarian",
+      "why_now": "IMF and OECD analysis shows how industrial and external strength can coexist with weak consumption, while Federal Reserve analysis frames the global manufacturing and policy channel.",
+      "grounded_in": [
+        "IMF consumption mechanism",
+        "OECD precautionary-saving mechanism",
+        "Federal Reserve global transmission context"
+      ]
+    },
+    {
+      "name": "Five Portfolio Confirmation Checks",
+      "hook": "The GDP print is only step one—here are the markets that must confirm the story.",
+      "type": "trending",
+      "why_now": "Same-day audiences need a decision-useful watchlist, but the claims policy requires timestamped prices before stating any realized reaction.",
+      "grounded_in": [
+        "audience portfolio-confirmation question",
+        "misconception about automatic market reaction",
+        "official release timing"
+      ]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "Official release table and numbered indicator blocks",
+      "url": "https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html",
+      "what_works": "The source keeps exact values and categories adjacent, making clean source-visible stat cards possible."
+    },
+    {
+      "description": "Multi-chart explanation of divergent Chinese indicators",
+      "url": "https://theprint.in/world/six-charts-that-explain-chinas-weakening-economy-as-it-posts-lowest-growth-target-in-decades/2870288/",
+      "what_works": "Small multiples make an uneven macro picture easier to scan than a single headline number."
+    },
+    {
+      "description": "Institutional two-speed economy framing",
+      "url": "https://www.lazardassetmanagement.com/se/en_gb/research-insights/market-insights/behind-the-headlines/january-23-2026",
+      "what_works": "The visual and verbal framing supports a clear split-screen narrative without reducing the whole economy to one adjective."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html",
+      "title": "National Economy Withstood Pressure and Achieved Stable Growth in the First Half Year",
+      "used_for": "official Q2 GDP, industry, high-tech, retail, investment, and property data",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.imf.org/en/news/articles/2026/02/18/cf-how-chinas-economy-can-pivot-to-consumption-led-growth",
+      "title": "How China's Economy Can Pivot to Consumption-Led Growth",
+      "used_for": "consumer-demand and property mechanism",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.oecd.org/en/publications/2026/06/oecd-economic-outlook-volume-2026-issue-1_8be0dba6/full-report/china_6526c66b.html",
+      "title": "OECD Economic Outlook, Volume 2026 Issue 1: China",
+      "used_for": "precautionary saving, consumption, and high-tech context",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://thedocs.worldbank.org/en/doc/0cb2fc6dd88d4db3816dc0433b5cb49b-0070012026/original/CEU-July-2026-EN.pdf",
+      "title": "China Economic Update, July 2026",
+      "used_for": "current institutional macro context",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://www.federalreserve.gov/econres/notes/feds-notes/china-shock-2-0-how-china-ongoing-export-surge-differs-from-the-early-2000s-20260529.html",
+      "title": "China Shock 2.0: How China's Ongoing Export Surge Differs from the Early 2000s",
+      "used_for": "global export and manufacturing transmission",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://apnews.com/article/95136222f87d5a1e62918f41efab00be",
+      "title": "China economy Q2 2026 release-day coverage",
+      "used_for": "current content landscape only; official NBS remains the numerical source of record",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.caixinglobal.com/2026-02-11/analysis-in-chinas-two-speed-economy-old-burdens-weigh-on-broader-recovery-102413669.html",
+      "title": "In China's Two-Speed Economy, Old Burdens Weigh on Broader Recovery",
+      "used_for": "content landscape and two-speed framing",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.lazardassetmanagement.com/se/en_gb/research-insights/market-insights/behind-the-headlines/january-23-2026",
+      "title": "China's Two-Speed Economy",
+      "used_for": "content landscape and visual reference",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.reddit.com/r/Economics/comments/1tg9x93/chinas_april_economic_data_underwhelms_with/",
+      "title": "Discussion of underwhelming China activity data",
+      "used_for": "audience questions and sentiment",
+      "reliability": "anecdotal"
+    },
+    {
+      "url": "https://www.reddit.com/r/China/comments/1rm7naj/is_china_lowering_its_gdp_target_because_growth/",
+      "title": "Discussion of China's GDP target and growth quality",
+      "used_for": "audience questions and sentiment",
+      "reliability": "anecdotal"
+    }
+  ],
+  "research_summary": "The strongest trustworthy story is not simply that China's Q2 growth slowed; it is that the official data describes two economies operating at once. Industrial and high-tech output remain strong, while retail demand, fixed investment, and especially property are weak. A 45-60 second split-screen explainer can make that divergence legible, end with portfolio confirmation checks, and preserve trust by keeping official sources visible and avoiding any unverified claim about live market reaction.",
+  "metadata": {
+    "origin_project": "C:\\Users\\MSI\\Documents\\tradercockpit",
+    "origin_branch": "codex/social-marketing-execution",
+    "target_formats": [
+      "youtube_shorts",
+      "instagram_reels",
+      "facebook_reels",
+      "tiktok"
+    ],
+    "claims_boundary": "No live-price reaction claim is authorized without a timestamped market-data verification."
+  }
+}

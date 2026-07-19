@@ -1,0 +1,32 @@
+[
+  {
+    "out": "02a-cbs-waiver",
+    "url": "https://www.cbsnews.com/news/us-rescinds-waiver-permitting-iranian-oil-sales-after-iranian-attacks-on-tankers/",
+    "label": "CBS News · Jul 7 2026",
+    "holdSec": 40,
+    "highlights": [
+      "would be superseded by a narrower waiver called",
+      "It allows a grace period until July 17 for transactions already in process"
+    ]
+  },
+  {
+    "out": "02b-aljazeera-halt",
+    "url": "https://www.aljazeera.com/economy/2026/7/10/strait-of-hormuz-shipping-grinds-to-halt-as-us-iran-resume-fighting",
+    "label": "Al Jazeera · Jul 10 2026",
+    "holdSec": 35,
+    "highlights": [
+      "effectively grinding to a halt",
+      "Only five vessels were tracked crossing the strait on Wednesday and early Thursday morning"
+    ]
+  },
+  {
+    "out": "03a-tsmc-release",
+    "url": "https://pr.tsmc.com/english/news/3326",
+    "label": "TSMC · Jul 16 2026",
+    "holdSec": 40,
+    "highlights": [
+      "consolidated revenue of NT$1,270.38 billion, net income of NT$706.56 billion",
+      "second quarter revenue increased 36.0%, while net income and diluted EPS both increased 77.4%"
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "schema": "social-batch/v1",
+  "batchId": "2026-07-15-china-q2",
+  "items": [
+    {
+      "id": "china-q2-youtube-short",
+      "channel": "youtube",
+      "status": "draft",
+      "copy": "China grew 4.3% in Q2—but the headline hides two economies. Industrial output and high-tech manufacturing stayed strong while retail sales and investment were weak. The portfolio question is whether production and exports can keep offsetting domestic demand. Watch China equities, CNH, industrial metals, Asian exporters, and global consumer names for confirmation—not the GDP headline alone. Source: National Bureau of Statistics of China, published July 15, 2026 at 10:00 China time. Research only; not financial advice. https://javin23863.github.io/tradercockpit/?utm_source=youtube&utm_medium=social&utm_campaign=china_q2_20260715"
+    },
+    {
+      "id": "china-q2-instagram-reel",
+      "channel": "instagram",
+      "status": "draft",
+      "copy": "China grew 4.3% in Q2—but the headline hides two economies. Production and high-tech manufacturing stayed strong. Retail sales and investment did not. Watch China equities, CNH, metals, Asian exporters, and global consumer names for confirmation. Source: National Bureau of Statistics of China, 15 Jul 2026, 10:00 China time. Research only—not financial advice. Link in bio."
+    },
+    {
+      "id": "china-q2-facebook-reel",
+      "channel": "facebook",
+      "status": "draft",
+      "copy": "China's Q2 GDP grew 4.3% year over year, down from 5.0% in Q1. Under the headline, first-half industrial output rose 5.4% and high-tech manufacturing 13.3%, while retail sales rose 1.3%, fixed investment fell 5.7%, and real-estate investment fell 18.0%. Those are the facts. The portfolio read-through still needs price confirmation across China equities, CNH, industrial metals, Asian exporters, and global consumer names. Source: National Bureau of Statistics of China, published 15 Jul 2026 at 10:00 China time. Research only—not financial advice. https://javin23863.github.io/tradercockpit/?utm_source=facebook&utm_medium=social&utm_campaign=china_q2_20260715"
+    },
+    {
+      "id": "china-q2-tiktok",
+      "channel": "tiktok",
+      "status": "draft",
+      "copy": "China grew 4.3%—but the headline hides a split. Strong production. Weak domestic demand. Here are the portfolio confirmation checks. Source: National Bureau of Statistics of China, 15 Jul 2026. Research only—not financial advice. #economy #markets #investing #china"
+    },
+    {
+      "id": "china-q2-email",
+      "channel": "email",
+      "status": "draft",
+      "copy": "SUBJECT: China's 4.3% GDP headline hides a demand split\n\nChina's Q2 economy grew 4.3% year over year, slowing from 5.0% in Q1. First-half industrial output rose 5.4% and high-tech manufacturing 13.3%, while consumer-goods retail sales rose 1.3%, fixed-asset investment fell 5.7%, and real-estate development investment fell 18.0%. The confirmed fact is a production-versus-domestic-demand divergence. The portfolio mechanism is a question, not a forecast: check China equities and CNH first, then industrial metals, Asian exporters, global cyclicals, and luxury/consumer exposures for confirmation. Next catalysts: U.S. PPI, the Bank of Canada decision, Fed testimony, and the Beige Book. Source: National Bureau of Statistics of China, published 15 Jul 2026 at 10:00 China time. Research only; not financial advice."
+    }
+  ]
+}

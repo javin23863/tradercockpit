@@ -1,0 +1,17 @@
+{
+  "schema": "tradercockpit-production-approval/v1",
+  "status": "approved",
+  "analysisBrief": "productions/video-05-deadline-day/analysis-brief.md",
+  "analysisBriefSha256": "2bf71c27d86231f452bc5e0d236d8009aa92aaf159ae6a5fcdcd4cf6d4b500ff",
+  "sourceReceipt": "productions/video-05-deadline-day/news-sources.json",
+  "sourceReceiptSha256": "416f05a39c46e84969d5406ba99bb57befabcc6a2791f65376e668c2567c3e1e",
+  "scriptApproval": "productions/video-05-deadline-day/script-approval.json",
+  "scriptApprovalSha256": "21bd939f907f1e59480cefc46acf499d583b11e09c6b409f5551009d230e9360",
+  "framingSources": [
+    "Bloomberg",
+    "Al Jazeera"
+  ],
+  "lead": "Deadline day: Iranian oil wind-down expires while the AI trade sells its best earnings (duo pilot)",
+  "reviewedBy": "operator (exact-hash script approval d6f357db via Telegram review + 'approved script' in session)",
+  "reviewedAt": "2026-07-17T08:55:00Z"
+}

@@ -1,0 +1,48 @@
+[
+  {"out": "03-brent", "symbol": "TVC:UKOIL", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 83.31,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 87.55,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+   ]},
+  {"out": "04-xle", "symbol": "AMEX:XLE", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 56.50,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 57.30,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+   ]},
+  {"out": "05-tsm", "symbol": "NYSE:TSM", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 403.50,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 420.00,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]},
+  {"out": "05b-ndx", "symbol": "NASDAQ:NDX", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 29502.60,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 28814.57,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]},
+  {"out": "06-spx", "symbol": "SP_DLY:SPX", "tf": "1D",
+   "stages": [
+     {"holdSec": 8},
+     {"holdSec": 8, "draw": [{"type": "horizontal_line", "price": 7581.50,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}},
+       {"type": "horizontal_line", "price": 7504.02,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]},
+  {"out": "07-us10y", "symbol": "TVC:US10Y", "tf": "1D",
+   "stages": [
+     {"holdSec": 8},
+     {"holdSec": 8, "draw": [{"type": "horizontal_line", "price": 4.45,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]}
+]

@@ -1,0 +1,39 @@
+{
+  "source": ".\\productions\\video-03-war-premium\\build\\master-clean.mp4",
+  "video_duration_s": 691.32,
+  "mode": "script",
+  "clips_count": 6,
+  "segments": [
+    {
+      "start": 0,
+      "duration": 38,
+      "label": "oil-war-premium-no-broad-panic"
+    },
+    {
+      "start": 40.73,
+      "duration": 42,
+      "label": "verified-hormuz-event-rails"
+    },
+    {
+      "start": 95.14,
+      "duration": 42,
+      "label": "brent-decision-levels"
+    },
+    {
+      "start": 264.169,
+      "duration": 42,
+      "label": "stocks-are-not-confirming-panic"
+    },
+    {
+      "start": 428.399,
+      "duration": 42,
+      "label": "how-shipping-risk-reaches-portfolios"
+    },
+    {
+      "start": 535.86,
+      "duration": 48,
+      "label": "escalation-containment-unwind-map"
+    }
+  ],
+  "created_at": 1784117823070
+}

@@ -16,8 +16,12 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
+try:
+    from tools.credential_custody import credential_path
+except ModuleNotFoundError:  # direct `python tools/channel_seo.py` execution
+    from credential_custody import credential_path
+
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
-HERE = Path(__file__).parent
 
 DESCRIPTION = """TraderCockpit publishes evidence-first market analysis across oil, equities, rates, currencies, and the geopolitics moving them.
 
@@ -32,14 +36,14 @@ KEYWORDS = ('"trading strategy backtest" "ICT trading tested" "smart money conce
 
 def get_service():
     creds = None
-    token = HERE / "token_channel.json"
+    token = credential_path("token_channel.json")
     if token.exists():
         creds = Credentials.from_authorized_user_file(token, SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            secret = HERE / "client_secret.json"
+            secret = credential_path("client_secret.json")
             if not secret.exists():
                 sys.exit(f"Missing {secret}")
             creds = InstalledAppFlow.from_client_secrets_file(secret, SCOPES).run_local_server(

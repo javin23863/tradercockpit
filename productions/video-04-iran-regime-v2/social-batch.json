@@ -1,0 +1,71 @@
+{
+  "schema": "social-batch/v2",
+  "batchId": "video-04-iran-regime-v2-launch-2026-07-17",
+  "containsSyntheticMedia": true,
+  "items": [
+    {
+      "id": "youtube-long-iran-war-widens-oil-holds",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/video-04-iran-regime-v2/build/master.mp4",
+      "claimsGate": "productions/video-04-iran-regime-v2/build/claims-gate.json",
+      "productionApproval": "productions/video-04-iran-regime-v2/production-approval.json",
+      "title": "Iran War Widens as Oil Holds $84",
+      "captionMode": "native",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "operator (exact-hash publication approval in Claude Code session; master SHA-256 80e0eb7b5eb5b50b0e56bb6a685b3fcbc9086ff3049e37292fc63e150b19b00a re-verified at approval time)",
+      "reviewedAt": "2026-07-17T00:29:48.861128Z",
+      "copy": "The war is real. The official shipping record around Hormuz got worse again. The market message is selective.\n\nBrent already repriced the renewed route risk and is holding inside its range, energy stocks are keeping more of the premium than crude is adding, and the clearest pressure sits in rate-sensitive tech while yields and the dollar firm up. This episode walks the official record (IMO, Treasury, CENTCOM via Al Jazeera and Bloomberg framing), the exact chart levels, and the base, escalation, and relief maps.\n\nNews and education only. Not financial advice. Conditions and levels are not predictions.",
+      "approvalSha256": "c9881093bc876e4c684f38d18334d913f308a0fb151f9c295e73ed451d21e89f"
+    },
+    {
+      "status": "approved",
+      "asset": "studio-kit/clipper/output/clip-003-hook-3-so-this-is-where-i.vertical.mp4",
+      "claimsGate": "productions/video-04-iran-regime-v2/build/claims-gate.json",
+      "productionApproval": "productions/video-04-iran-regime-v2/production-approval.json",
+      "title": "The market is pricing the Strait, not the end of the world",
+      "captionMode": "burned",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "operator (exact-asset approval in Claude Code session; clip-003 SHA-256 8f9890b245431995a1ca77ce6fc87db2dc5bcb6ca933fd8848fe7c32887ff3f5 re-verified at approval time)",
+      "reviewedAt": "2026-07-17T02:41:24.659983Z",
+      "copy": "The war is real. The market message is selective.\n\nBrent already repriced the Hormuz route risk and is holding its range. Energy stocks firmer, the Nasdaq the clear loser, VIX contained. These are the exact levels that change the call - not a prediction, a decision tree.\n\nFull breakdown on the channel. Recorded July 17, 2026. News and education only. Not financial advice. #markets #oil #geopolitics #trading #stockmarket #riskmanagement",
+      "id": "instagram-short-iran-decision-rules",
+      "channel": "instagram",
+      "approvalSha256": "7195b95eab0deb20b335bec150e9d28e7d57faeb609895b7d6156d1309279ed1"
+    },
+    {
+      "status": "approved",
+      "asset": "studio-kit/clipper/output/clip-003-hook-3-so-this-is-where-i.vertical.mp4",
+      "claimsGate": "productions/video-04-iran-regime-v2/build/claims-gate.json",
+      "productionApproval": "productions/video-04-iran-regime-v2/production-approval.json",
+      "title": "The market is pricing the Strait, not the end of the world",
+      "captionMode": "burned",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "operator (exact-asset approval in Claude Code session; clip-003 SHA-256 8f9890b245431995a1ca77ce6fc87db2dc5bcb6ca933fd8848fe7c32887ff3f5 re-verified at approval time)",
+      "reviewedAt": "2026-07-17T02:41:24.659983Z",
+      "copy": "The war is real. The market message is selective.\n\nBrent already repriced the Hormuz route risk and is holding its range. Energy stocks firmer, the Nasdaq the clear loser, VIX contained. These are the exact levels that change the call - not a prediction, a decision tree.\n\nFull breakdown on the channel. Recorded July 17, 2026. News and education only. Not financial advice. #markets #oil #geopolitics #trading #stockmarket #riskmanagement",
+      "id": "facebook-short-iran-decision-rules",
+      "channel": "facebook",
+      "approvalSha256": "0d827a5554c0ebd0a07ebc6f4ffc3f26850c73229d97999186addb26af1d2129"
+    },
+    {
+      "id": "youtube-short-iran-decision-rules",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "studio-kit/clipper/output/clip-003-hook-3-so-this-is-where-i.vertical.clean.mp4",
+      "claimsGate": "productions/video-04-iran-regime-v2/build/claims-gate.json",
+      "productionApproval": "productions/video-04-iran-regime-v2/production-approval.json",
+      "title": "The market is pricing the Strait, not the end of the world #Shorts",
+      "captionMode": "native",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "operator (exact-asset approval in Claude Code session; clean variant SHA-256 0bd3930850ac4512ada5cc35326cfebea92b7c4f11af0370150cd5d9a9b6521e re-verified at approval time)",
+      "reviewedAt": "2026-07-17T02:58:02.901754Z",
+      "copy": "The war is real. The market message is selective.\n\nBrent already repriced the Hormuz route risk and is holding its range. Energy stocks firmer, the Nasdaq the clear loser, VIX contained. These are the exact levels that change the call - not a prediction, a decision tree.\n\nFull breakdown on the channel. Recorded July 17, 2026. News and education only. Not financial advice. #Shorts #markets #oil #geopolitics #trading #stockmarket",
+      "approvalSha256": "caef47563f9224e97df179310f749202c95ac473e2c5db935c18df81b56ea4c3"
+    }
+  ]
+}

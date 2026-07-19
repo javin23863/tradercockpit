@@ -15,6 +15,18 @@
       "copy": "Draft short-form variant prepared for operator review."
     },
     {
+      "id": "instagram-example",
+      "channel": "instagram",
+      "status": "draft",
+      "copy": "Draft Reel variant prepared for operator review."
+    },
+    {
+      "id": "facebook-example",
+      "channel": "facebook",
+      "status": "draft",
+      "copy": "Draft Reel variant prepared for operator review."
+    },
+    {
       "id": "email-example",
       "channel": "email",
       "status": "draft",

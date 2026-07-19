@@ -1,0 +1,15 @@
+[
+  {
+    "name": "hormuz-pressure-map-road",
+    "lon": 55.8,
+    "lat": 25.9,
+    "height": 850000,
+    "headingDeg": 0,
+    "pitchDeg": -90,
+    "preset": "NORMAL",
+    "settleSec": 9,
+    "holdSec": 34,
+    "caption": "HORMUZ PRESSURE MAP  |  PORTS + ENERGY INFRASTRUCTURE",
+    "clickIds": ["basemap:road", "layer:CRITICAL INFRA"]
+  }
+]

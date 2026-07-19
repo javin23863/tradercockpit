@@ -1,0 +1,10 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/video-04-iran-regime-v2/vo.txt",
+  "scriptSha256": "97f8d2eeafba787d526f96ee0ea18e6256ecbc0d9aa3ba847fbcd38e4b2fd802",
+  "reviewedBy": "operator (exact-hash approval in Claude Code session; hash re-verified against vo.txt at approval time)",
+  "reviewedAt": "2026-07-16T20:01:09Z",
+  "blocks": ["tts", "asset-generation", "render", "derivatives", "publish"],
+  "nextGate": "Production may proceed. Publication still requires separate operator exact-hash publication approval and operator-executed publish."
+}

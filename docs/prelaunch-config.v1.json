@@ -1,0 +1,21 @@
+{
+  "schema": "prelaunch-config/v1",
+  "waitlist": {
+    "provider": "buttondown",
+    "status": "pending_operator_account",
+    "username": "tradercockpit",
+    "allowedSources": [
+      "youtube",
+      "instagram",
+      "facebook",
+      "tiktok",
+      "direct"
+    ]
+  },
+  "analytics": {
+    "provider": "plausible",
+    "status": "pending_operator_account",
+    "domain": "javin23863.github.io/tradercockpit",
+    "scriptSrc": ""
+  }
+}

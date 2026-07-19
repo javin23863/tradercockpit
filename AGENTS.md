@@ -10,6 +10,31 @@
 
 The `ponytail:ponytail` plugin skill is mandatory for every task in this repository. Reuse existing code and native platform features, avoid speculative abstractions, and leave the smallest verified change that satisfies the request.
 
+# recurring social operations
+
+After Sol proves a TraderCockpit social workflow with a real end-to-end acceptance receipt, use
+`.agents/skills/social-ops-luna/SKILL.md` for recurring execution. Project-scoped schedules run on
+`gpt-5.6-luna` at `max`; first-time setup, workflow changes, credentials, terms, and failed gates
+remain with Sol.
+
+Sol always owns consumer-facing quality control and pipeline implementation. Luna output is a
+candidate until Sol reviews the actual final artifact and receipts; delegation never lowers a gate
+or transfers accountability. Sol acceptance and operator exact-hash publication approval are both
+required. Quality regressions return to Sol for root-cause pipeline repair.
+
+The publishing calendar is Monday–Friday daily market news, Saturday weekly recap through
+`.agents/skills/weekly-market-recap/SKILL.md`, and no Sunday post. Sunday is the analytics and
+process-improvement review.
+
+# zero-cost generative media
+
+- Use the project skill `.agents/skills/tradercockpit-free-media/SKILL.md` for every request to create, edit, generate, repurpose, or package social media assets, alongside any more specific production skill.
+- External provider spend is fixed at `$0`. Reject MuAPI, credits, subscriptions, paid model APIs, hosted generation, hosted MCP gateways, and paid fallbacks. Do not offer to configure them.
+- Codex image generation is allowed under the operator's existing Codex access. Offline still generation uses only `Open-Generative-AI/` with `stable-diffusion.cpp` and DreamShaper 8.
+- Video work may read the installed `openmontage` skill for its pipeline contract, but must execute only in this repository's `OpenMontage/` checkout. Never use another repository's engine, venv, models, or credentials.
+- Generated media is creative material, never a factual chart, news screenshot, geospatial observation, product proof, or evidence. Preserve source/model/seed/license provenance and existing synthetic-disclosure gates.
+- Do not create accounts, enter provider keys, top up balances, publish, schedule, or upload unless the operator explicitly authorizes that separate action.
+
 # deploy
 
 When the operator gives `deploy` as a direct instruction, the current task must not stage, commit, push, mutate a pull request, merge, release, or perform post-merge deployment actions.
@@ -61,7 +86,7 @@ The primary task remains responsible for implementation, full-diff review, test 
 
 - **openmontage** (`~/.agents/skills/openmontage/SKILL.md`) produces YouTube videos, Shorts, Reels, and TikToks from a brief.
 - Trigger: `/openmontage` or any request to create or edit a video, montage, explainer, Short, or Reel.
-- Use the skill for those requests.
+- Use the skill for those requests, then execute its pipeline from this repository's `OpenMontage/` checkout only.
 
 # see-video
 
@@ -74,3 +99,19 @@ The primary task remains responsible for implementation, full-diff review, test 
 - **tiktok-upload** (`~/.agents/skills/tiktok-upload/SKILL.md`) posts a finished 9:16 MP4 to TikTok using the local cookie-based uploader.
 - Trigger: `/tiktok-upload` or any request to post or upload a video to TikTok.
 - Use the skill for those requests.
+
+# System hygiene (MANDATORY — disk is shared and exhaustible)
+
+Standing rule after the 2026-07-17 disk-zero incident. Full protocol:
+`TraderCockpit-Vault/wiki/SYSTEM-HYGIENE-PROTOCOL.md`. Enforcer: `tools/janitor.py`.
+
+- **Start scoped:** temp/scratch in the session scratchpad or `C:\tmp\<task>`, never scattered in
+  `~/repos` / `~/Documents` / `~/Desktop`. Bulk data (>~1 GB) is cloud-first to B2; local keeps GOLD
+  slices only. New worktrees go under `C:\tmp\`, named for their task.
+- **No dated archive clones.** A git tag/branch is the snapshot — never copy a tree into
+  `_preserved-*` or `<repo>-pre-cloud-<sha>`. That copy pattern is what filled the disk.
+- **Close out every task:** commit+push source, send bulk to B2, `git worktree remove` your
+  worktree, drop regenerable intermediates (build/, ta-work/, clipper output, __pycache__), then
+  `py tools/janitor.py --reclaim caches build --yes`. Receipt GB freed in the vault log.
+- **Audit before any multi-GB job:** `py tools/janitor.py` (read-only) — know the headroom first.
+- Anything neither in a remote nor in B2 must be backed up before deletion, never trashed blind.

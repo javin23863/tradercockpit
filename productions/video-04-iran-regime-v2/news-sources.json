@@ -1,0 +1,61 @@
+{
+  "schema": "tradercockpit-news-source-plan/v1",
+  "cutoff": "2026-07-16T17:14:15Z",
+  "lead": "Iran war and Strait of Hormuz market regime",
+  "sources": [
+    {
+      "role": "market-framing",
+      "publisher": "Bloomberg",
+      "url": "https://www.bloomberg.com/latest/strikes-on-iran",
+      "retrievedAt": "2026-07-16T17:14:15Z",
+      "use": "Current framing only: widening conflict, ships avoiding Hormuz, and oil-market stakes. Individual breaking casualty or battlefield claims are excluded."
+    },
+    {
+      "role": "foreign-conflict-framing",
+      "publisher": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/7/14/us-strikes-new-targets-in-iran-as-tehran-hits-gulf-states-hormuz",
+      "publishedAt": "2026-07-14",
+      "retrievedAt": "2026-07-16T17:14:15Z",
+      "use": "Attributed report of the blockade start time and CENTCOM's announced purpose for the new strike wave."
+    },
+    {
+      "role": "official-confirmation",
+      "publisher": "International Maritime Organization",
+      "url": "https://www.imo.org/en/mediacentre/hottopics/pages/middle-east-highlighted-incidents.aspx",
+      "asOf": "2026-07-16",
+      "retrievedAt": "2026-07-16T17:14:15Z",
+      "use": "Confirmed incident count, fatality count, and newest vessel entry."
+    },
+    {
+      "role": "official-policy",
+      "publisher": "U.S. Department of the Treasury",
+      "url": "https://home.treasury.gov/news/press-releases/sb0564",
+      "publishedAt": "2026-07-15",
+      "retrievedAt": "2026-07-16T17:14:15Z",
+      "use": "Seven-person/entity IRGC procurement-network designation."
+    },
+    {
+      "role": "official-policy",
+      "publisher": "U.S. Department of the Treasury",
+      "url": "https://home.treasury.gov/news/press-releases/sb0562",
+      "publishedAt": "2026-07-14",
+      "retrievedAt": "2026-07-16T17:14:15Z",
+      "use": "Shipping and finance network sanctions context; not treated as proof of physical supply loss."
+    },
+    {
+      "role": "official-next-catalyst",
+      "publisher": "U.S. Energy Information Administration",
+      "url": "https://www.eia.gov/petroleum/supply/weekly/index.php",
+      "asOf": "2026-07-15",
+      "retrievedAt": "2026-07-16T17:14:15Z",
+      "use": "Next Weekly Petroleum Status Report release date: July 22, 2026."
+    }
+  ],
+  "excluded": [
+    "unconfirmed battlefield or casualty claims",
+    "unsourced vessel-flow estimates",
+    "China as an editorial lead or standalone beat",
+    "generated media as evidence"
+  ]
+}
+

@@ -1,0 +1,139 @@
+{
+  "schema": "tradercockpit-publishing-package/v1",
+  "packageId": "2026-07-16-china-growth-split",
+  "date": "2026-07-16",
+  "status": "operator-script-and-editorial-rejected",
+  "title": "China's 4.3% Growth Split: Supply Strong, Demand Soft",
+  "sourceCutoff": "2026-07-16T18:03:24+07:00",
+  "runtime": {
+    "model": "gpt-5.6-luna",
+    "reasoning": "xhigh",
+    "environment": "local",
+    "project": "C:\\Users\\MSI\\Documents\\tradercockpit"
+  },
+  "finalExport": {
+    "path": "productions/video-04-china-split/build/master-final.mp4",
+    "sha256": "f69ed3e57c794749f7e73b43dd84cf7787e1cd3d0d1fbd303ff354c03ec03037",
+    "format": "1920x1080 16:9 H.264/AAC, 744.800 seconds",
+    "videoPacketSha256": "525fbfb1c53847346549b00f56f0ceadb46b59b3e4a15fecead6f0ae8c1f49d1",
+    "publisherDryRun": "YouTube OAuth authenticated read-only channel Tradercockpit (UCBc6RR49Qk5vtDQaw8BjH3A); no upload authorized",
+    "disposition": "rejected evidence only; unpublishable",
+    "containsBurnedCaptions": true
+  },
+  "thumbnail": {
+    "path": "productions/video-04-china-split/thumbnail.png",
+    "sha256": "29cfa1d0bca3de155cfe4fbe6bb1ddc7cfdb1850e612632bc3edb821817aec5c"
+  },
+  "caption": {
+    "path": "productions/video-04-china-split/caption.txt",
+    "sha256": "40d70ea7c661cd1db4da8c5c7cd00c1894a5cbf4f977b4d2d089a6743cbc9412"
+  },
+  "socialBatch": {
+    "path": "productions/video-04-china-split/social-batch.json",
+    "sha256": "bde801424e664f02682717ca2591c3c1f2c993937b77ad8fbb3f10e3f96d97d9",
+    "items": 1,
+    "approved": 0,
+    "rejected": 1,
+    "approvalSha256": null,
+    "invalidatedApprovalSha256": "7cf3813229dcdbdf682f9c2db187ca2646c990743e993634dfd35882d1a8d9a4",
+    "channels": ["youtube"],
+    "email": "outside this lane"
+  },
+  "checks": {
+    "editorial": "REJECTED — structural beat checks passed but operator rejected voice, lead, source hierarchy, and repeated synthetic constructions",
+    "claims": "PASS — 13 sections, 13 claims, 25 receipts",
+    "style": "ADVISORY PASS ONLY — did not prove recognizable operator voice or editorial quality",
+    "format": "PASS — 1920x1080, 16:9, H.264/AAC, 24 kHz mono",
+    "audio": "PASS — -17.18 LUFS, -1.33 dBTP, 3.50 LRA; video packet copied byte-for-byte",
+    "manifest": "PASS — single final export and single social item",
+    "approval": "REVOKED — operator rejected the script/editorial/caption treatment after exact-hash approval",
+    "scriptApproval": "REJECTED — separate operator script approval was skipped before TTS and render",
+    "captions": "REJECTED — burned YouTube captions were not authorized and contain text errors",
+    "publisher": "BLOCKED — no publication authority for this rejected artifact",
+    "authentication": "PASS — read-only YouTube API authenticated Tradercockpit (UCBc6RR49Qk5vtDQaw8BjH3A); authentication does not authorize upload",
+    "costUsd": 0
+  },
+  "rejection": {
+    "receipt": "productions/video-04-china-split/script-approval.json",
+    "rejectedAt": "2026-07-16T16:59:51Z",
+    "masterDisposition": "preserve locally as rejected evidence; never upload or derive platform assets",
+    "requiredNext": "Iran-war-led replacement script, operator script approval, then clean YouTube master without burned captions and fresh exact-asset approval"
+  },
+  "frameInspection": {
+    "map": "productions/video-04-china-split/build/qa-final/qa-map.json",
+    "mapSha256": "612db0a2ef14435eecc58188cd7a4d18d0b3fa673f94986e01bb9b2fa5b37dbf",
+    "boundaries": 55,
+    "midpoints": 55,
+    "sheets": [
+      "productions/video-04-china-split/build/qa-final/sheet-boundaries-01.png",
+      "productions/video-04-china-split/build/qa-final/sheet-boundaries-02.png",
+      "productions/video-04-china-split/build/qa-final/sheet-boundaries-03.png",
+      "productions/video-04-china-split/build/qa-final/sheet-boundaries-04.png",
+      "productions/video-04-china-split/build/qa-final/sheet-boundaries-05.png",
+      "productions/video-04-china-split/build/qa-final/sheet-midpoints-01.png",
+      "productions/video-04-china-split/build/qa-final/sheet-midpoints-02.png",
+      "productions/video-04-china-split/build/qa-final/sheet-midpoints-03.png",
+      "productions/video-04-china-split/build/qa-final/sheet-midpoints-04.png",
+      "productions/video-04-china-split/build/qa-final/sheet-midpoints-05.png"
+    ],
+    "visualVerdict": "PASS — all declared subjects, symbols/timeframes, NBS containment, captions, labels, aspect, and safe area inspected"
+  },
+  "transitionInspection": {
+    "path": "productions/video-04-china-split/build/transition-inspection.json",
+    "sha256": "af3d7430639702af185a0ea40122e3833c73946f0dadf57f82f0ee48a57575e0",
+    "verdict": "PASS — SPX last frame 726.400s; SSE first frame 726.433s; declared 13g start 726.421s"
+  },
+  "artifactHashes": [
+    {"path": "productions/video-04-china-split/build/master-final.mp4", "sha256": "f69ed3e57c794749f7e73b43dd84cf7787e1cd3d0d1fbd303ff354c03ec03037"},
+    {"path": "productions/video-04-china-split/thumbnail.png", "sha256": "29cfa1d0bca3de155cfe4fbe6bb1ddc7cfdb1850e612632bc3edb821817aec5c"},
+    {"path": "productions/video-04-china-split/caption.txt", "sha256": "40d70ea7c661cd1db4da8c5c7cd00c1894a5cbf4f977b4d2d089a6743cbc9412"},
+    {"path": "productions/video-04-china-split/social-batch.json", "sha256": "bde801424e664f02682717ca2591c3c1f2c993937b77ad8fbb3f10e3f96d97d9"},
+    {"path": "productions/video-04-china-split/build/captions.srt", "sha256": "630cd3233bbb45e88d0b47c79a530ffde4659f4da8cccfb375edd81df397b3c0"},
+    {"path": "productions/video-04-china-split/build/caption-receipt.json", "sha256": "417a9f9e3264884d8961a1075a9f3430013f00d0f8b3161821341a2f5eafa46a"},
+    {"path": "productions/video-04-china-split/build/claims-gate.json", "sha256": "ecdc7dcd1e54a5b92ac94e4d5c8b092c74ea848d1318f8be37a8621aa9c4ed2b"},
+    {"path": "productions/video-04-china-split/build/editorial-gate.json", "sha256": "c732d0d749dfce5991ddf83f95c7999ee7b40824e02acad8d3df4041513a3f10"},
+    {"path": "productions/video-04-china-split/build/script-style-audit.json", "sha256": "736785483494b54290ca2fa9903b7ac135b27dd0450edb93ce0724e5f61cb9d4"},
+    {"path": "productions/video-04-china-split/build/qa-final/qa-map.json", "sha256": "612db0a2ef14435eecc58188cd7a4d18d0b3fa673f94986e01bb9b2fa5b37dbf"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-boundaries-01.png", "sha256": "23cd15bd25c1b5a5138d71f11cc2aeb84c78a87c9f82c2bd04e32f6d8425ed4b"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-boundaries-02.png", "sha256": "0fd1f828d8d295dbe919c6b462884d9d4b58499bd88888df56a8d12706322d6e"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-boundaries-03.png", "sha256": "eb599f8543f4d92409b634ff90d12d08eb1bc96acccdf3b35ced27c529847fa0"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-boundaries-04.png", "sha256": "e8bbde73045dbe52f2ec307d1300d03585d3dd25b4ed6734bb94aa3de516bc04"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-boundaries-05.png", "sha256": "867a4406a1ef8d5a1f845508291b229e5349ba914e4283c74ac4150f960bc5c3"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-midpoints-01.png", "sha256": "3d9a2a8405f49c01aba0442e28843c9aab81508bebf66e4f7ffeba09e7f59b32"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-midpoints-02.png", "sha256": "a49b79cb5c6531952c98c5ebe8c84eefc7ac99aa9f403cfd087e7c3edadfa8be"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-midpoints-03.png", "sha256": "baf9d39f7b099cc7be8b476deb74e1949b4f4940e5882d0c1fba6656a55a9852"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-midpoints-04.png", "sha256": "573e6b1a9a8cbb6cf30a5f8e554c3db4705569a4fffa27acbf38278097df40bc"},
+    {"path": "productions/video-04-china-split/build/qa-final/sheet-midpoints-05.png", "sha256": "38447f9d84c497a3667c5acc15febbe183f689ae2f639d5d01b43884aa0264e2"},
+    {"path": "productions/video-04-china-split/build/transition-inspection.json", "sha256": "af3d7430639702af185a0ea40122e3833c73946f0dadf57f82f0ee48a57575e0"},
+    {"path": "productions/video-04-china-split/scene-plan.json", "sha256": "e991856df9c63563b3e09ba5fe61185af519080649883cee48ecd083cc13c7e0"},
+    {"path": "productions/video-04-china-split/analysis-brief.md", "sha256": "6d0a73520c11e78a67d94445cbe1b8a0ef2dabd30863d67c4b4b1aec6186b455"},
+    {"path": "productions/video-04-china-split/vo.txt", "sha256": "9125d1e5df66ea271f21c0edbcc5ef946ab528196187539b9e20c7c5dee9e9b3"},
+    {"path": "productions/video-04-china-split/script-approval.json", "sha256": "00663dd9bc7dc2061338ba853a5a3791c55dc5475300ccc64af6de9d51067480"},
+    {"path": "productions/video-04-china-split/claims.yaml", "sha256": "06a650b478dce07af5712511d24cfe8c258518c77c2b0ecb88e094c7c7ffdb20"},
+    {"path": "productions/video-04-china-split/vo-receipts.yaml", "sha256": "13026fb7eb677005a05a10698172de4eff48011cfa44a40a3f12ac03318279ce"},
+    {"path": "productions/video-04-china-split/chart-plan.json", "sha256": "223773c807b6870f0a7e5eafccf7bb9b1d092359f81d1e93e8626a8b8847992c"},
+    {"path": "productions/video-04-china-split/news-sources.json", "sha256": "1f66b5d2860c9f8545e1b45e3f4ed24817a8ddfaa3a3999bdc1c6567465c662c"},
+    {"path": "productions/video-04-china-split/style-gate.json", "sha256": "736785483494b54290ca2fa9903b7ac135b27dd0450edb93ce0724e5f61cb9d4"},
+    {"path": "productions/video-04-china-split/publish_log.json", "sha256": "c6caba66d9c4ef8857cf82c8e46712015054b7c7a43afcb3169a3e80f4309d15"},
+    {"path": "productions/video-04-china-split/build/audio-inspection.json", "sha256": "563fa6d114f18d5228dadf2c90c5588cdb8f6375f7df3b73997fe925551344e6"}
+  ],
+  "evidence": {
+    "claims": "productions/video-04-china-split/claims.yaml",
+    "voice": "productions/video-04-china-split/vo-receipts.yaml",
+    "charts": "productions/video-04-china-split/chart-plan.json",
+    "news": "productions/video-04-china-split/news-sources.json",
+    "scenePlan": "productions/video-04-china-split/scene-plan.json",
+    "captionReceipt": "productions/video-04-china-split/build/caption-receipt.json",
+    "publishLog": "productions/video-04-china-split/publish_log.json",
+    "scriptApproval": "productions/video-04-china-split/script-approval.json",
+    "audioInspection": "productions/video-04-china-split/build/audio-inspection.json"
+  },
+  "mediaPolicy": {
+    "externalProviderSpendUsd": 0,
+    "syntheticMediaDisclosure": true,
+    "godseye": "omitted by purpose gate",
+    "verticals": "not produced",
+    "oldMaster": "rejected and excluded: productions/video-04-china-split/build/master.mp4",
+    "publication": "rejected and not authorized; prior exact-hash approval invalidated; preserve master-final only as rejected evidence"
+  }
+}
