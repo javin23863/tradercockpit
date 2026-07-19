@@ -111,7 +111,12 @@ def _metric_value(row, metric, tag):
         return _number(row, metric, tag)
     numerator, denominator, scale = DERIVED_METRICS[metric]
     top, bottom = _number(row, numerator, tag), _number(row, denominator, tag)
-    return None if top is None or bottom is None or bottom <= 0 else top / bottom * scale
+    if top is None or bottom is None or bottom <= 0:
+        return None
+    value = top / bottom * scale
+    if "percent" in metric and value > 100:
+        raise ValueError(f"{tag}.{metric} must not exceed 100")
+    return value
 
 
 def _read_metrics(path):
