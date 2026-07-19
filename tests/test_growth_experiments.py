@@ -236,6 +236,8 @@ def test_nulls_and_derived_rates_preserve_unknown_denominators(tmp_path):
         summarize(tmp_path / "not-finite", base_manifest(), [metric_row(completion_percent="NaN")])
     with pytest.raises(ValueError, match="must not be negative"):
         summarize(tmp_path / "negative", base_manifest(), [metric_row(completion_percent=-1)])
+    with pytest.raises(ValueError, match="must not exceed 100"):
+        summarize(tmp_path / "over-100", base_manifest(), [metric_row(completion_percent=999)])
 
 
 def test_pending_baseline_and_too_few_observations_are_insufficient(tmp_path):

@@ -99,6 +99,8 @@ def _number(row, field, tag):
         raise ValueError(f"{tag}.{field} must be finite")
     if number < 0:
         raise ValueError(f"{tag}.{field} must not be negative")
+    if "percent" in field and number > 100:
+        raise ValueError(f"{tag}.{field} must not exceed 100")
     return number
 
 
