@@ -6,6 +6,10 @@
     "status": "concept"
   },
   "verifiedCapabilities": [],
+  "platforms": [
+    "Windows desktop",
+    "mobile monitoring via your broker's official MetaTrader 5 app (no native mobile app)"
+  ],
   "cta": {
     "label": "Join the product waitlist",
     "url": "mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20product%20waitlist"
