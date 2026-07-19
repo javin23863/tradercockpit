@@ -1,0 +1,9 @@
+{
+  "schema": "tradercockpit-hotdog/v1",
+  "updatedAt": "2026-07-19T11:19:50.554993Z",
+  "channelsConfigured": 11,
+  "channelsScreened": 11,
+  "status": "ok",
+  "errors": [],
+  "finds": []
+}

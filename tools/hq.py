@@ -26,7 +26,7 @@ except ImportError:  # direct script execution
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "operator-hq.html"
-DEPARTMENTS = Path(r"C:\Users\MSI\Desktop\TraderCockpit-Vault\wiki\departments")
+DEPARTMENTS = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit\GTM\Departments")
 ANALYTICS = ROOT / "social-ops" / "analytics-latest.json"
 OUTLIERS = ROOT / "social-ops" / "youtube-outlier-backlog.json"
 MANAGER_URL = "http://127.0.0.1:8790/state"

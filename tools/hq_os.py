@@ -50,6 +50,8 @@ ACTIONS = {
     "thread-board": {"label": "Codex thread board", "argv": [PY, "tools/thread_board.py", "24"]},
     "growth-report": {"label": "Growth report", "argv": [PY, "tools/growth_experiments.py", "report", "--json"]},
     "analytics-collect": {"label": "Collect analytics", "argv": [OM_PY, "tools/social_analytics.py", "collect"]},
+    "hotdog-screen": {"label": "Hot Dog competitor screen", "argv": [OM_PY, "tools/social_analytics.py", "hotdog"]},
+    "social-weekly-report": {"label": "Weekly social report", "argv": [OM_PY, "tools/social_analytics.py", "report"]},
     "publish-dry-run": {"label": "Publish readiness", "argv": [OM_PY, "tools/publish.py", "--dry-run"], "ok_codes": (0, 1)},
     "hq-static-regen": {"label": "Regen static HQ", "argv": [PY, "tools/hq.py", "--no-open"]},
 }
