@@ -23,11 +23,13 @@ except ModuleNotFoundError:  # direct `python tools/channel_seo.py` execution
 
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
 
-DESCRIPTION = """TraderCockpit publishes evidence-first market analysis across oil, equities, rates, currencies, and the geopolitics moving them.
+DESCRIPTION = """TraderCockpit — evidence-first market analysis. Oil, equities, rates, currencies, and the geopolitics that move them.
 
-No signals. No courses. No performance promises. News and education only; nothing here is financial advice.
+The strategies the internet sells you, coded honestly and put through the tests a real desk runs before risking a dollar. What holds up, holds up. What breaks, breaks on camera.
 
-Explore the simulated product preview: https://javin23863.github.io/tradercockpit/"""
+You are the market.
+
+No signals. No courses. Research tooling, not financial advice. No performance is promised or implied."""
 
 KEYWORDS = ('"trading strategy backtest" "ICT trading tested" "smart money concepts" SMC '
             '"quant trading" "algorithmic trading" "monte carlo trading" "walk-forward analysis" '
