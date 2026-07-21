@@ -1,0 +1,22 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "duration": 40.24,
+      "label": "fifty-seven-incidents-selective-tape",
+      "selection": "AI-mode regex candidate 1; opening hook; multiple numbers plus Brent, Nasdaq and VIX"
+    },
+    {
+      "start": 111.62,
+      "duration": 39.178,
+      "label": "brent-ten-point-seven-five-percent",
+      "selection": "AI-mode regex candidates 4-5; full Brent repricing beat ending at the live-bar caveat"
+    },
+    {
+      "start": 458.399,
+      "duration": 27.107,
+      "label": "brent-xle-vix-base-map",
+      "selection": "AI-mode regex candidate 13; concise decision map with three named assets and exact levels"
+    }
+  ]
+}

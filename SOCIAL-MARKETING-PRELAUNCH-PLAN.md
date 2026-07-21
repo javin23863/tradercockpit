@@ -97,21 +97,30 @@ produce additional derivatives only after the long-form master is accepted.
 
 ## Automation
 
-`tradercockpit-daily-market-authority` runs Monday–Friday at 17:30 Asia/Bangkok. It owns daily
-market-news research, drafts, asset preparation, validation, exact-hash batch assembly,
-authenticated publisher readiness, metrics, and vault freshness. It cannot create accounts, enter
-new credentials, accept provider terms, alter profiles, invent product facts, or approve a
-revised/future hash.
+**Scheduling anchor: all lanes are defined in US/Eastern, the market's timezone, not the production
+timezone.** Publication times track the cash-session close and shift with US daylight saving; they do
+not track Asia/Bangkok local time. A lane described in production-local time previously resolved to
+~06:30 ET — before the US open — which framed a post-close recap as a pre-market show. Schedule in
+ET; let the Bangkok-local time float.
+
+`tradercockpit-daily-market-authority` runs Monday–Friday at 18:00 US/Eastern. Production starts at
+the 16:00 cash close and uses the full 120-minute fast-lane budget; publication is 18:00 ET. The
+18:00 slot exists specifically so no production stage runs before the close — a 17:00 publish would
+have started work at 15:00 ET, analyzing a session still in progress. The daily is a **post-close
+recap**: it reports what the session did, using settled closing prints, not pre-open positioning. It owns daily market-news research, drafts, asset
+preparation, validation, exact-hash batch assembly, authenticated publisher readiness, metrics, and
+vault freshness. It cannot create accounts, enter new credentials, accept provider terms, alter
+profiles, invent product facts, or approve a revised/future hash.
 
 One blocked platform does not stop the rest of the daily workflow.
 
-`tradercockpit-saturday-weekly-market-recap` runs Saturday at 17:30. It uses
+`tradercockpit-saturday-weekly-market-recap` runs Saturday at 12:00 US/Eastern. It uses
 `.agents/skills/weekly-market-recap/SKILL.md` to synthesize the completed week's economic and market
 news, cross-asset conclusions, and the coming week's official catalysts in the current format. Its
 first real run stays with Sol and stops at an approval-ready package; after acceptance it moves to
 Luna Max.
 
-`tradercockpit-weekly-social-review` runs Sunday at 18:00 as the no-post analytics/process review.
+`tradercockpit-weekly-social-review` runs Sunday at 12:00 US/Eastern as the no-post analytics/process review.
 It refreshes the sanitized four-source dashboard, compares like-for-like history, assesses channel
 numbers plus production time, script/voice, visual/editing, QA, corrections, and business-process
 receipts, then records one repeat, one stop, and one controlled test for the next week. The collector

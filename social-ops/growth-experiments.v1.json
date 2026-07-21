@@ -1,6 +1,7 @@
 {
   "schema": "tradercockpit-growth-experiments/v1",
-  "updatedAt": "2026-07-16T12:00:00+07:00",
+  "updatedAt": "2026-07-20T15:10:43+07:00",
+  "claimsGateEvidencePolicy": "artifact-required/v1",
   "paidActivation": "disabled",
   "libraries": {
     "audiences": [

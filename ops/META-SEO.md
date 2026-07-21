@@ -17,9 +17,9 @@ Updated 2026-07-14.
   `POST /{page}/photos`(published=false)→`POST /{page}?cover=<id>` for cover, and
   `POST /{page}/picture` (source=file) DOES set the Page profile picture (corrects earlier note).
   Live: picture + cover show the new red/black art. **FB category + @handle remain manual.**
-- **TikTok is now wired** (was manual) — see `SEO-SOCIAL.md`. Uploader installed at
-  `../TiktokAutoUploader`; one-time `python cli.py login -n tradercockpit`; then
-  `publish.py --platforms ... tiktok`.
+- **TikTok publishing code is wired** — see `SEO-SOCIAL.md`. The production lane is the official
+  free Content Posting API with refreshable OAuth and verified read-back. Public posting remains
+  fail-closed until the TikTok developer app, `video.publish` consent, and provider audit exist.
 
 ---
 ## (earlier notes — partially superseded above)

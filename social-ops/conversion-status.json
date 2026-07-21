@@ -1,0 +1,81 @@
+{
+  "schema": "conversion-status/v1",
+  "as_of": "2026-07-20",
+  "stage_status_definitions": {
+    "LIVE": "A public provider receipt exists for this stage.",
+    "BUILT_BUT_OFF": "Local infrastructure exists, but activation, publication, or provider acceptance has not occurred.",
+    "NOT_YET_EXISTING": "The real-world object does not exist yet; local plumbing is not the object.",
+    "OUT_OF_SCOPE_NOT_BUILT": "This stage was deliberately excluded from the free-capture task.",
+    "STRUCTURALLY_UNAVAILABLE": "The operator has ruled the stage unavailable until a prerequisite product exists."
+  },
+  "stages": [
+    {
+      "id": "public_attention",
+      "status": "LIVE",
+      "evidence": [
+        "productions/video-04-iran-regime-v2/publish_log.json",
+        "productions/video-05-deadline-day/publish_log.json",
+        "productions/video-03-weekly-2026-07-18/publish_log.json"
+      ]
+    },
+    {
+      "id": "freebie_artifact",
+      "status": "BUILT_BUT_OFF",
+      "evidence": ["docs/strategy-claim-audit-checklist.html"],
+      "blocker": "Not deployed or linked from any live surface."
+    },
+    {
+      "id": "outbound_attribution",
+      "status": "BUILT_BUT_OFF",
+      "evidence": ["social-ops/conversion-capture.v1.json", "social-ops/conversion-publish-strings.json"],
+      "blocker": "No stamped string has been published."
+    },
+    {
+      "id": "email_capture_handler",
+      "status": "BUILT_BUT_OFF",
+      "evidence": ["tools/conversion.py::handle_signup"],
+      "blocker": "No runtime endpoint is hosted and --activate has not been supplied."
+    },
+    {
+      "id": "double_opt_in_acceptance",
+      "status": "BUILT_BUT_OFF",
+      "evidence": ["tools/conversion.py::_signup_payload", "tools/conversion.py::_live_buttondown_post"],
+      "blocker": "Buttondown account setup and a real pending-confirmed-unsubscribe receipt are absent."
+    },
+    {
+      "id": "confirmed_email_list",
+      "status": "NOT_YET_EXISTING",
+      "evidence": ["C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/GTM/Offer Inventory and Claims Constraint.md:73-75"],
+      "blocker": "Buttondown is unconfigured; no confirmed subscriber list exists."
+    },
+    {
+      "id": "email_sequence",
+      "status": "OUT_OF_SCOPE_NOT_BUILT",
+      "evidence": [],
+      "blocker": "This task builds free capture only and sends no email."
+    },
+    {
+      "id": "paid_offer_checkout",
+      "status": "STRUCTURALLY_UNAVAILABLE",
+      "evidence": ["C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/Decisions/2026-07-20 Store Stays Closed.md"],
+      "blocker": "No product is approved for sale; the store stays closed by operator ruling."
+    },
+    {
+      "id": "revenue",
+      "status": "STRUCTURALLY_UNAVAILABLE",
+      "evidence": ["C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/Decisions/2026-07-20 Store Stays Closed.md"],
+      "blocker": "No product is on sale, so revenue is not an available funnel stage."
+    }
+  ],
+  "metric_semantics": {
+    "null": "Unknown, unavailable, or not instrumented; it is not a measured zero.",
+    "zero": "Allowed only after a live instrument records a real observation window and measured_at is present."
+  },
+  "metrics": {
+    "outbound_link_clicks": {"value": null, "status": "NOT_INSTRUMENTED", "measured_at": null},
+    "signup_submissions": {"value": null, "status": "NO_LIVE_CAPTURE", "measured_at": null},
+    "confirmation_emails_delivered": {"value": null, "status": "NO_LIVE_CAPTURE", "measured_at": null},
+    "confirmed_subscribers": {"value": null, "status": "NO_LIST", "measured_at": null},
+    "revenue": {"value": null, "status": "STRUCTURALLY_UNAVAILABLE", "measured_at": null}
+  }
+}

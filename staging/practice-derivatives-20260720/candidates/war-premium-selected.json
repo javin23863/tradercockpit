@@ -1,0 +1,16 @@
+{
+  "segments": [
+    {
+      "start": 111.838,
+      "duration": 19.332,
+      "label": "treasury-fifty-iran-oil",
+      "selection": "AI-mode regex candidate 5; tightened to a clean sentence boundary; number plus named oil exposure; outside prior recut-v3 ranges"
+    },
+    {
+      "start": 258.599,
+      "duration": 35.448,
+      "label": "xle-brent-producer-channel",
+      "selection": "AI-mode regex candidates 9-10; clean XLE opening through the Brent/XLE confirmation payoff; outside prior recut-v3 ranges"
+    }
+  ]
+}

@@ -11,7 +11,7 @@
 
 Every gate in this plan lives in the same agent-editable codebase that Video 04 bypassed. Code-level gates are therefore **procedure, not security**: an agent that can edit `tools/publish.py` can delete its gates. The plan is honest about this and rests on one structural control:
 
-**Credential custody.** Live-publish credentials (YouTube OAuth token, TikTok session) move out of any agent-readable path. Live publishing becomes an operator-run step: the operator either executes the publish command themselves or supplies the credential/unlock at the moment of publication, per run. The agent can prepare everything; it cannot publish anything. This is the wall. All other gates exist to make the operator's decision at that wall well-informed and auditable.
+**Credential custody.** Live-publish credentials (YouTube OAuth and TikTok refreshable OAuth) remain outside any repository or agent-readable path. Live publishing becomes an operator-run or explicitly operator-authorized step: the agent can prepare and verify everything, but an exact approved batch item plus credential access is required to publish. This is the wall. All other gates exist to make the operator's decision at that wall well-informed and auditable.
 
 **Approval-record integrity.** Approval records are agent-readable but operator-authored: the operator pastes the exact hash themselves (in chat or into the approval file); the validator only compares. Residual risk stated plainly: an agent could still forge an approval file it can write to. The forgery does not matter at the publish step — publication requires the operator-held credential regardless — but it could waste a run. Forged or agent-authored approval records discovered at any point reset the five-run count.
 
@@ -46,12 +46,12 @@ Every gate in this plan lives in the same agent-editable codebase that Video 04 
 ## Minimal implementation changes
 
 - Add one standard-library production-approval validator with exact-hash topic and script records. The validator compares operator-pasted hashes against computed hashes; it authors nothing.
-- Relocate YouTube OAuth token and TikTok session files to an operator-only path outside the repo and agent working directories; `tools/publish.py` live mode reads credentials only from that path, so live publishing fails closed when run by the agent.
+- Keep YouTube and TikTok OAuth bundles in the operator-only path outside the repo and agent working directories; `tools/publish.py` fails closed when that custody path is unavailable.
 - Gate every downstream stage in `tools/produce.py`; generate/select the caption-free master for YouTube and do not require caption generation for that lane.
 - Introduce social-batch/v2 in `tools/social_batch.py`. Bind the production approval, caption policy, privacy, title, copy, claims receipt, asset, disclosure, and their hashes into the final approval fingerprint. Keep v1 readable only as historical evidence, never live-publishable.
 - Change `tools/publish.py` live mode to require `--batch` and `--item`. Perform real authentication probes:
   - YouTube: refresh OAuth if possible and confirm the authenticated channel.
-  - TikTok: require a valid session and read-back capability; otherwise keep publishing disabled.
+  - TikTok: silently refresh official OAuth, query creator-info, require public visibility, and require a final post ID/URL read-back; otherwise keep publishing disabled.
 - Make the publisher write `publish_log.json` from actual platform responses. Failures retain null URL/ID and never receive published status.
 - Update existing canonical runbooks and vault notes instead of creating parallel documentation. Record the Video 04 failures: gate bypass, wrong lead/source hierarchy, generic voice, inaccurate burned captions, and false credential readiness.
 
@@ -63,7 +63,7 @@ Every gate in this plan lives in the same agent-editable codebase that Video 04 
 - Any post-approval change to title, copy, asset, script, claims, caption mode, privacy, or disclosure invalidates approval.
 - Live publish attempted from the agent environment (no operator credential present) fails closed — this is the primary acceptance test for credential custody.
 - YouTube readiness distinguishes absent, refreshable-expired, revoked, and valid credentials and confirms the expected channel.
-- Live publishing rejects v1 batches, drafts, rejected items, hash mismatches, platform mismatches, and unverified TikTok sessions.
+- Live publishing rejects v1 batches, drafts, rejected items, hash mismatches, platform mismatches, private-only TikTok clients, and unverified TikTok results.
 - Simulated publisher success must produce a platform ID/URL and matching publish-log entry; uploader-only success remains unverified.
 - The current Video 04 fixture stays rejected and cannot become ready.
 - Complete five consecutive human-gated runs with:

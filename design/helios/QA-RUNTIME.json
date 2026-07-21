@@ -1,0 +1,176 @@
+{
+  "a": {
+    "h": 4177443472,
+    "sum": 133723,
+    "nz": 585,
+    "status": {
+      "running": true,
+      "time": 0.04989999999999997,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 0,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "b": {
+    "h": 2100076481,
+    "sum": 127844,
+    "nz": 570,
+    "status": {
+      "running": true,
+      "time": 0.5332999999999999,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 20.626289143071443,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "c": {
+    "h": 2100076481,
+    "sum": 127844,
+    "nz": 570,
+    "status": {
+      "running": false,
+      "time": 0.5499999999999999,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 20.626289143071443,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "d": {
+    "h": 2100076481,
+    "sum": 127844,
+    "nz": 570,
+    "status": {
+      "running": false,
+      "time": 0.5499999999999999,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 20.626289143071443,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "e": {
+    "h": 4142270792,
+    "sum": 128097,
+    "nz": 571,
+    "status": {
+      "running": true,
+      "time": 0.8332,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 20.626289143071443,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "f": {
+    "h": 212199541,
+    "sum": 126884,
+    "nz": 564,
+    "status": {
+      "running": false,
+      "time": 2,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 20.626289143071443,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "g": {
+    "h": 1834486137,
+    "sum": 129124,
+    "nz": 571,
+    "status": {
+      "running": false,
+      "time": 8,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 20.626289143071443,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "h": {
+    "h": 212199541,
+    "sum": 126884,
+    "nz": 564,
+    "status": {
+      "running": false,
+      "time": 2,
+      "speed": 1,
+      "intensity": 1.45,
+      "targetFps": 24,
+      "measuredFps": 20.626289143071443,
+      "renderScale": 0.78,
+      "snapshotMode": false,
+      "reduceMotion": false,
+      "systemReduceMotion": true,
+      "fxEnabled": true,
+      "view": "parity"
+    }
+  },
+  "hud": {
+    "display": "block",
+    "text": "HELIOS MOTION TEST\nPAUSED \u00b7 21 FPS \u00b7 1.00\u00d7 \u00b7 FX 1.45 \u00b7 Q 0.78 \u00b7 OS REDUCE OVERRIDDEN\nPLAYBACK\nPLAY\nRESET\nSPEED\n0.5\u00d7\n1\u00d7\n2\u00d7\nENERGY\nSOFT\nPARITY\nHIGH\nSpace: play/pause \u00b7 R: reset \u00b7 [ / ]: speed \u00b7 H: hide controls",
+    "root": "paused"
+  },
+  "errors": [],
+  "logs": [
+    [
+      "warning",
+      "Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"
+    ]
+  ],
+  "assertions": {
+    "default_runs_despite_os_reduce": true,
+    "live_changes": true,
+    "pause_holds": true,
+    "resume_changes": true,
+    "same_time_same": true,
+    "different_time_diff": true,
+    "hud_visible": true,
+    "no_errors": true
+  }
+}

@@ -17,9 +17,11 @@ Quota: 10,000 units/day default = ~6 uploads/day. Shorts = same upload, 9:16 + `
 - **Official, free**: Meta Graph API content publishing — **one Meta developer app covers both**: IG Reels (`/media` + `media_type=REELS`, needs Instagram Business/Creator account linked to a Facebook Page) and Facebook Reels/Page video (`/{page-id}/video_reels`). Video must be at a public URL for ingestion. Most reliable; setup ~30 min once.
 - **Unofficial**: [`subzeroid/instagrapi`](https://github.com/subzeroid/instagrapi) — `pip install instagrapi`, `clip_upload()` posts a Reel from a local file with username/password. Zero Meta-app setup. Risk: unofficial API, account flags possible — use a low-value account first.
 
-### TikTok — two routes
-- **Official, free**: TikTok Content Posting API — needs a TikTok developer app + audit approval before public posting (slow, but the legit path).
-- **Unofficial**: [`wkaisertexas/tiktok-uploader`](https://github.com/wkaisertexas/tiktok-uploader) — browser-cookie-based upload from a local file. Zero app approval. Same caveat: unofficial, can break on TikTok UI changes.
+### TikTok — official API only
+- **Official, free**: `tools/upload_tiktok.py` uses TikTok Content Posting API Direct Post with
+  refreshable OAuth and final post read-back. A TikTok developer app and free audit approval are
+  required before public posting. The retired browser-cookie route is excluded because sessions
+  expire and it cannot prove the final post ID/URL.
 
 **Default policy**: the agent renders the vertical file and writes caption/hashtags. Existing repository upload tools may run only after explicit operator approval. Do not add a hosted MCP or publishing service.
 
@@ -28,6 +30,7 @@ Quota: 10,000 units/day default = ~6 uploads/day. Shorts = same upload, 9:16 + `
 - MuAPI, Generative-Media-Skills, and the Anil Matcha scheduler: generation or scheduling ultimately uses MuAPI credits.
 - Hosted/remote MCP publishing layers and “free tiers”: they introduce an external service, account, quota, or later billing path.
 - Postiz and other scheduler repos: the existing `tools/publish.py` path already covers the required platforms; another scheduler is duplicate infrastructure.
+- Zapier: unnecessary hosted middleware for a workflow already implemented locally, and its task limits create a paid scaling path.
 - Wan2GP, ComfyUI, SDXL, Z-Image, and larger local video checkpoints: duplicate or exceed this machine's approved 8 GB VRAM envelope.
 
 ## Quality upgrades

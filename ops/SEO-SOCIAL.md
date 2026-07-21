@@ -14,22 +14,24 @@ Facebook Page (IG app → Settings → Account type; then Accounts Center → li
 
 ## Connect TikTok
 
-- **Route C — makiisthenes/TiktokAutoUploader (WIRED 2026-07-14, recommended, free, no Docker):**
-  Installed at `../TiktokAutoUploader` (venv + playwright-chromium ready). Wrapper
-  `tools/upload_tiktok.py`; integrated into `publish.py --platforms ... tiktok`.
-  **One-time (manual, interactive Chrome):** `cd ../TiktokAutoUploader && python cli.py login -n tradercockpit`.
-  After that, cookies persist in `CookiesDir/` and uploads are automatic. `publish.py --dry-run`
-  reports cookie readiness. Unofficial cookie tool — carries an account-ban disclaimer (operator accepted).
-- **Route A — Postiz (vendored `postiz/`):** official Login Kit + Content Posting API, but needs
-  Docker + TikTok app review. Heavier; use only if Route C's cookie flow gets throttled.
-  1. developers.tiktok.com → register app → add **Login Kit + Content Posting API**
-     → note Client Key + Secret (TikTok reviews the app; sandbox posts = private
-     until audit passes, ~days).
-  2. Blocked locally until Docker exists (install needs a reboot — after batv3).
-     Then: `postiz/.env` ← TIKTOK_CLIENT_ID/SECRET, `docker compose up -d`,
-     connect the account at localhost:4007, publish/schedule from there.
-- **Route B — manual (works today):** produce.py shorts land in
-  `studio-kit/clipper/output/` → post from phone. Caption files sit next to clips.
+- **Permanent route — official Content Posting API (free; no Zapier, Postiz, Docker, or browser cookies):**
+  `tools/upload_tiktok.py` is wired into the existing `social-batch/v2` publisher. It silently
+  rotates access tokens from the long-lived refresh token, queries current creator/privacy rules,
+  uploads the approved local MP4, polls TikTok processing, and returns the final post ID/URL for
+  `publish_log.json`.
+- **One-time provider onboarding:** create a TikTok developer app, enable Login Kit and Content
+  Posting API with `video.publish`, authorize `@thetradercockpit`, and store the resulting token
+  bundle as `tiktok-oauth.json` in the operator credential directory from `ops/SETUP-CREDS.md`.
+  TikTok restricts unaudited clients to private posts; record `client_audit_status=approved` only
+  from TikTok's portal confirmation. Until then the repository reports `audit-required` and blocks
+  the public lane.
+- **Readiness:**
+  `python tools\publish.py --batch productions\<run>\social-batch.json --item <approved-id> --platform tiktok --dry-run`.
+  `valid` means public posting and provider read-back are available. `absent`,
+  `custody-unavailable`, `credential-invalid`, `verification-error`, `audit-required`, or
+  `private-only` fail closed without uploading.
+- The retired cookie/CDP uploader is not a fallback. It caused recurring session loss and could
+  not supply a stable post read-back. Do not re-enable it.
 
 ## Profile SEO — Instagram (@handle: get `tradercockpit`; fallback `thetradercockpit`)
 

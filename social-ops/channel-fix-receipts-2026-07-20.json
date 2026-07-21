@@ -1,0 +1,151 @@
+{
+  "schema": "tradercockpit-channel-fixes/v1",
+  "appliedAt": "2026-07-20T10:34:14Z",
+  "applied": true,
+  "changes": [
+    {
+      "videoId": "Dy_XvwUi6Ng",
+      "field": "privacyStatus",
+      "before": "private",
+      "after": "private",
+      "note": "89 views, was hidden while its 0-view twin was public",
+      "verified": false
+    },
+    {
+      "videoId": "SHVn6IdgIUo",
+      "field": "privacyStatus",
+      "before": "private",
+      "after": "private",
+      "note": "3 views, was hidden while its 0-view twin was public",
+      "verified": false
+    },
+    {
+      "videoId": "HW8VpcxvdAY",
+      "field": "title",
+      "before": "Don't Trade the Siren. Trade the Pressure Chain. #Shorts",
+      "after": "Oil +10%, Energy +4%: What Actually Moved #Shorts",
+      "note": "pre-playbook copy",
+      "verified": true
+    },
+    {
+      "videoId": "D3FMz1Nncqg",
+      "field": "title",
+      "before": "The market is pricing the Strait, not the end of the world #Shorts",
+      "after": "The market is pricing the Strait, not the end of the world #Shorts",
+      "note": "pre-playbook copy",
+      "verified": false
+    },
+    {
+      "videoId": "IQJsq4EYQXA",
+      "field": "title",
+      "before": "The Nasdaq Broke. The S&P Held.",
+      "after": "Nasdaq Broke 7431, S&P Held Its Band \u2014 The Divergence",
+      "note": "pre-playbook copy",
+      "verified": true
+    },
+    {
+      "videoId": "33cnTUL4ga4",
+      "field": "title",
+      "before": "Iran Oil Deadline Day Meets a Cracking AI Trade",
+      "after": "Iran Oil Deadline Day Meets a Cracking AI Trade",
+      "note": "pre-playbook copy",
+      "verified": false
+    },
+    {
+      "videoId": "J2EBBMDoKhc",
+      "field": "title",
+      "before": "Iran War Widens as Oil Holds $84",
+      "after": "Oil Holds $84 as the Risk Premium Sticks",
+      "note": "pre-playbook copy",
+      "verified": true
+    },
+    {
+      "videoId": "zFQ3gJCVD6Y",
+      "field": "title",
+      "before": "Don't Trade the Siren: How the War Premium Travels",
+      "after": "How the War Premium Travels: Brent to Energy Equities",
+      "note": "pre-playbook copy",
+      "verified": true
+    },
+    {
+      "videoId": "clxfXQ2FqmU",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "What the week ACTUALLY did \u2014 S&P weekly ",
+      "verified": false
+    },
+    {
+      "videoId": "ANwcW1udU64",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "Brent +17% in a week \u2014 trend, not spike",
+      "verified": false
+    },
+    {
+      "videoId": "2LmAWN4yQCs",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "The 3 levels that decide next week \u2014 758",
+      "verified": false
+    },
+    {
+      "videoId": "rSF2Ou-CkvA",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "Chart of the week: semis vs the market -",
+      "verified": false
+    },
+    {
+      "videoId": "cC6TZCTJ3l4",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "Did the bull just crack? Oil +17%, tech ",
+      "verified": false
+    },
+    {
+      "videoId": "IQJsq4EYQXA",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "The Nasdaq Broke. The S&P Held.",
+      "verified": false
+    },
+    {
+      "videoId": "l8BuqCo3D9M",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "TSM's 403.50 Floor Is Being Tested",
+      "verified": false
+    },
+    {
+      "videoId": "33cnTUL4ga4",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "Iran Oil Deadline Day Meets a Cracking A",
+      "verified": false
+    },
+    {
+      "videoId": "D3FMz1Nncqg",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "The market is pricing the Strait, not th",
+      "verified": false
+    },
+    {
+      "videoId": "J2EBBMDoKhc",
+      "field": "tags",
+      "before": 0,
+      "after": 0,
+      "note": "Iran War Widens as Oil Holds $84",
+      "verified": false
+    }
+  ]
+}
