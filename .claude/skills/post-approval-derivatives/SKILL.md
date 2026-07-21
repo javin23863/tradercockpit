@@ -77,7 +77,7 @@ All four lanes proven live 2026-07-21 (one command each,
 | youtube | native captions + clean twin | default platform |
 | instagram | Graph API via B2 URL staging | burned captions |
 | facebook | Graph API binary upload | burned captions |
-| tiktok | CDP on debug Chrome :9333 (`.chrome-cdp` profile) | burned captions; new posts sit in "Content under review" with privacy locked to Only-me — publish.py's read-back reports "uploaded-unverified" then, which is the review hold, NOT a failure. Verify in TikTok Studio (posts count + top row) before ANY retry; retrying double-posts. |
+| tiktok | CDP on debug Chrome :9333 (`.chrome-cdp` profile) | burned captions; new posts sit briefly in "Content under review" (privacy Only-me) and clear to the chosen privacy within MINUTES — publish.py's read-back reports "uploaded-unverified" during the hold, which is NOT a failure. Verify in TikTok Studio (posts count + top row) before ANY retry (retry = double post), and re-check before reporting the hold as current state. |
 
 If a probe reports blocked: stage the batch items and report the blocker honestly — never
 claim posted, never bypass the auth probe.
