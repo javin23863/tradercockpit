@@ -1,0 +1,74 @@
+[
+ {
+  "out": "03-brent",
+  "symbol": "TVC:UKOIL",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 87.55,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 91.42,
+      "overrides": {
+       "linecolor": "#FF3D5E",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "07-us10y",
+  "symbol": "TVC:US10Y",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 4.636,
+      "overrides": {
+       "linecolor": "#FF3D5E",
+       "linewidth": 2
+      }
+     }
+    ]
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 4.453,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ }
+]

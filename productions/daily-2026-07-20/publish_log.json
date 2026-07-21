@@ -1,0 +1,445 @@
+{
+  "schema": "tradercockpit-publish-log/v2",
+  "entries": [
+    {
+      "batchId": "daily-2026-07-20-postclose",
+      "itemId": "youtube-long-daily-2026-07-20",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "6Cf7Uyd1xek",
+      "url": "https://youtu.be/6Cf7Uyd1xek",
+      "timestamp": "2026-07-21T00:40:20.770895Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "IOqOqoxHd1s3Pma7reNqbJlUEYo",
+          "id": "6Cf7Uyd1xek",
+          "snippet": {
+            "publishedAt": "2026-07-21T00:40:09Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+            "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i9.ytimg.com/vi/6Cf7Uyd1xek/default.jpg?sqp=COD_-tIG&rs=AOn4CLDoJ9kzwomaLnU8neUowxFpXtO0gA",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i9.ytimg.com/vi/6Cf7Uyd1xek/mqdefault.jpg?sqp=COD_-tIG&rs=AOn4CLB0qlOB0mMLjGY6wNaIg_iEXCPjRQ",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i9.ytimg.com/vi/6Cf7Uyd1xek/hqdefault.jpg?sqp=COD_-tIG&rs=AOn4CLC5scMHiqkheQGhpPQ8F3O2zA1XYA",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+              "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "private",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": true
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "4Yer4b0i5HK7wRRJuA3byJ004vU",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "L2Zmm1bpef3wFQ8lTtfwaBJ3khk",
+              "id": "6Cf7Uyd1xek",
+              "snippet": {
+                "publishedAt": "2026-07-21T00:40:09Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i9.ytimg.com/vi/6Cf7Uyd1xek/default.jpg?sqp=COD_-tIG&rs=AOn4CLDoJ9kzwomaLnU8neUowxFpXtO0gA",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i9.ytimg.com/vi/6Cf7Uyd1xek/mqdefault.jpg?sqp=COD_-tIG&rs=AOn4CLB0qlOB0mMLjGY6wNaIg_iEXCPjRQ",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i9.ytimg.com/vi/6Cf7Uyd1xek/hqdefault.jpg?sqp=COD_-tIG&rs=AOn4CLC5scMHiqkheQGhpPQ8F3O2zA1XYA",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "localized": {
+                  "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                  "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "private",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-20-postclose",
+      "itemId": "youtube-long-daily-2026-07-20",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "aBWGZeQFF3g",
+      "url": "https://youtu.be/aBWGZeQFF3g",
+      "timestamp": "2026-07-21T01:55:19.621183Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "XA3XX7gW1j7RQOLNREcvOqSZE-Y",
+          "id": "aBWGZeQFF3g",
+          "snippet": {
+            "publishedAt": "2026-07-21T01:55:05Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+            "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i9.ytimg.com/vi/aBWGZeQFF3g/default.jpg?sqp=CPSi-9IG&rs=AOn4CLD--y0D48FRh5D1OdmB8MJUTfYPxw",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i9.ytimg.com/vi/aBWGZeQFF3g/mqdefault.jpg?sqp=CPSi-9IG&rs=AOn4CLBEHyb0f5UQIa_ARjTKVA3gouZK_A",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i9.ytimg.com/vi/aBWGZeQFF3g/hqdefault.jpg?sqp=CPSi-9IG&rs=AOn4CLBlKrPKFGICcBEHchR6Rh8KRSdJdA",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+              "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "private",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": true
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "4fCD3mgQMLs7_Au-d_MNxi7bGeQ",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "p_dVSsoHE1jAIRODoWiQHp8kOJs",
+              "id": "aBWGZeQFF3g",
+              "snippet": {
+                "publishedAt": "2026-07-21T01:55:05Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i9.ytimg.com/vi/aBWGZeQFF3g/default.jpg?sqp=CPSi-9IG&rs=AOn4CLD--y0D48FRh5D1OdmB8MJUTfYPxw",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i9.ytimg.com/vi/aBWGZeQFF3g/mqdefault.jpg?sqp=CPSi-9IG&rs=AOn4CLBEHyb0f5UQIa_ARjTKVA3gouZK_A",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i9.ytimg.com/vi/aBWGZeQFF3g/hqdefault.jpg?sqp=CPSi-9IG&rs=AOn4CLBlKrPKFGICcBEHchR6Rh8KRSdJdA",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "localized": {
+                  "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                  "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "private",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-20-postclose",
+      "itemId": "youtube-long-daily-2026-07-20",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "UpCY4eZ3Tlg",
+      "url": "https://youtu.be/UpCY4eZ3Tlg",
+      "timestamp": "2026-07-21T02:06:40.989964Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "FI5VlKhjOioQ5PvHj5oftpw4sIw",
+          "id": "UpCY4eZ3Tlg",
+          "snippet": {
+            "publishedAt": "2026-07-21T02:05:38Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+            "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i9.ytimg.com/vi/UpCY4eZ3Tlg/default.jpg?sqp=CMyn-9IG&rs=AOn4CLDiWpMa6spv0ei1H0UoiMAU7uwqlg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i9.ytimg.com/vi/UpCY4eZ3Tlg/mqdefault.jpg?sqp=CMyn-9IG&rs=AOn4CLDrKCjvUTvvMsje3DW6-ysaIRxRSQ",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i9.ytimg.com/vi/UpCY4eZ3Tlg/hqdefault.jpg?sqp=CMyn-9IG&rs=AOn4CLABoToF31o84ItEvbUr0iIn0E3d5w",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+              "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "private",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": true
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "6QpNqpKKm8Irh8CxqUmOdRZTAdg",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "zpP90gzWCweQb5oI1Trvs-M5U7w",
+              "id": "UpCY4eZ3Tlg",
+              "snippet": {
+                "publishedAt": "2026-07-21T02:05:38Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i9.ytimg.com/vi/UpCY4eZ3Tlg/default.jpg?sqp=CMyn-9IG&rs=AOn4CLDiWpMa6spv0ei1H0UoiMAU7uwqlg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i9.ytimg.com/vi/UpCY4eZ3Tlg/mqdefault.jpg?sqp=CMyn-9IG&rs=AOn4CLDrKCjvUTvvMsje3DW6-ysaIRxRSQ",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i9.ytimg.com/vi/UpCY4eZ3Tlg/hqdefault.jpg?sqp=CMyn-9IG&rs=AOn4CLABoToF31o84ItEvbUr0iIn0E3d5w",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "localized": {
+                  "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                  "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "private",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-20-postclose",
+      "itemId": "youtube-long-daily-2026-07-20",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "1ddWI5J4YBA",
+      "url": "https://youtu.be/1ddWI5J4YBA",
+      "timestamp": "2026-07-21T02:36:45.080734Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "q96BLTW7pAqhYdIS8zlHjMB9gGE",
+          "id": "1ddWI5J4YBA",
+          "snippet": {
+            "publishedAt": "2026-07-21T02:36:30Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+            "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i9.ytimg.com/vi/1ddWI5J4YBA/default.jpg?sqp=CNS1-9IG&rs=AOn4CLAKv2iPwh5KS93yw5ZrMqTFGF2lnw",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i9.ytimg.com/vi/1ddWI5J4YBA/mqdefault.jpg?sqp=CNS1-9IG&rs=AOn4CLCjz6e9QAxI7lfmljGPZB6TmxgV1Q",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i9.ytimg.com/vi/1ddWI5J4YBA/hqdefault.jpg?sqp=CNS1-9IG&rs=AOn4CLATKjBnscXGZcPNMIOAPBQ7yPFl6Q",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+              "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "private",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": true
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "MjQpmB7XvEfUPaLtyGl2yxyLqQI",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "-8f_3J5XMX9lBU_bRaqXVLWuQmI",
+              "id": "1ddWI5J4YBA",
+              "snippet": {
+                "publishedAt": "2026-07-21T02:36:30Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i9.ytimg.com/vi/1ddWI5J4YBA/default.jpg?sqp=CNS1-9IG&rs=AOn4CLAKv2iPwh5KS93yw5ZrMqTFGF2lnw",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i9.ytimg.com/vi/1ddWI5J4YBA/mqdefault.jpg?sqp=CNS1-9IG&rs=AOn4CLCjz6e9QAxI7lfmljGPZB6TmxgV1Q",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i9.ytimg.com/vi/1ddWI5J4YBA/hqdefault.jpg?sqp=CNS1-9IG&rs=AOn4CLATKjBnscXGZcPNMIOAPBQ7yPFl6Q",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "localized": {
+                  "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+                  "description": "Oil touched $91 on the ninth day of US strikes on Iran \u2014 and the S&P still sold its bounce from the opening print to the bell.\n\nPost-close read of Monday, July 20 on settled prints: the Houthi naval blockade declared against Saudi Arabia, Brent's fade off 91.42, XLE's breakout over 57.30, the Nasdaq 100's broken floor, and the 10-year pressing its July high. Charts are TradingView settled daily bars; sources: Reuters via US News, NPR, EIA, CNBC, and the Federal Reserve calendar.\n\nThree cases off the close, each with its invalidation. The two lines that decide Tuesday: S&P 7,421.82 and the 10-year yield at 4.64.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "private",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    }
+  ]
+}

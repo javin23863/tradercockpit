@@ -1,0 +1,50 @@
+{
+  "schema": "tradercockpit-chart-capture-receipts/v1",
+  "captures": [
+    {
+      "path": "visuals/03-brent.mp4",
+      "capturedAt": "2026-07-21T01:23:55.721Z",
+      "sha256": "d877a07b3585ccf3cdbc2327ed60c6cf06916de2a903e1fd3901e7e69e6e7f5b"
+    },
+    {
+      "path": "visuals/04-spx.mp4",
+      "capturedAt": "2026-07-21T01:08:13.139Z",
+      "sha256": "6e9924f3aa92c17625fc8010ef2d07e4fdd5f7fe373dee83a01fc731560ddba3"
+    },
+    {
+      "path": "visuals/05-ndx.mp4",
+      "capturedAt": "2026-07-21T01:09:02.336Z",
+      "sha256": "8f56007dedcf235953efd1989784b2112b4b32cb80e55d99bbc9c20f72ad6920"
+    },
+    {
+      "path": "visuals/05b-xom.mp4",
+      "capturedAt": "2026-07-21T01:22:46.304Z",
+      "sha256": "6772e6095f9455bc2014005ce9143669a31a38626489dd2cf445e264b11e447e"
+    },
+    {
+      "path": "visuals/05c-cvx.mp4",
+      "capturedAt": "2026-07-21T01:23:17.546Z",
+      "sha256": "2b3e6ba1f1388933b9f321cb64326c729ba722a3f4762fd4d9a6d4f39012bb4a"
+    },
+    {
+      "path": "visuals/06-xle.mp4",
+      "capturedAt": "2026-07-21T01:12:09.039Z",
+      "sha256": "163bed532239136d12ac81fd1d66ec6fbfd072a7654cec9ebc14826c8c2d5a4f"
+    },
+    {
+      "path": "visuals/07-us10y.mp4",
+      "capturedAt": "2026-07-21T01:24:33.388Z",
+      "sha256": "ff2245906f97511a15cb1d17846e08a0a512b06170b3c68bd7efa36ae008d86b"
+    },
+    {
+      "path": "visuals/08-vix.mp4",
+      "capturedAt": "2026-07-21T01:22:15.265Z",
+      "sha256": "7335b69126035bf235d1550b81d7194d30f7a41c5ffce828e0fb0fae60464a2b"
+    },
+    {
+      "path": "visuals/09-gold.mp4",
+      "capturedAt": "2026-07-21T01:06:32.701Z",
+      "sha256": "315c335b5ec354f2be7829f5cd81f06c205a5d25ac79190e4c32af177818e4c6"
+    }
+  ]
+}

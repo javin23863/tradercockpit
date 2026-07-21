@@ -1,0 +1,246 @@
+# Backstage claim store — daily-2026-07-20. TradingView feed binds prices/levels
+# (ta-work/ohlcv-*.json, retrieved 2026-07-21T02:30Z after the Monday US close);
+# dated primary sources bind events; inferences are marked as analysis.
+
+- id: clm-session-2026-07-20
+  subject: US equity session, Monday July 20 2026
+  predicate: settled session prints
+  value: "SPX opened 7,489.18 (+0.42% gap), high 7,513.23, low 7,440.53, closed 7,443.28 (-0.19%, within 3 points of the low); prior close 7,457.69. NDX opened 28,871.16 (+0.97%), high 29,017.23, closed 28,604.23 (+0.04%). Dow closed 51,839.26 (-307.16, -0.59%). Regular full session per NYSE calendar."
+  as_of: 2026-07-20
+  source: TradingView feed SP:SPX + NASDAQ:NDX daily bars (ta-work/ohlcv-SP-SPX.json, ohlcv-NASDAQ-NDX.json); Dow per CNBC/Yahoo Finance live markets blog 2026-07-20; NYSE 2026 holiday calendar
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-chart-spx-2026-07-20
+  subject: S&P 500 levels
+  predicate: feed-read chart levels
+  value: "Referee level 7,504.02 (July 16 session low, named in the July 17 video): Monday was the second consecutive close below it. July low 7,421.82 (July 8) — Monday's low 7,440.53 sits ~18.7 points above it. July high 7,581.50 (July 15) — the close is about 1.8% below it."
+  as_of: 2026-07-20
+  source: TradingView feed SP:SPX daily (ta-work/ohlcv-SP-SPX.json)
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-chart-ndx-2026-07-20
+  subject: Nasdaq 100 levels
+  predicate: feed-read chart levels
+  value: "Old July floor 28,814.57 held twice, then broke: Friday and Monday both settled below it (28,592.66 / 28,604.23) — the floor is now overhead. July low 28,231.32 printed Friday July 17; Monday's low 28,590.40 did not test it. The 45-session low sits at 28,196.90 - the June range tops out near 28,200."
+  as_of: 2026-07-20
+  source: TradingView feed NASDAQ:NDX daily (ta-work/ohlcv-NASDAQ-NDX.json)
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-chart-brent-2026-07-20
+  subject: Brent crude (TVC:UKOIL)
+  predicate: feed-read session and levels
+  value: "Monday bar: open 89.30, high 91.42 (new July high), low 86.12, close 88.80 (+0.6% vs Friday 88.27) — a 5.30-dollar intraday range. Friday closed +4.0% vs Thursday 84.85. Spike high 87.55 (July 14) stood unbroken on a closing basis until Friday; Friday and Monday both settled above it."
+  as_of: 2026-07-20
+  source: TradingView feed TVC:UKOIL daily (ta-work/ohlcv-TVC-UKOIL.json)
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-chart-xle-2026-07-20
+  subject: Energy sector ETF (XLE)
+  predicate: feed-read session and levels
+  value: "Monday: closed 57.94 (+0.45%), intraday high 58.385 — a new July high. Breakout trigger 57.30 (July 16 session high, named in the July 17 video): Friday 57.68 and Monday 57.94 are two consecutive closes above it."
+  as_of: 2026-07-20
+  source: TradingView feed AMEX:XLE daily (ta-work/ohlcv-AMEX-XLE.json)
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-chart-us10y-2026-07-20
+  subject: US 10-year Treasury yield
+  predicate: feed-read session and levels
+  value: "Monday: closed 4.594% (+4.5bp vs Thursday's 4.549 settle), session high 4.608. July high 4.636 (July 13); July low 4.453 (July 1)."
+  as_of: 2026-07-20
+  source: TradingView feed TVC:US10Y daily (ta-work/ohlcv-TVC-US10Y.json)
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-chart-gold-2026-07-20
+  subject: Spot gold
+  predicate: feed-read settled close
+  value: "Monday settled 4,007.59, roughly flat — no haven spike on the escalation headlines."
+  as_of: 2026-07-20
+  source: TradingView feed OANDA:XAUUSD daily
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-chart-vix-2026-07-20
+  subject: CBOE VIX
+  predicate: feed-read session and range
+  value: "Monday closed 18.66 (-0.10). July range 14.96 (July 10) to 19.50 (July 17); Thursday closed 16.72, Friday jumped to 18.76 — Monday held the top quarter of the July range."
+  as_of: 2026-07-20
+  source: TradingView feed TVC:VIX daily (ta-work/ohlcv-TVC-VIX.json)
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-houthi-blockade-2026-07-20
+  subject: Houthi naval blockade declaration
+  predicate: declared against Saudi Arabia
+  value: "Yemen's Houthis declared a naval blockade against Saudi Arabia on July 20 ('an eye for an eye'), threatening the Red Sea (Yanbu) route Saudi Arabia has used to move oil around the constrained Strait of Hormuz."
+  as_of: 2026-07-20
+  source: Reuters via US News (https://www.usnews.com/news/world/articles/2026-07-20/yemens-houthis-declare-naval-blockade-against-saudi-arabia-statement, page read and captured on screen) + NBC News same-day reporting
+  retrieved_at: 2026-07-21T02:50:00Z
+  status: verified
+
+- id: clm-iran-strikes-9th-day-2026-07-20
+  subject: US strikes on Iran
+  predicate: ninth consecutive day; anti-shipping targeting; talks collapse
+  value: "US attacks were the ninth consecutive day of bombing since peace talks collapsed in a dispute over a Strait of Hormuz memorandum of understanding; US Central Command says the newest wave targets Iran's ability to strike commercial shipping."
+  as_of: 2026-07-20
+  source: NPR (https://www.npr.org/2026/07/20/nx-s1-5900601/us-iran-updates, page read and captured on screen) + CNN live coverage July 19-20
+  retrieved_at: 2026-07-21T02:50:00Z
+  status: verified
+
+- id: clm-us-deaths-3-2026-07-20
+  subject: US military deaths in renewed fighting
+  predicate: third service member killed since Friday
+  value: "NPR reported July 20 that a third US service member had been killed in military operations since Friday (CENTCOM: controlled detonation of an Iranian drone in the Kurdistan Region of Iraq; two killed at a Jordan base in a Friday Iranian strike)."
+  as_of: 2026-07-20
+  source: NPR (https://www.npr.org/2026/07/20/nx-s1-5900601/us-iran-updates)
+  retrieved_at: 2026-07-21T02:50:00Z
+  status: single_source
+
+- id: clm-oil-mtd-2026-07-20
+  subject: Crude oil month-to-date move
+  predicate: approximate July 2026 gain
+  value: "CNBC's July 20 oil coverage put crude up roughly 20% in July as US-Iran fighting escalated."
+  as_of: 2026-07-20
+  source: CNBC oil-markets coverage 2026-07-20 (single wire cluster)
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: single_source
+
+- id: clm-hormuz-eia-baselines
+  subject: Strait of Hormuz oil flow
+  predicate: EIA baseline and Q1 2026 flow
+  value: "2024 average ~20 million b/d, about 20% (one fifth) of global petroleum-liquids consumption (pre-war baseline). Q1 2026 flow fell almost 30% year over year to 14.6 million b/d."
+  as_of: 2026-07-20
+  source: US Energy Information Administration (chokepoint analysis; Q1 2026 flow item)
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: verified
+
+- id: clm-goldman-100-scenario
+  subject: Goldman Sachs Brent scenario
+  predicate: conditional forecast recorded April 9 2026
+  value: "Goldman's April 9 scenario work (pre-ceasefire): if Hormuz closure/disruption persisted another month, Brent would likely average above $100/barrel through the rest of 2026. A scenario, not a forecast of record for today."
+  as_of: 2026-04-09
+  source: Bloomberg / OilPrice.com, April 9 2026
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: single_source
+
+- id: clm-earnings-2026-07-22
+  subject: Q2 earnings calendar
+  predicate: Wednesday July 22 after-close reports
+  value: "Alphabet and Tesla report Q2 2026 after the close Wednesday July 22 — the first Magnificent-Seven prints of the season, with Alphabet capex watched as the AI-infrastructure signal. IBM's full Q2 call is the same day at 17:00 ET."
+  as_of: 2026-07-19
+  source: CNBC earnings playbook; TradingKey/AskTraders earnings calendars; IBM Newsroom (call date 2026-07-08 release)
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: verified
+
+- id: clm-ibm-plunge-2026-07-14
+  subject: IBM preliminary Q2 release
+  predicate: record one-day decline
+  value: "IBM's July 14 preliminary Q2 release (revenue $17.2B, adj EPS $2.93 vs consensus $3.01/$17.86B) triggered a 25% single-day decline — IBM's worst trading day on record."
+  as_of: 2026-07-14
+  source: CNBC July 14 2026; IBM Newsroom
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: verified
+
+- id: clm-macro-week-2026-07
+  subject: Macro calendar week of July 20
+  predicate: scheduled releases
+  value: "Initial jobless claims Thursday July 23; S&P Global flash July PMIs Friday July 24."
+  as_of: 2026-07-20
+  source: economic calendar aggregators (Investing.com-linked)
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: single_source
+
+- id: clm-fomc-blackout-2026-07
+  subject: Federal Reserve calendar
+  predicate: blackout and decision date
+  value: "FOMC blackout period July 18-30; rate decision Wednesday July 29 2026, 14:00 ET."
+  as_of: 2026-07-20
+  source: Federal Reserve Board meeting calendar
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: verified
+
+- id: clm-continuity-video05-2026-07-17
+  subject: prior video level continuity
+  predicate: published reference levels
+  value: "The July 17 video named 57.30 as the XLE breakout trigger ('a daily close above fifty-seven thirty and this is a breakout'), 7,504 as the S&P referee level ('If the S and P loses seventy-five oh-four, the rotation read gets dropped'), 28,814.57 as the Nasdaq 100 floor, and 4.45/4.64 as the 10-year band."
+  as_of: 2026-07-17
+  source: productions/video-05-deadline-day/vo.txt sections 05, 06, 07, 08
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-analysis-failed-bounce-2026-07-20
+  subject: failed-bounce / rates-binding framing
+  predicate: analysis inference
+  value: "Analysis: the oil premium faded intraday while equities still closed at the session lows and the 10-year held its gains — reading the binding constraint as rates (oil-to-inflation transmission), not barrels alone. Gold flat plus VIX steady reads as orderly repricing, a persistent condition rather than a shock. Framing is conditional on the stated levels, with invalidations named."
+  as_of: 2026-07-20
+  source: analysis-brief.md sections 2-6 (inference over the claims above)
+  retrieved_at: 2026-07-21T02:45:00Z
+  status: verified
+
+- id: clm-chart-xom-2026-07-20
+  subject: Exxon Mobil (XOM)
+  predicate: feed-read session and levels
+  value: "Monday: closed 148.36 (+0.68% vs Friday 147.36), session high 149.09. July ceiling 150.00 (Friday July 17 high); Friday and Monday both traded up against it."
+  as_of: 2026-07-20
+  source: TradingView feed NYSE:XOM daily (ta-work/ohlcv-NYSE-XOM.json)
+  retrieved_at: 2026-07-21T04:05:00Z
+  status: verified
+
+- id: clm-chart-cvx-2026-07-20
+  subject: Chevron (CVX)
+  predicate: feed-read session and levels
+  value: "Monday: closed 189.71 (+1.24% vs Friday 187.38), session high 190.35 - a fresh July high, printed on a day the S&P closed red."
+  as_of: 2026-07-20
+  source: TradingView feed NYSE:CVX daily (ta-work/ohlcv-NYSE-CVX.json)
+  retrieved_at: 2026-07-21T04:05:00Z
+  status: verified
+
+- id: clm-iran-response-2026-07-20
+  subject: Iranian retaliation July 20
+  predicate: reported strikes on US positions
+  value: "NPR reported an IRGC strike near the US position at Al-Tanf in Syria and drone attacks on two US bases in Kuwait (Al-Adiri camp, Ali Al Salem Air Base) - the second consecutive day Kuwaiti power/desalination infrastructure was targeted."
+  as_of: 2026-07-20
+  source: NPR (https://www.npr.org/2026/07/20/nx-s1-5900601/us-iran-updates)
+  retrieved_at: 2026-07-21T02:50:00Z
+  status: single_source
+
+- id: clm-trump-willpay-2026-07-20
+  subject: President Trump statement
+  predicate: said Iran "will pay" for US military deaths
+  value: true
+  as_of: 2026-07-20
+  source: CNBC headline + Washington Post, July 20 2026
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: verified
+
+- id: clm-yanbu-workaround-2026-07-20
+  subject: Saudi Red Sea oil export workaround
+  predicate: approximate volume threatened by the Houthi blockade
+  value: "NBC News reporting put Saudi Arabia's Red Sea (Yanbu) export workaround near 4.5 million barrels per day - the route the July 20 Houthi blockade declaration targets."
+  as_of: 2026-07-20
+  source: NBC News July 20 2026 (search-synthesis sourced; single wire cluster)
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: single_source
+
+- id: clm-jpm-target-7200-2026
+  subject: JPMorgan year-end 2026 S&P 500 target
+  predicate: official target of record
+  value: "JPMorgan's official year-end 2026 S&P 500 target is 7,200 (cut from 7,500 in March citing oil-shock recession risk)."
+  as_of: 2026-03-19
+  source: CNBC, March 19 2026
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: single_source
+
+- id: clm-earnings-week-names-2026-07
+  subject: Earnings calendar week of July 20-24
+  predicate: additional reporters
+  value: "Intel, General Motors, Lockheed Martin, and AMD also report during the week of July 20-24 2026."
+  as_of: 2026-07-19
+  source: earnings-calendar previews (TradingKey/AskTraders/CNBC playbook)
+  retrieved_at: 2026-07-21T02:20:00Z
+  status: single_source

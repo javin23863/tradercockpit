@@ -1,0 +1,14 @@
+[
+  {"out": "05b-xom", "symbol": "NYSE:XOM", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 150.00,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+   ]},
+  {"out": "05c-cvx", "symbol": "NYSE:CVX", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 190.35,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]}
+]

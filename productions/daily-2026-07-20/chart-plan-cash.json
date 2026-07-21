@@ -1,0 +1,179 @@
+[
+ {
+  "out": "04-spx",
+  "symbol": "SP:SPX",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 7504.02,
+      "overrides": {
+       "linecolor": "#FF3D5E",
+       "linewidth": 2
+      }
+     }
+    ]
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 7421.82,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "05-ndx",
+  "symbol": "NASDAQ:NDX",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 28814.57,
+      "overrides": {
+       "linecolor": "#FF3D5E",
+       "linewidth": 2
+      }
+     }
+    ]
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 28231.32,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "06-xle",
+  "symbol": "AMEX:XLE",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 57.3,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 58.385,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "08-vix",
+  "symbol": "TVC:VIX",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 19.5,
+      "overrides": {
+       "linecolor": "#FF3D5E",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "05b-xom",
+  "symbol": "NYSE:XOM",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 150.0,
+      "overrides": {
+       "linecolor": "#FF3D5E",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "05c-cvx",
+  "symbol": "NYSE:CVX",
+  "tf": "1D",
+  "stages": [
+   {
+    "holdSec": 10
+   },
+   {
+    "holdSec": 10,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 190.35,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ }
+]

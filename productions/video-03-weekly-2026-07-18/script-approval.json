@@ -1,0 +1,8 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/video-03-weekly-2026-07-18/vo.txt",
+  "scriptSha256": "687dc12a3144ee6337478231f14374d41b5c6eb274796a3c2aeac1350131871d",
+  "reviewedBy": "operator via Telegram 2026-07-18; public distribution reconfirmed in Codex task 019f6968-3d55-7982-9a42-54c5097ab589",
+  "reviewedAt": "2026-07-18T12:35:00Z"
+}

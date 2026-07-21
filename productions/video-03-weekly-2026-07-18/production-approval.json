@@ -1,0 +1,16 @@
+{
+  "schema": "tradercockpit-production-approval/v1",
+  "status": "approved",
+  "analysisBrief": "productions/video-03-weekly-2026-07-18/analysis-brief.md",
+  "analysisBriefSha256": "279a8c61da63b09ba1908c4afa49d5c8dade046548de1ce9e69a386aa9ce576d",
+  "sourceReceipt": "productions/video-03-weekly-2026-07-18/FACTS-2026-07-18.md",
+  "sourceReceiptSha256": "e4fdb82c2f218a96512ffdb83f694c869820a1abfea623997f41851fc41bd8b3",
+  "scriptApproval": "productions/video-03-weekly-2026-07-18/script-approval.json",
+  "scriptApprovalSha256": "0eebd080cc53e5144276516dd8ee745465e43beaf65b6bc95f24eb4fadc41b72",
+  "framingSources": [
+    "Bloomberg",
+    "Al Jazeera"
+  ],
+  "reviewedBy": "operator via Telegram 2026-07-18; public distribution reconfirmed in Codex task 019f6968-3d55-7982-9a42-54c5097ab589",
+  "reviewedAt": "2026-07-18T12:35:00Z"
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/daily-2026-07-20/vo.txt",
+  "scriptSha256": "593f7dd6a7b1eaf9144be65aeebaf7143c9cdd1e92d16b9f7b032df8d143b66f",
+  "reviewedBy": "machine:daily-postclose-runner",
+  "reviewedAt": "2026-07-21T02:22:28Z",
+  "approvalKind": "machine",
+  "operatorReviewed": false,
+  "machineApproval": {
+    "runner": "tools/daily_postclose.py",
+    "decision": "publish-private",
+    "approvedAt": "2026-07-21T02:22:28Z",
+    "gates": {
+      "checkedAt": "2026-07-21T02:22:28Z",
+      "claimsVerdict": "PASS",
+      "styleStatus": "PASS",
+      "hardFail": [],
+      "warnings": [
+        "unsourced claim: clm-us-deaths-3-2026-07-20 status=single_source",
+        "unsourced claim: clm-oil-mtd-2026-07-20 status=single_source",
+        "unsourced claim: clm-goldman-100-scenario status=single_source",
+        "unsourced claim: clm-macro-week-2026-07 status=single_source",
+        "unsourced claim: clm-iran-response-2026-07-20 status=single_source",
+        "unsourced claim: clm-yanbu-workaround-2026-07-20 status=single_source",
+        "unsourced claim: clm-jpm-target-7200-2026 status=single_source",
+        "unsourced claim: clm-earnings-week-names-2026-07 status=single_source",
+        "style ornamental group of three x2",
+        "style slogan repetition x3"
+      ],
+      "decision": "publish-private",
+      "allowPublic": false
+    },
+    "note": "Unattended post-close approval. No operator read this script before render. Warnings publish private for morning review."
+  },
+  "attestations": {
+    "readAloud": false,
+    "phrasingATraderWouldSay": false,
+    "takeBelongsToThisHost": false,
+    "factSeparatedFromJudgment": false,
+    "visualsMatchTheSpokenClaim": false,
+    "attestedBy": null,
+    "note": "Human-only checks. False means NOT PERFORMED, not failed. The deterministic gates cannot substitute for any of these."
+  }
+}
