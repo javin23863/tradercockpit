@@ -3,9 +3,13 @@
 
 import argparse
 import csv
+import hashlib
 import json
 import math
+import re
 import statistics
+import sys
+import tempfile
 from datetime import datetime
 from pathlib import Path, PurePosixPath, PureWindowsPath
 
@@ -41,9 +45,11 @@ DERIVED_METRICS = {
 }
 SUPPORTED_METRICS = DIRECT_METRICS | set(DERIVED_METRICS)
 REQUIRED_METRIC_COLUMNS = {
-    "batch_id", "item_id", "channel", "claims_gate", "corrections", "views", "shares",
+    "batch_id", "item_id", "channel", "corrections", "views", "shares",
     "saves", "landing_visits", "cta_clicks", "confirmed_signups", *DIRECT_METRICS,
 }
+CLAIMS_GATE_EVIDENCE_POLICY = "artifact-required/v1"
+CLAIMS_GATE_POLICY_REQUIRED_AT = datetime.fromisoformat("2026-07-20T00:00:00+07:00")
 
 
 def _text(value, field):
@@ -85,6 +91,38 @@ def _read_json(path, field):
         raise ValueError(f"{field} is not readable") from error
     except json.JSONDecodeError as error:
         raise ValueError(f"{field} is not valid JSON") from error
+
+
+def _claims_gate_guardrail(item, row, root, strict, tag):
+    if not strict:
+        # Historical rows keep their advisory behavior, but are never represented as verified evidence.
+        declared = None if row is None else row.get("claims_gate", "").strip().upper()
+        return (None if not declared else declared == "PASS"), {
+            "status": "legacy/unverifiable",
+            "detail": "historical self-report predates claims-gate artifact enforcement",
+        }
+
+    gate_path = _inside(root, item.get("claimsGate"), f"{tag}.claimsGate")
+    gate = _read_json(gate_path, f"{tag}.claimsGate")
+    verdict, checked, blocked = gate.get("verdict"), gate.get("checked_sections"), gate.get("blocked")
+    if verdict not in {"PASS", "BLOCK"} or isinstance(checked, bool) or not isinstance(checked, int) or checked < 1:
+        raise ValueError(f"{tag}.claimsGate is not a claims_gate.py verdict artifact")
+    if not isinstance(blocked, list) or (verdict == "PASS" and blocked) or (verdict == "BLOCK" and not blocked):
+        raise ValueError(f"{tag}.claimsGate verdict is inconsistent with blocked claims")
+
+    expected = _text(item.get("claimsGateSha256"), f"{tag}.claimsGateSha256").lower()
+    if not re.fullmatch(r"[0-9a-f]{64}", expected):
+        raise ValueError(f"{tag}.claimsGateSha256 must be a SHA-256 digest")
+    with gate_path.open("rb") as handle:
+        actual = hashlib.file_digest(handle, "sha256").hexdigest()
+    if actual != expected:
+        raise ValueError(f"{tag}.claimsGateSha256 does not match the verdict artifact")
+    return verdict == "PASS", {
+        "status": "verified",
+        "artifact": gate_path.relative_to(root).as_posix(),
+        "sha256": actual,
+        "verdict": verdict,
+    }
 
 
 def _number(row, field, tag):
@@ -219,7 +257,13 @@ def load_growth_summary(manifest_path=MANIFEST, metrics_path=METRICS, root=ROOT)
     data = _read_json(Path(manifest_path), "growth manifest")
     if not isinstance(data, dict) or data.get("schema") != "tradercockpit-growth-experiments/v1":
         raise ValueError("growth manifest schema must be tradercockpit-growth-experiments/v1")
-    _timezone(data.get("updatedAt"), "updatedAt")
+    updated_at = _timezone(data.get("updatedAt"), "updatedAt")
+    evidence_policy = data.get("claimsGateEvidencePolicy")
+    if evidence_policy not in {None, CLAIMS_GATE_EVIDENCE_POLICY}:
+        raise ValueError(f"claimsGateEvidencePolicy must be {CLAIMS_GATE_EVIDENCE_POLICY}")
+    if evidence_policy is None and datetime.fromisoformat(updated_at.replace("Z", "+00:00")) >= CLAIMS_GATE_POLICY_REQUIRED_AT:
+        raise ValueError("new growth manifests must require claims-gate verdict artifacts")
+    strict_claims_evidence = evidence_policy == CLAIMS_GATE_EVIDENCE_POLICY
     if data.get("paidActivation") != "disabled":
         raise ValueError("paidActivation must remain disabled")
 
@@ -360,10 +404,12 @@ def load_growth_summary(manifest_path=MANIFEST, metrics_path=METRICS, root=ROOT)
             row_number, row = metric_entry if metric_entry else (None, None)
             row_tag = f"metrics.csv row {row_number}" if row_number else "missing metrics row"
             values = {name: _metric_value(row, name, row_tag) for name in [metrics["primary"], *secondary]}
-            claims_gate = None if row is None else row.get("claims_gate", "").strip().upper()
             corrections = None if row is None else _number(row, "corrections", row_tag)
+            claims_gate_pass, claims_gate_evidence = _claims_gate_guardrail(
+                matches[0], row, root, strict_claims_evidence, observation_tag,
+            )
             row_guardrails = {
-                "claims_gate_pass": None if not claims_gate else claims_gate == "PASS",
+                "claims_gate_pass": claims_gate_pass,
                 "corrections_zero": None if corrections is None else corrections == 0,
             }
             joined.append({
@@ -372,6 +418,10 @@ def load_growth_summary(manifest_path=MANIFEST, metrics_path=METRICS, root=ROOT)
                 "hasMetrics": row is not None,
                 "metrics": values,
                 "guardrails": row_guardrails,
+                "guardrailEvidence": {
+                    "claims_gate_pass": claims_gate_evidence,
+                    "corrections_zero": {"status": "metrics.csv"},
+                },
             })
 
         primary_values = [item["metrics"][metrics["primary"]] for item in joined if item["metrics"][metrics["primary"]] is not None]
@@ -381,6 +431,8 @@ def load_growth_summary(manifest_path=MANIFEST, metrics_path=METRICS, root=ROOT)
         advisory = _advisory(
             experiment["state"], rule, primary_values, len(joined), guardrail_missing, guardrail_failure,
         )
+        if any(item["guardrailEvidence"]["claims_gate_pass"]["status"] == "legacy/unverifiable" for item in joined):
+            advisory["reason"] += " Claims-gate evidence is legacy/unverifiable."
         if experiment["state"] in {"measured", "decided"} and not primary_values:
             raise ValueError(f"{tag}.state {experiment['state']} requires a primary metric observation")
         if experiment["state"] == "decided":
@@ -413,11 +465,46 @@ def load_growth_summary(manifest_path=MANIFEST, metrics_path=METRICS, root=ROOT)
         "schema": data["schema"],
         "valid": True,
         "updatedAt": data["updatedAt"],
+        "claimsGateEvidencePolicy": evidence_policy or "legacy/unverifiable",
         "paidActivation": data["paidActivation"],
         "libraryCounts": library_counts,
         "experimentStateCounts": state_counts,
         "experiments": summaries,
     }
+
+
+def selftest():
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        gate_path = root / "productions" / "test" / "build" / "claims-gate.json"
+        gate_path.parent.mkdir(parents=True)
+        gate_path.write_text(json.dumps({
+            "verdict": "PASS", "checked_sections": 1, "blocked": [],
+        }), encoding="utf-8")
+        with gate_path.open("rb") as handle:
+            digest = hashlib.file_digest(handle, "sha256").hexdigest()
+        item = {
+            "claimsGate": "productions/test/build/claims-gate.json",
+            "claimsGateSha256": digest,
+        }
+        passed, evidence = _claims_gate_guardrail(item, {"claims_gate": "FAIL"}, root, True, "item")
+        assert passed is True and evidence["status"] == "verified"
+        gate_path.write_text(json.dumps({
+            "verdict": "BLOCK", "checked_sections": 1, "blocked": [{"type": "test"}],
+        }), encoding="utf-8")
+        with gate_path.open("rb") as handle:
+            item["claimsGateSha256"] = hashlib.file_digest(handle, "sha256").hexdigest()
+        failed, evidence = _claims_gate_guardrail(item, {"claims_gate": "PASS"}, root, True, "item")
+        assert failed is False and evidence["verdict"] == "BLOCK"
+        missing = {"claimsGate": "productions/test/build/missing.json", "claimsGateSha256": digest}
+        try:
+            _claims_gate_guardrail(missing, {"claims_gate": "PASS"}, root, True, "item")
+            raise AssertionError("missing claims gate must block")
+        except ValueError as error:
+            assert "does not exist" in str(error)
+        value, legacy = _claims_gate_guardrail({}, {"claims_gate": "PASS"}, root, False, "item")
+        assert value is True and legacy["status"] == "legacy/unverifiable"
+    print("GROWTH CLAIMS RECEIPT SELFTEST PASS")
 
 
 def main():
@@ -439,4 +526,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if sys.argv[1:] == ["--selftest"]:
+        selftest()
+    else:
+        main()

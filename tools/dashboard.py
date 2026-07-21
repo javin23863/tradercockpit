@@ -27,6 +27,7 @@ ENGINE = HUB / "OpenMontage"
 PY = ENGINE / ".venv" / "Scripts" / "python.exe"
 OUT = HUB / "dashboard.html"
 SOCIAL = HUB / "social-ops" / "analytics-latest.json"
+TARGETS = HUB / "social-ops" / "engagement-targets.json"
 
 SAFE_ENV_KEYS = ["VIDEO_GEN_LOCAL_ENABLED", "VIDEO_GEN_LOCAL_MODEL", "B2_BUCKET", "B2_S3_ENDPOINT"]
 
@@ -189,6 +190,32 @@ def render_social(snapshot):
 </section>'''
 
 
+def render_engagement():
+    """Stage 5 worklist. Read-only lister — the operator writes every comment by hand."""
+    try:
+        payload = json.loads(TARGETS.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return ('<section><h2>Engagement targets</h2><div class="empty">No scan yet. Run '
+                '<code>OpenMontage\\.venv\\Scripts\\python.exe tools\\engagement.py scan</code>.</div></section>')
+    rows = "".join(
+        f'<tr><td>{html.escape(str(target.get("platform", "")))}<br><span class="muted">{html.escape(str(target.get("account") or ""))}</span></td>'
+        f'<td><a href="{html.escape(str(target.get("url") or "#"))}" target="_blank">{html.escape(str(target.get("title") or "Untitled")[:110])}</a></td>'
+        f'<td>{target.get("ageHours")}h</td>'
+        f'<td>{fmt_number(target.get("views"))} / {fmt_number(target.get("likes"))} / {fmt_number(target.get("comments"))}</td>'
+        f'<td>{target.get("engagementPerHour")}</td>'
+        f'<td><strong>{target.get("score")}</strong><br><span class="muted">{html.escape(str(target.get("why") or ""))}</span></td></tr>'
+        for target in payload.get("targets", [])
+    ) or '<tr><td colspan="6">No live targets ranked in the last scan.</td></tr>'
+    errors = "".join(f"<li>{html.escape(str(item))}</li>" for item in payload.get("errors", []))
+    return f'''<section class="engagement">
+<div class="section-head"><div><h2>Engagement targets</h2><p class="muted">Scanned {html.escape(str(payload.get("generatedAt", "unknown")))} · {payload.get("postsSeen", 0)} posts seen across {payload.get("accountsConfigured", 0)} accounts</p></div><span class="badge ok">READ-ONLY</span></div>
+<div class="empty">Stage 5 is deliberately human: <strong>no AI-generated comments, no cold-pitch DMs — ever.</strong> This list ranks where to spend the daily block; you write every reply yourself.</div>
+<table><tr><th>where</th><th>post</th><th>age</th><th>views / likes / comments</th><th>eng/hr</th><th>score</th></tr>{rows}</table>
+<p class="muted">Rank = {html.escape(str(payload.get("ranking", "")))}</p>
+{f"<details><summary>Scan errors</summary><ul>{errors}</ul></details>" if errors else ""}
+</section>'''
+
+
 def load_growth():
     try:
         return load_growth_summary()
@@ -247,7 +274,7 @@ def build_page(refresh=0):
     social_snapshot = load_social()
     social = render_social(social_snapshot)
     growth = render_growth(load_growth())
-    tiktok_session = (social_snapshot or {}).get("sources", {}).get("tiktok", {}).get("status") == "ready"
+    tiktok_api = (social_snapshot or {}).get("sources", {}).get("tiktok", {}).get("status") == "ready"
 
     leg_rows = "".join(
         f"<tr><td>{p}</td><td>{badge(legs.get(p, False))}</td><td>{note}</td></tr>"
@@ -255,8 +282,8 @@ def build_page(refresh=0):
             ("youtube", "OAuth token cached — publish.py --platforms youtube"),
             ("instagram", "Meta business account + Page token connected"),
             ("facebook", "Meta Page token connected"),
-        ]) + f'<tr><td>tiktok</td><td>{badge(tiktok_session, "SESSION", "OFFLINE")}' \
-             '</td><td>logged-in Studio over repository-local CDP; operator approval still required per asset</td></tr>'
+        ]) + f'<tr><td>tiktok</td><td>{badge(tiktok_api, "API", "SETUP")}' \
+             '</td><td>official Content Posting API; refreshable OAuth + exact approved item + ID/URL read-back</td></tr>'
 
     vid_rows = "".join(
         f'<tr><td><a href="file:///{html.escape(str(f).replace(chr(92), "/"))}">{html.escape(f.name)}</a></td>'
@@ -293,6 +320,8 @@ def build_page(refresh=0):
 <h1>TraderCockpit Operations &mdash; <span class="muted">generated {datetime.now():%Y-%m-%d %H:%M}</span></h1>
 
 {social}
+
+{render_engagement()}
 
 {growth}
 

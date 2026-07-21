@@ -260,6 +260,11 @@ def stage_assemble(prod: Path):
 
 
 def stage_shorts(prod: Path):
+    if os.environ.get("CLIP_SKIP_SHORTS") == "1":
+        # Derivatives are cut AFTER the long-form is accepted (skill step 7); the unattended
+        # runner sets this so a shorts-lane defect can never block the long-form publish.
+        log("shorts: skipped (CLIP_SKIP_SHORTS=1 - post-acceptance lane cuts derivatives)")
+        return
     clipper = HUB / "studio-kit" / "clipper"
     master = prod / "build" / "master.mp4"  # clean long-form; vertical applies its own caption rule
     if not master.exists():

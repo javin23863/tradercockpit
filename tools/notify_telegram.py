@@ -71,6 +71,45 @@ def send(text):
     return 0
 
 
+def send_video(path, caption=""):
+    """Send a video FILE so the operator can judge it in the chat (bot cap: 50 MB).
+
+    A review ping without the reviewable artifact blocks the operator (2026-07-21).
+    Stdlib multipart; token never printed.
+    """
+    import uuid
+    from pathlib import Path as _P
+
+    path = _P(path)
+    if not path.is_file():
+        raise SystemExit(f"BLOCK: video not found: {path}")
+    if path.stat().st_size > 50 * 1024 * 1024:
+        raise SystemExit(f"BLOCK: {path.name} exceeds Telegram's 50 MB bot limit - send the URL instead")
+    env = _env()
+    chat_id = env.get("TELEGRAM_CHAT_ID")
+    if not chat_id:
+        raise SystemExit("BLOCK: TELEGRAM_CHAT_ID missing - run --whoami after messaging the bot")
+
+    boundary = uuid.uuid4().hex
+    parts = []
+    for name, value in (("chat_id", str(chat_id)), ("caption", caption[:1024]),
+                        ("supports_streaming", "true")):
+        parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"{name}\"\r\n\r\n{value}\r\n".encode())
+    parts.append((f"--{boundary}\r\nContent-Disposition: form-data; name=\"video\"; "
+                  f"filename=\"{path.name}\"\r\nContent-Type: video/mp4\r\n\r\n").encode())
+    body = b"".join(parts) + path.read_bytes() + f"\r\n--{boundary}--\r\n".encode()
+
+    request = urllib.request.Request(
+        f"https://api.telegram.org/bot{env['TELEGRAM_BOT_TOKEN']}/sendVideo", data=body,
+        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"})
+    with urllib.request.urlopen(request, timeout=300) as response:
+        result = json.load(response)
+    if not result.get("ok"):
+        raise SystemExit(f"BLOCK: sendVideo failed: {result.get('description', 'unknown')}")
+    print(f"sent video message_id={result['result']['message_id']}")
+    return 0
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--whoami":
         raise SystemExit(whoami())

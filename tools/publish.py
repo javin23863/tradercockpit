@@ -6,6 +6,7 @@ import importlib.util
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -41,6 +42,7 @@ load_meta_env()  # Meta publish creds live in operator custody, not the repo
 GRAPH = "https://graph.facebook.com/v25.0"
 LIVE_CHANNELS = {"youtube", "instagram", "facebook", "tiktok"}
 LOG_SCHEMA = "tradercockpit-publish-log/v2"
+TRUST_RECOVERY_DOCTRINE = "TRUST-RECOVERY-PLAN-v2"
 
 
 def module_available(name):
@@ -55,35 +57,123 @@ def youtube_readiness():
     return probe_auth()
 
 
+TIKTOK_CDP_URL = "http://127.0.0.1:9333/json/version"
+TIKTOK_CDP_SCRIPT = Path(__file__).resolve().parent / "handoff" / "tiktok_post_cdp.cjs"
+
+
 def tiktok_readiness():
+    """Official Content Posting API first; fall back to the operator's CDP session.
+
+    Operator ruling 2026-07-20: the CDP lane is the established, working TikTok path
+    and is authorized for publishing, superseding the earlier ops/SETUP-CREDS.md line
+    that excluded CDP uploads. The official API stays preferred because it read-backs;
+    CDP is used when the API lane has no credentials, which is the current state.
+    """
     from upload_tiktok import probe_auth
 
-    return probe_auth()
+    official = probe_auth()
+    if official.get("status") == "ready":
+        return official
+
+    import urllib.request
+
+    try:
+        with urllib.request.urlopen(TIKTOK_CDP_URL, timeout=3):
+            pass
+    except Exception as error:  # noqa: BLE001 - any failure means the lane is unusable
+        return {"status": "blocked", "lane": "cdp",
+                "detail": f"official API unauthorized and no debug Chrome on 9333 ({error}). "
+                          "Start the logged-in debug profile to enable the CDP lane."}
+    if not TIKTOK_CDP_SCRIPT.exists():
+        return {"status": "blocked", "lane": "cdp",
+                "detail": f"missing {TIKTOK_CDP_SCRIPT}"}
+    return {"status": "ready", "lane": "cdp",
+            "detail": "publishing via operator's logged-in TikTok Studio session on port 9333"}
+
+
+def publish_tiktok(asset, caption):
+    """Post one clip. Official API when authorized, else drive TikTok Studio over CDP.
+
+    The CDP script is proven and carries hard-won handling the API path never needed:
+    TikTok prefills the FILENAME into the caption box late, so it clear-verify-retries
+    before typing, verifies the caption survived before clicking Post, and detects the
+    case where TikTok published the filename anyway. Do not reimplement it here.
+    """
+    readiness = tiktok_readiness()
+    if readiness.get("status") != "ready":
+        return {"status": "blocked", "platformResponse": readiness}
+
+    if readiness.get("lane") != "cdp":
+        from upload_tiktok import upload
+
+        return upload(str(asset), caption)
+
+    result = subprocess.run(
+        ["node", str(TIKTOK_CDP_SCRIPT), str(asset), caption],
+        cwd=str(TIKTOK_CDP_SCRIPT.parent), capture_output=True, text=True, timeout=300,
+    )
+    output = (result.stdout or "") + (result.stderr or "")
+    # The script refuses to Post on a caption it could not clear or verify; those runs
+    # exit 0 with a "SKIPPING (not posting)" / "caption mismatch" line. Treat as failure.
+    if result.returncode != 0 or "SKIPPING (not posting)" in output or "caption mismatch" in output:
+        return {"status": "failed", "platformResponse": {"lane": "cdp", "log": output[-2000:]}}
+    published = "tiktokstudio/content" in output
+    return {
+        "status": "uploaded-unverified" if not published else "published-unverified",
+        "platformResponse": {"lane": "cdp", "log": output[-2000:],
+                             "note": "CDP lane has no API read-back; verify in TikTok Studio. "
+                                     "New-account posts sit in 'Only me / under review' until cleared."},
+    }
+
+
+def meta_readiness(channel):
+    target_key = "META_IG_USER_ID" if channel == "instagram" else "META_PAGE_ID"
+    required = [
+        os.getenv("META_APP_ID"), os.getenv("META_APP_SECRET"),
+        os.getenv(target_key), os.getenv("META_PAGE_TOKEN"),
+    ]
+    if channel == "instagram":
+        required.extend([
+            os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID"),
+            os.getenv("B2_APP_KEY") or os.getenv("AWS_SECRET_ACCESS_KEY"),
+            os.getenv("B2_BUCKET"),
+            os.getenv("B2_S3_ENDPOINT") or os.getenv("B2_ENDPOINT_URL"),
+            module_available("boto3"),
+        ])
+    if not all(required):
+        return {"status": "absent", "ready": False}
+
+    def probe(path, token):
+        response = requests.get(
+            f"{GRAPH}/{path}", params={"fields": "id", "access_token": token}, timeout=20
+        )
+        error = response.json().get("error")
+        if not error:
+            return None
+        message = error.get("message", "").lower()
+        code = error.get("code")
+        if code == 200 and "api access blocked" in message:
+            return "app-blocked"
+        if "permission" in message or "requires" in message:
+            return "permission-missing"
+        if code == 190:
+            return "token-invalid"
+        return "provider-error"
+
+    try:
+        app_id = os.environ["META_APP_ID"]
+        status = probe(app_id, f"{app_id}|{os.environ['META_APP_SECRET']}")
+        status = status or probe(os.environ[target_key], os.environ["META_PAGE_TOKEN"])
+    except (requests.RequestException, ValueError):
+        status = "verification-error"
+    return {"status": status or "valid", "ready": status is None}
 
 
 def readiness_report():
     return {
         "youtube": youtube_readiness(),
-        "instagram": {
-            "status": "valid" if all([
-                os.getenv("META_IG_USER_ID"), os.getenv("META_PAGE_TOKEN"),
-                os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID"),
-                os.getenv("B2_APP_KEY") or os.getenv("AWS_SECRET_ACCESS_KEY"),
-                os.getenv("B2_BUCKET"), os.getenv("B2_S3_ENDPOINT") or os.getenv("B2_ENDPOINT_URL"),
-                module_available("boto3"),
-            ]) else "absent",
-            "ready": bool(all([
-                os.getenv("META_IG_USER_ID"), os.getenv("META_PAGE_TOKEN"),
-                os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID"),
-                os.getenv("B2_APP_KEY") or os.getenv("AWS_SECRET_ACCESS_KEY"),
-                os.getenv("B2_BUCKET"), os.getenv("B2_S3_ENDPOINT") or os.getenv("B2_ENDPOINT_URL"),
-                module_available("boto3"),
-            ])),
-        },
-        "facebook": {
-            "status": "valid" if os.getenv("META_PAGE_ID") and os.getenv("META_PAGE_TOKEN") else "absent",
-            "ready": bool(os.getenv("META_PAGE_ID") and os.getenv("META_PAGE_TOKEN")),
-        },
+        "instagram": meta_readiness("instagram"),
+        "facebook": meta_readiness("facebook"),
         "tiktok": tiktok_readiness(),
     }
 
@@ -202,10 +292,25 @@ def publish_facebook(video_path, caption):
     }
 
 
+def _require_live_schema(schema):
+    if schema != "social-batch/v2":
+        raise ValueError(
+            f"{TRUST_RECOVERY_DOCTRINE}: social-batch/v1 is historical evidence only and cannot publish"
+        )
+
+
+def _selftest_v1_publish_boundary():
+    _require_live_schema("social-batch/v2")
+    try:
+        _require_live_schema("social-batch/v1")
+        raise AssertionError("social-batch/v1 should never be live-publishable")
+    except ValueError as error:
+        assert TRUST_RECOVERY_DOCTRINE in str(error)
+
+
 def load_live_item(batch_path, item_id, requested_platform=None):
     data = load_social_batch(Path(batch_path))
-    if data["schema"] != "social-batch/v2":
-        raise ValueError("social-batch/v1 is historical evidence only and cannot publish")
+    _require_live_schema(data["schema"])
     item = next((candidate for candidate in data["items"] if candidate["id"] == item_id), None)
     if item is None:
         raise ValueError(f"item not found: {item_id}")
@@ -239,9 +344,7 @@ def dispatch_publish(item):
         return publish_instagram(asset, item["copy"])
     if platform == "facebook":
         return publish_facebook(asset, item["copy"])
-    from upload_tiktok import upload
-
-    return upload(str(asset), item["copy"] or item["title"])
+    return publish_tiktok(asset, item["copy"] or item["title"])
 
 
 def _normalized_result(result):

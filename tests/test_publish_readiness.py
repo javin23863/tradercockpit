@@ -15,6 +15,7 @@ sys.path.insert(0, str(TOOLS))
 
 import publish  # noqa: E402
 import social_batch  # noqa: E402
+import upload_tiktok  # noqa: E402
 import upload_youtube  # noqa: E402
 
 
@@ -178,15 +179,18 @@ class OtherReadinessTests(unittest.TestCase):
 
     def report(self, env, boto3):
         blocked = {"status": "absent", "ready": False}
+        response = type("Response", (), {"json": lambda self: {"id": "verified"}})()
         with patch.dict(os.environ, env, clear=True), patch.object(
             publish, "youtube_readiness", return_value=blocked
         ), patch.object(publish, "tiktok_readiness", return_value=blocked), patch.object(
             publish, "module_available", side_effect=lambda name: boto3 if name == "boto3" else False
-        ):
+        ), patch.object(publish.requests, "get", return_value=response):
             return publish.readiness_report()
 
     def test_instagram_requires_dependencies_and_complete_staging_credentials(self):
         complete = {
+            "META_APP_ID": "app",
+            "META_APP_SECRET": "secret",
             "META_IG_USER_ID": "ig",
             "META_PAGE_TOKEN": "token",
             "B2_KEY_ID": "key",
@@ -199,8 +203,103 @@ class OtherReadinessTests(unittest.TestCase):
         del complete["B2_S3_ENDPOINT"]
         self.assertFalse(self.report(complete, boto3=True)["instagram"]["ready"])
 
+    def test_meta_app_block_is_reported_and_fails_closed(self):
+        complete = {
+            "META_APP_ID": "app",
+            "META_APP_SECRET": "secret",
+            "META_PAGE_ID": "page",
+            "META_IG_USER_ID": "ig",
+            "META_PAGE_TOKEN": "token",
+            "B2_KEY_ID": "key",
+            "B2_APP_KEY": "secret",
+            "B2_BUCKET": "bucket",
+            "B2_S3_ENDPOINT": "https://s3.us-west-004.backblazeb2.com",
+        }
+        blocked = {"error": {"code": 200, "message": "API access blocked."}}
+        response = type("Response", (), {"json": lambda self: blocked})()
+        unavailable = {"status": "absent", "ready": False}
+        with patch.dict(os.environ, complete, clear=True), patch.object(
+            publish, "youtube_readiness", return_value=unavailable
+        ), patch.object(publish, "tiktok_readiness", return_value=unavailable), patch.object(
+            publish, "module_available", return_value=True
+        ), patch.object(publish.requests, "get", return_value=response):
+            report = publish.readiness_report()
+
+        self.assertEqual("app-blocked", report["facebook"]["status"])
+        self.assertFalse(report["facebook"]["ready"])
+        self.assertEqual("app-blocked", report["instagram"]["status"])
+        self.assertFalse(report["instagram"]["ready"])
+
 
 class BatchAndPublicationTests(unittest.TestCase):
+    def test_tiktok_official_api_smoke_writes_verified_batch_receipt_without_network(self):
+        class Response:
+            def __init__(self, payload=None, status_code=200):
+                self.payload = payload or {}
+                self.status_code = status_code
+
+            def json(self):
+                return self.payload
+
+            def raise_for_status(self):
+                if self.status_code >= 400:
+                    raise upload_tiktok.requests.HTTPError(f"HTTP {self.status_code}")
+
+        def ok(data):
+            return Response({"data": data, "error": {"code": "ok", "message": ""}})
+
+        with tempfile.TemporaryDirectory(dir=ROOT) as folder:
+            batch_path, _ = make_v2(folder, channel="tiktok")
+            credentials = Path(folder) / "tiktok-oauth.json"
+            credentials.write_text(json.dumps({
+                "client_key": "client-key",
+                "client_secret": "client-secret",
+                "access_token": "access-token",
+                "refresh_token": "refresh-token",
+                "access_token_expires_at": 4_000_000_000,
+                "refresh_token_expires_at": 4_100_000_000,
+                "scope": "video.publish",
+                "client_audit_status": "approved",
+            }), encoding="utf-8")
+            responses = [
+                ok({
+                    "creator_username": "thetradercockpit",
+                    "privacy_level_options": ["PUBLIC_TO_EVERYONE"],
+                    "comment_disabled": False,
+                    "duet_disabled": False,
+                    "stitch_disabled": False,
+                }),
+                ok({"publish_id": "publish-smoke", "upload_url": "https://upload.test/video"}),
+                ok({
+                    "status": "PUBLISH_COMPLETE",
+                    "publicaly_available_post_id": ["post-smoke"],
+                }),
+            ]
+            readiness = {
+                channel: {"status": "absent", "ready": False}
+                for channel in publish.LIVE_CHANNELS
+            }
+            readiness["tiktok"] = {"status": "valid", "ready": True}
+            with patch.object(publish, "readiness_report", return_value=readiness), patch.object(
+                upload_tiktok, "credential_path", return_value=credentials
+            ), patch.object(
+                upload_tiktok.requests, "post", side_effect=responses
+            ) as post, patch.object(
+                upload_tiktok.requests, "put", return_value=Response(status_code=201)
+            ) as put:
+                entry = publish.publish_batch_item(batch_path, "release-item", "tiktok")
+
+            receipt = json.loads((Path(folder) / "publish_log.json").read_text(encoding="utf-8"))
+
+        self.assertEqual("published", entry["status"])
+        self.assertEqual("post-smoke", entry["platformId"])
+        self.assertEqual(
+            "https://www.tiktok.com/@thetradercockpit/video/post-smoke", entry["url"]
+        )
+        self.assertEqual("post-smoke", receipt["entries"][-1]["platformId"])
+        self.assertEqual(3, post.call_count)
+        put.assert_called_once()
+
     def test_v2_approval_binds_every_release_input_and_hash(self):
         mutations = {
             "title": lambda data, folder: data["items"][0].__setitem__("title", "changed"),
@@ -257,7 +356,7 @@ class BatchAndPublicationTests(unittest.TestCase):
             publish.main(["video.mp4", "--title", "bypass"])
 
     def test_agent_environment_and_unverified_tiktok_fail_closed_without_upload(self):
-        for channel, status in (("youtube", "absent"), ("tiktok", "readback-unavailable")):
+        for channel, status in (("youtube", "absent"), ("tiktok", "private-only")):
             with self.subTest(channel=channel), tempfile.TemporaryDirectory(dir=ROOT) as folder:
                 batch_path, _ = make_v2(folder, channel=channel)
                 report = {

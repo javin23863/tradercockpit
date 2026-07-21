@@ -3,7 +3,7 @@
 
 import hashlib
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -101,3 +101,102 @@ def load_production_approval(receipt_path: Path) -> dict:
 
 def require_production_approval(production: Path) -> dict:
     return load_production_approval(production.resolve() / "production-approval.json")
+
+
+# --- machine approval (unattended post-close lane) ---------------------------
+# A distinct, auditable path. It never relaxes a check above: the receipts it
+# writes are read back by the same loaders, hash-bound to the same exact files.
+# It only removes the human from the keyboard, and says so in the receipt.
+
+MACHINE_REVIEWER = "machine:daily-postclose-runner"
+
+
+def _repo_relative(path: Path) -> str:
+    return path.resolve().relative_to(ROOT).as_posix()
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def machine_approve(production: Path, gates: dict) -> dict:
+    """Write machine-approved script + production receipts for one production.
+
+    `gates` is the runner's evidence bundle. Fail-closed: refuses outright when
+    any gate hard-failed, so a blocked script can never reach TTS or render.
+    """
+    production = production.resolve()
+    if gates.get("hardFail"):
+        raise ValueError(f"machine approval refused; hard gate failure: {gates['hardFail']}")
+
+    stamp = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    script = production / "vo.txt"
+    if not script.is_file():
+        raise ValueError(f"no vo.txt in {production}")
+
+    script_receipt = production / "script-approval.json"
+    script_receipt.write_text(json.dumps({
+        "schema": SCHEMA,
+        "status": "approved",
+        "script": _repo_relative(script),
+        "scriptSha256": _sha256(script),
+        "reviewedBy": MACHINE_REVIEWER,
+        "reviewedAt": stamp,
+        "approvalKind": "machine",
+        "operatorReviewed": False,
+        "machineApproval": {
+            "runner": "tools/daily_postclose.py",
+            "decision": gates.get("decision"),
+            "approvedAt": stamp,
+            "gates": gates,
+            "note": "Unattended post-close approval. No operator read this script "
+                    "before render. Warnings publish private for morning review.",
+        },
+        # What a machine approval CANNOT attest to. The deterministic gates check
+        # structure and lexical patterns; these five are the doctrine's own human-only
+        # obligations (Script Voice Guide, "Read-aloud gate"), and nothing in this
+        # pipeline can perform them. Recording them as false is the honest position:
+        # an absent field would read as coverage. An operator promoting a private
+        # upload to public is asserting these, and should flip them then.
+        "attestations": {
+            "readAloud": False,
+            "phrasingATraderWouldSay": False,
+            "takeBelongsToThisHost": False,
+            "factSeparatedFromJudgment": False,
+            "visualsMatchTheSpokenClaim": False,
+            "attestedBy": None,
+            "note": "Human-only checks. False means NOT PERFORMED, not failed. "
+                    "The deterministic gates cannot substitute for any of these.",
+        },
+    }, indent=2), encoding="utf-8")
+
+    brief = production / "analysis-brief.md"
+    sources = production / "news-sources.json"
+    for required in (brief, sources):
+        if not required.is_file():
+            raise ValueError(f"machine approval needs {required.name}")
+    approved_text = (brief.read_text(encoding="utf-8") + "\n"
+                     + sources.read_text(encoding="utf-8")).lower()
+    framing = [source for source in sorted(FRAMING_SOURCES) if source.lower() in approved_text]
+    if not framing:
+        raise ValueError("machine approval needs Bloomberg or Al Jazeera framing in the topic material")
+
+    production_receipt = production / "production-approval.json"
+    production_receipt.write_text(json.dumps({
+        "schema": PRODUCTION_SCHEMA,
+        "status": "approved",
+        "analysisBrief": _repo_relative(brief),
+        "analysisBriefSha256": _sha256(brief),
+        "sourceReceipt": _repo_relative(sources),
+        "sourceReceiptSha256": _sha256(sources),
+        "scriptApproval": _repo_relative(script_receipt),
+        "scriptApprovalSha256": _sha256(script_receipt),
+        "framingSources": framing,
+        "reviewedBy": MACHINE_REVIEWER,
+        "reviewedAt": stamp,
+        "approvalKind": "machine",
+        "operatorReviewed": False,
+    }, indent=2), encoding="utf-8")
+
+    # read back through the unmodified loaders; a receipt we cannot re-validate is a failure
+    return load_production_approval(production_receipt)

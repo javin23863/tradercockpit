@@ -62,3 +62,6 @@ graphify-out/
 # qa/ + qa-sol/ = frame-audit screenshots, regenerable like verify/
 productions/*/qa/
 productions/*/qa-sol/
+
+# ta-work/ = per-stage chart-capture intermediates (tv_ta_capture.py), regenerable
+productions/*/ta-work/

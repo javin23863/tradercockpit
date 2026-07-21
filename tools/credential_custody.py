@@ -10,7 +10,7 @@ ALLOWED_CREDENTIALS = {
     "client_secret.json",
     "token.json",
     "token_channel.json",
-    "tiktok_session-tradercockpit.cookie",
+    "tiktok-oauth.json",
     "meta.env",
     "telegram.env",
     "buttondown.env",
@@ -42,7 +42,11 @@ def load_meta_env() -> bool:
     simply means Meta readiness probes report absent.
     """
     path = credential_path("meta.env")
-    if not path.is_file():
+    try:
+        available = path.is_file()
+    except OSError:
+        return False
+    if not available:
         return False
     from dotenv import load_dotenv
 

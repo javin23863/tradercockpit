@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TraderCockpit avatar candidates</title>
+<style>
+:root{--bg:#08030a;--panel:#0a0407;--line:#3a0d1a;--soft:#7a142e;--red:#FF1744;--ink:#F5E8EA}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg)}
+body{display:grid;place-items:center}
+svg{display:none;width:100%;height:100%}
+svg.active{display:block}
+</style>
+</head>
+<body>
+<!-- A: the existing Instrument mark reduced to the strokes that survive at 32 px. -->
+<svg id="needle" viewBox="0 0 128 128" role="img" aria-label="Simplified red instrument needle">
+  <defs><radialGradient id="bg-a" cx="50%" cy="38%" r="70%"><stop stop-color="#160a12"/><stop offset="1" stop-color="#08030a"/></radialGradient></defs>
+  <circle cx="64" cy="64" r="64" fill="url(#bg-a)"/>
+  <path d="M18 101A54 54 0 1 1 110 101" fill="none" stroke="#FF1744" stroke-width="10" stroke-linecap="round"/>
+  <path d="M64 70L99 39" fill="none" stroke="#FF1744" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="64" cy="70" r="11" fill="#FF1744"/>
+</svg>
+
+<!-- B: same Instrument geometry, with an ink needle for maximum dark-mode separation. -->
+<svg id="contrast" viewBox="0 0 128 128" role="img" aria-label="Split red instrument ring with light needle">
+  <circle cx="64" cy="64" r="64" fill="#08030a"/>
+  <circle cx="64" cy="64" r="53" fill="#0a0407" stroke="#7a142e" stroke-width="9"/>
+  <path d="M64 11A53 53 0 0 1 108 94" fill="none" stroke="#FF1744" stroke-width="11" stroke-linecap="round"/>
+  <path d="M64 68L98 37" fill="none" stroke="#F5E8EA" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="64" cy="68" r="12" fill="#FF1744"/>
+</svg>
+
+<!-- C: a typography-only control using the existing TC lockup and brand ring. -->
+<svg id="monogram" viewBox="0 0 128 128" role="img" aria-label="TraderCockpit TC monogram">
+  <circle cx="64" cy="64" r="64" fill="#08030a"/>
+  <circle cx="64" cy="64" r="53" fill="#0a0407" stroke="#FF1744" stroke-width="9"/>
+  <text x="64" y="82" text-anchor="middle" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="55" font-weight="700" letter-spacing="-7">
+    <tspan fill="#F5E8EA">T</tspan><tspan fill="#FF1744">C</tspan>
+  </text>
+</svg>
+<script>
+const candidate = new URLSearchParams(location.search).get("c") || "needle";
+document.getElementById(candidate)?.classList.add("active");
+</script>
+</body>
+</html>

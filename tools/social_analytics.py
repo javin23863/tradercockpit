@@ -37,8 +37,7 @@ SNAPSHOT_FILE = ROOT / "social-ops" / "analytics-latest.json"
 HISTORY_FILE = ROOT / "social-ops" / "analytics-history.json"
 VELOCITY_LOG = ROOT / "social-ops" / "velocity-log.jsonl"
 VELOCITY_FILE = ROOT / "social-ops" / "velocity-latest.json"
-WATCHLIST_FILE = ROOT / "social-ops" / "competitor-watchlist.json"
-HOTDOG_FILE = ROOT / "social-ops" / "hotdog-backlog.json"
+HOTDOG_FILE = ROOT / "social-ops" / "failure-mode-demand.json"
 DRIVERS_FILE = ROOT / "social-ops" / "post-drivers.json"
 REPORTS_DIR = ROOT / "social-ops" / "weekly"
 PUBLISH_LOG = ROOT / "OpenMontage" / "projects" / "video-03-war-premium-derivatives" / "artifacts" / "publish_log.json"
@@ -48,6 +47,34 @@ YOUTUBE_SCOPES = [
     "https://www.googleapis.com/auth/youtube.readonly",
     "https://www.googleapis.com/auth/yt-analytics.readonly",
 ]
+FAILURE_PHRASES = (
+    "why my strategy stopped working",
+    "my backtest lied",
+    "overfitting",
+    "curve fitting",
+    "walk-forward vs holdout",
+    "why backtests fail",
+    "I lost money trading",
+    "strategy died",
+    "data mining bias",
+    "out of sample failure",
+)
+NICHE_TERMS = (
+    "trading", "trader", "backtest", "market", "stock", "forex", "futures",
+    "crypto", "options", "quant", "algorithmic", "prop firm",
+)
+FAILURE_TITLE_TERMS = (
+    "stopped working", "backtest", "overfit", "curve fit", "walk-forward", "walk forward",
+    "holdout", "lost", "strategy died", "data mining", "out of sample", "alpha decay",
+    "survivorship", "slippage", "execution cost", "transaction cost", "market impact",
+)
+SHOW_BIBLE_TERMS = {
+    "overfitting": ("overfit", "curve fit", "walk-forward", "walk forward", "holdout", "data mining", "out of sample"),
+    "survivorship": ("survivorship",),
+    "execution-cost erosion": ("execution cost", "transaction cost", "slippage", "commission", "fees", "spread"),
+    "alpha decay": ("alpha decay", "edge decay", "stopped working", "stopped performing", "strategy died"),
+    "size-sensitivity": ("size sensitivity", "capacity", "market impact", "liquidity constraint"),
+}
 
 
 def iso_now() -> str:
@@ -252,14 +279,16 @@ def youtube_data_posts(youtube: Any, channel: dict[str, Any]) -> list[dict[str, 
     return posts
 
 
-def youtube_credentials() -> Any:
+def youtube_credentials(*, allow_refresh: bool = True) -> Any:
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
 
     credentials = Credentials.from_authorized_user_file(TOKEN_FILE, YOUTUBE_SCOPES)
-    if not credentials.valid and credentials.refresh_token:
+    if not credentials.valid and credentials.refresh_token and allow_refresh:
         credentials.refresh(Request())
         TOKEN_FILE.write_text(credentials.to_json(), encoding="utf-8")
+    if not credentials.valid:
+        raise RuntimeError("YouTube credential is not currently valid")
     return credentials
 
 
@@ -605,86 +634,169 @@ def write_velocity() -> dict[str, Any]:
     return velocity
 
 
+def failure_candidate(video: dict[str, Any], channel: dict[str, Any], phrases: list[str]) -> dict[str, Any] | None:
+    title = str(video.get("snippet", {}).get("title") or "")
+    title_lower = title.lower()
+    channel_name = str(channel.get("snippet", {}).get("title") or "")
+    niche_evidence = [term for term in NICHE_TERMS if term in f"{title} {channel_name}".lower()]
+    # Conservative: description-only matches are excluded; a demand signal must be visible in the title.
+    if not niche_evidence or not any(term in title_lower for term in FAILURE_TITLE_TERMS):
+        return None
+    subscribers = int(channel.get("statistics", {}).get("subscriberCount", 0) or 0)
+    views = int(video.get("statistics", {}).get("viewCount", 0) or 0)
+    # Shane's "under ~100k" is treated as a strict <100,000 gate; hidden/zero subs are unmeasurable.
+    if subscribers <= 0 or subscribers >= 100_000 or views < 5 * subscribers:
+        return None
+    exact = [phrase for phrase in phrases if phrase.lower() in title_lower]
+    phrasing = exact[0] if exact else phrases[0]
+    modes = [mode for mode, terms in SHOW_BIBLE_TERMS.items() if any(term in title_lower for term in terms)]
+    description = " ".join(str(video.get("snippet", {}).get("description") or "").split())
+    return {
+        "phrasing": phrasing,
+        "observedViewSubscriberRatio": round(views / subscribers, 2),
+        "sourceVideo": {
+            "id": video.get("id"), "title": title, "url": f"https://youtu.be/{video.get('id')}",
+            "viewCount": views, "publishedAt": video.get("snippet", {}).get("publishedAt"),
+        },
+        "sourceChannel": {
+            "id": channel.get("id"), "name": channel_name, "subscriberCount": subscribers,
+        },
+        # Minimal operator context: direct API prose plus deterministic screen evidence.
+        "context": {
+            "matchedPhrasings": phrases,
+            "signalClarity": "exact phrasing in title" if exact else "failure wording in title",
+            "nicheEvidence": niche_evidence,
+            "showBibleFailureModes": modes,
+            "descriptionExcerpt": description[:300],
+        },
+    }
+
+
+def rank_failure_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    # Ratio is the demand measure; title clarity is the conservative tie-breaker.
+    ranked = sorted(candidates, key=lambda item: (
+        item["observedViewSubscriberRatio"],
+        item["context"]["signalClarity"] == "exact phrasing in title",
+    ), reverse=True)
+    for rank, item in enumerate(ranked, 1):
+        item["rank"] = rank
+    return ranked
+
+
+def show_bible_cross_reference(finds: list[dict[str, Any]], complete: bool) -> list[dict[str, Any]]:
+    cross_reference = []
+    for mode in SHOW_BIBLE_TERMS:
+        evidence = [
+            {"rank": item["rank"], "videoId": item["sourceVideo"]["id"],
+             "phrasing": item["phrasing"], "observedViewSubscriberRatio": item["observedViewSubscriberRatio"]}
+            for item in finds if mode in item["context"]["showBibleFailureModes"]
+        ]
+        cross_reference.append({
+            "failureMode": mode,
+            "status": "demonstrated-demand" if evidence else (
+                "internally-interesting-only" if complete else "no-signal-in-measured-queries"
+            ),
+            "evidence": evidence,
+            "absenceNote": None if evidence else (
+                "No qualifying title-level signal in this screen; this is not proof that no audience exists."
+            ),
+        })
+    return cross_reference
+
+
 def hotdog() -> dict[str, Any]:
-    """Shane's Hot Dog screen: watchlist channel videos with views >= 5x that channel's subscribers."""
-    if not WATCHLIST_FILE.exists():
-        WATCHLIST_FILE.write_text(json.dumps({
-            "_doc": "Channel IDs (UC...) or handles (@name) of niche neighbors for the Hot Dog idea screen.",
-            "channels": [],
-        }, indent=2) + "\n", encoding="utf-8")
-    try:
-        watchlist = json.loads(WATCHLIST_FILE.read_text(encoding="utf-8"))
-        if not isinstance(watchlist, dict):
-            raise ValueError("watchlist root must be an object")
-    except (OSError, json.JSONDecodeError, ValueError) as error:
-        raise SystemExit(f"hotdog: watchlist unreadable, prior backlog left untouched: {safe_error(error)}")
-    channels = [ref for ref in (watchlist.get("channels") or []) if isinstance(ref, str) and ref.strip()]
-    existing: dict[str, dict[str, Any]] = {}
-    if HOTDOG_FILE.exists():
-        try:
-            existing = {item["videoId"]: item for item in json.loads(HOTDOG_FILE.read_text(encoding="utf-8")).get("finds", [])}
-        except (OSError, json.JSONDecodeError, KeyError):
-            existing = {}
-    if not channels:
-        payload = {"schema": "tradercockpit-hotdog/v1", "updatedAt": iso_now(),
-                   "note": f"Watchlist empty — add niche-neighbor channels to {WATCHLIST_FILE.name}.",
-                   "finds": sorted(existing.values(), key=lambda item: item.get("multiple", 0), reverse=True)}
-        write_atomic(HOTDOG_FILE, json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
-        return payload
+    """Search failure-mode ideas, then apply Shane's 5x/sub-100k Hot Dog screen."""
     from googleapiclient.discovery import build
 
-    youtube = build("youtube", "v3", credentials=youtube_credentials(), cache_discovery=False)
-    errors = []
-    screened = 0
-    for ref in channels:
+    # This lane is read-only: an expired credential fails closed instead of refreshing token state.
+    youtube = build("youtube", "v3", credentials=youtube_credentials(allow_refresh=False), cache_discovery=False)
+    coverage: list[dict[str, Any]] = []
+    errors: list[str] = []
+    video_phrases: dict[str, list[str]] = {}
+    for phrase in FAILURE_PHRASES:
         try:
-            params: dict[str, Any] = {"part": "snippet,statistics,contentDetails"}
-            params["forHandle" if ref.startswith("@") else "id"] = ref
-            items = youtube.channels().list(**params).execute().get("items", [])
-            if not items:
-                errors.append(f"{ref}: channel not found")
-                continue
-            channel = items[0]
-            subs = int(channel.get("statistics", {}).get("subscriberCount", 0) or 0)
-            uploads = channel.get("contentDetails", {}).get("relatedPlaylists", {}).get("uploads")
-            if not uploads:
-                continue
-            playlist = youtube.playlistItems().list(part="contentDetails", playlistId=uploads, maxResults=15).execute()
-            video_ids = [item.get("contentDetails", {}).get("videoId") for item in playlist.get("items", [])]
-            video_ids = [value for value in video_ids if value]
-            if not video_ids:
-                continue
-            videos = youtube.videos().list(part="snippet,statistics", id=",".join(video_ids), maxResults=15).execute()
-            screened += 1
-            for video in videos.get("items", []):
-                views = int(video.get("statistics", {}).get("viewCount", 0) or 0)
-                # 5:1 view-to-subscriber ratio with a 1k floor so tiny channels don't flood the
-                # backlog; subs must be known-positive or the ratio is meaningless
-                if subs > 0 and views >= 1000 and views >= 5 * subs:
-                    video_id = video["id"]
-                    prior = existing.get(video_id, {})
-                    existing[video_id] = {
-                        "videoId": video_id,
-                        "title": video.get("snippet", {}).get("title"),
-                        "url": f"https://youtu.be/{video_id}",
-                        "channel": channel.get("snippet", {}).get("title"),
-                        "channelSubs": subs,
-                        "views": views,
-                        "multiple": round(views / subs, 1),
-                        "publishedAt": video.get("snippet", {}).get("publishedAt"),
-                        "firstSeen": prior.get("firstSeen") or iso_now(),
-                    }
+            response = youtube.search().list(
+                part="snippet", q=f"{phrase} trading", type="video", order="viewCount",
+                maxResults=25, relevanceLanguage="en",
+            ).execute()
+            ids = [item.get("id", {}).get("videoId") for item in response.get("items", [])]
+            ids = [video_id for video_id in ids if video_id]
+            coverage.append({"phrasing": phrase, "status": "measured", "resultsReturned": len(ids)})
+            for video_id in ids:
+                video_phrases.setdefault(video_id, []).append(phrase)
         except Exception as error:
-            errors.append(f"{ref}: {safe_error(error)}")
-    finds = sorted(existing.values(), key=lambda item: item.get("multiple", 0), reverse=True)[:200]
-    payload = {"schema": "tradercockpit-hotdog/v1", "updatedAt": iso_now(),
-               "channelsConfigured": len(channels), "channelsScreened": screened,
-               "status": "ok" if screened == len(channels) else ("failed" if screened == 0 else "partial"),
-               "errors": errors, "finds": finds}
+            message = safe_error(error)
+            coverage.append({"phrasing": phrase, "status": "failed", "error": message})
+            errors.append(f"{phrase}: {message}")
+    measured = sum(item["status"] == "measured" for item in coverage)
+    if not measured:
+        raise SystemExit(f"hotdog: every YouTube search.list call failed; output left untouched: {errors}")
+
+    videos: dict[str, dict[str, Any]] = {}
+    video_ids = list(video_phrases)
+    for offset in range(0, len(video_ids), 50):
+        response = youtube.videos().list(
+            part="snippet,statistics", id=",".join(video_ids[offset:offset + 50]), maxResults=50,
+        ).execute()
+        videos.update({item["id"]: item for item in response.get("items", [])})
+    channel_ids = list({item.get("snippet", {}).get("channelId") for item in videos.values()} - {None})
+    channels: dict[str, dict[str, Any]] = {}
+    for offset in range(0, len(channel_ids), 50):
+        response = youtube.channels().list(
+            part="snippet,statistics", id=",".join(channel_ids[offset:offset + 50]), maxResults=50,
+        ).execute()
+        channels.update({item["id"]: item for item in response.get("items", [])})
+
+    finds = []
+    for video_id, phrases in video_phrases.items():
+        video = videos.get(video_id)
+        channel = channels.get(video.get("snippet", {}).get("channelId")) if video else None
+        if video and channel:
+            candidate = failure_candidate(video, channel, phrases)
+            if candidate:
+                finds.append(candidate)
+    finds = rank_failure_candidates(finds)
+    complete = measured == len(FAILURE_PHRASES)
+    payload = {
+        "schema": "tradercockpit-failure-mode-demand/v1",
+        "updatedAt": iso_now(),
+        "status": "ok" if complete else "partial",
+        "measurement": {
+            "source": "live YouTube Data API v3 list responses",
+            "search": "requested phrasing plus trading, ordered by view count, first 25 results",
+            "qualification": "title-level failure wording; markets/trading/prop-firm/trading-tech; channel subscribers >0 and <100000; views >=5x subscribers",
+            "ranking": "observed view/subscriber ratio descending; exact-title phrasing breaks ties",
+        },
+        "queryCoverage": coverage,
+        "errors": errors,
+        "finds": finds,
+        "showBibleCrossReference": show_bible_cross_reference(finds, complete),
+    }
     write_atomic(HOTDOG_FILE, json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
-    if screened == 0:
-        raise SystemExit(f"hotdog: all {len(channels)} channels failed: {errors}")
     return payload
+
+
+def hotdog_selftest() -> None:
+    def video(video_id: str, title: str, views: int) -> dict[str, Any]:
+        return {"id": video_id, "snippet": {"title": title, "description": "", "publishedAt": "2026-01-01T00:00:00Z"},
+                "statistics": {"viewCount": str(views)}}
+
+    def channel(channel_id: str, name: str, subscribers: int) -> dict[str, Any]:
+        return {"id": channel_id, "snippet": {"title": name}, "statistics": {"subscriberCount": str(subscribers)}}
+
+    exact = failure_candidate(video("five", "Why My Trading Strategy Stopped Working", 5000),
+                              channel("c1", "Quant Trader", 1000), [FAILURE_PHRASES[0]])
+    assert exact and exact["observedViewSubscriberRatio"] == 5.0
+    assert failure_candidate(video("low", "Why My Trading Strategy Stopped Working", 4999),
+                             channel("c1", "Quant Trader", 1000), [FAILURE_PHRASES[0]]) is None
+    assert failure_candidate(video("large", "Why My Trading Strategy Stopped Working", 1_000_000),
+                             channel("c2", "Quant Trader", 100_000), [FAILURE_PHRASES[0]]) is None
+    assert failure_candidate(video("off", "Why My Business Strategy Stopped Working", 5000),
+                             channel("c3", "Business School", 1000), [FAILURE_PHRASES[0]]) is None
+    higher = failure_candidate(video("ten", "Why My Trading Strategy Stopped Working", 10_000),
+                               channel("c1", "Quant Trader", 1000), [FAILURE_PHRASES[0]])
+    assert higher and [item["sourceVideo"]["id"] for item in rank_failure_candidates([exact, higher])] == ["ten", "five"]
+    print("social-analytics hotdog self-test: 5/5 PASS")
 
 
 def load_drivers() -> dict[str, str]:
@@ -762,26 +874,25 @@ def report() -> Path:
                          f"{item['views']} views = {item['multiple']}× median {item['medianTrailing20']}")
     else:
         lines.append("None this week.")
-    lines += ["", "## Hot Dog finds (competitor videos ≥5× channel subs)", ""]
+    lines += ["", "## Hot Dog failure-mode demand (videos ≥5× channel subs)", ""]
     if hotdog_finds:
-        week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
         for item in hotdog_finds[:10]:
-            fresh = " **NEW**" if str(item.get("firstSeen", "")) >= week_ago else ""
-            lines.append(f"- {md_link(item.get('title'), item.get('url'))} — {item.get('channel')}: "
-                         f"{item.get('views')} views vs {item.get('channelSubs')} subs ({item.get('multiple')}×){fresh}")
+            video = item.get("sourceVideo", {})
+            channel = item.get("sourceChannel", {})
+            lines.append(f"- {md_link(video.get('title'), video.get('url'))} — {channel.get('name')}: "
+                         f"{video.get('viewCount')} views vs {channel.get('subscriberCount')} subs "
+                         f"({item.get('observedViewSubscriberRatio')}×; {item.get('phrasing')})")
     else:
-        screened = hotdog_payload.get("channelsScreened", 0)
-        configured = hotdog_payload.get("channelsConfigured", screened)
+        coverage = hotdog_payload.get("queryCoverage") or []
+        measured = sum(item.get("status") == "measured" for item in coverage)
         if not hotdog_payload:
             lines.append("Screen has not run yet — run `hotdog`.")
-        elif not configured:
-            lines.append(f"Watchlist empty — populate {WATCHLIST_FILE.name} and run `hotdog`.")
         elif hotdog_payload.get("errors"):
-            lines.append(f"0 finds; screen degraded — {screened}/{configured} channels screened, "
+            lines.append(f"0 finds; screen degraded — {measured}/{len(coverage)} phrasings measured, "
                          f"errors: {hotdog_payload['errors']}")
         else:
-            lines.append(f"0 qualifying videos from {screened} screened channels — screen healthy; "
-                         "outliers are rare by design.")
+            lines.append("0 qualifying failure-mode videos from the measured searches — screen healthy; "
+                         "absence is a programming signal.")
     lines += ["", "## Driver scores (views by declared intention)", ""]
     scores: dict[str, int] = {}
     untagged = 0
@@ -861,7 +972,7 @@ def collect() -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["auth-youtube", "collect", "velocity", "hotdog", "report"])
+    parser.add_argument("command", choices=["auth-youtube", "collect", "velocity", "hotdog", "report", "selftest"])
     args = parser.parse_args()
     if args.command == "auth-youtube":
         auth_youtube()
@@ -874,6 +985,9 @@ def main() -> None:
     if args.command == "hotdog":
         payload = hotdog()
         print(f"wrote {HOTDOG_FILE} ({len(payload.get('finds', []))} finds, errors={payload.get('errors', [])})")
+        return
+    if args.command == "selftest":
+        hotdog_selftest()
         return
     if args.command == "report":
         out = report()

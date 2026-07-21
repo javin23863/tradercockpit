@@ -4,12 +4,15 @@
 import argparse
 import hashlib
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
 try:
+    from tools import script_style_gate
     from tools.script_approval import load_production_approval, load_script_approval
 except ModuleNotFoundError:  # direct `python tools/social_batch.py` execution
+    import script_style_gate
     from script_approval import load_production_approval, load_script_approval
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +21,17 @@ STATUSES = {"draft", "approved", "rejected"}
 SCHEMAS = {"social-batch/v1", "social-batch/v2"}
 CAPTION_MODES = {"native", "burned", "none"}
 PRIVACY = {"private", "unlisted", "public"}
+REQUIRED_DISCLAIMER = "Research tooling, not financial advice. No performance is promised or implied."
+DISCLAIMER_RE = re.compile(
+    r"\bResearch\s+tooling,\s*not\s+financial\s+advice\.\s*"
+    r"No\s+performance\s+is\s+promised\s+or\s+implied\.",
+    re.IGNORECASE,
+)
+SCENE_PLAN_SCHEMA = "tradercockpit-scene-plan/v1"
+SYNTHETIC_KIND_WORDS = {"generated", "synthetic"}
+NON_SYNTHETIC_KINDS = {
+    "news", "official-footage", "source-chart-sequence", "tradingview", "tradingview-sequence",
+}
 
 
 def inside_repo(value):
@@ -27,6 +41,50 @@ def inside_repo(value):
     except ValueError as error:
         raise ValueError("paths must stay inside TraderCockpit") from error
     return path
+
+
+def _check_synthetic_disclosure(plan, contains_synthetic_media):
+    # True is safe over-disclosure. False must be supported by a complete kind declaration.
+    if contains_synthetic_media:
+        return
+    if not isinstance(plan, dict) or plan.get("schema") != SCENE_PLAN_SCHEMA:
+        raise ValueError(f"containsSyntheticMedia=false requires a {SCENE_PLAN_SCHEMA} scene-plan")
+    beats = plan.get("beats")
+    if not isinstance(beats, list) or not beats:
+        raise ValueError("containsSyntheticMedia=false requires a non-empty scene-plan beats list")
+    for index, beat in enumerate(beats):
+        visual = beat.get("visual") if isinstance(beat, dict) else None
+        kind = visual.get("kind") if isinstance(visual, dict) else None
+        if not isinstance(kind, str) or not kind.strip():
+            raise ValueError(
+                f"containsSyntheticMedia=false cannot be verified: scene-plan beats[{index}].visual.kind is required"
+            )
+        normalized = re.sub(r"\s+", " ", kind).strip().lower()
+        if SYNTHETIC_KIND_WORDS.intersection(re.findall(r"[a-z]+", normalized)):
+            raise ValueError(
+                f"containsSyntheticMedia must be true: scene-plan beats[{index}] uses {kind!r} visual media"
+            )
+        if normalized not in NON_SYNTHETIC_KINDS:
+            # Conservative default: a new kind needs an explicit classification before a false declaration.
+            raise ValueError(
+                f"containsSyntheticMedia=false cannot be verified: scene-plan beats[{index}] "
+                f"uses unclassified visual kind {kind!r}"
+            )
+    # Not covered deterministically: current scene-plan visuals carry no source/model/seed/license
+    # or synthetic provenance. This checks explicit kind declarations, not pixels or mislabeled assets.
+
+
+def _require_synthetic_disclosure(production_approval_path, contains_synthetic_media):
+    if contains_synthetic_media:
+        return
+    plan_path = production_approval_path.parent / "scene-plan.json"
+    try:
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise ValueError(
+            f"containsSyntheticMedia=false cannot be verified from {plan_path}"
+        ) from error
+    _check_synthetic_disclosure(plan, contains_synthetic_media)
 
 
 def approval_fingerprint(batch_id, item, contains_synthetic_media=False, schema="social-batch/v1"):
@@ -58,6 +116,7 @@ def approval_fingerprint(batch_id, item, contains_synthetic_media=False, schema=
     elif schema == "social-batch/v2":
         production_approval_path = inside_repo(item.get("productionApproval", ""))
         load_production_approval(production_approval_path)
+        _require_synthetic_disclosure(production_approval_path, contains_synthetic_media)
         payload.update({
             "schema": "social-approval/v2",
             "title": item.get("title"),
@@ -102,6 +161,22 @@ def validate(data):
             raise ValueError(f"{tag}.status must be draft, approved, or rejected")
         if not isinstance(item.get("copy"), str):
             raise ValueError(f"{tag}.copy must be a string")
+        if schema == "social-batch/v2":
+            # v1 remains readable historical evidence; only v2 can reach a live boundary.
+            surfaces = {"copy": item["copy"]}
+            if "description" in item:
+                if not isinstance(item["description"], str):
+                    raise ValueError(f"{tag}.description must be a string")
+                surfaces["description"] = item["description"]
+            for field, surface in surfaces.items():
+                # BLOCK: this exact boundary is the legal minimum for every live offer surface.
+                if not DISCLAIMER_RE.search(surface):
+                    raise ValueError(f"{tag}.{field} is missing the required research-tooling disclaimer")
+                style = script_style_gate.audit_text(surface)
+                # BLOCK deterministic violations; heuristic warns remain editorial review signals.
+                if style["verdict"] != "PASS":
+                    details = ", ".join(f"{finding['type']} x{finding['count']}" for finding in style["blocked"])
+                    raise ValueError(f"{tag}.{field} script style gate BLOCK: {details}")
 
         if item["status"] == "approved":
             if schema == "social-batch/v1":
@@ -158,6 +233,7 @@ def load(path):
 
 
 def selftest():
+    compliant_copy = f"Brent settled at 83. My read holds above 81.\n\n{REQUIRED_DISCLAIMER}"
     base = {
         "schema": "social-batch/v1", "batchId": "test",
         "containsSyntheticMedia": False, "items": [],
@@ -171,7 +247,7 @@ def selftest():
     try:
         validate({
             **base, "schema": "social-batch/v2",
-            "items": [{"id": "x", "channel": "tiktok", "status": "approved", "copy": "x"}],
+            "items": [{"id": "x", "channel": "tiktok", "status": "approved", "copy": compliant_copy}],
         })
         raise AssertionError("incomplete approval should fail")
     except ValueError:
@@ -179,12 +255,43 @@ def selftest():
     parity = {
         **base,
         "items": [
-            {"id": channel, "channel": channel, "status": "draft", "copy": "x"}
+            {"id": channel, "channel": channel, "status": "draft", "copy": compliant_copy}
             for channel in sorted(CHANNELS)
         ],
     }
     assert {item["channel"] for item in validate(parity)["items"]} == CHANNELS
-    print("social-batch self-test: 4/4 PASS")
+    real_plan = {
+        "schema": SCENE_PLAN_SCHEMA,
+        "beats": [{"visual": {"kind": "news"}}],
+    }
+    _check_synthetic_disclosure(real_plan, False)
+    synthetic_plan = {
+        "schema": SCENE_PLAN_SCHEMA,
+        "beats": [{"visual": {"kind": "ai-generated-image"}}],
+    }
+    _check_synthetic_disclosure(synthetic_plan, True)
+    try:
+        _check_synthetic_disclosure(synthetic_plan, False)
+        raise AssertionError("generated visual with a false disclosure should fail")
+    except ValueError as error:
+        assert "containsSyntheticMedia must be true" in str(error)
+    try:
+        _check_synthetic_disclosure({
+            "schema": SCENE_PLAN_SCHEMA,
+            "beats": [{"visual": {}}],
+        }, False)
+        raise AssertionError("missing visual kind should fail closed")
+    except ValueError as error:
+        assert "cannot be verified" in str(error)
+    try:
+        _check_synthetic_disclosure({
+            "schema": SCENE_PLAN_SCHEMA,
+            "beats": [{"visual": {"kind": "ai-image"}}],
+        }, False)
+        raise AssertionError("unclassified visual kind should fail closed")
+    except ValueError as error:
+        assert "unclassified visual kind" in str(error)
+    print("social-batch self-test: 9/9 PASS")
 
 
 def main():

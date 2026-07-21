@@ -83,7 +83,11 @@ def human(n: int) -> str:
 def scan_caches():
     items = []
     for d in CACHE_DIRS:
-        if d.is_dir():
+        try:
+            available = d.is_dir()
+        except OSError:
+            continue
+        if available:
             items.append((d, dir_size(d)))
     return items
 
