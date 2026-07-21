@@ -331,6 +331,17 @@ def _asset(item):
     return path
 
 
+def _thumbnail(item):
+    # A declared thumbnail that can't be found is a defect, never a silent drop
+    # (2026-07-21: publish.py ignored batch thumbnails -> YT auto-frames went live).
+    if not item.get("thumbnail"):
+        return None
+    path = (ROOT / item["thumbnail"]).resolve()
+    if not path.is_file():
+        raise ValueError("declared thumbnail is missing")
+    return str(path)
+
+
 def dispatch_publish(item):
     platform, asset = item["channel"], _asset(item)
     if platform == "youtube":
@@ -338,6 +349,7 @@ def dispatch_publish(item):
 
         return upload(
             str(asset), item["title"], item["copy"], privacy=item["privacy"],
+            thumbnail=_thumbnail(item),
             synthetic=item.get("containsSyntheticMedia", False), interactive=False,
         )
     if platform == "instagram":

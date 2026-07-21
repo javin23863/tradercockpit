@@ -19,9 +19,11 @@ LLM-agnostic: any model that follows this file ships the same evening.
 - TradingView Desktop must be RUNNING for capture, and CLOSED before TTS (RAM).
 
 ### 1. Produce → private upload (skill: **daily-news-video**)
-Follow it in full: analysis brief → chart plan + zoomed captures (`--expect-last-bar`,
-`--range-days 100`) → vo.txt (2,000–2,350 words @ 197 wpm) → claims.yaml + vo-receipts.yaml
-→ scene-plan (per-asset beats) → both gates → **second-model critic pass** (triage against
+Follow it in full: analysis brief → **rendered thumbnail** (`render_thumb.cjs`, never a
+video frame; path into social-batch `"thumbnail"` — 2026-07-21 scar: publish.py used to
+drop it silently and YT auto-frames went live) → chart plan + zoomed captures
+(`--expect-last-bar`, `--range-days 100`) → vo.txt (2,000–2,350 words @ 197 wpm) →
+claims.yaml + vo-receipts.yaml → scene-plan (per-asset beats) → both gates → **second-model critic pass** (triage against
 receipts; receipts win) → runner:
 ```
 CLIP_SKIP_SHORTS=1 PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe \

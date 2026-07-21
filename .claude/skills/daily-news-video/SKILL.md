@@ -111,7 +111,13 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
 1. Build the dated primary-source fact pack, including market-relevant political, conflict,
    sanctions, defence, energy, shipping, election, and cyber events.
 2. Run the fixed TradingView dashboard and `market-analysis`. Choose the lead from confirmation or
-   divergence. Emit `analysis-brief.md`, then lock title and thumbnail.
+   divergence. Emit `analysis-brief.md`, then lock title and thumbnail. Lock = RENDER it now
+   (never a video frame; design rules = `thumbnails-first-impressions` house skill):
+   `node tools/visuals/render_thumb.cjs --out productions/daily-<date>/thumb.png --eyebrow
+   "<ASSET>" --num "<$number>" --phrase "<3-5 words, ≠ title>" --dir up|down` — the spec gate
+   (`check_thumbnail.cjs`) hard-blocks rule violations. Put the path in every `social-batch.json`
+   youtube item as `"thumbnail"`; publish.py sets it on YouTube (fails loud if the file is
+   missing — 2026-07-21 silent-drop scar).
 2b. **Charts before script (hard order).** Write the chart plan (symbols, timeframes, indicators,
    exact levels/trendlines to draw) and do the TradingView work NOW — adjust indicators as needed
    to make the point; capture working shots as end-of-day snapshots with the closing candle
