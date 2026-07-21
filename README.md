@@ -83,6 +83,7 @@ tools/              produce.py, publish.py, claims_gate.py, visuals/ (charts, ne
 tools/handoff/      the scripts that recovered/replaced live posts — CDP drivers, recut, platform replace
 productions/        one dir per video: vo.txt, claims.yaml, receipts, charts, shorts  (v4 = the baseline)
 docs/               the landing page (GitHub Pages) — the marketing surface
+design/helios/      immutable Helios v27 visual/motion reference and integration-gap receipt
 ops/                setup + SEO runbooks (creds, Meta/YouTube/social SEO, studio-kit wiring)
 handoffs/           dated session handoffs — read the newest before you touch anything live
 studio-kit/         extracted ai-video-studio-kit (clipper, generators)

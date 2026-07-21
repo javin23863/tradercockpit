@@ -96,14 +96,14 @@ The primary task remains responsible for implementation, full-diff review, test 
 
 # tiktok-upload
 
-- **tiktok-upload** (`~/.agents/skills/tiktok-upload/SKILL.md`) posts a finished 9:16 MP4 to TikTok using the local cookie-based uploader.
+- **tiktok-upload** (`.agents/skills/tiktok-upload/SKILL.md`) posts an approved 9:16 MP4 through TikTok's official free Content Posting API with refreshable OAuth and provider read-back.
 - Trigger: `/tiktok-upload` or any request to post or upload a video to TikTok.
 - Use the skill for those requests.
 
 # System hygiene (MANDATORY — disk is shared and exhaustible)
 
 Standing rule after the 2026-07-17 disk-zero incident. Full protocol:
-`TraderCockpit-Vault/wiki/SYSTEM-HYGIENE-PROTOCOL.md`. Enforcer: `tools/janitor.py`.
+the ops vault `Operations\SYSTEM-HYGIENE-PROTOCOL.md`. Enforcer: `tools/janitor.py`.
 
 - **Start scoped:** temp/scratch in the session scratchpad or `C:\tmp\<task>`, never scattered in
   `~/repos` / `~/Documents` / `~/Desktop`. Bulk data (>~1 GB) is cloud-first to B2; local keeps GOLD
@@ -115,3 +115,31 @@ Standing rule after the 2026-07-17 disk-zero incident. Full protocol:
   `py tools/janitor.py --reclaim caches build --yes`. Receipt GB freed in the vault log.
 - **Audit before any multi-GB job:** `py tools/janitor.py` (read-only) — know the headroom first.
 - Anything neither in a remote nor in B2 must be backed up before deletion, never trashed blind.
+
+Portfolio/ops/GTM notes → the ops vault: `C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit` (repo doctrine stays here; never create another vault). `Desktop\TraderCockpit-Vault` is RETIRED read-only.
+
+# Model-agnostic production principle (operator directive, 2026-07-21)
+
+Outcome quality must not depend on which LLM runs the lane. Every production decision traces to
+one of four writer-independent surfaces:
+
+1. **Written doctrine** — `MARKET-ANALYSIS-DOCTRINE.md` (same 7 questions, same watchlist, same
+   confirmation table for every writer), `BRAND.md`, `GROWTH-AUTHORITY-PLAYBOOK.md`, the skills.
+2. **Deterministic gates** — claims, style, editorial, visual QA, and the fail-closed
+   `daily_postclose.py` decision. A gate that documents without blocking reads as approval;
+   silence is never a pass.
+3. **Pinned exemplars** — the newest operator-approved scripts and builds are the quality floor
+   a draft is compared against, not the writer's taste.
+4. **Independent critic pass** — a second model critiques every script against the brief and the
+   exemplars; the writer triages findings against receipts (receipts win over both models).
+
+Corollary: when a run needs model judgment the process didn't specify (a capture looked wrong, a
+number idiom didn't reduce to bar arithmetic, a source couldn't be pinned), the fix is encoded
+into a gate, tool flag, or skill checklist IN THE SAME WAVE — next run, a different model hits a
+rule instead of a judgment call. That is how the process stays reproducible across models.
+
+# Control-plane handoff
+
+- This repository owns implementation artifacts and source receipts. It never writes `Manager\.manager\manager.db` or generated ops-vault pages.
+- At every handoff, return exact branch, commit, tests, artifacts, blockers, and next action to the Manager coordinator. Manager alone applies portfolio intents and runs `vault_sync.py`.
+- Read handwritten operator decisions and current generated status from the ops vault. Edit repository doctrine here; edit operator decisions through the vault Inbox; never edit a page marked `generated:`.

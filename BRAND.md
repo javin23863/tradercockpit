@@ -49,7 +49,7 @@ not propagate Apollo's solar palette into channel branding.
 - Clear space ≥ the gauge's radius; never recolor the mark off the red/black system; mark is
   designed for dark grounds — don't place the transparent lockup on white.
 
-## Thumbnails (rule, enforced by `tools/visuals/thumbnail.html`)
+## Thumbnails (input rules enforced by `tools/visuals/check_thumbnail.cjs` through `render_thumb.cjs`; fixed logo corner rendered by `thumbnail.html`)
 Graham-Stephan finance style, landing-matched: **≤5 words, lead with the number**, one subject,
 2–3 colors, 4.5:1 contrast at mobile size, red `#FF1744` for the key figure on black, gauge mark in
 a fixed corner every time. Generate with `node tools/visuals/render_thumb.cjs` (args or `--json`).

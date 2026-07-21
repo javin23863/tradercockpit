@@ -38,3 +38,12 @@ Produce a fact pack with:
 
 Rules: every number carries source name + date. If sources conflict, show both. Do not
 interpolate or estimate. Accuracy over completeness. Return the pack as markdown.
+
+Provenance labels (mandatory, per source): mark every citation **FETCHED** (you opened the page
+and read the claim in its body) or **SNIPPET** (known only from a search-result snippet or
+engine synthesis — including every fetch that 403'd). A SNIPPET-only claim caps at
+`single_source`, and named-person quotes or paraphrased statements from SNIPPET-only sources
+are **banned from on-air attribution** — list them under UNVERIFIED instead (the 2026-07-20
+Baghaei line survived to the timeline on a synthesis citation and had to be pulled at script
+time). Include the exact URL for anything the video may show on screen; the news-shot capture
+step both renders the visual and upgrades the source to FETCHED.
