@@ -241,8 +241,8 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem;text-transform:uppercase}
     </div>
     <div class="apollo-stage">
       <div class="shot-wrap">
-        <img id="desktop-shot" src="assets/desktop-latest.png" alt="Trader Cockpit desktop app — Apollo Home" loading="lazy">
-        <div class="shot-cap">THE DESKTOP APP — APOLLO · HOME</div>
+        <img id="desktop-shot" src="assets/desktop-reference-home.png" alt="Trader Cockpit desktop app — Apollo Home" loading="lazy">
+        <div class="shot-cap">THE DESKTOP APP — APOLLO HOME</div>
       </div>
       <div class="apollo-copy">
         <div class="apollo-name" id="apollo-name">ASSISTANT CONCEPT</div>
@@ -314,15 +314,15 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem;text-transform:uppercase}
     <div class="card"><h3>One good backtest proves nothing</h3>
       <p>Any strategy can be curve-fit to look great on history. Robustness testing — walk-forward, Monte Carlo,
       out-of-sample, real spread and commissions — is what separates an edge from a lucky fit.</p></div>
-    <div class="card"><h3>Signed results, no screenshots</h3>
-      <p>Results are signed and recorded — pass or fail. No cherry-picked equity curves, no Photoshopped
-      P&amp;L. If this page shows a price or a feature, it came from the product itself.</p></div>
+    <div class="card"><h3>Results you can't fake</h3>
+      <p>Every result is recorded and signed, pass or fail. No cherry-picked equity curves. No Photoshopped
+      P&amp;L. What you see is what the test produced.</p></div>
   </div>
-  <div class="quote">I wish I'd had someone like Apollo over my shoulder all these years — something that saves
-    you from yourself. Instead it was the devil on the other shoulder: no, click the button, take the trade,
-    over-leverage, you know what it's going to be this time. Last week my own ES strategy failed these same
-    tests. I put a lot of work into that strategy, and it served me well for many years — but it died.
-    I followed the rules. — the operator</div>
+  <div class="quote">I wish I'd had someone like Apollo over my shoulder all those years — something to save
+    me from myself. Instead I had the devil on the other shoulder: click the button, take the trade,
+    over-leverage — you know what it's going to be this time. Last week my own ES strategy failed these
+    same tests. I put a lot of work into that strategy. It served me well for many years. But it died,
+    and I followed the rules. — the operator</div>
 </section>
 
 <section class="wrap" id="machine">
@@ -334,8 +334,8 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem;text-transform:uppercase}
     <div class="card"><h3>Why one equity curve lies</h3><p>Resample the trades and one pretty backtest becomes
       a cloud of possible outcomes. If the strategy only wins in the one history that already happened, it
       never had an edge.</p></div>
-    <div class="card"><h3>No invented numbers</h3><p>Prices, features, and availability on this page come
-      straight from the product — nothing typed in by hand.</p></div>
+    <div class="card"><h3>No invented numbers</h3><p>Prices and features shown here come from the product,
+      not from a copywriter. If it isn't real, it isn't on the page.</p></div>
   </div>
 </section>
 
@@ -681,7 +681,7 @@ initBtn.addEventListener("click",reviewRun);
 confirmRun.addEventListener("click",runGauntlet);
 cancelRun.addEventListener("click",()=>{
   confirmPanel.hidden=true;
-  setApollo("previewing",`Cancelled. ${sel.n} is still selected.`);
+  setApollo("previewing",`Cancelled — ${sel.n} stays loaded.`);
   initBtn.focus()
 });
 voicePreview.addEventListener("click",()=>{
@@ -690,7 +690,7 @@ voicePreview.addEventListener("click",()=>{
   setApollo("listening","Push-to-talk. In the app you just talk to Apollo — here the microphone stays off.");
   voiceTimer=setTimeout(()=>{
     voicePreview.setAttribute("aria-pressed","false");voiceNote.textContent="microphone off";
-    setApollo(sel?"previewing":"listening",sel?`${sel.n} is still selected.`:"Give Apollo the rules — or pick a known strategy.")
+    setApollo(sel?"previewing":"listening",sel?`${sel.n} stays loaded.`:"Give Apollo the rules — or pick a known strategy.")
   },1400)
 });
 document.getElementById("again").addEventListener("click",()=>{
