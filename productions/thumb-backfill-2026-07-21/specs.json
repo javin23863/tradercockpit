@@ -1,0 +1,30 @@
+{
+  "note": "Backfill designed thumbnails for public long-forms live before the 2026-07-21 publish.py thumbnail fix. Numbers sourced from receipted production facts/titles; XLE +3.4% is the receipted 55.08->56.95 move (the Shorts' +4% overstated).",
+  "videos": [
+    {
+      "videoId": "a-d0ND20Dzc",
+      "title": "Stock Market Weekly Review: Oil +17%, Tech Cracks — Did The Bull Break?",
+      "spec": {"eyebrow": "BRENT CRUDE", "num": "+17%", "phrase": "one week, two *stories*", "dir": "up"}
+    },
+    {
+      "videoId": "33cnTUL4ga4",
+      "title": "Iran Deadline Day and TSMC's $403.50 Floor",
+      "spec": {"eyebrow": "TSM", "num": "$403.50", "phrase": "holds or it *breaks*", "dir": "down"}
+    },
+    {
+      "videoId": "J2EBBMDoKhc",
+      "title": "Oil Holds $84 as the Risk Premium Sticks",
+      "spec": {"eyebrow": "BRENT CRUDE", "num": "$84", "phrase": "the bid won't *leave*", "dir": "up"}
+    },
+    {
+      "videoId": "zFQ3gJCVD6Y",
+      "title": "How the War Premium Travels: Brent to Energy Equities",
+      "spec": {"eyebrow": "XLE ENERGY", "num": "+3.4%", "phrase": "rode the *war* bid", "dir": "up"}
+    },
+    {
+      "videoId": "IJjUNeuJSNE",
+      "title": "Trump's 20% Hormuz Toll: What It Means For Your Portfolio",
+      "spec": {"eyebrow": "BRENT CRUDE", "num": "+10%", "phrase": "on *one* headline", "dir": "up"}
+    }
+  ]
+}
