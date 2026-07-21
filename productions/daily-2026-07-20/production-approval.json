@@ -1,0 +1,17 @@
+{
+  "schema": "tradercockpit-production-approval/v1",
+  "status": "approved",
+  "analysisBrief": "productions/daily-2026-07-20/analysis-brief.md",
+  "analysisBriefSha256": "b62bdc62446e0812ef6280a91a674861304493b715fd497ff66690880f3a4382",
+  "sourceReceipt": "productions/daily-2026-07-20/news-sources.json",
+  "sourceReceiptSha256": "7b09fc543c3d343341ab26614e09c55374c152993ee962725cd8b1906292396e",
+  "scriptApproval": "productions/daily-2026-07-20/script-approval.json",
+  "scriptApprovalSha256": "7acbb155d345833fed3a02392122a70a8d8d03ce728e3ffcfbe23f669d7509eb",
+  "framingSources": [
+    "Bloomberg"
+  ],
+  "reviewedBy": "machine:daily-postclose-runner",
+  "reviewedAt": "2026-07-21T02:22:28Z",
+  "approvalKind": "machine",
+  "operatorReviewed": false
+}

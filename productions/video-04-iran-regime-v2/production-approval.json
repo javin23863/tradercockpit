@@ -1,0 +1,14 @@
+{
+  "schema": "tradercockpit-production-approval/v1",
+  "status": "approved",
+  "analysisBrief": "productions/video-04-iran-regime-v2/analysis-brief.md",
+  "analysisBriefSha256": "ad7dfac116e0102ca488d186934a905d2becf828bd46a79035e74160fd28dddf",
+  "sourceReceipt": "productions/video-04-iran-regime-v2/news-sources.json",
+  "sourceReceiptSha256": "5ad719eb43dfbf6f669b15f533afa727e3bef8d6bd8e177a925f367e48f117d1",
+  "scriptApproval": "productions/video-04-iran-regime-v2/script-approval.json",
+  "scriptApprovalSha256": "8eee57a33f900d8625c80d17cf717ad9fcec337b5ee77ac28cd5d71a78665c64",
+  "framingSources": ["Bloomberg", "Al Jazeera"],
+  "lead": "Iran war regime (default lead per operator source hierarchy)",
+  "reviewedBy": "operator (exact-hash topic/source approval in Claude Code session)",
+  "reviewedAt": "2026-07-16T20:33:03Z"
+}

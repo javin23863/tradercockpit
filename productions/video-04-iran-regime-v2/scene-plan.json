@@ -1,0 +1,738 @@
+{
+  "schema": "tradercockpit-scene-plan/v1",
+  "beats": [
+    {
+      "id": "01a",
+      "section": "01",
+      "narration": "The official shipping record around Hormuz got worse again. The International Maritime Organization's register now lists fifty-seven incidents in the region as of July sixteenth, and its newest entry is another damaged vessel near Iran.",
+      "spokenSubjects": [
+        "imo-incidents"
+      ],
+      "visual": {
+        "path": "visuals/02b-imo-incidents.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "imo-incidents"
+        ],
+        "fit": "contain",
+        "purpose": "Open on the IMO incident register while the worsened official shipping record is spoken."
+      }
+    },
+    {
+      "id": "01b",
+      "section": "01",
+      "narration": "The U.S. blockade is back in force. Treasury added new sanctions this week.",
+      "spokenSubjects": [
+        "us-blockade",
+        "treasury-sanctions"
+      ],
+      "visual": {
+        "path": "visuals/02a-aljazeera-blockade.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "us-blockade"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Al Jazeera blockade report while the blockade and new sanctions are named."
+      }
+    },
+    {
+      "id": "01c",
+      "section": "01",
+      "narration": "But Brent was around eighty-four forty-seven on the live daily bar, below yesterday's close.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Brent daily chart while its live-bar price versus prior close is spoken."
+      }
+    },
+    {
+      "id": "01d",
+      "section": "01",
+      "narration": "Energy stocks were green, the Nasdaq one hundred was down about one point three percent, and the VIX was only sixteen.",
+      "spokenSubjects": [
+        "ndx",
+        "xle",
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/05-ndx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Nasdaq 100 daily chart while the tech-led selective weakness is described."
+      }
+    },
+    {
+      "id": "01e",
+      "section": "01",
+      "narration": "My read is straightforward. The war risk is real. Today's tape is not adding another clean oil breakout. It is showing up more clearly in tech, rates, and the dollar. Let's go through the evidence and the levels that change that read.",
+      "spokenSubjects": [
+        "brent",
+        "ndx",
+        "us10y",
+        "dxy"
+      ],
+      "visual": {
+        "path": "visuals/03-brent.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Hold Brent while the thesis distinguishes oil's tape from tech, rates, and the dollar."
+      }
+    },
+    {
+      "id": "02a",
+      "section": "02",
+      "narration": "Start with what we can confirm. Bloomberg's current Iran coverage is centered on a widening conflict, ships avoiding Hormuz, and the consequences for oil. Al Jazeera reported that the renewed U.S. blockade of vessels moving to and from Iranian ports took effect at twenty hundred GMT on Tuesday. The same report said CENTCOM announced a new wave of strikes aimed at capabilities used to attack commercial shipping in the strait.",
+      "spokenSubjects": [
+        "us-blockade",
+        "centcom-strikes"
+      ],
+      "visual": {
+        "path": "visuals/02a-aljazeera-blockade.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "us-blockade"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Al Jazeera report while the blockade timing and CENTCOM strike wave are attributed."
+      }
+    },
+    {
+      "id": "02b",
+      "section": "02",
+      "narration": "The IMO gives us the harder shipping record. As of July sixteenth, it lists fifty-seven incidents and eighteen seafarer fatalities across the region. The newest entry is the BELMA, damaged near Bushehr Province on July fifteenth, with no pollution reported. On Monday, the IMO Council condemned attacks on civilian commercial ships and called for de-escalation while reaffirming transit rights through international straits.",
+      "spokenSubjects": [
+        "imo-incidents",
+        "belma"
+      ],
+      "visual": {
+        "path": "visuals/02b-imo-incidents.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "imo-incidents"
+        ],
+        "fit": "contain",
+        "purpose": "Show the IMO register while the incident count, fatalities, and the BELMA entry are spoken."
+      }
+    },
+    {
+      "id": "02c",
+      "section": "02",
+      "narration": "Then there is the policy pressure. Treasury sanctioned seven people and entities on Wednesday for supporting weapons procurement for the IRGC. A day earlier it expanded pressure on a large oil, shipping, and finance network. Those actions matter for banks, insurers, ship operators, and anyone clearing a cargo. They add compliance risk. They do not prove that physical supply fell today, and I am not going to pretend a sanctions list is a barrel count.",
+      "spokenSubjects": [
+        "treasury-sanctions"
+      ],
+      "visual": {
+        "path": "visuals/02c-treasury-sanctions.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "treasury-sanctions"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Treasury press release while the sanctions actions and their limits are explained."
+      }
+    },
+    {
+      "id": "03a",
+      "section": "03",
+      "narration": "Now Brent, daily. This chart already carries a serious war premium. July tenth closed at seventy-five twenty-two. July thirteenth closed at eighty-three thirty-one. That was a ten point seven five percent jump in one completed session. On July fourteenth, Brent traded as high as eighty-seven fifty-five and closed at eighty-five fifteen. Wednesday closed almost flat at eighty-five oh-seven.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show Brent daily while the completed-session war-premium repricing is walked through."
+      }
+    },
+    {
+      "id": "03b",
+      "section": "03",
+      "narration": "On the live July sixteenth bar, Brent opened at eighty-five thirty-four, traded up to eighty-six twenty-five, down to eighty-three eighty-three, and was around eighty-four forty-seven at the cutoff. That is roughly seven tenths of a percent below the prior close. The bar is still open, so eighty-four forty-seven is not a close.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Keep Brent daily on screen for the live-bar open, high, low, and cutoff price."
+      }
+    },
+    {
+      "id": "03c",
+      "section": "03",
+      "narration": "Here is what that says. The market paid hard for the renewed Hormuz risk on Monday. It has not paid an additional premium today. Eighty-seven fifty-five is the breakout level overhead. Eighty-three thirty-one is the completed support, with today's live low at eighty-three eighty-three sitting just above it.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show Brent with the 87.55 and 83.31 levels while those exact levels are named."
+      }
+    },
+    {
+      "id": "03d",
+      "section": "03",
+      "narration": "If Brent closes above eighty-seven fifty-five after an official escalation, the market is pricing a new step in the disruption. If it closes below eighty-three thirty-one while official navigation conditions improve, the latest premium is coming out. Inside that range, the risk is high and the price is consolidating.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the annotated Brent levels while the close-above and close-below decision rules are stated."
+      }
+    },
+    {
+      "id": "04a",
+      "section": "04",
+      "narration": "Energy stocks are holding up better than the barrel. X L E closed Wednesday at fifty-six fifty. On the live Thursday bar it was around fifty-six ninety-six, up about eight tenths of one percent, after trading as high as fifty-seven thirty.",
+      "spokenSubjects": [
+        "xle"
+      ],
+      "visual": {
+        "path": "visuals/04-xle-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xle"
+        ],
+        "fit": "contain",
+        "purpose": "Show XLE daily while its close, live price, and session high are spoken."
+      }
+    },
+    {
+      "id": "04b",
+      "section": "04",
+      "narration": "That matters because crude and producers are not giving the same intraday answer. Brent was lower; the energy fund was higher. I treat that as partial confirmation that investors still want producer exposure while the route risk remains unresolved. It is not confirmation of a new oil breakout. For that, I want Brent through eighty-seven fifty-five and X L E through fifty-seven thirty on completed bars.",
+      "spokenSubjects": [
+        "xle",
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/04-xle.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xle"
+        ],
+        "fit": "contain",
+        "purpose": "Keep XLE visible while the crude-versus-producers divergence is explained."
+      }
+    },
+    {
+      "id": "04c",
+      "section": "04",
+      "narration": "The downside line is fifty-six fifty. If X L E loses that level while Brent loses eighty-three thirty-one, the energy bid is weakening with the barrel. Until then, producers are keeping more of the premium than crude is adding today.",
+      "spokenSubjects": [
+        "xle",
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/04-xle-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xle"
+        ],
+        "fit": "contain",
+        "purpose": "Show XLE's annotated 56.50 support while the downside condition is stated."
+      }
+    },
+    {
+      "id": "05a",
+      "section": "05",
+      "narration": "The clearest pressure in the dashboard was not the S and P. It was the Nasdaq one hundred. The Nasdaq one hundred closed Wednesday at twenty-nine thousand five hundred two point six. On the live Thursday bar it was around twenty-nine thousand one hundred twenty-three, down about one point three percent.",
+      "spokenSubjects": [
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/05-ndx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Nasdaq 100 daily chart while its close and live decline are spoken."
+      }
+    },
+    {
+      "id": "05b",
+      "section": "05",
+      "narration": "The S and P closed Wednesday at seventy-five seventy-two point four and was around seventy-five fifty-four, down about a quarter of one percent.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/05b-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Show the S&P 500 daily chart while its close and smaller decline are spoken."
+      }
+    },
+    {
+      "id": "05c",
+      "section": "05",
+      "narration": "That gap matters. If this were a broad liquidation, I would expect the S and P and volatility to confirm much harder. Instead, the weakness is concentrated in the rate-sensitive side of the market. I am calling that selective stress, not market panic.",
+      "spokenSubjects": [
+        "ndx",
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/05-ndx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Return to the Nasdaq 100 while the selective-stress read of the index gap is made."
+      }
+    },
+    {
+      "id": "05d",
+      "section": "05",
+      "narration": "The Nasdaq's repair level is the prior close at twenty-nine thousand five hundred two point six. The live low was twenty-nine thousand sixty-four point seven. A completed break below that low while yields and the dollar keep rising would extend the pressure. A recovery through the prior close would tell me today's tech damage did not spread.",
+      "spokenSubjects": [
+        "ndx",
+        "us10y",
+        "dxy"
+      ],
+      "visual": {
+        "path": "visuals/05-ndx-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Show the annotated Nasdaq levels while the repair close and live low are named."
+      }
+    },
+    {
+      "id": "06a",
+      "section": "06",
+      "narration": "The bond and currency charts explain part of the split. The ten-year yield closed Wednesday at four point five four nine percent. It was around four point five seven five on the live Thursday bar, up two point six basis points.",
+      "spokenSubjects": [
+        "us10y"
+      ],
+      "visual": {
+        "path": "visuals/06-us10y.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "us10y"
+        ],
+        "fit": "contain",
+        "purpose": "Show the 10-year yield daily chart while its close and live level are spoken."
+      }
+    },
+    {
+      "id": "06b",
+      "section": "06",
+      "narration": "The dollar index was around one hundred point eight two seven, up roughly a third of one percent from the prior close.",
+      "spokenSubjects": [
+        "dxy"
+      ],
+      "visual": {
+        "path": "visuals/06b-dxy.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "dxy"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dollar index daily chart while its live level and change are spoken."
+      }
+    },
+    {
+      "id": "06c",
+      "section": "06",
+      "narration": "Now gold. Wednesday closed at four thousand sixty point eight five. The live bar was around three thousand nine hundred eighty-eight point eight, down about one point eight percent.",
+      "spokenSubjects": [
+        "gold"
+      ],
+      "visual": {
+        "path": "visuals/06c-gold.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gold"
+        ],
+        "fit": "contain",
+        "purpose": "Show the gold daily chart while its close and live decline are spoken."
+      }
+    },
+    {
+      "id": "06d",
+      "section": "06",
+      "narration": "VIX was sixteen eleven, up from fifteen sixty-seven, but still below the decision level at seventeen fifty-six.",
+      "spokenSubjects": [
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/06d-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Show VIX with the 17.56 decision level while that level is named."
+      }
+    },
+    {
+      "id": "06e",
+      "section": "06",
+      "narration": "The usual panic package is absent. Bonds are selling, the dollar is firmer, gold is lower, and volatility is elevated and still contained. That combination is harder on long-duration tech than it is on the broad index. I am not labeling every asset a safe haven just because missiles and ships are in the headline. The chart has to do the work.",
+      "spokenSubjects": [
+        "us10y",
+        "dxy",
+        "gold",
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/06d-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Hold contained VIX while the absent panic package across assets is summarized."
+      }
+    },
+    {
+      "id": "07a",
+      "section": "07",
+      "narration": "The market mechanism has a few steps, and each one can fail. First, danger around a major shipping route raises the cost and uncertainty of moving cargo. That can mean insurance, freight, delays, rerouting, and compliance checks. Second, those costs can raise the delivered price of energy and products even before a refinery loses supply. Third, higher delivered-energy risk makes the inflation and rate path less comfortable. That is where energy stocks can hold up while long-duration growth gets marked down.",
+      "spokenSubjects": [
+        "xle"
+      ],
+      "visual": {
+        "path": "visuals/04-xle.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xle"
+        ],
+        "fit": "contain",
+        "purpose": "Show the energy-sector chart while the route-risk-to-energy transmission steps are explained."
+      }
+    },
+    {
+      "id": "07b",
+      "section": "07",
+      "narration": "This is why the IMO register matters more than a viral clip, and why the Treasury notices matter differently from the shipping record. The IMO can confirm vessel incidents.",
+      "spokenSubjects": [
+        "imo-incidents",
+        "treasury-sanctions"
+      ],
+      "visual": {
+        "path": "visuals/02b-imo-incidents.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "imo-incidents"
+        ],
+        "fit": "contain",
+        "purpose": "Show the IMO register while its evidentiary role versus viral clips is explained."
+      }
+    },
+    {
+      "id": "07c",
+      "section": "07",
+      "narration": "Treasury can change who banks and operators are allowed to deal with. Neither one, by itself, tells us exactly how many barrels moved through Hormuz today. I am keeping those claims separate.",
+      "spokenSubjects": [
+        "treasury-sanctions"
+      ],
+      "visual": {
+        "path": "visuals/02c-treasury-sanctions.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "treasury-sanctions"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Treasury release while its distinct compliance mechanism is separated from supply claims."
+      }
+    },
+    {
+      "id": "07d",
+      "section": "07",
+      "narration": "For portfolios, the exposed side is clear. Energy producers benefit if the premium stays in crude. Vessel owners, cargo interests, refiners, airlines, and other fuel-intensive businesses carry the operating risk. Rate-sensitive growth stays under pressure if yields remain firm. I do not have a same-day chart for every one of those businesses, so I am not assigning them a move they did not print in this dashboard.",
+      "spokenSubjects": [
+        "xle",
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/04-xle.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xle"
+        ],
+        "fit": "contain",
+        "purpose": "Show the energy-sector chart while paid-versus-hurt portfolio exposure is mapped."
+      }
+    },
+    {
+      "id": "08a",
+      "section": "08",
+      "narration": "The repricing is already on the chart. Brent moved from seventy-five twenty-two on July tenth to eighty-three thirty-one on July thirteenth. It reached eighty-seven fifty-five the next day. That is where the market converted the renewed conflict into an oil premium.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show Brent daily while the already-completed repricing path is recapped."
+      }
+    },
+    {
+      "id": "08b",
+      "section": "08",
+      "narration": "Today's official shipping update is serious, but Brent was still below Wednesday's close at the cutoff. That does not make the incident record less important. It means the price needs a new piece of information to leave this range: officially reported lost supply, a material change in navigation, another recorded attack that changes operations, or a credible de-escalation that improves safe passage.",
+      "spokenSubjects": [
+        "brent",
+        "imo-incidents"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Hold Brent while the new-information conditions for leaving the range are listed."
+      }
+    },
+    {
+      "id": "08c",
+      "section": "08",
+      "narration": "Until one of those arrives, I am not chasing every headline. I am watching whether the next official event and the completed daily bars point in the same direction.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Hold Brent while the wait-for-agreement discipline is stated."
+      }
+    },
+    {
+      "id": "09a",
+      "section": "09",
+      "narration": "Here is the map I am using.  Base case: elevated route risk, selective market pressure, no fresh oil breakout. Brent holds between eighty-three thirty-one and eighty-seven fifty-five. X L E holds between fifty-six fifty and fifty-seven thirty. VIX stays below seventeen fifty-six. Nasdaq remains weaker than the S and P, but the broad index does not break down. This case stays active while official shipping risk remains high without an officially recorded step-change in physical flows.",
+      "spokenSubjects": [
+        "brent",
+        "xle",
+        "vix",
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show Brent's annotated range while the base-case boundaries are named."
+      }
+    },
+    {
+      "id": "09b",
+      "section": "09",
+      "narration": "Escalation case: an official source reports more navigation disruption, additional vessel damage, or lost supply. Then I want price alignment: Brent closes above eighty-seven fifty-five, X L E clears fifty-seven thirty, and VIX clears seventeen fifty-six. A headline or an intraday wick is not enough. The event and the market need to agree.",
+      "spokenSubjects": [
+        "brent",
+        "xle",
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show Brent's 87.55 breakout level while the escalation confirmation stack is stated."
+      }
+    },
+    {
+      "id": "09c",
+      "section": "09",
+      "narration": "Relief case: an official source reports safer passage or real de-escalation. Then Brent closes below eighty-three thirty-one, X L E loses fifty-six fifty, and the Nasdaq one hundred recovers the prior close at twenty-nine thousand five hundred two point six. That would say the route premium is leaving energy while rate pressure eases on tech.",
+      "spokenSubjects": [
+        "brent",
+        "xle",
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/05-ndx-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Nasdaq's prior-close level while the relief-case recovery condition is named."
+      }
+    },
+    {
+      "id": "09d",
+      "section": "09",
+      "narration": "These are decision rules, not price predictions. If the official event changes and the bars do not confirm, I wait for the mismatch to resolve.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the annotated Brent range while the decision-rule framing closes the map."
+      }
+    },
+    {
+      "id": "10a",
+      "section": "10",
+      "narration": "The immediate catalyst is tonight's completed daily bar. Brent at eighty-seven fifty-five and eighty-three thirty-one. X L E at fifty-seven thirty and fifty-six fifty. VIX at seventeen fifty-six. Nasdaq one hundred at twenty-nine thousand five hundred two point six.",
+      "spokenSubjects": [
+        "brent",
+        "xle",
+        "vix",
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show Brent's levels while tonight's completed-bar checkpoints are listed."
+      }
+    },
+    {
+      "id": "10b",
+      "section": "10",
+      "narration": "Then watch the official sources. The IMO incident register is the cleanest public record for dated vessel incidents. Any official navigation or de-escalation notice can change the route-risk case. Treasury and CENTCOM can change the sanctions or operating picture. I want the exact notice, timestamp, and mechanism before I change the market map.  The next scheduled U.S. oil-data catalyst is the EIA Weekly Petroleum Status Report on Wednesday, July twenty-second, after ten thirty Eastern. It will update the inventory and supply backdrop that the war premium is sitting on. The security question stays with the official navigation record.",
+      "spokenSubjects": [
+        "imo-incidents",
+        "treasury-sanctions",
+        "eia-report"
+      ],
+      "visual": {
+        "path": "visuals/02b-imo-incidents.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "imo-incidents"
+        ],
+        "fit": "contain",
+        "purpose": "Show the IMO register while the official sources and scheduled catalysts are queued."
+      }
+    },
+    {
+      "id": "11a",
+      "section": "11",
+      "narration": "So this is where I land. The conflict and the official shipping record worsened.",
+      "spokenSubjects": [
+        "imo-incidents"
+      ],
+      "visual": {
+        "path": "visuals/02b-imo-incidents.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "imo-incidents"
+        ],
+        "fit": "contain",
+        "purpose": "Show the worsened official shipping record while the landing summary begins."
+      }
+    },
+    {
+      "id": "11b",
+      "section": "11",
+      "narration": "Brent already repriced sharply earlier in the week and was holding near eighty-four and a half on the live bar, not breaking above Tuesday's high.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Show Brent holding inside its range while the no-breakout read is restated."
+      }
+    },
+    {
+      "id": "11c",
+      "section": "11",
+      "narration": "Energy stocks were firmer. The Nasdaq was the clear loser. Yields and the dollar were up, gold was down, and VIX was contained.",
+      "spokenSubjects": [
+        "xle",
+        "ndx",
+        "us10y",
+        "dxy",
+        "gold",
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/05-ndx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Nasdaq as the clear loser while the cross-asset recap is spoken."
+      }
+    },
+    {
+      "id": "11d",
+      "section": "11",
+      "narration": "That is a selective war-risk tape. I change the call if Brent closes outside eighty-three thirty-one to eighty-seven fifty-five with an official event that explains the break. Until then, I am watching the route, the completed bars, and the parts of the portfolio that are actually moving.",
+      "spokenSubjects": [
+        "brent"
+      ],
+      "visual": {
+        "path": "visuals/03-brent-lvl.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "brent"
+        ],
+        "fit": "contain",
+        "purpose": "Hold Brent's decision range while the change-my-call condition ends the video."
+      }
+    }
+  ]
+}

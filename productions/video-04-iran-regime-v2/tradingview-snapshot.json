@@ -1,0 +1,56 @@
+{
+  "schema": "tradercockpit-tradingview-snapshot/v1",
+  "retrievedAt": "2026-07-16T17:14:15Z",
+  "terminal": "signed-in TradingView Desktop via established tradingview-mcp path",
+  "timeframe": "1D",
+  "barState": "July 16 bars are live and incomplete unless explicitly labeled completed",
+  "restoredDashboard": {
+    "symbol": "SP_DLY:SPX",
+    "timeframe": "1D",
+    "indicators": [
+      "Support Resistance - Dynamic",
+      "Smart Money Concepts [LuxAlgo]"
+    ]
+  },
+  "markets": {
+    "TVC:UKOIL": {
+      "completed": {
+        "2026-07-10": {"close": 75.22},
+        "2026-07-13": {"open": 78.00, "high": 83.86, "low": 77.28, "close": 83.31},
+        "2026-07-14": {"high": 87.55, "close": 85.15},
+        "2026-07-15": {"close": 85.07}
+      },
+      "live": {"date": "2026-07-16", "open": 85.34, "high": 86.25, "low": 83.83, "last": 84.47, "changePctVsPriorClose": -0.705}
+    },
+    "AMEX:XLE": {
+      "completed": {"2026-07-15": {"close": 56.50}},
+      "live": {"date": "2026-07-16", "open": 56.66, "high": 57.30, "low": 56.595, "last": 56.96, "changePctVsPriorClose": 0.814}
+    },
+    "NASDAQ:NDX": {
+      "completed": {"2026-07-15": {"close": 29502.5959}},
+      "live": {"date": "2026-07-16", "open": 29318.3002, "high": 29333.0636, "low": 29064.7182, "last": 29123.0827, "changePctVsPriorClose": -1.286}
+    },
+    "SP_DLY:SPX": {
+      "completed": {"2026-07-15": {"close": 7572.40}},
+      "live": {"date": "2026-07-16", "open": 7558.80, "high": 7570.74, "low": 7531.72, "last": 7554.10, "changePctVsPriorClose": -0.242}
+    },
+    "TVC:US10Y": {
+      "completed": {"2026-07-15": {"close": 4.549}},
+      "live": {"date": "2026-07-16", "open": 4.557, "high": 4.598, "low": 4.553, "last": 4.575, "changeBasisPointsVsPriorClose": 2.6}
+    },
+    "TVC:DXY": {
+      "completed": {"2026-07-15": {"close": 100.495}},
+      "live": {"date": "2026-07-16", "open": 100.473, "high": 100.831, "low": 100.437, "last": 100.827, "changePctVsPriorClose": 0.330}
+    },
+    "TVC:GOLD": {
+      "completed": {"2026-07-15": {"close": 4060.85}},
+      "live": {"date": "2026-07-16", "open": 4062.68, "high": 4068.58, "low": 3973.70, "last": 3988.77, "changePctVsPriorClose": -1.775}
+    },
+    "CBOE:VIX": {
+      "completed": {"2026-07-15": {"close": 15.67}},
+      "live": {"date": "2026-07-16", "open": 15.82, "high": 16.54, "low": 15.77, "last": 16.11, "changePctVsPriorClose": 2.808},
+      "decisionLevel": 17.56
+    }
+  }
+}
+

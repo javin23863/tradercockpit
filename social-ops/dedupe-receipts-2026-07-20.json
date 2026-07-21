@@ -1,0 +1,18 @@
+{
+  "appliedAt": "2026-07-20T10:36:31+00:00",
+  "note": "0-view duplicates set private after their view-holding twins were confirmed public. Reversible.",
+  "changes": [
+    {
+      "videoId": "7RiqulLReco",
+      "before": "public",
+      "after": "private",
+      "duplicateOf": "Dy_XvwUi6Ng"
+    },
+    {
+      "videoId": "SNdRs5l6rtc",
+      "before": "public",
+      "after": "private",
+      "duplicateOf": "SHVn6IdgIUo"
+    }
+  ]
+}

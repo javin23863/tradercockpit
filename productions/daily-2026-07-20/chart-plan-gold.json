@@ -1,0 +1,8 @@
+[
+  {"out": "09-gold", "symbol": "OANDA:XAUUSD", "tf": "1D",
+   "stages": [
+     {"holdSec": 10},
+     {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 4007.59,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]}
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "name": "hormuz-pressure-map",
+    "lon": 56.25,
+    "lat": 26.25,
+    "height": 300000,
+    "headingDeg": 310,
+    "pitchDeg": -78,
+    "preset": "NORMAL",
+    "settleSec": 9,
+    "holdSec": 34,
+    "caption": "STRAIT OF HORMUZ  |  GEOGRAPHY / INFRASTRUCTURE",
+    "clickIds": ["basemap:aerial", "layer:CRITICAL INFRA"]
+  }
+]

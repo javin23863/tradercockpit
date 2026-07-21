@@ -1,0 +1,152 @@
+[
+  {
+    "out": "03-brent",
+    "symbol": "TVC:UKOIL",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 75.22, "time": 1783987200, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 83.31, "time": 1783987200, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 87.55, "time": 1783987200, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "04-xle",
+    "symbol": "AMEX:XLE",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 55.08, "time": 1784035800, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 56.29, "time": 1784035800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 57.22, "time": 1784035800, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "05a-xom",
+    "symbol": "NYSE:XOM",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 138.88, "time": 1784035800, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 144.51, "time": 1784035800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 146.00, "time": 1784035800, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "05b-cvx",
+    "symbol": "NYSE:CVX",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 176.40, "time": 1784035800, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 180.63, "time": 1784035800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 183.36, "time": 1784035800, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "06a-spx",
+    "symbol": "SP:SPX",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 7506.41, "time": 1784035800, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 7515.34, "time": 1784035800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 7575.39, "time": 1784035800, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "06b-ixic",
+    "symbol": "NASDAQ:IXIC",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 25822.09, "time": 1784035800, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 25873.18, "time": 1784035800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 26281.61, "time": 1784035800, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "07a-vix",
+    "symbol": "CBOE:VIX",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 16.15, "time": 1784013300, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 16.50, "time": 1784013300, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 17.56, "time": 1784013300, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "07b-dxy",
+    "symbol": "TVC:DXY",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 100.607, "time": 1783983600, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 100.940, "time": 1783983600, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 101.327, "time": 1783983600, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "08a-gold",
+    "symbol": "TVC:GOLD",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 3983.70, "time": 1783980000, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 4052.856, "time": 1783980000, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 4103.78, "time": 1783980000, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "08b-us10y",
+    "symbol": "TVC:US10Y",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 6},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 4.525, "time": 1783983600, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 4.587, "time": 1783983600, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 6, "draw": [
+        {"type": "horizontal_line", "price": 4.636, "time": 1783983600, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "schema": "tradercockpit-script-style-audit/v1",
+  "status": "PASS",
+  "metrics": {
+    "words": 2324,
+    "sections": 13,
+    "sentences": 211,
+    "sentenceWordsMean": 11.01,
+    "sentenceWordsStdDev": 6.53,
+    "firstPersonEditorialMarkers": 7,
+    "pressureChainMentions": 2,
+    "sirenMentions": 0
+  },
+  "warnings": [],
+  "policy": "Advisory only. Never rewrite or mutate facts, numbers, names, quotations, or causal direction."
+}

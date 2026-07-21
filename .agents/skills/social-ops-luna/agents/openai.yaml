@@ -1,0 +1,4 @@
+interface:
+  display_name: "Luna Social Ops"
+  short_description: "Delegate proven social workflows to Luna Max"
+  default_prompt: "Use $social-ops-luna to run a proven TraderCockpit social workflow with Luna Max."

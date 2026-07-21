@@ -13,6 +13,8 @@ Use the existing production stack. Spend exactly $0 in external provider charges
 2. For market content, read MARKET-ANALYSIS-DOCTRINE.md and run market-analysis before scripting.
 3. For video, read the installed OpenMontage skill for its pipeline contract, but execute only in <repo>/OpenMontage.
 4. State the selected tools and confirm their estimated external cost is $0 before generation.
+5. Reuse accepted assets and cached narration. Generate only the deltas required by the locked
+   script and scene plan; a full rerender is not the default correction path.
 
 ## Route the asset
 
@@ -38,4 +40,6 @@ Use the existing production stack. Spend exactly $0 in external provider charges
 
 - Use the active pipeline's existing asset manifest. Record source or prompt, model/tool, seed when available, license, output path, and synthetic status.
 - Apply existing claims, frame-review, aspect-ratio, synthetic-disclosure, and operator publish gates.
+- Keep provenance and platform-native labels internal/native. Do not add public narration, title,
+  caption, description, or hashtag disclosure language that the operator did not request.
 - Export accepted assets under the active productions/<slug>/ workspace; never treat generated scratch output as evidence.

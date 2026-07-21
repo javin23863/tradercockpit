@@ -3,11 +3,12 @@
 // Usage:
 //   node render_thumb.cjs --out thumb.png --eyebrow "BRENT CRUDE" --num "$120?" \
 //        --phrase "The *Hormuz* Toll" --dir up [--sub "..."]
-//   node render_thumb.cjs --json spec.json --out thumb.png      # {eyebrow,num,phrase,dir,sub}
+//   node render_thumb.cjs --json spec.json --out thumb.png      # {eyebrow,num,phrase,dir,sub,palette}
 // (Named .cjs, not .py, to reuse the working studio-kit puppeteer — one toolchain. publish.py
 //  just takes the resulting png via --thumbnail.)
 const path = require("path");
 const fs = require("fs");
+const {DEFAULT_SPEC, checkThumbnailSpec} = require("./check_thumbnail.cjs");
 const puppeteer = require(path.join(__dirname, "..", "..", "studio-kit",
   "pipeline", "generators", "node_modules", "puppeteer"));
 
@@ -17,13 +18,16 @@ function argval(name) {
 }
 
 (async () => {
-  let spec = {};
+  let spec = {...DEFAULT_SPEC};
   const jsonPath = argval("json");
-  if (jsonPath) spec = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
-  for (const k of ["eyebrow", "num", "phrase", "dir", "sub"]) {
+  if (jsonPath) spec = {...spec, ...JSON.parse(fs.readFileSync(jsonPath, "utf8"))};
+  for (const k of ["eyebrow", "num", "phrase", "dir", "sub", "palette", "logoCorner"]) {
     const v = argval(k);
     if (v !== undefined) spec[k] = v;
   }
+  const checked = checkThumbnailSpec(spec);
+  if (checked.status !== "PASS") throw new Error(`thumbnail rules BLOCK:\n- ${checked.hardFail.join("\n- ")}`);
+  spec = checked.spec;
   const out = argval("out") || "thumb.png";
 
   const q = new URLSearchParams();

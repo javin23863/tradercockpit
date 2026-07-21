@@ -1,0 +1,56 @@
+# Video 03 recut — The war is real; the market is trading the bottleneck.
+# Editorial cutoff and receipts live in the fact pack and claims store, not in the spoken copy.
+
+## 01 cold-open
+This war did not start this week. U.S. Central Command says Operation Epic Fury began on February twenty-eighth, and this is its own strike footage from March first. The bombs are real. The damage is real. The human cost is real.
+The International Maritime Organization's current incident table counts fifty-six maritime incidents and eighteen seafarer deaths as of July fifteenth. Two more ships were damaged off Oman on Tuesday. One was abandoned. People were killed and injured. This is not headline theater. This is a live shipping risk.
+But the market does not price every explosion the same. It prices the bottleneck. The Strait of Hormuz is the pressure point between Gulf exports and open water. When trust in that route falls, the first bill shows up in the barrel.
+Brent is holding around eighty-five. V I X is around sixteen. The ten-year yield is near four point five seven. Here is my read: the market is charging a toll for the Strait, not pricing the end of the world. Headlines are sirens. Portfolios move through pressure chains.
+
+## 02 what-changed
+The first mistake is acting like the market just discovered the war. It did not. The conflict has been running for months. Air strikes, drones, naval operations, sanctions, and shipping disruptions were already part of the tape. Markets had time to build a framework for all of it.
+What changed this week was another burst of danger around commercial shipping. That matters because a bomb in one location and a damaged ship beside a chokepoint do not carry the same market transmission. One is a military event. The other can threaten freight, insurance, delivery timing, and the reliability of oil flows.
+On July fourteenth, AL BAHYAH and MOMBASA B were damaged thirteen nautical miles off Oman. Two seafarers died on AL BAHYAH. Three were injured. MOMBASA B was abandoned after eleven injuries. The I M O table gives the names, locations, and damage. It does not need dramatic narration from me.
+The same day, U.S. Treasury announced sanctions covering more than fifty people, companies, and vessels tied by Treasury to Iranian oil exports and shipping. New physical risk. New legal friction. Same chokepoint. That is the setup. Not war equals stocks down. The question is which pressure gauge moves first, which one follows, and which one refuses.
+
+## 03 pressure-map
+Look at the map. Iran sits on the north side of the Strait. Oman sits on the south. Gulf ports and export infrastructure sit behind a narrow exit into the Gulf of Oman. The geography does not predict an attack. It explains why a shipping incident in this corridor can reach a portfolio faster than an incident far from a trade route.
+The I M O Council is focused on the established traffic separation scheme and a sustainable return to unhindered navigation. In trader language, the route still exists, but the cost of trusting it has gone up. Markets can price that loss of trust before a formal closure ever appears.
+This is where our Godseye view earns the cut. Not as a spinning globe. As a pressure map. The route, the surrounding coast, and the energy infrastructure belong in one frame because they explain the mechanism. If the map does not teach the trade, it does not make the edit.
+I am not going to paint fake ship traffic onto the water. A I S coverage can be incomplete, and the feed has no guaranteed Gulf receiver coverage. An empty patch on a screen does not mean an empty sea. The map owns geography. The incident table owns the event record. The charts own the market reaction.
+
+## 04 brent
+Start with Brent on the daily chart. It closed July tenth at seventy-five twenty-two. It jumped to eighty-three thirty-one on Monday, then traded up to eighty-seven fifty-five on Tuesday before closing at eighty-five fifteen. That is a real repricing, but the close below the high tells you buyers did not have unlimited control.
+Today Brent opened at eighty-five twenty-one and traded between eighty-four fifty-one and eighty-six fifty-five before this recording cutoff. The market is still holding most of the move. It is also still trapped inside Tuesday's range. That is tension, not resolution.
+The lower decision area is eighty-three to eighty-four. If buyers defend that zone, the war premium stays in the barrel. The upper decision area is eighty-seven fifty-five to eighty-eight. A completed daily close above that range would tell me the market is demanding another layer of compensation for the Strait.
+If Brent loses eighty-three after a real improvement in navigation, the premium is probably unwinding. If Brent loses eighty-three with no improvement in shipping, I look for another driver before I declare the story dead. Oil is the first gauge in this cockpit. It is not the whole cockpit.
+
+## 05 energy-stocks
+Now look at X L E, the energy sector fund. It closed July tenth at fifty-five oh-eight, jumped to fifty-six seventy-four on Monday, and finished Tuesday at fifty-six ninety-five. Early today it traded near fifty-six seventy-three. Producers received the first wave of the oil premium, but the follow-through is already less explosive than the first jump.
+The support line is Tuesday's low at fifty-six twenty-nine. The immediate ceiling is fifty-seven twenty-two. If Brent pushes through eighty-eight and X L E clears fifty-seven twenty-two with it, the producer channel is working. The commodity and the companies are moving together.
+If Brent rallies while X L E slips under fifty-six twenty-nine, I stop calling it a clean energy trade. That split would tell me the barrel is carrying a contract-specific risk premium while equity buyers are becoming selective. The trade can still work, but the message is weaker.
+This is the channel's point of view: do not marry the headline. Make the pressure travel. Event to crude. Crude to producers. Producers to inflation-sensitive assets. The farther the move travels, the bigger the portfolio regime. When the chain breaks, that break is the information.
+
+## 06 broad-market
+Now test the broad market. The S and P five hundred fell to seventy-five oh-six on Monday, then recovered to seventy-five forty-three on Tuesday. It took a hit. It did not break into disorder. That matters because a true risk-off regime should not need excuses from the index.
+V I X makes the split even clearer. It closed Monday at sixteen fifty after trading as high as seventeen fifty-six. Early today it was near sixteen sixteen. If fear were spreading across the whole market, volatility should be expanding with oil. Instead, it is sitting near the lower end of the recent range.
+The ten-year yield is near four point five seven, below Tuesday's four point five eight seven close and below Monday's four point six two four close. That does not mean inflation risk disappeared. It means the rates market is not buying a fresh breakout yet. Oil is shouting. Bonds are listening, but they are not running.
+If this were broad panic, the S and P, V I X, and the ten-year would be yelling with the barrel. They are not. So I am not using the word crisis for the portfolio regime. The war is a crisis for people in it. The market regime, for now, is selective repricing.
+
+## 07 ppi
+This morning's Producer Price Index adds a useful twist. Final demand prices fell zero point three percent in June. Goods prices fell one point four percent. Energy prices fell six point four percent. Services rose zero point two percent. The headline says producer inflation cooled before the latest jump in oil.
+But June P P I is the rear-view mirror. Today's Brent chart is the windshield. The report captures the old energy decline. The market is now deciding whether July's war premium reverses part of that relief. Mixing those two time periods is how a clean number turns into a bad trade.
+The P P I measure that strips out food, energy, and trade services rose zero point one percent in June and five point one percent over the year. That is not a victory lap. It is also not a fresh monthly acceleration. The inflation story is softer at the margin, but still sticky underneath.
+The ten-year near four point five seven says rates traders are not treating the oil move as a new inflation breakout yet. If Brent closes above eighty-eight and the ten-year pushes through four point six four, that changes. Until then, the better read is backward-looking inflation relief meeting forward-looking energy risk.
+
+## 08 decision-tree
+Here is the base case. Brent holds between roughly eighty-three and eighty-eight. X L E stays above fifty-six twenty-nine. V I X stays below seventeen fifty-six. That is a bottleneck premium with limited contagion. Energy gets paid. The broad market keeps trading its own earnings and growth story.
+Escalation needs more than another frightening clip. I want a new shipping incident or policy shock, a completed Brent close above eighty-seven fifty-five to eighty-eight, and at least one second gauge. X L E above fifty-seven twenty-two says producers agree. V I X above seventeen fifty-six says fear is spreading.
+If oil spikes but X L E and V I X refuse, I treat the move as narrow until the chain proves otherwise. That is not complacency. It is position discipline. One market can be right about one risk without every asset joining the same trade.
+An unwind also needs two pieces. I want an official improvement in navigation, then Brent below eighty-three to eighty-four and X L E below fifty-six twenty-nine. A diplomatic headline without a price break is only a headline. A price break without a route improvement may belong to demand, inventories, or another catalyst.
+This is not a prediction. It is a decision tree. The event tells you where to look. Brent tells you whether the market cares. X L E, V I X, and the ten-year tell you how far the pressure traveled. That is how we keep a war headline from hijacking an entire portfolio.
+
+## 09 close
+The war is real. The human cost is real. The market message is selective. Brent is pricing the Strait. Energy stocks are carrying part of the premium. The S and P, V I X, and the ten-year are not pricing synchronized panic.
+So keep eighty-three to eighty-four and eighty-seven fifty-five to eighty-eight on Brent. Keep fifty-six twenty-nine and fifty-seven twenty-two on X L E. Keep seventeen fifty-six on V I X. Those are the gauges. The headline is only the alarm.
+Do not trade the siren. Trade the pressure chain. If you want daily market news with a usable map instead of recycled fear, subscribe and come back tomorrow. News and education only. Manage risk like the market can change its mind, because it can.

@@ -4,8 +4,9 @@
 // For each source: load the page headless (Edge via TraderCockpit's existing
 // Puppeteer dependency), step through
 // "highlight stages" (each stage red-boxes the exact sentence the VO reads and
-// scrolls it into view), screenshot each stage, then ffmpeg the stage PNGs into
-// one clip: slow Ken-Burns per stage, hard cut between stages.
+// scrolls it into the center of a normal 16:9 browser viewport), screenshot each
+// stage, then ffmpeg the stage PNGs into one clip. The viewport is the frame:
+// never substitute a tall full-page capture or a tight paragraph crop.
 //
 // sources.json (array):
 //   [{ "out": "03a-cnbc", "url": "https://www.cnbc.com/...",
@@ -27,15 +28,12 @@ const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
-function kenBurns(png, mp4, dur, badge) {
-  const frames = Math.round(dur * 30)
-  // cover-and-crop to 16:9 BEFORE zoompan — FILL the frame, never letterbox.
-  // (was decrease+pad:black, which left black bars on wider-than-16:9 article crops
-  //  and those bars carried into the 9:16 shorts. operator flagged 2026-07-14.)
-  let vf = 'scale=3840:2160:force_original_aspect_ratio=increase,'
-    + 'crop=3840:2160,'
-    + `zoompan=z='min(zoom+0.0008,1.12)':d=${frames}`
-    + ":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=30"
+function newsFilter(badge) {
+  // Source cards are evidence, not background texture. Keep every pixel, reserve a
+  // top rail for the source/date badge, and never zoom into text after capture.
+  // white world per operator ruling 2026-07-17: news cards share the white chart background
+  let vf = 'scale=1760:900:force_original_aspect_ratio=decrease,'
+    + 'pad=1920:1080:(ow-iw)/2:140:color=0xFFFFFF,fps=30'
   // source badge: viewer must always see which outlet this is (operator ruling 2026-07-14)
   if (badge) {
     const safe = badge.replace(/[\\':,]/g, ' ')
@@ -43,6 +41,11 @@ function kenBurns(png, mp4, dur, badge) {
       + ':fontsize=34:fontcolor=white:box=1:boxcolor=0xE8272C@0.92:boxborderw=14:x=40:y=32'
   }
   vf += ',format=yuv420p'
+  return vf
+}
+
+function kenBurns(png, mp4, dur, badge) {
+  const vf = newsFilter(badge)
   execFileSync('ffmpeg', ['-y', '-loop', '1', '-i', png, '-t', dur.toFixed(2),
     '-vf', vf, '-c:v', 'h264_nvenc', '-cq', '19', '-preset', 'p5', mp4], { stdio: 'pipe' })
 }
@@ -72,7 +75,7 @@ async function declutter(page) {
   // hiding nuked Insurance Journal's article container (blank-page defect 2026-07-14).
   await page.evaluate(() => {
     for (const el of document.querySelectorAll('iframe')) el.style.display = 'none'
-    for (const el of document.querySelectorAll('div, section, aside')) {
+    for (const el of document.querySelectorAll('div, section, aside, header, nav')) {
       const cs = getComputedStyle(el)
       if ((cs.position === 'fixed' || cs.position === 'sticky') && el.offsetHeight < 400) {
         el.style.display = 'none'
@@ -81,47 +84,61 @@ async function declutter(page) {
   })
 }
 
-// highlight the paragraph containing `needle` (whitespace-normalized, case-insensitive).
-// Returns the element's bounding box (for a zoomed crop) or null if not found.
+// Highlight the paragraph containing `needle` (whitespace-normalized,
+// case-insensitive) and center it in the browser viewport.
 // ponytail: paragraph-level, not text-node — article sentences split across inline links.
 async function highlight(page, needle) {
   return page.evaluate((needle) => {
     const norm = (s) => s.replace(/\s+/g, ' ').trim().toLowerCase()
     const n = norm(needle)
-    for (const el of document.querySelectorAll('p, li, blockquote, h1, h2, h3, figcaption')) {
+    let best = null
+    let bestArea = Infinity
+    for (const el of document.querySelectorAll('p, li, blockquote, h1, h2, h3, figcaption, tr, td')) {
       if (el.children.length > 8) continue // big containers — keep the box tight
       if (!norm(el.textContent || '').includes(n)) continue
-      el.style.outline = '3px solid #E8272C'
-      el.style.outlineOffset = '3px'
-      el.style.background = 'rgba(232,39,44,0.10)'
-      el.scrollIntoView({ block: 'center' })
       const r = el.getBoundingClientRect()
       if (r.width < 10 || r.height < 10) continue // hidden element — keep searching
-      // document coords: puppeteer's screenshot clip is page-relative, getBoundingClientRect
-      // is viewport-relative — without the scroll offset the crop lands in the wrong place
-      return {
-        x: r.x + window.scrollX, y: r.y + window.scrollY, width: r.width, height: r.height,
-        docW: document.documentElement.scrollWidth, docH: document.documentElement.scrollHeight,
-      }
+      const area = r.width * r.height
+      if (area < bestArea) { best = el; bestArea = area }
     }
-    return null
+    if (!best) {
+      const selection = window.getSelection()
+      selection.removeAllRanges()
+      if (!window.find(needle, false, false, true, false, false, false)) return null
+      const range = selection.rangeCount ? selection.getRangeAt(0) : null
+      if (!range) return null
+      const r = range.getBoundingClientRect()
+      const docX = r.x + window.scrollX
+      const docY = r.y + window.scrollY
+      window.scrollTo(0, Math.max(0, docY - window.innerHeight / 2 + r.height / 2))
+      const marker = document.createElement('div')
+      marker.className = 'tc-highlight-overlay'
+      Object.assign(marker.style, {
+        position: 'absolute', left: `${docX - 4}px`, top: `${docY - 4}px`,
+        width: `${r.width + 8}px`, height: `${r.height + 8}px`,
+        outline: '3px solid #E8272C', background: 'rgba(232,39,44,0.10)',
+        pointerEvents: 'none', zIndex: '2147483647',
+      })
+      document.body.appendChild(marker)
+      selection.removeAllRanges()
+      return true
+    }
+    best.style.outline = '3px solid #E8272C'
+    best.style.outlineOffset = '3px'
+    best.style.background = 'rgba(232,39,44,0.10)'
+    best.scrollIntoView({ block: 'center' })
+    return true
   }, needle)
 }
 
-// Crop tight around the highlighted paragraph so the text is BIG and readable at 1080p
-// (full-page shots render body copy unreadably small — the reference channel zooms in).
-function cropFor(box) {
-  if (!box) return null
-  const padX = 90, padTop = 130, minW = 1000, minH = 460
-  const x = Math.max(0, box.x - padX)
-  const y = Math.max(0, box.y - padTop)
-  const width = Math.min(box.docW - x, Math.max(box.width + padX * 2, minW))
-  const height = Math.min(box.docH - y, Math.max(box.height + padTop * 2, minH))
-  return { x, y, width, height }
+function screenshotOptions(png) {
+  return { path: png }
 }
 
 async function clearHighlights(page) {
   await page.evaluate(() => {
+    for (const el of document.querySelectorAll('.tc-highlight-overlay')) el.remove()
+    window.getSelection()?.removeAllRanges()
     for (const el of document.querySelectorAll('[style*="outline"]')) {
       el.style.outline = ''; el.style.background = ''
     }
@@ -196,15 +213,13 @@ async function run(sourcesPath, prodDir, dry, reuse) {
       const stages = src.highlights?.length ? src.highlights : [null]
       for (let i = 0; i < stages.length; i++) {
         await clearHighlights(page)
-        let crop = null
         if (stages[i]) {
-          const box = await highlight(page, stages[i])
-          if (!box) console.log(`  [warn] highlight not found: "${stages[i].slice(0, 60)}..."`)
-          else crop = cropFor(box)
+          const found = await highlight(page, stages[i])
+          if (!found) console.log(`  [warn] highlight not found: "${stages[i].slice(0, 60)}..."`)
           await sleep(600)
         }
         const png = path.join(work, `${src.out}-s${i}.png`)
-        await page.screenshot({ path: png, ...(crop ? { clip: crop } : {}) })
+        await page.screenshot(screenshotOptions(png))
         const clip = path.join(work, `${src.out}-s${i}.mp4`)
         // badge = outlet + optional date; override with src.label in sources.json
         const badge = src.label
@@ -224,6 +239,17 @@ async function run(sourcesPath, prodDir, dry, reuse) {
 }
 
 const args = process.argv.slice(2)
+if (args.includes('--selftest')) {
+  const vf = newsFilter('SOURCE  JULY 15')
+  if (!vf.includes('force_original_aspect_ratio=decrease') || vf.includes('crop=') || vf.includes('zoompan=')) {
+    throw new Error(`news filter is not contain-only: ${vf}`)
+  }
+  if ('clip' in screenshotOptions('selftest.png')) {
+    throw new Error('source-card screenshots must use the centered 16:9 viewport')
+  }
+  console.log('NEWS FIT SELFTEST PASS')
+  process.exit(0)
+}
 const dry = args.includes('--dry-run')
 const reuse = args.includes('--reuse-png')
 const pos = args.filter((a) => a !== '--dry-run' && a !== '--reuse-png')

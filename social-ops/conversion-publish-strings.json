@@ -1,0 +1,26 @@
+{
+  "schema": "conversion-publish-strings/v1",
+  "status": "BUILT_BUT_OFF",
+  "campaign_tag": "strategy_claim_audit_20260720",
+  "surfaces": {
+    "video_description": {
+      "channel": "youtube",
+      "publish_mapping": "social-batch/v2.items[].copy",
+      "url": "https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html?utm_source=youtube&utm_medium=organic_social&utm_campaign=strategy_claim_audit_20260720",
+      "copy": "Free one-page checklist: test the evidence behind the next strategy claim before you trust the story. https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html?utm_source=youtube&utm_medium=organic_social&utm_campaign=strategy_claim_audit_20260720\n\nResearch tooling, not financial advice. No performance is promised or implied."
+    },
+    "pinned_comment": {
+      "channel": "youtube",
+      "publish_mapping": "manual pinned comment after exact-copy operator approval; no automated publisher exists",
+      "url": "https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html?utm_source=youtube&utm_medium=organic_social&utm_campaign=strategy_claim_audit_20260720",
+      "copy": "Before you trust a strategy claim, audit its rules, data separation, family-level testing, and forward evidence with the free checklist: https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html?utm_source=youtube&utm_medium=organic_social&utm_campaign=strategy_claim_audit_20260720\n\nResearch tooling, not financial advice. No performance is promised or implied."
+    },
+    "channel_link": {
+      "channel": "youtube",
+      "publish_mapping": "manual YouTube channel link after operator approval; place copy in adjacent channel description",
+      "url": "https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html?utm_source=youtube&utm_medium=organic_social&utm_campaign=strategy_claim_audit_20260720",
+      "copy": "Free one-page evidence checklist. Research tooling, not financial advice. No performance is promised or implied.",
+      "label": "Strategy Claim Audit Checklist"
+    }
+  }
+}

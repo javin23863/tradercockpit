@@ -1,0 +1,134 @@
+{
+  "schema": "tradercockpit-tradingview-snapshot/v1",
+  "retrievedAt": "2026-07-17T07:10:00Z",
+  "terminal": "TradingView Desktop 3.3.0 via tradingview-mcp CLI (CDP 9222), 60 daily bars per symbol saved to ta-work/ohlcv-*.json",
+  "barState": "US equity symbols show the completed 2026-07-16 daily bar (2026-07-17 session not yet open at capture). TVC:UKOIL includes the live 2026-07-17 bar. All levels below are from completed bars unless marked live.",
+  "restoredDashboard": true,
+  "markets": {
+    "TVC:UKOIL": {
+      "completed": {
+        "2026-07-16": {
+          "close": 84.85
+        }
+      },
+      "live": {
+        "2026-07-17": {
+          "open": 84.95,
+          "high": 85.5,
+          "low": 83.71,
+          "last": 84.43
+        }
+      },
+      "range10d": [
+        71.02,
+        87.55
+      ],
+      "decisionLevel": 87.55,
+      "notes": "87.55 = the strike-week spike high, untouched since; 83.31 = the pre-escalation Friday close now acting as the shelf. Holding 83.7-85.5 on deadline day.",
+      "range20d": [
+        70.14,
+        87.55
+      ]
+    },
+    "AMEX:XLE": {
+      "completed": {
+        "2026-07-16": {
+          "open": 56.66,
+          "high": 57.3,
+          "low": 56.59,
+          "close": 57.02
+        }
+      },
+      "range10d": [
+        52.91,
+        57.3
+      ],
+      "decisionLevel": 57.3,
+      "notes": "Closed 57.02, first close above the old 56.50 ceiling; 57.30 tagged and rejected intraday twice this week - breakout confirms only on a daily close above 57.30.",
+      "range20d": [
+        52.62,
+        57.3
+      ]
+    },
+    "NYSE:TSM": {
+      "completed": {
+        "2026-07-16": {
+          "open": 405.29,
+          "high": 415.95,
+          "low": 403.5,
+          "close": 409.74,
+          "prevClose": 419.48
+        }
+      },
+      "range10d": [
+        403.5,
+        461.47
+      ],
+      "decisionLevel": 403.5,
+      "notes": "Record Q2 print, stock still closed -2.3% (was down >4% early per news framing; the close is the chart fact). 403.50 = this week's triple-touched low = 20-day low. Close cluster 419.5-421.6 overhead.",
+      "range20d": [
+        403.5,
+        479.0
+      ]
+    },
+    "NASDAQ:NDX": {
+      "completed": {
+        "2026-07-16": {
+          "open": 29318.3,
+          "high": 29333.06,
+          "low": 28881.23,
+          "close": 29025.77,
+          "prevClose": 29502.6
+        }
+      },
+      "range10d": [
+        28814.57,
+        30044.5
+      ],
+      "decisionLevel": 28814.57,
+      "notes": "Closed below the 29502.60 support named in video-04 - that break is now the story. 28814.57 = twice-touched July floor; lose it and the June range below opens.",
+      "range20d": [
+        28814.57,
+        30642.57
+      ]
+    },
+    "SP_DLY:SPX": {
+      "completed": {
+        "2026-07-16": {
+          "open": 7558.8,
+          "high": 7570.74,
+          "low": 7504.02,
+          "close": 7533.77
+        }
+      },
+      "range10d": [
+        7421.82,
+        7581.5
+      ],
+      "decisionLevel": 7581.5,
+      "notes": "Four highs in nine sessions between 7570 and 7581.50 - a quadruple-tested ceiling. Floor for the week 7504.02. Index held a 77-point band while NDX broke: rotation, not risk-off.",
+      "range20d": [
+        7294.18,
+        7581.5
+      ]
+    },
+    "TVC:US10Y": {
+      "completed": {
+        "2026-07-16": {
+          "close": 4.53,
+          "prevClose": 4.56
+        }
+      },
+      "range10d": [
+        4.45,
+        4.64
+      ],
+      "decisionLevel": 4.45,
+      "notes": "Drifting down from the 4.64 July high; 4.45 = the floor that held twice. Quiet driver - a break of 4.45 changes the rotation math.",
+      "range20d": [
+        4.36,
+        4.64
+      ]
+    }
+  }
+}

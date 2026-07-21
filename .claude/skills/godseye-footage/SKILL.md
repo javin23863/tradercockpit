@@ -1,56 +1,45 @@
 ---
 name: godseye-footage
-description: >
-  Capture God's Eye globe b-roll for videos: write a shot list, drive the app over CDP,
-  record, verify frames. Use when the user asks for globe footage, God's Eye shots,
-  geopolitical b-roll, or a location flyover/night-lights/military-flights shot.
+description: Capture purposeful Godseye geospatial footage for TraderCockpit through its versioned automation and evidence contract. Use for a location flyover, chokepoint map, geopolitical geography, attributable replay, or verified geospatial b-roll.
 ---
 
-# godseye-footage
+# Godseye footage
 
-> Operator ruling 2026-07-14: on TraderCockpit videos GE is **b-roll used SPARINGLY**
-> (~15% runtime — cold open / one flyover / outro), NOT the main visual. Live TradingView
-> TA charts dominate. Overusing GE got video-02 rejected. See daily-news-video visual doctrine.
+Godseye is a separate product. TraderCockpit may use only `window.godseyeAutomationV1(request)`
+through `tools/visuals/godseye_capture.mjs`; never inspect or depend on Godseye DOM, Cesium internals,
+selectors, presets, layers, basemaps, or source paths.
 
-Tool: `tools/visuals/godseye_capture.mjs` (this repo). App:
-`C:\Users\MSI\repos\godseye\release\win-unpacked\GodsEye.exe` — separate repo, read-only.
+Before each capture, read the current vault `[[God's Eye Footage Engine]]` receipt and verify the
+exact approved source commit, runnable package commit, `godseye-automation/v1` readiness, and
+returned `evidence-packet/v1`. Forward capture requires package/source parity. The current package
+is `release-main-c9d040e`, built from exact merged source commit
+`c9d040e2f0dd998148c509f7417503b1acbddee0`; its `Godseye.exe` SHA-256 is
+`011b6ce911adb586dc8d49c0c1d7c8dfe1600e4f70e29eb6984caabc7b6f0977`. The package passed 179
+tests, the production build, Windows packaging, and a live `godseye-automation/v1` readiness probe
+on 2026-07-16. The preserved `release-final-92a00ae` package is historical only. Never substitute
+an unversioned desktop/repo build.
 
-## Run
-```powershell
-Start-Process "C:\Users\MSI\repos\godseye\release\win-unpacked\GodsEye.exe" -ArgumentList "--remote-debugging-port=9222"
-# wait ~15s, verify: Invoke-WebRequest http://127.0.0.1:9222/json/version
-node tools\visuals\godseye_capture.mjs --dry-run <shots.json>       # schema check
-node tools\visuals\godseye_capture.mjs <shots.json> <outdir>        # capture
-```
-Skip-existing by mp4 name; failed shot auto-reloads app + retries once.
+## Purpose gate
 
-## Shot JSON
-`{name, lon, lat, height, headingDeg, pitchDeg, holdSec, settleSec?, orbitDegPerSec?,
-fromHeight?, flyDurationSec?, preset?, caption?, clickIds?[], scanAfter?[], scanWaitSec?}`
-- `fromHeight` (e.g. 18000000) records the descent — use for cold opens.
-- `clickIds`: `"layer:NIGHT LIGHTS"` (row-text match), `"basemap:aerial"`, or element ids.
-  `layer:` is IDEMPOTENT — ensures ON (`layer:NAME:off` for off). Never assume toggle:
-  default-on layers (MILITARY, CRITICAL INFRA, FLIGHTS, SHIPS) got silently hidden by
-  blind toggle clicks in ge-raw4 (2026-07-13).
-- `scanAfter`: view-bboxed scan buttons clicked after camera arrives; `scanWaitSec` (default 5).
-- `caption` = burned lower-third (DOM HUD is not in the canvas capture).
-- Harness auto-applies quality: `viewer.resolutionScale = 2` + 3D-tiles SSE 16→8
-  (re-applied after crash-reload). Raise SSE back if capture stutters.
+Use 0–1 Godseye shot in a normal flagship. Include it only when the shot does one of these:
 
-## Cinematography rules (frame-review learned — follow these)
-- Frame south/top-down (pitch -70…-85) or along-feature; heading 0 from a coast shows
-  boring interior.
-- Night lights ONLY render on `basemap:aerial`; put night shots LAST (basemap stays switched).
-- NEVER set the viewer clock — `utcHour` killed the ge-raw3 run (Cesium fatal on the final
-  shot, 2026-07-13). Region must be naturally dark (Gulf ≈ 22-02 UTC) or fake it with DUSK preset.
-- AIS (aisstream.io) has NO Persian Gulf receiver coverage (src/ships.ts:29 comment); a wide
-  view falls back to the NW-Europe default bbox, so "ships in the strait" captions are
-  unfulfillable — never caption-promise live AIS in the Gulf. Verify overlay data EXISTS
-  (probe entity counts over CDP) before captioning any live layer.
-- No low-altitude orbits (blur smear) — use fromHeight zoom instead.
-- Keep the in-app FRED oil dock out of frame (stale prices).
-- ALWAYS verify: extract 1 frame per clip (`ffmpeg -ss <mid> -frames:v 1`) and Read it
-  before accepting a shot. Reshoot bad framing — cheap.
+- teaches geography that explains the market mechanism;
+- shows an observed layer supported by the returned evidence packet; or
+- replays an attributable event supported by the contract.
 
-Full rules + best-shot examples: vault note "God's Eye Footage Engine"
-(C:\Users\MSI\Desktop\TraderCockpit-Vault).
+Generic globe motion, atmosphere, or “because we have it” fails. Godseye never proves live ships,
+satellites, force posture, attacks, or attribution unless the exact evidence packet does.
+
+## Workflow
+
+1. Write the narration beat first and state the shot's explanatory purpose.
+2. Write a minimal shot JSON using the schema documented in `[[God's Eye Footage Engine]]`.
+3. Run `node tools/visuals/godseye_capture.mjs --dry-run <shots.json>`.
+4. Start the approved versioned package with CDP, confirm contract readiness, then capture.
+5. Preserve the returned evidence packet beside the clip.
+6. Inspect a full-resolution midpoint and the in/out boundaries. Reject blank, clipped,
+   overexposed, underground, generic, or unsupported footage.
+7. Add only the accepted clip to `scene-plan.json`; visible subject and narration must agree.
+
+If the approved package or contract is unavailable, omit Godseye and continue with sourced charts
+or news. Do not edit, rebuild, or borrow from the separate repository in a TraderCockpit task.

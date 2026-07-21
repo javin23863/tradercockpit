@@ -59,6 +59,14 @@ html,body{width:1280px;height:720px;overflow:hidden;font-family:var(--mono);colo
 <script>
 const q = new URLSearchParams(location.search);
 const set = (id,v)=>{ if(v!=null) document.getElementById(id).textContent = v; };
+const palette = (q.get("palette") || "").split(",").filter(Boolean);
+if (palette.length) {
+  const root = document.documentElement.style;
+  root.setProperty("--bg", palette[0]);
+  root.setProperty("--ink", palette[1]);
+  root.setProperty("--accent", palette[2] || palette[1]);
+  root.setProperty("--up", palette[2] || palette[1]);
+}
 set("eyebrow-t", q.get("eyebrow"));
 set("num", q.get("num"));
 set("sub", q.get("sub"));

@@ -1,0 +1,14 @@
+{
+  "source": "productions\\video-03-war-premium\\build\\master-clean.mp4",
+  "video_duration_s": 705.16,
+  "mode": "script",
+  "clips_count": 1,
+  "segments": [
+    {
+      "start": 42,
+      "duration": 42,
+      "label": "verified-hormuz-event-rails"
+    }
+  ],
+  "created_at": 1784111979825
+}

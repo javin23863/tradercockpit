@@ -1,0 +1,73 @@
+{
+  "schema": "social-approval-candidates/v1",
+  "status": "long-form-approved",
+  "generatedAt": "2026-07-15T23:21:46.4960332+07:00",
+  "batchId": "video-03-war-premium-recut-2026-07-15",
+  "operatorApproval": {
+    "approvedAt": "2026-07-15T23:43:01.4071512+07:00",
+    "reviewedAsset": "productions/video-03-war-premium/build/master.mp4",
+    "reviewedAssetSha256": "ba5522bb27b0079c20db0f5b267f7463ee77c8c98951baa52c966c4c0850f5c2",
+    "approvedDeliveryAsset": "productions/video-03-war-premium/build/master-clean.mp4",
+    "approvedDeliveryAssetSha256": "3947493ff2b5e9d347408c8082251bd2187454ab307a9ec7e6c4d1de7ca98039",
+    "approvalMessage": "aprroved",
+    "scope": "exact long-form recut accepted; fresh derivatives and distribution workflow may continue under the operator's standing complete-the-plan authorization"
+  },
+  "priorRejection": {
+    "rejectedAt": "2026-07-15T20:22:41.9709471+07:00",
+    "invalidatedManifestSha256": "0de04e90793126e87a584b969e5fc0531ddf7aca73fb5cd8083db0bfcfc61770",
+    "status": "remains-invalid"
+  },
+  "repository": {
+    "branch": "codex/social-marketing-execution",
+    "commit": "368d1197a4f365cd3c6315906ea468bb7ee940ba",
+    "workingTree": "dirty-review-candidate"
+  },
+  "verification": {
+    "claimsGate": "PASS — 9 sections, 12 claims, 39 receipts",
+    "editorialGate": "PASS — 36 exact narration beats; declared subject overlap; contain-only news; purpose-gated Godseye",
+    "editorialGateLimit": "Does not prove pixels, legibility, narration quality or operator acceptance.",
+    "pixelReview": [
+      "Full-frame IMO, CENTCOM, Treasury and BLS cards inspected at 1920x1080.",
+      "Short news clips replaced with clean stills; assembler now fails closed instead of looping or reversing them.",
+      "BLS rear-view to Brent windshield handoff inspected on both sides of the cut.",
+      "Core-PPI beat pinned to the core monthly/yearly source line.",
+      "Multi-market comparisons use simultaneous cockpit panels so all spoken gauges remain visible.",
+      "Godseye road-map capture inspected for Strait geography and curated infrastructure only."
+    ],
+    "master": "578.760 seconds; 1920x1080; 30 fps; H.264/AAC; 73,287,075 bytes",
+    "captions": "script-locked-timing; operator listen remains authoritative",
+    "externalProviderCostUsd": 0,
+    "publicWrites": 0
+  },
+  "artifacts": [
+    {"path":"productions/video-03-war-premium/build/master.mp4","bytes":73287075,"sha256":"ba5522bb27b0079c20db0f5b267f7463ee77c8c98951baa52c966c4c0850f5c2"},
+    {"path":"productions/video-03-war-premium/build/master-clean.mp4","bytes":62895186,"sha256":"3947493ff2b5e9d347408c8082251bd2187454ab307a9ec7e6c4d1de7ca98039"},
+    {"path":"productions/video-03-war-premium/thumb-v2.png","bytes":232391,"sha256":"90ae725f4359e87ea13eaa4a208523828ce9eabaefb8dcdda14319769716a0a4"},
+    {"path":"productions/video-03-war-premium/PUBLISHING.md","bytes":2646,"sha256":"94be95c5c1c8d18b405d82f544f5639b1ea00f4561b7b84f1cc8c12170709416"},
+    {"path":"productions/video-03-war-premium/scene-plan.json","bytes":23277,"sha256":"d55d9875aa7e2bf6fb57cb23ad1dc60b7201fd0f5aea3bb9e15246fab704dfdb"},
+    {"path":"productions/video-03-war-premium/vo.txt","bytes":10776,"sha256":"b12599c449445103cbd18806cf58018106c0433cd739c7a1f851e1dc9f27e404"},
+    {"path":"productions/video-03-war-premium/claims.yaml","bytes":5201,"sha256":"4b5f2c3a65c4e7572ee2d9904049807887f58c3164a3bdaf2e7f586be4bb4c2c"},
+    {"path":"productions/FACTS-2026-07-15.md","bytes":24595,"sha256":"2779a605eb09a0ed5b9e5948c56a39e4843d255d378e28358d6655dbdaf34cdd"},
+    {"path":"productions/video-03-war-premium/asset-manifest.json","bytes":3236,"sha256":"d63cebc9a923d69ed77275fedbf6122a4571cc1a17d48ad4899b048090396d56"},
+    {"path":"productions/video-03-war-premium/build/editorial-gate.json","bytes":391,"sha256":"4f00f1605657999ac76addc771d983f6d175dda7cead416ab46c1ebb2a503a4f"},
+    {"path":"productions/video-03-war-premium/build/claims-gate.json","bytes":175,"sha256":"5316d1fcd334723e392393e1ca5182cb59be03fe6be6cc16e84f62b5ac6d4987"},
+    {"path":"productions/video-03-war-premium/build/caption-receipt.json","bytes":54,"sha256":"501ff5c8d36427fbfcaeb8c13802199dc355d8a01ad0c79a67f4d30b82e8729a"}
+  ],
+  "items": [
+    {
+      "id": "youtube-long",
+      "channel": "youtube",
+      "status": "approved",
+      "candidateAssetSha256": "ba5522bb27b0079c20db0f5b267f7463ee77c8c98951baa52c966c4c0850f5c2",
+      "deliveryAssetSha256": "3947493ff2b5e9d347408c8082251bd2187454ab307a9ec7e6c4d1de7ca98039",
+      "reviewedBy": "operator",
+      "reviewedAt": "2026-07-15T23:43:01.4071512+07:00"
+    }
+  ],
+  "excluded": [
+    "Previous vertical derivatives",
+    "Stale social-batch.json",
+    "Any derivative generated from the previously rejected master",
+    "Any public write not bound to a newly validated distribution manifest"
+  ]
+}

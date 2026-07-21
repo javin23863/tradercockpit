@@ -1,0 +1,51 @@
+{
+  "schema": "tradercockpit-shorts-plan/v2",
+  "source": "productions/video-03-war-premium/build/master-clean.mp4",
+  "sourceSha256": "3947493ff2b5e9d347408c8082251bd2187454ab307a9ec7e6c4d1de7ca98039",
+  "output": "productions/video-03-war-premium/shorts/recut-v2",
+  "layout": "full-frame-fit",
+  "segments": [
+    {
+      "start": 0.0,
+      "duration": 43.235,
+      "label": "war-is-real-market-prices-the-bottleneck",
+      "family": "story",
+      "beats": ["01a", "01b", "01c"]
+    },
+    {
+      "start": 43.529,
+      "duration": 14.829,
+      "label": "do-not-trade-the-siren",
+      "family": "opinion",
+      "beats": ["01d"]
+    },
+    {
+      "start": 131.62,
+      "duration": 63.079,
+      "label": "hormuz-is-a-pressure-map",
+      "family": "insight",
+      "beats": ["03a", "03b", "03c"]
+    },
+    {
+      "start": 325.01,
+      "duration": 63.479,
+      "label": "oil-is-shouting-bonds-are-not-running",
+      "family": "proof",
+      "beats": ["06a", "06b", "06c"]
+    },
+    {
+      "start": 388.94,
+      "duration": 40.785,
+      "label": "ppi-rear-view-brent-windshield",
+      "family": "insight",
+      "beats": ["07a", "07b"]
+    },
+    {
+      "start": 456.15,
+      "duration": 58.469,
+      "label": "base-case-escalation-and-refusal",
+      "family": "framework",
+      "beats": ["08a", "08b", "08c"]
+    }
+  ]
+}

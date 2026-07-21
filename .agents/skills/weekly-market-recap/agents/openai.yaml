@@ -1,0 +1,4 @@
+interface:
+  display_name: "Weekly Market Recap"
+  short_description: "Produce Saturday market recap videos"
+  default_prompt: "Use $weekly-market-recap to produce the Saturday TraderCockpit market recap."

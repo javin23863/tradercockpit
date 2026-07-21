@@ -11,7 +11,7 @@ Copy that token, then run:
 
 This exchanges it for a long-lived token, fetches your Page token (non-expiring) and
 IG business id via the Graph API, and writes META_PAGE_ID / META_IG_USER_ID /
-META_PAGE_TOKEN into OpenMontage/.env. No browser automation.
+META_PAGE_TOKEN into the operator-custody meta.env. No browser automation.
 """
 import argparse
 import re
@@ -21,7 +21,11 @@ from pathlib import Path
 import requests
 
 GRAPH = "https://graph.facebook.com/v25.0"
-ENV = Path(__file__).parent.parent / "OpenMontage" / ".env"
+try:
+    from tools.credential_custody import credential_path
+except ModuleNotFoundError:  # direct `python tools/meta_setup.py` execution
+    from credential_custody import credential_path
+ENV = credential_path("meta.env")  # operator custody, never the repo
 
 
 def g(path, **params):
@@ -32,7 +36,8 @@ def g(path, **params):
 
 
 def set_env(key, value):
-    text = ENV.read_text()
+    ENV.parent.mkdir(parents=True, exist_ok=True)
+    text = ENV.read_text() if ENV.is_file() else ""
     line = f"{key}={value}"
     if re.search(rf"(?m)^{key}=", text):
         text = re.sub(rf"(?m)^{key}=.*$", line, text)

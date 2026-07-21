@@ -1,0 +1,205 @@
+{
+  "schema": "tradercockpit-publish-log/v2",
+  "entries": [
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "facebook-weekly-01-bull-crack",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "992529120498510",
+      "url": "/reel/992529120498510/",
+      "timestamp": "2026-07-18T12:42:56.943243Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122106535731392490"
+        },
+        "readback": {
+          "id": "992529120498510",
+          "permalink_url": "/reel/992529120498510/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "instagram-weekly-01-bull-crack",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "18075630929680759",
+      "url": "https://www.instagram.com/reel/Da70Uw7AThQ/",
+      "timestamp": "2026-07-18T12:44:03.176154Z",
+      "platformResponse": {
+        "publish": {
+          "id": "18075630929680759"
+        },
+        "readback": {
+          "id": "18075630929680759",
+          "permalink": "https://www.instagram.com/reel/Da70Uw7AThQ/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "facebook-weekly-02-spx-numbers",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "1031161942828910",
+      "url": "/reel/1031161942828910/",
+      "timestamp": "2026-07-18T12:44:38.619611Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122106536361392490"
+        },
+        "readback": {
+          "id": "1031161942828910",
+          "permalink_url": "/reel/1031161942828910/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "facebook-weekly-03-semis",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "2032177584333779",
+      "url": "/reel/2032177584333779/",
+      "timestamp": "2026-07-18T12:45:02.322404Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122106536703392490"
+        },
+        "readback": {
+          "id": "2032177584333779",
+          "permalink_url": "/reel/2032177584333779/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "facebook-weekly-04-brent",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "1010499001789632",
+      "url": "/reel/1010499001789632/",
+      "timestamp": "2026-07-18T12:45:31.197944Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122106537135392490"
+        },
+        "readback": {
+          "id": "1010499001789632",
+          "permalink_url": "/reel/1010499001789632/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "facebook-weekly-05-levels",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "1540271627843278",
+      "url": "/reel/1540271627843278/",
+      "timestamp": "2026-07-18T12:45:51.812393Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122106537291392490"
+        },
+        "readback": {
+          "id": "1540271627843278",
+          "permalink_url": "/reel/1540271627843278/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "instagram-weekly-02-spx-numbers",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "17923397229167207",
+      "url": "https://www.instagram.com/reel/Da70s8ODmuJ/",
+      "timestamp": "2026-07-18T12:47:11.833696Z",
+      "platformResponse": {
+        "publish": {
+          "id": "17923397229167207"
+        },
+        "readback": {
+          "id": "17923397229167207",
+          "permalink": "https://www.instagram.com/reel/Da70s8ODmuJ/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "instagram-weekly-03-semis",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "18136535584502601",
+      "url": "https://www.instagram.com/reel/Da70ziZDz1d/",
+      "timestamp": "2026-07-18T12:48:13.097721Z",
+      "platformResponse": {
+        "publish": {
+          "id": "18136535584502601"
+        },
+        "readback": {
+          "id": "18136535584502601",
+          "permalink": "https://www.instagram.com/reel/Da70ziZDz1d/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "instagram-weekly-04-brent",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "17898382938477780",
+      "url": "https://www.instagram.com/reel/Da71CYviQpw/",
+      "timestamp": "2026-07-18T12:50:06.871806Z",
+      "platformResponse": {
+        "publish": {
+          "id": "17898382938477780"
+        },
+        "readback": {
+          "id": "17898382938477780",
+          "permalink": "https://www.instagram.com/reel/Da71CYviQpw/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "video-03-weekly-verticals-2026-07-18",
+      "itemId": "instagram-weekly-05-levels",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "18449540437184955",
+      "url": "https://www.instagram.com/reel/Da71JPmidVX/",
+      "timestamp": "2026-07-18T12:51:10.451101Z",
+      "platformResponse": {
+        "publish": {
+          "id": "18449540437184955"
+        },
+        "readback": {
+          "id": "18449540437184955",
+          "permalink": "https://www.instagram.com/reel/Da71JPmidVX/"
+        }
+      },
+      "error": null
+    }
+  ]
+}

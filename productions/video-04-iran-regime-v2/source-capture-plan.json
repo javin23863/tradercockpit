@@ -1,0 +1,29 @@
+[
+  {
+    "out": "02a-aljazeera-blockade",
+    "url": "https://www.aljazeera.com/news/2026/7/14/us-strikes-new-targets-in-iran-as-tehran-hits-gulf-states-hormuz",
+    "label": "AL JAZEERA  -  JULY 14 2026",
+    "holdSec": 40,
+    "highlights": [
+      "took effect at 20:00 GMT"
+    ]
+  },
+  {
+    "out": "02b-imo-incidents",
+    "url": "https://www.imo.org/en/mediacentre/hottopics/pages/middle-east-highlighted-incidents.aspx",
+    "label": "INTERNATIONAL MARITIME ORGANIZATION  -  AS OF JULY 16 2026",
+    "holdSec": 40,
+    "highlights": [
+      "BELMA"
+    ]
+  },
+  {
+    "out": "02c-treasury-sanctions",
+    "url": "https://home.treasury.gov/news/press-releases/sb0564",
+    "label": "U.S. TREASURY  -  JULY 15 2026",
+    "holdSec": 40,
+    "highlights": [
+      "seven individuals and entities"
+    ]
+  }
+]

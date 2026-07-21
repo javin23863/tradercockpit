@@ -1,0 +1,113 @@
+# Backstage claim store for the rejected-package recut. Audience copy does not
+# speak provenance jargon; these receipts exist only for the fail-closed gate.
+
+- id: clm-centcom-epic-fury-2026-03-01
+  subject: Operation Epic Fury and CENTCOM strike footage
+  predicate: operation start and footage date
+  value: "Operation commenced 2026-02-28; public-domain CENTCOM strike footage dated 2026-03-01"
+  as_of: 2026-03-01
+  source: https://www.centcom.mil/OPERATIONS-AND-EXERCISES/EPIC-FURY/
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-imo-incidents-2026-07-15
+  subject: IMO Middle East highlighted incidents table
+  predicate: incident count, fatalities, and July 14 ship entries
+  value: "56 incidents; 18 seafarer fatalities as of 2026-07-15; AL BAHYAH and MOMBASA B damaged 13 NM off Oman on 2026-07-14; AL BAHYAH 2 fatalities and 3 injuries; MOMBASA B abandoned with 11 injuries"
+  as_of: 2026-07-15
+  source: https://www.imo.org/en/mediacentre/hottopics/pages/middle-east-highlighted-incidents.aspx
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-imo-navigation-2026-07-13
+  subject: IMO Council position on Strait of Hormuz navigation
+  predicate: requested work toward unhindered navigation
+  value: coordinated and sustainable return to unhindered navigation through the Strait
+  as_of: 2026-07-13
+  source: https://www.imo.org/en/mediacentre/pressbriefings/pages/imo-council-reaffirms-commitment-to-protecting-vital-shipping-lanes.aspx
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-treasury-iran-shipping-network-2026-07-14
+  subject: U.S. Treasury Iran-related sanctions action
+  predicate: included people, entities, and vessels
+  value: more than 50
+  as_of: 2026-07-14
+  source: https://home.treasury.gov/news/press-releases/sb0562
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-ais-gulf-coverage-limitation-2026-07-15
+  subject: AIS-derived Gulf vessel observations
+  predicate: carry a coverage limitation
+  value: "AIS can be incomplete; the Godseye aisstream source contract is realtime-only and provides no guaranteed Gulf receiver coverage or backfill"
+  as_of: 2026-07-15
+  source: C:/Users/MSI/Documents/godseye-review-20260714/src/sources.ts
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-chart-brent-2026-07-15-cutoff
+  subject: Brent crude (TVC:UKOIL 1D)
+  predicate: completed bars and July 15 partial-session levels at recording cutoff
+  value: "Jul 10 C 75.22; Jul 13 C 83.31; Jul 14 H 87.55 C 85.15; Jul 15 partial O 85.21 H 86.55 L 84.51 C about 85.01"
+  unit: USD/bbl
+  as_of: 2026-07-15
+  source: productions/video-03-war-premium/ta-work/04-brent-v2-s2.png
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-chart-xle-2026-07-15-cutoff
+  subject: Energy Select Sector SPDR (AMEX:XLE 1D)
+  predicate: completed bars and July 15 partial-session levels at recording cutoff
+  value: "Jul 10 C 55.08; Jul 13 C 56.74; Jul 14 H 57.22 L 56.29 C 56.95; Jul 15 partial about 56.73"
+  unit: USD
+  as_of: 2026-07-15
+  source: productions/video-03-war-premium/ta-work/05-xle-v2-s2.png
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-chart-spx-2026-07-14
+  subject: S&P 500 Index (SP:SPX 1D)
+  predicate: completed-session levels
+  value: "Jul 13 L 7506.41 C 7515.34; Jul 14 C 7543.59"
+  as_of: 2026-07-14
+  source: productions/video-03-war-premium/ta-work/06-spx-v2-s2.png
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-chart-vix-2026-07-15-cutoff
+  subject: CBOE Volatility Index (CBOE:VIX 1D)
+  predicate: completed bar and July 15 partial-session levels at recording cutoff
+  value: "Jul 13 H 17.56 C 16.50; Jul 15 partial about 16.16"
+  as_of: 2026-07-15
+  source: productions/video-03-war-premium/ta-work/06-vix-v2-s2.png
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-chart-us10y-2026-07-15-cutoff
+  subject: U.S. ten-year Treasury yield (TVC:US10Y 1D)
+  predicate: completed bars and July 15 partial-session level at recording cutoff
+  value: "Jul 13 C 4.624; Jul 14 H 4.636 L 4.525 C 4.587; Jul 15 partial about 4.565"
+  unit: percent
+  as_of: 2026-07-15
+  source: productions/video-03-war-premium/ta-work/06-us10y-v2-s2.png
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-bls-ppi-2026-06
+  subject: U.S. June 2026 Producer Price Index
+  predicate: monthly and twelve-month changes released July 15
+  value: "final demand -0.3% m/m and +5.5% y/y; goods -1.4%; energy -6.4%; services +0.2%; less foods, energy, and trade services +0.1% m/m and +5.1% y/y"
+  as_of: 2026-06
+  source: https://www.bls.gov/news.release/ppi.nr0.htm
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified
+
+- id: clm-godseye-hormuz-infra-2026-07-15
+  subject: Godseye Hormuz pressure-map take
+  predicate: uses the released curated infrastructure layer for geography only
+  value: "road basemap; Strait marker; curated Gulf infrastructure layer; no live ship claim"
+  as_of: 2026-07-15
+  source: productions/video-03-war-premium/godseye-work-v3/01-hormuz-pressure-map-road.evidence.json
+  retrieved_at: 2026-07-15T21:40:49+07:00
+  status: verified

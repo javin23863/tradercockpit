@@ -1,0 +1,18 @@
+[
+  {
+    "out": "02-usnews-blockade",
+    "url": "https://www.usnews.com/news/world/articles/2026-07-20/yemens-houthis-declare-naval-blockade-against-saudi-arabia-statement",
+    "highlights": [
+      "naval blockade"
+    ],
+    "holdSec": 27
+  },
+  {
+    "out": "02b-npr-strikes",
+    "url": "https://www.npr.org/2026/07/20/nx-s1-5900601/us-iran-updates",
+    "highlights": [
+      "ninth"
+    ],
+    "holdSec": 41
+  }
+]

@@ -1,53 +1,79 @@
-# One-time credential setup for publishing
+# Operator-only publishing credentials
 
-After this, `tools\publish.py video.mp4 --title "..." --caption "..."` posts to YouTube + Instagram Reels + Facebook Reels in one command. All values go into `OpenMontage\.env` (already has empty placeholders at the bottom) except the Google JSON file.
+Live YouTube and TikTok credentials live at:
 
-## 1. YouTube (~5 min)
+`C:\Users\MSI\.tradercockpit\operator-credentials`
 
-1. Go to https://console.cloud.google.com → create project (any name, e.g. `video-pipeline`).
-2. **APIs & Services → Library** → search "YouTube Data API v3" → **Enable**.
-3. **APIs & Services → OAuth consent screen** → External → fill app name + your email → save. Under **Audience → Test users**, add your own Gmail.
-4. **Credentials → Create Credentials → OAuth client ID → Desktop app** → **Download JSON** → save it as `tools\client_secret.json`.
-5. Done. The first upload opens a browser once for consent; the token is then cached in `tools\token.json`.
+That directory is outside the repository and its ACL grants the Windows operator, SYSTEM, and
+Administrators access—not the Codex sandbox account. Do not copy credentials into `tools/`, a
+worktree, `.env`, or an agent-readable handoff. `tools/publish.py` never reads repository-local
+YouTube or TikTok credentials.
 
-Quota: ~6 uploads/day free. Keep videos `--privacy private` until you've checked them.
+The operator may choose another outside-repository directory by setting
+`TRADERCOCKPIT_OPERATOR_CREDENTIAL_DIR` only in the operator-run publishing shell.
 
-## 2. Instagram + Facebook (~20 min, one Meta app covers both)
+## YouTube
 
-Prerequisites (in the apps, not the dev portal):
-- Your Instagram account must be a **Professional** account (Instagram app → Settings → Account type → switch to Creator or Business — free).
-- You need a **Facebook Page** (create one from your FB profile if you don't have one).
-- **Link them**: Instagram → Settings → Business tools → Connect a Facebook Page.
+The directory contains:
 
-Then:
-1. Go to https://developers.facebook.com → **My Apps → Create App** → use case: **Business** → create. (Dev mode is fine — no app review needed for posting to your own accounts.)
-2. Open https://developers.facebook.com/tools/explorer → select your app → **Generate Access Token** with these permissions:
-   `pages_show_list, pages_read_engagement, pages_manage_posts, publish_video, instagram_basic, instagram_content_publish`
-3. Make it long-lived: **Tools → Access Token Debugger** → paste token → **Extend Access Token** (60 days).
-4. **Automated from here** — run (App ID + secret are on your app's Settings → Basic page):
-   ```powershell
-   cd C:\Users\MSI\Desktop\OpenMontage-Skill\OpenMontage
-   .venv\Scripts\python ..\tools\meta_setup.py --app-id APPID --app-secret SECRET --user-token PASTED_TOKEN
-   ```
-   This exchanges the token for a long-lived one, fetches the non-expiring Page token + IG business id, and writes `META_PAGE_ID` / `META_IG_USER_ID` / `META_PAGE_TOKEN` into `.env`. No manual Graph Explorer digging.
+- `client_secret.json`
+- `token.json` (upload/read-only scopes)
+- `token_channel.json` (broader channel-management scope, when needed)
 
-## 3. Backblaze B2 (Instagram only) — DONE 2026-07-13
-
-Wired automatically: existing B2 key reaches `openmontage-publish-staging`; `B2_*` written to `.env`. Steps below only needed if the key is ever rotated.
-
-### (original manual steps, for reference)
-
-Meta ingests Reels from a public URL, so `publish.py` stages the file on B2 with a 6-hour presigned link. You already have a B2 account.
-
-1. B2 console → **Buckets → Create Bucket** → name e.g. `video-publish-staging` (private is fine, presigned URLs work).
-2. **App Keys → Add a New Application Key** → scope it to that bucket → copy `keyID` → `B2_KEY_ID`, `applicationKey` → `B2_APP_KEY`.
-3. `B2_BUCKET` = bucket name. `B2_S3_ENDPOINT` = the bucket's S3 endpoint shown on the bucket page, e.g. `https://s3.us-west-004.backblazeb2.com`.
-
-## Verify
+Run OAuth authorization as the operator with `tools/upload_youtube.py`; live publishing then uses
+only an approved `social-batch/v2` item:
 
 ```powershell
-cd C:\Users\MSI\Desktop\OpenMontage-Skill\OpenMontage
-.venv\Scripts\python ..\tools\publish.py ..\OpenMontage\projects\demos\renders\world-in-numbers.mp4 --title test --dry-run
+python tools\publish.py --batch productions\<run>\social-batch.json --item <approved-id> --dry-run
+python tools\publish.py --batch productions\<run>\social-batch.json --item <approved-id>
 ```
 
-All three lines must say `ready`. Then drop `--dry-run` (keep `--privacy private`) for a real end-to-end test.
+The dry run refreshes OAuth when possible and verifies channel
+`UCBc6RR49Qk5vtDQaw8BjH3A`. A missing/revoked token or another channel blocks publishing.
+
+## TikTok
+
+The official Content Posting API bundle is `tiktok-oauth.json` in the same directory. It contains
+these provider-issued fields and no post payloads:
+
+- `client_key`, `client_secret`
+- `access_token`, `refresh_token`
+- `access_token_expires_at`, `refresh_token_expires_at` (Unix timestamps)
+- `open_id`, `scope` (`video.publish` required)
+- `client_audit_status` (`approved` only after confirmation in TikTok's developer portal)
+
+The one-time OAuth authorization occurs only after the operator has created/approved the TikTok
+developer app and consented to its provider terms. `tools/upload_tiktok.py` then refreshes access
+tokens silently and atomically replaces this file when TikTok rotates either token. Values must
+never be pasted into chat, source files, logs, batch manifests, or vault notes.
+
+Public readiness requires both the recorded provider audit and `PUBLIC_TO_EVERYONE` from current
+creator-info. A missing/pending audit reports `audit-required`; an account without public creator
+visibility reports `private-only`. Neither state transmits the asset. Zapier and Postiz are not part of the production lane.
+
+**Operator ruling 2026-07-20 — CDP uploads ARE authorized for TikTok.** The official Content
+Posting API remains preferred (it read-backs), but `tiktok-oauth.json` does not exist and the
+`cli.py`/undetected-chromedriver login is broken on this box (Chrome 150, no matching driver). The
+established working path is driving TikTok Studio over CDP against the operator's logged-in debug
+profile on port 9333 — `tools/handoff/tiktok_post_cdp.cjs`, wired into `publish.py` via
+`publish_tiktok()`, which prefers the API and falls back to CDP. This line previously excluded CDP
+uploads outright and was superseded; it had already caused one false "TikTok cannot post" call.
+Accepted risk: the uploader's own README warns automated posting may get the account banned. Keep
+volume human-paced.
+
+```powershell
+python tools\upload_tiktok.py
+python tools\publish.py --batch productions\<run>\social-batch.json --item <approved-id> --platform tiktok --dry-run
+python tools\publish.py --batch productions\<run>\social-batch.json --item <approved-id> --platform tiktok
+```
+
+The final command remains a public action and requires the exact approved batch item. Success is
+only recorded when TikTok returns a post ID and the publisher derives its stable public URL.
+
+## Meta and B2
+
+Instagram/Facebook and temporary B2 staging retain their existing operator-managed environment
+setup. They are still subject to the same `social-batch/v2` exact-hash approval and live read-back
+gate.
+
+Never use an arbitrary file/title command for live publishing; that interface is disabled.

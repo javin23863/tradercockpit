@@ -201,20 +201,74 @@ async function pickSegmentsAI(cues, duration, n) {
 async function reframeVertical(videoPath, seg, srtSlicePath, outFile) {
   const out = outFile.replace(/\.mp4$/i, '.vertical.mp4');
   const subPath = srtSlicePath.replace(/\\/g, '/').replace(/^([A-Z]):/i, '$1\\:');
-  const style = "FontName=Arial Bold,FontSize=13,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=3,Outline=2,Shadow=1,Alignment=2,MarginV=120";
+  // Caption geometry is gated: tools/visual_qa.py measures the burned bbox against the
+  // Platform Publishing Manual safe zones (TikTok is tightest — top 15% / bottom 20% /
+  // right 15%; on 1080x1920 the usable box is y 288..1536, x 0..918).
+  // Margins/FontSize are in ASS PlayRes units, NOT pixels. ffmpeg's SRT->ASS converter emits a
+  // fixed PlayResX=384 PlayResY=288 header (verified: ffmpeg -i x.srt x.ass | grep PlayRes), and
+  // libass scales that to the 1080x1920 frame. So the real conversion factors are:
+  //   vertical   1920/288 = 6.667 px per unit   (MarginV, FontSize)
+  //   horizontal 1080/384 = 2.8125 px per unit  (MarginL/MarginR)
+  // Measured, not inferred. Safe box is y 288..1536, x 0..918.
+  // MarginV=64 -> predicted ink bottom 1493, MEASURED worst case 1512 (the QA analysis plane is
+  // 270x480, so measurements quantise to 4px) — 24px inside the bottom safe zone. This replaced
+  // MarginV=72 (bottom 1440), which wasted 96px of headroom and parked the caption right on the
+  // candle bodies: dropping it 53px cut genuine caption-over-candles frames from 18 to 4 on the
+  // clip-001 crop probe. Do not go past ~66; MarginV=62 measured 1524, only 12px of margin.
+  // MarginL/R=64 -> 180px side inset, right ink edge <=900. libass defaults these to 10 units
+  // (28px), which let every line run to x~1064 and breach the right 15% like/comment rail.
+  // Do not lower these without re-running: python tools/visual_qa.py <production>
+  // BorderStyle=1 (outline+shadow), NOT 3 (opaque box): the box read as two ragged offset
+  // slabs once text wrapped to two lines. Outline/Shadow are ASS units too (6.667 px/unit),
+  // so they must scale WITH FontSize — Outline is ~15% of FontSize here. Tuned empirically
+  // against the white TradingView plate (the worst case; the fit layout's caption sits over
+  // the dark blurred backdrop and is easy): Outline=2 @ FontSize=13 = a 13px stroke that
+  // stays crisp. Outline=3 starts closing the counters and Outline=4 merges adjacent letters
+  // back into a slab — heavier is NOT safer here. Shadow=1 with a semi-transparent BackColour
+  // adds offset separation on light plates without drawing a second hard edge.
+  // Lowering FontSize does not buy a single line (long cues wrap at 10 too, just smaller).
+  const style = "FontName=Arial Bold,FontSize=13,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H80000000,BorderStyle=1,Outline=2,Shadow=1,Alignment=2,MarginV=64,MarginL=64,MarginR=64";
+  const fitStyle = "FontName=Arial Bold,FontSize=11,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H80000000,BorderStyle=1,Outline=2,Shadow=1,Alignment=2,MarginV=64,MarginL=64,MarginR=64";
   // crop width MUST be an even integer (trunc(...)*2), else the 9:16 slice (e.g. 1080*9/16=607.5)
   // rounds to a non-proportional width and the scale filter injects a non-1:1 SAR — the output is
   // 1080x1920 in pixels but its DISPLAY aspect is off, so FB/IG render it stretched. setsar=1 pins
   // square pixels so the final DAR is exactly 9:16.
   const cw = 'trunc(ih*9/16/2)*2';
   const cropX = process.env.CLIP_ANCHOR === 'right' ? `iw-${cw}` : `(iw-${cw})/2`;
+  const layout = process.env.CLIP_LAYOUT === 'fit' ? 'fit' : 'crop';
+  // Full-frame fit is the safe path for article cards, maps, and multi-chart cockpit panels.
+  // It keeps the entire approved 16:9 composition proportional inside a moving, darkened
+  // duplicate background; captions stay in the lower vertical safe zone instead of covering
+  // the evidence. Crop remains the default for source footage that was approved for a punch-in.
+  const vf = layout === 'fit'
+    ? `split=2[bg0][fg0];` +
+      `[bg0]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,gblur=sigma=44,eq=brightness=-0.34:saturation=0.55,drawgrid=w=120:h=120:t=1:c=0xFF1744@0.10,drawbox=x=0:y=0:w=16:h=ih:color=0xFF1744@0.90:t=fill[bg];` +
+      `[fg0]scale=1040:-2,pad=iw+8:ih+8:4:4:color=0xFF1744[fg];` +
+      `[bg][fg]overlay=16:350,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='TRADERCOCKPIT':fontcolor=white:fontsize=42:x=48:y=88,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='PRESSURE CHAIN // DAILY MARKET MAP':fontcolor=0xFF1744:fontsize=24:x=48:y=150,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='@thetradercockpit':fontcolor=white@0.72:fontsize=24:x=w-tw-48:y=h-86,` +
+      `setsar=1`
+    : `crop=${cw}:ih:${cropX}:0,scale=1080:1920,setsar=1`;
+  const subs = layout === 'fit'
+    ? `,subtitles='${subPath}':force_style='${fitStyle}'`
+    : `,subtitles='${subPath}':force_style='${style}'`;
+  const encode = (filter, file) => run('ffmpeg', [
+    '-y', '-filter_threads', '1', '-filter_complex_threads', '1',
+    '-ss', String(seg.start), '-t', String(seg.duration),
+    '-hwaccel', 'd3d11va', '-i', videoPath,
+    '-vf', filter,
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
+    '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-level:v', '4.2',
+    '-bf', '0', '-refs', '1', '-g', '1', '-keyint_min', '1', '-sc_threshold', '0', '-threads', '1',
+    '-c:a', 'aac', '-b:a', '128k', '-shortest', file, '-loglevel', 'error',
+  ]);
   try {
-    await run('ffmpeg', [
-      '-y', '-ss', String(seg.start), '-t', String(seg.duration), '-i', videoPath,
-      '-vf', `crop=${cw}:ih:${cropX}:0,scale=1080:1920,setsar=1,subtitles='${subPath}':force_style='${style}'`,
-      '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
-      '-c:a', 'aac', '-b:a', '128k', out, '-loglevel', 'error',
-    ]);
+    await encode(vf + subs, out);
+    // Caption-free twin for platforms whose gate demands native captions (YouTube Shorts).
+    if (process.env.CLIP_CLEAN_VERTICAL === '1') {
+      await encode(vf, out.replace(/\.vertical\.mp4$/i, '.vertical.clean.mp4'));
+    }
     return out;
   } catch (e) { log.warn(`  ↳ reframe failed: ${e.message}`); return null; }
 }
@@ -229,7 +283,7 @@ async function clipAndBurn(videoPath, srtSlicePath, seg, outFile) {
     '-i', videoPath,
     '-vf', `subtitles='${subPath}':force_style='${style}'`,
     '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
-    '-c:a', 'aac', '-b:a', '128k',
+    '-c:a', 'aac', '-b:a', '128k', '-shortest',
     outFile,
     '-loglevel', 'error',
   ]);

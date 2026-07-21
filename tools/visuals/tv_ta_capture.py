@@ -32,11 +32,12 @@ import json
 import subprocess
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 HUB = HERE.parents[1]
-TV_CLI = Path(r"C:\Users\MSI\repos\tradingview-mcp\src\cli\index.js")
+CDP_SHOT = HERE / "cdp_chart_shot.mjs"
 SETTLE_SYMBOL_S = 5   # data load after symbol/timeframe switch
 SETTLE_DRAW_S = 1.5
 
@@ -48,8 +49,18 @@ AD_HIDE_JS = ("(()=>{let n=0;for(const f of document.querySelectorAll("
               "node.parentElement);if(cs.position==='fixed'||cs.position==='absolute'){node="
               "node.parentElement}else break}node.style.display='none';n++}return n})()")
 
+# Operator ruling 2026-07-17: chart background must be white to match white news pages.
+# Overrides reset on symbol change, so reapply per shot after the symbol settles.
+WHITE_JS = ("(()=>{try{const w=TradingViewApi._chartWidgetCollection.activeChartWidget.value();"
+            "w.applyOverrides({'paneProperties.background':'#FFFFFF',"
+            "'paneProperties.backgroundType':'solid',"
+            "'paneProperties.vertGridProperties.color':'#E8E8E8',"
+            "'paneProperties.horzGridProperties.color':'#E8E8E8',"
+            "'scalesProperties.textColor':'#131722'});return 'white'}"
+            "catch(e){return 'ERR '+e.message}})()")
+
 sys.path.insert(0, str(HERE))
-from fetch_tv_charts import tv  # noqa: E402  (same CLI bridge)
+from fetch_tv_charts import TV_CLI, record_chart_capture, tv  # noqa: E402  (same CLI bridge + receipt writer)
 
 
 def still(png: Path, out: Path, dur: float, dry: bool) -> None:
@@ -57,9 +68,10 @@ def still(png: Path, out: Path, dur: float, dry: bool) -> None:
     Wider than 16:9 (maximized app, ~2.0): full-height RIGHT-anchored crop keeps the
     price axis, trims oldest candles. Narrower (unmaximized relaunch, seen 1304x1187):
     fit-pad instead — scaling a narrow crop straight to 1920x1080 squashes candles."""
-    vf = ("scale=-2:1080,"                                    # height always 1080
+    vf = ("crop=iw:ih-40:0:40,"                               # drop the dark app toolbar strip (visible on white theme)
+          "scale=-2:1080,"                                    # height always 1080
           "crop='min(iw,1920)':1080:'max(iw-1920,0)':0,"      # wide -> right-crop (keep axis)
-          "pad=1920:1080:(ow-iw)/2:0:black,format=yuv420p")   # narrow -> side pads, no squash
+          "pad=1920:1080:(ow-iw)/2:0:white,format=yuv420p")   # narrow -> side pads; white world
     if dry:
         print(f"  [dry] ffmpeg still {png.name} -> {out.name} ({dur:.0f}s)")
         return
@@ -113,6 +125,15 @@ def main() -> int:
     ap.add_argument("plan")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--only", help="capture only the shot with this out name")
+    ap.add_argument("--expect-last-bar", metavar="YYYY-MM-DD",
+                    help="abort a shot if the feed's last bar is not this session "
+                         "(bar open-date may stamp the prior calendar day; both accepted). "
+                         "Catches replay landing on the wrong date per symbol (2026-07-20 incident).")
+    ap.add_argument("--range-days", type=int, default=0, metavar="N",
+                    help="zoom every shot to the last N calendar days (+4d right pad) before "
+                         "shooting, and pin the price scale to the visible bars' hi/lo. Mobile "
+                         "legibility ruling 2026-07-21: a full-history chart is unreadable on a "
+                         "phone. Requires --expect-last-bar for the anchor date. ~100 recommended.")
     a = ap.parse_args()
 
     prod = (HUB / a.prod) if not Path(a.prod).is_absolute() else Path(a.prod)
@@ -141,10 +162,47 @@ def main() -> int:
         tv(["timeframe", shot["tf"]], a.dry_run)
         if not a.dry_run:
             time.sleep(SETTLE_SYMBOL_S)
+        if a.expect_last_bar and not a.dry_run:
+            from datetime import date, timedelta
+            expected = date.fromisoformat(a.expect_last_bar)
+            raw = subprocess.run(
+                ["node", str(TV_CLI), "ohlcv", "--count", "1"],
+                check=True, capture_output=True, text=True).stdout
+            bars = json.loads(raw)
+            bar = (bars.get("bars") or [bars])[-1] if isinstance(bars, dict) else bars[-1]
+            bar_date = datetime.fromtimestamp(bar["time"], tz=timezone.utc).date()
+            # session-open stamping: a Monday session can stamp Sunday (futures/CFD feeds)
+            if bar_date not in (expected, expected - timedelta(days=1)):
+                sys.exit(f"[{shot['out']}] last bar is {bar_date}, expected session "
+                         f"{expected} — wrong bar on screen (replay pinned? stale feed?). "
+                         "Nothing captured for this shot.")
+        if a.range_days and not a.dry_run:
+            if not a.expect_last_bar:
+                sys.exit("--range-days needs --expect-last-bar as the anchor date")
+            from datetime import date, timedelta
+            anchor = date.fromisoformat(a.expect_last_bar)
+            frm = int(datetime(anchor.year, anchor.month, anchor.day, tzinfo=timezone.utc).timestamp()) \
+                - a.range_days * 86400
+            to = int(datetime(anchor.year, anchor.month, anchor.day, tzinfo=timezone.utc).timestamp()) \
+                + 4 * 86400
+            tv(["range", "--from", str(frm), "--to", str(to)], a.dry_run)
+            time.sleep(1.5)
+            # ponytail: price-scale pinning was tried and REVERTED — setPriceRangeInPrice takes
+            # internal units, not prices, and blanked the pane (2026-07-21). The range zoom is
+            # the win; indicator zones below price squashing candles somewhat is accepted.
         tv(["ui", "eval", "--js", AD_HIDE_JS], a.dry_run)
+        tv(["ui", "eval", "--js", WHITE_JS], a.dry_run)
+        # Mobile ruling 2026-07-21: axis text must read on a phone.
+        tv(["ui", "eval", "--js",
+            "(()=>{try{TradingViewApi._chartWidgetCollection.activeChartWidget.value()"
+            ".applyOverrides({'scalesProperties.fontSize':17});return 'font'}"
+            "catch(e){return 'ERR '+e.message}})()"], a.dry_run)
+        if not a.dry_run:
+            time.sleep(1)
 
         drawn: list[str] = []
         clips: list[Path] = []
+        captured_at = None
         try:
             for si, stage in enumerate(shot["stages"]):
                 if stage.get("draw"):
@@ -152,10 +210,15 @@ def main() -> int:
                     if not a.dry_run:
                         time.sleep(SETTLE_DRAW_S)
                 name = f"{shot['out']}-s{si}"
-                shotres = tv(["screenshot", "--region", "chart", "--output", name], a.dry_run)
                 if a.dry_run:
+                    print(f"  [dry] cdp chart shot {name}.png")
                     continue
-                png = Path(shotres.get("file_path") or (TV_CLI.parents[1] / "screenshots" / f"{name}.png"))
+                png = work / f"{name}.png"
+                subprocess.run(
+                    ["node", str(CDP_SHOT), str(png), "2560", "1440", "--dsf", "2"],
+                    check=True,
+                )
+                captured_at = datetime.now(timezone.utc)
                 clip = work / f"{name}.mp4"
                 still(png, clip, float(stage.get("holdSec", 8)), a.dry_run)
                 clips.append(clip)
@@ -164,6 +227,8 @@ def main() -> int:
 
         if not a.dry_run:
             concat_clips(clips, out_mp4)
+            # Receipt the scene-plan artifact, not CDP's disposable per-stage PNGs.
+            record_chart_capture(prod, out_mp4, captured_at)
             print(f"  -> {out_mp4}")
 
     print("\nDRY RUN OK" if a.dry_run else "\nDONE")

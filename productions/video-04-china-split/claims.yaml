@@ -1,0 +1,118 @@
+# Backstage claim store. Audience copy stays factual; receipts bind every number to a primary source or frozen TradingView capture.
+
+- id: clm-nbs-q2-gdp-2026-07-15
+  subject: China's Q2 2026 national economic performance
+  predicate: Q2 and H1 GDP growth
+  value: "Q2 GDP +4.3% year on year, +0.9% quarter on quarter; H1 GDP +4.7%"
+  as_of: 2026-07-15
+  source: https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-nbs-industrial-2026-07-15
+  subject: China's H1 2026 industrial activity
+  predicate: industrial, equipment, and high-tech manufacturing growth
+  value: "industrial value added +5.4%; equipment manufacturing +9.3%; high-tech manufacturing +13.3%"
+  as_of: 2026-06
+  source: https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-nbs-demand-2026-07-15
+  subject: China's H1 2026 domestic-demand proxies
+  predicate: retail, fixed investment, and real-estate investment growth
+  value: "retail sales +1.3%; fixed-asset investment -5.7%; real-estate development investment -18.0%; NBS describes the strong-supply/weak-demand imbalance as acute"
+  as_of: 2026-06
+  source: https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-nbs-trade-2026-07-15
+  subject: China's H1 2026 trade flows
+  predicate: exports and imports growth
+  value: "exports +13.4%; imports +22.1%"
+  as_of: 2026-06
+  source: https://www.stats.gov.cn/english/PressRelease/202607/t20260715_1964120.html
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-chart-sse-2026-07-16
+  subject: SSE Composite Index (SSE:000001, 1D)
+  predicate: completed July 15 and July 16 closes, low, and close-to-close change
+  value: "Jul 15 C 3955.5781; Jul 16 C 3882.4126; Jul 16 L 3867.6012; close-to-close -1.85%"
+  as_of: 2026-07-16
+  source: productions/video-04-china-split/visuals/02-sse.mp4
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-chart-szse-2026-07-16
+  subject: Shenzhen Component Index (SZSE:399001, 1D)
+  predicate: completed July 15 and July 16 closes, low, and close-to-close change
+  value: "Jul 15 C 14779.3965; Jul 16 C 14488.6541; Jul 16 L 14386.4140; close-to-close -1.97%"
+  as_of: 2026-07-16
+  source: productions/video-04-china-split/visuals/03-szse.mp4
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-chart-fxi-2026-07-15
+  subject: iShares China Large-Cap ETF (AMEX:FXI, TradingView BATS:FXI, 1D)
+  predicate: completed July 14 and July 15 closes, high, and session change
+  value: "Jul 14 C 33.77; Jul 15 C 34.28; Jul 15 H 34.545; session change +1.51%"
+  as_of: 2026-07-15
+  source: productions/video-04-china-split/visuals/04-fxi.mp4
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-chart-usdcnh-2026-07-16
+  subject: U.S. dollar/offshore Chinese yuan (FX_IDC:USDCNH, 1D)
+  predicate: prior completed close and live July 16 bar at cutoff
+  value: "prior C 6.76627; live bar C/last 6.76926; live H 6.77210; live bar remains incomplete"
+  as_of: 2026-07-16
+  source: productions/video-04-china-split/visuals/05-usdcnh.mp4
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-chart-copper-2026-07-16
+  subject: COMEX Copper Futures (COMEX:HG1!, TradingView COMEX_DL:HG1!, 1D)
+  predicate: prior completed close and live July 16 bar at cutoff
+  value: "prior C 6.341; live bar C/last 6.3875; live H 6.4195; live bar remains incomplete"
+  as_of: 2026-07-16
+  source: productions/video-04-china-split/visuals/06-copper.mp4
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-chart-spx-2026-07-15
+  subject: S&P 500 Index (SP:SPX, TradingView SP_DLY:SPX, 1D)
+  predicate: completed July 14 and July 15 closes and session change
+  value: "Jul 14 C 7543.59; Jul 15 C 7572.40; session change +0.38%"
+  as_of: 2026-07-15
+  source: productions/video-04-china-split/visuals/07-spx.mp4
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-nbs-calendar-pmi-2026-07-31
+  subject: NBS 2026 release calendar
+  predicate: July manufacturing PMI release date and time
+  value: "July manufacturing PMI scheduled 2026-07-31 at 09:30 China time"
+  as_of: 2026-07-31
+  source: https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-scenario-level-map-2026-07-16
+  subject: China split scenario map
+  predicate: decision ranges and cross-asset triggers
+  value: "scenario triggers use frozen TradingView levels only; ranges are not forecasts"
+  as_of: 2026-07-16
+  source: productions/video-04-china-split/analysis-brief.md
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified
+
+- id: clm-market-map-2026-07-16
+  subject: China production/domestic-demand transmission map
+  predicate: analytical mechanism and exposed assets
+  value: "official production and demand data are separated from the analyst's cross-asset mechanism"
+  as_of: 2026-07-16
+  source: productions/video-04-china-split/analysis-brief.md
+  retrieved_at: 2026-07-16T18:03:24+07:00
+  status: verified

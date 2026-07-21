@@ -1,0 +1,68 @@
+{
+  "schema": "tradercockpit-news-source-plan/v1",
+  "cutoff": "2026-07-21T02:50:00Z",
+  "lead": "Post-close 2026-07-20: bounce fails as Houthi blockade extends the war premium and yields press the July high",
+  "sources": [
+    {
+      "role": "primary",
+      "publisher": "US News (Reuters wire)",
+      "url": "https://www.usnews.com/news/world/articles/2026-07-20/yemens-houthis-declare-naval-blockade-against-saudi-arabia-statement",
+      "publishedAt": "2026-07-20",
+      "retrievedAt": "2026-07-21T02:50:00Z",
+      "use": "Houthi naval blockade declared against Saudi Arabia; page rendered and captured on screen (visuals/02-usnews-blockade.mp4) — Reuters byline, July 20 2026, 8:09 a.m."
+    },
+    {
+      "role": "primary",
+      "publisher": "NPR",
+      "url": "https://www.npr.org/2026/07/20/nx-s1-5900601/us-iran-updates",
+      "publishedAt": "2026-07-20",
+      "retrievedAt": "2026-07-21T02:50:00Z",
+      "use": "Ninth consecutive day of US strikes; talks collapsed over the Hormuz MOU; third US service member killed since Friday; CENTCOM anti-shipping targeting. Page rendered and captured (visuals/02b-npr-strikes.mp4)."
+    },
+    {
+      "role": "secondary",
+      "publisher": "NBC News",
+      "url": "https://www.nbcnews.com/world/middle-east/yemen-houthis-maritime-embargo-saudi-arabia-oil-rcna588345",
+      "publishedAt": "2026-07-20",
+      "retrievedAt": "2026-07-21T02:20:00Z",
+      "use": "Corroborates the blockade declaration and the ~4.5M bpd Red Sea (Yanbu) workaround volume. Search-result sourced; not independently fetched."
+    },
+    {
+      "role": "secondary",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/2026/07/20/oil-prices-today-brent-wti-crude-us-iran-centcom-hormuz.html",
+      "publishedAt": "2026-07-20",
+      "retrievedAt": "2026-07-21T02:20:00Z",
+      "use": "Crude ~+20% July MTD; Brent above $90 intraday. Fetch attempts returned 403; claim carried as single_source with on-air attribution."
+    },
+    {
+      "role": "official-primary",
+      "publisher": "US Energy Information Administration",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=65504",
+      "publishedAt": "2026 (pre-July baseline)",
+      "retrievedAt": "2026-07-21T02:20:00Z",
+      "use": "Hormuz chokepoint baseline (~20M b/d, ~20% of global petroleum liquids, 2024) and Q1 2026 flow 14.6M b/d (-30% y/y)."
+    },
+    {
+      "role": "recorded-scenario",
+      "publisher": "Bloomberg / OilPrice.com",
+      "url": "https://oilprice.com/Energy/Energy-General/Goldman-Sachs-Sees-Oil-Above-100-If-Hormuz-Disruption-Persists.html",
+      "publishedAt": "2026-04-09",
+      "retrievedAt": "2026-07-21T02:20:00Z",
+      "use": "Goldman April 9 scenario: Brent >$100 if Hormuz disruption persists another month. Spoken only as a dated scenario, attributed. URL is the best-fit candidate from search results; the date and figures are cross-checked in the fact pack."
+    },
+    {
+      "role": "official-primary",
+      "publisher": "Federal Reserve Board",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "publishedAt": "2026",
+      "retrievedAt": "2026-07-21T02:20:00Z",
+      "use": "FOMC blackout Jul 18-30; decision Jul 29 14:00 ET."
+    }
+  ],
+  "unverified_banned": [
+    "Baghaei diplomacy signal (CNBC live blog) — could not be pinned to a fetchable page; DROPPED from script; intraday oil fade narrated as price action only",
+    "Web closing prints for NDX/US10Y/DXY/WTI/Brent — conflicting across outlets; superseded by TradingView feed reads per doctrine (chart = SoT for levels)",
+    "Apr 9 'Brent >$100 on Monday' line — different Monday, never a Jul 20 fact"
+  ]
+}

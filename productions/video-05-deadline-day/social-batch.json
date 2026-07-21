@@ -1,0 +1,23 @@
+{
+  "schema": "social-batch/v2",
+  "batchId": "video-05-deadline-day-launch-2026-07-17",
+  "containsSyntheticMedia": true,
+  "items": [
+    {
+      "id": "youtube-long-deadline-day",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/video-05-deadline-day/build/master.mp4",
+      "claimsGate": "productions/video-05-deadline-day/build/claims-gate.json",
+      "productionApproval": "productions/video-05-deadline-day/production-approval.json",
+      "title": "Iran Oil Deadline Day Meets a Cracking AI Trade",
+      "captionMode": "native",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "operator (exact-hash publication approval via Telegram review of master v3; sha 9c32e5c3d83a75799931409954b933d52cb9ef992b4cdcbbbaec1d498d3fbf33 re-verified at approval time; replied 'approved')",
+      "reviewedAt": "2026-07-17T08:45:56.676158+00:00",
+      "copy": "The last legal Iranian barrel cleared at one minute past midnight. The same week, the market sold the best chip earnings ever printed.\n\nThis episode walks the official record (Treasury's General License X wind-down via CBS and Axios, the Hormuz shipping halt via Al Jazeera, TSMC's filed Q2 numbers) and then works six exact chart levels: TSM's triple-tested floor, the Nasdaq 100's broken support, the S&P's nine-session band, XLE's breakout trigger, Brent's strike-week range, and the 10-year yield floor. Three cases, each with its own invalidation - the completed bars decide, not opinions.\n\nNews and education only. Not financial advice. Conditions and levels are not predictions.",
+      "approvalSha256": "e4e0891fcdc526f39f91ac4fc69ac41022db327487f50d3decb8942450fb54d6"
+    }
+  ]
+}

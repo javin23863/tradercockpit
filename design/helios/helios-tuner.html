@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filament Genesis — Helios Native Tuner v26</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Anthropic Brand Colors */
+        :root {
+            --anthropic-dark: #141413;
+            --anthropic-light: #faf9f5;
+            --anthropic-mid-gray: #b0aea5;
+            --anthropic-light-gray: #e8e6dc;
+            --anthropic-orange: #d97757;
+            --anthropic-blue: #6a9bcc;
+            --anthropic-green: #788c5d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--anthropic-light) 0%, #f5f3ee 100%);
+            min-height: 100vh;
+            color: var(--anthropic-dark);
+        }
+        .container { display: flex; min-height: 100vh; padding: 20px; gap: 20px; }
+        .sidebar {
+            width: 320px; flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 24px; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(20, 20, 19, 0.1);
+            overflow-y: auto; overflow-x: hidden;
+        }
+        .sidebar h1 { font-family: 'Lora', serif; font-size: 24px; font-weight: 500; color: var(--anthropic-dark); margin-bottom: 8px; }
+        .sidebar .subtitle { color: var(--anthropic-mid-gray); font-size: 14px; margin-bottom: 32px; line-height: 1.4; }
+        .control-section { margin-bottom: 32px; }
+        .control-section h3 { font-size: 16px; font-weight: 600; color: var(--anthropic-dark); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .control-section h3::before { content: '•'; color: var(--anthropic-orange); font-weight: bold; }
+        .seed-input {
+            width: 100%; background: var(--anthropic-light); padding: 12px; border-radius: 8px;
+            font-family: 'Courier New', monospace; font-size: 14px; margin-bottom: 12px;
+            border: 1px solid var(--anthropic-light-gray); text-align: center;
+        }
+        .seed-input:focus { outline: none; border-color: var(--anthropic-orange); box-shadow: 0 0 0 2px rgba(217, 119, 87, 0.1); background: white; }
+        .seed-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+        .regen-button { margin-bottom: 0; }
+        .control-group { margin-bottom: 20px; }
+        .control-group label { display: block; font-size: 14px; font-weight: 500; color: var(--anthropic-dark); margin-bottom: 8px; }
+        .slider-container { display: flex; align-items: center; gap: 12px; }
+        .slider-container input[type="range"] {
+            flex: 1; height: 4px; background: var(--anthropic-light-gray); border-radius: 2px;
+            outline: none; -webkit-appearance: none;
+        }
+        .slider-container input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 16px; height: 16px;
+            background: var(--anthropic-orange); border-radius: 50%; cursor: pointer; transition: all 0.2s ease;
+        }
+        .slider-container input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.1); background: #c86641; }
+        .slider-container input[type="range"]::-moz-range-thumb {
+            width: 16px; height: 16px; background: var(--anthropic-orange); border-radius: 50%;
+            border: none; cursor: pointer; transition: all 0.2s ease;
+        }
+        .value-display { font-family: 'Courier New', monospace; font-size: 12px; color: var(--anthropic-mid-gray); min-width: 60px; text-align: right; }
+        .button {
+            background: var(--anthropic-orange); color: white; border: none; padding: 10px 16px;
+            border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer;
+            transition: all 0.2s ease; width: 100%;
+        }
+        .button:hover { background: #c86641; transform: translateY(-1px); }
+        .button:active { transform: translateY(0); }
+        .button.secondary { background: var(--anthropic-blue); }
+        .button.secondary:hover { background: #5a8bb8; }
+        .button.tertiary { background: var(--anthropic-green); }
+        .button.tertiary:hover { background: #6b7b52; }
+        .button-row { display: flex; gap: 8px; margin-bottom: 8px; }
+        .button-row .button { flex: 1; }
+        .canvas-area { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; }
+        #canvas-container {
+            width: 100%; max-width: 1000px; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 20px 40px rgba(20, 20, 19, 0.1); background: #000;
+        }
+        #canvas-container canvas { display: block; width: 100% !important; height: auto !important; }
+        .loading { display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--anthropic-mid-gray); padding: 60px 0; }
+        @media (max-width: 600px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .canvas-area { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Control Sidebar -->
+        <div class="sidebar">
+            <h1>Filament Genesis</h1>
+            <div class="subtitle">Helios core physics tuner — dial the star, then send the settings back.</div>
+
+            <!-- Seed Section (ALWAYS KEEP THIS) -->
+            <div class="control-section">
+                <h3>Seed</h3>
+                <input type="number" id="seed-input" class="seed-input" value="12345" onchange="updateSeed()">
+                <div class="seed-controls">
+                    <button class="button secondary" onclick="previousSeed()">← Prev</button>
+                    <button class="button secondary" onclick="nextSeed()">Next →</button>
+                </div>
+                <button class="button tertiary regen-button" onclick="randomSeedAndUpdate()">↻ Random</button>
+            </div>
+
+            <!-- Parameters Section -->
+            <div class="control-section">
+                <h3>Physics</h3>
+
+                <div class="control-group">
+                    <label>Thread Fineness</label>
+                    <div class="slider-container">
+                        <input type="range" id="fineness" min="0" max="1" step="0.01" value="0.60" oninput="updateParam('fineness', this.value)">
+                        <span class="value-display" id="fineness-value">0.60</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Artery Strength</label>
+                    <div class="slider-container">
+                        <input type="range" id="artery" min="0" max="2" step="0.05" value="0.90" oninput="updateParam('artery', this.value)">
+                        <span class="value-display" id="artery-value">0.90</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Dark Coverage</label>
+                    <div class="slider-container">
+                        <input type="range" id="dark" min="0" max="1" step="0.01" value="0.60" oninput="updateParam('dark', this.value)">
+                        <span class="value-display" id="dark-value">0.60</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Hue (yellow → deep orange)</label>
+                    <div class="slider-container">
+                        <input type="range" id="hue" min="0" max="1" step="0.01" value="0.58" oninput="updateParam('hue', this.value)">
+                        <span class="value-display" id="hue-value">0.58</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Violet Weather</label>
+                    <div class="slider-container">
+                        <input type="range" id="violet" min="0" max="1.2" step="0.05" value="0.95" oninput="updateParam('violet', this.value)">
+                        <span class="value-display" id="violet-value">0.95</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Ionized Blue</label>
+                    <div class="slider-container">
+                        <input type="range" id="blue" min="0" max="1.5" step="0.05" value="1.05" oninput="updateParam('blue', this.value)">
+                        <span class="value-display" id="blue-value">1.05</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Serpent Width</label>
+                    <div class="slider-container">
+                        <input type="range" id="serpent" min="0" max="1" step="0.01" value="0.55" oninput="updateParam('serpent', this.value)">
+                        <span class="value-display" id="serpent-value">0.55</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Churn Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="churn" min="0.2" max="3" step="0.05" value="1.00" oninput="updateParam('churn', this.value)">
+                        <span class="value-display" id="churn-value">1.00</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Corona Reach</label>
+                    <div class="slider-container">
+                        <input type="range" id="corona" min="0.5" max="2" step="0.05" value="0.95" oninput="updateParam('corona', this.value)">
+                        <span class="value-display" id="corona-value">0.95</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Limb Blaze</label>
+                    <div class="slider-container">
+                        <input type="range" id="limb" min="0" max="2" step="0.05" value="1.00" oninput="updateParam('limb', this.value)">
+                        <span class="value-display" id="limb-value">1.00</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Prominence Topology</label>
+                    <div class="slider-container">
+                        <input type="range" id="prominence" min="0" max="2" step="0.05" value="1.00" oninput="updateParam('prominence', this.value)">
+                        <span class="value-display" id="prominence-value">1.00</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Motion Coherence</label>
+                    <div class="slider-container">
+                        <input type="range" id="motion" min="0.1" max="2" step="0.05" value="1.00" oninput="updateParam('motion', this.value)">
+                        <span class="value-display" id="motion-value">1.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions Section (ALWAYS KEEP THIS) -->
+            <div class="control-section">
+                <h3>Actions</h3>
+                <div class="button-row">
+                    <button class="button" onclick="regenerate()">Regenerate</button>
+                    <button class="button" onclick="resetParameters()">Reset</button>
+                </div>
+                <div class="button-row">
+                    <button class="button tertiary" onclick="downloadPNG()">Download PNG</button>
+                    <button class="button secondary" id="copy-btn" onclick="copySettings()">Copy Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Canvas Area -->
+        <div class="canvas-area">
+            <div id="canvas-container">
+                <div class="loading">Igniting the core...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ═══════════════════════════════════════════════════════════════════════
+    // PARAMETERS — every slider is a physical claim on the star
+    // ═══════════════════════════════════════════════════════════════════════
+    let params = {
+        seed: 12345,
+        fineness: 0.60,   // ridge sharpening exponent blend
+        artery: 0.90,     // thick bright river weight
+        dark: 0.60,       // conductance threshold: open dark space
+        hue: 0.58,        // midtone hue, yellow -> deep orange
+        violet: 0.95,     // magenta weather amount
+        blue: 1.05,       // ionized blue + blue-white cores
+        serpent: 0.55,    // dark channel iso-band width
+        churn: 1.00,      // 4D time-axis speed
+        corona: 0.95,     // falloff reach
+        limb: 1.00,       // rim blaze strength
+        prominence: 1.00, // animated limb-loop topology
+        motion: 1.00,     // coherent temporal flow, not raw playback speed
+    };
+    let defaultParams = {...params};
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // FILAMENT GENESIS ENGINE — raw WebGL, 4D simplex ridged filaments
+    // ═══════════════════════════════════════════════════════════════════════
+    const container = document.getElementById('canvas-container');
+    const canvas = document.createElement('canvas');
+    canvas.width = 1200; canvas.height = 1200;
+    const glOpts = { antialias:false, alpha:false, preserveDrawingBuffer:true };
+const gl = canvas.getContext('webgl2', glOpts) || canvas.getContext('webgl', glOpts);
+
+    const VS = `
+    attribute vec2 a;
+    void main(){ gl_Position = vec4(a,0.,1.); }
+    `;
+
+    const FS = `
+    precision highp float;
+    uniform vec2 u_res;
+    uniform float u_time;
+    uniform float u_seed;
+    uniform float u_fine;
+    uniform float u_artery;
+    uniform float u_dark;
+    uniform float u_hue;
+    uniform float u_violet;
+    uniform float u_blue;
+    uniform float u_serp;
+    uniform float u_churn;
+    uniform float u_corona;
+    uniform float u_limb;
+    uniform float u_prominence;
+    uniform float u_motion;
+
+    /* ---------- 4D simplex noise (Ashima / Stefan Gustavson, MIT) ---------- */
+    vec4 mod289(vec4 x){ return x - floor(x * (1.0/289.0)) * 289.0; }
+    float mod289(float x){ return x - floor(x * (1.0/289.0)) * 289.0; }
+    vec4 permute(vec4 x){ return mod289(((x*34.0)+1.0)*x); }
+    float permute(float x){ return mod289(((x*34.0)+1.0)*x); }
+    vec4 taylorInvSqrt(vec4 r){ return 1.79284291400159 - 0.85373472095314 * r; }
+    float taylorInvSqrt(float r){ return 1.79284291400159 - 0.85373472095314 * r; }
+    vec4 grad4(float j, vec4 ip){
+      const vec4 ones = vec4(1.0,1.0,1.0,-1.0);
+      vec4 p,s;
+      p.xyz = floor( fract (vec3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
+      p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
+      s = vec4(lessThan(p, vec4(0.0)));
+      p.xyz = p.xyz + (s.xyz*2.0 - 1.0) * s.www;
+      return p;
+    }
+    #define F4 0.309016994374947451
+    float snoise(vec4 v){
+      const vec4 C = vec4(0.138196601125011, 0.276393202250021, 0.414589803375032, -0.447213595499958);
+      vec4 i  = floor(v + dot(v, vec4(F4)) );
+      vec4 x0 = v - i + dot(i, C.xxxx);
+      vec4 i0;
+      vec3 isX = step( x0.yzw, x0.xxx );
+      vec3 isYZ = step( x0.zww, x0.yyz );
+      i0.x = isX.x + isX.y + isX.z;
+      i0.yzw = 1.0 - isX;
+      i0.y += isYZ.x + isYZ.y;
+      i0.zw += 1.0 - isYZ.xy;
+      i0.z += isYZ.z;
+      i0.w += 1.0 - isYZ.z;
+      vec4 i3 = clamp( i0, 0.0, 1.0 );
+      vec4 i2 = clamp( i0-1.0, 0.0, 1.0 );
+      vec4 i1 = clamp( i0-2.0, 0.0, 1.0 );
+      vec4 x1 = x0 - i1 + C.xxxx;
+      vec4 x2 = x0 - i2 + C.yyyy;
+      vec4 x3 = x0 - i3 + C.zzzz;
+      vec4 x4 = x0 + C.wwww;
+      i = mod289(i);
+      float j0 = permute( permute( permute( permute(i.w) + i.z) + i.y) + i.x);
+      vec4 j1 = permute( permute( permute( permute (
+                i.w + vec4(i1.w, i2.w, i3.w, 1.0 ))
+              + i.z + vec4(i1.z, i2.z, i3.z, 1.0 ))
+              + i.y + vec4(i1.y, i2.y, i3.y, 1.0 ))
+              + i.x + vec4(i1.x, i2.x, i3.x, 1.0 ));
+      vec4 ip = vec4(1.0/294.0, 1.0/49.0, 1.0/7.0, 0.0);
+      vec4 p0 = grad4(j0,   ip);
+      vec4 p1 = grad4(j1.x, ip);
+      vec4 p2 = grad4(j1.y, ip);
+      vec4 p3 = grad4(j1.z, ip);
+      vec4 p4 = grad4(j1.w, ip);
+      vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+      p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+      p4 *= taylorInvSqrt(dot(p4,p4));
+      vec3 m0 = max(0.6 - vec3(dot(x0,x0), dot(x1,x1), dot(x2,x2)), 0.0);
+      vec2 m1 = max(0.6 - vec2(dot(x3,x3), dot(x4,x4)), 0.0);
+      m0 = m0*m0; m1 = m1*m1;
+      return 49.0 * ( dot(m0*m0, vec3(dot(p0,x0), dot(p1,x1), dot(p2,x2)))
+                    + dot(m1*m1, vec2(dot(p3,x3), dot(p4,x4))) );
+    }
+    float fbm(vec4 q){
+      float a = 0.5, s = 0.0;
+      for(int i=0;i<5;i++){ s += a*snoise(q); q.xyz *= 2.03; q.w *= 1.35; a *= 0.5; }
+      return s;
+    }
+    float fbm3(vec4 q){
+      float a = 0.5, s = 0.0;
+      for(int i=0;i<3;i++){ s += a*snoise(q); q.xyz *= 2.11; q.w *= 1.3; a *= 0.5; }
+      return s;
+    }
+    vec3 hash3(vec3 p){
+      p = vec3(dot(p,vec3(127.1,311.7, 74.7)),
+               dot(p,vec3(269.5,183.3,246.1)),
+               dot(p,vec3(113.5,271.9,124.6)));
+      return fract(sin(p)*43758.5453123);
+    }
+    vec2 voronoi(vec3 x, float t){
+      vec3 n = floor(x); vec3 f = fract(x);
+      float F1 = 8.0, F2 = 8.0;
+      for(int k=-1;k<=1;k++)
+      for(int j=-1;j<=1;j++)
+      for(int i=-1;i<=1;i++){
+        vec3 g = vec3(float(i),float(j),float(k));
+        vec3 o = hash3(n+g);
+        o = 0.5 + 0.42*sin(t + 6.2831*o);
+        vec3 rr = g + o - f;
+        float d = dot(rr,rr);
+        if(d<F1){ F2=F1; F1=d; } else if(d<F2){ F2=d; }
+      }
+      return sqrt(vec2(F1,F2));
+    }
+    mat3 rotY(float a){ float c=cos(a), s=sin(a); return mat3(c,0.,-s, 0.,1.,0., s,0.,c); }
+    float hash21(vec2 p){ return fract(sin(dot(p, vec2(41.31, 289.17)))*43758.5453); }
+    float wrapPi(float a){ return atan(sin(a),cos(a)); }
+    vec3 prominenceField(vec2 p,float t,float R,float amount){
+      float r=length(p);
+      if(r<R*0.94 || r>R*1.62) return vec3(0.0);
+      float th=atan(p.y,p.x);
+      vec3 c=vec3(0.0);
+      for(int i=0;i<4;i++){
+        float fi=float(i);
+        float ang=-2.45+fi*1.63+0.15*sin(t*(0.045+0.008*fi)+fi*2.2);
+        float da=wrapPi(th-ang);
+        float span=0.20+0.035*sin(fi*2.7+0.8);
+        float q=clamp(1.0-abs(da)/span,0.0,1.0);
+        float arch=q*q*(3.0-2.0*q);
+        float h=R*(0.105+0.145*(0.5+0.5*sin(t*(0.12+0.02*fi)+fi*1.9)));
+        float target=R+h*arch;
+        float width=R*(0.010+0.006*(1.0-arch));
+        float line=exp(-abs(r-target)/max(width,0.0001))*smoothstep(0.0,0.14,q);
+        float haze=exp(-abs(r-target)/max(width*4.5,0.0001))*arch;
+        c += line*(0.72+0.28*sin(t*(0.95+0.15*fi)+da*34.0+fi))*vec3(1.0,0.58,0.16)*0.76;
+        c += haze*vec3(0.72,0.12,0.018)*0.075;
+      }
+      return c*amount;
+    }
+
+    void main(){
+      vec2 frag = gl_FragCoord.xy;
+      vec2 p = (frag - 0.5*u_res) / u_res.y;
+      float t = u_time*u_motion;
+      float R = 0.30;
+      float r = length(p);
+      float px = 1.5 / u_res.y;
+      float sd = u_seed;
+
+      vec3 col = vec3(0.0);
+
+      /* corona */
+      {
+        float d = max(r - R, 0.0);
+        vec2 dir = r > 0.0 ? p/r : vec2(1.0,0.0);
+        float wisp  = fbm3(vec4(dir*2.6*(1.0 + d*1.2), 0.37 + sd*0.7, t*0.10));
+        float wisp2 = fbm3(vec4(dir*1.3*(1.0 + d*0.6), 4.91 + sd*1.1, t*0.06));
+        d *= 1.0 + 0.28*fbm3(vec4(dir*3.2, 1.7, t*0.05));
+        float k = 1.0/u_corona;
+        float gT = exp(-d*95.0*k);
+        float gM = exp(-d*26.0*k);
+        float gW = exp(-d*9.0*k);
+        vec3 corona = gT * vec3(1.00, 0.55, 0.18) * 1.55
+                    + gM * (0.75 + 0.25*wisp)  * vec3(1.00, 0.32, 0.05) * 0.36
+                    + gW * (0.60 + 0.30*wisp2) * vec3(0.45, 0.08, 0.010) * 0.07;
+        float wispRay = pow(max(fbm3(vec4(dir*5.0, 8.2, t*0.04)), 0.0), 2.5);
+        corona += exp(-d*13.0*k) * wispRay * vec3(1.0, 0.35, 0.07) * 0.30;
+        corona *= 1.0 - smoothstep(R*1.6*u_corona, R*2.6*u_corona, r);
+        col += corona;
+      }
+      col += prominenceField(p,t,R,u_prominence);
+
+      /* spark field */
+      for(int L=0; L<2; L++){
+        float scale = (L==0) ? 14.0 : 26.0;
+        vec2 gp = p*scale;
+        vec2 cell = floor(gp);
+        vec2 fr = fract(gp);
+        float hz = hash21(cell + float(L)*13.7 + sd);
+        vec2 sp = vec2(hash21(cell+0.31+float(L)+sd), hash21(cell+0.77+float(L)+sd));
+        float ds = length(fr - sp);
+        float tw = 0.55 + 0.45*sin(t*(0.6+hz*1.8) + hz*6.28);
+        float star = smoothstep(0.06, 0.0, ds) * step(0.82, hz) * tw;
+        float far = smoothstep(R*1.02, R*1.6, r);
+        vec3 warm = mix(vec3(1.0,0.55,0.2), vec3(1.0,0.85,0.5), hz);
+        col += star * far * mix(warm, vec3(0.55,0.75,1.25), step(0.955, hz)*step(0.2,u_blue)) * 0.8;
+      }
+
+      /* the star */
+      float disc = smoothstep(R+px, R-px, r);
+      if(disc > 0.0){
+        float rr = min(r, R*0.9999);
+        float z = sqrt(R*R - rr*rr);
+        vec3 n = vec3(p, z) / R;
+        n = rotY(t*0.015) * n;
+        float mu = clamp(z/R, 0.0, 1.0);
+        float ta = t*u_churn;
+
+        vec4 P = vec4(n*2.1, ta*0.11);
+        vec3 w = vec3( fbm3(P + vec4(0.0+sd, 0.0, 0.0, 3.1)),
+                       fbm3(P + vec4(5.2, 1.3+sd, 2.8, 1.7)),
+                       fbm3(P + vec4(1.7, 9.2, 4.1+sd, 8.3)) );
+        vec3 np = n + 0.38*w;
+
+        /* fine web: per-octave sharpened ridges, exponent from fineness */
+        float e = mix(8.0, 18.0, u_fine);
+        float webSharp = 0.0, webHalo = 0.0;
+        {
+          vec4 q = vec4(np*5.0, ta*0.14);
+          q.xyz += sd*3.1;
+          float aS = 0.50, aH = 0.50;
+          for(int i=0;i<6;i++){
+            float rn = max(1.0 - abs(snoise(q)), 0.0);
+            webSharp += aS * pow(rn, e);
+            float r4 = rn*rn*rn*rn;
+            webHalo  += aH * r4*rn * 0.35;
+            q.xyz *= 2.0; q.w *= 1.3;
+            aS *= 0.75; aH *= 0.55;
+          }
+        }
+        /* arteries: thick rivers beneath the web */
+        float artery = 0.0;
+        {
+          vec4 qa = vec4(np*2.3, ta*0.10);
+          qa.xyz += sd*1.7;
+          float rna = max(1.0 - abs(snoise(qa)), 0.0);
+          artery = pow(rna, 14.0);
+        }
+        vec2 v2 = voronoi(np*9.0 + sd, ta*0.5);
+        float crack = smoothstep(0.055, 0.0, v2.y - v2.x) * 0.45;
+        float flicker = 0.80 + 0.40*fbm3(vec4(np*4.2, ta*0.5 + 7.7));
+        float patch = fbm(vec4(n*1.6, ta*0.05) + vec4(2.2+sd, 5.1, 0.7, 0.0));
+        float hot = (0.60 + 0.60*smoothstep(0.0, 0.75, patch)) * (1.25 - u_dark*0.9);
+        float mottle = 0.5 + 0.5*fbm3(vec4(np*3.4, ta*0.2));
+        vec3 base = mix(vec3(0.050, 0.009, 0.004), vec3(0.17, 0.035, 0.012), mottle) * (1.3 - u_dark*0.8) * 0.85;
+        float grain = 0.85 + 0.30*snoise(vec4(np*24.0, ta*0.7));
+        float vI = (webSharp*2.8 + artery*u_artery + webHalo*0.15 + crack*0.35) * flicker * hot * grain;
+        vI = 1.55*pow(max(vI, 0.0), 1.35);   /* contrast S-curve: deep gaps, hot peaks */
+
+        vec3 rampA = vec3(0.62, 0.06, 0.004);
+        vec3 rampB = vec3(1.00, 0.26, 0.012);
+        vec3 rampC = mix(vec3(1.00, 0.72, 0.20), vec3(1.00, 0.46, 0.05), u_hue);
+        vec3 rampD = vec3(1.00, 0.93, 0.66);
+        vec3 vein = mix(rampA, rampB, clamp(vI, 0.0, 1.0));
+        vein = mix(vein, rampC, clamp((vI-1.3)*0.75, 0.0, 1.0));
+        vein = mix(vein, rampD, clamp((vI-2.4)*0.8, 0.0, 1.0));
+        vein *= 1.0 + 0.6*smoothstep(2.2, 3.4, vI);
+
+        /* violet weather */
+        float vio = smoothstep(0.30, 0.72, fbm3(vec4(n*1.6 + 11.3 + sd*0.9, ta*0.07)));
+        vein = mix(vein, vec3(0.85, 0.34, 1.35), vio*u_violet*(1.0 - smoothstep(2.0, 3.2, vI)));
+
+        /* ionized blue + blue-white cores */
+        float ion = smoothstep(0.45, 0.85, fbm3(vec4(n*3.1 + 4.7 + sd*1.9, ta*0.09)));
+        vein = mix(vein, vec3(0.35, 0.68, 1.35), ion*0.42*u_blue*(1.0 - smoothstep(1.8, 2.8, vI)));
+        vein = mix(vein, vec3(0.80, 0.90, 1.30), clamp((vI-2.9)*0.9, 0.0, 1.0)*0.55*u_blue);
+
+        /* the serpent */
+        float w1 = mix(0.08, 0.24, u_serp);
+        float chField = fbm(vec4(n*0.80 + 0.30*w, ta*0.03) + vec4(9.4+sd*2.3, 3.7, 6.1, 0.0));
+        float a = abs(chField + 0.03);
+        float channel = smoothstep(w1, w1*0.30, a);
+        float chRim   = smoothstep(w1+0.07, w1, a) * (1.0 - smoothstep(w1, w1*0.57, a));
+
+        vI *= 1.0 - 0.97*channel;
+        vec3 surf = base * (1.0 - 0.95*channel) + vein * vI;
+        surf += channel * vec3(0.030, 0.006, 0.002);
+        surf += chRim * vec3(1.00, 0.45, 0.08) * 0.65;
+
+        /* limb */
+        float limb = pow(1.0 - mu, 6.0);
+        surf += limb * vec3(1.00, 0.38, 0.06) * 1.35 * u_limb;
+        float protr = 0.72 + 0.55*fbm3(vec4(p/max(r,1e-4)*6.0, 3.3, t*0.1));
+        float rim = smoothstep(R*0.978, R*1.0, r);
+        surf += rim * vec3(1.00, 0.70, 0.28) * 3.2 * protr * u_limb;
+
+        col = mix(col, surf, disc);
+      }
+
+      /* Reinhard-encoded HDR store: decoded and tone-mapped in post */
+      col = col / (col + 1.0);
+      gl_FragColor = vec4(col, 1.0);
+    }
+    `;
+
+    function compile(type, src){
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src); gl.compileShader(s);
+        if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)){
+            console.error(gl.getShaderInfoLog(s));
+            document.title = 'SHADER ERROR';
+        }
+        return s;
+    }
+    const prog = gl.createProgram();
+    gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+    gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(prog);
+    gl.useProgram(prog);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+    const locA = gl.getAttribLocation(prog, 'a');
+    gl.enableVertexAttribArray(locA);
+    gl.vertexAttribPointer(locA, 2, gl.FLOAT, false, 0, 0);
+    const U = {};
+    ['u_res','u_time','u_seed','u_fine','u_artery','u_dark','u_hue','u_violet','u_blue','u_serp','u_churn','u_corona','u_limb','u_prominence','u_motion']
+        .forEach(n => U[n] = gl.getUniformLocation(prog, n));
+    gl.viewport(0, 0, canvas.width, canvas.height);
+
+/* ================= multipass post: emissive bloom + filmic composite ================= */
+const QFS_H = 'precision highp float; uniform vec2 u_size;';
+const FS_BR = QFS_H + `
+uniform sampler2D u_tex;
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_size;
+  vec3 e = texture2D(u_tex, uv).rgb;
+  vec3 hdr = e / max(1.0 - e, 0.004);
+  gl_FragColor = vec4(max(hdr - 0.50, 0.0) * 0.25, 1.0);
+}`;
+const FS_BL = QFS_H + `
+uniform sampler2D u_tex;
+uniform vec2 u_dir;
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_size;
+  vec3 c = texture2D(u_tex, uv).rgb * 0.227027;
+  c += texture2D(u_tex, uv + u_dir*1.3846).rgb * 0.3162162;
+  c += texture2D(u_tex, uv - u_dir*1.3846).rgb * 0.3162162;
+  c += texture2D(u_tex, uv + u_dir*3.2308).rgb * 0.0702703;
+  c += texture2D(u_tex, uv - u_dir*3.2308).rgb * 0.0702703;
+  gl_FragColor = vec4(c, 1.0);
+}`;
+const FS_CM = QFS_H + `
+uniform sampler2D u_scene;
+uniform sampler2D u_b1;
+uniform sampler2D u_b2;
+vec3 aces(vec3 x){ return clamp((x*(2.51*x+0.03))/(x*(2.43*x+0.59)+0.14), 0.0, 1.0); }
+float hash12(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453); }
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_size;
+  vec3 e = texture2D(u_scene, uv).rgb;
+  vec3 scene = e / max(1.0 - e, 0.004);
+  vec3 hdr = scene + texture2D(u_b1, uv).rgb*4.0*0.85 + texture2D(u_b2, uv).rgb*4.0*0.85;
+  float lum = dot(hdr, vec3(0.2126, 0.7152, 0.0722));
+  hdr = max(mix(vec3(lum), hdr, 1.22), 0.0);
+  vec3 col = aces(hdr * 0.9);
+  col = pow(col, vec3(1.0/2.2));
+  col += (hash12(gl_FragCoord.xy) - 0.5) / 255.0;
+  gl_FragColor = vec4(col, 1.0);
+}`;
+function makeProgQ(src){
+  const p = gl.createProgram();
+  gl.attachShader(p, compile(gl.VERTEX_SHADER, VS));
+  gl.attachShader(p, compile(gl.FRAGMENT_SHADER, src));
+  gl.linkProgram(p);
+  return { p, la: gl.getAttribLocation(p, 'a') };
+}
+const pBright = makeProgQ(FS_BR), pBlur = makeProgQ(FS_BL), pComp = makeProgQ(FS_CM);
+let sceneT = null, halfA = null, halfB = null, quartA = null, quartB = null;
+function makeTargetQ(w, h){
+  w = Math.max(2, w); h = Math.max(2, h);
+  const tex = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  const fb = gl.createFramebuffer();
+  gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  return { fb, tex, w, h };
+}
+function allocTargetsQ(){
+  const W = canvas.width, H = canvas.height;
+  sceneT = makeTargetQ(W, H);
+  halfA = makeTargetQ(W>>1, H>>1); halfB = makeTargetQ(W>>1, H>>1);
+  quartA = makeTargetQ(W>>2, H>>2); quartB = makeTargetQ(W>>2, H>>2);
+}
+function quadPassQ(pr, target, setup){
+  gl.useProgram(pr.p);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, target ? target.fb : null);
+  const w = target ? target.w : canvas.width, h = target ? target.h : canvas.height;
+  gl.viewport(0, 0, w, h);
+  gl.uniform2f(gl.getUniformLocation(pr.p, 'u_size'), w, h);
+  setup(pr.p, w, h);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.enableVertexAttribArray(pr.la);
+  gl.vertexAttribPointer(pr.la, 2, gl.FLOAT, false, 0, 0);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
+}
+function bindTexQ(p, unit, name, tex){
+  gl.activeTexture(gl.TEXTURE0 + unit);
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.uniform1i(gl.getUniformLocation(p, name), unit);
+}
+function postProcessQ(){
+  quadPassQ(pBright, halfA, (p) => bindTexQ(p, 0, 'u_tex', sceneT.tex));
+  for(let i=0;i<2;i++){
+    quadPassQ(pBlur, halfB, (p,w,h) => { bindTexQ(p,0,'u_tex',halfA.tex); gl.uniform2f(gl.getUniformLocation(p,'u_dir'), 1.0/w, 0); });
+    quadPassQ(pBlur, halfA, (p,w,h) => { bindTexQ(p,0,'u_tex',halfB.tex); gl.uniform2f(gl.getUniformLocation(p,'u_dir'), 0, 1.0/h); });
+  }
+  quadPassQ(pBlur, quartA, (p,w,h) => { bindTexQ(p,0,'u_tex',halfA.tex); gl.uniform2f(gl.getUniformLocation(p,'u_dir'), 1.0/w, 0); });
+  for(let i=0;i<3;i++){
+    quadPassQ(pBlur, quartB, (p,w,h) => { bindTexQ(p,0,'u_tex',quartA.tex); gl.uniform2f(gl.getUniformLocation(p,'u_dir'), 1.0/w, 0); });
+    quadPassQ(pBlur, quartA, (p,w,h) => { bindTexQ(p,0,'u_tex',quartB.tex); gl.uniform2f(gl.getUniformLocation(p,'u_dir'), 0, 1.0/h); });
+  }
+  quadPassQ(pComp, null, (p) => {
+    bindTexQ(p, 0, 'u_scene', sceneT.tex);
+    bindTexQ(p, 1, 'u_b1', halfA.tex);
+    bindTexQ(p, 2, 'u_b2', quartA.tex);
+  });
+  gl.useProgram(prog);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.enableVertexAttribArray(locA);
+  gl.vertexAttribPointer(locA, 2, gl.FLOAT, false, 0, 0);
+  gl.activeTexture(gl.TEXTURE0);
+}
+
+
+    container.innerHTML = '';
+    container.appendChild(canvas);
+
+    let epoch = 12.0;
+    let start = performance.now();
+    function seedValue(){ return (params.seed % 5000) * 0.02; }
+
+    function frame(now){
+        if(!sceneT) allocTargetsQ();
+        gl.bindFramebuffer(gl.FRAMEBUFFER, sceneT.fb);
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.uniform2f(U.u_res, canvas.width, canvas.height);
+        gl.uniform1f(U.u_time, (now - start)/1000 + epoch);
+        gl.uniform1f(U.u_seed, seedValue());
+        gl.uniform1f(U.u_fine, params.fineness);
+        gl.uniform1f(U.u_artery, params.artery);
+        gl.uniform1f(U.u_dark, params.dark);
+        gl.uniform1f(U.u_hue, params.hue);
+        gl.uniform1f(U.u_violet, params.violet);
+        gl.uniform1f(U.u_blue, params.blue);
+        gl.uniform1f(U.u_serp, params.serpent);
+        gl.uniform1f(U.u_churn, params.churn);
+        gl.uniform1f(U.u_corona, params.corona);
+        gl.uniform1f(U.u_limb, params.limb);
+        gl.uniform1f(U.u_prominence, params.prominence);
+        gl.uniform1f(U.u_motion, params.motion);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        postProcessQ();
+        requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // UI CONTROL HANDLERS
+    // ═══════════════════════════════════════════════════════════════════════
+    function updateParam(name, value){
+        const key = name === 'serpent' ? 'serpent' : name;
+        params[key] = parseFloat(value);
+        document.getElementById(name + '-value').textContent = parseFloat(value).toFixed(2);
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // SEED CONTROL FUNCTIONS - ALWAYS KEEP THESE
+    // ═══════════════════════════════════════════════════════════════════════
+    function updateSeedDisplay(){
+        document.getElementById('seed-input').value = params.seed;
+    }
+    function updateSeed(){
+        let input = document.getElementById('seed-input');
+        let newSeed = parseInt(input.value);
+        if(newSeed && newSeed > 0){ params.seed = newSeed; }
+        else { updateSeedDisplay(); }
+    }
+    function previousSeed(){ params.seed = Math.max(1, params.seed - 1); updateSeedDisplay(); }
+    function nextSeed(){ params.seed = params.seed + 1; updateSeedDisplay(); }
+    function randomSeedAndUpdate(){ params.seed = Math.floor(Math.random()*999999)+1; updateSeedDisplay(); }
+
+    function regenerate(){ epoch = Math.random()*500; start = performance.now(); }
+
+    function resetParameters(){
+        params = {...defaultParams};
+        for(const k of ['fineness','artery','dark','hue','violet','blue','serpent','churn','corona','limb']){
+            const el = document.getElementById(k);
+            el.value = params[k];
+            document.getElementById(k + '-value').textContent = Number(params[k]).toFixed(2);
+        }
+        updateSeedDisplay();
+    }
+
+    function downloadPNG(){
+        const a = document.createElement('a');
+        a.download = 'helios-seed' + params.seed + '.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+    }
+
+    function copySettings(){
+        const text = JSON.stringify(params, null, 2);
+        const done = () => {
+            const b = document.getElementById('copy-btn');
+            const old = b.textContent;
+            b.textContent = 'Copied!';
+            setTimeout(() => b.textContent = old, 1200);
+        };
+        if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(text).then(done, () => prompt('Copy settings:', text));
+        } else {
+            prompt('Copy settings:', text);
+        }
+    }
+
+    window.addEventListener('load', updateSeedDisplay);
+    </script>
+</body>
+</html>

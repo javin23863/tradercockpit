@@ -1,0 +1,58 @@
+# Exact-substring receipts for every number-bearing region in the recut narration.
+
+"01":
+  - { quote: "This war did not start this week. U.S. Central Command says Operation Epic Fury began on February twenty-eighth, and this is its own strike footage from March first.", claim: clm-centcom-epic-fury-2026-03-01 }
+  - { quote: "The International Maritime Organization's current incident table counts fifty-six maritime incidents and eighteen seafarer deaths as of July fifteenth. Two more ships were damaged off Oman on Tuesday. One was abandoned.", claim: clm-imo-incidents-2026-07-15 }
+  - { quote: "When trust in that route falls, the first bill shows up in the barrel.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "Brent is holding around eighty-five. V I X is around sixteen. The ten-year yield is near four point five seven.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "Brent is holding around eighty-five. V I X is around sixteen. The ten-year yield is near four point five seven.", claim: clm-chart-vix-2026-07-15-cutoff }
+  - { quote: "Brent is holding around eighty-five. V I X is around sixteen. The ten-year yield is near four point five seven.", claim: clm-chart-us10y-2026-07-15-cutoff }
+
+"02":
+  - { quote: "The first mistake is acting like the market just discovered the war.", claim: clm-centcom-epic-fury-2026-03-01 }
+  - { quote: "One is a military event. The other can threaten freight, insurance, delivery timing, and the reliability of oil flows.", claim: clm-centcom-epic-fury-2026-03-01 }
+  - { quote: "On July fourteenth, AL BAHYAH and MOMBASA B were damaged thirteen nautical miles off Oman. Two seafarers died on AL BAHYAH. Three were injured. MOMBASA B was abandoned after eleven injuries.", claim: clm-imo-incidents-2026-07-15 }
+  - { quote: "The same day, U.S. Treasury announced sanctions covering more than fifty people, companies, and vessels tied by Treasury to Iranian oil exports and shipping.", claim: clm-treasury-iran-shipping-network-2026-07-14 }
+  - { quote: "The question is which pressure gauge moves first, which one follows, and which one refuses.", claim: clm-chart-brent-2026-07-15-cutoff }
+
+"03":
+  - { quote: "This is where our Godseye view earns the cut. Not as a spinning globe. As a pressure map. The route, the surrounding coast, and the energy infrastructure belong in one frame because they explain the mechanism.", claim: clm-godseye-hormuz-infra-2026-07-15 }
+
+"04":
+  - { quote: "Start with Brent on the daily chart. It closed July tenth at seventy-five twenty-two. It jumped to eighty-three thirty-one on Monday, then traded up to eighty-seven fifty-five on Tuesday before closing at eighty-five fifteen.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "Today Brent opened at eighty-five twenty-one and traded between eighty-four fifty-one and eighty-six fifty-five before this recording cutoff.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "The lower decision area is eighty-three to eighty-four. If buyers defend that zone, the war premium stays in the barrel. The upper decision area is eighty-seven fifty-five to eighty-eight. A completed daily close above that range would tell me the market is demanding another layer of compensation for the Strait.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "If Brent loses eighty-three after a real improvement in navigation, the premium is probably unwinding. If Brent loses eighty-three with no improvement in shipping, I look for another driver before I declare the story dead. Oil is the first gauge in this cockpit.", claim: clm-chart-brent-2026-07-15-cutoff }
+
+"05":
+  - { quote: "Now look at X L E, the energy sector fund. It closed July tenth at fifty-five oh-eight, jumped to fifty-six seventy-four on Monday, and finished Tuesday at fifty-six ninety-five. Early today it traded near fifty-six seventy-three.", claim: clm-chart-xle-2026-07-15-cutoff }
+  - { quote: "Producers received the first wave of the oil premium, but the follow-through is already less explosive than the first jump.", claim: clm-chart-xle-2026-07-15-cutoff }
+  - { quote: "The support line is Tuesday's low at fifty-six twenty-nine. The immediate ceiling is fifty-seven twenty-two. If Brent pushes through eighty-eight and X L E clears fifty-seven twenty-two with it, the producer channel is working.", claim: clm-chart-xle-2026-07-15-cutoff }
+  - { quote: "If Brent rallies while X L E slips under fifty-six twenty-nine, I stop calling it a clean energy trade.", claim: clm-chart-xle-2026-07-15-cutoff }
+
+"06":
+  - { quote: "Now test the broad market. The S and P five hundred fell to seventy-five oh-six on Monday, then recovered to seventy-five forty-three on Tuesday.", claim: clm-chart-spx-2026-07-14 }
+  - { quote: "V I X makes the split even clearer. It closed Monday at sixteen fifty after trading as high as seventeen fifty-six. Early today it was near sixteen sixteen.", claim: clm-chart-vix-2026-07-15-cutoff }
+  - { quote: "The ten-year yield is near four point five seven, below Tuesday's four point five eight seven close and below Monday's four point six two four close.", claim: clm-chart-us10y-2026-07-15-cutoff }
+
+"07":
+  - { quote: "This morning's Producer Price Index adds a useful twist. Final demand prices fell zero point three percent in June. Goods prices fell one point four percent. Energy prices fell six point four percent. Services rose zero point two percent.", claim: clm-bls-ppi-2026-06 }
+  - { quote: "The P P I measure that strips out food, energy, and trade services rose zero point one percent in June and five point one percent over the year.", claim: clm-bls-ppi-2026-06 }
+  - { quote: "The ten-year near four point five seven says rates traders are not treating the oil move as a new inflation breakout yet. If Brent closes above eighty-eight and the ten-year pushes through four point six four, that changes.", claim: clm-chart-us10y-2026-07-15-cutoff }
+
+"08":
+  - { quote: "Here is the base case. Brent holds between roughly eighty-three and eighty-eight. X L E stays above fifty-six twenty-nine. V I X stays below seventeen fifty-six.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "Here is the base case. Brent holds between roughly eighty-three and eighty-eight. X L E stays above fifty-six twenty-nine. V I X stays below seventeen fifty-six.", claim: clm-chart-xle-2026-07-15-cutoff }
+  - { quote: "Here is the base case. Brent holds between roughly eighty-three and eighty-eight. X L E stays above fifty-six twenty-nine. V I X stays below seventeen fifty-six.", claim: clm-chart-vix-2026-07-15-cutoff }
+  - { quote: "Escalation needs more than another frightening clip. I want a new shipping incident or policy shock, a completed Brent close above eighty-seven fifty-five to eighty-eight, and at least one second gauge. X L E above fifty-seven twenty-two says producers agree. V I X above seventeen fifty-six says fear is spreading.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "Escalation needs more than another frightening clip. I want a new shipping incident or policy shock, a completed Brent close above eighty-seven fifty-five to eighty-eight, and at least one second gauge. X L E above fifty-seven twenty-two says producers agree. V I X above seventeen fifty-six says fear is spreading.", claim: clm-chart-xle-2026-07-15-cutoff }
+  - { quote: "Escalation needs more than another frightening clip. I want a new shipping incident or policy shock, a completed Brent close above eighty-seven fifty-five to eighty-eight, and at least one second gauge. X L E above fifty-seven twenty-two says producers agree. V I X above seventeen fifty-six says fear is spreading.", claim: clm-chart-vix-2026-07-15-cutoff }
+  - { quote: "One market can be right about one risk without every asset joining the same trade.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "An unwind also needs two pieces. I want an official improvement in navigation, then Brent below eighty-three to eighty-four and X L E below fifty-six twenty-nine.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "An unwind also needs two pieces. I want an official improvement in navigation, then Brent below eighty-three to eighty-four and X L E below fifty-six twenty-nine.", claim: clm-chart-xle-2026-07-15-cutoff }
+
+"09":
+  - { quote: "The S and P, V I X, and the ten-year are not pricing synchronized panic.", claim: clm-chart-us10y-2026-07-15-cutoff }
+  - { quote: "So keep eighty-three to eighty-four and eighty-seven fifty-five to eighty-eight on Brent. Keep fifty-six twenty-nine and fifty-seven twenty-two on X L E. Keep seventeen fifty-six on V I X.", claim: clm-chart-brent-2026-07-15-cutoff }
+  - { quote: "So keep eighty-three to eighty-four and eighty-seven fifty-five to eighty-eight on Brent. Keep fifty-six twenty-nine and fifty-seven twenty-two on X L E. Keep seventeen fifty-six on V I X.", claim: clm-chart-xle-2026-07-15-cutoff }
+  - { quote: "So keep eighty-three to eighty-four and eighty-seven fifty-five to eighty-eight on Brent. Keep fifty-six twenty-nine and fifty-seven twenty-two on X L E. Keep seventeen fifty-six on V I X.", claim: clm-chart-vix-2026-07-15-cutoff }

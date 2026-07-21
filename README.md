@@ -20,8 +20,9 @@ Channel: [@Thetradercockpit](https://youtube.com/@Thetradercockpit) · Landing: 
 | **`MARKET-ANALYSIS-DOCTRINE.md`** | *How we analyze a market.* Fixed watchlist, shock taxonomy, transmission map, cross-asset confirmation, scenario protocol, and the 7-question brainstorm that every script is written from. Makes two different writers produce the same analysis. |
 | **`BRAND.md`** | *How we look and sound.* Red `#FF1744` on black, monospace, gauge mark; thumbnail rules; profile copy. |
 | **`GROWTH-AUTHORITY-PLAYBOOK.md`** | *How each platform is played.* Per-platform doctrine sourced to the recognized authority (Galloway / Mosseri / TikTok Creator Portal / Graham Stephan). |
+| **`GROWTH-EXPERIMENT-SYSTEM.md`** | *How ideas become measured learning.* Reusable audience/angle/hook/format/offer libraries, one-variable experiment cards, and the kill/iterate/reuse gate across social acquisition and the future consumer handoff. |
 
-The skills below treat all three as mandatory inputs. Change the doctrine, and every future video changes with it.
+The skills below treat these as mandatory inputs. Change the doctrine, and every future video changes with it.
 
 All social-media asset requests first pass through the project skill
 [`tradercockpit-free-media`](.agents/skills/tradercockpit-free-media/SKILL.md). It enforces the
@@ -82,6 +83,7 @@ tools/              produce.py, publish.py, claims_gate.py, visuals/ (charts, ne
 tools/handoff/      the scripts that recovered/replaced live posts — CDP drivers, recut, platform replace
 productions/        one dir per video: vo.txt, claims.yaml, receipts, charts, shorts  (v4 = the baseline)
 docs/               the landing page (GitHub Pages) — the marketing surface
+design/helios/      immutable Helios v27 visual/motion reference and integration-gap receipt
 ops/                setup + SEO runbooks (creds, Meta/YouTube/social SEO, studio-kit wiring)
 handoffs/           dated session handoffs — read the newest before you touch anything live
 studio-kit/         extracted ai-video-studio-kit (clipper, generators)

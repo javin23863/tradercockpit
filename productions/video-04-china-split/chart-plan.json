@@ -1,0 +1,94 @@
+[
+  {
+    "out": "02-sse",
+    "symbol": "SSE:000001",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 20},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 3955.5781, "time": 1784079000, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 3882.4126, "time": 1784165400, "overrides": {"linecolor": "#26A69A", "linewidth": 2}}
+      ]},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 3867.6012, "time": 1784165400, "overrides": {"linecolor": "#EF5350", "linewidth": 3}},
+        {"type": "horizontal_line", "price": 3967.1262, "time": 1783992600, "overrides": {"linecolor": "#EF5350", "linewidth": 2}}
+      ]}
+    ]
+  },
+  {
+    "out": "03-szse",
+    "symbol": "SZSE:399001",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 20},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 14779.3965, "time": 1784079000, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 14488.6541, "time": 1784165400, "overrides": {"linecolor": "#26A69A", "linewidth": 2}}
+      ]},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 14386.414, "time": 1784165400, "overrides": {"linecolor": "#EF5350", "linewidth": 3}},
+        {"type": "horizontal_line", "price": 14924.8678, "time": 1783992600, "overrides": {"linecolor": "#EF5350", "linewidth": 2}}
+      ]}
+    ]
+  },
+  {
+    "out": "04-fxi",
+    "symbol": "AMEX:FXI",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 20},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 33.77, "time": 1784035800, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 34.28, "time": 1784122200, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 34.545, "time": 1784122200, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "05-usdcnh",
+    "symbol": "FX_IDC:USDCNH",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 20},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 6.76627, "time": 1784066400, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 6.76926, "time": 1784152800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 6.77210, "time": 1784152800, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "06-copper",
+    "symbol": "COMEX:HG1!",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 20},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 6.341, "time": 1784066400, "overrides": {"linecolor": "#26A69A", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 6.3875, "time": 1784152800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}}
+      ]},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 6.4195, "time": 1784152800, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  },
+  {
+    "out": "07-spx",
+    "symbol": "SP:SPX",
+    "tf": "1D",
+    "stages": [
+      {"holdSec": 20},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 7543.59, "time": 1784035800, "overrides": {"linecolor": "#F0B90B", "linewidth": 2}},
+        {"type": "horizontal_line", "price": 7572.4, "time": 1784122200, "overrides": {"linecolor": "#26A69A", "linewidth": 2}}
+      ]},
+      {"holdSec": 20, "draw": [
+        {"type": "horizontal_line", "price": 7581.5, "time": 1784122200, "overrides": {"linecolor": "#EF5350", "linewidth": 3}}
+      ]}
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "duration": 43.679,
+      "label": "tsmc-seventy-seven-percent-rotation",
+      "selection": "AI-mode regex candidate 1; opening contrast between TSMC profit and Nasdaq/energy rotation"
+    },
+    {
+      "start": 44.13,
+      "duration": 34.625,
+      "label": "iran-oil-license-x-deadline",
+      "selection": "AI-mode regex candidate 2; exact oil-policy mechanism and date, ending on the legal cash-path payoff"
+    },
+    {
+      "start": 107.739,
+      "duration": 37.065,
+      "label": "tsmc-record-quarter-sold",
+      "selection": "AI-mode regex candidates 4-5; named asset, record figures, and counterintuitive price reaction"
+    }
+  ]
+}

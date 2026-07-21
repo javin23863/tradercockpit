@@ -1,0 +1,62 @@
+{
+  "schema": "social-batch/v1",
+  "batchId": "video-03-war-premium-launch-2026-07-16",
+  "containsSyntheticMedia": true,
+  "items": [
+    {
+      "id": "instagram-signature-pressure-chain",
+      "channel": "instagram",
+      "status": "approved",
+      "asset": "productions/video-03-war-premium/shorts/recut-v3/clip-002-do-not-trade-the-siren.vertical.mp4",
+      "claimsGate": "productions/video-03-war-premium/build/claims-gate.json",
+      "reviewedBy": "operator-explicit-upload-directive",
+      "reviewedAt": "2026-07-15T21:32:18.3352024Z",
+      "approvalSha256": "caaf7e0027b4d9d2527a5a55008ca673d7ca7373b15d1578ec87a888ce649273",
+      "copy": "Don't trade the siren. Trade the pressure chain.\n\nA war headline is the alarm—not the portfolio map. Watch the pressure travel through Brent, producers, volatility and rates. Where does the chain break first for you?\n\nRecorded July 15, 2026. News and education only. #markets #oil #geopolitics #riskmanagement #investing"
+    },
+    {
+      "id": "facebook-signature-pressure-chain",
+      "channel": "facebook",
+      "status": "approved",
+      "asset": "productions/video-03-war-premium/shorts/recut-v3/clip-002-do-not-trade-the-siren.vertical.mp4",
+      "claimsGate": "productions/video-03-war-premium/build/claims-gate.json",
+      "reviewedBy": "operator-explicit-upload-directive",
+      "reviewedAt": "2026-07-15T21:32:18.3352024Z",
+      "approvalSha256": "41989499859410210bd7d4b8d2846c657d32571515dd924c3e59afb9054940d3",
+      "copy": "Don't trade the siren. Trade the pressure chain.\n\nA war headline is the alarm—not the portfolio map. Watch the pressure travel through Brent, producers, volatility and rates. Where does the chain break first for you?\n\nRecorded July 15, 2026. News and education only. #markets #oil #geopolitics #riskmanagement #investing"
+    },
+    {
+      "id": "youtube-long-pressure-chain",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/video-03-war-premium/build/master-clean.mp4",
+      "claimsGate": "productions/video-03-war-premium/build/claims-gate.json",
+      "reviewedBy": "operator-explicit-upload-directive",
+      "reviewedAt": "2026-07-15T21:32:18.3352024Z",
+      "approvalSha256": "5ba8b42983e753e61031ad77c082f60a5017f6fb7d250030390d4b5e1b25c596",
+      "copy": "The war is real. The market message is selective.\n\nBrent is carrying a Strait of Hormuz premium, while energy stocks, the S&P 500, volatility and the ten-year tell us how far that pressure has—or has not—traveled. This episode maps the chain from shipping risk to crude, producers, inflation-sensitive assets and the wider portfolio.\n\nNews and education only. Not financial advice. Conditions and levels are not predictions."
+    },
+    {
+      "id": "youtube-short-pressure-chain",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/video-03-war-premium/shorts/recut-v3/clip-002-do-not-trade-the-siren.vertical.mp4",
+      "claimsGate": "productions/video-03-war-premium/build/claims-gate.json",
+      "reviewedBy": "operator-explicit-upload-directive",
+      "reviewedAt": "2026-07-15T21:32:18.3352024Z",
+      "approvalSha256": "d50a2b459089002b39b9236741ddbc8355d3c43952a048c780495dbf3c2cd7a6",
+      "copy": "Don't trade the siren. Trade the pressure chain.\n\nA war headline is the alarm—not the portfolio map. Watch the pressure travel through Brent, producers, volatility and rates. Where does the chain break first for you?\n\nRecorded July 15, 2026. News and education only. #Shorts #markets #oil #geopolitics #riskmanagement #investing"
+    },
+    {
+      "id": "tiktok-signature-pressure-chain",
+      "channel": "tiktok",
+      "status": "approved",
+      "asset": "productions/video-03-war-premium/shorts/recut-v3/clip-002-do-not-trade-the-siren.vertical.mp4",
+      "claimsGate": "productions/video-03-war-premium/build/claims-gate.json",
+      "reviewedBy": "operator-explicit-upload-directive",
+      "reviewedAt": "2026-07-15T21:32:18.3352024Z",
+      "approvalSha256": "a6204187bc581b1b2d2dfe7c54c82f44ebd19a94e1a657aaf90941c491bfb035",
+      "copy": "Don't trade the siren. Trade the pressure chain. A war headline is the alarm—not the portfolio map. Where does the chain break first for you? #stockmarket #investing #markets #finance #FinTok #oil #geopolitics"
+    }
+  ]
+}

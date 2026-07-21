@@ -1,207 +1,248 @@
 ---
 name: daily-news-video
-description: >
-  Produce today's TraderCockpit finance-news video end-to-end: fact pass, machine-persona
-  script, God's Eye b-roll capture, real-data chart cards, VO/captions/assemble/shorts,
-  publish gate. Use when the user says "today's video", "daily video", "make the news
-  video", or names a market story to cover.
+description: Produce a sourced TraderCockpit market-news video or vertical end to end. Use for today's video, a daily market video, a finance-news script, a long-form market breakdown, or social derivatives from a market story.
 ---
 
-# daily-news-video
+# Daily news video
 
-Repo: `C:\Users\MSI\Desktop\OpenMontage-Skill`. Engine python:
-`OpenMontage\.venv\Scripts\python.exe` ($py below). Knowledge base:
-`C:\Users\MSI\Desktop\TraderCockpit-Vault` (read `_meta/hot.md` first).
+Resolve every path from the current TraderCockpit checkout. Read `AGENTS.md`, `BRAND.md`,
+`GROWTH-AUTHORITY-PLAYBOOK.md`, the active vault hot cache/index, `market-analysis`, and
+`tradercockpit-free-media` before producing. Use only `<repo>/OpenMontage`; external provider cost
+is $0.
 
-> **✅ HALT LIFTED (operator, 2026-07-14).** Skills proven; production resumed. Carry the
-> bootcamp doctrine into every cut: TA charts dominant + full price axis, visible news source
-> badges, GE sparingly, StockedUp portfolio-first voice (vault [[Production Halt — Skills First]],
-> [[TradingView TA Runbook]], [[Script Voice Guide — StockedUp Decode]]). Upload still gated on
-> operator review of master.mp4.
+## Output contract
 
-> **⭐ QUALITY BASELINE (operator, 2026-07-14): v4 IS THE FLOOR.** `productions/video-02-hormuz-v4/`
-> (vo.txt + claims.yaml + vo-receipts.yaml + ta-work/ + HANDOFF.md) is the reference build —
-> published https://youtu.be/IJjUNeuJSNE (bar-free re-upload; original b_EvEGbOHUc is private). Every future video matches it on: chart-true numbers
-> through the claims gate, replay-pinned frame-verified TA charts, expanded StockedUp script
-> craft (see "Script craft" below), cloned VO, 10-12 min. Anything beyond v4 is improvement;
-> anything below it is a regression — do not ship.
+- Trust-first post-close market recap, published 17:00 US/Eastern after the 16:00 cash close.
+  The subject is the session that just closed; the next session is the outlook, not the lead.
+  No product pitch in narration.
+- One story, one portfolio thesis, **10–12 minutes ALWAYS** (operator 2026-07-21: ad inventory —
+  mid-rolls — not editorial preference). MEASURED clone rate is **~197 wpm** (2026-07-21: 1,931
+  words rendered 9:47 — under the floor; 2,049 words rendered 10:24), so the band is
+  **2,000–2,350 words**; size the script with this number before TTS and expand thin sections
+  rather than shipping short. After the VO stage, ffprobe `build/vo-full.wav` BEFORE assemble —
+  if it is under 10:00, extend sections with already-receipted unused claim facts and re-record
+  only the changed sections (delete their `vo-NN.wav` + `vo-full.wav`; the runner reuses the rest).
+  Depth comes from the v4 craft moves: drill sector → single names, walk every level's mechanism,
+  three-beat chart sections (numbers walk → why mechanism → level framework).
+- **Instruments keep their names** (operator 2026-07-21: "The S&P 500 is the S&P 500. It's not
+  the referee. The Dow is the Dow. The Nasdaq is the Nasdaq."). No assigned personas, nicknames,
+  or role metaphors for instruments — no "the referee", "the fear gauge", "the honesty check",
+  "the quiet number". Chart-structure vocabulary (support/resistance/shelf/floor/ceiling) is
+  trader speech and stays. The gate BLOCKs the known persona list; when a new one slips through
+  review, add it to `PROCESS_PATTERNS["instrument persona"]` in `tools/script_style_gate.py`
+  same-wave.
+- **No negate-then-replace template** ("if it's not this, it's that" — operator 2026-07-21:
+  the AI-tell). "X is priced, not panicked", "that is not A. That is B", "this isn't X anymore —
+  it's Y" — state the positive claim directly instead. The gate counts these deterministically
+  (corrective contrast, BLOCK at >1). One genuinely earned correction per script is the ceiling.
+- Price/technical levels come from TradingView as end-of-day snapshots; events come from dated
+  primary sources.
+- Charts dominate. Use 4–6 story-required chart clips, 1–3 contained source visuals, and 0–1
+  Godseye shot. Do not capture the entire dashboard merely because it was scanned.
+- Every chart shot is the completed session: the closing candle printed, the day's full range
+  visible, levels drawn off settled prints. No mid-session or pre-open snapshots.
+- Narration uses the existing operator voice through `tools/tts_chatterbox.py` and
+  `productions/_voice/operator-clean.wav`.
+- Operator approval of the exact `vo.txt` hash is a separate hard gate before TTS, final chart
+  capture, scene-plan/visual assembly, or render. Record it in `script-approval.json`; a claims,
+  style, or editorial PASS does not substitute for operator script approval.
+- Existing public uploads stay public. A new or revised hash always needs its own approval.
 
-## Standing rules (operator, 2026-07-13 — do not relax)
-- Trust-first news. Product NEVER pitched in VO; landing link in description only.
-- Topic litmus: name the affected asset class in one sentence, or skip the topic.
-- **10-12 minutes** (operator 2026-07-14: "8+mins always 10-12 best"); optimize retention, never pad.
-  Cloned voice measures **~191 wpm** → target **1,900-2,300 words** across 13 sections. Size the
-  script with this number, not a guess — v4's first cut ran 9.3 min at 1,779 words and had to be expanded.
-- Every number traces to the day's fact pack; UNVERIFIED items are banned from script.
-- Voice = CLONED OPERATOR (2026-07-14, bm_george retired as "too robotic"): VO stage is
-  `productions/_voice/.venv-clone/Scripts/python.exe tools/tts_chatterbox.py <prod>
-  --ref productions/_voice/operator.wav` (drop-in for produce.py --stage vo; same build/
-  artifacts). Persona rules unchanged: reports, never hypes, never predicts, not financial advice.
-- Captions = YouTube auto (operator 2026-07-14): DELIVERABLE IS `master-clean.mp4` (no
-  burned captions). Still run --stage captions (shorts clipper needs the SRT).
-- NO upload without operator review of master.mp4.
-- **Visual doctrine (reject #2/#3, vault [[Video Format v2 — StockedUp Model]]):** live
-  TradingView TA charts are the DOMINANT visual (full price axis, never cut off); news
-  clippings MUST show a visible source badge (outlet + date); God's Eye SPARINGLY
-  (~15% runtime, b-roll only — cold open / one flyover / outro), never the main lane.
-- **Chart accuracy (operator 2026-07-14, traders WILL roast mismatches — see vault
-  [[TradingView TA Runbook]] "Accuracy discipline"):** every asset named in VO gets its
-  OWN chart shot; stated timeframe == chart TF (verify `chart_get_state` + read the
-  frame header); symbol shown == asset discussed; and on-chart numbers == spoken
-  numbers — read levels OFF the chart (`ohlcv`/`quote`/pine lines) and script THOSE
-  (chart = source for LEVELS, news = source for EVENTS; v3 died on live drift: VO said
-  "~79" from a morning news snapshot, chart showed the 83 close). Date-pinned story →
-  `replay` to the broadcast date so the last bar is the day you narrate.
-- **Language = portfolio-first, StockedUp voice** (vault [[Script Voice Guide — StockedUp Decode]]).
-  Talk about the viewer's money and where the action is; ban "how it affects your screen".
-- **Analysis doctrine is a MANDATORY input (operator 2026-07-14):** run the `market-analysis`
-  skill (`MARKET-ANALYSIS-DOCTRINE.md`, repo root) BEFORE scripting — the script is written from
-  its `analysis-brief.md`, never straight from headlines. The brief's claims feed claims.yaml;
-  its chart list feeds the shot list. No analytical claim in VO that is not in the brief.
-- **Brand + growth doctrine are MANDATORY inputs (operator 2026-07-14):** read `BRAND.md` and
-  `GROWTH-AUTHORITY-PLAYBOOK.md` (repo root) before packaging. Non-negotiables from them:
-  - **Package BEFORE you produce (Galloway):** decide the ONE idea, render the thumbnail, write the
-    title — *first*. Thumbnail via `node tools/visuals/render_thumb.cjs --out <prod>/thumb.png
-    --eyebrow "<TICKER>" --num "<$/%>" --phrase "<≤5 words, *red* on the key word>"` (landing
-    red/black, gauge corner). Title = primary keyword in first ~60 chars.
-  - **Identity:** red `#FF1744` on black `#08030a`, monospace, gauge mark. Assets in
-    `tools/visuals/brand/` (regen: `node tools/visuals/render_brand.cjs`). Unified handle
-    **@thetradercockpit** everywhere.
-  - **Verticals ship clean + hook-first (Mosseri/TikTok):** first 3s hook, NO foreign watermark,
-    burned word-captions, our VO. TikTok cut wants a trending sound + a reply-baiting first comment.
-  - **Core hashtags:** `#stockmarket #investing #markets #finance #FinTok` + 2-4 topical.
-- **Publish fans to FOUR platforms (operator 2026-07-14):** `tools/publish.py ... --platforms
-  youtube instagram facebook tiktok --thumbnail <prod>/thumb.png`. TikTok is opt-in via the sibling
-  `TiktokAutoUploader` (one-time `cli.py login`; wrapper `tools/upload_tiktok.py`, `--dry-run`
-  reports cookie readiness). Public uploads STILL operator-gated.
+## Voice authority
 
-## Steps
+Use `productions/video-01/vo.txt` and `productions/video-02-hormuz-v4/vo.txt` as the current
+operator-preferred reference corpus. Extract habits; do not copy sentences.
 
-1. **Fact pass** — spawn the `fact-pack` agent (see `.claude/agents/fact-pack.md`) with
-   the day's story. Save result as `productions/video-NN-<slug>/FACTS-<date>.md`, and
-   mint the claim store `claims.yaml` from it (schema: id, subject, predicate, value,
-   unit?, as_of, source, retrieved_at, status). Claims are minted HERE ONLY.
-2. **Script** — write `productions/video-NN-<slug>/vo.txt`: `## NN visual-slug` sections,
-   numbers written longhand for TTS, cold open ≤15s, 12-14 sections for 8+ min.
-   Model on `productions/video-02-hormuz/vo.txt`. **Write in the StockedUp voice** (vault
-   [[Script Voice Guide — StockedUp Decode]]): signature line, portfolio-first, conditional
-   plays, price RANGES not single ticks. Write `vo-receipts.yaml` alongside:
-   every number-bearing fragment quotes → claim id (single_source claims need
-   `attributed: true` and on-air attribution).
-2b. **ONTOLOGY GATE (blocking)** — `& $py tools\claims_gate.py productions\<vid>`.
-   BLOCK = fix script or claims until PASS; never proceed on BLOCK. The gate verdict
-   (`build/claims-gate.json`) is the receipt that everything the machine says traces
-   to a sourced, dated claim.
-2c. **Script craft (v4 baseline — what "good" reads like, model on
-   `productions/video-02-hormuz-v4/vo.txt`):**
-   - Every chart section = three beats: the NUMBERS walk (Fri close → Mon close → % —
-     all read off the feed), the WHY mechanism (one paragraph of plain-English causality:
-     "an oil shock is an inflation shock, and inflation keeps the Fed careful"), and the
-     LEVEL FRAMEWORK ("Above, Friday's close at X. Below, Monday's low at Y. Between
-     those lines, everything is noise.").
-   - Drill down inside sections: sector fund → its single-name heavyweights (XLE → XOM/CVX),
-     index → its pain trade (SPX → NVDA), asset → its driver chart (gold → 10Y yield).
-     Multiple visuals per section via `NN-` prefix files, sorted order = narration order.
-   - Scenario sections: EVERY spoken level drawn ON the chart with axis tags — a spoken
-     "one fifty" with no 150 line is a chart-true FAIL. Walk the map bottom-up, name whose
-     model each line is, close on the asymmetry ("nobody models it sitting still").
-   - Outro = recap ("Quick recap so you walk in ready") over REUSED chart clips
-     (copy 2 chart clips to 13-a/13-b so the GE outro clip never loop-restarts), then
-     signature close.
-   - Rhetorical number-words trip the gate ("two lines", "re-price first", "a quarter
-     that ends") — rephrase them; only mint receipts for honest data claims. Arithmetic
-     derived from a chart claim (83→100 = "roughly a twenty percent move") maps to that claim.
-3. **VO** — `productions/_voice/.venv-clone/Scripts/python.exe tools/tts_chatterbox.py
-   productions/<vid> --ref productions/_voice/operator-clean.wav`. Wrapper SKIPS existing
-   wavs and **parses vo.txt ONCE at launch** — any text edit after launch means: wait for
-   the run, delete only the affected `vo-NN.wav` + `vo-full.wav`, rerun (only those regen).
-   Measure the result: if vo-full is under 10 min, expand sections and regen the deltas —
-   do not ship under the band.
-4. **God's Eye b-roll** — write `tools/visuals/shots-<slug>.json` (schema + cinematography
-   rules in vault [[God's Eye Footage Engine]]; also comments in godseye_capture.mjs).
-   Launch app with `--remote-debugging-port=9222`, run capture, **Read one extracted
-   frame per shot to verify** before accepting. Copy keepers into
-   `productions/<vid>/visuals/` with section-number prefixes.
-5. **Charts (PRIMARY visual lane).** Two options:
-   - **Live TradingView TA (preferred, dominant — the v4 recipe, per symbol):**
-     `tv` CLI = `node C:\Users\MSI\repos\tradingview-mcp\src\cli\index.js`. Launch
-     `scripts\launch_tv_debug.bat`, MAXIMIZE, `tv ui panel watchlist close` (panel eats
-     ~290px of canvas). Then per chart: `tv symbol X` → `tv timeframe 1D` →
-     `tv replay start --date <broadcast+1>` (replay persists across symbol switches; the
-     +1 gets the COMPLETE prior session bar) → `tv ohlcv --count 2` (Fri+Mon bars — these
-     are THE numbers the script speaks; mint clm-chart-* from them) → `tv draw shape -t
-     horizontal_line -p <level> --time <bartime> --overrides '{"linecolor":"#26A69A",...}'`
-     (Fri close teal #26A69A, second level amber #F0B90B, scenario reds #EF5350) →
-     `node tools/visuals/cdp_chart_shot.mjs <out.png> 2560 1440 [--fit]` (--fit only to
-     reset a panned view; NEVER --fit after a manual price-scale set) → **Read the png:**
-     header = symbol · 1D · exchange, last close matches ohlcv, level tags on axis, no
-     crosshair/context-menu/tooltip → `tv draw remove <id>` before switching symbol.
-     Off-screen scenario levels: `tv ui eval` →
-     `getPanes()[0].getMainSourcePriceScale().setAutoScale(false); setVisiblePriceRange({from,to})`,
-     shoot, then `setAutoScale(true)`. Drawings do NOT survive an app relaunch.
-     Stills→clips: ffmpeg loop pattern in v4 HANDOFF.md (scale -2:1080, right-crop keeps
-     axis, drawtext ticker label top-left, h264_nvenc cq19).
-     Full command reference + hard ceilings in vault [[TradingView TA Runbook]].
-     **Plan cap: Basic = 2 indicators/chart
-     (operator's Supertrend + SMC fill both) — do NOT try to `indicator add`; it silently
-     fails + pops an upsell.** ALWAYS restore at the end: remove drawings, autoscale on,
-     `tv replay stop`, back to TVC:UKOIL 1D, watchlist reopen. NEVER `.remove()` a TV DOM
-     node (use `display:none`) — see Failure notes.
-   - **Static cards (fallback):** edit CHARTS/CARDS dicts in `tools/visuals/render_visuals_v02.py`,
-     run `fetch_chart_data.py`, then the renderer with `-u`, **sequentially — never two
-     renders at once (shared cfg.json)**.
-6. **Assemble** — stages `captions`, `assemble`, `shorts`. Heed `WARN ... loop restart
-   visible` for real-footage clips (still-image clips are immune) — pad that section with
-   reused chart clips (`NN-a-*.mp4`) instead of shipping a visible restart. Verify:
-   ffprobe **master-clean.mp4** duration ≈ VO length; extract + **Read 5 spot frames**
-   (hook, one TA chart, one news card, one late chart, outro) — no burned captions, no
-   crosshair, labels readable.
-   **Shorts lane:** run with `CLIP_ANCHOR=right` env (`CLIP_ANCHOR=right $py tools\produce.py
-   <vid> --stage shorts`) — chart-dominant footage needs the RIGHT-edge crop to keep the
-   price axis; a center crop cuts the axis + candles off (v4 first shorts pass wasted this way).
-   Clipper writes to `studio-kit\clipper\output\` (accumulates across runs — grab the newest
-   6 by mtime, copy into `productions/<vid>/shorts/`). **Read one frame per kept clip.** Drop
-   any clip under ~8s (outro-tail picks are too short to stand alone). Best hook is usually
-   the cold-open segment (the clipper labels it `segment-1`, not `hook-1`).
-   **Aspect check (mandatory before posting):** `ffprobe -select_streams v:0 -show_entries
-   stream=width,height,sample_aspect_ratio,display_aspect_ratio` on each vertical MUST read
-   `1080,1920,1:1,9:16`. A non-1:1 SAR (e.g. 1331083:1330425) = FB/IG render it stretched —
-   clip.js now forces even crop width + `setsar=1`, but verify. To replace already-posted
-   Reels: FB `DELETE /{video-id}` and IG `DELETE /{ig-media-id}` both work via the page token
-   for API-posted media, then repost the corrected file. (IG bio/profile edits have NO API —
-   manual only.)
-7. **Publish gate** — write title/description/tags into `SCRIPT-VIDEO-NN.md`
-   (patterns in ops/SEO-CHANNEL.md; chapters computed from sections.json durations + 0.45s gaps),
-   then STOP and ask operator to review **master-clean.mp4** (master.mp4 = burned captions,
-   never ship). Render the thumbnail FIRST (see Standing rules → package before produce).
-   On operator go: `& $py tools\publish.py <master-clean> --title "..." --description "$DESC"
-   --tags ... --thumbnail <prod>\thumb.png --platforms youtube --privacy public` with
-   `PYTHONIOENCODING=utf-8` set (emoji in description breaks cp1252 extraction). Shorts fan out
-   to all four: `--platforms youtube instagram facebook tiktok` (tiktok opt-in, cookie required).
-8. **Log** — update vault: `wiki/videos/` note, `_meta/hot.md`, `_meta/log.md`.
+- Lead with the take. Use concrete actors, assets, dates, prices, and mechanisms.
+- Make defensible first-person judgments. Sound like a market participant, not a compliance log.
+- Vary sentence length and allow humor, edge, contractions, and the occasional aside.
+- Keep claims, verification, receipts, editing decisions, and tool names backstage.
+- Avoid stock signposting, ornamental triplets, repeated `not X, but Y`, and slogan repetition.
+- **Never narrate the act of showing (operator 2026-07-21).** No "on screen", "as you can see",
+  "here on the chart", "the headline you're looking at". The VISUAL certifies: the source page
+  with its outlet badge, present and not cut off in frame, is the viewer's proof. Speak the
+  attribution naturally ("Reuters reported…", "NPR has the shape of it") and put the rigor in
+  QA — verify the badge/page is visible and uncropped in the rendered frame. The style gate
+  blocks show-narration deterministically.
+- A signature line may land once. It must not become the vocabulary of every section.
+- End on the level, event, or condition that changes the thesis; add the CTA afterward.
 
-## Failure notes
-- Wedged card render = concurrent cfg.json race; kill by exact PID, rerun sequentially.
-- God's Eye shot failure auto-reloads once; stale in-app FRED oil dock stays off-frame.
-- vo.txt edited after VO stage → delete ONLY the changed sections' vo-NN.wav + vo-full.wav,
-  rerun tts_chatterbox.py (skips existing = only deltas regen).
-- **Chart shots: hands OFF the TV window while shooting.** The operator's real mouse over
-  the canvas swaps the OHLC header to the hovered bar + draws a crosshair into the frame;
-  a stray right-click leaves a context menu in-shot (`tv ui keyboard Escape`, re-shoot).
-  cdp_chart_shot.mjs parks the pointer (after connect AND right before the screenshot),
-  but physical mouse movement between those wins races — verify every frame by Reading it.
-- **TV: NEVER `.remove()` a DOM node** (modals/overlays) — TV portals are shared; removing
-  one killed the indicators-dialog app-wide until relaunch. Use `style.display='none'` ONLY.
-- **TV CLI screenshot can wedge** (node process hangs, other commands still work): print
-  exact PID → kill exact PID → retry once → if still wedged relaunch via
-  `scripts\launch_tv_debug.bat` (layout is cloud-saved, restores). Relaunch comes up
-  UNMAXIMIZED (narrow chart) — maximize before captures; tv_ta_capture.py handles both aspects.
-- News shots: source badge (outlet + date) is mandatory — verify it's burned + readable
-  (fetch_news_shots.mjs). Declutter is MINIMAL (iframes + small fixed overlays); broad
-  class-hiding nuked an article container (blank page) — do not reintroduce it.
-- **News shots MUST fill the frame (operator flagged 2026-07-14):** `fetch_news_shots.mjs`
-  kenBurns uses `scale=...:force_original_aspect_ratio=increase,crop=3840:2160` (COVER, not
-  `decrease`+`pad:black`). The old fit-and-pad left ~8% black bars on wider-than-16:9 article
-  crops, which carried into the 9:16 shorts (traders notice). Verify: `cropdetect` every news
-  visual reads `1920:1080:0:0`, and each short reads `1080:1920:0:0`. Re-render cached shots
-  without refetching: `node fetch_news_shots.mjs --reuse-png <news.json> <prod>`.
+### Operator + Apollo script contract
+
+Use `## NN slug [APOLLO]` for a whole Apollo section. Untagged sections default to `OPERATOR`.
+Use `### APOLLO` and `### OPERATOR` inside a section when a handoff occurs without changing the
+visual section. Apollo carries news, official records, statistics, receipts, and the catalyst
+calendar; the Operator carries charts, levels, conditions, and judgment. Keep handoffs to six
+words or fewer and do not repeat the other speaker's point.
+
+The role split is an editorial contract, not a parser rule. An exact Apollo candidate file needs
+operator approval before duo TTS, and the exact `vo.txt` hash needs its own separate approval before
+any pilot narration or render. Voice approval never substitutes for script approval.
+
+Run the advisory style audit before narration:
+
+```powershell
+<repo>\OpenMontage\.venv\Scripts\python.exe tools\script_style_gate.py productions\<video> `
+  --out productions\<video>\build\script-style-audit.json
+```
+
+Warnings require an editorial pass, not an automatic rewrite. Never let a style pass alter a
+number, name, quotation, attribution, probability, chart level, or causal direction.
+
+## Fast production lane
+
+Target a reviewable flagship within 120 minutes; 150 minutes is the hard escalation point.
+
+| Stage | Budget | Receipt |
+|---|---:|---|
+| Story + title + thumbnail lock | 10 min | one thesis and one package |
+| Primary facts + TradingView sweep | 20 min | fact pack and dashboard notes |
+| Analysis brief + script | 25 min | seven-question brief and `vo.txt` |
+| Claims + style + scene-plan preflight | 15 min | claims PASS, style audit, exact beats |
+| Batch asset capture | 25 min | required charts/news/Godseye only |
+| Delta narration + assemble | 25 min | cached sections reused |
+| Final-export QA + handoff | 20 min | beat-boundary frames, aspect/runtime, hashes |
+
+If the story cannot clear the long-form gates inside the budget, ship an approval-ready vertical
+instead of padding or entering an open-ended rerender loop. Do not lower evidence or visual QA.
+
+## Procedure
+
+1. Build the dated primary-source fact pack, including market-relevant political, conflict,
+   sanctions, defence, energy, shipping, election, and cyber events.
+2. Run the fixed TradingView dashboard and `market-analysis`. Choose the lead from confirmation or
+   divergence. Emit `analysis-brief.md`, then lock title and thumbnail.
+2b. **Charts before script (hard order).** Write the chart plan (symbols, timeframes, indicators,
+   exact levels/trendlines to draw) and do the TradingView work NOW — adjust indicators as needed
+   to make the point; capture working shots as end-of-day snapshots with the closing candle
+   printed. The script may only reference charts that already exist from this step. A script
+   citing an uncaptured chart is a defect (2026-07-17 incident). Levels talk is conditions and
+   invalidations off today's close ("watch X if and only if Y breaks"), never predictions.
+
+   Capture mechanics (deterministic — do not rely on judgment; 2026-07-20 incidents):
+   - **No TV replay for post-close captures.** Between the 16:00 ET cash close and the futures
+     reopen (~18:00 ET US10Y/indices feeds, 20:00 ET energy), the native last bar IS the settled
+     session. Replay adds a burned "Replay" watermark and pins by bar offset per symbol, which
+     lands different symbols on different dates. Capture before the reopen, energy symbols first.
+   - **Verify every capture against the feed, not by eye:** the frame's OHLC header must equal
+     the `tv ohlcv --count 1` bar for that symbol (same date, same close). Header showing any
+     other bar = discard and re-shoot. Then Read one frame per shot as the final human-shaped
+     check (levels tagged on axis, no crosshair/menus/watermark).
+   - **`tv_ta_capture.py` skips existing outputs silently.** Re-capturing requires deleting the
+     shot's `ta-work/*-s*.png`, its `visuals/<out>.mp4`, and `chart-capture-receipts.json` first,
+     or the tool no-ops and prints "exists, skip".
+   - Run every pipeline python with `PYTHONIOENCODING=utf-8` — cp1252 swallows tool output and a
+     failed print reads as a silent success.
+   - Dark chart theme is the shipped look (video-05 onward, operator-approved). The old white-
+     background override silently no-ops on current TradingView builds; do not chase it mid-lane.
+   - **Mobile legibility standard (operator ruling 2026-07-21 — "I can barely see the numbers"):**
+     every chart capture runs `tv_ta_capture.py` with `--expect-last-bar <session> --range-days 100`
+     (zooms to ~100 days so candles are phone-readable; +4d right pad). The tool also bumps
+     `scalesProperties.fontSize` to 17 and shoots at `--dsf 2`. A full-history chart is a defect
+     even if the levels are correct. Do NOT re-attempt price-scale pinning — `setPriceRangeInPrice`
+     takes internal units, not prices, and blanks the pane (reverted 2026-07-21; `pane.resetPriceScale()`
+     recovers a blanked pane).
+   - Symbols whose futures/CFD feed has already reopened (energy after ~20:00 ET, rates/indices
+     after ~18:00 ET) will show Monday's settled candle PLUS a small live stub and a live-value
+     header. Acceptable only if attested in the run notes; fully avoidable by capturing before the
+     reopen — energy symbols first.
+3. Write `vo.txt` from the brief, the captured charts, and reference corpus. Mint `claims.yaml` and `vo-receipts.yaml`.
+   Run `tools/claims_gate.py` and `tools/script_style_gate.py`, read the script aloud, then stop with
+   `script-approval.json` absent or `awaiting_human`. Proceed only after the operator explicitly
+   approves that exact script hash; later script edits invalidate the receipt.
+
+   Numeric-idiom check (writer-independent, run on every draft): every spoken numeric idiom must
+   be derivable from the claimed bar by a stated operation — "an N-dollar range" = high − low;
+   "gave it all back" = close ≈ open; "closed on the lows" only if close − low is small relative
+   to the range (else "within N points of the low"); "pressing the high" only within a few ticks.
+   An idiom that doesn't reduce to bar arithmetic is a chart-true defect (the "five-dollar round
+   trip" class). Traders audit these; the gate cannot.
+
+3b. **Independent critic pass (mandatory, model-agnostic).** Before requesting approval, have a
+   SECOND model (Codex, or any available LLM that did not write the draft) critique the script.
+   Prompt contract: give it `vo.txt`, `analysis-brief.md`, and the newest operator-approved
+   reference script; house rules it must not flag (longhand numbers, no predictions, receipt-bound
+   figures immutable, topical repetition OK); ask for a ranked list (max 10) of {severity, exact
+   quote, defect, one-line fix} covering AI-tells, buried lede, missing mechanism, voice breaks,
+   internal contradictions vs the brief, retention risks — and a ship/fix/rework verdict.
+   Triage discipline: the WRITER decides each finding against the receipts — a critic finding
+   that contradicts a verified receipt is rejected (the 2026-07-20 run rejected a "wrong
+   attribution" flag because the captured page showed the Reuters byline); a finding that exposes
+   a brief↔script mismatch gets fixed at whichever end the feed says is wrong (same run: the
+   BRIEF carried a bad gap %, the script was right). Re-run both gates after edits, then
+   `python tools/scene_sync.py productions/<video>` — it re-syncs single-beat narrations from
+   the final `vo.txt` verbatim and fails loudly if a multi-beat section no longer tiles.
+4. After script approval, write `scene-plan.json` with exact narration beats and visible subjects. Capture assets in
+   batches. News uses `contain`; Godseye requires a specific explanatory/evidentiary purpose through
+   the latest approved versioned contract.
+
+   **Per-asset chart sync (operator ruling 2026-07-21 — "anytime you're referencing a chart, that
+   chart must be on the screen, even if it's for a few seconds"):** a section that walks multiple
+   assets gets one beat PER asset, split at the exact sentence where the subject changes — the
+   named chart cuts in with its sentence, never lags on the prior asset. Applies to hooks, recaps,
+   and map segments too (the 2026-07-20 recut hook is 4 beats: SPX → Brent → 10Y → SPX). Every
+   spoken instrument with a captured chart appears when spoken; a sentence naming two instruments
+   plays over the one whose level is tagged on the axis. Multi-beat sections must tile the section
+   text exactly — `tools/scene_sync.py <prod> --check` verifies concat == section and fails loudly.
+
+   News-clip length contract (2026-07-20 incident): the assembler HARD-FAILS a news clip shorter
+   than its narration beat — it will not loop entrance/exit animations. After the VO stage, read
+   each news beat's length (`ffprobe build/vo-NN.wav`), set that shot's `holdSec` ≥ narration + 2s,
+   delete the stale `visuals/<out>.mp4` (the renderer also skips existing outputs), and re-render
+   with `fetch_news_shots.mjs --reuse-png` (no refetch, deterministic; arg order is
+   `<sources.json> <prod-dir>`). Chart clips are immune — stills are held, not looped.
+   ANY script recut re-opens this contract: section durations change, stale holdSec values
+   survive in news-shots.json, and the assembler fails mid-run (2026-07-21 recut incident) —
+   re-check every news beat's holdSec against the fresh `vo-NN.wav` lengths after re-recording.
+5. Generate only changed narration sections with `tools/tts_chatterbox.py`. Reuse all unchanged
+   audio and visual assets. Assemble through `tools/produce.py`.
+
+   VO-stage precondition (2026-07-20 incident, reproduced 3×): Chatterbox model load needs
+   roughly 4–5 GB of FREE SYSTEM RAM on this 16 GB box. A `0xC0000005` / segfault (exit
+   3221225477) right after `[clone] loading Chatterbox on cuda` is RAM pressure, not a code or
+   CUDA defect — CUDA smoke tests pass, the weights are intact. Close TradingView Desktop
+   (chart work is finished by this stage; it holds ~2 GB) and other Chromium apps, then rerun
+   `tools/daily_postclose.py` — it is rerun-safe: gates re-check, approval rewrites hash-bound,
+   existing `vo-NN.wav` are skipped.
+6. Inspect the actual final export at every declared subject-change boundary plus representative
+   midpoints. Check symbol, timeframe, price axis, source/date, containment, safe area, audio,
+   runtime, and 9:16 SAR. Declarations and contact sheets alone are not proof.
+7. Prepare at most two initial vertical derivatives from the approved thesis. More derivatives are
+   made after the long-form cut is accepted, not before.
+
+   Verticals + visual QA wiring (2026-07-20 incidents): the unattended runner sets
+   `CLIP_SKIP_SHORTS=1` (produce.py) so the long-form never blocks on a shorts-lane defect —
+   derivatives are cut in the post-acceptance lane where their QA verdict belongs.
+   `visual_qa.gate()` inspects the SHARED `studio-kit/clipper/output/` dir, which accumulates
+   clips across productions — stale clips from an old video WILL block tonight's long-form. Before the render run, park everything in
+   that dir (`mkdir parked-<date> && mv clip-* parked-<date>/`). If verticals breach the bottom
+   safe zone at y≈1772 (bottom margin ~148px), the burn path skipped the fixed caption style
+   (`MarginV=64` in clip.js → bottom ≈1493) — fix the style path before re-cutting; do not
+   hand-tune per clip. And every ad-hoc `json.load/dump` on this box needs `encoding='utf-8'`
+   explicitly — the cp1252 default mojibakes em-dashes in social copy (caught 2026-07-21).
+8. Build the exact-hash social batch. It must reference the valid `script-approval.json`.
+   Item copy passes through `script_style_gate.audit_text` at publish time. "Backmatter" the
+   gate skips = ONLY a paragraph that is exactly the disclaimer, or a CTA — a "Charts:/Sources:"
+   paragraph is inspected like content, so if it sits last it triggers "missing invalidation
+   level" (no digits). Structure every description: hook → read (sources folded in) → a FINAL
+   content paragraph ending on the deciding numeric levels → the exact
+   `social_batch.REQUIRED_DISCLAIMER` string alone as its own paragraph (reworded = code-first
+   paired change, never copy-side). Pre-validate before running the publisher:
+   `script_style_gate.audit_text(copy)['verdict'] == 'PASS'`.
+   A publish attempt that fails AFTER machine approval leaves the item `approved` with an
+   `approvalSha256` bound to the copy at approval time — any later copy edit hard-fails the
+   next run ("approvalSha256 does not match"). After editing a stamped item, reset it to
+   `status: draft` and drop `approvalSha256`/`reviewedBy`/`reviewedAt`; the runner re-approves.
+   Publish
+   only after separate operator approval of the exact platform asset and current channel
+   authentication. Record public URLs/IDs; never remove an existing upload as part of routine
+   forward optimization.
+9. Update the vault current-state pages, index, hot cache, and append-only log.
+
+## Rework rules
+
+- A script change regenerates only affected VO sections and dependent beats.
+- A bad chart/news/Godseye shot replaces only that beat.
+- A failed social derivative never invalidates an accepted long-form master.
+- Keep rejected renders as local receipts until the production is closed; keep public uploads.
+- At 150 minutes, stop and record the exact slow stage, cause, and next delta action.

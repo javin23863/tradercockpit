@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>TraderCockpit — Strategy-Claim Audit Checklist</title>
+<meta name="description" content="A one-page evidence checklist for auditing a published trading-strategy claim without making a performance claim.">
+<style>
+:root{
+  --ground:#08030a;--panel:#0a0407;--line:#3a0d1a;--accent:#FF1744;
+  --accent-soft:#7a142e;--ink:#F5E8EA;--dim:#c89aa3;--faint:#7a4a52;
+  --mono:"Cascadia Mono","Cascadia Code",Consolas,monospace
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--mono);line-height:1.35}
+.sheet{width:min(1100px,calc(100% - 2rem));margin:1rem auto;padding:1.1rem;border:1px solid var(--line);background:var(--panel)}
+header{display:grid;grid-template-columns:1fr auto;gap:1rem;border-bottom:2px solid var(--accent);padding-bottom:.7rem}
+.eyebrow,.source-key{color:var(--faint);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
+h1{font-size:clamp(1.35rem,3vw,2rem);line-height:1.05;margin:.3rem 0;color:var(--ink)}
+h1 span{color:var(--accent)}
+.promise{max-width:56rem;margin:.25rem 0 0;color:var(--dim);font-size:.82rem}
+.print{align-self:start;border:1px solid var(--accent);background:var(--accent-soft);color:var(--ink);font:inherit;padding:.5rem .75rem;cursor:pointer}
+.claim{display:grid;grid-template-columns:2fr 1fr 1fr;gap:.55rem;margin:.75rem 0}
+.field{min-height:2.35rem;border:1px solid var(--line);padding:.35rem .5rem;color:var(--faint);font-size:.66rem}
+.field strong{display:block;color:var(--dim);font-weight:400;text-transform:uppercase;letter-spacing:.08em}
+.definition{border-left:3px solid var(--accent);padding:.45rem .7rem;margin:.55rem 0 .75rem;color:var(--dim);font-size:.73rem}
+.definition strong{color:var(--ink)}
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:.45rem .7rem;counter-reset:audit}
+.item{position:relative;min-height:4.25rem;border:1px solid var(--line);padding:.48rem .55rem .45rem 2.05rem;break-inside:avoid;counter-increment:audit}
+.item::before{content:"□";position:absolute;left:.55rem;top:.42rem;color:var(--accent);font-size:1.1rem}
+.item h2{font-size:.76rem;line-height:1.2;margin:0 0 .2rem;color:var(--ink)}
+.item p{font-size:.66rem;margin:0;color:var(--dim)}
+.receipt{display:block;margin-top:.22rem;color:var(--faint);font-size:.58rem}
+.outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;margin-top:.75rem}
+.outcome div{border:1px solid var(--line);padding:.42rem .5rem;color:var(--dim);font-size:.64rem}
+.outcome strong{display:block;color:var(--ink);font-size:.7rem}
+.outcome .stop{border-color:var(--accent)}
+.capture-off{margin-top:.7rem;border:1px solid var(--line);padding:.55rem;color:var(--dim);font-size:.64rem}
+.capture-off strong{display:block;color:var(--ink);font-size:.7rem;margin-bottom:.3rem}
+.capture-off form{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap}
+.capture-off input{flex:1 1 16rem;border:1px solid var(--line);background:var(--ground);color:var(--dim);font:inherit;padding:.45rem}
+.capture-off button{border:1px solid var(--faint);background:transparent;color:var(--faint);font:inherit;padding:.45rem .65rem}
+.capture-off p{margin:.3rem 0 0;color:var(--faint)}
+footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;padding-top:.55rem;border-top:1px solid var(--line);font-size:.58rem;color:var(--faint)}
+.disclaimer{color:var(--ink);font-size:.64rem}
+@media(max-width:720px){header,.claim,.checklist,.outcome,footer{grid-template-columns:1fr}.print{justify-self:start}}
+@page{size:A4 portrait;margin:8mm}
+@media print{
+  :root{color-scheme:dark}
+  html,body{width:210mm;min-height:297mm;background:var(--ground)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet{width:auto;margin:0;padding:6mm;border:0}
+  .print,.capture-off{display:none}
+  h1{font-size:17pt}.promise{font-size:7.7pt}.claim{margin:4mm 0}.field{min-height:9mm}
+  .definition{font-size:6.8pt;margin:3mm 0}.checklist{gap:2mm 3mm}.item{min-height:25mm;padding:.4rem .45rem .35rem 1.8rem}
+  .item h2{font-size:6.8pt}.item p{font-size:5.9pt}.receipt,footer{font-size:5.2pt}.outcome div,.disclaimer{font-size:5.8pt}
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <div>
+      <div class="eyebrow">TRADERCOCKPIT // TEST THE CLAIM</div>
+      <h1>Strategy-Claim <span>Audit Checklist</span></h1>
+      <p class="promise">By the end, a viewer can tell whether a strategy claim is real: not whether it will make money, but whether its evidence is traceable, separated from discovery, and judged only by the authority declared before the result.</p>
+    </div>
+    <button class="print" type="button" onclick="window.print()">PRINT / SAVE PDF</button>
+  </header>
+
+  <section class="claim" aria-label="Claim details">
+    <div class="field"><strong>Claim / exact wording</strong></div>
+    <div class="field"><strong>Source / creator</strong></div>
+    <div class="field"><strong>Date encountered</strong></div>
+  </section>
+
+  <p class="definition"><strong>Use one rule:</strong> a polished chart is not a receipt. Check what was fixed before the result, which data was allowed to influence discovery, how many family-level looks occurred, and what evidence is still unburned.</p>
+
+  <section class="checklist" aria-label="Strategy claim evidence checks">
+    <article class="item"><h2>Rules and gates were fixed first</h2><p>Can you see a preregistration made before results, hash-locked on first run, with failed or changed thresholds moved to a new program ID?</p><span class="receipt">DOCTRINE: F15–17</span></article>
+    <article class="item"><h2>Every number has a receipt</h2><p>Can each number be traced to its claims receipt, with the stated timeframe matching the chart and the shown symbol matching the discussed asset?</p><span class="receipt">DOCTRINE: M176–180</span></article>
+    <article class="item"><h2>The family had a lockbox</h2><p>Was a terminal holdout declared at the family’s first registration, unavailable to every program until one recorded final-judgment opening?</p><span class="receipt">DOCTRINE: F79–87</span></article>
+    <article class="item"><h2>Seen data was burned across the family</h2><p>After any verdict was seen, was that window barred from confirmation for every successor? Cross-validation inside the same window does not make it unseen.</p><span class="receipt">DOCTRINE: F27–38</span></article>
+    <article class="item"><h2>Every family look was counted</h2><p>Were PASS, FAIL, and sequential successor looks charged to one registered family alpha budget, with promotion refused when the budget was exhausted?</p><span class="receipt">DOCTRINE: F39–44, F88–91</span></article>
+    <article class="item"><h2>A same-size multiplicity null existed</h2><p>Was the thesis tested against its same-size multiplicity null chosen from day one, rather than judged against no control after selection?</p><span class="receipt">DOCTRINE: F20–22</span></article>
+    <article class="item"><h2>A burned PASS stayed candidate-grade</h2><p>Is any PASS from a previously inspected window still labeled candidate-grade, never upgraded later into deployment evidence?</p><span class="receipt">DOCTRINE: F92–95</span></article>
+    <article class="item"><h2>Only forward evidence can authorize deployment</h2><p>Does the authority come exclusively from post-registration bars, with frozen thresholds and gates declared before the first qualifying bar?</p><span class="receipt">DOCTRINE: F92–98</span></article>
+    <article class="item"><h2>Paper and live cannot change the strategy</h2><p>Do consumers read bars without branching on provenance, while metadata keeps lineage and TRADE_MATCH proves same-window replay identity?</p><span class="receipt">DOCTRINE: F99–103</span></article>
+    <article class="item"><h2>The mechanism is checkable</h2><p>If the claim offers a market mechanism, is each link observable, stated as a mechanism rather than correlation, and confirmed by a second related asset?</p><span class="receipt">DOCTRINE: M91–103</span></article>
+    <article class="item"><h2>The surface sells verification, never a result</h2><p>Does it avoid promises of alpha or performance, invented testimonials, and unverified product fields while clearly separating verification from outcome?</p><span class="receipt">DOCTRINE: O27–45</span></article>
+  </section>
+
+  <section class="outcome" aria-label="Audit outcome">
+    <div class="stop"><strong>STOP / UNVERIFIABLE</strong>A required receipt, lockbox, family count, or forward authority is missing.</div>
+    <div><strong>CANDIDATE ONLY</strong>The evidence comes from discovery or a window already exposed to the family.</div>
+    <div><strong>FORWARD-EVIDENCED</strong>A preregistered forward gate has receipts. This label still makes no performance promise.</div>
+  </section>
+
+  <section class="capture-off" aria-label="Email capture status">
+    <strong>EMAIL DELIVERY // BUILT, NOT ACTIVE</strong>
+    <!-- Conservative operator-absent guard: activation must remove both the disabled controls
+         and the submit cancellation only after /api/signup has a double-opt-in receipt. -->
+    <form action="/api/signup" method="post" data-activation="off" onsubmit="return false">
+      <label for="capture-email">Email for a clean copy</label>
+      <input id="capture-email" name="email" type="email" autocomplete="email" disabled aria-disabled="true" placeholder="Not accepting signups yet">
+      <input id="capture-utm-source" name="utm_source" type="hidden">
+      <input id="capture-utm-medium" name="utm_medium" type="hidden">
+      <input id="capture-utm-campaign" name="utm_campaign" type="hidden">
+      <button type="submit" disabled aria-disabled="true">CAPTURE OFF</button>
+    </form>
+    <p>Nothing is submitted or sent while capture is off. The printable checklist above remains available without an email gate.</p>
+  </section>
+
+  <footer>
+    <div class="source-key">M = MARKET-ANALYSIS-DOCTRINE.md · F = esq-data-hygiene-ruling-2026-07-18.md · O = Offer Inventory and Claims Constraint.md</div>
+    <div class="disclaimer">Research tooling, not financial advice. No performance is promised or implied.</div>
+  </footer>
+</main>
+<script>
+for(const key of ["utm_source","utm_medium","utm_campaign"]){
+  document.getElementById(`capture-${key.replace("_","-")}`).value=new URLSearchParams(location.search).get(key)??""
+}
+</script>
+</body>
+</html>

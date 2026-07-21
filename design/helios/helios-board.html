@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HELIOS EVIDENCE CORE v2 — animation-test motion v27</title>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search);
+  window.HELIOS_VIEW = q.get('native') === '1' ? 'native' : 'parity';
+  document.documentElement.dataset.view = window.HELIOS_VIEW;
+})();
+</script>
+<style>
+  :root{
+    --bg-absolute:#010101; --bg-warm:#050302;
+    --surface-0:rgba(5,5,5,.88); --surface-1:rgba(9,8,7,.78); --surface-2:rgba(14,10,7,.64);
+    --border-dim:rgba(245,157,62,.14); --border-base:rgba(245,165,68,.32); --border-hot:rgba(255,190,94,.62);
+    --ember:#6d2507; --plasma-orange:#ff7118; --plasma-gold:#ffb94f; --plasma-hot:#fff0c7;
+    --plasma-magenta:#b84fff; --plasma-violet:#825fff; --ion-blue:#70aaff;
+    --verified:#43d888; --danger:#ff4d3f;
+    --text-primary:#f2ebe2; --text-secondary:#b3a28f; --text-muted:#70665b;
+    /* legacy aliases kept for existing rules */
+    --org:var(--plasma-gold); --org2:#ffce7a; --mut:var(--text-secondary); --mut2:var(--text-muted);
+    --grn:var(--verified); --red:var(--danger); --blu:var(--ion-blue); --vio:var(--plasma-violet); --pur:#8b6cf0;
+    --line:var(--border-base); --line2:var(--border-dim);
+    --card:var(--surface-1);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:var(--bg-absolute); }
+  body{
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    color:var(--text-secondary); -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision; font-variant-numeric:tabular-nums;
+  }
+  #master{ position:absolute; top:-20000px; left:0; }
+  .board{
+    width:1680px; margin:0 auto; padding:30px 36px 26px;
+    --canvas-x:0px; --canvas-y:0px; --link-x:0px; --link-y:0px;
+    --glow-x:50%; --glow-y:32%;
+    perspective:1600px;
+  }
+
+  /* ---------- inline icons ---------- */
+  svg.ic-g{ width:1em; height:1em; display:block; stroke:currentColor; fill:none;
+    stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* ---------- panel material system ---------- */
+  .panelmat{
+    position:relative;
+    background:
+      radial-gradient(circle at 50% 32%, rgba(255,125,25,.045), transparent 46%),
+      linear-gradient(180deg, rgba(255,255,255,.018), rgba(0,0,0,.20)),
+      var(--surface-1);
+    border:1px solid transparent;
+    border-radius:12px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,225,180,.04),
+      inset 0 -30px 50px rgba(0,0,0,.32),
+      0 12px 30px rgba(0,0,0,.34);
+  }
+  .panelmat::before{ /* gradient border */
+    content:""; position:absolute; inset:-1px; border-radius:inherit; padding:1px;
+    background:linear-gradient(180deg, rgba(255,190,94,.38), rgba(245,157,62,.10) 40%, rgba(245,157,62,.16));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    pointer-events:none;
+  }
+  .panelmat::after{ /* internal hairline */
+    content:""; position:absolute; inset:3px; border-radius:9px;
+    border:1px solid rgba(245,165,68,.07); pointer-events:none;
+  }
+  .panelmat{
+    transform:translateZ(0); transform-style:preserve-3d;
+    transition:box-shadow .45s ease, border-color .45s ease;
+  }
+  .panelmat:hover{
+    box-shadow:
+      inset 0 1px 0 rgba(255,225,180,.055),
+      inset 0 -34px 58px rgba(0,0,0,.34),
+      0 16px 42px rgba(0,0,0,.46),
+      0 0 26px rgba(255,125,25,.055);
+  }
+
+  /* ---------- header ---------- */
+  .hdr{ display:flex; align-items:flex-start; margin-bottom:20px; }
+  .hdr-l{ width:320px; }
+  .hdr-l .k{ font-size:9px; letter-spacing:.32em; color:var(--text-muted); }
+  .hdr-l .v{ font-size:17px; letter-spacing:.42em; color:var(--plasma-gold); font-weight:700; margin-top:4px; }
+  .hdr-c{ flex:1; text-align:center; }
+  .hdr-c h1{ font-size:30px; letter-spacing:.34em; color:var(--text-primary); font-weight:700; }
+  .hdr-c p{ font-size:11px; letter-spacing:.10em; color:var(--text-muted); margin-top:7px; }
+  .hdr-r{ width:420px; display:flex; gap:10px; justify-content:flex-end; }
+  .badge{ border-radius:8px; padding:7px 12px; display:flex; gap:8px; align-items:center;
+    background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.2)), var(--surface-0);
+    border:1px solid var(--border-dim);
+    box-shadow:inset 0 1px 0 rgba(255,225,180,.05), 0 6px 16px rgba(0,0,0,.4); }
+  .badge .ic{ width:16px; height:16px; border-radius:50%; border:1px solid var(--verified); color:var(--verified); font-size:9px; display:flex; align-items:center; justify-content:center; }
+  .badge.pur .ic{ border-color:var(--pur); color:var(--pur); border-radius:4px; }
+  .badge .t1{ font-size:8px; letter-spacing:.18em; color:var(--verified); font-weight:700; }
+  .badge.pur .t1{ color:var(--plasma-gold); }
+  .badge .t2{ font-size:7px; letter-spacing:.08em; color:var(--text-muted); margin-top:2px; }
+
+  /* ---------- screens row ---------- */
+  .row-screens{ display:flex; gap:14px; }
+  .screen{ flex:1; display:flex; flex-direction:column; overflow:hidden; height:492px; }
+  .sc-head{ display:flex; align-items:center; gap:7px; padding:10px 12px 8px; }
+  .sc-num{ width:15px; height:15px; border:1px solid var(--border-base); border-radius:4px; color:var(--plasma-gold); font-size:8px; display:flex; align-items:center; justify-content:center; font-weight:700; }
+  .sc-title{ font-size:9px; letter-spacing:.26em; color:var(--text-primary); font-weight:700; }
+  .sc-sub{ font-size:7.5px; letter-spacing:.14em; color:var(--text-muted); }
+  .sc-canvas{ position:relative; flex:1; min-height:0; background:#010101; overflow:hidden; isolation:isolate; }
+  .sc-canvas canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+  .sc-canvas svg.links{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:3; }
+  .sc-canvas::after, .mp-canvas::after, .phone .pcv::after{
+    content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:
+      radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(255,145,38,.035), transparent 38%),
+      radial-gradient(ellipse at center, transparent 53%, rgba(0,0,0,.22) 77%, rgba(0,0,0,.62) 100%),
+      linear-gradient(180deg, rgba(255,255,255,.012), transparent 28%, rgba(0,0,0,.14));
+    box-shadow:inset 0 0 42px rgba(0,0,0,.20);
+  }
+
+  .node{ position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; text-align:center; width:74px; z-index:4; }
+  .node .dot{ width:15px; height:15px; border-radius:50%; border:1px solid var(--border-dim); background:rgba(2,1,1,.82); color:var(--plasma-gold); font-size:7px; display:flex; align-items:center; justify-content:center; margin-bottom:4px;
+    box-shadow:0 0 6px rgba(255,140,40,.12); }
+  .node .nt{ font-size:7px; letter-spacing:.18em; color:var(--text-primary); font-weight:700; }
+  .node .ns{ font-size:6.5px; letter-spacing:.06em; color:var(--text-muted); margin-top:2px; }
+  .node.grn .dot{ border-color:rgba(67,216,136,.55); color:var(--verified); box-shadow:0 0 7px rgba(67,216,136,.22); } .node.grn .nt{ color:var(--verified); }
+  .node.red .dot{ border-color:rgba(255,77,63,.6); color:var(--danger); box-shadow:0 0 7px rgba(255,77,63,.25); } .node.red .nt{ color:var(--danger); }
+  .node.blu .dot{ border-color:rgba(112,170,255,.5); color:var(--ion-blue); } .node.blu .nt{ color:#cfe2ff; }
+
+  /* home extras */
+  .msg{ margin:0 10px 8px; border:1px solid var(--border-dim); border-radius:9px;
+    background:linear-gradient(180deg, rgba(255,255,255,.015), rgba(0,0,0,.25)), var(--surface-0); padding:8px 10px;
+    box-shadow:inset 0 1px 0 rgba(255,225,180,.03); }
+  .msg .mh{ display:flex; align-items:center; gap:6px; }
+  .msg .av{ width:13px; height:13px; border-radius:50%; background:var(--pur); display:flex; align-items:center; justify-content:center; font-size:6px; color:#fff; }
+  .msg .mn{ font-size:7.5px; letter-spacing:.22em; color:var(--text-primary); font-weight:700; }
+  .msg .mt{ margin-left:auto; font-size:6.5px; color:var(--text-muted); }
+  .msg p{ font-size:7.5px; line-height:1.55; color:var(--text-secondary); margin-top:5px; }
+  .chips4{ display:grid; grid-template-columns:repeat(4,1fr); gap:5px; margin:0 10px 9px; }
+  .chip{ border:1px solid var(--border-dim); border-radius:7px; padding:4px 5px; display:flex; gap:4px; align-items:center;
+    background:linear-gradient(180deg, rgba(255,255,255,.012), rgba(0,0,0,.22)), var(--surface-0); }
+  .chip .ci{ width:11px; height:11px; border-radius:50%; border:1px solid var(--border-base); color:var(--plasma-gold); font-size:6px; display:flex; align-items:center; justify-content:center; flex:none; }
+  .chip .ct{ font-size:5.9px; letter-spacing:.08em; color:var(--text-primary); font-weight:700; }
+  .chip .cs{ font-size:5.4px; color:var(--text-muted); margin-top:1.5px; }
+  .chip.grn{ border-color:rgba(67,216,136,.4); }
+  .chip.grn .ci{ border-color:var(--verified); color:var(--verified); }
+  .chip.grn .ct{ color:var(--verified); }
+
+  /* nav */
+  .nav{ display:flex; border-top:1px solid var(--border-dim); margin-top:auto; background:rgba(2,1,1,.6); }
+  .nav div{ flex:1; text-align:center; padding:8px 0 7px; font-size:7.2px; letter-spacing:.06em; color:var(--text-muted); position:relative; }
+  .nav div.on{ color:var(--plasma-gold); font-weight:700; text-shadow:0 0 8px rgba(255,150,40,.45); }
+  .nav div.on::after{ content:""; position:absolute; left:30%; right:30%; bottom:3px; height:2px; background:var(--plasma-gold); border-radius:2px; box-shadow:0 0 6px rgba(255,150,40,.6); }
+  .nav div .nvic{ display:flex; justify-content:center; font-size:8.5px; margin-bottom:3px; }
+  .nav div .nvic svg.ic-g{ width:9px; height:9px; }
+
+  /* test screen */
+  .steps{ display:flex; gap:4px; padding:0 10px 6px; }
+  .step{ flex:1; border:1px solid var(--border-dim); border-radius:6px; padding:4px 2px; text-align:center; background:rgba(2,1,1,.5); }
+  .step{ display:flex; align-items:center; justify-content:center; gap:3px; }
+  .step b{ font-size:6.5px; color:var(--text-muted); }
+  .step span{ font-size:5.8px; letter-spacing:.06em; color:var(--text-muted); }
+  .step.on{ border-color:var(--border-hot); box-shadow:0 0 8px rgba(255,150,40,.15), inset 0 0 6px rgba(255,150,40,.06); }
+  .step.on b, .step.on span{ color:var(--plasma-gold); }
+  .cap{ position:absolute; font-size:6.8px; letter-spacing:.10em; color:var(--text-secondary); text-shadow:0 1px 3px #000; z-index:4; }
+  .cap i{ display:block; font-style:normal; color:var(--text-muted); font-size:6.2px; margin-top:2px; }
+  .regbar{ margin:0 10px 7px; border:1px solid var(--border-dim); border-radius:6px; display:flex; align-items:center; padding:5px 8px; gap:8px; background:var(--surface-0); }
+  .regbar .r1{ font-size:6.8px; letter-spacing:.20em; color:var(--text-primary); font-weight:700; }
+  .regbar .r2{ font-size:6.8px; color:var(--text-muted); }
+  .regbar .r2 b{ color:var(--plasma-gold); letter-spacing:.10em; }
+  .regbar .r3{ margin-left:auto; font-size:6.6px; color:var(--text-muted); }
+  .evid{ margin:0 10px 9px; border:1px solid var(--border-dim); border-radius:8px;
+    background:linear-gradient(180deg, rgba(255,255,255,.012), rgba(0,0,0,.2)), var(--surface-0); }
+  .evid .eh{ display:flex; padding:6px 8px 4px; }
+  .evid .eh b{ font-size:7px; letter-spacing:.22em; color:var(--text-primary); }
+  .evid .eh span{ margin-left:auto; color:var(--text-muted); font-size:8px; }
+  .evid .ecols{ display:flex; }
+  .evid .ec{ flex:1; text-align:center; padding:5px 2px 7px; border-left:1px solid rgba(245,157,62,.08); }
+  .evid .ec:first-child{ border-left:none; }
+  .evid .ec b{ display:block; font-size:6.2px; letter-spacing:.10em; color:var(--text-primary); }
+  .evid .ec span{ display:block; font-size:5.6px; color:var(--text-muted); margin-top:3px; }
+  .evid .ec.on b{ color:var(--plasma-gold); }
+
+  /* strategies */
+  .lib{ margin:0 10px 9px; }
+  .lib .lh{ font-size:7px; letter-spacing:.22em; color:var(--text-primary); font-weight:700; }
+  .lib .ls{ font-size:6.4px; color:var(--text-muted); margin-top:2px; }
+  .lib .cards{ display:flex; gap:6px; margin-top:6px; }
+  .mini{ flex:1; border:1px solid var(--border-dim); border-radius:7px; padding:5px 3px 6px; text-align:center;
+    background:linear-gradient(180deg, rgba(255,255,255,.012), rgba(0,0,0,.22)), var(--surface-0); }
+  .mini.on{ border-color:var(--border-hot); box-shadow:0 0 10px rgba(255,150,40,.22), inset 0 0 8px rgba(255,150,40,.05); }
+  .mini canvas{ width:34px; height:34px; border-radius:50%; }
+  .mini b{ display:block; font-size:6px; letter-spacing:.06em; color:var(--text-primary); margin-top:4px; }
+  .mini span{ display:block; font-size:5.6px; color:var(--text-muted); margin-top:2px; }
+  .mini.on b{ color:var(--plasma-gold); }
+
+  /* live */
+  .shield{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); text-align:center; width:110px; z-index:4; }
+  .shield .sic{ width:26px; height:26px; margin:0 auto 6px; border-radius:50%; border:1px solid var(--verified); color:var(--verified); font-size:12px; display:flex; align-items:center; justify-content:center; background:rgba(3,12,7,.6); box-shadow:0 0 16px rgba(67,216,136,.3); }
+  .shield b{ font-size:7.5px; letter-spacing:.22em; color:#eafff2; display:block; }
+  .statusbar{ margin:0 10px 9px; border:1px solid rgba(67,216,136,.32); border-radius:6px; padding:6px 8px; font-size:6.8px; letter-spacing:.06em; color:var(--verified); background:rgba(3,12,7,.5); }
+  .statusbar b{ letter-spacing:.2em; margin-right:6px; }
+
+  /* settings */
+  .sysc{ margin:0 10px 9px; border:1px solid var(--border-dim); border-radius:8px;
+    background:linear-gradient(180deg, rgba(255,255,255,.012), rgba(0,0,0,.2)), var(--surface-0); padding:7px 8px; }
+  .sysc .sh{ font-size:7px; letter-spacing:.22em; color:var(--text-primary); font-weight:700; }
+  .sysc .ss{ font-size:6.2px; color:var(--text-muted); margin-top:2px; }
+  .sysc .tiles{ display:flex; gap:5px; margin-top:6px; align-items:stretch; }
+  .stile{ flex:1; border:1px solid var(--border-dim); border-radius:6px; text-align:center; padding:5px 2px; background:rgba(2,1,1,.5); }
+  .stile i{ font-style:normal; font-size:8px; color:var(--plasma-gold); display:flex; justify-content:center; }
+  .stile i svg.ic-g{ width:9px; height:9px; }
+  .stile b{ display:block; font-size:5.6px; letter-spacing:.06em; color:var(--text-primary); margin-top:3px; }
+  .stile span{ display:block; font-size:5.4px; color:var(--text-muted); margin-top:2px; }
+  .stile.arrow{ display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:10px; flex:0 0 18px; }
+
+  /* ---------- mobile row ---------- */
+  .row-mobile{ display:flex; gap:44px; justify-content:center; align-items:flex-start; margin-top:34px; }
+  .phone{ width:252px; height:520px; border-radius:38px; position:relative; overflow:hidden; flex:none;
+    background:#010101;
+    border:1px solid var(--border-dim);
+    box-shadow:0 0 40px rgba(247,120,20,.08), 0 24px 50px rgba(0,0,0,.5), inset 0 0 0 5px #0a0503, inset 0 1px 0 rgba(255,225,180,.06); }
+  .phone .notch{ position:absolute; top:9px; left:50%; transform:translateX(-50%); width:78px; height:16px; border-radius:9px; background:#0b0603; z-index:5; }
+  .phone .sbar{ position:absolute; top:11px; left:0; right:0; display:flex; padding:0 20px; z-index:4; font-size:9px; color:var(--text-primary); }
+  .phone .sbar .sr{ margin-left:auto; letter-spacing:2px; font-size:7px; }
+  .phone .pcv{ position:absolute; inset:0; overflow:hidden; isolation:isolate; }
+  .phone .pcv canvas{ width:100%; height:100%; }
+  .phone .ptitle{ position:absolute; top:38px; left:0; right:0; text-align:center; font-size:11px; letter-spacing:.42em; color:var(--plasma-gold); font-weight:700; z-index:4; }
+  .phone .rbtn{ position:absolute; width:26px; height:26px; border-radius:50%; border:1px solid var(--border-dim); background:rgba(4,2,1,.75); color:var(--plasma-gold); display:flex; align-items:center; justify-content:center; font-size:10px; z-index:4; }
+  .phone .msg{ position:absolute; left:12px; right:12px; bottom:118px; z-index:4; margin:0; }
+  .phone .evchip{ position:absolute; left:12px; right:12px; bottom:64px; z-index:4; border:1px solid rgba(67,216,136,.45); border-radius:9px; background:rgba(3,12,7,.82); padding:8px 10px; display:flex; align-items:center; gap:8px; }
+  .phone .evchip .ci{ width:14px; height:14px; border-radius:50%; border:1px solid var(--verified); color:var(--verified); font-size:7px; display:flex; align-items:center; justify-content:center; }
+  .phone .evchip b{ font-size:7.5px; letter-spacing:.18em; color:var(--verified); display:block; }
+  .phone .evchip span{ font-size:6.5px; color:var(--text-muted); display:block; margin-top:2px; }
+  .phone .evchip .arr{ margin-left:auto; color:var(--verified); font-size:9px; }
+  .phone .nav{ position:absolute; bottom:0; left:0; right:0; z-index:4; background:rgba(2,1,1,.88); }
+  .phone .pdots{ position:absolute; top:60px; left:0; right:0; display:flex; justify-content:center; gap:9px; z-index:4; }
+  .phone .pdots span{ width:15px; height:15px; border-radius:50%; border:1px solid var(--text-muted); color:var(--text-muted); font-size:7px; display:flex; align-items:center; justify-content:center; }
+  .phone .pdots span.on{ border-color:var(--plasma-gold); color:var(--plasma-gold); box-shadow:0 0 6px rgba(255,150,40,.4); }
+  .phone .phasebar{ position:absolute; left:12px; right:12px; bottom:112px; z-index:4; border:1px solid var(--border-dim); border-radius:7px; background:rgba(3,2,1,.88); padding:7px 9px; display:flex; font-size:7px; color:var(--text-muted); }
+  .phone .phasebar b{ color:var(--plasma-gold); letter-spacing:.10em; }
+  .phone .phasebar .pr{ margin-left:auto; }
+  .phone .pchips{ position:absolute; left:12px; right:12px; bottom:62px; z-index:4; display:flex; gap:6px; }
+  .phone .pchip{ flex:1; border:1px solid var(--border-dim); border-radius:7px; text-align:center; padding:6px 2px; background:rgba(3,2,1,.88); }
+  .phone .pchip b{ font-size:6.6px; letter-spacing:.10em; color:var(--text-primary); display:block; }
+  .phone .pchip span{ font-size:6px; color:var(--text-muted); display:block; margin-top:2px; }
+  .phone .pchip.on{ border-color:var(--border-hot); box-shadow:0 0 8px rgba(255,150,40,.18); }
+  .phone .pchip.on b{ color:var(--plasma-gold); }
+
+  .apollo-desc{ width:360px; padding-top:38px; }
+  .apollo-desc h2{ font-size:22px; letter-spacing:.44em; color:var(--plasma-gold); font-weight:700; }
+  .apollo-desc > p{ font-size:11px; line-height:1.7; color:var(--text-secondary); margin-top:14px; }
+  .feat{ display:flex; gap:11px; margin-top:15px; }
+  .feat .fi{ width:22px; height:22px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-size:10px; border:1px solid; }
+  .feat b{ font-size:11px; color:var(--text-primary); display:block; letter-spacing:.02em; font-weight:700; }
+  .feat span{ font-size:9.5px; color:var(--text-muted); display:block; margin-top:3px; }
+
+  /* ---------- motion row ---------- */
+  .motion-hd{ display:flex; align-items:baseline; gap:12px; margin:40px 0 12px; }
+  .motion-hd h3{ font-size:15px; letter-spacing:.30em; color:var(--text-primary); }
+  .motion-hd span{ font-size:9px; letter-spacing:.22em; color:var(--text-muted); }
+  .row-motion{ display:flex; gap:13px; }
+  .mpanel{ flex:1; overflow:hidden; display:flex; flex-direction:column; height:296px; }
+  .mp-head{ padding:9px 11px 7px; display:flex; gap:7px; align-items:flex-start; }
+  .mp-head .tag{ width:15px; height:15px; border:1px solid var(--border-base); border-radius:4px; color:var(--plasma-gold); font-size:8px; display:flex; align-items:center; justify-content:center; font-weight:700; flex:none; margin-top:1px; }
+  .mp-head b{ font-size:8.4px; letter-spacing:.16em; color:var(--text-primary); display:block; }
+  .mp-head span{ font-size:6.8px; color:var(--text-muted); display:block; margin-top:3px; }
+  .mp-canvas{ position:relative; flex:1; min-height:0; background:#010101; overflow:hidden; isolation:isolate; }
+  .mp-canvas canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+  .mp-foot{ border-top:1px solid var(--border-dim); padding:6px 10px; display:flex; gap:10px; align-items:center; min-height:26px; background:rgba(2,1,1,.5); }
+  .mp-foot .tl{ font-size:6.4px; letter-spacing:.10em; }
+  .mp-foot .g{ color:var(--verified); font-weight:700; letter-spacing:.08em; font-size:7px; }
+  .mp-foot .m{ color:var(--text-muted); font-size:6.4px; }
+  .legend{ position:absolute; right:8px; top:8px; z-index:3; }
+  .legend div{ display:flex; align-items:center; gap:5px; font-size:6px; color:var(--text-secondary); margin-bottom:3px; }
+  .legend i{ width:9px; height:2px; border-radius:2px; display:block; }
+  .iswf{ position:absolute; top:8px; font-size:6.8px; letter-spacing:.10em; z-index:3; }
+  .garrow{ position:absolute; top:50%; transform:translate(-50%,-50%); color:rgba(255,190,90,.9); font-size:15px; z-index:3; text-shadow:0 0 8px rgba(247,120,20,.8); }
+  .statchip{ border:1px solid rgba(67,216,136,.45); border-radius:5px; padding:3px 7px; color:var(--verified); font-weight:700; letter-spacing:.08em; font-size:6.8px; background:rgba(3,12,7,.55); }
+  .voice5{ position:absolute; inset:0; display:flex; align-items:center; padding:0 4px; gap:2px; overflow:hidden; }
+  .vslot{ flex:1; min-width:0; display:flex; align-items:center; }
+  .vslot canvas{ position:static; inset:auto; width:100%; height:auto; aspect-ratio:1/1; display:block; }
+  .mp-foot.voice{ display:flex; padding:0; }
+  .mp-foot.voice div{ flex:1; text-align:center; padding:6px 0; }
+  .mp-foot.voice b{ display:block; font-size:5.9px; letter-spacing:.10em; color:var(--text-primary); }
+  .mp-foot.voice span{ display:block; font-size:5.6px; color:var(--text-muted); margin-top:2px; }
+  .mp-foot.voice i{ display:flex; justify-content:center; font-style:normal; font-size:7px; color:var(--plasma-gold); margin-bottom:2px; }
+  .mp-foot.voice i svg.ic-g{ width:8px; height:8px; }
+
+  /* ---------- footer ---------- */
+  .footer{ margin-top:30px; border-top:1px solid var(--border-dim); padding-top:16px; display:flex; align-items:center; }
+  .footer .one{ font-size:11px; letter-spacing:.26em; color:var(--text-primary); font-weight:700; }
+  .footer .fset{ display:flex; flex:1; justify-content:space-evenly; }
+  .fitem{ display:flex; gap:8px; align-items:center; font-size:8.6px; letter-spacing:.22em; color:var(--text-secondary); }
+  .fitem i{ font-style:normal; font-size:9px; display:flex; }
+  .fitem i svg.ic-g{ width:10px; height:10px; }
+
+  @keyframes helioDrift{
+    0%,100%{ transform:translate3d(var(--canvas-x),var(--canvas-y),0) scale(1.036); }
+    25%{ transform:translate3d(calc(var(--canvas-x) + 1.2px),calc(var(--canvas-y) - .8px),0) scale(1.039); }
+    50%{ transform:translate3d(calc(var(--canvas-x) + .4px),calc(var(--canvas-y) + 1px),0) scale(1.037); }
+    75%{ transform:translate3d(calc(var(--canvas-x) - 1px),calc(var(--canvas-y) + .3px),0) scale(1.040); }
+  }
+  @keyframes linkDrift{
+    0%,100%{ transform:translate3d(var(--link-x),var(--link-y),0) scale(1.005); opacity:.92; }
+    50%{ transform:translate3d(calc(var(--link-x) - .7px),calc(var(--link-y) + .5px),0) scale(1.009); opacity:1; }
+  }
+  .sc-canvas canvas, .mp-canvas canvas, .phone .pcv canvas{
+    transform-origin:50% 50%; will-change:transform;
+    animation:helioDrift 46s ease-in-out infinite;
+  }
+  .sc-canvas svg.links{ transform-origin:center; will-change:transform; animation:linkDrift 62s ease-in-out infinite reverse; }
+  @media (prefers-reduced-motion: reduce){
+    .sc-canvas canvas, .mp-canvas canvas, .phone .pcv canvas, .sc-canvas svg.links{
+      animation:none !important; transform:none !important;
+    }
+  }
+
+
+  /* ================================================================
+     v26 REFERENCE-LOCKED COMPOSITE
+     Default view uses the supplied 1536 × 1024 board as an exact visual
+     backplate. A transparent deterministic canvas adds live plasma,
+     particles, orbital couriers, quantile packets and distinct voice-state
+     motion. The complete DOM/procedural board remains available with
+     ?native=1 and remains present as the semantic layer in parity mode.
+     ================================================================ */
+  #heliosStage{ position:relative; }
+  #parityBackplate,
+  #parityFx{ display:none; }
+
+  html[data-view="parity"],
+  html[data-view="parity"] body{
+    width:100%; min-width:0; min-height:0; background:#000; overflow:hidden;
+  }
+  html[data-view="parity"] #heliosStage{
+    --stage-fit:1;
+    position:absolute; left:50%; top:0; width:1536px; height:1024px;
+    margin-left:-768px; transform:scale(var(--stage-fit));
+    transform-origin:top center; overflow:hidden; background:#000;
+  }
+  html[data-view="parity"] #parityBackplate{
+    display:block; position:absolute; inset:0; width:1536px; height:1024px;
+    object-fit:contain; object-position:0 0; z-index:0; pointer-events:none;
+    user-select:none; -webkit-user-drag:none;
+  }
+  html[data-view="parity"] #parityFx{
+    display:block; position:absolute; inset:0; width:1536px; height:1024px;
+    z-index:3; pointer-events:none; mix-blend-mode:screen;
+  }
+  html[data-view="parity"] #master{ display:none; }
+  html[data-view="parity"] .board{
+    position:absolute; inset:0; z-index:2; width:1536px !important;
+    height:1024px !important; min-height:1024px !important; margin:0 !important;
+    padding:0 !important; overflow:hidden !important; pointer-events:none;
+  }
+  html[data-view="parity"] .board > *{
+    opacity:0 !important; pointer-events:none !important;
+  }
+  html[data-view="parity"] .panelmat:hover{ box-shadow:none; }
+
+  html[data-view="native"] #heliosStage{ position:relative; }
+  html[data-view="native"] #parityBackplate,
+  html[data-view="native"] #parityFx{ display:none; }
+
+  html[data-view="parity"][data-motion="reduced"] #parityFx{ opacity:.82; }
+
+  /* Optional animation-test HUD. It is absent from normal parity captures and is
+     enabled only with ?test=1 / ?controls=1 or in helios-animation-test.html. */
+  #heliosMotionHUD{
+    position:fixed; right:14px; bottom:14px; z-index:1000; display:none;
+    min-width:292px; padding:10px 11px 9px; border-radius:10px;
+    border:1px solid rgba(255,184,73,.42);
+    background:linear-gradient(180deg,rgba(16,11,7,.96),rgba(3,2,2,.95));
+    box-shadow:0 14px 38px rgba(0,0,0,.66), inset 0 1px 0 rgba(255,231,190,.08);
+    color:#d6c5b1; font:11px/1.3 "Helvetica Neue",Arial,sans-serif;
+    pointer-events:auto; user-select:none;
+  }
+  #heliosMotionHUD.on{ display:block; }
+  #heliosMotionHUD .mh-top{ display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  #heliosMotionHUD .mh-dot{ width:8px; height:8px; border-radius:50%; background:#43d888;
+    box-shadow:0 0 10px rgba(67,216,136,.75); flex:none; }
+  #heliosMotionHUD.paused .mh-dot{ background:#ffb94f; box-shadow:0 0 9px rgba(255,185,79,.65); }
+  #heliosMotionHUD.reduced .mh-dot{ background:#70aaff; box-shadow:0 0 9px rgba(112,170,255,.65); }
+  #heliosMotionHUD .mh-title{ color:#fff0d3; font-size:10px; font-weight:700; letter-spacing:.18em; }
+  #heliosMotionHUD .mh-status{ margin-left:auto; color:#8f806f; font-size:9px; letter-spacing:.08em; }
+  #heliosMotionHUD .mh-row{ display:flex; align-items:center; gap:5px; margin-top:6px; }
+  #heliosMotionHUD .mh-label{ width:60px; color:#8f806f; font-size:8px; letter-spacing:.14em; }
+  #heliosMotionHUD button{
+    appearance:none; border:1px solid rgba(255,184,73,.28); border-radius:6px;
+    background:rgba(255,255,255,.025); color:#bca990; padding:5px 8px;
+    font:700 9px/1 "Helvetica Neue",Arial,sans-serif; letter-spacing:.08em; cursor:pointer;
+  }
+  #heliosMotionHUD button:hover,#heliosMotionHUD button.active{
+    border-color:rgba(255,184,73,.72); color:#ffd991; background:rgba(255,145,35,.09);
+    box-shadow:0 0 9px rgba(255,145,35,.12);
+  }
+  #heliosMotionHUD button[data-action="toggle"]{ min-width:68px; color:#43d888; }
+  #heliosMotionHUD.paused button[data-action="toggle"]{ color:#ffb94f; }
+  #heliosMotionHUD .mh-help{ margin-top:8px; color:#6f6458; font-size:8px; letter-spacing:.04em; }
+
+</style>
+</head>
+<body>
+<div id="heliosStage">
+  <img id="parityBackplate" src="REFERENCE-PARITY.png" width="1536" height="1024" alt="" draggable="false">
+  <canvas id="parityFx" width="1536" height="1024" aria-hidden="true"></canvas>
+  <canvas id="master"></canvas>
+  <div class="board">
+
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="k">TRADER COCKPIT</div>
+      <div class="v">APOLLO</div>
+    </div>
+    <div class="hdr-c">
+      <h1>HELIOS EVIDENCE CORE v2</h1>
+      <p>Proactive intelligence. Verified evidence. Confident execution.</p>
+    </div>
+    <div class="hdr-r">
+      <div class="badge">
+        <div class="ic">✓</div>
+        <div><div class="t1">EVIDENCE VERIFIED</div><div class="t2">CME FedWatch Probabilities</div></div>
+      </div>
+      <div class="badge pur">
+        <div class="ic">▣</div>
+        <div><div class="t1">APOLLO STATUS</div><div class="t2">Active &amp; Monitoring</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-screens" id="screens"></div>
+
+  <div class="row-mobile">
+    <div class="phone" id="phone1">
+      <div class="notch"></div>
+      <div class="sbar"><span>9:41</span><span class="sr">▮▮▮ ⏻</span></div>
+      <div class="pcv"><canvas data-tile="phone"></canvas></div>
+      <div class="ptitle">APOLLO</div>
+      <div class="rbtn" style="left:14px; top:64px;">◔</div>
+      <div class="rbtn" style="right:14px; top:64px;">▣</div>
+      <div class="msg">
+        <div class="mh"><div class="av">◉</div><div class="mn">APOLLO</div><div class="mt">9:41 AM</div></div>
+        <p>Volatility is rising into NFP. Consider reducing directional exposure.</p>
+      </div>
+      <div class="evchip">
+        <div class="ci">✓</div>
+        <div><b>EVIDENCE VERIFIED</b><span>CME FedWatch Probabilities</span></div>
+        <div class="arr">›</div>
+      </div>
+      <nav class="nav" data-active="0"></nav>
+    </div>
+
+    <div class="phone" id="phone2">
+      <div class="notch"></div>
+      <div class="sbar"><span>9:41</span><span class="sr">▮▮▮ ⏻</span></div>
+      <div class="pcv"><canvas data-tile="phoneGen"></canvas></div>
+      <div class="ptitle" style="letter-spacing:.30em; font-size:10px;">PARTICLE GENESIS</div>
+      <div class="pdots"><span>1</span><span class="on">2</span><span>3</span><span>4</span><span>5</span></div>
+      <div class="phasebar"><span>Active Phase:&nbsp;<b>CANDIDATE</b></span><span class="pr">2 of 5</span></div>
+      <div class="pchips">
+        <div class="pchip on"><b>CANDIDATE</b><span>Exploring</span></div>
+        <div class="pchip"><b>CONTROL</b><span>Walk-forward</span></div>
+        <div class="pchip"><b>REFINED</b><span>Promising</span></div>
+        <div class="pchip" style="flex:0 0 20px; display:flex; align-items:center; justify-content:center; color:var(--mut); font-size:9px;">×</div>
+      </div>
+      <nav class="nav" data-active="1"></nav>
+    </div>
+
+    <div class="apollo-desc">
+      <h2>APOLLO</h2>
+      <p>A living intelligence core that monitors the markets, reasons with verified evidence, and guides every decision.</p>
+      <div class="feat"><div class="fi" style="border-color:var(--pur); color:var(--pur);">◐</div>
+        <div><b>Proactive &amp; Conversational</b><span>Plain-English guidance and alerts.</span></div></div>
+      <div class="feat"><div class="fi" style="border-color:var(--grn); color:var(--grn);">✓</div>
+        <div><b>Evidence Verified</b><span>Every insight is sourced and cited.</span></div></div>
+      <div class="feat"><div class="fi" style="border-color:var(--blu); color:var(--blu);">⚡</div>
+        <div><b>Execution Ready</b><span>Certified automation with guardrails.</span></div></div>
+      <div class="feat"><div class="fi" style="border-color:var(--org); color:var(--org);">◔</div>
+        <div><b>Transparent Lifecycle</b><span>From idea to live with full lineage.</span></div></div>
+      <div class="feat"><div class="fi" style="border-color:var(--blu); color:var(--blu);">◈</div>
+        <div><b>Private by Design</b><span>Local first. You control your data.</span></div></div>
+    </div>
+  </div>
+
+  <div class="motion-hd"><h3>MOTION STUDY</h3><span>— FIVE CORE DYNAMICS</span></div>
+  <div class="row-motion" id="motion"></div>
+
+  <div class="footer">
+    <div class="one">ONE CORE. ONE TRUTH.</div>
+    <div class="fset">
+      <div class="fitem"><i style="color:var(--grn)">✓</i>VERIFIED EVIDENCE</div>
+      <div class="fitem"><i style="color:var(--org)">⬡</i>FULL PROVENANCE</div>
+      <div class="fitem"><i style="color:var(--org)">◙</i>CERTIFIED EXECUTION</div>
+      <div class="fitem"><i style="color:var(--blu)">∞</i>CONTINUOUS LEARNING</div>
+      <div class="fitem"><i style="color:var(--org2)">★</i>BUILT FOR TRADERS</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* ================================================================
+   HELIOS EVIDENCE CORE — animation-test motion pass v27
+   One WebGL context renders every graphic variant into a tile
+   atlas each frame; 2D canvases blit their tile with cover-crop.
+   ================================================================ */
+
+const VS = `
+attribute vec2 a;
+void main(){ gl_Position = vec4(a,0.,1.); }
+`;
+
+const FS = `
+precision highp float;
+uniform vec4 u_tile;      /* x, y, w, h of tile in master px */
+uniform float u_mode;     /* 0 sun | 1 genesis | 2 ring | 3 shells | 4 wave | 5 bands */
+uniform float u_time;
+uniform float u_R;
+uniform vec2 u_center;
+uniform float u_act;      /* activity multiplier   */
+uniform vec3 u_tint;
+uniform float u_pulse;
+uniform float u_dim;
+uniform float u_orbit;
+uniform float u_oct;      /* filament octaves (as float, 3-6) */
+uniform float u_span;     /* genesis particle field left extent */
+uniform float u_scatter;  /* 1 = broad cloud, 0 = staged clusters */
+uniform float u_hint;     /* faint orbital guide arcs around the core */
+uniform float u_state;    /* -1 standard | 0 listen | 1 reason | 2 retrieve | 3 speak | 4 interrupted */
+uniform vec2 u_pointer;   /* smoothed board parallax, normalized -1..1 */
+uniform float u_motion;   /* global motion energy / reduced-motion scalar */
+
+/* ---------- 4D simplex noise (Ashima / Stefan Gustavson, MIT) ---------- */
+vec4 mod289(vec4 x){ return x - floor(x * (1.0/289.0)) * 289.0; }
+float mod289(float x){ return x - floor(x * (1.0/289.0)) * 289.0; }
+vec4 permute(vec4 x){ return mod289(((x*34.0)+1.0)*x); }
+float permute(float x){ return mod289(((x*34.0)+1.0)*x); }
+vec4 taylorInvSqrt(vec4 r){ return 1.79284291400159 - 0.85373472095314 * r; }
+float taylorInvSqrt(float r){ return 1.79284291400159 - 0.85373472095314 * r; }
+vec4 grad4(float j, vec4 ip){
+  const vec4 ones = vec4(1.0,1.0,1.0,-1.0);
+  vec4 p,s;
+  p.xyz = floor( fract (vec3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
+  p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
+  s = vec4(lessThan(p, vec4(0.0)));
+  p.xyz = p.xyz + (s.xyz*2.0 - 1.0) * s.www;
+  return p;
+}
+#define F4 0.309016994374947451
+float snoise(vec4 v){
+  const vec4 C = vec4(0.138196601125011, 0.276393202250021, 0.414589803375032, -0.447213595499958);
+  vec4 i  = floor(v + dot(v, vec4(F4)) );
+  vec4 x0 = v - i + dot(i, C.xxxx);
+  vec4 i0;
+  vec3 isX = step( x0.yzw, x0.xxx );
+  vec3 isYZ = step( x0.zww, x0.yyz );
+  i0.x = isX.x + isX.y + isX.z;
+  i0.yzw = 1.0 - isX;
+  i0.y += isYZ.x + isYZ.y;
+  i0.zw += 1.0 - isYZ.xy;
+  i0.z += isYZ.z;
+  i0.w += 1.0 - isYZ.z;
+  vec4 i3 = clamp( i0, 0.0, 1.0 );
+  vec4 i2 = clamp( i0-1.0, 0.0, 1.0 );
+  vec4 i1 = clamp( i0-2.0, 0.0, 1.0 );
+  vec4 x1 = x0 - i1 + C.xxxx;
+  vec4 x2 = x0 - i2 + C.yyyy;
+  vec4 x3 = x0 - i3 + C.zzzz;
+  vec4 x4 = x0 + C.wwww;
+  i = mod289(i);
+  float j0 = permute( permute( permute( permute(i.w) + i.z) + i.y) + i.x);
+  vec4 j1 = permute( permute( permute( permute (
+            i.w + vec4(i1.w, i2.w, i3.w, 1.0 ))
+          + i.z + vec4(i1.z, i2.z, i3.z, 1.0 ))
+          + i.y + vec4(i1.y, i2.y, i3.y, 1.0 ))
+          + i.x + vec4(i1.x, i2.x, i3.x, 1.0 ));
+  vec4 ip = vec4(1.0/294.0, 1.0/49.0, 1.0/7.0, 0.0);
+  vec4 p0 = grad4(j0,   ip);
+  vec4 p1 = grad4(j1.x, ip);
+  vec4 p2 = grad4(j1.y, ip);
+  vec4 p3 = grad4(j1.z, ip);
+  vec4 p4 = grad4(j1.w, ip);
+  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+  p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+  p4 *= taylorInvSqrt(dot(p4,p4));
+  vec3 m0 = max(0.6 - vec3(dot(x0,x0), dot(x1,x1), dot(x2,x2)), 0.0);
+  vec2 m1 = max(0.6 - vec2(dot(x3,x3), dot(x4,x4)), 0.0);
+  m0 = m0*m0; m1 = m1*m1;
+  return 49.0 * ( dot(m0*m0, vec3(dot(p0,x0), dot(p1,x1), dot(p2,x2)))
+                + dot(m1*m1, vec2(dot(p3,x3), dot(p4,x4))) );
+}
+float fbm(vec4 q){
+  float a = 0.5, s = 0.0;
+  for(int i=0;i<5;i++){ s += a*snoise(q); q.xyz *= 2.03; q.w *= 1.35; a *= 0.5; }
+  return s;
+}
+float fbm3(vec4 q){
+  float a = 0.5, s = 0.0;
+  for(int i=0;i<3;i++){ s += a*snoise(q); q.xyz *= 2.11; q.w *= 1.3; a *= 0.5; }
+  return s;
+}
+vec3 hash3(vec3 p){
+  p = vec3(dot(p,vec3(127.1,311.7, 74.7)),
+           dot(p,vec3(269.5,183.3,246.1)),
+           dot(p,vec3(113.5,271.9,124.6)));
+  return fract(sin(p)*43758.5453123);
+}
+vec2 voronoi(vec3 x, float t){
+  vec3 n = floor(x); vec3 f = fract(x);
+  float F1 = 8.0, F2 = 8.0;
+  for(int k=-1;k<=1;k++)
+  for(int j=-1;j<=1;j++)
+  for(int i=-1;i<=1;i++){
+    vec3 g = vec3(float(i),float(j),float(k));
+    vec3 o = hash3(n+g);
+    o = 0.5 + 0.42*sin(t + 6.2831*o);
+    vec3 rr = g + o - f;
+    float d = dot(rr,rr);
+    if(d<F1){ F2=F1; F1=d; } else if(d<F2){ F2=d; }
+  }
+  return sqrt(vec2(F1,F2));
+}
+mat3 rotY(float a){ float c=cos(a), s=sin(a); return mat3(c,0.,-s, 0.,1.,0., s,0.,c); }
+mat3 rotX(float a){ float c=cos(a), s=sin(a); return mat3(1.,0.,0., 0.,c,s, 0.,-s,c); }
+mat2 rot2(float a){ float c=cos(a), s=sin(a); return mat2(c,-s,s,c); }
+float hash21(vec2 p){ return fract(sin(dot(p, vec2(41.31, 289.17)))*43758.5453); }
+float wrapPi(float a){ return atan(sin(a), cos(a)); }
+
+/* Animated limb topology: compact polar arches read as real prominences rather than a uniform glow. */
+vec3 prominenceField(vec2 p, float t, float R){
+  float r = length(p);
+  if(r < R*0.94 || r > R*1.62) return vec3(0.0);
+  float th = atan(p.y,p.x);
+  vec3 c = vec3(0.0);
+  for(int i=0;i<4;i++){
+    float fi = float(i);
+    float ang = -2.45 + fi*1.63 + 0.15*sin(t*(0.045+0.008*fi) + fi*2.2);
+    float da = wrapPi(th-ang);
+    float span = 0.20 + 0.035*sin(fi*2.7+0.8);
+    float q = clamp(1.0-abs(da)/span, 0.0, 1.0);
+    float arch = q*q*(3.0-2.0*q);
+    float h = R*(0.105 + 0.145*(0.5+0.5*sin(t*(0.12+0.02*fi)+fi*1.9)));
+    float target = R + h*arch;
+    float width = R*(0.010 + 0.006*(1.0-arch));
+    float line = exp(-abs(r-target)/max(width,0.0001))*smoothstep(0.0,0.14,q);
+    float haze = exp(-abs(r-target)/max(width*4.5,0.0001))*arch;
+    float flick = 0.72 + 0.28*sin(t*(0.95+0.15*fi) + da*34.0 + fi);
+    c += line*flick*vec3(1.00,0.58,0.16)*0.76;
+    c += haze*vec3(0.72,0.12,0.018)*0.075;
+  }
+  float d = max(r-R,0.0);
+  vec2 dir = r>0.0 ? p/r : vec2(1.0,0.0);
+  float tongues = pow(max(fbm3(vec4(dir*6.8,4.1,t*0.08)),0.0),2.2);
+  c += exp(-d/max(R*0.075,0.0001))*tongues*vec3(1.0,0.34,0.045)*0.16;
+  return c;
+}
+
+/* Each voice state has a different motion grammar, not merely a different speed. */
+vec3 voiceField(vec2 p, float t, float R, float st){
+  if(st < -0.5) return vec3(0.0);
+  float r = length(p), th = atan(p.y,p.x);
+  vec3 c = vec3(0.0);
+  if(st < 0.5){
+    /* listening: slow receptive sweep and inward evidence motes */
+    float rr = R*(1.24 + 0.025*sin(t*0.45));
+    float arc = smoothstep(0.15,0.88,0.5+0.5*cos(wrapPi(th-t*0.30)));
+    c += exp(-abs(r-rr)*420.0)*arc*vec3(0.55,0.78,1.20)*0.34;
+    for(int i=0;i<3;i++){
+      float fi=float(i);
+      float ph=fract(t*(0.055+fi*0.008)+fi*0.31);
+      float a=-2.75+fi*0.30+0.08*sin(t*0.4+fi);
+      vec2 q=vec2(cos(a),sin(a)) * mix(R*1.78,R*1.08,ph);
+      float ds=length(p-q);
+      c += exp(-ds*ds/max(R*R*0.0009,0.00001))*vec3(0.70,0.86,1.30)*(1.0-ph)*0.55;
+    }
+  } else if(st < 1.5){
+    /* reasoning: counter-rotating orbital thought loops and hot inference couriers */
+    for(int i=0;i<3;i++){
+      float fi=float(i);
+      vec2 rp=rot2((fi-1.0)*0.48 + t*(0.045+0.018*fi)*(fi<1.5?1.0:-1.0))*p;
+      float a=R*(1.12+fi*0.16), b=a*(0.43+fi*0.05);
+      float f=length(rp/vec2(a,b));
+      float d=abs(f-1.0)*b;
+      float ang=atan(rp.y/b,rp.x/a);
+      float gate=0.28+0.72*smoothstep(0.12,0.90,0.5+0.5*sin(ang*22.0+t*(1.0+fi*0.3)+fi));
+      c += exp(-d*430.0)*gate*mix(vec3(1.0,0.42,0.08),vec3(1.0,0.86,0.42),fi/2.0)*0.48;
+      float courier=wrapPi(ang-(t*(0.42+fi*0.08)+fi*2.1));
+      c += exp(-d*340.0)*exp(-courier*courier*110.0)*vec3(1.0,0.95,0.72)*1.15;
+    }
+  } else if(st < 2.5){
+    /* retrieving: locator orbit and a cited-object lock pulse */
+    float oa=t*0.35;
+    vec2 op=vec2(cos(oa),sin(oa)*0.55)*R*1.55;
+    float ell=abs(length(p/vec2(R*1.55,R*0.85))-1.0)*R;
+    float dash=smoothstep(0.25,0.82,0.5+0.5*sin(th*52.0-t*0.7));
+    c += exp(-ell*500.0)*dash*vec3(1.0,0.55,0.18)*0.20;
+    float lock=exp(-length(p-op)*length(p-op)/max(R*R*0.012,0.00001));
+    c += lock*vec3(1.0,0.78,0.38)*0.11*(0.5+0.5*sin(t*2.2));
+  } else if(st < 3.5){
+    /* speaking: asymmetric acoustic jets plus expanding pulse rings */
+    float d=max(r-R,0.0);
+    for(int i=0;i<4;i++){
+      float fi=float(i);
+      float ang=-2.4+fi*1.55+0.12*sin(t*0.7+fi*1.7);
+      float da=wrapPi(th-ang);
+      float jet=exp(-da*da*(42.0+fi*6.0))*exp(-d/max(R*(0.30+fi*0.035),0.0001));
+      jet*=smoothstep(R*0.92,R*1.04,r)*(0.62+0.38*sin(t*2.0+fi*1.3));
+      c += jet*vec3(1.0,0.48,0.09)*(0.28+fi*0.035);
+    }
+  } else {
+    /* interrupted: broken holding ring; final shuttering is applied after the disc */
+    float gate=step(0.42,hash21(vec2(floor((th+3.14159)*9.0),floor(t*2.6))));
+    c += exp(-abs(r-R*1.18)*360.0)*gate*vec3(1.0,0.34,0.06)*0.22;
+  }
+  return c;
+}
+
+/* ---------- the living sun: corona + filamentary disc ---------- */
+vec3 renderSun(vec2 p, float t, float R, float px){
+  float r = length(p);
+  vec3 col = vec3(0.0);
+
+  /* corona */
+  {
+    float d = max(r - R, 0.0);
+    vec2 dir = r > 0.0 ? p/r : vec2(1.0,0.0);
+    float wisp  = fbm3(vec4(dir*2.6*(1.0 + d*1.2), 0.37, t*0.10));
+    float wisp2 = fbm3(vec4(dir*1.3*(1.0 + d*0.6), 4.91, t*0.06));
+    /* directional, irregular reach: the corona is not a uniform halo */
+    d *= 1.0 + 0.28*fbm3(vec4(dir*3.2, 1.7, t*0.05));
+    float gT = exp(-d*100.0/R*0.30);
+    float gM = exp(-d*27.5/R*0.30);
+    float gW = exp(-d*9.5/R*0.30);
+    vec3 corona = gT * vec3(1.00, 0.55, 0.18) * 1.55
+                + gM * (0.75 + 0.25*wisp)  * vec3(1.00, 0.32, 0.05) * 0.36
+                + gW * (0.60 + 0.30*wisp2) * vec3(0.45, 0.08, 0.010) * 0.07;
+    /* long low-opacity radial wisps */
+    float wispRay = pow(max(fbm3(vec4(dir*5.0, 8.2, t*0.04)), 0.0), 2.5);
+    corona += exp(-d*13.0/R*0.30) * wispRay * vec3(1.0, 0.35, 0.07) * 0.30;
+    corona *= 1.0 - smoothstep(R*1.52, R*2.47, r);
+    col += corona;
+  }
+
+  /* topology and state overlays are generated outside the disc so the limb has real motion depth */
+  col += prominenceField(p, t*u_motion, R);
+  col += voiceField(p, t*u_motion, R, u_state);
+
+  /* faint orbital guide arcs */
+  if(u_hint > 0.5){
+    for(int i=0;i<2;i++){
+      float fi = float(i);
+      float a2 = R*(1.38 + fi*0.30);
+      float b2 = a2*0.42;
+      float f2 = length(p/vec2(a2,b2));
+      float dd = abs(f2-1.0)*b2;
+      float th2 = atan(p.y/b2, p.x/a2);
+      float dash = smoothstep(0.30, 0.80, 0.5 + 0.5*sin(th2*70.0 + fi*2.0 + t*0.10));
+      float vis = smoothstep(-0.55, 0.25, sin(th2 + fi*2.6));
+      col += exp(-dd*520.0)*dash*vis * vec3(1.0, 0.55, 0.20) * 0.15;
+    }
+  }
+
+  /* speaking pulse rings */
+  if(u_pulse > 0.5){
+    float pr = R*(1.10 + 0.80*fract(t*0.30));
+    float fade = 1.0 - fract(t*0.30);
+    col += exp(-abs(r-pr)*140.0)*fade*0.35*vec3(1.0,0.6,0.25);
+    float pr2 = R*(1.10 + 0.80*fract(t*0.30+0.5));
+    float fade2 = 1.0 - fract(t*0.30+0.5);
+    col += exp(-abs(r-pr2)*140.0)*fade2*0.26*vec3(1.0,0.5,0.18);
+  }
+
+  /* retrieval: orbital body + solar flare reaching for it */
+  if(u_orbit > 0.5){
+    float oa = t*0.35;
+    vec2 op = vec2(cos(oa), sin(oa)*0.55)*R*1.55;   /* elliptical orbit */
+    /* the smaller orbital body: hot core + glow */
+    float db = length(p-op);
+    col += exp(-db*db/(R*R*0.0035)) * vec3(1.0,0.55,0.20) * 0.9;
+    col += exp(-db*db/(R*R*0.0007)) * vec3(1.0,0.90,0.62) * 1.4;
+    /* trailing motes on the same orbit */
+    for(int i=1;i<3;i++){
+      float fa = oa - float(i)*0.5;
+      vec2 mp2 = vec2(cos(fa), sin(fa)*0.55)*R*1.55;
+      float dm = length(p-mp2);
+      col += exp(-dm*dm/(R*R*0.0006)) * vec3(1.0,0.70,0.35) * 0.45;
+    }
+    /* the flare: turbulent plasma arc from limb to body, pulsing reach */
+    vec2 dirO = normalize(op);
+    vec2 A  = dirO * R * 0.90;
+    vec2 Bc = dirO * R * 1.18 + vec2(-dirO.y, dirO.x) * R * 0.50;
+    float reach = 0.60 + 0.40*(0.5 + 0.5*sin(t*0.9));   /* always reaching, pulsing to full */
+    for(int i=0;i<=14;i++){
+      float s = float(i)/14.0 * reach;
+      vec2 q2 = mix(mix(A,Bc,s), mix(Bc,op,s), s);
+      q2 += vec2(snoise(vec4(q2*7.0, 3.7, t*0.7)),
+                 snoise(vec4(q2*7.0, 9.1, t*0.7))) * 0.014 * s;
+      float df = length(p-q2);
+      float sig = mix(0.036, 0.013, s) * (R/0.30);
+      float g = exp(-df*df/(sig*sig));
+      vec3 fc = mix(vec3(1.0,0.50,0.10), vec3(1.0,0.85,0.45), s);
+      col += g * fc * (1.10 - 0.40*s) * (0.60 + 0.40*reach);
+    }
+  }
+
+  float disc = smoothstep(R+px, R-px, r);
+  if(disc > 0.0){
+    float rr2 = min(r, R*0.9999);
+    float z = sqrt(R*R - rr2*rr2);
+    vec3 n = vec3(p, z) / R;
+    n = rotX(-u_pointer.y*0.055) * rotY(t*0.015*u_motion + u_pointer.x*0.070) * n;
+    float mu = clamp(z/R, 0.0, 1.0);
+
+    float ta = t*u_act*u_motion;
+
+    vec4 P = vec4(n*2.1, ta*0.11);
+    vec3 w = vec3( fbm3(P + vec4(0.0, 0.0, 0.0, 3.1)),
+                   fbm3(P + vec4(5.2, 1.3, 2.8, 1.7)),
+                   fbm3(P + vec4(1.7, 9.2, 4.1, 8.3)) );
+    vec3 np = n + 0.38*w;
+
+    float webSharp = 0.0, webHalo = 0.0;
+    {
+      vec4 q = vec4(np*5.0, ta*0.14);
+      float aS = 0.50, aH = 0.50;
+      for(int i=0;i<6;i++){
+        if(float(i) >= u_oct) break;
+        float rn = max(1.0 - abs(snoise(q)), 0.0);
+        float r4 = rn*rn*rn*rn; float r8 = r4*r4;
+        webSharp += aS * pow(rn, 14.0);
+        webHalo  += aH * r4*rn * 0.35;
+        q.xyz *= 2.0; q.w *= 1.3;
+        aS *= 0.75; aH *= 0.55;
+      }
+    }
+    vec2 v2 = voronoi(np*9.0, ta*0.5);
+    float crack = smoothstep(0.055, 0.0, v2.y - v2.x) * 0.45;
+    float flicker = 0.80 + 0.40*fbm3(vec4(np*4.2, ta*0.5 + 7.7));
+    float patch = fbm(vec4(n*1.6, ta*0.05) + vec4(2.2, 5.1, 0.7, 0.0));
+    float hot = (0.60 + 0.60*smoothstep(0.0, 0.75, patch)) * 0.71;
+    float mottle = 0.5 + 0.5*fbm3(vec4(np*3.4, ta*0.2));
+    vec3 base = mix(vec3(0.050, 0.009, 0.004), vec3(0.17, 0.035, 0.012), mottle) * 0.70;
+    float grain = 0.85 + 0.30*snoise(vec4(np*24.0, ta*0.7));
+    float artery = 0.0;
+    {
+      vec4 qa = vec4(np*2.3, ta*0.10);
+      float rna = max(1.0 - abs(snoise(qa)), 0.0);
+      float ra4 = rna*rna*rna*rna;
+      artery = ra4*ra4*ra4*rna*rna;
+    }
+    float vI = (webSharp*2.8 + artery*0.90 + webHalo*0.15 + crack*0.35) * flicker * hot * grain;
+    vI = 1.55*pow(max(vI, 0.0), 1.35);
+
+    vec3 rampA = vec3(0.62, 0.06, 0.004);
+    vec3 rampB = vec3(1.00, 0.26, 0.012);
+    vec3 rampC = vec3(1.00, 0.52, 0.08);
+    vec3 rampD = vec3(1.00, 0.93, 0.66);
+    vec3 vein = mix(rampA, rampB, clamp(vI, 0.0, 1.0));
+    vein = mix(vein, rampC, clamp((vI-1.3)*0.75, 0.0, 1.0));
+    vein = mix(vein, rampD, clamp((vI-2.4)*0.8, 0.0, 1.0));
+    vein *= 1.0 + 0.6*smoothstep(2.2, 3.4, vI);   /* hottest knots push past 1.0 */
+
+    /* violet-magenta woven through mid-intensity threads only */
+    float vio = smoothstep(0.24, 0.68, fbm3(vec4(n*1.6 + 11.3, ta*0.07)));
+    vein = mix(vein, vec3(0.85, 0.34, 1.35), vio*1.0*(1.0 - smoothstep(2.0, 3.2, vI)));
+
+    /* ionized blue notes — hottest plasma runs cool-blue (stellar temperature inversion) */
+    float ion = smoothstep(0.45, 0.85, fbm3(vec4(n*3.1 + 4.7, ta*0.09)));
+    vein = mix(vein, vec3(0.35, 0.68, 1.35), ion*0.44*(1.0 - smoothstep(1.8, 2.8, vI)));
+    vein = mix(vein, vec3(0.80, 0.90, 1.30), clamp((vI-2.9)*0.9, 0.0, 1.0)*0.58);
+
+    float chField = fbm(vec4(n*0.80 + 0.30*w, ta*0.03) + vec4(9.4, 3.7, 6.1, 0.0));
+    float a = abs(chField + 0.03);
+    float channel = smoothstep(0.168, 0.050, a);
+    float chRim   = smoothstep(0.238, 0.168, a) * (1.0 - smoothstep(0.168, 0.096, a));
+
+    vI *= 1.0 - 0.97*channel;
+    vec3 surf = base * (1.0 - 0.95*channel) + vein * vI;
+    surf += channel * vec3(0.030, 0.006, 0.002);
+    surf += chRim * vec3(1.00, 0.45, 0.08) * 0.65;
+
+    float limb = pow(1.0 - mu, 6.0);
+    surf += limb * vec3(1.00, 0.38, 0.06) * 1.35;
+    float protr = 0.72 + 0.55*fbm3(vec4(p/max(r,1e-4)*6.0, 3.3, t*0.1));
+    float rim = smoothstep(R*0.978, R*1.0, r);
+    surf += rim * vec3(1.00, 0.70, 0.28) * 3.2 * protr;
+
+    surf *= u_tint;
+    col = mix(col, surf, disc);
+  }
+
+  /* perspective sheen and interruption gating are intentionally post-disc. */
+  float viewSheen = clamp(0.5 + 0.5*dot(normalize(vec2(0.001)+p), normalize(vec2(0.001)+u_pointer)), 0.0, 1.0);
+  col += disc*viewSheen*length(u_pointer)*vec3(1.0,0.48,0.10)*0.035;
+  if(u_state > 3.5){
+    float row = floor((p.y+0.8)*78.0);
+    float shutter = mix(0.56,1.0,step(0.24,hash21(vec2(row,floor(t*4.0)))));
+    float tear = exp(-abs(fract((p.y+t*0.035)*16.0)-0.5)*85.0);
+    col *= shutter;
+    col += tear*disc*vec3(0.42,0.07,0.015)*0.10;
+  }
+  return col;
+}
+
+vec3 sparkField(vec2 p, float t, float R){
+  vec3 acc = vec3(0.0);
+  for(int L=0; L<2; L++){
+    float scale = (L==0) ? 14.0 : 26.0;
+    vec2 gp = p*scale;
+    vec2 cell = floor(gp);
+    vec2 fr = fract(gp);
+    float hz = hash21(cell + float(L)*13.7);
+    vec2 sp = vec2(hash21(cell+0.31+float(L)), hash21(cell+0.77+float(L)));
+    float ds = length(fr - sp);
+    float tw = 0.55 + 0.45*sin(t*(0.6+hz*1.8) + hz*6.28);
+    float star = smoothstep(0.06, 0.0, ds) * step(0.82, hz) * tw;
+    float far = smoothstep(R*1.02, R*1.6, length(p));
+    vec3 warm = mix(vec3(1.0,0.55,0.2), vec3(1.0,0.85,0.5), hz);
+    acc += star * far * mix(warm, vec3(0.55,0.75,1.25), step(0.955, hz)) * 0.8;
+  }
+  return acc;
+}
+
+/* gradient for chronosphere shells: past→future */
+vec3 shellCol(float t){
+  vec3 c = mix(vec3(0.55,0.52,0.48), vec3(0.25,0.85,0.50), smoothstep(0.05,0.30,t));
+  c = mix(c, vec3(0.30,0.80,0.95), smoothstep(0.35,0.55,t));
+  c = mix(c, vec3(0.38,0.55,1.00), smoothstep(0.55,0.75,t));
+  c = mix(c, vec3(0.62,0.42,1.00), smoothstep(0.75,0.95,t));
+  return c;
+}
+/* gradient for probability bands: 99th→1st */
+vec3 bandCol(float t){
+  vec3 c = mix(vec3(1.0,0.45,0.10), vec3(1.0,0.62,0.12), smoothstep(0.0,0.25,t));
+  c = mix(c, vec3(1.0,0.85,0.30), smoothstep(0.25,0.42,t));
+  c = mix(c, vec3(1.0,1.0,1.0),   smoothstep(0.42,0.52,t));
+  c = mix(c, vec3(0.55,0.70,1.0), smoothstep(0.55,0.75,t));
+  c = mix(c, vec3(0.62,0.45,1.0), smoothstep(0.78,1.0,t));
+  return c;
+}
+
+void main(){
+  vec2 frag = gl_FragCoord.xy;
+  vec2 p = (frag - u_tile.xy - 0.5*u_tile.zw) / u_tile.w;
+  float t = u_time;
+  float px = 1.5 / u_tile.w;
+  vec3 col = vec3(0.0);
+
+  if(u_mode < 0.5){
+    /* -------- MODE 0: the sun -------- */
+    col = renderSun(p - u_center, t, u_R, px);
+    col += sparkField(p, t, u_R);
+  }
+  else if(u_mode < 1.5){
+    /* -------- MODE 1: particle genesis (staged clusters) -------- */
+    vec2 sc = u_center;
+    /* faint glow binding each condensation cluster */
+    for(int c=0;c<3;c++){
+      float fc = float(c);
+      vec2 cc = vec2(mix(-u_span, sc.x - u_R*2.4, fc/2.6), 0.0);
+      float dcl = length(p-cc);
+      col += exp(-dcl*dcl/0.012) * vec3(0.55,0.16,0.03) * (0.10 + 0.03*fc) * (1.0 - u_scatter);
+    }
+    float dm = smoothstep(u_R+px, u_R-px, length(p-sc));
+    col = col*(1.0-dm) + renderSun(p - sc, t, u_R, px);
+  }
+  else if(u_mode < 2.5){
+    /* -------- MODE 2: execution eligibility ring -------- */
+    float r = length(p);
+    float th = atan(p.y, p.x);
+    vec3 q3 = vec3(cos(th), sin(th), 0.0);
+    float B = 0.55 + 0.45*fbm3(vec4(q3*3.0 + 5.0, t*0.25));
+    float B2 = 0.6 + 0.4*fbm3(vec4(q3*7.0 + 1.3, t*0.4));
+    float d = r - 0.30;
+    col += exp(-abs(d)*110.0) * (0.9 + 0.5*B) * vec3(1.00, 0.44, 0.09) * 1.05;
+    col += exp(-abs(d)*30.0) * B * vec3(1.00, 0.33, 0.05) * 0.16;
+    col += exp(-abs(d)*260.0) * B2 * vec3(1.00, 0.78, 0.38) * 1.8;
+    if(d < 0.0) col += exp(d*14.0) * vec3(0.26, 0.06, 0.008) * 0.4;
+    /* node ticks on the ring */
+    for(int i=0;i<8;i++){
+      float ang = float(i)*0.7854 + 0.3927;
+      vec2 tp = vec2(cos(ang), sin(ang))*0.30;
+      float dtp = length(p-tp);
+      col += exp(-dtp*dtp/0.00005) * vec3(1.0, 0.85, 0.55) * 1.1;
+    }
+    /* dashed inner guide circle */
+    float dg = abs(r - 0.205);
+    float dash = smoothstep(0.15, 0.85, 0.5 + 0.5*sin(th*44.0 + t*0.3));
+    col += exp(-dg*420.0) * dash * vec3(1.0, 0.5, 0.15) * 0.28;
+    col *= 1.0 - smoothstep(0.55, 0.95, r);
+    col += sparkField(p, t, 0.30);
+  }
+  else if(u_mode < 3.5){
+    /* -------- MODE 3: chronosphere shells -------- */
+    /* a faint temporal horizon anchors the shells and prevents the graphic reading as flat rings */
+    col += exp(-abs(p.y)*260.0) * vec3(0.55,0.23,0.06) * 0.055;
+    for(int i=0;i<7;i++){
+      float fi = float(i);
+      float phase = t*(0.23 + 0.035*fi) + fi*1.7;
+      float a = (0.25 + fi*0.090) * (1.0 + 0.014*sin(t*0.46 + fi*0.9));
+      float b = a*(0.38 + 0.015*sin(fi*1.3));
+      vec2 rp = rot2((fi-3.0)*0.010 + u_pointer.y*0.025)*p;
+      float f = length(rp/vec2(a,b));
+      float d = abs(f-1.0)*b;
+      float th = atan(rp.y/b, rp.x/a);
+      float dash = 0.24 + 0.76*smoothstep(0.14,0.88,0.5 + 0.5*sin(th*58.0 + fi*2.1 + t*(0.82 + 0.22*fi)));
+      float wave = 0.46 + 0.54*(0.5 + 0.5*sin(th*2.0 - t*(0.72 + 0.10*fi) + fi*1.9));
+      float front = 0.34 + 0.66*smoothstep(-0.55,0.55,sin(th + 0.20*sin(fi)));
+      vec3 sc = shellCol(fi/6.0);
+      float g = exp(-d*420.0)*dash*wave*front;
+      col += g * sc * 1.34;
+      col += exp(-d*92.0) * sc * (0.015 + 0.020*front);
+      /* two couriers orbit in opposite directions; their tails imply time flow */
+      for(int c2=0;c2<2;c2++){
+        float dirn = (c2 == 0) ? 1.0 : -0.82;
+        float thc = phase*dirn + float(c2)*3.14159;
+        float da = wrapPi(th-thc);
+        float comet = exp(-da*da*150.0)*1.9 + exp(-da*da*10.0)*0.22;
+        col += exp(-d*350.0) * comet * mix(sc,vec3(1.0,0.96,0.80),0.55) * front;
+      }
+      /* stable evidence markers locked to each shell */
+      float markerA = fi*2.13 + 0.62;
+      float dm = wrapPi(th-markerA);
+      col += exp(-d*520.0)*exp(-dm*dm*420.0)*vec3(1.0,0.88,0.58)*0.95;
+    }
+    float coreMask = smoothstep(u_R+px, u_R-px, length(p));
+    col = col*(1.0-coreMask) + renderSun(p, t, u_R, px);
+  }
+  else if(u_mode < 4.5){
+    /* -------- MODE 4: correlation gravity field -------- */
+    vec2 L = vec2(-0.72, 0.0);
+    vec2 Rf = vec2(0.72, 0.0);
+    float dL0 = length(p-L), dR0 = length(p-Rf);
+    float phaseL = sin(dL0*28.0 - t*2.0);
+    float phaseR = sin(dR0*28.0 - t*2.15 + 0.7);
+
+    /* spacetime lattice: two scales, warped by both wave sources and lensed by the core */
+    {
+      float m2 = dot(p,p) + 0.024;
+      vec2 lens = p * (1.0 - 0.060*u_R/m2);
+      vec2 gradL = normalize(p-L+vec2(0.0001));
+      vec2 gradR = normalize(p-Rf+vec2(0.0001));
+      vec2 wp = lens + (gradL*phaseL + gradR*phaseR)*0.010;
+      float gx = exp(-abs(sin(wp.x*18.0))*82.0);
+      float gy = exp(-abs(sin(wp.y*18.0))*82.0);
+      float cxg = exp(-abs(sin(wp.x*9.0))*72.0);
+      float cyg = exp(-abs(sin(wp.y*9.0))*72.0);
+      float side = smoothstep(-0.9,0.9,wp.x);
+      vec3 gc = mix(vec3(0.20,0.82,0.43),vec3(0.35,0.60,1.00),side);
+      col += (gx+gy)*gc*0.040 + (cxg+cyg)*gc*0.010;
+    }
+
+    float sumL = 0.0, sumR = 0.0;
+    for(int k=0;k<6;k++){
+      float fk = float(k);
+      float sphL = fract(0.165*fk + t*0.060);
+      float sphR = fract(0.165*fk + t*0.057 + 0.075);
+      float rrL = 0.94*pow(sphL,0.72);
+      float rrR = 0.94*pow(sphR,0.72);
+      float ampL = (0.30+0.92*sphL)*smoothstep(0.0,0.07,sphL)*smoothstep(1.0,0.86,sphL);
+      float ampR = (0.30+0.92*sphR)*smoothstep(0.0,0.07,sphR)*smoothstep(1.0,0.86,sphR);
+      float dl = abs(dL0-rrL), dr = abs(dR0-rrR);
+      vec2 dirL = normalize(p-L+vec2(0.0001));
+      vec2 dirR = normalize(p-Rf+vec2(0.0001));
+      float ml = smoothstep(0.38,0.70,dirL.x);
+      float mr = smoothstep(0.38,0.70,-dirR.x);
+      float al = atan(dirL.y,dirL.x), ar = atan(dirR.y,dirR.x);
+      float dashL = 0.24+0.76*smoothstep(0.18,0.86,0.5+0.5*sin(al*32.0+fk));
+      float dashR = 0.24+0.76*smoothstep(0.18,0.86,0.5+0.5*sin(ar*32.0-fk));
+      float gL = exp(-dl*(210.0+250.0*sphL))*ampL*ml*dashL;
+      float gR = exp(-dr*(210.0+250.0*sphR))*ampR*mr*dashR;
+      sumL += gL; sumR += gR;
+      /* wavefront couriers make propagation direction legible */
+      float beadAL = -0.55 + 1.10*fract(t*0.09+fk*0.17);
+      float beadAR =  0.55 - 1.10*fract(t*0.085+fk*0.19);
+      col += gL*exp(-pow(al-beadAL,2.0)*190.0)*vec3(0.65,1.0,0.75)*0.85;
+      col += gR*exp(-pow(ar-beadAR,2.0)*190.0)*vec3(0.70,0.84,1.0)*0.85;
+    }
+    col += sumL * vec3(0.20,0.90,0.45) * 1.18;
+    col += sumR * vec3(0.35,0.60,1.00) * 1.18;
+    float truth = sumL*sumR;
+    col += truth * vec3(0.90,1.00,0.90) * 2.65;
+    /* central evidence sparks at constructive-interference maxima */
+    for(int i=0;i<5;i++){
+      float fi=float(i);
+      float yy=-0.34+fi*0.17+0.018*sin(t*1.3+fi);
+      vec2 q=vec2(0.0,yy);
+      float ds=length(p-q);
+      col += exp(-ds*ds/0.00011)*truth*vec3(0.95,1.0,0.85)*0.95;
+    }
+    float coreMask = smoothstep(u_R+px, u_R-px, length(p));
+    col = col*(1.0-coreMask) + renderSun(p, t, u_R, px);
+  }
+  else if(u_mode < 5.5){
+    /* -------- MODE 5: probability corona bands -------- */
+    vec2 sc = u_center;
+    float x0 = sc.x + u_R*0.52;
+    float tx = clamp((p.x-x0)/(0.94-x0),0.0,1.0);
+    if(p.x > x0){
+      /* low-energy solar-wind volume beneath the quantile membranes */
+      float plume = exp(-abs(p.y-sc.y)/(0.20+0.34*tx))*smoothstep(0.0,0.16,tx)*smoothstep(1.0,0.78,tx);
+      float flowNoise = 0.5+0.5*fbm3(vec4(tx*5.0-t*0.50,p.y*8.0,2.7,t*0.12));
+      col += plume*flowNoise*vec3(0.34,0.075,0.012)*0.050;
+      for(int i=0;i<7;i++){
+        float fi = float(i);
+        float signedQ = 1.0-fi*(2.0/6.0);
+        float spread = signedQ*(1.0+0.075*sin(t*0.48+fi*0.62));
+        float wig = fbm3(vec4(tx*3.2-t*0.44+fi*3.7,fi*1.3,2.2,t*0.15))*0.052*tx;
+        float micro = sin(tx*42.0-t*(1.7+fi*0.08)+fi)*0.008*tx;
+        float cy = sc.y + spread*pow(tx,1.32)*0.42 + wig + micro;
+        float d = abs(p.y-cy);
+        float flow = 0.66+0.50*(0.5+0.5*sin(tx*32.0-t*2.2+fi*1.7));
+        vec3 bc = bandCol(fi/6.0);
+        float line = exp(-d*(fi==3.0?285.0:235.0))*smoothstep(0.0,0.11,tx)*flow;
+        float membrane = exp(-d*(fi==3.0?55.0:38.0))*smoothstep(0.0,0.20,tx);
+        col += line*bc*(fi==3.0?1.72:1.08);
+        col += membrane*bc*(fi==3.0?0.075:0.030);
+        /* probability mass packets ride each quantile outward */
+        float bx = x0 + (0.94-x0)*fract(t*(0.050+fi*0.002)+fi*0.137);
+        float btx = clamp((bx-x0)/(0.94-x0),0.0,1.0);
+        float bwig = fbm3(vec4(btx*3.2-t*0.44+fi*3.7,fi*1.3,2.2,t*0.15))*0.052*btx;
+        float by = sc.y + spread*pow(btx,1.32)*0.42 + bwig + sin(btx*42.0-t*(1.7+fi*0.08)+fi)*0.008*btx;
+        float db = length(p-vec2(bx,by));
+        col += exp(-db*db/0.00010)*bc*(fi==3.0?1.35:0.85);
+      }
+    }
+    float coreMask = smoothstep(u_R+px,u_R-px,length(p-sc));
+    col = col*(1.0-coreMask)+renderSun(p-sc,t,u_R,px);
+  }
+  else{
+    /* -------- MODE 6: radial genesis (portrait) -------- */
+    vec2 sc = u_center;
+    float dm = smoothstep(u_R+px, u_R-px, length(p-sc));
+    col = col*(1.0-dm) + renderSun(p - sc, t, u_R, px);
+  }
+
+  /* Reinhard-encoded HDR store: unbounded range in 8-bit, decoded in post */
+  col *= u_dim;
+  gl_FragColor = vec4(col / (col + 1.0), 1.0);
+}
+`;
+
+/* ---------------- tile atlas ---------------- */
+const TILES = {
+  sun:      { w:512, h:512, mode:0, R:0.285, center:[0,0],       act:0.9,  hint:1, tofs:12.0 },
+  sunB:     { w:448, h:448, mode:0, R:0.26, center:[0,0],       act:0.65, tofs:47.0 },
+  genesis:  { w:512, h:512, mode:1, R:0.21, center:[0.15,0.0],  span:0.44, scatter:1, act:1.1, tofs:23.0 },
+  genesisW: { w:500, h:294, mode:1, R:0.245,center:[0.43,0.0],  span:0.78, act:1.1, tofs:36.0 },
+  ring:     { w:512, h:512, mode:2, R:0.26, center:[0,0],       tofs:5.0  },
+  phone:    { w:384, h:768, mode:0, R:0.19, center:[0,0.06],    hint:1, tofs:12.0 },
+  phoneGen: { w:384, h:768, mode:1, R:0.12, center:[0.05,0.08], span:0.40, scatter:1, act:1.1, tofs:23.0 },
+  shells:   { w:640, h:400, mode:3, R:0.155,center:[0,0],       act:0.6, tofs:31.0 },
+  wave:     { w:640, h:400, mode:4, R:0.16, center:[0,0],       act:0.8, tofs:8.0  },
+  bands:    { w:640, h:400, mode:5, R:0.19, center:[-0.55,0.0], act:0.7, tofs:16.0 },
+  vListen:  { w:288, h:288, mode:0, R:0.29, center:[0,0], act:0.42, tint:[0.84,0.92,1.12], state:0, tofs:3.0,  oct:4 },
+  vReason:  { w:288, h:288, mode:0, R:0.29, center:[0,0], act:1.72, state:1, tofs:9.0,  oct:5 },
+  vRetrv:   { w:288, h:288, mode:0, R:0.255,center:[0,0], orbit:1, state:2, tofs:14.0, oct:4 },
+  vSpeak:   { w:288, h:288, mode:0, R:0.265,center:[0,0], pulse:1, state:3, tofs:20.0, oct:5 },
+  vInter:   { w:288, h:288, mode:0, R:0.29, center:[0,0], act:0.26, dim:0.54, state:4, tofs:27.0, oct:4 },
+};
+
+const master = document.getElementById('master');
+const PARITY_MODE = window.HELIOS_VIEW === 'parity';
+const glOpts = { antialias:false, alpha:false, preserveDrawingBuffer:false };
+function makeNullGL(){
+  const target = {
+    VERTEX_SHADER:0x8B31, FRAGMENT_SHADER:0x8B30, COMPILE_STATUS:0x8B81,
+    LINK_STATUS:0x8B82, ARRAY_BUFFER:0x8892, STATIC_DRAW:0x88E4,
+    DYNAMIC_DRAW:0x88E8, FLOAT:0x1406, TRIANGLES:0x0004, POINTS:0x0000,
+    SCISSOR_TEST:0x0C11, FRAMEBUFFER:0x8D40, COLOR_ATTACHMENT0:0x8CE0,
+    TEXTURE_2D:0x0DE1, RGBA:0x1908, UNSIGNED_BYTE:0x1401, LINEAR:0x2601,
+    CLAMP_TO_EDGE:0x812F, TEXTURE_MIN_FILTER:0x2801, TEXTURE_MAG_FILTER:0x2800,
+    TEXTURE_WRAP_S:0x2802, TEXTURE_WRAP_T:0x2803, TEXTURE0:0x84C0,
+    BLEND:0x0BE2, ONE:1
+  };
+  return new Proxy(target,{ get(o,k){
+    if(k in o) return o[k];
+    if(k==='getShaderParameter' || k==='getProgramParameter') return ()=>true;
+    if(k==='getShaderInfoLog' || k==='getProgramInfoLog') return ()=>'';
+    if(k==='getAttribLocation') return ()=>0;
+    if(k==='getUniformLocation') return ()=>({});
+    if(String(k).startsWith('create')) return ()=>({});
+    return ()=>{};
+  }});
+}
+const realGL = PARITY_MODE ? null : (master.getContext('webgl2', glOpts) || master.getContext('webgl', glOpts));
+if(!realGL && !PARITY_MODE) document.documentElement.dataset.webgl = 'unsupported';
+const gl = realGL || makeNullGL();
+
+function compile(type, src){
+  const s = gl.createShader(type);
+  gl.shaderSource(s, src); gl.compileShader(s);
+  if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)){
+    console.error(gl.getShaderInfoLog(s));
+    document.title = 'SHADER ERROR';
+  }
+  return s;
+}
+const prog = gl.createProgram();
+gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
+gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
+gl.linkProgram(prog);
+gl.useProgram(prog);
+const buf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+const locA = gl.getAttribLocation(prog, 'a');
+gl.enableVertexAttribArray(locA);
+gl.vertexAttribPointer(locA, 2, gl.FLOAT, false, 0, 0);
+const U = {};
+['u_tile','u_mode','u_time','u_R','u_center','u_act','u_tint','u_pulse','u_dim','u_orbit','u_oct','u_span','u_scatter','u_hint','u_state','u_pointer','u_motion']
+  .forEach(n => U[n] = gl.getUniformLocation(prog, n));
+
+/* shelf-pack tiles into rows (keeps atlas within conservative GL limits)
+   ix/iy = image-space (top-left origin) for 2D blits
+   glx/gly = GL-space (bottom-left origin) for viewport/scissor          */
+const MAXROW = 2400, GAP = 24;
+let atlasW = 0, atlasH = 0;
+{
+  let cx = GAP, cy = GAP, rowH = 0;
+  for(const k in TILES){
+    const t = TILES[k];
+    if(cx + t.w + GAP > MAXROW && cx > GAP){ cy += rowH + GAP; cx = GAP; rowH = 0; }
+    t.ix = cx; t.iy = cy;
+    cx += t.w + GAP; rowH = Math.max(rowH, t.h);
+    atlasW = Math.max(atlasW, cx);
+  }
+  atlasH = cy + rowH + GAP;
+}
+for(const k in TILES){
+  const t = TILES[k];
+  t.glx = t.ix;
+  t.gly = atlasH - t.iy - t.h;
+}
+master.width = atlasW; master.height = atlasH;
+gl.enable(gl.SCISSOR_TEST);
+
+/* ================= multi-pass post pipeline: emissive bloom + filmic composite ================= */
+const QUAD_FS_HEADER = `
+precision highp float;
+uniform vec2 u_size;
+`;
+const FS_BRIGHT = QUAD_FS_HEADER + `
+uniform sampler2D u_tex;
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_size;
+  vec3 e = texture2D(u_tex, uv).rgb;
+  vec3 hdr = e / max(1.0 - e, 0.004);
+  vec3 b = max(hdr - 0.50, 0.0);
+  gl_FragColor = vec4(b * 0.25, 1.0);
+}`;
+const FS_BLUR = QUAD_FS_HEADER + `
+uniform sampler2D u_tex;
+uniform vec2 u_dir;   /* (texel,0) or (0,texel) */
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_size;
+  vec3 c = texture2D(u_tex, uv).rgb * 0.227027;
+  c += texture2D(u_tex, uv + u_dir*1.3846).rgb * 0.3162162;
+  c += texture2D(u_tex, uv - u_dir*1.3846).rgb * 0.3162162;
+  c += texture2D(u_tex, uv + u_dir*3.2308).rgb * 0.0702703;
+  c += texture2D(u_tex, uv - u_dir*3.2308).rgb * 0.0702703;
+  gl_FragColor = vec4(c, 1.0);
+}`;
+const FS_FXAA = QUAD_FS_HEADER + `
+uniform sampler2D u_tex;
+float lumf(vec3 c){ return dot(c, vec3(0.299, 0.587, 0.114)); }
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_size;
+  vec2 px = 1.0 / u_size;
+  vec3 c = texture2D(u_tex, uv).rgb;
+  vec3 n = texture2D(u_tex, uv + vec2(0.0, px.y)).rgb;
+  vec3 s = texture2D(u_tex, uv - vec2(0.0, px.y)).rgb;
+  vec3 e = texture2D(u_tex, uv + vec2(px.x, 0.0)).rgb;
+  vec3 w = texture2D(u_tex, uv - vec2(px.x, 0.0)).rgb;
+  float lc = lumf(c);
+  float mn = min(lc, min(min(lumf(n), lumf(s)), min(lumf(e), lumf(w))));
+  float mx = max(lc, max(max(lumf(n), lumf(s)), max(lumf(e), lumf(w))));
+  float f = smoothstep(0.08, 0.26, mx - mn) * 0.5;
+  gl_FragColor = vec4(mix(c, (n+s+e+w)*0.25, f), 1.0);
+}`;
+const FS_COMPOSITE = QUAD_FS_HEADER + `
+uniform sampler2D u_scene;
+uniform sampler2D u_bloomHalf;
+uniform sampler2D u_bloomQuarter;
+vec3 aces(vec3 x){
+  return clamp((x*(2.51*x+0.03))/(x*(2.43*x+0.59)+0.14), 0.0, 1.0);
+}
+float hash12(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453); }
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_size;
+  vec3 e = texture2D(u_scene, uv).rgb;
+  vec3 scene = e / max(1.0 - e, 0.004);
+  vec3 b1 = texture2D(u_bloomHalf, uv).rgb * 4.0;
+  vec3 b2 = texture2D(u_bloomQuarter, uv).rgb * 4.0;
+  vec3 hdr = scene + b1*0.85 + b2*0.85;
+  float lum = dot(hdr, vec3(0.2126, 0.7152, 0.0722));
+  hdr = max(mix(vec3(lum), hdr, 1.22), 0.0);
+  vec3 col = aces(hdr * 0.9);
+  col = pow(col, vec3(1.0/2.2));
+  col += (hash12(gl_FragCoord.xy) - 0.5) / 255.0;   /* dither */
+  gl_FragColor = vec4(col, 1.0);
+}`;
+
+function makeProg(fsSrc){
+  const p = gl.createProgram();
+  gl.attachShader(p, compile(gl.VERTEX_SHADER, VS));
+  gl.attachShader(p, compile(gl.FRAGMENT_SHADER, fsSrc));
+  gl.linkProgram(p);
+  const la = gl.getAttribLocation(p, 'a');
+  return { p, la };
+}
+const progBright = makeProg(FS_BRIGHT);
+const progBlur = makeProg(FS_BLUR);
+const progComp = makeProg(FS_COMPOSITE);
+const progFxaa = makeProg(FS_FXAA);
+
+function makeTarget(w, h){
+  const tex = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  const fb = gl.createFramebuffer();
+  gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  return { fb, tex, w, h };
+}
+let sceneT = null, halfA = null, halfB = null, quartA = null, quartB = null, compT = null;
+function allocTargets(){
+  const hw = Math.max(2, atlasW >> 1), hh = Math.max(2, atlasH >> 1);
+  const qw = Math.max(2, atlasW >> 2), qh = Math.max(2, atlasH >> 2);
+  sceneT = makeTarget(atlasW, atlasH);
+  compT = makeTarget(atlasW, atlasH);
+  halfA = makeTarget(hw, hh); halfB = makeTarget(hw, hh);
+  quartA = makeTarget(qw, qh); quartB = makeTarget(qw, qh);
+}
+
+function quadPass(prog, target, setup){
+  gl.useProgram(prog.p);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, target ? target.fb : null);
+  const w = target ? target.w : atlasW, h = target ? target.h : atlasH;
+  gl.viewport(0, 0, w, h);
+  gl.uniform2f(gl.getUniformLocation(prog.p, 'u_size'), w, h);
+  setup(prog.p, w, h);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.enableVertexAttribArray(prog.la);
+  gl.vertexAttribPointer(prog.la, 2, gl.FLOAT, false, 0, 0);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
+}
+function bindTex(p, unit, name, tex){
+  gl.activeTexture(gl.TEXTURE0 + unit);
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.uniform1i(gl.getUniformLocation(p, name), unit);
+}
+function postProcess(){
+  gl.disable(gl.SCISSOR_TEST);
+  /* bright extraction at half res */
+  quadPass(progBright, halfA, (p) => bindTex(p, 0, 'u_tex', sceneT.tex));
+  /* half-res blur: two H/V rounds -> tight+medium bloom */
+  for(let i = 0; i < 2; i++){
+    quadPass(progBlur, halfB, (p, w, h) => { bindTex(p, 0, 'u_tex', halfA.tex); gl.uniform2f(gl.getUniformLocation(p, 'u_dir'), 1.0/w, 0); });
+    quadPass(progBlur, halfA, (p, w, h) => { bindTex(p, 0, 'u_tex', halfB.tex); gl.uniform2f(gl.getUniformLocation(p, 'u_dir'), 0, 1.0/h); });
+  }
+  /* quarter-res: downsample the blurred half, blur again -> broad corona bloom */
+  quadPass(progBlur, quartA, (p, w, h) => { bindTex(p, 0, 'u_tex', halfA.tex); gl.uniform2f(gl.getUniformLocation(p, 'u_dir'), 1.0/w, 0); });
+  for(let i = 0; i < 3; i++){
+    quadPass(progBlur, quartB, (p, w, h) => { bindTex(p, 0, 'u_tex', quartA.tex); gl.uniform2f(gl.getUniformLocation(p, 'u_dir'), 1.0/w, 0); });
+    quadPass(progBlur, quartA, (p, w, h) => { bindTex(p, 0, 'u_tex', quartB.tex); gl.uniform2f(gl.getUniformLocation(p, 'u_dir'), 0, 1.0/h); });
+  }
+  /* composite, then FXAA-lite to the visible canvas */
+  quadPass(progComp, compT, (p) => {
+    bindTex(p, 0, 'u_scene', sceneT.tex);
+    bindTex(p, 1, 'u_bloomHalf', halfA.tex);
+    bindTex(p, 2, 'u_bloomQuarter', quartA.tex);
+  });
+  quadPass(progFxaa, null, (p) => bindTex(p, 0, 'u_tex', compT.tex));
+  /* restore tile-pass state */
+  gl.useProgram(prog);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.enableVertexAttribArray(locA);
+  gl.vertexAttribPointer(locA, 2, gl.FLOAT, false, 0, 0);
+  gl.activeTexture(gl.TEXTURE0);
+  gl.enable(gl.SCISSOR_TEST);
+}
+
+
+
+/* ---------------- consistent SVG icon system (replaces platform glyphs) ---------------- */
+const ICO = {
+  home:    '<path d="M2 6 L6 2.5 L10 6 M3.2 5.4 V9.5 H8.8 V5.4"/>',
+  flask:   '<path d="M4.6 2 H7.4 M5.2 2 V4.6 L2.8 8.6 A0.8 0.8 0 0 0 3.5 9.8 H8.5 A0.8 0.8 0 0 0 9.2 8.6 L6.8 4.6 V2"/>',
+  network: '<circle cx="6" cy="3" r="1.3"/><circle cx="2.8" cy="8.6" r="1.3"/><circle cx="9.2" cy="8.6" r="1.3"/><path d="M5.4 4.2 L3.4 7.4 M6.6 4.2 L8.6 7.4 M4.1 8.6 H7.9"/>',
+  live:    '<circle cx="6" cy="6" r="3.8"/><circle cx="6" cy="6" r="1.2" fill="currentColor" stroke="none"/>',
+  gear:    '<circle cx="6" cy="6" r="1.6"/><path d="M6 1.6 V3 M6 9 V10.4 M1.6 6 H3 M9 6 H10.4 M2.9 2.9 L3.9 3.9 M8.1 8.1 L9.1 9.1 M9.1 2.9 L8.1 3.9 M3.9 8.1 L2.9 9.1"/>',
+  check:   '<path d="M2.5 6.4 L5 8.8 L9.5 3.2"/>',
+  orbit:   '<circle cx="6" cy="6" r="2"/><ellipse cx="6" cy="6" rx="4.6" ry="1.9"/>',
+  risk:    '<path d="M6 1.8 L10.2 6 L6 10.2 L1.8 6 Z"/><path d="M6 4.4 V6.6 M6 8 V8.2"/>',
+  rings:   '<circle cx="6" cy="6" r="1.4"/><circle cx="6" cy="6" r="3.2" opacity=".65"/><circle cx="6" cy="6" r="4.8" opacity=".35"/>',
+  grid:    '<path d="M4.2 2 V10 M7.8 2 V10 M2 4.2 H10 M2 7.8 H10"/>',
+  pause:   '<path d="M4.3 2.8 V9.2 M7.7 2.8 V9.2" stroke-width="1.8"/>',
+  hex:     '<path d="M6 1.6 L9.9 3.8 V8.2 L6 10.4 L2.1 8.2 V3.8 Z"/>',
+  layers:  '<path d="M2 4.4 L6 2.2 L10 4.4 L6 6.6 Z"/><path d="M2 7 L6 9.2 L10 7" opacity=".65"/>',
+  link:    '<path d="M5 7 L7 5 M3.4 6.2 L2.4 7.2 A1.9 1.9 0 0 0 5.1 9.9 L6.1 8.9 M8.6 5.8 L9.6 4.8 A1.9 1.9 0 0 0 6.9 2.1 L5.9 3.1"/>',
+  wave:    '<path d="M1.8 6 C2.8 3.4 4 3.4 5 6 C6 8.6 7.2 8.6 8.2 6 C8.8 4.5 9.6 4.2 10.2 5"/>',
+  chip:    '<rect x="3" y="3" width="6" height="6" rx="1"/><path d="M5 1.4 V3 M7 1.4 V3 M5 9 V10.6 M7 9 V10.6 M1.4 5 H3 M1.4 7 H3 M9 5 H10.6 M9 7 H10.6"/>',
+  cloud:   '<path d="M3.4 8.8 A2.2 2.2 0 0 1 3.7 4.5 A2.8 2.8 0 0 1 9 5.4 A1.9 1.9 0 0 1 8.7 8.8 Z"/>',
+  lock:    '<rect x="3" y="5.2" width="6" height="4.6" rx="1"/><path d="M4.2 5.2 V4 A1.8 1.8 0 0 1 7.8 4 V5.2"/>',
+  motion:  '<path d="M1.8 7.6 C3.4 5.4 4.8 5.4 6.2 7 C7.6 8.6 9 8.4 10.2 6.2 M8.2 5.4 L10.2 6.2 L9.6 8.2"/>',
+  gem:     '<path d="M3.4 2.6 H8.6 L10.2 5 L6 10 L1.8 5 Z M1.8 5 H10.2 M6 10 L4 5 L6 2.6 L8 5 Z"/>',
+  plus:    '<path d="M6 2.6 V9.4 M2.6 6 H9.4"/>',
+  xcirc:   '<circle cx="6" cy="6" r="4.2"/><path d="M4.4 4.4 L7.6 7.6 M7.6 4.4 L4.4 7.6"/>',
+  multi:   '<path d="M6 2 L7 5 L10 6 L7 7 L6 10 L5 7 L2 6 L5 5 Z"/>',
+  arrowr:  '<path d="M2.4 6 H9 M6.6 3.4 L9.6 6 L6.6 8.6"/>',
+  eye:     '<path d="M1.8 6 C3.2 3.6 8.8 3.6 10.2 6 C8.8 8.4 3.2 8.4 1.8 6 Z"/><circle cx="6" cy="6" r="1.3"/>',
+  bell:    '<path d="M4 8.4 V5.4 A2 2 0 0 1 8 5.4 V8.4 M3 8.4 H9 M5.2 9.6 A0.9 0.9 0 0 0 6.8 9.6"/>',
+  cam:     '<rect x="2" y="3.6" width="8" height="5.6" rx="1.2"/><circle cx="6" cy="6.4" r="1.7"/><path d="M4.4 3.6 L5.2 2.4 H6.8 L7.6 3.6"/>',
+  doc:     '<rect x="3" y="2" width="6" height="8" rx="1"/><path d="M4.5 4.4 H7.5 M4.5 6 H7.5 M4.5 7.6 H6.5"/>',
+  chev:    '<path d="M4.6 2.8 L8 6 L4.6 9.2"/>',
+  close:   '<path d="M3.4 3.4 L8.6 8.6 M8.6 3.4 L3.4 8.6"/>',
+  inf:     '<path d="M6 6 C4.6 3.8 1.8 4.4 1.8 6 C1.8 7.6 4.6 8.2 6 6 C7.4 3.8 10.2 4.4 10.2 6 C10.2 7.6 7.4 8.2 6 6 Z"/>',
+  star:    '<path d="M6 1.8 L7.2 4.6 L10.2 4.8 L7.9 6.8 L8.7 9.8 L6 8.1 L3.3 9.8 L4.1 6.8 L1.8 4.8 L4.8 4.6 Z"/>',
+  shieldc: '<path d="M6 1.8 L9.8 3.2 V6 C9.8 8.4 8.2 9.8 6 10.6 C3.8 9.8 2.2 8.4 2.2 6 V3.2 Z"/><path d="M4.4 6 L5.6 7.2 L7.8 4.8"/>',
+  tri:     '<path d="M6 2.4 L10 9.2 H2 Z"/>',
+  spark:   '<path d="M6 1.8 V4 M6 8 V10.2 M1.8 6 H4 M8 6 H10.2 M3.2 3.2 L4.6 4.6 M7.4 7.4 L8.8 8.8 M8.8 3.2 L7.4 4.6 M4.6 7.4 L3.2 8.8"/>',
+  dot:     '<circle cx="6" cy="6" r="1.6" fill="currentColor" stroke="none"/>',
+};
+const GLYPH2ICO = {
+  '⌂':'home', '△':'flask', '⋔':'network', '◉':'live', '⚙':'gear',
+  '✓':'check', '◔':'orbit', '◍':'risk', '◎':'rings', '⌗':'grid',
+  '▮▮':'pause', '⬡':'hex', '≣':'layers', '⌘':'link', '♪':'wave',
+  '▣':'chip', '◌':'cloud', '◈':'lock', '↝':'motion', '◆':'gem',
+  '✚':'plus', '⊗':'xcirc', '❖':'multi', '➤':'arrowr', '✦':'spark',
+  '◦':'dot', '›':'chev', '×':'close', '∞':'inf', '★':'star',
+  '◙':'shieldc', '◭':'tri', '⚡':'motion', '◐':'live',
+};
+function ico(name){
+  const d = ICO[name];
+  return d ? `<svg class="ic-g" viewBox="0 0 12 12" aria-hidden="true">${d}</svg>` : '';
+}
+function sweepIcons(){
+  document.querySelectorAll('.nvic, .node .dot, .chip .ci, .badge .ic, .shield .sic, .stile i, .mp-foot.voice i, .fitem i, .feat .fi, .evchip .ci, .rbtn, .msg .av, .evid .eh span, .evchip .arr, .stile.arrow')
+    .forEach(el => {
+      const g = el.textContent.trim();
+      const name = GLYPH2ICO[g];
+      if(name) el.innerHTML = ico(name);
+    });
+}
+
+/* ---------------- UI construction ---------------- */
+const NAV = ['Home','Test','Strategies','Live','Settings'];
+const NAVIC = ['⌂','△','⋔','◉','⚙'];
+function navHTML(active){
+  return NAV.map((n,i)=>`<div class="${i===active?'on':''}"><span class="nvic">${NAVIC[i]}</span>${n}</div>`).join('');
+}
+function nodeHTML(x,y,t,s,cls='',glyph='◦'){
+  return `<div class="node ${cls}" style="left:${x}%; top:${y}%;"><div class="dot">${glyph}</div><div class="nt">${t}</div><div class="ns">${s}</div></div>`;
+}
+let _linkUid = 0;
+function linksSVG(nodes, opts){
+  opts = opts || {};
+  const uid = 'lk' + (_linkUid++);
+  const two = (x1,y1,x2,y2,op) => `
+    <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(255,145,40,${op*0.4})" stroke-width="0.8" opacity=".5"/>
+    <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(255,185,80,${op})" stroke-width="0.25"/>`;
+  const ls = nodes.map(n => two(50,50,n[0],n[1],0.34)).join('');
+  const perim = opts.perim === false ? '' : nodes.map((n,i)=>{ const m = nodes[(i+1)%nodes.length]; return two(n[0],n[1],m[0],m[1],0.22); }).join('');
+  /* evidence packets travel independently so the graph reads as a living system, not a single loop */
+  const pulse = opts.pulse === false ? '' : `
+    <circle r="0.70" fill="#ffb94f" opacity="0.92">
+      <animateMotion dur="4.5s" repeatCount="indefinite" path="M50,50 L${nodes[0][0]},${nodes[0][1]}"/>
+      <animate attributeName="opacity" values="0;0.92;0.92;0" keyTimes="0;0.15;0.78;1" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="0.48" fill="#70aaff" opacity="0.78">
+      <animateMotion dur="6.2s" begin="-2.1s" repeatCount="indefinite" path="M50,50 L${nodes[Math.min(2,nodes.length-1)][0]},${nodes[Math.min(2,nodes.length-1)][1]}"/>
+      <animate attributeName="opacity" values="0;0.78;0.78;0" keyTimes="0;0.18;0.80;1" dur="6.2s" begin="-2.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="0.42" fill="#43d888" opacity="0.72">
+      <animateMotion dur="7.4s" begin="-4.0s" repeatCount="indefinite" path="M${nodes[Math.min(1,nodes.length-1)][0]},${nodes[Math.min(1,nodes.length-1)][1]} L50,50"/>
+      <animate attributeName="opacity" values="0;0.72;0.72;0" keyTimes="0;0.15;0.82;1" dur="7.4s" begin="-4.0s" repeatCount="indefinite"/>
+    </circle>`;
+  return `<svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs><mask id="${uid}"><rect x="0" y="0" width="100" height="100" fill="#fff"/><circle cx="50" cy="50" r="21" fill="#000"/></mask></defs>
+    <g mask="url(#${uid})">${ls}${perim}${pulse}</g>
+  </svg>`;
+}
+
+const screensEl = document.getElementById('screens');
+
+/* SCREEN 1 — HOME */
+screensEl.insertAdjacentHTML('beforeend', `
+<div class="screen panelmat">
+  <div class="sc-head"><span class="sc-num">1</span><span class="sc-title">HOME</span><span class="sc-sub">— APOLLO</span></div>
+  <div class="sc-canvas">
+    <canvas data-tile="sun"></canvas>
+    <div style="position:absolute; top:5%; left:0; right:0; text-align:center; font-size:11px; letter-spacing:.44em; color:var(--org); font-weight:700;">APOLLO</div>
+    ${nodeHTML(15,26,'MARKET','Conditions Monitored','', '◉')}
+    ${nodeHTML(85,24,'PIPELINE','Next Steps · 3 Intents','', '➤')}
+    ${nodeHTML(13,66,'EVIDENCE','Verified · 7 Sources','grn','✓')}
+    ${nodeHTML(87,64,'LIFECYCLE','Healthy · All Systems','', '◔')}
+  </div>
+  <div class="msg">
+    <div class="mh"><div class="av">◉</div><div class="mn">APOLLO</div><div class="mt">9:41 AM</div></div>
+    <p>Volatility is rising into NFP. Consider reducing directional exposure and favoring selective, evidence-verified setups.</p>
+  </div>
+  <div class="chips4">
+    <div class="chip grn"><div class="ci">✓</div><div><div class="ct">EVIDENCE VERIFIED</div><div class="cs">CME FedWatch Probabilities</div></div></div>
+    <div class="chip"><div class="ci">◍</div><div><div class="ct">RISK GUARD</div><div class="cs">Monitoring Exposure</div></div></div>
+    <div class="chip"><div class="ci">◎</div><div><div class="ct">SCENARIO PROBE</div><div class="cs">Stress Test Ideas</div></div></div>
+    <div class="chip"><div class="ci">✦</div><div><div class="ct">STRATEGY ADAPT</div><div class="cs">Adjust &amp; Refine</div></div></div>
+  </div>
+  <nav class="nav">${navHTML(0)}</nav>
+</div>`);
+
+/* SCREEN 2 — TEST */
+screensEl.insertAdjacentHTML('beforeend', `
+<div class="screen panelmat">
+  <div class="sc-head"><span class="sc-num">2</span><span class="sc-title">TEST</span><span class="sc-sub">— PARTICLE GENESIS</span></div>
+  <div class="steps">
+    ${['PARAMETER','CANDIDATE','REFINED','STABILITY','DECISION'].map((s,i)=>`<div class="step ${i===1?'on':''}"><b>${i+1}</b><span>${s}</span></div>`).join('')}
+  </div>
+  <div class="sc-canvas">
+    <canvas data-tile="genesis"></canvas>
+    <div class="cap" style="left:6%; top:12%;">Parameter<br>Particles</div>
+    <div class="cap" style="right:5%; top:16%; text-align:right;">Candidate<br>Nuclei</div>
+    <div class="cap" style="right:5%; bottom:14%; text-align:right;">Accretion<br>into Apollo</div>
+  </div>
+  <div class="regbar"><span class="r1">PHASE REGISTRY</span><span class="r2">Active Phase: <b>CANDIDATE</b></span><span class="r3">2 of 5</span></div>
+  <div class="evid">
+    <div class="eh"><b>EXACT EVIDENCE</b><span>×</span></div>
+    <div class="ecols">
+      <div class="ec on"><b>CANDIDATE</b><span>Exploring parameter space</span></div>
+      <div class="ec"><b>CONTROL</b><span>Walk-forward tests active</span></div>
+      <div class="ec"><b>REFINED</b><span>Promising candidates</span></div>
+      <div class="ec"><b>STABILITY</b><span>Robustness confirmed</span></div>
+      <div class="ec"><b>DECISION</b><span>Advance or Discard</span></div>
+    </div>
+  </div>
+  <nav class="nav">${navHTML(1)}</nav>
+</div>`);
+
+/* SCREEN 3 — STRATEGIES */
+const atlasNodes = [[50,8],[16,20],[84,20],[10,46],[90,46],[16,74],[84,74],[50,88]];
+screensEl.insertAdjacentHTML('beforeend', `
+<div class="screen panelmat">
+  <div class="sc-head"><span class="sc-num">3</span><span class="sc-title">STRATEGIES</span><span class="sc-sub">— KNOWLEDGE ATLAS</span></div>
+  <div class="sc-canvas">
+    <canvas data-tile="sunB"></canvas>
+    ${linksSVG(atlasNodes)}
+    ${nodeHTML(50,10,'PROVENANCE','Verified Sources','', '⬡')}
+    ${nodeHTML(16,22,'PIPELINE','Evidence Path','', '➤')}
+    ${nodeHTML(84,22,'DATA','Live + Ref Data','', '≣')}
+    ${nodeHTML(10,48,'PARITY','Certificate Verified','grn','✓')}
+    ${nodeHTML(90,48,'BROKER','Fills, Fees, Limits','', '⌘')}
+    ${nodeHTML(16,76,'RISK','Exposure Guard','', '◍')}
+    ${nodeHTML(84,76,'LIFECYCLE','Health &amp; Drift','', '◔')}
+  </div>
+  <div class="lib">
+    <div class="lh">STRATEGY LIBRARY</div>
+    <div class="ls">Select a strategy to explore its evidence constellation.</div>
+    <div class="cards">
+      ${[['Momentum','Breakout','vReason'],['Volatility','Mean Revert','vListen'],['Trend','Continuation','sun'],['Macro','Regime','sunB'],['Pairs','Relative Value','vSpeak']]
+        .map((c,i)=>`<div class="mini ${i===2?'on':''}"><canvas data-tile="${c[2]}"></canvas><b>${c[0]}</b><span>${c[1]}</span></div>`).join('')}
+    </div>
+  </div>
+  <nav class="nav">${navHTML(2)}</nav>
+</div>`);
+
+/* SCREEN 4 — LIVE */
+screensEl.insertAdjacentHTML('beforeend', `
+<div class="screen panelmat">
+  <div class="sc-head"><span class="sc-num">4</span><span class="sc-title">LIVE</span><span class="sc-sub">— EXECUTION ELIGIBILITY</span></div>
+  <div style="text-align:center; font-size:8px; letter-spacing:.24em; color:#e8d9bf; font-weight:700; padding:2px 0 0;">EXECUTION ELIGIBILITY</div>
+  <div class="sc-canvas">
+    <canvas data-tile="ring"></canvas>
+    <div class="shield"><div class="sic">✓</div><b>CERTIFIED AUTOMATION</b></div>
+    ${nodeHTML(50,8,'PARITY','Verified','grn','⬡')}
+    ${nodeHTML(17,20,'BROKER','Connected','', '⌘')}
+    ${nodeHTML(83,20,'DATA','Live + Clean','', '≣')}
+    ${nodeHTML(9,50,'LIVE ARM','Standby','', '◈')}
+    ${nodeHTML(91,50,'RISK','Limits Active','', '◍')}
+    ${nodeHTML(17,80,'CONFIRMATION','Multi-Factor','', '❖')}
+    ${nodeHTML(83,80,'LIFECYCLE','Healthy','', '◔')}
+    ${nodeHTML(50,92,'KILL SWITCH','Armed','red','⊗')}
+  </div>
+  <div class="statusbar"><b>STATUS</b>Systems verified. Awaiting live arm authorization.</div>
+  <nav class="nav">${navHTML(3)}</nav>
+</div>`);
+
+/* SCREEN 5 — SETTINGS */
+screensEl.insertAdjacentHTML('beforeend', `
+<div class="screen panelmat">
+  <div class="sc-head"><span class="sc-num">5</span><span class="sc-title">SETTINGS</span><span class="sc-sub">— SYSTEM CONSTELLATION</span></div>
+  <div style="text-align:center; font-size:8px; letter-spacing:.24em; color:#e8d9bf; font-weight:700; padding:2px 0 0;">SYSTEM CONSTELLATION</div>
+  <div class="sc-canvas">
+    <canvas data-tile="sunB"></canvas>
+    ${linksSVG([[50,8],[15,18],[85,18],[9,46],[91,46],[15,74],[85,74],[30,90],[70,90]], {perim:false, pulse:false})}
+    ${nodeHTML(50,8,'VOICE','Apollo Voice','', '♪')}
+    ${nodeHTML(15,18,'LOCAL MODEL','On-Device','', '▣')}
+    ${nodeHTML(85,18,'CLOUD MODEL','Enhanced','', '◌')}
+    ${nodeHTML(9,46,'BROKER','Connections','', '⌘')}
+    ${nodeHTML(91,46,'DATA','Sources','', '≣')}
+    ${nodeHTML(15,74,'PRIVACY','Local First','', '◈')}
+    ${nodeHTML(85,74,'MOTION','Performance','', '↝')}
+    ${nodeHTML(30,90,'QUALITY','Precision','', '◆')}
+    ${nodeHTML(70,90,'ACCESSIBILITY','Inclusive','', '✚')}
+  </div>
+  <div class="sysc">
+    <div class="sh">SYSTEM CONTROLS</div>
+    <div class="ss">Adjust settings with exact controls below.</div>
+    <div class="tiles">
+      <div class="stile"><i>♪</i><b>VOICE</b><span>Balanced</span></div>
+      <div class="stile"><i>▣</i><b>LOCAL MODEL</b><span>Active</span></div>
+      <div class="stile"><i>◌</i><b>CLOUD MODEL</b><span>On-Demand</span></div>
+      <div class="stile"><i>⌘</i><b>BROKER</b><span>Primary</span></div>
+      <div class="stile"><i>≣</i><b>DATA</b><span>Live + Ref</span></div>
+      <div class="stile arrow">›</div>
+    </div>
+  </div>
+  <nav class="nav">${navHTML(4)}</nav>
+</div>`);
+
+/* phones get shared nav */
+document.querySelectorAll('.phone .nav').forEach(n => n.innerHTML = navHTML(+n.dataset.active));
+
+/* MOTION PANELS */
+const motionEl = document.getElementById('motion');
+motionEl.insertAdjacentHTML('beforeend', `
+<div class="mpanel panelmat">
+  <div class="mp-head"><div class="tag">A</div><div><b>PARTICLE GENESIS</b><span>From parameter particles to living Helios.</span></div></div>
+  <div class="mp-canvas">
+    <canvas data-tile="genesisW"></canvas>
+    <div class="garrow" style="left:20%;">→</div>
+    <div class="garrow" style="left:42%;">→</div>
+    <div class="garrow" style="left:68%;">→</div>
+  </div>
+</div>
+<div class="mpanel panelmat">
+  <div class="mp-head"><div class="tag">B</div><div><b>CHRONOSPHERE</b><span>Walk-forward windows become orbital shells.</span></div></div>
+  <div class="mp-canvas"><canvas data-tile="shells"></canvas></div>
+  <div class="mp-foot">
+    <span class="tl" style="color:#8a8a86;">PAST</span>
+    <span class="tl" style="color:#35d07f;">IN-SAMPLE</span>
+    <span class="tl" style="color:#4fc9e8;">TRANSITION</span>
+    <span class="tl" style="color:#6fb3ff;">OOS</span>
+    <span class="tl" style="color:#a78bff;">FUTURE</span>
+  </div>
+</div>
+<div class="mpanel panelmat">
+  <div class="mp-head"><div class="tag">C</div><div><b>CORRELATION GRAVITY FIELD</b><span>IS and OOS wavefronts converge on truth.</span></div></div>
+  <div class="mp-canvas">
+    <div class="iswf" style="left:9px; color:#35d07f;">IN-SAMPLE<br><span style="color:#8a6748; letter-spacing:.04em;">Wavefront</span></div>
+    <div class="iswf" style="right:9px; color:#6fb3ff; text-align:right;">OUT-OF-SAMPLE<br><span style="color:#8a6748; letter-spacing:.04em;">Wavefront</span></div>
+    <canvas data-tile="wave"></canvas>
+  </div>
+  <div class="mp-foot"><span class="statchip">SPEARMAN 0.72 · 25 PAIRS · VERIFIED</span><span class="m">PEARSON 0.48 · SECONDARY</span></div>
+</div>
+<div class="mpanel panelmat">
+  <div class="mp-head"><div class="tag">D</div><div><b>PROBABILITY CORONA</b><span>Monte Carlo envelopes as solar-wind bands.</span></div></div>
+  <div class="mp-canvas">
+    <div class="legend">
+      ${[['99th','#ff7333'],['95th','#ff9e33'],['75th','#ffd94d'],['Median','#ffffff'],['25th','#8cb3ff'],['5th','#9e73ff'],['1st','#9e73ff']]
+        .map(l=>`<div><i style="background:${l[1]}"></i>${l[0]}</div>`).join('')}
+    </div>
+    <canvas data-tile="bands" data-ox="0.1"></canvas>
+  </div>
+</div>
+<div class="mpanel panelmat">
+  <div class="mp-head"><div class="tag">E</div><div><b>VOICE STATES</b><span>Apollo's voice expressed as living solar energy.</span></div></div>
+  <div class="mp-canvas" style="background:#000;">
+    <div class="voice5">
+      ${['vListen','vReason','vRetrv','vSpeak','vInter'].map(v=>`<div class="vslot"><canvas data-tile="${v}"></canvas></div>`).join('')}
+    </div>
+  </div>
+  <div class="mp-foot voice">
+    ${[['LISTENING','Focus','◉'],['REASONING','Thinking','△'],['RETRIEVING','Cited','⌗'],['SPEAKING','Responding','◎'],['INTERRUPTED','Pause','▮▮']]
+      .map(v=>`<div><i>${v[2]}</i><b>${v[0]}</b><span>${v[1]}</span></div>`).join('')}
+  </div>
+</div>`);
+
+sweepIcons();
+
+/* ---------------- slots: blit atlas tiles into page canvases ---------------- */
+const slots = [];
+document.querySelectorAll('canvas[data-tile]').forEach(c => {
+  slots.push({ canvas:c, ctx:c.getContext('2d'), tile:c.dataset.tile,
+               ox: c.dataset.ox !== undefined ? +c.dataset.ox : 0.5,
+               oy: c.dataset.oy !== undefined ? +c.dataset.oy : 0.5 });
+});
+const renderScale = Math.min(window.devicePixelRatio || 1, 2);
+function sizeSlots(){
+  for(const s of slots){
+    const w = Math.max(2, Math.round(s.canvas.clientWidth * renderScale));
+    const h = Math.max(2, Math.round(s.canvas.clientHeight * renderScale));
+    if(s.canvas.width !== w || s.canvas.height !== h){
+      s.canvas.width = w; s.canvas.height = h;
+      s.ctx.imageSmoothingEnabled = true;
+      if('imageSmoothingQuality' in s.ctx) s.ctx.imageSmoothingQuality = 'high';
+    }
+  }
+}
+addEventListener('resize', sizeSlots);
+
+
+/* ================= stateful particle physics (genesis modes) ================= */
+const VS_P = `
+attribute vec2 a_pos;
+attribute vec4 a_pr;      /* z, alpha, sizePx, heat */
+uniform float u_aspect;
+varying vec3 v_d;
+varying vec2 v_p;
+void main(){
+  v_d = vec3(a_pr.x, a_pr.y, a_pr.w);
+  v_p = a_pos;
+  gl_Position = vec4(a_pos.x*2.0/u_aspect, a_pos.y*2.0, 0.0, 1.0);
+  gl_PointSize = a_pr.z;
+}`;
+const FS_P = `
+precision mediump float;
+varying vec3 v_d;
+varying vec2 v_p;
+uniform vec2 u_pc;
+uniform float u_pr;
+void main(){
+  if(v_d.x < 0.0 && length(v_p - u_pc) < u_pr) discard;   /* passes behind the core */
+  vec2 q = gl_PointCoord*2.0 - 1.0;
+  float rr = dot(q,q);
+  float halo = exp(-rr*2.65);
+  float core = smoothstep(0.42,0.0,sqrt(rr));
+  vec3 warm = mix(vec3(1.0,0.46,0.10), vec3(1.0,0.91,0.58), clamp(v_d.z,0.0,1.0));
+  vec3 c = mix(warm, vec3(0.55,0.75,1.25), step(0.965, v_d.z));
+  gl_FragColor = vec4(c * (halo*0.34 + core*0.95) * v_d.y, 1.0);
+}`;
+const progPart = (() => {
+  const p = gl.createProgram();
+  gl.attachShader(p, compile(gl.VERTEX_SHADER, VS_P));
+  gl.attachShader(p, compile(gl.FRAGMENT_SHADER, FS_P));
+  gl.linkProgram(p);
+  return { p,
+    aPos: gl.getAttribLocation(p, 'a_pos'),
+    aPr: gl.getAttribLocation(p, 'a_pr'),
+    uAspect: gl.getUniformLocation(p, 'u_aspect'),
+    uPc: gl.getUniformLocation(p, 'u_pc'),
+    uPr: gl.getUniformLocation(p, 'u_pr') };
+})();
+
+function mulberry32(seed){
+  let a = seed >>> 0;
+  return function(){
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+const PSYS = {};
+const PCONF = {
+  genesis:  { n:320, kind:'cloud'  },
+  genesisW: { n:300, kind:'stage'  },
+  phoneGen: { n:150, kind:'cloud'  },
+};
+const PPTS = 4;   /* head + three fading trail points per particle */
+function spawnParticle(sys, i, rng, fresh){
+  const c = sys.conf, tl = sys.tl;
+  const P = sys.state, o = i*9;
+  const span = tl.span || 0.6;
+  if(c.kind === 'cloud'){
+    P[o]   = -span + rng()*span*0.62;
+    P[o+1] = (rng()+rng()-1)*0.52;   /* triangular: dense along the flow line */
+  } else if(c.kind === 'stage'){
+    P[o]   = -span + rng()*0.20;
+    P[o+1] = (rng()-0.5)*0.50;
+    P[o+8] = 0;
+  } else {
+    const ang = rng()*6.2832, rad = 0.30 + rng()*0.17;
+    P[o]   = tl.center[0] + Math.cos(ang)*rad;
+    P[o+1] = tl.center[1] + Math.sin(ang)*rad;
+  }
+  P[o+2] = rng()*2 - 1;                 /* depth z */
+  P[o+3] = (rng()-0.5)*0.02;            /* vx */
+  P[o+4] = (rng()-0.5)*0.02;            /* vy */
+  P[o+5] = fresh ? 0 : rng();           /* ageN — pre-populated on init */
+  P[o+6] = 0.55 + rng()*0.75;           /* lifetime scale */
+  P[o+7] = rng();                       /* heat/blue seed */
+}
+function initParticles(){
+  for(const key in PCONF){
+    const tl = TILES[key]; if(!tl) continue;
+    const conf = PCONF[key];
+    const seed = (key.length*2654435761 ^ 0x9e3779b9) >>> 0;
+    const sys = { tl, conf, state: new Float32Array(conf.n*9),
+                  verts: new Float32Array(conf.n*PPTS*6),
+                  vbo: gl.createBuffer(), seed,
+                  rng: mulberry32(seed) };
+    for(let i=0;i<conf.n;i++) spawnParticle(sys, i, sys.rng, false);
+    /* settle the field so first visible frame is mid-flow */
+    for(let k=0;k<90;k++) stepParticles(sys, 1/60, k/60);
+    PSYS[key] = sys;
+  }
+}
+function stepParticles(sys, dt, t){
+  const P = sys.state, tl = sys.tl, conf = sys.conf;
+  const cx = tl.center[0], cy = tl.center[1], R = tl.R;
+  const span = tl.span || 0.6;
+  for(let i=0;i<conf.n;i++){
+    const o = i*9;
+    let x = P[o], y = P[o+1];
+    const ageRate = 0.055 / P[o+6];
+    P[o+5] += dt*ageRate*8.0;
+    const a = P[o+5];
+    /* turbulence: cheap curl-like field */
+    const tx = Math.sin(3.1*y + t*0.5 + P[o+7]*6.28) + 0.5*Math.sin(7.3*y - t*0.8);
+    const ty = Math.cos(2.7*x - t*0.45 + P[o+7]*4.1) + 0.5*Math.cos(6.1*x + t*0.7);
+    let fx = tx*0.010, fy = ty*0.010;
+    /* stage guidance */
+    const dxc = cx - x, dyc = cy - y;
+    const dc = Math.hypot(dxc, dyc) + 1e-5;
+    if(conf.kind === 'spiral'){
+      const pull = 0.030 + 0.05*a;
+      fx += dxc/dc*pull; fy += dyc/dc*pull;
+      fx += -dyc/dc*0.045; fy += dxc/dc*0.045;          /* tangential spiral */
+    } else if(conf.kind === 'stage'){
+      const pr = Math.min(1, a);
+      const seed = P[o+7];
+      const x1 = -span + (cx + span)*0.36;
+      const x2 = -span + (cx + span)*0.66;
+      let txr, tyr, kk;
+      if(pr < 0.28){                          /* fine dust drifts loose */
+        txr = -span + 0.10; tyr = (seed - 0.5)*0.44; kk = 0.026;
+      } else if(pr < 0.62){                   /* grains orbit six candidate nuclei */
+        const j = Math.floor(seed*6.0) % 6;
+        const orbit = (0.62-pr)*0.13;
+        const ph = t*(0.65 + 0.10*j) + seed*18.0;
+        txr = x1 + Math.cos(ph)*orbit;
+        tyr = ((j*0.618034)%1 - 0.5)*0.52 + Math.sin(ph)*orbit;
+        kk = 0.14;
+      } else if(pr < 0.88){                   /* six bodies merge into three massive clumps */
+        const j = Math.floor(seed*97.0) % 3;
+        const orbit = (0.88-pr)*0.10;
+        const ph = -t*(0.85 + 0.08*j) + seed*15.0;
+        txr = x2 + Math.cos(ph)*orbit;
+        tyr = ((j*0.618034 + 0.21)%1 - 0.5)*0.34 + Math.sin(ph)*orbit;
+        kk = 0.17;
+      } else {                                /* angular-momentum-conserving accretion into Apollo */
+        txr = cx; tyr = cy; kk = 0.24;
+        const spin = 0.075*(1.0-pr+0.22);
+        fx += -(cy-y)*spin; fy += (cx-x)*spin;
+      }
+      fx += (txr - x)*kk; fy += (tyr - y)*kk;
+    } else {
+      const g = Math.min(1, Math.max(0, a*1.25 - 0.1));
+      fx += dxc/dc*(0.004 + 0.075*g*g);
+      fy += dyc/dc*(0.004 + 0.075*g*g);
+      fx += -dyc/dc*0.02*g; fy += dxc/dc*0.02*g;        /* swirl on approach */
+    }
+    P[o+3] = (P[o+3] + fx*dt*8.0) * Math.exp(-1.7*dt);
+    P[o+4] = (P[o+4] + fy*dt*8.0) * Math.exp(-1.7*dt);
+    P[o]   += P[o+3]*dt*8.0;
+    P[o+1] += P[o+4]*dt*8.0;
+    /* capture or expiry -> respawn (alpha ramps handle visibility: no teleport pop) */
+    if(dc < R*0.72 || a >= 1.0) spawnParticle(sys, i, sys.rng, true);
+  }
+}
+function packParticles(sys){
+  const P = sys.state, V = sys.verts, tl = sys.tl, conf = sys.conf;
+  const cx = tl.center[0], cy = tl.center[1], R = tl.R;
+  const px = tl.h / 512;                                 /* size scale per tile */
+  let vi = 0;
+  for(let i=0;i<conf.n;i++){
+    const o = i*9;
+    const a = P[o+5];
+    const dc = Math.hypot(cx-P[o], cy-P[o+1]);
+    let alpha = Math.min(1, a*6.0) * (1 - Math.max(0, (a-0.82))/0.18);
+    alpha *= Math.min(1, Math.max(0, (dc - R*0.72)/(R*0.5)));   /* melt into the core */
+    const depth = P[o+2];
+    let sizeMul = 1.0;
+    if(conf.kind === 'stage'){
+      const pr = Math.min(1, a);
+      sizeMul = 0.50 + 2.8*pr*pr;             /* dust is small; clumps are massive */
+      alpha *= 0.55 + 0.45*pr;
+    }
+    const size = (2.2 + 4.2*(0.5+0.5*depth)) * px * (0.8 + 0.5*Math.min(1,a*2)) * sizeMul;
+    const dim = 0.35 + 0.65*(0.5+0.5*depth);
+    /* flow brightening: streams ignite as they approach the core */
+    if(conf.kind === 'cloud'){
+      const span = tl.span || 0.6;
+      alpha *= 0.50 + 0.50*Math.min(1, Math.max(0, (P[o] + span) / (cx + span)));
+    }
+    /* head */
+    const heat = Math.min(1, P[o+7]*0.55 + Math.min(1,a)*0.62);
+    V[vi++] = P[o]; V[vi++] = P[o+1];
+    V[vi++] = depth; V[vi++] = alpha*dim; V[vi++] = size; V[vi++] = heat;
+    /* velocity streak: three trail points preserve direction without drawing hard lines */
+    V[vi++] = P[o] - P[o+3]*0.9; V[vi++] = P[o+1] - P[o+4]*0.9;
+    V[vi++] = depth; V[vi++] = alpha*dim*0.48; V[vi++] = size*0.80; V[vi++] = heat*0.90;
+    V[vi++] = P[o] - P[o+3]*1.9; V[vi++] = P[o+1] - P[o+4]*1.9;
+    V[vi++] = depth; V[vi++] = alpha*dim*0.22; V[vi++] = size*0.58; V[vi++] = heat*0.76;
+    V[vi++] = P[o] - P[o+3]*3.0; V[vi++] = P[o+1] - P[o+4]*3.0;
+    V[vi++] = depth; V[vi++] = alpha*dim*0.085; V[vi++] = size*0.40; V[vi++] = heat*0.62;
+  }
+}
+function drawParticles(key, tl){
+  const sys = PSYS[key]; if(!sys) return;
+  packParticles(sys);
+  gl.useProgram(progPart.p);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE, gl.ONE);
+  gl.bindBuffer(gl.ARRAY_BUFFER, sys.vbo);
+  gl.bufferData(gl.ARRAY_BUFFER, sys.verts, gl.DYNAMIC_DRAW);
+  gl.enableVertexAttribArray(progPart.aPos);
+  gl.vertexAttribPointer(progPart.aPos, 2, gl.FLOAT, false, 24, 0);
+  gl.enableVertexAttribArray(progPart.aPr);
+  gl.vertexAttribPointer(progPart.aPr, 4, gl.FLOAT, false, 24, 8);
+  gl.uniform1f(progPart.uAspect, tl.w/tl.h);
+  gl.uniform2f(progPart.uPc, tl.center[0], tl.center[1]);
+  gl.uniform1f(progPart.uPr, tl.R);
+  gl.drawArrays(gl.POINTS, 0, sys.conf.n*PPTS);
+  gl.disable(gl.BLEND);
+  /* restore tile-pass vertex state */
+  gl.useProgram(prog);
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.enableVertexAttribArray(locA);
+  gl.vertexAttribPointer(locA, 2, gl.FLOAT, false, 0, 0);
+  gl.disableVertexAttribArray(progPart.aPr);
+}
+let _lastPT = null;
+function updateParticleSims(now){
+  const t = now/1000;
+  const dt = _lastPT === null ? 1/60 : Math.min(0.05, Math.max(0.001, (now - _lastPT)/1000));
+  _lastPT = now;
+  for(const key in PSYS) stepParticles(PSYS[key], dt, t);
+}
+initParticles();
+
+function resetParticlesAt(seconds){
+  const phaseSeconds = ((seconds % 6) + 6) % 6;
+  for(const key in PSYS){
+    const sys = PSYS[key];
+    sys.rng = mulberry32(sys.seed);
+    for(let i=0;i<sys.conf.n;i++) spawnParticle(sys,i,sys.rng,false);
+    const steps = 150 + Math.round(phaseSeconds*36);
+    for(let k=0;k<steps;k++) stepParticles(sys,1/60,k/60);
+  }
+  _lastPT = seconds*1000;
+}
+
+/* pointer depth is deliberately low amplitude: it reveals layers without turning the board into a toy */
+const boardEl = document.querySelector('.board');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motionState = { tx:0, ty:0, x:0, y:0 };
+function setMotionTarget(clientX,clientY){
+  const r=boardEl.getBoundingClientRect();
+  motionState.tx=Math.max(-1,Math.min(1,((clientX-r.left)/r.width-.5)*2));
+  motionState.ty=Math.max(-1,Math.min(1,((clientY-r.top)/r.height-.5)*2));
+}
+if(!reducedMotion){
+  boardEl.addEventListener('pointermove',e=>setMotionTarget(e.clientX,e.clientY),{passive:true});
+  boardEl.addEventListener('pointerleave',()=>{ motionState.tx=0; motionState.ty=0; },{passive:true});
+}
+function updateMotionState(){
+  motionState.x += (motionState.tx-motionState.x)*0.055;
+  motionState.y += (motionState.ty-motionState.y)*0.055;
+  boardEl.style.setProperty('--canvas-x',`${(-motionState.x*4.2).toFixed(2)}px`);
+  boardEl.style.setProperty('--canvas-y',`${(-motionState.y*3.1).toFixed(2)}px`);
+  boardEl.style.setProperty('--link-x',`${(motionState.x*2.0).toFixed(2)}px`);
+  boardEl.style.setProperty('--link-y',`${(motionState.y*1.5).toFixed(2)}px`);
+  boardEl.style.setProperty('--glow-x',`${(50+motionState.x*5.0).toFixed(2)}%`);
+  boardEl.style.setProperty('--glow-y',`${(32+motionState.y*4.0).toFixed(2)}%`);
+}
+
+function renderAtlas(now, advanceParticles=true){
+  const t = now/1000;
+  updateMotionState();
+  if(advanceParticles) updateParticleSims(now);
+  if(!sceneT) allocTargets();
+  gl.bindFramebuffer(gl.FRAMEBUFFER, sceneT.fb);
+  for(const k in TILES){
+    const tl = TILES[k];
+    gl.viewport(tl.glx, tl.gly, tl.w, tl.h);
+    gl.scissor(tl.glx, tl.gly, tl.w, tl.h);
+    gl.uniform4f(U.u_tile, tl.glx, tl.gly, tl.w, tl.h);
+    gl.uniform1f(U.u_mode, tl.mode);
+    gl.uniform1f(U.u_time, t + tl.tofs);
+    gl.uniform1f(U.u_R, tl.R);
+    gl.uniform2f(U.u_center, tl.center[0], tl.center[1]);
+    gl.uniform1f(U.u_act, tl.act !== undefined ? tl.act : 1.0);
+    const tint = tl.tint || [1,1,1];
+    gl.uniform3f(U.u_tint, tint[0], tint[1], tint[2]);
+    gl.uniform1f(U.u_pulse, tl.pulse ? 1 : 0);
+    gl.uniform1f(U.u_dim, tl.dim !== undefined ? tl.dim : 1.0);
+    gl.uniform1f(U.u_orbit, tl.orbit ? 1 : 0);
+    gl.uniform1f(U.u_oct, tl.oct !== undefined ? tl.oct : 6);
+    gl.uniform1f(U.u_span, tl.span !== undefined ? tl.span : 0.6);
+    gl.uniform1f(U.u_scatter, tl.scatter !== undefined ? tl.scatter : 0);
+    gl.uniform1f(U.u_hint, tl.hint ? 1 : 0);
+    gl.uniform1f(U.u_state, tl.state !== undefined ? tl.state : -1);
+    gl.uniform2f(U.u_pointer, motionState.x, motionState.y);
+    gl.uniform1f(U.u_motion, reducedMotion ? 0.18 : 1.0);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    if(PSYS[k]) drawParticles(k, tl);
+  }
+  postProcess();
+}
+function blit(){
+  for(const s of slots){
+    const tl = TILES[s.tile]; if(!tl) continue;
+    const c = s.canvas, dw = c.width, dh = c.height;
+    const sa = tl.w/tl.h, da = dw/dh;
+    let sw = tl.w, sh = tl.h, sx = tl.ix, sy = tl.iy;
+    if(sa > da){ sw = tl.h*da; sx = tl.ix + (tl.w - sw)*s.ox; }
+    else { sh = tl.w/da; sy = tl.iy + (tl.h - sh)*s.oy; }
+    s.ctx.drawImage(master, sx, sy, sw, sh, 0, 0, dw, dh);
+  }
+}
+
+sizeSlots();
+let running = true, rafId = 0, fixedTime = null;
+window.__pause = () => { running = false; cancelAnimationFrame(rafId); };
+window.__resume = () => { if(!running){ running = true; rafId = requestAnimationFrame(frame); } };
+window.__renderAt = (opts) => {
+  opts = opts || {};
+  if(typeof opts.time === 'number') fixedTime = opts.time * 1000;
+  window.__pause();
+  motionState.tx=motionState.ty=motionState.x=motionState.y=0;
+  const snapSeconds=(fixedTime !== null ? fixedTime : performance.now())/1000 + 4;
+  resetParticlesAt(snapSeconds);
+  renderAtlas(snapSeconds*1000, false);
+  blit();
+  if(!opts.paused){ fixedTime = null; window.__resume(); }
+};
+function frame(now){
+  renderAtlas((fixedTime !== null ? fixedTime : now) + 4000, true);
+  blit();
+  if(running) rafId = requestAnimationFrame(frame);
+}
+document.addEventListener('visibilitychange', () => {
+  if(document.hidden) window.__pause(); else if(fixedTime === null) window.__resume();
+});
+master.addEventListener('webglcontextlost',e=>{
+  e.preventDefault(); window.__pause(); document.documentElement.dataset.webgl='lost';
+});
+master.addEventListener('webglcontextrestored',()=>location.reload());
+const q = new URLSearchParams(location.search);
+if(PARITY_MODE){
+  window.__pause();
+} else if(q.get('snapshot')){
+  window.addEventListener('load', () => window.__renderAt({ time: parseFloat(q.get('time') || '12'), paused: true }));
+} else {
+  rafId = requestAnimationFrame(frame);
+}
+</script>
+<script>
+/* HELIOS v27 — reference-locked kinetic overlay
+   Draws transparent, deterministic motion over REFERENCE-PARITY.png.
+   The backplate preserves exact typography, spacing and fine-detail composition;
+   this layer supplies the live plasma, particle, orbital and state motion. */
+(() => {
+  'use strict';
+
+  if (window.HELIOS_VIEW !== 'parity') return;
+
+  const canvas = document.getElementById('parityFx');
+  const stage = document.getElementById('heliosStage');
+  const backplate = document.getElementById('parityBackplate');
+  if (!canvas || !stage || !backplate) return;
+
+  const W = 1536;
+  const H = 1024;
+  const TAU = Math.PI * 2;
+  const query = new URLSearchParams(location.search);
+  const systemReduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const explicitReduced = query.get('reduced') === '1' || query.get('motion') === '0';
+  const respectSystemReduced = query.get('respectReduced') === '1';
+  /* This is an animation test/reference prototype. It animates by default even
+     when Windows or the browser advertises reduced motion. Use ?reduced=1 to
+     deliberately exercise the accessibility still-frame path. */
+  const reduceMotion = explicitReduced || (respectSystemReduced && systemReduceMotion);
+  const fxEnabled = query.get('fx') !== '0';
+  const snapshotMode = query.has('snapshot');
+  const timeParam = query.get('time');
+  const snapshotTime = timeParam !== null && timeParam !== '' && Number.isFinite(Number(timeParam)) ? Number(timeParam) : 12;
+  const testMode = query.has('test') || query.has('controls') || document.documentElement.dataset.testDefault === '1';
+
+  let ctx;
+  let dpr = 1;
+  let fit = 1;
+  let running = false;
+  let manuallyPaused = false;
+  let raf = 0;
+  let lastPaint = 0;
+  let lastClock = 0;
+  let animationTime = Number.isFinite(Number(query.get('start'))) ? Number(query.get('start')) : 0;
+  let fixedTime = snapshotMode ? snapshotTime : null;
+  let targetFps = 24;
+  let timeScale = 1;
+  let motionIntensity = 1.45;
+  let renderScale = 0.78;
+  let fpsEstimate = 0;
+  let fpsFrames = 0;
+  let fpsWindowStart = 0;
+  let hud = null;
+  let hudStatus = null;
+  let pointerX = 0;
+  let pointerY = 0;
+  let pointerTX = 0;
+  let pointerTY = 0;
+
+  function clamp(v, a = 0, b = 1) { return Math.max(a, Math.min(b, v)); }
+  function mix(a, b, t) { return a + (b - a) * t; }
+  function fract(v) { return v - Math.floor(v); }
+  function hash(v) { return fract(Math.sin(v * 91.317 + 17.173) * 43758.5453123); }
+  function ease(t) { t = clamp(t); return t * t * (3 - 2 * t); }
+  function finiteParam(name, fallback) {
+    if (!query.has(name)) return fallback;
+    const raw = query.get(name);
+    if (raw === null || raw.trim() === '') return fallback;
+    const n = Number(raw);
+    return Number.isFinite(n) ? n : fallback;
+  }
+  targetFps = clamp(finiteParam('fps', 24), 12, 60);
+  timeScale = clamp(finiteParam('speed', 1), 0.1, 4);
+  motionIntensity = clamp(finiteParam('intensity', 1.45), 0.25, 3);
+  renderScale = clamp(finiteParam('quality', 0.78), 0.5, 1);
+  function rgba(rgb, a) {
+    const aa = clamp(a * motionIntensity, 0, 1);
+    return `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${aa})`;
+  }
+
+  const GOLD = [255, 182, 75];
+  const ORANGE = [255, 106, 22];
+  const HOT = [255, 236, 193];
+  const MAGENTA = [218, 75, 255];
+  const BLUE = [90, 170, 255];
+  const GREEN = [73, 224, 138];
+  const VIOLET = [143, 101, 255];
+  const RED = [255, 73, 53];
+
+  function configureCanvas() {
+    dpr = renderScale;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    canvas.style.width = `${W}px`;
+    canvas.style.height = `${H}px`;
+    ctx = canvas.getContext('2d', { alpha: true }) || canvas.getContext('2d');
+    if (!ctx) {
+      document.documentElement.dataset.motion = 'error';
+      throw new Error('HELIOS: Canvas 2D is unavailable; kinetic overlay cannot start.');
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+  }
+
+  function fitStage() {
+    const noScale = query.get('noscale') === '1';
+    fit = noScale ? 1 : Math.min(window.innerWidth / W, window.innerHeight / H, 1);
+    stage.style.setProperty('--stage-fit', String(fit));
+    document.body.style.width = `${Math.max(window.innerWidth, W * fit)}px`;
+    document.body.style.height = `${Math.max(window.innerHeight, H * fit)}px`;
+  }
+
+  /* Manual two-pass glow avoids per-path shadow filters, which are extremely
+     expensive on Firefox/Windows and on software Canvas2D implementations. */
+  function pathGlow(color, alpha, width, blur = 0) {
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    if (blur > 0) {
+      ctx.strokeStyle = rgba(color, alpha * 0.22);
+      ctx.lineWidth = width + Math.max(0.8, blur * 0.58);
+      ctx.stroke();
+    }
+    ctx.strokeStyle = rgba(color, alpha);
+    ctx.lineWidth = width;
+    ctx.stroke();
+  }
+
+  const glowSpriteCache = new Map();
+  function getGlowSprite(color) {
+    const key = color.join(',');
+    if (glowSpriteCache.has(key)) return glowSpriteCache.get(key);
+    const sprite = document.createElement('canvas');
+    sprite.width = sprite.height = 48;
+    const sx = sprite.getContext('2d');
+    const g = sx.createRadialGradient(24, 24, 0, 24, 24, 24);
+    g.addColorStop(0, `rgba(${color[0]},${color[1]},${color[2]},1)`);
+    g.addColorStop(0.22, `rgba(${color[0]},${color[1]},${color[2]},.62)`);
+    g.addColorStop(0.52, `rgba(${color[0]},${color[1]},${color[2]},.16)`);
+    g.addColorStop(1, `rgba(${color[0]},${color[1]},${color[2]},0)`);
+    sx.fillStyle = g;
+    sx.fillRect(0, 0, 48, 48);
+    glowSpriteCache.set(key, sprite);
+    return sprite;
+  }
+
+  function dotGlow(x, y, r, color, alpha) {
+    if (alpha <= 0 || r <= 0) return;
+    const a = clamp(alpha * motionIntensity, 0, 1);
+    const radius = r * 2.8;
+    ctx.save();
+    ctx.globalAlpha *= a;
+    ctx.drawImage(getGlowSprite(color), x - radius, y - radius, radius * 2, radius * 2);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.arc(x, y, Math.max(0.35, r * 0.42), 0, TAU);
+    ctx.fillStyle = `rgba(${HOT[0]},${HOT[1]},${HOT[2]},${clamp(alpha * 1.5 * motionIntensity, 0, .95)})`;
+    ctx.fill();
+  }
+
+  function drawProminence(cx, cy, r, angle, span, height, t, seed, alpha) {
+    const wobble = Math.sin(t * (0.36 + hash(seed) * 0.26) + seed) * r * 0.015;
+    const a0 = angle - span;
+    const a1 = angle + span;
+    const x0 = cx + Math.cos(a0) * r * 0.99;
+    const y0 = cy + Math.sin(a0) * r * 0.99;
+    const x1 = cx + Math.cos(a1) * r * 0.99;
+    const y1 = cy + Math.sin(a1) * r * 0.99;
+    const apx = cx + Math.cos(angle) * (r + height + wobble);
+    const apy = cy + Math.sin(angle) * (r + height + wobble);
+    const tangentX = -Math.sin(angle) * r * span * 0.74;
+    const tangentY =  Math.cos(angle) * r * span * 0.74;
+
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.bezierCurveTo(
+      x0 + tangentX * 0.48, y0 + tangentY * 0.48,
+      apx - tangentX * 0.58, apy - tangentY * 0.58,
+      apx, apy
+    );
+    ctx.bezierCurveTo(
+      apx + tangentX * 0.58, apy + tangentY * 0.58,
+      x1 - tangentX * 0.48, y1 - tangentY * 0.48,
+      x1, y1
+    );
+    pathGlow(ORANGE, alpha * 0.22, 4.2, 8);
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.bezierCurveTo(
+      x0 + tangentX * 0.48, y0 + tangentY * 0.48,
+      apx - tangentX * 0.58, apy - tangentY * 0.58,
+      apx, apy
+    );
+    ctx.bezierCurveTo(
+      apx + tangentX * 0.58, apy + tangentY * 0.58,
+      x1 - tangentX * 0.48, y1 - tangentY * 0.48,
+      x1, y1
+    );
+    pathGlow(GOLD, alpha, 0.72 + hash(seed + 4) * 0.55, 2.8);
+  }
+
+  function drawSunFilaments(spec, t) {
+    const { cx, cy, r, seed = 1, energy = 1, state = 'core' } = spec;
+    const px = pointerX * (spec.parallax || 0.55);
+    const py = pointerY * (spec.parallax || 0.55);
+    const x = cx + px;
+    const y = cy + py;
+    const pulse = 0.82 + 0.18 * Math.sin(t * (0.72 + hash(seed) * 0.25) + seed * 1.7);
+    const alphaBase = (spec.alpha || 0.14) * energy;
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+
+    /* Fine surface filaments: low-opacity flow lines preserve the reference texture
+       while making the electrical web visibly migrate. */
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, r * 0.95, 0, TAU);
+    ctx.clip();
+    const count = spec.filaments || Math.max(7, Math.round(r / 9));
+    for (let i = 0; i < count; i++) {
+      const h = hash(seed * 41 + i * 7.13);
+      const a0 = TAU * h + t * (0.014 + hash(seed + i) * 0.017) * (i % 2 ? 1 : -1);
+      const curl = mix(-2.2, 2.4, hash(seed * 3 + i * 19));
+      const phase = TAU * hash(seed * 11 + i * 3.7);
+      const elliptic = mix(0.82, 1.08, hash(seed * 17 + i * 13));
+      ctx.beginPath();
+      for (let j = 0; j <= 28; j++) {
+        const u = j / 28;
+        const rr = r * (0.08 + 0.90 * u);
+        const wav = 0.12 * Math.sin(u * (8 + hash(i + seed) * 7) + phase + t * (0.18 + h * 0.2));
+        const ang = a0 + curl * (u - 0.45) + wav;
+        const xx = x + Math.cos(ang) * rr * elliptic + Math.sin(u * 15 + phase) * r * 0.012;
+        const yy = y + Math.sin(ang) * rr / elliptic + Math.cos(u * 11 + phase) * r * 0.010;
+        if (j === 0) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy);
+      }
+      const hot = hash(seed * 5 + i * 31) > 0.72;
+      const color = hot ? HOT : (hash(seed + i * 9) > 0.84 ? MAGENTA : GOLD);
+      pathGlow(color, alphaBase * (0.22 + h * 0.52) * pulse, hot ? 0.58 : 0.42, hot ? 2.1 : 1.25);
+    }
+
+    /* Traveling current knots trace several of those filaments. */
+    for (let i = 0; i < Math.max(3, Math.round(r / 26)); i++) {
+      const u = fract(t * (0.025 + hash(seed + i) * 0.018) + hash(seed * 8 + i * 17));
+      const a0 = TAU * hash(seed * 4 + i * 23);
+      const rr = r * (0.18 + 0.72 * u);
+      const ang = a0 + mix(-1.8, 1.9, hash(i + seed * 9)) * (u - 0.4) + 0.12 * Math.sin(u * 13 + t * 0.5 + i);
+      const xx = x + Math.cos(ang) * rr;
+      const yy = y + Math.sin(ang) * rr;
+      dotGlow(xx, yy, 0.55 + r * 0.006, hash(seed + i * 5) > 0.78 ? HOT : GOLD, alphaBase * 0.72);
+    }
+    ctx.restore();
+
+    /* S-channel edge shimmer: narrow, intermittent and subordinate to the orange web. */
+    if (state !== 'interrupted' && spec.braid !== false) {
+      for (const side of [-1, 1]) {
+        ctx.beginPath();
+        for (let j = 0; j <= 34; j++) {
+          const u = j / 34;
+          const yy = y + (u - 0.5) * r * 1.44;
+          const xx = x + side * r * 0.105 + Math.sin((u - 0.5) * 5.0 + t * 0.065 + seed) * r * 0.090;
+          if (j === 0) ctx.moveTo(xx, yy); else ctx.lineTo(xx, yy);
+        }
+        pathGlow(side < 0 ? MAGENTA : BLUE, alphaBase * 0.30 * pulse, 0.52, 1.8);
+      }
+    }
+
+    /* Broken, asymmetric prominence topology. */
+    const promCount = spec.prominences ?? (r > 70 ? 7 : 4);
+    for (let i = 0; i < promCount; i++) {
+      const ang = TAU * hash(seed * 13 + i * 11) + t * (0.006 + hash(seed + i) * 0.008);
+      const span = mix(0.08, 0.22, hash(seed * 7 + i * 5));
+      const height = r * mix(0.08, state === 'speaking' ? 0.30 : 0.18, hash(seed * 23 + i * 3));
+      drawProminence(x, y, r, ang, span, height, t, seed + i * 2.7, alphaBase * (0.48 + hash(i + seed) * 0.42));
+    }
+
+    /* Sparse ejecta points. */
+    const sparks = spec.sparks || Math.max(4, Math.round(r / 20));
+    for (let i = 0; i < sparks; i++) {
+      const a = TAU * hash(seed * 29 + i * 7) + t * (0.012 + hash(seed + i) * 0.008);
+      const rr = r * mix(1.04, 1.44, hash(seed * 31 + i * 13));
+      const tw = 0.35 + 0.65 * Math.max(0, Math.sin(t * (0.9 + hash(i) * 1.4) + i));
+      dotGlow(x + Math.cos(a) * rr, y + Math.sin(a) * rr, 0.45 + hash(i + seed) * 0.85, ORANGE, alphaBase * 0.38 * tw);
+    }
+
+    drawVoiceGrammar({ ...spec, cx: x, cy: y, r }, t, alphaBase);
+    ctx.restore();
+  }
+
+  function drawVoiceGrammar(spec, t, a) {
+    const { cx, cy, r, state } = spec;
+    if (!state || state === 'core') return;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+
+    if (state === 'listening') {
+      const sweep = t * 0.28;
+      ctx.setLineDash([2.5, 5]);
+      ctx.lineDashOffset = -t * 5;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, r * 1.30, r * 0.74, -0.18, Math.PI * 0.78 + sweep * 0.04, Math.PI * 1.70 + sweep * 0.04);
+      pathGlow(BLUE, a * 0.76, 0.72, 2.5);
+      ctx.setLineDash([]);
+      for (let i = 0; i < 4; i++) {
+        const u = fract(t * (0.08 + i * 0.009) + i * 0.21);
+        const x = cx - r * mix(1.70, 1.02, u);
+        const y = cy + (i - 1.5) * r * 0.16 + Math.sin(t + i) * r * 0.05;
+        dotGlow(x, y, 0.65, BLUE, a * (1 - u) * 0.9);
+      }
+    } else if (state === 'reasoning') {
+      for (let i = 0; i < 2; i++) {
+        const rot = (i ? -1 : 1) * t * (0.12 + i * 0.04) + i * 0.8;
+        ctx.setLineDash([3, 3.5]);
+        ctx.lineDashOffset = (i ? 1 : -1) * t * 6;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, r * (1.22 + i * 0.13), r * (0.56 + i * 0.08), rot, 0, TAU);
+        pathGlow(i ? GOLD : ORANGE, a * 0.72, 0.78, 2.4);
+      }
+      ctx.setLineDash([]);
+      for (let i = 0; i < 3; i++) {
+        const ang = t * (0.55 + i * 0.08) * (i === 1 ? -1 : 1) + i * 2.1;
+        dotGlow(cx + Math.cos(ang) * r * 0.86, cy + Math.sin(ang) * r * 0.44, 0.85, HOT, a * 0.95);
+      }
+    } else if (state === 'retrieving') {
+      const ang = t * 0.50;
+      ctx.setLineDash([4, 3]);
+      ctx.lineDashOffset = -t * 7;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, r * 1.54, r * 0.66, -0.14, 0, TAU);
+      pathGlow(GOLD, a * 0.82, 0.78, 2.5);
+      ctx.setLineDash([]);
+      const px = cx + Math.cos(ang) * r * 1.54;
+      const py = cy + Math.sin(ang) * r * 0.66;
+      dotGlow(px, py, 1.2, HOT, a * 1.35);
+      ctx.beginPath();
+      ctx.moveTo(cx + r * 0.72, cy + r * 0.10);
+      ctx.quadraticCurveTo(cx + r * 1.02, cy - r * 0.70, px, py);
+      pathGlow(ORANGE, a * 0.65, 0.84, 2.8);
+    } else if (state === 'speaking') {
+      for (let i = 0; i < 3; i++) {
+        const phase = fract(t * 0.23 + i * 0.31);
+        const rr = r * (1.03 + phase * 0.78);
+        ctx.beginPath();
+        ctx.arc(cx, cy, rr, -0.46, 0.46);
+        pathGlow(GOLD, a * (1 - phase) * 0.62, 0.7, 2.2);
+        ctx.beginPath();
+        ctx.arc(cx, cy, rr, Math.PI - 0.46, Math.PI + 0.46);
+        pathGlow(GOLD, a * (1 - phase) * 0.44, 0.65, 2.0);
+      }
+      for (const side of [-1, 1]) {
+        ctx.beginPath();
+        ctx.moveTo(cx + side * r * 0.90, cy - r * 0.16);
+        ctx.bezierCurveTo(cx + side * r * 1.28, cy - r * 0.36, cx + side * r * 1.55, cy + r * 0.20, cx + side * r * 1.92, cy + r * 0.02);
+        pathGlow(ORANGE, a * 0.74, 0.92, 3.4);
+      }
+    } else if (state === 'interrupted') {
+      ctx.save();
+      ctx.setLineDash([4, 7]);
+      ctx.lineDashOffset = Math.floor(t * 7) * -1;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r * 1.10, 0, TAU);
+      pathGlow(RED, a * (0.42 + 0.22 * Math.sin(t * 4.2)), 0.78, 2.4);
+      ctx.restore();
+      if (Math.sin(t * 5.7) > 0.2) {
+        ctx.beginPath();
+        ctx.moveTo(cx - r * 1.0, cy + r * 0.14);
+        ctx.lineTo(cx + r * 0.90, cy + r * 0.10);
+        pathGlow(ORANGE, a * 0.48, 0.48, 1.5);
+      }
+    }
+    ctx.restore();
+  }
+
+  const sunSpecs = [
+    { cx:184,  cy:219, r:99, seed:11, energy:1.00, alpha:0.13, filaments:13, prominences:8, sparks:10 },
+    { cx:532,  cy:220, r:59, seed:17, energy:0.92, alpha:0.13, filaments:9,  prominences:5, sparks:6 },
+    { cx:802,  cy:223, r:58, seed:23, energy:0.90, alpha:0.12, filaments:9,  prominences:5, sparks:5 },
+    { cx:1358, cy:229, r:68, seed:29, energy:0.90, alpha:0.12, filaments:10, prominences:6, sparks:6 },
+    { cx:807,  cy:573, r:58, seed:31, energy:0.80, alpha:0.11, filaments:8,  prominences:5, sparks:5 },
+    { cx:1079, cy:591, r:44, seed:37, energy:0.78, alpha:0.11, filaments:7,  prominences:4, sparks:4 },
+    { cx:292,  cy:860, r:47, seed:41, energy:0.85, alpha:0.12, filaments:8,  prominences:5, sparks:5 },
+    { cx:486,  cy:862, r:42, seed:43, energy:0.78, alpha:0.11, filaments:7,  prominences:4, sparks:4 },
+    { cx:756,  cy:863, r:34, seed:47, energy:0.72, alpha:0.10, filaments:6,  prominences:3, sparks:3 },
+    { cx:974,  cy:863, r:43, seed:53, energy:0.82, alpha:0.11, filaments:7,  prominences:4, sparks:4 },
+    { cx:1181, cy:859, r:24, seed:59, energy:0.66, alpha:0.13, filaments:5, prominences:3, sparks:2, state:'listening' },
+    { cx:1250, cy:859, r:27, seed:61, energy:0.74, alpha:0.13, filaments:5, prominences:4, sparks:2, state:'reasoning' },
+    { cx:1323, cy:859, r:24, seed:67, energy:0.70, alpha:0.13, filaments:5, prominences:3, sparks:2, state:'retrieving' },
+    { cx:1395, cy:859, r:31, seed:71, energy:0.92, alpha:0.14, filaments:6, prominences:6, sparks:4, state:'speaking' },
+    { cx:1471, cy:859, r:26, seed:73, energy:0.58, alpha:0.10, filaments:4, prominences:3, sparks:2, state:'interrupted' }
+  ];
+
+  const particleCloud = Array.from({ length: 190 }, (_, i) => ({
+    u: hash(i * 17.1 + 3.2),
+    y: hash(i * 31.7 + 8.1) * 2 - 1,
+    z: hash(i * 41.3 + 1.7),
+    speed: 0.018 + hash(i * 5.7 + 2.8) * 0.035,
+    phase: TAU * hash(i * 11.9 + 9.2),
+    size: 0.35 + hash(i * 7.1 + 6.4) * 1.65,
+    hot: hash(i * 19.3 + 4.4)
+  }));
+
+  function drawGenesisFlow(x0, x1, cy, spread, sunX, sunR, t, scale = 1, strength = 1, clipRect = null) {
+    ctx.save();
+    if (clipRect) {
+      ctx.beginPath();
+      ctx.rect(clipRect[0], clipRect[1], clipRect[2], clipRect[3]);
+      ctx.clip();
+    }
+    ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < particleCloud.length; i += (scale < 0.7 ? 3 : (scale < 0.9 ? 2 : 1))) {
+      const p = particleCloud[i];
+      const u = fract(p.u + t * p.speed * (0.8 + scale * 0.35));
+      const condense = ease(u);
+      const x = mix(x0, x1, u);
+      const localSpread = spread * Math.pow(1 - u, 1.15) + 3.2 * scale;
+      const lane = p.y * localSpread + Math.sin(u * 18 + p.phase + t * 0.7) * (3.8 * (1 - u) + 1.1) * scale;
+      const grav = Math.max(0, (x - (sunX - sunR * 2.4)) / (sunR * 2.4));
+      const spiral = grav > 0 ? Math.sin(grav * 8.5 + p.phase + t * 0.55) * sunR * 0.15 * (1 - grav) : 0;
+      const y = cy + lane * scale + spiral;
+      const size = (p.size * (0.65 + condense * 1.65)) * scale;
+      const alpha = strength * (0.10 + 0.28 * p.z) * (0.35 + 0.65 * Math.sin(Math.PI * u));
+      const color = p.hot > 0.93 ? HOT : (p.hot > 0.67 ? GOLD : ORANGE);
+      ctx.beginPath();
+      ctx.moveTo(x - (1.2 + condense * 3.8) * scale, y);
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = rgba(color, alpha * 0.34);
+      ctx.lineWidth = Math.max(0.32, size * 0.30);
+      ctx.lineCap = 'round';
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(x, y, Math.max(0.28, size * 0.30), 0, TAU);
+      ctx.fillStyle = rgba(color, alpha * 0.50);
+      ctx.fill();
+      if (p.hot > 0.95 && i % 5 === 0) dotGlow(x, y, size * 0.42, HOT, alpha * 0.34);
+    }
+
+    /* Three visible aggregation phases: parameter dust → nuclei → accretion. */
+    const wells = [0.28, 0.55, 0.76];
+    for (let w = 0; w < wells.length; w++) {
+      const wx = mix(x0, x1, wells[w]);
+      const wr = (4.0 + w * 3.0) * scale;
+      const pulse = 0.72 + 0.28 * Math.sin(t * (0.8 + w * 0.17) + w * 2.2);
+      ctx.beginPath();
+      ctx.arc(wx, cy + Math.sin(t * 0.35 + w) * 2.5 * scale, wr, 0, TAU);
+      ctx.strokeStyle = rgba(GOLD, strength * 0.10 * pulse);
+      ctx.lineWidth = 0.65 * scale;
+      ctx.stroke();
+      for (let k = 0; k < 7 + w * 4; k++) {
+        const a = TAU * hash(w * 101 + k * 13) + t * (0.10 + w * 0.025);
+        const rr = wr * (0.45 + hash(k * 7 + w) * 1.4);
+        dotGlow(wx + Math.cos(a) * rr, cy + Math.sin(a) * rr * 0.72, 0.45 * scale, GOLD, strength * 0.18 * pulse);
+      }
+    }
+    ctx.restore();
+  }
+
+  function drawChronosphere(t) {
+    const cx = 486;
+    const cy = 862;
+    const colors = [GOLD, [255, 199, 84], GREEN, [68, 210, 205], BLUE, [107, 132, 255], VIOLET];
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(353, 817, 268, 112);
+    ctx.clip();
+    ctx.globalCompositeOperation = 'lighter';
+
+    for (let i = 0; i < 7; i++) {
+      const rx = 54 + i * 16.8;
+      const ry = 24 + i * 4.5;
+      const rot = (i - 3) * 0.015 + Math.sin(t * 0.08 + i) * 0.006;
+      const grad = ctx.createLinearGradient(cx - rx, cy, cx + rx, cy);
+      grad.addColorStop(0, rgba(i < 2 ? GOLD : colors[i], 0.28));
+      grad.addColorStop(0.49, rgba(colors[i], 0.12));
+      grad.addColorStop(1, rgba(i < 2 ? BLUE : colors[i], 0.28));
+      ctx.setLineDash([5 + i * 0.4, 3 + i * 0.25]);
+      ctx.lineDashOffset = -t * (7 + i * 0.6) * (i % 2 ? 1 : -1);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rx, ry, rot, 0, TAU);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = i === 3 ? 0.95 : 0.65;
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      const ang = t * (0.32 + i * 0.025) * (i % 2 ? -1 : 1) + i * 0.78;
+      const x = cx + Math.cos(ang) * rx;
+      const y = cy + Math.sin(ang) * ry;
+      dotGlow(x, y, 0.70, colors[i], 0.42);
+    }
+    ctx.restore();
+  }
+
+  function drawCorrelation(t) {
+    const cy = 862;
+    const left = 627;
+    const right = 886;
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(631, 817, 247, 112);
+    ctx.clip();
+    ctx.globalCompositeOperation = 'lighter';
+
+    for (let i = 0; i < 6; i++) {
+      const phaseL = fract(t * 0.075 + i / 6);
+      const phaseR = fract(t * 0.070 + i / 6 + 0.08);
+      const rL = 18 + phaseL * 145;
+      const rR = 18 + phaseR * 145;
+      const aL = 0.30 * (1 - phaseL) + 0.07;
+      const aR = 0.30 * (1 - phaseR) + 0.07;
+      ctx.setLineDash([5, 3]);
+      ctx.lineDashOffset = -t * 7 - i * 2;
+      ctx.beginPath();
+      ctx.arc(left, cy, rL, -0.72, 0.72);
+      pathGlow(GREEN, aL, 0.76, 2.5);
+      ctx.beginPath();
+      ctx.arc(right, cy, rR, Math.PI - 0.72, Math.PI + 0.72);
+      pathGlow(BLUE, aR, 0.76, 2.5);
+      ctx.setLineDash([]);
+    }
+
+    for (let i = 0; i < 5; i++) {
+      const y = cy - 32 + i * 16 + Math.sin(t * 1.1 + i) * 1.6;
+      const p = 0.45 + 0.55 * Math.sin(t * 2.2 + i * 1.7);
+      dotGlow(756 + Math.sin(t * 0.65 + i) * 3.0, y, 0.72, HOT, 0.22 * p);
+    }
+    ctx.restore();
+  }
+
+  const quantileColors = [ORANGE, [255, 146, 35], [255, 209, 76], HOT, [83, 211, 154], BLUE, VIOLET];
+  function probabilityY(i, u, t, cy, span) {
+    const q = 1 - i / 3;
+    return cy + q * span * Math.pow(u, 1.28) + Math.sin(u * 8.8 + t * (0.42 + i * 0.018) + i * 0.65) * (1.4 + 4.0 * u);
+  }
+
+  function drawProbability(t) {
+    const cx = 974;
+    const cy = 863;
+    const r = 43;
+    const xR = 1135;
+    const xL = 889;
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(887, 817, 256, 112);
+    ctx.clip();
+    ctx.globalCompositeOperation = 'lighter';
+
+    for (let i = 0; i < 7; i++) {
+      const color = quantileColors[i];
+      const middle = i === 3;
+      ctx.beginPath();
+      for (let j = 0; j <= 42; j++) {
+        const u = j / 42;
+        const x = mix(cx + r * 0.63, xR, u);
+        const y = probabilityY(i, u, t, cy, 33);
+        if (j === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      pathGlow(color, middle ? 0.34 : 0.22, middle ? 1.00 : 0.68, middle ? 3.6 : 2.3);
+
+      ctx.beginPath();
+      for (let j = 0; j <= 26; j++) {
+        const u = j / 26;
+        const x = mix(cx - r * 0.62, xL, u);
+        const y = probabilityY(i, u, t + 1.3, cy, 18);
+        if (j === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      pathGlow(color, middle ? 0.20 : 0.12, middle ? 0.80 : 0.55, 1.7);
+
+      const packetU = fract(t * (0.055 + i * 0.0025) + i * 0.137);
+      const packetX = mix(cx + r * 0.63, xR, packetU);
+      const packetY = probabilityY(i, packetU, t, cy, 33);
+      dotGlow(packetX, packetY, middle ? 1.05 : 0.72, color, middle ? 0.50 : 0.35);
+    }
+    ctx.restore();
+  }
+
+  function drawExecutionRing(t) {
+    const cx = 1079;
+    const cy = 251;
+    const r = 55;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for (let k = 0; k < 2; k++) {
+      ctx.setLineDash(k ? [2, 5] : [7, 6]);
+      ctx.lineDashOffset = (k ? 1 : -1) * t * (8 + k * 3);
+      ctx.beginPath();
+      ctx.arc(cx, cy, r * (1.05 + k * 0.43), 0, TAU);
+      pathGlow(k ? BLUE : GOLD, k ? 0.12 : 0.18, k ? 0.55 : 0.78, 2.4);
+    }
+    ctx.setLineDash([]);
+    const ang = t * 0.38;
+    dotGlow(cx + Math.cos(ang) * r * 1.48, cy + Math.sin(ang) * r * 1.48, 1.05, HOT, 0.48);
+    for (let i = 0; i < 8; i++) {
+      const a = i * TAU / 8;
+      const pulse = 0.45 + 0.55 * Math.sin(t * 1.7 + i * 0.8);
+      dotGlow(cx + Math.cos(a) * r * 1.05, cy + Math.sin(a) * r * 1.05, 0.55, i % 3 === 1 ? BLUE : GOLD, 0.12 * pulse);
+    }
+    ctx.restore();
+  }
+
+  function drawConstellationPulses(t) {
+    const groups = [
+      { cx:802, cy:223, nodes:[[778,114],[700,144],[885,145],[686,216],[908,216],[700,288],[885,289]] },
+      { cx:1358, cy:229, nodes:[[1333,117],[1250,144],[1452,145],[1237,215],[1487,215],[1252,287],[1454,287],[1304,315],[1414,315]] }
+    ];
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for (let g = 0; g < groups.length; g++) {
+      const group = groups[g];
+      for (let i = 0; i < group.nodes.length; i++) {
+        const n = group.nodes[i];
+        const u = fract(t * (0.055 + i * 0.0015) + i * 0.113 + g * 0.19);
+        const x = mix(group.cx, n[0], u);
+        const y = mix(group.cy, n[1], u);
+        dotGlow(x, y, 0.65, i % 4 === 0 ? BLUE : GOLD, 0.18 * Math.sin(Math.PI * u));
+      }
+    }
+    ctx.restore();
+  }
+
+  function drawTopGenesis(t) {
+    drawGenesisFlow(381, 505, 218, 62, 532, 59, t, 0.76, 0.58, [370, 118, 280, 190]);
+    drawGenesisFlow(954, 1048, 591, 26, 1079, 44, t + 1.8, 0.58, 0.42, [952, 528, 228, 88]);
+  }
+
+  function drawMotionGenesis(t) {
+    drawGenesisFlow(18, 251, 860, 43, 292, 47, t + 0.7, 1.0, 0.78, [10, 815, 334, 120]);
+  }
+
+  function drawGlobalMicroSparks(t) {
+    const areas = [
+      [38, 98, 315, 315, 11], [382, 118, 640, 310, 17], [672, 103, 938, 330, 23],
+      [1218, 102, 1505, 334, 29]
+    ];
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for (let a = 0; a < areas.length; a++) {
+      const [x0, y0, x1, y1, seed] = areas[a];
+      for (let i = 0; i < 9; i++) {
+        const x = mix(x0, x1, hash(seed + i * 13));
+        const y = mix(y0, y1, hash(seed * 2 + i * 17));
+        const tw = Math.max(0, Math.sin(t * (0.7 + hash(i + seed) * 1.6) + i));
+        dotGlow(x, y, 0.35 + hash(i * 3 + seed) * 0.45, i % 5 === 0 ? BLUE : ORANGE, 0.075 * tw);
+      }
+    }
+    ctx.restore();
+  }
+
+  function render(t) {
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    if (!fxEnabled) return;
+
+    pointerX += (pointerTX - pointerX) * 0.045;
+    pointerY += (pointerTY - pointerY) * 0.045;
+
+    drawTopGenesis(t);
+    drawExecutionRing(t);
+    drawConstellationPulses(t);
+    drawMotionGenesis(t);
+    drawChronosphere(t);
+    drawCorrelation(t);
+    drawProbability(t);
+
+    for (const spec of sunSpecs) drawSunFilaments(spec, t);
+    drawGlobalMicroSparks(t);
+  }
+
+  function currentTime() {
+    return fixedTime !== null ? fixedTime : animationTime;
+  }
+
+  function updateHud() {
+    const mode = running ? 'RUNNING' : (snapshotMode ? 'SNAPSHOT' : (reduceMotion ? 'REDUCED' : 'PAUSED'));
+    document.documentElement.dataset.motion = mode.toLowerCase();
+    if (!hud) return;
+    hud.classList.toggle('paused', !running && !reduceMotion);
+    hud.classList.toggle('reduced', reduceMotion);
+    const toggle = hud.querySelector('[data-action="toggle"]');
+    if (toggle) toggle.textContent = running ? 'PAUSE' : 'PLAY';
+    if (hudStatus) {
+      const osNote = systemReduceMotion && !reduceMotion ? ' · OS REDUCE OVERRIDDEN' : '';
+      hudStatus.textContent = `${mode} · ${fpsEstimate ? fpsEstimate.toFixed(0) : targetFps.toFixed(0)} FPS · ${timeScale.toFixed(2)}× · FX ${motionIntensity.toFixed(2)} · Q ${renderScale.toFixed(2)}${osNote}`;
+    }
+    hud.querySelectorAll('[data-speed]').forEach((b) => b.classList.toggle('active', Math.abs(Number(b.dataset.speed) - timeScale) < 0.001));
+    hud.querySelectorAll('[data-intensity]').forEach((b) => b.classList.toggle('active', Math.abs(Number(b.dataset.intensity) - motionIntensity) < 0.001));
+  }
+
+  function tick(now) {
+    if (!running) return;
+    if (!lastClock) lastClock = now;
+    const dt = clamp((now - lastClock) / 1000, 0, 0.1);
+    lastClock = now;
+    animationTime += dt * timeScale;
+
+    const frameInterval = 1000 / targetFps;
+    if (!lastPaint || now - lastPaint >= frameInterval - 0.5) {
+      lastPaint = now;
+      render(currentTime());
+      fpsFrames += 1;
+      if (!fpsWindowStart) fpsWindowStart = now;
+      if (now - fpsWindowStart >= 500) {
+        fpsEstimate = fpsFrames * 1000 / Math.max(1, now - fpsWindowStart);
+        fpsFrames = 0;
+        fpsWindowStart = now;
+        updateHud();
+      }
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  function pause(manual = true) {
+    if (manual) manuallyPaused = true;
+    running = false;
+    cancelAnimationFrame(raf);
+    raf = 0;
+    lastClock = 0;
+    updateHud();
+  }
+
+  function resume(manual = true) {
+    if (manual) manuallyPaused = false;
+    if (running || reduceMotion || snapshotMode || !fxEnabled || document.hidden) {
+      updateHud();
+      return false;
+    }
+    if (fixedTime !== null) {
+      animationTime = fixedTime;
+      fixedTime = null;
+    }
+    running = true;
+    lastPaint = 0;
+    lastClock = 0;
+    fpsFrames = 0;
+    fpsWindowStart = 0;
+    updateHud();
+    raf = requestAnimationFrame(tick);
+    return true;
+  }
+
+  function setSpeed(value) {
+    timeScale = clamp(Number(value) || 1, 0.1, 4);
+    updateHud();
+    return timeScale;
+  }
+
+  function setIntensity(value) {
+    motionIntensity = clamp(Number(value) || 1.45, 0.25, 3);
+    render(currentTime());
+    updateHud();
+    return motionIntensity;
+  }
+
+  function seek(value) {
+    const t = Number(value);
+    if (!Number.isFinite(t)) return currentTime();
+    fixedTime = t;
+    animationTime = t;
+    render(t);
+    updateHud();
+    return t;
+  }
+
+  function status() {
+    return {
+      running, time: currentTime(), speed: timeScale, intensity: motionIntensity,
+      targetFps, measuredFps: fpsEstimate, renderScale, snapshotMode, reduceMotion,
+      systemReduceMotion, fxEnabled, view: window.HELIOS_VIEW
+    };
+  }
+
+  function installTestHud() {
+    if (!testMode) return;
+    hud = document.createElement('div');
+    hud.id = 'heliosMotionHUD';
+    hud.className = 'on';
+    hud.innerHTML = `
+      <div class="mh-top"><span class="mh-dot"></span><span class="mh-title">HELIOS MOTION TEST</span><span class="mh-status"></span></div>
+      <div class="mh-row"><span class="mh-label">PLAYBACK</span><button data-action="toggle">PAUSE</button><button data-action="reset">RESET</button></div>
+      <div class="mh-row"><span class="mh-label">SPEED</span><button data-speed="0.5">0.5×</button><button data-speed="1">1×</button><button data-speed="2">2×</button></div>
+      <div class="mh-row"><span class="mh-label">ENERGY</span><button data-intensity="0.85">SOFT</button><button data-intensity="1.45">PARITY</button><button data-intensity="2.1">HIGH</button></div>
+      <div class="mh-help">Space: play/pause · R: reset · [ / ]: speed · H: hide controls</div>`;
+    document.body.appendChild(hud);
+    hudStatus = hud.querySelector('.mh-status');
+    hud.addEventListener('click', (event) => {
+      const button = event.target.closest('button');
+      if (!button) return;
+      if (button.dataset.action === 'toggle') running ? pause(true) : resume(true);
+      if (button.dataset.action === 'reset') { animationTime = 0; fixedTime = null; render(0); if (!running) updateHud(); }
+      if (button.dataset.speed) setSpeed(button.dataset.speed);
+      if (button.dataset.intensity) setIntensity(button.dataset.intensity);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'Space') { event.preventDefault(); running ? pause(true) : resume(true); }
+      else if (event.key.toLowerCase() === 'r') { animationTime = 0; fixedTime = null; render(0); }
+      else if (event.key === '[') setSpeed(timeScale / 1.25);
+      else if (event.key === ']') setSpeed(timeScale * 1.25);
+      else if (event.key.toLowerCase() === 'h') hud.classList.toggle('on');
+    });
+    updateHud();
+  }
+
+  window.__renderParityAt = (opts = {}) => {
+    if (typeof opts.time === 'number') fixedTime = opts.time;
+    pause(true);
+    pointerTX = pointerTY = pointerX = pointerY = 0;
+    const t = fixedTime !== null ? fixedTime : snapshotTime;
+    animationTime = t;
+    render(t);
+    if (!opts.paused) resume(true);
+    return status();
+  };
+
+  const nativePause = window.__pause;
+  const nativeResume = window.__resume;
+  window.__pause = () => {
+    if (typeof nativePause === 'function') nativePause();
+    pause(true);
+  };
+  window.__resume = () => {
+    if (typeof nativeResume === 'function' && window.HELIOS_VIEW === 'native') nativeResume();
+    resume(true);
+  };
+  window.__renderAt = (opts = {}) => window.__renderParityAt(opts);
+  window.__setView = (view) => {
+    const u = new URL(location.href);
+    if (view === 'native') u.searchParams.set('native', '1'); else u.searchParams.delete('native');
+    location.href = u.toString();
+  };
+  window.__heliosMotion = Object.freeze({
+    play: () => resume(true), pause: () => pause(true),
+    toggle: () => running ? pause(true) : resume(true),
+    seek, setSpeed, setIntensity, status
+  });
+  window.__heliosMotionStatus = status;
+
+  window.addEventListener('pointermove', (e) => {
+    const rect = stage.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    pointerTX = clamp((e.clientX - rect.left) / rect.width * 2 - 1, -1, 1) * 1.4;
+    pointerTY = clamp((e.clientY - rect.top) / rect.height * 2 - 1, -1, 1) * 1.1;
+  }, { passive: true });
+  window.addEventListener('pointerleave', () => { pointerTX = pointerTY = 0; }, { passive: true });
+  window.addEventListener('resize', fitStage, { passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pause(false);
+    else if (!manuallyPaused) resume(false);
+  });
+
+  backplate.addEventListener('error', () => {
+    document.documentElement.dataset.view = 'native';
+    window.HELIOS_VIEW = 'native';
+    canvas.style.display = 'none';
+    stage.style.removeProperty('--stage-fit');
+    document.body.style.width = '';
+    document.body.style.height = '';
+    if (typeof nativeResume === 'function') nativeResume();
+  }, { once: true });
+
+  configureCanvas();
+  fitStage();
+  installTestHud();
+  if (snapshotMode || reduceMotion || !fxEnabled) {
+    animationTime = snapshotTime;
+    render(snapshotTime);
+    updateHud();
+  } else {
+    render(animationTime);
+    resume(false);
+  }
+  window.dispatchEvent(new CustomEvent('helios:ready', { detail: status() }));
+})();
+
+</script>
+</body>
+</html>

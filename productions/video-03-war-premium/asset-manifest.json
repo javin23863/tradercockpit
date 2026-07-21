@@ -1,0 +1,94 @@
+{
+  "schema": "tradercockpit-asset-manifest/v1",
+  "production": "video-03-war-premium",
+  "generatedAt": "2026-07-15T23:21:46.4960332+07:00",
+  "externalProviderCostUsd": 0,
+  "narration": {
+    "source": "operator-owned voice reference",
+    "sourcePath": "productions/_voice/operator-clean.wav",
+    "sourceSha256": "5754b21959f133f67573a09c226c4e85792abceab59d6a1229b5ffb5f4379b82",
+    "tool": "chatterbox-tts 0.1.7",
+    "model": "ResembleAI/chatterbox",
+    "modelRevision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18",
+    "runtime": "OpenMontage/.venv-chatterbox",
+    "openMontageCommit": "f8d94632ea9bd0057da31904acca1cefecf005dd",
+    "torch": "2.6.0+cu124",
+    "torchaudio": "2.6.0+cu124",
+    "cuda": "12.4",
+    "license": "MIT",
+    "seed": null,
+    "seedNote": "Chatterbox sampling is nondeterministic; review candidates are bound by SHA-256.",
+    "synthetic": true,
+    "evidenceUse": false,
+    "platformDisclosureRequired": true,
+    "outputs": [
+      "build/vo-01.wav through build/vo-09.wav",
+      "build/vo-full.wav"
+    ]
+  },
+  "factualVisuals": [
+    {
+      "kind": "market charts and cockpit panels",
+      "source": "TradingView Desktop daily charts",
+      "manifest": "chart-plan.json",
+      "tool": "tools/visuals/tv_ta_capture.py and FFmpeg 8.1.1",
+      "synthetic": false,
+      "evidenceUse": true
+    },
+    {
+      "kind": "official-source cards",
+      "source": "IMO, U.S. CENTCOM, U.S. Treasury and U.S. BLS pages",
+      "manifest": "news-sources.json",
+      "tool": "tools/visuals/fetch_news_shots.mjs",
+      "synthetic": false,
+      "evidenceUse": true
+    },
+    {
+      "kind": "official strike footage",
+      "source": "DVIDS/CENTCOM public-domain footage dated 2026-03-01",
+      "metadata": "source-footage/centcom-epic-fury-997847.info.json",
+      "synthetic": false,
+      "evidenceUse": "dated historical context only"
+    },
+    {
+      "kind": "geospatial explanation",
+      "source": "Godseye released Windows build release-final-92a00ae",
+      "godseyeCommit": "92a00aeafb6ee92e2f4cf91b4c1452f9ec7e453f",
+      "evidencePackets": [
+        "godseye-work-v3/01-hormuz-pressure-map-road.evidence.json"
+      ],
+      "tool": "tools/visuals/godseye_capture.mjs",
+      "synthetic": false,
+      "evidenceUse": "Strait geography and curated Gulf infrastructure only; no live ship, satellite, force-posture or attack claim"
+    }
+  ],
+  "packaging": {
+    "thumbnail": {
+      "path": "thumb-v2.png",
+      "synthetic": false
+    },
+    "masters": {
+      "tool": "tools/produce.py and FFmpeg 8.1.1",
+      "paths": [
+        "build/master-clean.mp4",
+        "build/master.mp4"
+      ]
+    },
+    "captions": {
+      "path": "build/captions.srt",
+      "receipt": "build/caption-receipt.json",
+      "mode": "script-locked-timing",
+      "limitation": "No ASR verification; operator listen remains authoritative."
+    },
+    "shorts": {
+      "status": "stale-after-operator-rejection",
+      "note": "Previous vertical derivatives are not approval-eligible and must be regenerated from the accepted recut."
+    }
+  },
+  "guards": {
+    "paidProvidersUsed": false,
+    "cloudProviderKeysUsed": false,
+    "generatedMediaUsedAsEvidence": false,
+    "publicWrites": 0
+  }
+}

@@ -9,8 +9,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 import puppeteer from './puppeteer.mjs'
 
-const GODSEYE_REPO = 'C:\\Users\\MSI\\repos\\godseye'
-const EXES = ['Godseye.exe', 'GodsEye.exe'].map((name) => path.join(GODSEYE_REPO, 'release', 'win-unpacked', name))
+const GODSEYE_REPO = process.env.GODSEYE_REPO
+  ?? 'C:\\Users\\MSI\\Documents\\godseye-review-20260714'
+const RELEASE_DIR = process.env.GODSEYE_RELEASE_DIR
+  ?? path.join(GODSEYE_REPO, 'release-main-c9d040e')
+const EXES = process.env.GODSEYE_EXE
+  ? [process.env.GODSEYE_EXE]
+  : ['Godseye.exe', 'GodsEye.exe'].map((name) => path.join(RELEASE_DIR, name))
 const EXE = EXES.find(fs.existsSync) ?? EXES[0]
 const APP_ORIGIN = 'http://127.0.0.1:39847'
 const CDP_PORT = 9222
@@ -126,7 +131,7 @@ async function runShot(page, shot, outDir, number) {
   })
 
   const mp4Path = `${base}.mp4`
-  let vf = 'scale=1920:1080:force_original_aspect_ratio=increase:force_divisible_by=2,crop=1920:1080'
+  let vf = 'scale=1920:1080:force_original_aspect_ratio=increase:force_divisible_by=2,crop=1920:1080,setsar=1'
   if (shot.caption) {
     const caption = shot.caption.replace(/'/g, '’').replace(/:/g, '\\:').replace(/%/g, '\\%')
     vf += `,drawtext=fontfile='C\\:/Windows/Fonts/consola.ttf':text='${caption}'` +
@@ -149,6 +154,13 @@ async function capture(shotlistPath, outDir) {
   const page = await findAppPage(browser)
   page.on('pageerror', (error) => console.error('[Godseye page error]', error.message))
   await page.waitForFunction(() => typeof window.godseyeAutomationV1 === 'function', { timeout: 30_000 })
+  const status = await page.evaluate(() => window.godseyeAutomationV1({ op: 'status' }))
+  if (status?.schema !== 'godseye-automation/v1' || status?.ok !== true ||
+      status?.phase !== 'idle' || status?.ready !== true || status?.recording !== true ||
+      !status?.presentations?.includes('story')) {
+    throw new Error(`Godseye automation status is not capture-ready: ${JSON.stringify(status)}`)
+  }
+  console.log(`Godseye contract verified: ${status.schema}; executable: ${EXE}`)
   try {
     for (let index = 0; index < shots.length; index++) {
       const number = String(index + 1).padStart(2, '0')

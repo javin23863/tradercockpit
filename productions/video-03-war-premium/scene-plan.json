@@ -1,0 +1,265 @@
+{
+  "schema": "tradercockpit-scene-plan/v1",
+  "beats": [
+    {
+      "id": "01a",
+      "section": "01",
+      "narration": "This war did not start this week. U.S. Central Command says Operation Epic Fury began on February twenty-eighth, and this is its own strike footage from March first. The bombs are real. The damage is real. The human cost is real.",
+      "spokenSubjects": ["operation-epic-fury"],
+      "visual": {"path": "visuals/01a-centcom-strike-v2.mp4", "kind": "official-footage", "visibleSubjects": ["operation-epic-fury"], "fit": "contain", "purpose": "Open on dated CENTCOM footage while the narration identifies the war and the footage date."}
+    },
+    {
+      "id": "01b",
+      "section": "01",
+      "narration": "The International Maritime Organization's current incident table counts fifty-six maritime incidents and eighteen seafarer deaths as of July fifteenth. Two more ships were damaged off Oman on Tuesday. One was abandoned. People were killed and injured. This is not headline theater. This is a live shipping risk.",
+      "spokenSubjects": ["imo-incidents"],
+      "visual": {"path": "visuals/01b-imo-count-v2.png", "kind": "news", "visibleSubjects": ["imo-incidents"], "fit": "contain", "purpose": "Hold the clean IMO incident-count and casualty table while those figures are spoken."}
+    },
+    {
+      "id": "01c",
+      "section": "01",
+      "narration": "But the market does not price every explosion the same. It prices the bottleneck. The Strait of Hormuz is the pressure point between Gulf exports and open water. When trust in that route falls, the first bill shows up in the barrel.",
+      "spokenSubjects": ["strait-of-hormuz"],
+      "visual": {"path": "godseye-work-v3/01-hormuz-pressure-map-road.mp4", "kind": "godseye", "visibleSubjects": ["strait-of-hormuz"], "fit": "contain", "purpose": "Explain the chokepoint geography and surrounding export infrastructure, not provide generic globe b-roll.", "evidenceUse": "geography"}
+    },
+    {
+      "id": "01d",
+      "section": "01",
+      "narration": "Brent is holding around eighty-five. V I X is around sixteen. The ten-year yield is near four point five seven. Here is my read: the market is charging a toll for the Strait, not pricing the end of the world. Headlines are sirens. Portfolios move through pressure chains.",
+      "spokenSubjects": ["brent", "vix", "us10y"],
+      "visual": {"path": "visuals/01d-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "vix", "us10y"], "fit": "contain", "purpose": "Keep Brent, VIX, and the ten-year visible together under the thesis statement."}
+    },
+
+    {
+      "id": "02a",
+      "section": "02",
+      "narration": "The first mistake is acting like the market just discovered the war. It did not. The conflict has been running for months. Air strikes, drones, naval operations, sanctions, and shipping disruptions were already part of the tape. Markets had time to build a framework for all of it.",
+      "spokenSubjects": ["operation-epic-fury"],
+      "visual": {"path": "visuals/02a-centcom-operation-v2.png", "kind": "news", "visibleSubjects": ["operation-epic-fury"], "fit": "contain", "purpose": "Hold CENTCOM's operation page while establishing that the war predates this week's market move."}
+    },
+    {
+      "id": "02b",
+      "section": "02",
+      "narration": "What changed this week was another burst of danger around commercial shipping. That matters because a bomb in one location and a damaged ship beside a chokepoint do not carry the same market transmission. One is a military event. The other can threaten freight, insurance, delivery timing, and the reliability of oil flows.",
+      "spokenSubjects": ["operation-epic-fury"],
+      "visual": {"path": "visuals/01a-centcom-strike-v2.mp4", "kind": "official-footage", "visibleSubjects": ["operation-epic-fury"], "fit": "contain", "purpose": "Contrast dated strike footage with the narration's shift toward commercial-shipping transmission."}
+    },
+    {
+      "id": "02c",
+      "section": "02",
+      "narration": "On July fourteenth, AL BAHYAH and MOMBASA B were damaged thirteen nautical miles off Oman. Two seafarers died on AL BAHYAH. Three were injured. MOMBASA B was abandoned after eleven injuries. The I M O table gives the names, locations, and damage. It does not need dramatic narration from me.",
+      "spokenSubjects": ["al-bahyah", "mombasa-b"],
+      "visual": {"path": "visuals/02c-imo-ships-v2.mp4", "kind": "news", "visibleSubjects": ["al-bahyah", "mombasa-b"], "fit": "contain", "purpose": "Show the exact two IMO incident rows while the vessel names and outcomes are spoken."}
+    },
+    {
+      "id": "02d",
+      "section": "02",
+      "narration": "The same day, U.S. Treasury announced sanctions covering more than fifty people, companies, and vessels tied by Treasury to Iranian oil exports and shipping. New physical risk. New legal friction. Same chokepoint. That is the setup. Not war equals stocks down. The question is which pressure gauge moves first, which one follows, and which one refuses.",
+      "spokenSubjects": ["treasury-sanctions"],
+      "visual": {"path": "visuals/02d-treasury-v2.png", "kind": "news", "visibleSubjects": ["treasury-sanctions"], "fit": "contain", "purpose": "Hold a clean full-frame Treasury source card while explaining the legal-friction channel."}
+    },
+
+    {
+      "id": "03a",
+      "section": "03",
+      "narration": "Look at the map. Iran sits on the north side of the Strait. Oman sits on the south. Gulf ports and export infrastructure sit behind a narrow exit into the Gulf of Oman. The geography does not predict an attack. It explains why a shipping incident in this corridor can reach a portfolio faster than an incident far from a trade route.",
+      "spokenSubjects": ["strait-of-hormuz"],
+      "visual": {"path": "godseye-work-v3/01-hormuz-pressure-map-road.mp4", "kind": "godseye", "visibleSubjects": ["strait-of-hormuz"], "fit": "contain", "purpose": "Teach the north/south coast, export infrastructure, and narrow exit described in the narration.", "evidenceUse": "geography"}
+    },
+    {
+      "id": "03b",
+      "section": "03",
+      "narration": "The I M O Council is focused on the established traffic separation scheme and a sustainable return to unhindered navigation. In trader language, the route still exists, but the cost of trusting it has gone up. Markets can price that loss of trust before a formal closure ever appears.",
+      "spokenSubjects": ["imo-navigation"],
+      "visual": {"path": "visuals/03b-imo-navigation-v2.png", "kind": "news", "visibleSubjects": ["imo-navigation"], "fit": "contain", "purpose": "Hold the IMO Council language on the traffic scheme and unhindered navigation."}
+    },
+    {
+      "id": "03c",
+      "section": "03",
+      "narration": "This is where our Godseye view earns the cut. Not as a spinning globe. As a pressure map. The route, the surrounding coast, and the energy infrastructure belong in one frame because they explain the mechanism. If the map does not teach the trade, it does not make the edit.",
+      "spokenSubjects": ["strait-of-hormuz"],
+      "visual": {"path": "godseye-work-v3/01-hormuz-pressure-map-road.mp4", "kind": "godseye", "visibleSubjects": ["strait-of-hormuz"], "fit": "contain", "purpose": "Use Godseye only as the explanatory pressure map described by the narration.", "evidenceUse": "geography"}
+    },
+    {
+      "id": "03d",
+      "section": "03",
+      "narration": "I am not going to paint fake ship traffic onto the water. A I S coverage can be incomplete, and the feed has no guaranteed Gulf receiver coverage. An empty patch on a screen does not mean an empty sea. The map owns geography. The incident table owns the event record. The charts own the market reaction.",
+      "spokenSubjects": ["strait-of-hormuz"],
+      "visual": {"path": "visuals/02c-imo-ships-v2.mp4", "kind": "news", "visibleSubjects": ["strait-of-hormuz"], "fit": "contain", "purpose": "Show the incident record while the narration distinguishes documented ships from incomplete AIS coverage."}
+    },
+
+    {
+      "id": "04a",
+      "section": "04",
+      "narration": "Start with Brent on the daily chart. It closed July tenth at seventy-five twenty-two. It jumped to eighty-three thirty-one on Monday, then traded up to eighty-seven fifty-five on Tuesday before closing at eighty-five fifteen. That is a real repricing, but the close below the high tells you buyers did not have unlimited control.",
+      "spokenSubjects": ["brent"],
+      "visual": {"path": "visuals/04-brent-v2.mp4", "kind": "tradingview", "visibleSubjects": ["brent"], "fit": "contain", "purpose": "Show Brent daily while speaking only Brent's completed-session repricing."}
+    },
+    {
+      "id": "04b",
+      "section": "04",
+      "narration": "Today Brent opened at eighty-five twenty-one and traded between eighty-four fifty-one and eighty-six fifty-five before this recording cutoff. The market is still holding most of the move. It is also still trapped inside Tuesday's range. That is tension, not resolution.",
+      "spokenSubjects": ["brent"],
+      "visual": {"path": "visuals/04-brent-v2.mp4", "kind": "tradingview", "visibleSubjects": ["brent"], "fit": "contain", "purpose": "Keep the live daily Brent chart on screen for the timestamped partial-session range."}
+    },
+    {
+      "id": "04c",
+      "section": "04",
+      "narration": "The lower decision area is eighty-three to eighty-four. If buyers defend that zone, the war premium stays in the barrel. The upper decision area is eighty-seven fifty-five to eighty-eight. A completed daily close above that range would tell me the market is demanding another layer of compensation for the Strait.",
+      "spokenSubjects": ["brent"],
+      "visual": {"path": "visuals/04-brent-v2.mp4", "kind": "tradingview", "visibleSubjects": ["brent"], "fit": "contain", "purpose": "Show Brent's annotated support and resistance while those exact levels are discussed."}
+    },
+    {
+      "id": "04d",
+      "section": "04",
+      "narration": "If Brent loses eighty-three after a real improvement in navigation, the premium is probably unwinding. If Brent loses eighty-three with no improvement in shipping, I look for another driver before I declare the story dead. Oil is the first gauge in this cockpit. It is not the whole cockpit.",
+      "spokenSubjects": ["brent"],
+      "visual": {"path": "visuals/04-brent-v2.mp4", "kind": "tradingview", "visibleSubjects": ["brent"], "fit": "contain", "purpose": "Hold Brent while explaining how price and route news must agree."}
+    },
+
+    {
+      "id": "05a",
+      "section": "05",
+      "narration": "Now look at X L E, the energy sector fund. It closed July tenth at fifty-five oh-eight, jumped to fifty-six seventy-four on Monday, and finished Tuesday at fifty-six ninety-five. Early today it traded near fifty-six seventy-three. Producers received the first wave of the oil premium, but the follow-through is already less explosive than the first jump.",
+      "spokenSubjects": ["xle"],
+      "visual": {"path": "visuals/05-xle-v2.mp4", "kind": "tradingview", "visibleSubjects": ["xle"], "fit": "contain", "purpose": "Show XLE daily while discussing its completed and partial-session prices."}
+    },
+    {
+      "id": "05b",
+      "section": "05",
+      "narration": "The support line is Tuesday's low at fifty-six twenty-nine. The immediate ceiling is fifty-seven twenty-two. If Brent pushes through eighty-eight and X L E clears fifty-seven twenty-two with it, the producer channel is working. The commodity and the companies are moving together.",
+      "spokenSubjects": ["xle"],
+      "visual": {"path": "visuals/05-xle-v2.mp4", "kind": "tradingview", "visibleSubjects": ["xle"], "fit": "contain", "purpose": "Show XLE's annotated 56.29 and 57.22 lines while the producer confirmation is discussed."}
+    },
+    {
+      "id": "05c",
+      "section": "05",
+      "narration": "If Brent rallies while X L E slips under fifty-six twenty-nine, I stop calling it a clean energy trade. That split would tell me the barrel is carrying a contract-specific risk premium while equity buyers are becoming selective. The trade can still work, but the message is weaker.",
+      "spokenSubjects": ["xle"],
+      "visual": {"path": "visuals/05-xle-v2.mp4", "kind": "tradingview", "visibleSubjects": ["xle"], "fit": "contain", "purpose": "Keep XLE visible while explaining the divergence condition."}
+    },
+    {
+      "id": "05d",
+      "section": "05",
+      "narration": "This is the channel's point of view: do not marry the headline. Make the pressure travel. Event to crude. Crude to producers. Producers to inflation-sensitive assets. The farther the move travels, the bigger the portfolio regime. When the chain breaks, that break is the information.",
+      "spokenSubjects": ["brent", "xle", "us10y"],
+      "visual": {"path": "visuals/05d-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle", "us10y"], "fit": "contain", "purpose": "Keep the full crude-to-producers-to-rates pressure chain visible together."}
+    },
+
+    {
+      "id": "06a",
+      "section": "06",
+      "narration": "Now test the broad market. The S and P five hundred fell to seventy-five oh-six on Monday, then recovered to seventy-five forty-three on Tuesday. It took a hit. It did not break into disorder. That matters because a true risk-off regime should not need excuses from the index.",
+      "spokenSubjects": ["spx"],
+      "visual": {"path": "visuals/06-spx-v2.mp4", "kind": "tradingview", "visibleSubjects": ["spx"], "fit": "contain", "purpose": "Show SPX daily while discussing the Monday low and Tuesday recovery."}
+    },
+    {
+      "id": "06b",
+      "section": "06",
+      "narration": "V I X makes the split even clearer. It closed Monday at sixteen fifty after trading as high as seventeen fifty-six. Early today it was near sixteen sixteen. If fear were spreading across the whole market, volatility should be expanding with oil. Instead, it is sitting near the lower end of the recent range.",
+      "spokenSubjects": ["vix"],
+      "visual": {"path": "visuals/06-vix-v2.mp4", "kind": "tradingview", "visibleSubjects": ["vix"], "fit": "contain", "purpose": "Show VIX daily while discussing its high, close, and current level."}
+    },
+    {
+      "id": "06c",
+      "section": "06",
+      "narration": "The ten-year yield is near four point five seven, below Tuesday's four point five eight seven close and below Monday's four point six two four close. That does not mean inflation risk disappeared. It means the rates market is not buying a fresh breakout yet. Oil is shouting. Bonds are listening, but they are not running.",
+      "spokenSubjects": ["us10y"],
+      "visual": {"path": "visuals/06-us10y-v2.mp4", "kind": "tradingview", "visibleSubjects": ["us10y"], "fit": "contain", "purpose": "Show the ten-year daily chart while discussing the exact yield comparison."}
+    },
+    {
+      "id": "06d",
+      "section": "06",
+      "narration": "If this were broad panic, the S and P, V I X, and the ten-year would be yelling with the barrel. They are not. So I am not using the word crisis for the portfolio regime. The war is a crisis for people in it. The market regime, for now, is selective repricing.",
+      "spokenSubjects": ["spx", "vix", "us10y", "brent"],
+      "visual": {"path": "visuals/06d-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["spx", "vix", "us10y", "brent"], "fit": "contain", "purpose": "Show all four gauges simultaneously for the broad-panic comparison."}
+    },
+
+    {
+      "id": "07a",
+      "section": "07",
+      "narration": "This morning's Producer Price Index adds a useful twist. Final demand prices fell zero point three percent in June. Goods prices fell one point four percent. Energy prices fell six point four percent. Services rose zero point two percent. The headline says producer inflation cooled before the latest jump in oil.",
+      "spokenSubjects": ["ppi"],
+      "visual": {"path": "visuals/07a-bls-ppi-v2.mp4", "kind": "news", "visibleSubjects": ["ppi"], "fit": "contain", "purpose": "Show the contained BLS release and highlight the exact June PPI lines being spoken."}
+    },
+    {
+      "id": "07b",
+      "section": "07",
+      "narration": "But June P P I is the rear-view mirror. Today's Brent chart is the windshield. The report captures the old energy decline. The market is now deciding whether July's war premium reverses part of that relief. Mixing those two time periods is how a clean number turns into a bad trade.",
+      "spokenSubjects": ["ppi", "brent"],
+      "visual": {"path": "visuals/07b-ppi-brent-v3.mp4", "kind": "source-chart-sequence", "visibleSubjects": ["ppi", "brent"], "fit": "contain", "purpose": "Cut after four seconds from the BLS June energy-decline line to the current Brent daily chart for the rear-view/windshield comparison."}
+    },
+    {
+      "id": "07c",
+      "section": "07",
+      "narration": "The P P I measure that strips out food, energy, and trade services rose zero point one percent in June and five point one percent over the year. That is not a victory lap. It is also not a fresh monthly acceleration. The inflation story is softer at the margin, but still sticky underneath.",
+      "spokenSubjects": ["ppi"],
+      "visual": {"path": "visuals/07c-ppi-core-v3.png", "kind": "news", "visibleSubjects": ["ppi"], "fit": "contain", "purpose": "Hold the BLS core-PPI line for the exact monthly and yearly figures spoken in this beat."}
+    },
+    {
+      "id": "07d",
+      "section": "07",
+      "narration": "The ten-year near four point five seven says rates traders are not treating the oil move as a new inflation breakout yet. If Brent closes above eighty-eight and the ten-year pushes through four point six four, that changes. Until then, the better read is backward-looking inflation relief meeting forward-looking energy risk.",
+      "spokenSubjects": ["us10y"],
+      "visual": {"path": "visuals/06-us10y-v2.mp4", "kind": "tradingview", "visibleSubjects": ["us10y"], "fit": "contain", "purpose": "Show the ten-year resistance line while explaining the inflation-transmission condition."}
+    },
+
+    {
+      "id": "08a",
+      "section": "08",
+      "narration": "Here is the base case. Brent holds between roughly eighty-three and eighty-eight. X L E stays above fifty-six twenty-nine. V I X stays below seventeen fifty-six. That is a bottleneck premium with limited contagion. Energy gets paid. The broad market keeps trading its own earnings and growth story.",
+      "spokenSubjects": ["brent", "xle", "vix"],
+      "visual": {"path": "visuals/08a-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle", "vix"], "fit": "contain", "purpose": "Show all three base-case gauges together as a cockpit panel."}
+    },
+    {
+      "id": "08b",
+      "section": "08",
+      "narration": "Escalation needs more than another frightening clip. I want a new shipping incident or policy shock, a completed Brent close above eighty-seven fifty-five to eighty-eight, and at least one second gauge. X L E above fifty-seven twenty-two says producers agree. V I X above seventeen fifty-six says fear is spreading.",
+      "spokenSubjects": ["brent", "xle", "vix"],
+      "visual": {"path": "visuals/08b-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle", "vix"], "fit": "contain", "purpose": "Show all three escalation gauges together as a cockpit panel."}
+    },
+    {
+      "id": "08c",
+      "section": "08",
+      "narration": "If oil spikes but X L E and V I X refuse, I treat the move as narrow until the chain proves otherwise. That is not complacency. It is position discipline. One market can be right about one risk without every asset joining the same trade.",
+      "spokenSubjects": ["brent", "xle", "vix"],
+      "visual": {"path": "visuals/08c-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle", "vix"], "fit": "contain", "purpose": "Show all three charts simultaneously for the non-confirmation test."}
+    },
+    {
+      "id": "08d",
+      "section": "08",
+      "narration": "An unwind also needs two pieces. I want an official improvement in navigation, then Brent below eighty-three to eighty-four and X L E below fifty-six twenty-nine. A diplomatic headline without a price break is only a headline. A price break without a route improvement may belong to demand, inventories, or another catalyst.",
+      "spokenSubjects": ["brent", "xle"],
+      "visual": {"path": "visuals/08d-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle"], "fit": "contain", "purpose": "Keep both unwind gauges visible together for the two-part condition."}
+    },
+    {
+      "id": "08e",
+      "section": "08",
+      "narration": "This is not a prediction. It is a decision tree. The event tells you where to look. Brent tells you whether the market cares. X L E, V I X, and the ten-year tell you how far the pressure traveled. That is how we keep a war headline from hijacking an entire portfolio.",
+      "spokenSubjects": ["brent", "xle", "vix", "us10y"],
+      "visual": {"path": "visuals/08e-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle", "vix", "us10y"], "fit": "contain", "purpose": "Show the full pressure chain simultaneously as a cockpit panel."}
+    },
+
+    {
+      "id": "09a",
+      "section": "09",
+      "narration": "The war is real. The human cost is real. The market message is selective. Brent is pricing the Strait. Energy stocks are carrying part of the premium. The S and P, V I X, and the ten-year are not pricing synchronized panic.",
+      "spokenSubjects": ["brent", "xle", "spx", "vix", "us10y"],
+      "visual": {"path": "visuals/09a-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle", "spx", "vix", "us10y"], "fit": "contain", "purpose": "Show the exact five-chart market split simultaneously for the recap."}
+    },
+    {
+      "id": "09b",
+      "section": "09",
+      "narration": "So keep eighty-three to eighty-four and eighty-seven fifty-five to eighty-eight on Brent. Keep fifty-six twenty-nine and fifty-seven twenty-two on X L E. Keep seventeen fifty-six on V I X. Those are the gauges. The headline is only the alarm.",
+      "spokenSubjects": ["brent", "xle", "vix"],
+      "visual": {"path": "visuals/09b-cockpit-v4.mp4", "kind": "tradingview-sequence", "visibleSubjects": ["brent", "xle", "vix"], "fit": "contain", "purpose": "Keep the three final level charts visible together for the recap."}
+    },
+    {
+      "id": "09c",
+      "section": "09",
+      "narration": "Do not trade the siren. Trade the pressure chain. If you want daily market news with a usable map instead of recycled fear, subscribe and come back tomorrow. News and education only. Manage risk like the market can change its mind, because it can.",
+      "spokenSubjects": ["tradercockpit"],
+      "visual": {"path": "thumb-v2.png", "kind": "packaging", "visibleSubjects": ["tradercockpit"], "fit": "contain", "purpose": "Land the signature line and subscription call on the final branded card."}
+    }
+  ]
+}

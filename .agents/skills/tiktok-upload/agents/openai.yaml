@@ -1,0 +1,7 @@
+interface:
+  display_name: "TikTok Upload"
+  short_description: "Free official TikTok posting with proof"
+  default_prompt: "Use $tiktok-upload to verify and publish an approved TraderCockpit TikTok item through the official API."
+
+policy:
+  allow_implicit_invocation: true

@@ -19,9 +19,12 @@ Prereqs (like docs/BROKERS.md): TradingView Desktop running with
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import subprocess
 import sys
+import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -38,6 +41,47 @@ CHARTS = [
     {"out": "09-card", "symbol": "TVC:UKOIL", "tf": "1W", "label": "BRENT — SCENARIO RANGE"},
 ]
 DEFAULT_DUR = 30.0  # assemble trims/boomerangs each to its VO section length
+CAPTURE_RECEIPT_SCHEMA = "tradercockpit-chart-capture-receipts/v1"
+
+
+def record_chart_capture(prod: Path, artifact: Path, captured_at: datetime) -> dict:
+    """Record the final chart artifact once, at the shared production-output boundary."""
+    prod, artifact = prod.resolve(), artifact.resolve()
+    if captured_at.tzinfo is None:
+        raise ValueError("captured_at must include a timezone")
+    try:
+        relative = artifact.relative_to(prod).as_posix()
+    except ValueError as error:
+        raise ValueError(f"chart artifact must stay inside production: {artifact}") from error
+    if not artifact.is_file():
+        raise FileNotFoundError(artifact)
+
+    receipt_path = prod / "chart-capture-receipts.json"
+    if receipt_path.exists():
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        if receipt.get("schema") != CAPTURE_RECEIPT_SCHEMA or not isinstance(receipt.get("captures"), list):
+            raise ValueError(f"invalid chart capture receipt: {receipt_path}")
+        if any(not isinstance(item, dict) or not item.get("path") for item in receipt["captures"]):
+            raise ValueError(f"invalid chart capture entries: {receipt_path}")
+    else:
+        receipt = {"schema": CAPTURE_RECEIPT_SCHEMA, "captures": []}
+
+    with artifact.open("rb") as handle:
+        digest = hashlib.file_digest(handle, "sha256").hexdigest()
+    entry = {
+        "path": relative,
+        "capturedAt": captured_at.astimezone(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
+        "sha256": digest,
+    }
+    receipt["captures"] = sorted(
+        [item for item in receipt["captures"] if item.get("path") != relative] + [entry],
+        key=lambda item: str(item.get("path", "")),
+    )
+    # ponytail: capture jobs are local and serial; add a file lock only if parallel capture is introduced.
+    temporary = receipt_path.with_name(f"{receipt_path.name}.tmp")
+    temporary.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(receipt_path)
+    return entry
 
 
 def tv(args: list[str], dry: bool) -> dict:
@@ -93,11 +137,13 @@ def main() -> int:
         tv(["timeframe", c["tf"]], a.dry_run)
         tv(["type", "Candles"], a.dry_run)   # ensure candlesticks, not line
         shot = tv(["screenshot", "--region", "chart", "--output", c["out"]], a.dry_run)
+        captured_at = datetime.now(timezone.utc)
         png = Path(shot.get("file_path")) if shot.get("file_path") else \
             TV_CLI.parents[1] / "screenshots" / f"{c['out']}.png"
         out = visuals / f"{c['out']}.mp4"
         ken_burns(png, out, a.dur, a.dry_run)
         if not a.dry_run:
+            record_chart_capture(prod, out, captured_at)
             print(f"  -> {out}")
 
     print("\nDONE" if not a.dry_run else "\nDRY RUN OK — no TradingView driven, no render.")
@@ -106,5 +152,23 @@ def main() -> int:
     return 0
 
 
+def selftest() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        prod = Path(tmp) / "productions" / "test"
+        artifact = prod / "visuals" / "chart.mp4"
+        artifact.parent.mkdir(parents=True)
+        artifact.write_bytes(b"chart")
+        captured_at = datetime(2026, 7, 20, tzinfo=timezone.utc)
+        entry = record_chart_capture(prod, artifact, captured_at)
+        receipt = json.loads((prod / "chart-capture-receipts.json").read_text(encoding="utf-8"))
+        assert receipt["schema"] == CAPTURE_RECEIPT_SCHEMA
+        assert receipt["captures"] == [entry]
+        assert entry["sha256"] == hashlib.sha256(b"chart").hexdigest()
+    print("CHART CAPTURE RECEIPT SELFTEST PASS")
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    if sys.argv[1:] == ["--selftest"]:
+        selftest()
+    else:
+        raise SystemExit(main())

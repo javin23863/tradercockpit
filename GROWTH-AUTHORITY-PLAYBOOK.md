@@ -5,8 +5,19 @@ authority for that platform — not blog-spam. Each authority is confirmed by �
 that point at the same reference. The **distilled rules** at the end of each section are the
 checklist the `daily-news-video` skill treats as mandatory input for every video and every post.
 
-Updated 2026-07-14. Niche: trust-first finance news (oil, equities, rates, geopolitics → portfolio).
+Updated 2026-07-16. Niche: trust-first finance news (oil, equities, rates, geopolitics → portfolio).
 Unified handle everywhere: **@thetradercockpit**.
+
+## Spoken script authority — operator-approved corpus
+
+The channel voice is calibrated from the operator-preferred early TraderCockpit scripts, currently
+`productions/video-01/vo.txt` and `productions/video-02-hormuz-v4/vo.txt`. Competitor transcripts
+may inform format, vocabulary, and pacing, but they are not the identity.
+
+Generation-time rules and research live in `research/ai-script-style-2026-07-16.md`. Draft from the
+reference corpus, use concrete market details and defensible first-person judgment, and keep
+verification/edit-room language backstage. Run `tools/script_style_gate.py` as an advisory audit;
+never send a sourced script through a generic automatic “humanizer.”
 
 ---
 

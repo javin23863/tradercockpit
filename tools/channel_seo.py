@@ -16,14 +16,20 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
+try:
+    from tools.credential_custody import credential_path
+except ModuleNotFoundError:  # direct `python tools/channel_seo.py` execution
+    from credential_custody import credential_path
+
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
-HERE = Path(__file__).parent
 
-DESCRIPTION = """TraderCockpit publishes evidence-first market analysis across oil, equities, rates, currencies, and the geopolitics moving them.
+DESCRIPTION = """TraderCockpit — evidence-first market analysis. Oil, equities, rates, currencies, and the geopolitics that move them.
 
-No signals. No courses. No performance promises. News and education only; nothing here is financial advice.
+The strategies the internet sells you, coded honestly and put through the tests a real desk runs before risking a dollar. What holds up, holds up. What breaks, breaks on camera.
 
-Explore the simulated product preview: https://javin23863.github.io/tradercockpit/"""
+You are the market.
+
+No signals. No courses. Research tooling, not financial advice. No performance is promised or implied."""
 
 KEYWORDS = ('"trading strategy backtest" "ICT trading tested" "smart money concepts" SMC '
             '"quant trading" "algorithmic trading" "monte carlo trading" "walk-forward analysis" '
@@ -32,14 +38,14 @@ KEYWORDS = ('"trading strategy backtest" "ICT trading tested" "smart money conce
 
 def get_service():
     creds = None
-    token = HERE / "token_channel.json"
+    token = credential_path("token_channel.json")
     if token.exists():
         creds = Credentials.from_authorized_user_file(token, SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            secret = HERE / "client_secret.json"
+            secret = credential_path("client_secret.json")
             if not secret.exists():
                 sys.exit(f"Missing {secret}")
             creds = InstalledAppFlow.from_client_secrets_file(secret, SCOPES).run_local_server(
