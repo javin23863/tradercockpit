@@ -201,7 +201,11 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    survive in news-shots.json, and the assembler fails mid-run (2026-07-21 recut incident) —
    re-check every news beat's holdSec against the fresh `vo-NN.wav` lengths after re-recording.
 5. Generate only changed narration sections with `tools/tts_chatterbox.py`. Reuse all unchanged
-   audio and visual assets. Assemble through `tools/produce.py`.
+   audio and visual assets. Assemble through `tools/produce.py`. Assemble mixes the sound layer
+   automatically (operator-approved 2026-07-21 A/B): music bed from `music_library/` first-sorted
+   track auto-leveled ~21.5 dB under the voice, whoosh on section transitions, bass impact under
+   the final section. New bed tracks need a license row in `music_library/README.md` first;
+   craft judgment reference = the `video-editing-craft` house skill.
 
    VO-stage precondition (2026-07-20 incident, reproduced 3×): Chatterbox model load needs
    roughly 4–5 GB of FREE SYSTEM RAM on this 16 GB box. A `0xC0000005` / segfault (exit

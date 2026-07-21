@@ -40,9 +40,78 @@ OPERATOR_REF = HUB / "productions" / "_voice" / "operator-clean.wav"
 CHATTERBOX_PYTHON = HUB / "OpenMontage" / ".venv-chatterbox" / (
     "Scripts/python.exe" if os.name == "nt" else "bin/python")
 
+# Sound layer (operator-approved on daily-2026-07-20 A/B, 2026-07-21): music bed
+# ~21.5 dB under the voice ("subtle ambiance"), whoosh on each section transition,
+# one bass impact under the final (closing-thesis) section.
+MUSIC_DIR = HUB / "music_library"     # operator-curated royalty-free tracks; first file (sorted) is the bed
+SFX_DIR = HUB / "OpenMontage" / ".agents" / "skills" / "hyperframes-media" / "assets" / "sfx"
+MUSIC_UNDER_VO_DB = 21.5
+WHOOSH_DB = -12.0
+IMPACT_DB = -14.0
+SFX_LEAD_S = 0.2                      # whoosh starts just before the cut so it peaks on it
+AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".flac", ".ogg"}
+
 
 def log(msg):
     print(f"[produce] {msg}", flush=True)
+
+
+def measure_lufs(path):
+    """Integrated LUFS via ffmpeg ebur128 (last summary 'I:' line)."""
+    err = subprocess.run(
+        [FFMPEG, "-i", str(path), "-af", "ebur128", "-f", "null", os.devnull],
+        capture_output=True, text=True).stderr
+    return float(re.findall(r"I:\s+(-?[\d.]+)\s+LUFS", err)[-1])
+
+
+def pick_music():
+    if not MUSIC_DIR.is_dir():
+        return None
+    tracks = sorted(p for p in MUSIC_DIR.iterdir()
+                    if p.is_file() and p.suffix.lower() in AUDIO_EXTS)
+    return tracks[0] if tracks else None
+
+
+def section_starts(timeline):
+    """Start time of every section after the first (beat ids are '<NN><letter>')."""
+    starts, prev = [], None
+    for beat in timeline:
+        num = re.match(r"\d+", beat["id"]).group(0)
+        if prev is not None and num != prev:
+            starts.append(float(beat["start"]))
+        prev = num
+    return starts
+
+
+def build_sound_filter(vo_idx, total_s, boundaries, music_idx=None, music_gain_db=None,
+                       whoosh_idx=None, impact_idx=None):
+    """Audio filter_complex mixing VO + music bed + section SFX into [aout].
+
+    Returns None when there is nothing to layer (falls back to plain VO map).
+    Whoosh lands on every section transition except the last, which gets the impact.
+    """
+    chains, mix = [], [f"[{vo_idx}:a]"]
+    if music_idx is not None:
+        chains.append(
+            f"[{music_idx}:a]atrim=0:{total_s:.3f},volume={music_gain_db:.1f}dB,"
+            f"afade=t=in:d=2,afade=t=out:st={max(total_s - 4, 0):.3f}:d=4[mus]")
+        mix.append("[mus]")
+    whooshes = boundaries[:-1] if impact_idx is not None else boundaries
+    if whoosh_idx is not None and whooshes:
+        split = "".join(f"[wsp{i}]" for i in range(len(whooshes)))
+        chains.append(f"[{whoosh_idx}:a]volume={WHOOSH_DB:.1f}dB,asplit={len(whooshes)}{split}")
+        for i, t in enumerate(whooshes):
+            ms = max(round((t - SFX_LEAD_S) * 1000), 0)
+            chains.append(f"[wsp{i}]adelay={ms}|{ms}[w{i}]")
+            mix.append(f"[w{i}]")
+    if impact_idx is not None and boundaries:
+        ms = round(boundaries[-1] * 1000)
+        chains.append(f"[{impact_idx}:a]volume={IMPACT_DB:.1f}dB,adelay={ms}|{ms}[imp]")
+        mix.append("[imp]")
+    if len(mix) == 1:
+        return None
+    chains.append(f"{''.join(mix)}amix=inputs={len(mix)}:normalize=0,alimiter=limit=0.97[aout]")
+    return ";".join(chains)
 
 
 def allocate_frame_counts(timeline, fps=VIDEO_FPS):
@@ -243,6 +312,32 @@ def stage_assemble(prod: Path):
     for p in parts:
         cmd += ["-i", str(p)]
     cmd += ["-i", str(vo)]
+
+    total_s = sum(frame_counts) / VIDEO_FPS
+    boundaries = section_starts(timeline)
+    vo_idx = len(parts)
+    next_idx = vo_idx + 1
+    music_idx = music_gain = whoosh_idx = impact_idx = None
+    music = pick_music()
+    if music:
+        music_gain = (measure_lufs(vo) - MUSIC_UNDER_VO_DB) - measure_lufs(music)
+        cmd += ["-stream_loop", "-1", "-i", str(music)]
+        music_idx, next_idx = next_idx, next_idx + 1
+        log(f"music bed: {music.name} at {music_gain:+.1f} dB")
+    else:
+        log("music bed: none (music_library/ empty)")
+    whoosh, impact = SFX_DIR / "whoosh-short.mp3", SFX_DIR / "impact-bass-1.mp3"
+    if boundaries and whoosh.is_file():
+        cmd += ["-i", str(whoosh)]
+        whoosh_idx, next_idx = next_idx, next_idx + 1
+    if boundaries and impact.is_file():
+        cmd += ["-i", str(impact)]
+        impact_idx, next_idx = next_idx, next_idx + 1
+    sound = build_sound_filter(vo_idx, total_s, boundaries, music_idx, music_gain,
+                               whoosh_idx, impact_idx)
+    audio_map = "[aout]" if sound else f"{vo_idx}:a"
+
+    filters = []
     if len(parts) > 1:
         fade_s = TRANSITION_FRAMES / VIDEO_FPS
         chain, prev, offset = [], "[0:v]", 0.0
@@ -250,10 +345,18 @@ def stage_assemble(prod: Path):
             offset += frame_counts[i - 1] / VIDEO_FPS
             chain.append(f"{prev}[{i}:v]xfade=transition=fade:duration={fade_s:.3f}:offset={offset:.3f}[x{i}]")
             prev = f"[x{i}]"
-        cmd += ["-filter_complex", ";".join(chain), "-map", prev, "-map", f"{len(parts)}:a"]
+        filters.append(";".join(chain))
+        video_map = prev
     else:
-        cmd += ["-map", "0:v", "-map", "1:a"]
-    cmd += ["-c:v", "h264_nvenc", "-preset", "p5", "-cq", "19",
+        video_map = "0:v"
+    if sound:
+        filters.append(sound)
+    if filters:
+        cmd += ["-filter_complex", ";".join(filters)]
+    cmd += ["-map", video_map, "-map", audio_map]
+    # yuv420p pin: without it the xfade graph promotes to yuv444p, which local
+    # players cannot decode (2026-07-21 playback incident)
+    cmd += ["-c:v", "h264_nvenc", "-preset", "p5", "-cq", "19", "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k", "-shortest", str(build / "master.mp4")]
     subprocess.run(cmd, check=True, cwd=build, capture_output=True)
     log(f"master: {build / 'master.mp4'}")

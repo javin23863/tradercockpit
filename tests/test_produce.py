@@ -4,7 +4,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.produce import allocate_frame_counts, parse_sections, stage_assemble, stage_shorts
+from tools.produce import (allocate_frame_counts, build_sound_filter, parse_sections,
+                           section_starts, stage_assemble, stage_shorts)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,6 +73,31 @@ class ProduceFrameAllocationTests(unittest.TestCase):
             self.assertEqual(round(beat["start"] * 30), elapsed_frames)
             elapsed_frames += count
         self.assertEqual(round(start * 30), elapsed_frames)
+
+
+class SoundLayerTests(unittest.TestCase):
+    TIMELINE = [{"id": "01a", "start": 0.0}, {"id": "01b", "start": 10.0},
+                {"id": "02a", "start": 20.0}, {"id": "03a", "start": 30.0},
+                {"id": "03b", "start": 40.0}, {"id": "04a", "start": 50.0}]
+
+    def test_section_starts_skip_first_section_and_sub_beats(self):
+        self.assertEqual([20.0, 30.0, 50.0], section_starts(self.TIMELINE))
+
+    def test_full_layer_mixes_vo_music_whooshes_and_final_impact(self):
+        f = build_sound_filter(6, 60.0, [20.0, 30.0, 50.0], music_idx=7,
+                               music_gain_db=-28.6, whoosh_idx=8, impact_idx=9)
+        self.assertIn("atrim=0:60.000,volume=-28.6dB", f)
+        self.assertIn("asplit=2", f)                        # impact replaces the last whoosh
+        self.assertIn("adelay=19800|19800", f)              # whoosh leads the cut by 0.2s
+        self.assertIn("adelay=50000|50000[imp]", f)
+        self.assertIn("amix=inputs=5:normalize=0", f)       # vo + music + 2 whoosh + impact
+
+    def test_no_music_and_no_boundaries_falls_back_to_plain_vo(self):
+        self.assertIsNone(build_sound_filter(6, 60.0, []))
+
+    def test_music_only_still_mixes(self):
+        f = build_sound_filter(6, 60.0, [], music_idx=7, music_gain_db=-20.0)
+        self.assertIn("amix=inputs=2:normalize=0", f)
 
 
 if __name__ == "__main__":
