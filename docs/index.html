@@ -322,7 +322,7 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem;text-transform:uppercase}
     me from myself. Instead I had the devil on the other shoulder: click the button, take the trade,
     over-leverage — you know what it's going to be this time. Last week my own ES strategy failed these
     same tests. I put a lot of work into that strategy. It served me well for many years. But it died,
-    and I followed the rules. — the operator</div>
+    and I followed the rules.</div>
 </section>
 
 <section class="wrap" id="machine">
@@ -334,18 +334,18 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem;text-transform:uppercase}
     <div class="card"><h3>Why one equity curve lies</h3><p>Resample the trades and one pretty backtest becomes
       a cloud of possible outcomes. If the strategy only wins in the one history that already happened, it
       never had an edge.</p></div>
-    <div class="card"><h3>No invented numbers</h3><p>Prices and features shown here come from the product,
-      not from a copywriter. If it isn't real, it isn't on the page.</p></div>
+    <div class="card"><h3>No invented numbers</h3><p>If a price or a feature shows on this page, it exists
+      in the app. Nothing here is mocked up.</p></div>
   </div>
 </section>
 
 <section class="wrap" id="views">
   <h2>how you'll use it</h2>
   <div class="strip">
-    <div class="row"><span>1 · write the video's idea down as real rules</span><span>specify</span></div>
-    <div class="row"><span>2 · add filters from the research library — regime, time-of-day, volatility</span><span>compose</span></div>
-    <div class="row"><span>3 · preview the signals on a chart</span><span>inspect</span></div>
-    <div class="row hi"><span>4 · run the full 12-phase robustness test</span><span>test</span></div>
+    <div class="row"><span>1 · give Apollo the rules — yours, or the strategy you were sold</span><span>specify</span></div>
+    <div class="row"><span>2 · the pipeline stress-tests it — 12 phases, out-of-sample through cost stress</span><span>test</span></div>
+    <div class="row"><span>3 · what survives lands in Strategies — signed and tracked</span><span>review</span></div>
+    <div class="row hi"><span>4 · trade it — paper first, live once every gate clears</span><span>go live</span></div>
   </div>
 </section>
 
@@ -681,7 +681,7 @@ initBtn.addEventListener("click",reviewRun);
 confirmRun.addEventListener("click",runGauntlet);
 cancelRun.addEventListener("click",()=>{
   confirmPanel.hidden=true;
-  setApollo("previewing",`Cancelled — ${sel.n} stays loaded.`);
+  setApollo("previewing",`Cancelled.`);
   initBtn.focus()
 });
 voicePreview.addEventListener("click",()=>{
@@ -690,7 +690,7 @@ voicePreview.addEventListener("click",()=>{
   setApollo("listening","Push-to-talk. In the app you just talk to Apollo — here the microphone stays off.");
   voiceTimer=setTimeout(()=>{
     voicePreview.setAttribute("aria-pressed","false");voiceNote.textContent="microphone off";
-    setApollo(sel?"previewing":"listening",sel?`${sel.n} stays loaded.`:"Give Apollo the rules — or pick a known strategy.")
+    setApollo(sel?"previewing":"listening",sel?`${sel.n} selected.`:"Give Apollo the rules — or pick a known strategy.")
   },1400)
 });
 document.getElementById("again").addEventListener("click",()=>{
