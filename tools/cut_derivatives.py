@@ -20,7 +20,8 @@ Deterministic contract (operator 2026-07-21: repeatable, LLM-agnostic, own gates
      renders the caption-free twin visual_qa needs for bbox diffing.
   4. Gates, fail-closed: visual_qa (safe zones, caption geometry, native-render provenance)
      + copy gate (script_style_gate.audit_text PASS + exact REQUIRED_DISCLAIMER).
-  5. Batch: social-batch-verticals.json (social-batch/v2, containsSyntheticMedia true).
+  5. Batch: social-batch-verticals.json (social-batch/v2, containsSyntheticMedia false —
+     operator ruling 2026-07-21: own voice, own charts, no AI-generated platform labels).
      Items are machine-approved ONLY because the parent long-form carries operator approval
      — reviewedBy records that chain; approvalSha256 = social_batch.approval_fingerprint.
   6. --upload publishes each item through tools/publish.py (auth probes fail closed,
@@ -186,7 +187,11 @@ def main() -> int:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     batch = {"schema": "social-batch/v2",
              "batchId": f"{prod.name}-verticals",
-             "containsSyntheticMedia": True,
+             # Operator ruling 2026-07-21: no AI-generated platform labels — the narration is
+             # the operator's OWN cloned voice reading operator-approved scripts, visuals are
+             # real TradingView/news captures (scene-plan kinds validate the false declaration).
+             # Platform-policy risk of unlabeled synthetic audio was stated and operator-owned.
+             "containsSyntheticMedia": False,
              "items": []}
     for seg, asset in assets:
         # YouTube's batch contract rejects burned captions: it takes the caption-free twin

@@ -53,8 +53,13 @@ doctrine), then re-run with `--upload`.
      caption-over-chart detail check, native-render provenance via manifest.
    - `visual_qa` defaults to the production's own `shorts/` dir now; the shared-dir
      default remains only for legacy productions.
-5. **Batch** = `social-batch-verticals.json` (social-batch/v2, containsSyntheticMedia
-   true). Items are machine-approved ONLY because the parent long-form carries operator
+5. **Batch** = `social-batch-verticals.json` (social-batch/v2, **containsSyntheticMedia
+   false** — operator ruling 2026-07-21: no AI-generated platform labels; the narration is
+   the operator's own cloned voice reading operator-approved scripts, the visuals are real
+   TradingView/news captures, and the scene-plan `kind` declarations validate the false
+   declaration deterministically. Platform-policy risk of unlabeled synthetic audio was
+   stated once and is operator-owned — do not re-litigate it, and do not silently flip the
+   flag back). Items are machine-approved ONLY because the parent long-form carries operator
    approval — `reviewedBy` records that chain; `approvalSha256` =
    `social_batch.approval_fingerprint` (binds copy + asset bytes + claims gate +
    production approval). Any post-mint edit → re-run the runner, it re-mints.

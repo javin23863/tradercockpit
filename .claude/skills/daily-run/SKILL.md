@@ -28,7 +28,11 @@ CLIP_SKIP_SHORTS=1 PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe \
     tools/daily_postclose.py productions/daily-<date>
 ```
 Runner output = private YouTube upload + Telegram text AND master video (msgs carry the
-actual cut — "i cant judge unless you show me"). Then ffprobe the master: 10:00–12:00 or
+actual cut — "i cant judge unless you show me").
+**No AI-generated platform labels** (operator ruling 2026-07-21): `containsSyntheticMedia:
+false` in every social batch — own voice, own charts, operator approves all gates; the
+scene-plan kind declarations validate the false flag; policy risk stated once,
+operator-owned. Never silently flip it back. Then ffprobe the master: 10:00–12:00 or
 recut BEFORE pinging (extend sections with already-receipted unused claim facts; delete
 only the changed `vo-NN.wav` + `vo-full.wav`; rerun the runner — it reuses the rest).
 Also `Start-Process` the master on the operator's screen.
