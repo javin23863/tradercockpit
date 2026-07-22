@@ -1,0 +1,21 @@
+{
+  "_doc": "TikTok + Instagram niche watchlist for tools/engagement.py scan (YouTube list lives in competitor-watchlist.json). verified = how the handle was confirmed on 2026-07-21; 'candidate' = named in curated lists but handle not URL-confirmed — collectors fail visibly per handle, prune candidates that error on first scan. Instagram handles are bare usernames (Business Discovery API); targets must be business/creator accounts or the API errors for that row.",
+  "tiktok": [
+    {"handle": "@bravosresearch", "verified": "direct URL", "note": "macro chart storytelling; YouTube watchlist anchor"},
+    {"handle": "@madymills", "verified": "direct URL", "note": "Bloomberg/Yahoo journalist; daily market news greenscreen — closest to our lane"},
+    {"handle": "@downtownjbrown", "verified": "direct URL", "note": "Ritholtz CEO; markets commentary"},
+    {"handle": "@humphreytalks", "verified": "candidate; 2026-07-21 scan resolved", "note": "finance explainers, markets-adjacent, huge reach"},
+    {"handle": "@austinhankwitz", "verified": "candidate; 2026-07-21 scan resolved", "note": "market news + econ updates"},
+    {"handle": "@teambulltrading", "verified": "candidate; 2026-07-21 scan resolved", "note": "futures day trading ~680k (daytrading.com curation)"},
+    {"handle": "@thenvstr", "verified": "candidate; 2026-07-21 scan resolved", "note": "trading content ~569k (daytrading.com curation)"},
+    {"handle": "@stephtradez", "verified": "candidate; 2026-07-21 scan resolved", "note": "NQ futures day trading (daytrading.com curation)"}
+  ],
+  "instagram": [
+    {"handle": "bravosresearch", "verified": "direct URL", "note": "11k; macro research"},
+    {"handle": "bloombergbusiness", "verified": "2026-07-21 API-resolved (Business Discovery, 10 posts)", "note": "macro/markets news; replaced stevennvanmetre (personal-type, API-blocked)"},
+    {"handle": "investorsunderground", "verified": "2026-07-21 API-resolved (Business Discovery, 10 posts)", "note": "daily-recap trading community; YouTube watchlist sibling; replaced themaverickofwallstreet (personal-type, API-blocked)"},
+    {"handle": "thecompoundnews", "verified": "candidate; 2026-07-21 scan resolved", "note": "Compound media (Josh Brown/Ritholtz)"},
+    {"handle": "financialtimes", "verified": "candidate; 2026-07-21 scan resolved", "note": "large-account comment-hack target; macro charts daily"},
+    {"handle": "stockstotrade", "verified": "candidate; 2026-07-21 scan resolved", "note": "~169k; daily market updates"}
+  ]
+}

@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Surface and rank comment-worthy posts on watchlist accounts. READ-ONLY.
+"""Surface and rank comment-worthy posts on watchlist accounts.
 
 Doctrine (GTM/Social-Media-Library/Content Machine Team Brief.md, Stage 5):
   "Hard rule: no AI-generated comments, no cold-pitch DMs - ever.
    This stage is deliberately human."
 
-So this tool only LISTS AND RANKS targets. It never drafts comment text, never
-posts, likes, follows or DMs, and performs zero write actions against any
-platform. The operator writes every comment personally.
+Comments stay human: this tool never drafts comment text, never comments,
+follows or DMs. Auto-LIKE of ranked niche targets is the one permitted write
+action (operator ruling 2026-07-21), YouTube only, capped per run, ledgered in
+social-ops/liked-videos.json so a video is never rated twice.
 
 Commands:
   python tools/engagement.py scan            # watchlist -> social-ops/engagement-targets.json
+  python tools/engagement.py scan --like 10  # scan, then like top 10 unliked YouTube targets
   python tools/engagement.py selftest        # assert-based ranking check, no network
 
 Use OpenMontage/.venv/Scripts/python.exe so the Google client libraries resolve.
@@ -29,16 +31,22 @@ from typing import Any
 
 try:
     from tools.social_analytics import (
-        ROOT, TOOLS, WATCHLIST_FILE, iso_now, numeric, safe_error,
-        write_atomic, youtube_credentials,
+        ENV_FILE, ROOT, TOOLS, credential_path, dotenv_values, graph_get,
+        iso_now, numeric, safe_error, write_atomic, youtube_credentials,
     )
 except ModuleNotFoundError:  # direct `python tools/engagement.py` execution
     from social_analytics import (
-        ROOT, TOOLS, WATCHLIST_FILE, iso_now, numeric, safe_error,
-        write_atomic, youtube_credentials,
+        ENV_FILE, ROOT, TOOLS, credential_path, dotenv_values, graph_get,
+        iso_now, numeric, safe_error, write_atomic, youtube_credentials,
     )
 
+# ponytail: reuse the vetted competitor watchlist (same {"channels": [...]} shape)
+# rather than maintaining a second list. Split only if engagement targets diverge
+# from the Hot Dog screen set.
+WATCHLIST_FILE = ROOT / "social-ops" / "competitor-watchlist.json"
+ENGAGEMENT_WATCHLIST_FILE = ROOT / "social-ops" / "engagement-watchlist.json"
 TARGETS_FILE = ROOT / "social-ops" / "engagement-targets.json"
+LIKED_FILE = ROOT / "social-ops" / "liked-videos.json"
 
 # Our niche vocabulary. Topical fit is a plain keyword hit count against
 # title+description — no LLM scores anything here, by design.
@@ -175,6 +183,7 @@ def collect_tiktok_cdp() -> tuple[list[dict[str, Any]], list[str]]:
         result = subprocess.run(
             ["node", str(TOOLS / "tiktok_analytics_cdp.cjs")],
             cwd=ROOT, capture_output=True, text=True, timeout=45,
+            encoding="utf-8", errors="replace",
         )
         payload = json.loads(result.stdout or "{}")
     except Exception as error:
@@ -201,28 +210,157 @@ def collect_tiktok_cdp() -> tuple[list[dict[str, Any]], list[str]]:
     return posts, []
 
 
+def pick_likes(targets: list[dict[str, Any]], liked: set[str], count: int) -> list[str]:
+    """Top-N unliked YouTube video ids, ranked order. Pure — selftested."""
+    picks: list[str] = []
+    for item in targets:
+        if len(picks) >= count:
+            break
+        video_id = item.get("id")
+        if item.get("platform") == "youtube" and video_id and video_id not in liked:
+            picks.append(video_id)
+    return picks
+
+
+def auto_like(targets: list[dict[str, Any]], count: int) -> tuple[list[str], list[str]]:
+    """Rate top-N unliked YouTube targets 'like'. Ledger prevents re-rating.
+
+    operator ruling 2026-07-21: auto-like permitted. Comments/DMs/follows stay
+    human per Stage 5 doctrine — this function only ever calls videos().rate.
+
+    Uses the channel token (token_channel.json, full youtube scope — videos.rate
+    accepts it) via channel_seo.get_service, so the read-only analytics token
+    stays untouched and no new consent is needed.
+    """
+    try:
+        liked = set(json.loads(LIKED_FILE.read_text(encoding="utf-8")))
+    except (OSError, json.JSONDecodeError):
+        liked = set()
+    picks = pick_likes(targets, liked, count)
+    if not picks:
+        return [], []
+    try:
+        from tools.channel_seo import get_service
+    except ModuleNotFoundError:
+        from channel_seo import get_service
+    youtube = get_service()
+    done: list[str] = []
+    errors: list[str] = []
+    for video_id in picks:
+        try:
+            youtube.videos().rate(id=video_id, rating="like").execute()
+            done.append(video_id)
+            liked.add(video_id)
+        except Exception as error:
+            errors.append(f"like {video_id}: {safe_error(error)}")
+    if done:
+        write_atomic(LIKED_FILE, json.dumps(sorted(liked), indent=2) + "\n")
+    return done, errors
+
+
+def engagement_watchlist(platform: str) -> list[str]:
+    try:
+        data = json.loads(ENGAGEMENT_WATCHLIST_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    return [entry["handle"] for entry in data.get(platform, [])
+            if isinstance(entry, dict) and isinstance(entry.get("handle"), str)]
+
+
+def collect_tiktok_watchlist(handles: list[str]) -> tuple[list[dict[str, Any]], list[str]]:
+    """Watchlist accounts' recent posts via the logged-in debug Chrome on 9333.
+
+    Read-only page visits; snowflake ids give real timestamps so these rank
+    honestly. A dead profile fails visibly per handle.
+    """
+    if not handles:
+        return [], []
+    try:
+        result = subprocess.run(
+            ["node", str(TOOLS / "tiktok_watchlist_cdp.cjs"), *handles],
+            cwd=ROOT, capture_output=True, text=True, timeout=600,
+            encoding="utf-8", errors="replace",
+        )
+        payload = json.loads(result.stdout or "{}")
+    except Exception as error:
+        return [], [f"tiktok-watchlist: CDP profile on 127.0.0.1:9333 unreachable — {safe_error(error)}"]
+    if payload.get("status") != "ready":
+        return [], [f"tiktok-watchlist: collector unavailable — {payload.get('error', 'unknown')}. "
+                    "Start the debug Chrome profile on port 9333."]
+    return payload.get("posts", []), [f"tiktok-watchlist: {e}" for e in payload.get("errors", [])]
+
+
+def collect_instagram_watchlist(usernames: list[str]) -> tuple[list[dict[str, Any]], list[str]]:
+    """Watchlist accounts' recent posts via the official Business Discovery API.
+
+    Reuses the custody Meta creds already powering social_analytics collect.
+    Personal (non-business/creator) targets error per row — visible, prunable.
+    """
+    if not usernames:
+        return [], []
+    env = dict(dotenv_values(ENV_FILE))
+    meta_env = credential_path("meta.env")
+    if meta_env.is_file():
+        env.update(dotenv_values(meta_env))
+    user_id, token = env.get("META_IG_USER_ID"), env.get("META_PAGE_TOKEN")
+    if not user_id or not token:
+        return [], ["instagram-watchlist: missing META_IG_USER_ID/META_PAGE_TOKEN in custody env"]
+    posts: list[dict[str, Any]] = []
+    errors: list[str] = []
+    for username in usernames:
+        try:
+            fields = (f"business_discovery.username({username})"
+                      "{username,followers_count,media.limit(10)"
+                      "{id,caption,timestamp,permalink,like_count,comments_count}}")
+            discovery = graph_get(str(user_id), str(token), fields=fields).get("business_discovery", {})
+            for item in discovery.get("media", {}).get("data", []):
+                caption = item.get("caption") or ""
+                posts.append({
+                    "platform": "instagram",
+                    "account": f"@{discovery.get('username', username)}",
+                    "id": item.get("id"),
+                    "title": caption.splitlines()[0][:140] if caption else "Untitled post",
+                    "description": caption[:400],
+                    "createdAt": item.get("timestamp"),
+                    "url": item.get("permalink"),
+                    "views": None,
+                    "likes": item.get("like_count"),
+                    "comments": item.get("comments_count"),
+                })
+        except Exception as error:
+            errors.append(f"instagram-watchlist {username}: {safe_error(error)}")
+    return posts, errors
+
+
 def scan(limit: int) -> dict[str, Any]:
     try:
         watchlist = json.loads(WATCHLIST_FILE.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
         raise SystemExit(f"scan: watchlist unreadable, prior targets left untouched: {safe_error(error)}")
     channels = [ref for ref in (watchlist.get("channels") or []) if isinstance(ref, str) and ref.strip()]
+    tiktok_handles = engagement_watchlist("tiktok")
+    instagram_handles = engagement_watchlist("instagram")
     posts, errors = collect_youtube_watchlist(channels)
-    tiktok_posts, tiktok_errors = collect_tiktok_cdp()
-    posts += tiktok_posts
-    errors += tiktok_errors
+    for extra_posts, extra_errors in (
+        collect_tiktok_cdp(),
+        collect_tiktok_watchlist(tiktok_handles),
+        collect_instagram_watchlist(instagram_handles),
+    ):
+        posts += extra_posts
+        errors += extra_errors
     ranked = rank(posts)[:limit]
     payload = {
         "schema": "tradercockpit-engagement-targets/v1",
         "generatedAt": iso_now(),
-        "writeActions": "none — this tool never posts, likes, follows, DMs, or drafts text",
-        "accountsConfigured": len(channels),
+        "writeActions": "auto-like only (operator ruling 2026-07-21) — never comments, follows, DMs, or drafts text",
+        "accountsConfigured": {"youtube": len(channels), "tiktok": len(tiktok_handles),
+                               "instagram": len(instagram_handles)},
         "postsSeen": len(posts),
         "ranking": "recency exp(-h/24) x log1p(weighted engagement/hr) x (1 + niche keyword hits, capped 3)",
         "errors": errors,
         "targets": [
             {key: item.get(key) for key in (
-                "platform", "account", "title", "url", "createdAt", "ageHours",
+                "platform", "account", "id", "title", "url", "createdAt", "ageHours",
                 "views", "likes", "comments", "engagementPerHour", "topicalFit",
                 "score", "why", "description",
             )}
@@ -271,19 +409,38 @@ def selftest() -> None:
         (item["score"] for item in ranked), reverse=True)
     assert "CPI" in ranked[0]["title"]
 
-    print(f"selftest ok — {len(NICHE_TERMS)} niche terms, ranking monotonic on all 9 assertions")
+    # like picker: ranked order, ledger skip, count cap, youtube-only, needs id
+    targets = [
+        {"platform": "youtube", "id": "a", "score": 9},
+        {"platform": "tiktok", "id": "t", "score": 8},
+        {"platform": "youtube", "id": "b", "score": 7},
+        {"platform": "youtube", "id": "c", "score": 5},
+        {"platform": "youtube", "score": 4},  # no id -> skipped
+    ]
+    assert pick_likes(targets, set(), 10) == ["a", "b", "c"]
+    assert pick_likes(targets, {"a"}, 10) == ["b", "c"]
+    assert pick_likes(targets, set(), 2) == ["a", "b"]
+    assert pick_likes([], set(), 10) == []
+
+    print(f"selftest ok — {len(NICHE_TERMS)} niche terms, ranking + like-picker assertions all pass")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["scan", "selftest"])
     parser.add_argument("--limit", type=int, default=40, help="max targets written (default 40)")
+    parser.add_argument("--like", type=int, default=0, metavar="N",
+                        help="after scan, like top N unliked YouTube targets (default 0 = off)")
     args = parser.parse_args()
     if args.command == "selftest":
         selftest()
         return
     payload = scan(args.limit)
     print(f"wrote {TARGETS_FILE} ({len(payload['targets'])} targets from {payload['postsSeen']} posts seen)")
+    if args.like > 0:
+        done, like_errors = auto_like(payload["targets"], args.like)
+        payload["errors"] += like_errors
+        print(f"liked {len(done)} videos ({len(like_errors)} errors), ledger {LIKED_FILE.name}")
     for error in payload["errors"]:
         print(f"  ! {error}", file=sys.stderr)
     if not payload["targets"] and payload["errors"]:
