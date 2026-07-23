@@ -3,6 +3,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 TOOLS = Path(__file__).resolve().parents[1] / "tools"
@@ -12,6 +13,18 @@ import skill_catalog  # noqa: E402
 
 
 class SkillCatalogTests(unittest.TestCase):
+    def test_catalog_skips_root_that_vanishes_during_scan(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+
+            with patch.object(Path, "rglob", side_effect=FileNotFoundError("vanished")):
+                result = skill_catalog.build_catalog(
+                    roots=(("codex", root),),
+                    usage_root=None,
+                )
+
+            self.assertEqual(0, result["summary"]["skills"])
+
     def test_project_skill_description_overrides_stale_user_level_copy(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

@@ -75,6 +75,13 @@ def _frontmatter(path):
     return data
 
 
+def _skill_files(root):
+    try:
+        yield from root.rglob("SKILL.md")
+    except OSError:
+        return
+
+
 def _scan_usage_file(filename):
     counts, latest = Counter(), {}
     needles = (b'"name":"Skill"', b'"name": "Skill"')
@@ -163,7 +170,7 @@ def build_catalog(roots=DEFAULT_ROOTS, usage_root=DEFAULT_USAGE, usage_cache=Non
         base = Path(base)
         if not base.is_dir():
             continue
-        for path in base.rglob("SKILL.md"):
+        for path in _skill_files(base):
             metadata = _frontmatter(path)
             if not metadata:
                 continue
