@@ -26,6 +26,14 @@ The publishing calendar is Monday–Friday daily market news, Saturday weekly re
 `.agents/skills/weekly-market-recap/SKILL.md`, and no Sunday post. Sunday is the analytics and
 process-improvement review.
 
+# teaching series lane (on-camera playlist)
+
+A third content lane is at concept stage: a separate YouTube playlist, operator on camera, teaching
+retail traders what they are doing wrong. Read `handoffs/SERIES-LANE-HANDOFF-2026-07-24.md` before
+any work on it, and use `.agents/skills/series-script/SKILL.md` for episode scripting. It is NOT
+the Show (the Show needs monetization the channel does not have and stays parked) and NOT the daily
+news video. Nothing in this lane is ratified — no episode is approved, scheduled, or started.
+
 # zero-cost generative media
 
 - Use the project skill `.agents/skills/tradercockpit-free-media/SKILL.md` for every request to create, edit, generate, repurpose, or package social media assets, alongside any more specific production skill.
