@@ -1,7 +1,11 @@
 # HANDOFF — video-03-weekly-2026-07-18
 
 First **weekend-review** production (Saturday weekly, Ciovacco-style). Skill:
-`.claude/skills/weekend-review/SKILL.md` (new this session, references daily-news-video).
+`.agents/skills/weekly-market-recap/SKILL.md` (references daily-news-video).
+
+> The `.claude/skills/weekend-review/SKILL.md` this file originally named was deleted with no
+> git history. Its format decisions — runtime band, 15-section outline, Saturday craft rules —
+> were recovered from this handoff and folded into `weekly-market-recap` on 2026-07-26.
 
 ## State
 - [x] Fact pack `FACTS-2026-07-18.md` (week 07-13..07-17; conflicts → §7 banned list)
