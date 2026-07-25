@@ -51,6 +51,26 @@ IMPACT_DB = -14.0
 SFX_LEAD_S = 0.2                      # whoosh starts just before the cut so it peaks on it
 AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".flac", ".ogg"}
 
+# Voice mastering — the chain studio-kit/pipeline/MONTAGE-CRAFT.md documented and nothing ran.
+# Chatterbox emits ~-17 LUFS raw with no EQ or dynamics; stage_assemble has always preferred
+# build/vo-full-mastered.wav, but until now no tool wrote it.
+VO_MASTER_LUFS = -16.0    # under DELIVERY so the bed lands the MIX on target, not over it
+DELIVERY_LUFS = -14.0     # YouTube/IG playback target: quieter and they turn us up, noise and all
+VO_MASTER_FILTER = (
+    "highpass=f=80,"
+    "equalizer=f=500:t=q:w=1.2:g=-2,"       # pull the mud
+    "equalizer=f=3500:t=q:w=1.0:g=2.5,"     # presence, so consonants survive a phone speaker
+    "deesser=i=0.35,"
+    "acompressor=threshold=-18dB:ratio=3:attack=5:release=15,"
+    f"loudnorm=I={VO_MASTER_LUFS}:TP=-1.5:LRA=11"
+)
+DELIVERY_LOUDNORM = f"loudnorm=I={DELIVERY_LUFS}:TP=-1.5:LRA=11"
+# Delivery audio spec. Chatterbox runs at 24 kHz; without this the master inherits it and
+# `-b:a 192k` silently collapses to ~100 kbps behind a 12 kHz ceiling (measured on
+# daily-2026-07-23). The bed and SFX get downsampled into the same ceiling.
+MASTER_AR = "48000"
+MASTER_AC = "2"
+
 
 def log(msg):
     print(f"[produce] {msg}", flush=True)
@@ -62,6 +82,12 @@ def measure_lufs(path):
         [FFMPEG, "-i", str(path), "-af", "ebur128", "-f", "null", os.devnull],
         capture_output=True, text=True).stderr
     return float(re.findall(r"I:\s+(-?[\d.]+)\s+LUFS", err)[-1])
+
+
+def probe_duration(path):
+    return float(subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
+        check=True, capture_output=True, text=True).stdout.strip())
 
 
 def pick_music():
@@ -87,7 +113,9 @@ def build_sound_filter(vo_idx, total_s, boundaries, music_idx=None, music_gain_d
                        whoosh_idx=None, impact_idx=None):
     """Audio filter_complex mixing VO + music bed + section SFX into [aout].
 
-    Returns None when there is nothing to layer (falls back to plain VO map).
+    Always returns a chain: with nothing to layer this is VO -> limiter -> delivery loudnorm.
+    It used to return None there, which routed bare VO straight to the encoder and skipped
+    the limiter and any loudness target at all.
     Whoosh lands on every section transition except the last, which gets the impact.
     """
     chains, mix = [], [f"[{vo_idx}:a]"]
@@ -108,9 +136,10 @@ def build_sound_filter(vo_idx, total_s, boundaries, music_idx=None, music_gain_d
         ms = round(boundaries[-1] * 1000)
         chains.append(f"[{impact_idx}:a]volume={IMPACT_DB:.1f}dB,adelay={ms}|{ms}[imp]")
         mix.append("[imp]")
-    if len(mix) == 1:
-        return None
-    chains.append(f"{''.join(mix)}amix=inputs={len(mix)}:normalize=0,alimiter=limit=0.97[aout]")
+    # amix only when there is something to mix — amix=inputs=1 is a no-op that still costs a pass
+    head = (f"{''.join(mix)}amix=inputs={len(mix)}:normalize=0," if len(mix) > 1
+            else f"{mix[0]}")
+    chains.append(f"{head}alimiter=limit=0.97,{DELIVERY_LOUDNORM}[aout]")
     return ";".join(chains)
 
 
@@ -244,6 +273,25 @@ def stage_captions(prod: Path):
     log(f"captions.srt written ({i - 1} cues; {mode})")
 
 
+def stage_master(prod: Path):
+    """VO mastering: build/vo-full.wav -> build/vo-full-mastered.wav, which assemble prefers."""
+    build = prod / "build"
+    raw = build / "vo-full.wav"
+    if not raw.is_file():
+        sys.exit("run --stage vo first")
+    out = build / "vo-full-mastered.wav"
+    subprocess.run([FFMPEG, "-y", "-i", str(raw), "-af", VO_MASTER_FILTER,
+                    "-ar", MASTER_AR, "-c:a", "pcm_s16le", str(out)],
+                   check=True, capture_output=True)
+    # nothing in VO_MASTER_FILTER changes length; if an edit ever adds something that does,
+    # every beat boundary downstream silently desyncs, so fail here instead of at the render
+    drift = abs(probe_duration(out) - probe_duration(raw))
+    if drift > 0.05:
+        sys.exit(f"mastering moved VO duration by {drift:.3f}s; refusing to desync the timeline")
+    log(f"vo mastered: {measure_lufs(raw):.1f} -> {measure_lufs(out):.1f} LUFS "
+        f"(target {VO_MASTER_LUFS})")
+
+
 def stage_assemble(prod: Path):
     from editorial_gate import load_timeline
 
@@ -275,10 +323,7 @@ def stage_assemble(prod: Path):
             cmd = [FFMPEG, "-y", "-loop", "1", "-t", f"{dur:.3f}", "-i", str(vis),
                    "-vf", scale_vf, *enc]
         else:
-            vd = float(subprocess.run(
-                ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-                 "-of", "csv=p=0", str(vis)],
-                check=True, capture_output=True, text=True).stdout.strip())
+            vd = probe_duration(vis)
             if "sequence" in beat["visual"]["kind"] and abs(vd - dur) > 0.25:
                 sys.exit(
                     f"sequence visual {vis.name} is {vd:.1f}s for a {dur:.1f}s beat; "
@@ -335,7 +380,7 @@ def stage_assemble(prod: Path):
         impact_idx, next_idx = next_idx, next_idx + 1
     sound = build_sound_filter(vo_idx, total_s, boundaries, music_idx, music_gain,
                                whoosh_idx, impact_idx)
-    audio_map = "[aout]" if sound else f"{vo_idx}:a"
+    audio_map = "[aout]"      # build_sound_filter always returns a chain
 
     filters = []
     if len(parts) > 1:
@@ -349,15 +394,14 @@ def stage_assemble(prod: Path):
         video_map = prev
     else:
         video_map = "0:v"
-    if sound:
-        filters.append(sound)
-    if filters:
-        cmd += ["-filter_complex", ";".join(filters)]
+    filters.append(sound)
+    cmd += ["-filter_complex", ";".join(filters)]
     cmd += ["-map", video_map, "-map", audio_map]
     # yuv420p pin: without it the xfade graph promotes to yuv444p, which local
     # players cannot decode (2026-07-21 playback incident)
     cmd += ["-c:v", "h264_nvenc", "-preset", "p5", "-cq", "19", "-pix_fmt", "yuv420p",
-            "-c:a", "aac", "-b:a", "192k", "-shortest", str(build / "master.mp4")]
+            "-c:a", "aac", "-b:a", "192k", "-ar", MASTER_AR, "-ac", MASTER_AC,
+            "-shortest", str(build / "master.mp4")]
     subprocess.run(cmd, check=True, cwd=build, capture_output=True)
     log(f"master: {build / 'master.mp4'}")
 
@@ -385,7 +429,8 @@ def stage_shorts(prod: Path):
     log(f"shorts in {clipper / 'output'}")
 
 
-STAGES = {"vo": stage_vo, "captions": stage_captions, "assemble": stage_assemble, "shorts": stage_shorts}
+STAGES = {"vo": stage_vo, "captions": stage_captions, "master": stage_master,
+          "assemble": stage_assemble, "shorts": stage_shorts}
 
 
 def main():

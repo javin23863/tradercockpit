@@ -4,8 +4,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.produce import (allocate_frame_counts, build_sound_filter, parse_sections,
-                           section_starts, stage_assemble, stage_shorts)
+from tools.produce import (DELIVERY_LOUDNORM, DELIVERY_LUFS, VO_MASTER_FILTER, VO_MASTER_LUFS,
+                           allocate_frame_counts, build_sound_filter, parse_sections,
+                           section_starts, stage_assemble, stage_master, stage_shorts)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,12 +93,37 @@ class SoundLayerTests(unittest.TestCase):
         self.assertIn("adelay=50000|50000[imp]", f)
         self.assertIn("amix=inputs=5:normalize=0", f)       # vo + music + 2 whoosh + impact
 
-    def test_no_music_and_no_boundaries_falls_back_to_plain_vo(self):
-        self.assertIsNone(build_sound_filter(6, 60.0, []))
+    def test_no_music_and_no_boundaries_still_limits_and_normalizes(self):
+        # this case used to return None, which mapped bare VO to the encoder: no limiter,
+        # no loudness target, delivered at whatever Chatterbox happened to emit
+        f = build_sound_filter(6, 60.0, [])
+        self.assertNotIn("amix", f)                         # nothing to mix
+        self.assertIn("alimiter=limit=0.97", f)
+        self.assertIn(DELIVERY_LOUDNORM, f)
+        self.assertTrue(f.endswith("[aout]"))
 
     def test_music_only_still_mixes(self):
         f = build_sound_filter(6, 60.0, [], music_idx=7, music_gain_db=-20.0)
         self.assertIn("amix=inputs=2:normalize=0", f)
+
+    def test_every_layering_shape_normalizes_the_delivered_mix(self):
+        for kwargs in ({}, {"music_idx": 7, "music_gain_db": -20.0},
+                       {"music_idx": 7, "music_gain_db": -20.0, "whoosh_idx": 8, "impact_idx": 9}):
+            with self.subTest(**kwargs):
+                self.assertIn(DELIVERY_LOUDNORM, build_sound_filter(6, 60.0, [20.0], **kwargs))
+
+
+class VoMasteringTests(unittest.TestCase):
+    def test_master_writes_the_name_assemble_prefers(self):
+        # assemble picks build/vo-full-mastered.wav over vo-full.wav; if the producer ever
+        # writes a different name the preference silently falls back and nothing warns
+        self.assertIn("vo-full-mastered.wav", inspect.getsource(stage_master))
+        self.assertIn("vo-full-mastered.wav", inspect.getsource(stage_assemble))
+
+    def test_vo_masters_under_the_delivery_target(self):
+        # the bed is mixed on top, so VO at the delivery target would push the mix over it
+        self.assertLess(VO_MASTER_LUFS, DELIVERY_LUFS)
+        self.assertIn(f"I={VO_MASTER_LUFS}", VO_MASTER_FILTER)
 
 
 if __name__ == "__main__":

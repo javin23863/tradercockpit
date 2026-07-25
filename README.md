@@ -38,10 +38,10 @@ operator gate on publishing.
 
 It runs: `market-analysis` (→ `analysis-brief.md`) → fact pack → script + `claims.yaml` →
 **claims gate (blocking)** → TradingView chart capture → Godseye b-roll → cloned VO →
-captions → assemble → shorts → thumbnail → publish. Detail:
+captions → VO master → assemble → shorts → thumbnail → publish. Detail:
 [`.claude/skills/daily-news-video/SKILL.md`](.claude/skills/daily-news-video/SKILL.md).
 
-Underneath, the stages are `tools/produce.py <prod> --stage vo|captions|assemble|shorts`
+Underneath, the stages are `tools/produce.py <prod> --stage vo|captions|master|assemble|shorts`
 (engine venv: `OpenMontage\.venv\Scripts\python.exe`).
 
 **The verticals recipe of record is `tools/handoff/recut_shorts.cjs`**, not `produce.py --stage shorts`
