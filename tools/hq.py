@@ -28,6 +28,16 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "operator-hq.html"
 DEPARTMENTS = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit\GTM\Departments")
 ANALYTICS = ROOT / "social-ops" / "analytics-latest.json"
+
+# Automation lane schedule of record — US/Eastern anchored per the 2026-07-20 re-anchor
+# (SOCIAL-MARKETING-PRELAUNCH-PLAN.md: "ET; let the Bangkok-local time float").
+# (label, weekdays with Monday=0, ET hour, ET minute). Both HUDs read THIS table: it used to
+# live twice and both copies still carried the pre-re-anchor 17:30 ICT.
+LANES = (
+    ("Weekday market authority", (0, 1, 2, 3, 4), 18, 0),
+    ("Saturday weekly recap", (5,), 12, 0),
+    ("Sunday social review", (6,), 12, 0),
+)
 OUTLIERS = ROOT / "social-ops" / "youtube-outlier-backlog.json"
 MANAGER_URL = "http://127.0.0.1:8790/state"
 HOST, PORT = "127.0.0.1", 8786

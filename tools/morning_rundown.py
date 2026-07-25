@@ -18,21 +18,18 @@ REPORTS = VAULT / "wiki" / "reports"
 ICT = timezone(timedelta(hours=7))
 
 sys.path.insert(0, str(Path(__file__).parent))
-from hq import latest_publish_entries, load_manager, read_json, ANALYTICS  # noqa: E402
+from daily_production_init import eastern_now  # noqa: E402
+from hq import latest_publish_entries, load_manager, read_json, ANALYTICS, LANES  # noqa: E402
 
 
-def schedule_today(now):
-    lanes = [
-        ("Weekday market authority", (0, 1, 2, 3, 4), 17, 30),
-        ("Saturday weekly recap", (5,), 17, 30),
-        ("Sunday social review", (6,), 18, 0),
-    ]
+def schedule_today(now_et):
+    """Lane rows for today. The schedule is ET-anchored, so the clock shown is ET."""
     lines = []
-    for name, days, hour, minute in lanes:
-        if now.weekday() in days:
-            at = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
-            state = "done or in flight" if now >= at else f"in {at - now}".split(".")[0]
-            lines.append(f"- {name} at {at:%H:%M} ICT ({state})")
+    for name, days, hour, minute in LANES:
+        if now_et.weekday() in days:
+            at = now_et.replace(hour=hour, minute=minute, second=0, microsecond=0)
+            state = "done or in flight" if now_et >= at else f"in {at - now_et}".split(".")[0]
+            lines.append(f"- {name} at {at:%H:%M} ET ({state})")
     return lines or ["- No automation lane scheduled today."]
 
 
@@ -76,7 +73,7 @@ def main():
         parts.append(f"- {m_err}")
 
     parts.append("\n## Today\n")
-    parts.extend(schedule_today(now))
+    parts.extend(schedule_today(eastern_now()))
 
     hot = VAULT / "_meta" / "hot.md"
     if hot.is_file():

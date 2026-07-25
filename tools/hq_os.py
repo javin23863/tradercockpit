@@ -33,6 +33,7 @@ from urllib.request import Request, urlopen
 
 sys.path.insert(0, str(Path(__file__).parent))
 import hq  # verified dashboard core (views, loaders) — reused, not modified
+from daily_production_init import eastern_now  # this box has no system tz database
 
 ROOT = hq.ROOT
 # ponytail: old TraderCockpit-Vault is tombstoned (read-only) — reports now live repo-local
@@ -687,16 +688,16 @@ async function decide(id, verdict) {{
 
 
 # ---- HUD data
-def next_runs(now):
-    lanes = [("Weekday authority", (0, 1, 2, 3, 4), 17, 30), ("Saturday recap", (5,), 17, 30), ("Sunday review", (6,), 18, 0)]
+def next_runs(now_et):
+    """Next occurrence per lane. The schedule is ET-anchored, so this works in ET."""
     rows = []
-    for name, days, hour, minute in lanes:
+    for name, days, hour, minute in hq.LANES:
         for ahead in range(8):
-            day = now + timedelta(days=ahead)
+            day = now_et + timedelta(days=ahead)
             if day.weekday() in days:
                 at = day.replace(hour=hour, minute=minute, second=0, microsecond=0)
-                if at > now:
-                    delta = at - now
+                if at > now_et:
+                    delta = at - now_et
                     hours, rem = divmod(int(delta.total_seconds()), 3600)
                     rows.append((name, at, f"in {hours}h {rem // 60:02d}m" if hours else f"in {rem // 60}m"))
                     break
@@ -803,8 +804,8 @@ def render_hud():
              f'<button class="chip" data-filter="missing" onclick="setSkillFilter(\'missing\',this)">Missing <b>{esc(s.get("missing", 0))}</b></button>'
              '</div>')
     schedule = "".join(f'<div class="lane"><span class="nm">{esc(name)}</span><span class="in">{esc(when)}</span>'
-                       f'<span class="at">{at:%a %H:%M} ICT</span></div>'
-                       for name, at, when in next_runs(now)) or '<div class="empty">No runs scheduled.</div>'
+                       f'<span class="at">{at:%a %H:%M} ET</span></div>'
+                       for name, at, when in next_runs(eastern_now())) or '<div class="empty">No runs scheduled.</div>'
     prod, headline = latest_brief()
     wire = f'<div class="wire"><small>LATEST BRIEF · {esc(prod)}</small><p>{esc(headline)}</p></div>' if headline else ""
     backends = ", ".join(llm_config().get("backends", {}))
