@@ -7,6 +7,7 @@ from pathlib import Path
 from tools.produce import (DELIVERY_LOUDNORM, DELIVERY_LUFS, VO_MASTER_FILTER, VO_MASTER_LUFS,
                            allocate_frame_counts, build_sound_filter, parse_sections,
                            section_starts, stage_assemble, stage_master, stage_shorts)
+from tools.tts_chatterbox import force_daily_operator_voice
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,6 +53,20 @@ class ProduceSectionParserTests(unittest.TestCase):
         self.assertEqual([{key: section[key] for key in fields} for section in golden],
                          [{key: section[key] for key in fields} for section in parsed])
         self.assertTrue(all(section["speaker"] == "OPERATOR" for section in parsed))
+
+    def test_daily_voice_is_operator_only_without_changing_show_voice(self):
+        daily = [{"speaker": "APOLLO",
+                  "blocks": [{"speaker": "APOLLO", "text": "Official data."}]}]
+        show = [{"speaker": "APOLLO",
+                 "blocks": [{"speaker": "APOLLO", "text": "Technical analysis."}]}]
+
+        force_daily_operator_voice(Path("daily-2026-07-22"), daily)
+        force_daily_operator_voice(Path("show-s1e1"), show)
+
+        self.assertEqual("OPERATOR", daily[0]["speaker"])
+        self.assertEqual("OPERATOR", daily[0]["blocks"][0]["speaker"])
+        self.assertEqual("APOLLO", show[0]["speaker"])
+        self.assertEqual("APOLLO", show[0]["blocks"][0]["speaker"])
 
 
 class ProduceFrameAllocationTests(unittest.TestCase):

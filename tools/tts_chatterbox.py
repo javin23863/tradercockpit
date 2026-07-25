@@ -7,6 +7,10 @@ as produce.stage_vo
 (vo-NN.wav, vo-full.wav, sections.json), so `produce.py --stage captions` and
 `--stage assemble` run downstream unchanged.
 
+Daily productions are operator-only. Stale speaker tags in a `daily-*` script are
+normalized to OPERATOR, and `--apollo-ref` is rejected. Hybrid narration remains
+available to the separate Show lane.
+
 Run with the repository's isolated Chatterbox venv:
   OpenMontage/.venv-chatterbox/Scripts/python.exe tools/tts_chatterbox.py \
       productions/sample-hormuz --operator-ref productions/_voice/operator-clean.wav \
@@ -61,6 +65,16 @@ def section_wav_name(section, apollo_key=None):
     return f"vo-{section['num']}-{label}-{apollo_key[:8]}.wav"
 
 
+def force_daily_operator_voice(prod: Path, sections: list[dict]) -> list[dict]:
+    if not prod.name.startswith("daily-"):
+        return sections
+    for section in sections:
+        section["speaker"] = "OPERATOR"
+        for block in section["blocks"]:
+            block["speaker"] = "OPERATOR"
+    return sections
+
+
 def _selftest() -> None:
     # the only non-trivial logic here is the chunker — assert it splits + never drops text
     long = "One. Two two two. " * 40
@@ -72,6 +86,12 @@ def _selftest() -> None:
     assert section_wav_name({"num": "01", "blocks": [{"speaker": "OPERATOR"}]}) == "vo-01.wav"
     assert section_wav_name({"num": "02", "blocks": [{"speaker": "APOLLO"}]}, "abcdef1234") == \
         "vo-02-apollo-abcdef12.wav"
+    daily = [{"speaker": "APOLLO", "blocks": [{"speaker": "APOLLO", "text": "News."}]}]
+    assert force_daily_operator_voice(Path("daily-2026-07-22"), daily)[0]["blocks"][0][
+        "speaker"] == "OPERATOR"
+    show = [{"speaker": "APOLLO", "blocks": [{"speaker": "APOLLO", "text": "Analysis."}]}]
+    assert force_daily_operator_voice(Path("show-s1e1"), show)[0]["blocks"][0][
+        "speaker"] == "APOLLO"
     print("selftest OK")
 
 
@@ -102,7 +122,9 @@ def main() -> int:
     except ValueError as error:
         sys.exit(f"production approval gate blocked TTS: {error}")
 
-    sections = parse_sections(prod)
+    if prod.name.startswith("daily-") and a.apollo_ref:
+        sys.exit("daily narration is operator-only; --apollo-ref is not allowed")
+    sections = force_daily_operator_voice(prod, parse_sections(prod))
     needs_apollo = any(block["speaker"] == "APOLLO"
                        for section in sections for block in section["blocks"])
     if needs_apollo and not a.apollo_ref:

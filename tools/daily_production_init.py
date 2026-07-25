@@ -5,7 +5,8 @@ The post-close lane has two halves and only one of them is a script:
 
     AGENT STEP   research -> analysis brief -> chart capture -> vo.txt -> claims.yaml
                  -> scene-plan.json -> draft social-batch.json      (needs an LLM)
-    RUNNER STEP  render -> gates -> machine approval -> publish     (tools/daily_postclose.py)
+    RUNNER STEP  validate operator approval -> render -> private publish
+                 (tools/daily_postclose.py)
 
 `produce.py` never creates the folder and no script writes `vo.txt` — the
 daily-news-video skill does, and that is an agent action. So arming the runner alone
