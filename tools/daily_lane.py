@@ -34,6 +34,32 @@ AGENT_TIMEOUT = 150 * 60
 RUNNER_TIMEOUT = 3 * 60 * 60
 LOG_PATH: Path | None = None
 
+# Cadences this wrapper drives. Same four-stage chain, different folder prefix, skill and hour.
+# `publishes` is False for the weekly on purpose: its skill and the prelaunch plan both hold the
+# first Saturday runs with Sol at an approval-ready package, and daily_postclose.py resolves its
+# own daily-* production, so it cannot target a weekly folder anyway.
+LANES = {
+    "daily": {
+        "label": "daily lane",
+        "skill": "daily-news-video",
+        "skill_docs": (".agents/skills/daily-news-video/SKILL.md and its canonical\n"
+                       ".claude/skills/daily-news-video/SKILL.md"),
+        "start_hour": 16,
+        "resume_hour": 17,
+        "publishes": True,
+    },
+    "weekly": {
+        "label": "weekly recap lane",
+        "skill": "weekly-market-recap",
+        "skill_docs": (".agents/skills/weekly-market-recap/SKILL.md, which defines only the\n"
+                       "Saturday delta over the canonical .claude/skills/daily-news-video/SKILL.md "
+                       "- read both"),
+        "start_hour": 12,
+        "resume_hour": 13,
+        "publishes": False,
+    },
+}
+
 
 def log(message: str) -> None:
     stamp = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
@@ -110,13 +136,13 @@ def run_process(
     return code, output
 
 
-def agent_prompt(production: Path) -> str:
-    return f"""Use the installed daily-news-video skill for the scheduled content step in:
+def agent_prompt(production: Path, lane: str = "daily") -> str:
+    config = LANES[lane]
+    return f"""Use the installed {config['skill']} skill for the scheduled content step in:
 {production}
 
-Read .agents/skills/daily-news-video/SKILL.md and its canonical
-.claude/skills/daily-news-video/SKILL.md, then drive that procedure against the real repository.
-Follow all nine procedure steps where applicable to the content artifacts owed by
+Read {config['skill_docs']}, then drive that procedure against the real repository.
+Follow every procedure step where applicable to the content artifacts owed by
 tools/daily_production_init.py; the wrapper owns runner actions (render, approval, publish).
 
 Hard boundaries:
@@ -156,7 +182,8 @@ def codex_command(production: Path, codex: str) -> list[str]:
     return command
 
 
-def run_chain(init_stage, agent_stage, check_stage, publish_stage, alert=notify) -> int:
+def run_chain(init_stage, agent_stage, check_stage, publish_stage, alert=notify,
+              label="daily lane") -> int:
     """Pure orchestration seam; injected stages make the safety branches self-testable."""
     for name, stage in (
         ("initialization", init_stage),
@@ -167,9 +194,9 @@ def run_chain(init_stage, agent_stage, check_stage, publish_stage, alert=notify)
         ok, detail = stage()
         if not ok:
             if detail.startswith("AWAITING_HUMAN"):
-                alert(f"TraderCockpit daily lane {detail}. Nothing was published.")
+                alert(f"TraderCockpit {label} {detail}. Nothing was published.")
                 return 0
-            alert(f"TraderCockpit daily lane BLOCKED at {name}: {detail}. Nothing was published.")
+            alert(f"TraderCockpit {label} BLOCKED at {name}: {detail}. Nothing was published.")
             return 1
     return 0
 
@@ -234,6 +261,11 @@ def selftest() -> None:
     assert 'model_reasoning_effort="xhigh"' in command
     prompt = agent_prompt(Path("productions/daily-test"))
     assert prompt.index("Charts-before-script") < prompt.index("Exact-hash script approval")
+    weekly = agent_prompt(Path("productions/weekly-test"), "weekly")
+    assert "weekly-market-recap" in weekly and "daily-news-video" in weekly, "weekly reads both"
+    assert "Exact-hash script approval" in weekly, "weekly keeps the approval gate"
+    # the weekly must never reach daily_postclose: that runner resolves its own daily-* folder
+    assert LANES["weekly"]["publishes"] is False
     print("daily-lane self-test: 4/4 safety branches PASS")
 
 
@@ -243,35 +275,40 @@ def main(argv=None) -> int:
         "--at-production-hour", action="store_true",
         help="stand down unless it is the 16:00 US/Eastern hour (for paired DST triggers)",
     )
+    parser.add_argument("--lane", choices=sorted(LANES), default="daily",
+                        help="which cadence to drive (default: daily)")
     parser.add_argument("--selftest", action="store_true")
     args = parser.parse_args(argv)
     if args.selftest:
         selftest()
         return 0
 
+    lane = args.lane
+    config = LANES[lane]
     now = eastern_now()
     run_day = now.date()
-    production = production_path(now)
+    production = production_path(now, lane)
     global LOG_PATH
-    LOG_PATH = ROOT / "productions" / "_runs" / f"daily-lane-{run_day:%Y-%m-%d}.log"
+    LOG_PATH = ROOT / "productions" / "_runs" / f"{lane}-lane-{run_day:%Y-%m-%d}.log"
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-    log(f"LANE START eastern_day={run_day} executable={sys.executable}")
+    log(f"LANE START lane={lane} eastern_day={run_day} executable={sys.executable}")
 
-    resume = now.hour == 17 and production.is_dir()
-    if args.at_production_hour and now.hour != 16 and not resume:
-        # Conservative DST choice: paired local triggers are expected; the non-16:00 ET trigger
-        # is redundant. At 17:00, an existing production gets one approval-resume attempt.
+    resume = now.hour == config["resume_hour"] and production.is_dir()
+    if args.at_production_hour and now.hour != config["start_hour"] and not resume:
+        # Conservative DST choice: paired local triggers are expected; the off-hour trigger
+        # is redundant. One hour later, an existing production gets one approval-resume attempt.
         log(f"LANE STAND_DOWN outside start/resume window; eastern_now={now:%Y-%m-%d %H:%M:%S}")
         return 0
     if Path(sys.executable).resolve() != PYTHON.resolve():
         detail = f"wrapper must run with {PYTHON}, got {sys.executable}"
         log(f"LANE BLOCKED {detail}")
-        notify(f"TraderCockpit daily lane BLOCKED: {detail}. Nothing was published.")
+        notify(f"TraderCockpit {config['label']} BLOCKED: {detail}. Nothing was published.")
         return 1
 
     def init_stage():
         code, output = run_process(
-            "production-init", [str(PYTHON), str(INIT), "--init"], 60, capture=True,
+            "production-init", [str(PYTHON), str(INIT), "--init", "--lane", lane], 60,
+            capture=True,
         )
         expected = f"{production.name}: {'READY' if code == 0 else 'NOT READY'}"
         ok = code in (0, 1) and production.is_dir() and expected in output.splitlines()
@@ -286,13 +323,13 @@ def main(argv=None) -> int:
             return False, "codex CLI is absent from PATH"
         code, _ = run_process(
             "codex-content", codex_command(production, codex), AGENT_TIMEOUT,
-            stdin_text=agent_prompt(production),
+            stdin_text=agent_prompt(production, lane),
         )
         return code == 0, f"Codex exit={code}"
 
     def check_stage():
         code, output = run_process(
-            "production-check", [str(PYTHON), str(INIT), "--check", "--json"],
+            "production-check", [str(PYTHON), str(INIT), "--check", "--json", "--lane", lane],
             60, capture=True,
         )
         try:
@@ -327,8 +364,17 @@ def main(argv=None) -> int:
         )
         return code == 0, f"daily_postclose exit={code}"
 
-    code = run_chain(init_stage, agent_stage, check_stage, publish_stage)
-    log(f"LANE END exit={code}")
+    def hold_stage():
+        # The weekly stops at an approval-ready package until its first end-to-end acceptance
+        # passes (weekly-market-recap SKILL.md; SOCIAL-MARKETING-PRELAUNCH-PLAN.md). Separately,
+        # daily_postclose.py resolves its own daily-* folder and cannot target this one.
+        return False, (f"AWAITING_HUMAN {production.name} is assembled and gated; publication "
+                       "stays with the operator until the first weekly acceptance passes")
+
+    code = run_chain(init_stage, agent_stage, check_stage,
+                     publish_stage if config["publishes"] else hold_stage,
+                     label=config["label"])
+    log(f"LANE END lane={lane} exit={code}")
     return code
 
 

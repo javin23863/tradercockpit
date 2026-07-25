@@ -62,19 +62,30 @@ def eastern_now(utc: datetime | None = None) -> datetime:
     return utc + timedelta(hours=offset)
 
 
-def slug_for(day: datetime | None = None) -> str:
+# Lanes that mint production folders. The weekly recap is the same contract on a different
+# cadence, so it reuses this whole file rather than forking a parallel initializer.
+LANE_SKILL = {"daily": "daily-news-video", "weekly": "weekly-market-recap"}
+LANE_FRAME = {
+    "daily": "Editorial frame is the **post-close recap**: what the session did, on settled "
+             "closing prints, never pre-open positioning.",
+    "weekly": "Editorial frame is the **completed Monday-Friday week**, re-derived from dated "
+              "primary sources - not the five daily scripts stitched together.",
+}
+
+
+def slug_for(day: datetime | None = None, lane: str = "daily") -> str:
     """Deterministic folder name so the scheduler never needs a path argument."""
     day = day or eastern_now()
-    return f"daily-{day:%Y-%m-%d}"
+    return f"{lane}-{day:%Y-%m-%d}"
 
 
-def production_path(day: datetime | None = None) -> Path:
-    return PRODUCTIONS / slug_for(day)
+def production_path(day: datetime | None = None, lane: str = "daily") -> Path:
+    return PRODUCTIONS / slug_for(day, lane)
 
 
-def init(day: datetime | None = None) -> dict:
+def init(day: datetime | None = None, lane: str = "daily") -> dict:
     """Mint the folder. Idempotent: never overwrites an existing file."""
-    path = production_path(day)
+    path = production_path(day, lane)
     path.mkdir(parents=True, exist_ok=True)
     (path / "build").mkdir(exist_ok=True)
     (path / "visuals").mkdir(exist_ok=True)
@@ -91,16 +102,15 @@ def init(day: datetime | None = None) -> dict:
         for name, owner, why in OPTIONAL:
             lines.append(f"- [ ] `{name}` ({owner}, optional) — {why}\n")
         lines.append(
-            "\nEditorial frame is the **post-close recap**: what the session did, on settled "
-            "closing prints, never pre-open positioning. See the daily-news-video skill.\n"
+            f"\n{LANE_FRAME[lane]} See the {LANE_SKILL[lane]} skill.\n"
         )
         manifest.write_text("".join(lines), encoding="utf-8")
-    return check(day)
+    return check(day, lane)
 
 
-def check(day: datetime | None = None) -> dict:
+def check(day: datetime | None = None, lane: str = "daily") -> dict:
     """Readiness. `ready` is true only when every required artifact exists and is non-empty."""
-    path = production_path(day)
+    path = production_path(day, lane)
     missing, present = [], []
     for name, owner, why in REQUIRED:
         target = path / name
@@ -133,6 +143,7 @@ def selftest() -> None:
     assert eastern_now(dt(2026, 3, 8, 8, 0, tzinfo=timezone.utc)).hour == 4, "post-spring-forward"
 
     assert slug_for(dt(2026, 7, 20)) == "daily-2026-07-20"
+    assert slug_for(dt(2026, 7, 25), "weekly") == "weekly-2026-07-25"
 
     # A folder that does not exist is never ready, and says so without raising.
     result = check(dt(1999, 1, 1))
@@ -148,6 +159,8 @@ def main(argv=None) -> int:
     parser.add_argument("--init", action="store_true", help="mint today's production folder")
     parser.add_argument("--check", action="store_true", help="readiness only; exit 1 if not ready")
     parser.add_argument("--json", action="store_true", help="machine-readable output")
+    parser.add_argument("--lane", choices=sorted(LANE_SKILL), default="daily",
+                        help="which cadence's folder to mint (default: daily)")
     parser.add_argument("--selftest", action="store_true")
     args = parser.parse_args(argv)
 
@@ -157,7 +170,7 @@ def main(argv=None) -> int:
     if not (args.init or args.check):
         parser.error("pass --init or --check")
 
-    result = init() if args.init else check()
+    result = init(lane=args.lane) if args.init else check(lane=args.lane)
     if args.json:
         print(json.dumps(result, indent=2))
     else:
