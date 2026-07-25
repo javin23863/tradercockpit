@@ -36,7 +36,58 @@ except ModuleNotFoundError:  # direct `python tools/tts_chatterbox.py` execution
 
 GAP_S = 0.45          # silence between sections — matches produce.GAP_S
 CHUNK_CHARS = 280     # Chatterbox degrades past ~40s/one breath; split long sections
+JOIN_PAUSE_S = 0.15   # breath at a chunk join; chunks used to be welded with zero gap
+TRIM_FLOOR_DB = -45.0 # head/tail below this (relative to the chunk's own peak) is not speech
+SEED_DEFAULT = 4242
+COMMIT_NEEDED_GB = 8.0
 DEFAULT_OPERATOR_REF = Path(__file__).resolve().parents[1] / "productions" / "_voice" / "operator-clean.wav"
+
+
+def commit_headroom_gb():
+    """Windows commit-charge headroom in GB, or None off Windows.
+
+    The 2026-07-20 incident (reproduced 3x) is a COMMIT ceiling, not free RAM: this box is
+    16 GB RAM + a fixed 16 GB pagefile, so commit caps at 32 GB and Chatterbox needs ~8 GB of
+    it. Failure faces are OSError 1455 at safetensors load, 0xC0000005 at model load, or a
+    tiny numpy allocation failing mid-sampling — all the same cause.
+    """
+    if sys.platform != "win32":
+        return None
+    import ctypes
+
+    class MemoryStatusEx(ctypes.Structure):
+        _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong),
+                    ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
+                    ("ullTotalPageFile", ctypes.c_ulonglong),
+                    ("ullAvailPageFile", ctypes.c_ulonglong),
+                    ("ullTotalVirtual", ctypes.c_ulonglong),
+                    ("ullAvailVirtual", ctypes.c_ulonglong),
+                    ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
+
+    status = MemoryStatusEx()
+    status.dwLength = ctypes.sizeof(MemoryStatusEx)
+    if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(status)):
+        return None
+    return status.ullAvailPageFile / 1024 ** 3
+
+
+def trim_silence(wav, sr, floor_db=TRIM_FLOOR_DB):
+    """Drop head/tail near-silence from one generated chunk.
+
+    Chunks are concatenated, so without this one chunk's trailing breath gets welded straight
+    onto the next chunk's leading silence ~45 times a video.
+    """
+    amp = wav.abs().max(dim=0).values
+    peak = float(amp.max())
+    if peak <= 0:
+        return wav
+    loud = (amp > peak * (10 ** (floor_db / 20))).nonzero()
+    if loud.numel() == 0:
+        return wav
+    keep = int(0.02 * sr)      # leave 20ms so consonant onsets and tails survive the trim
+    first = max(int(loud[0]) - keep, 0)
+    last = min(int(loud[-1]) + keep, wav.shape[1])
+    return wav[:, first:last]
 
 
 def chunk(text: str, limit: int = CHUNK_CHARS) -> list[str]:
@@ -92,6 +143,19 @@ def _selftest() -> None:
     show = [{"speaker": "APOLLO", "blocks": [{"speaker": "APOLLO", "text": "Analysis."}]}]
     assert force_daily_operator_voice(Path("show-s1e1"), show)[0]["blocks"][0][
         "speaker"] == "APOLLO"
+    headroom = commit_headroom_gb()
+    assert headroom is None or headroom > 0, headroom
+    try:
+        import torch
+    except ModuleNotFoundError:
+        print("selftest OK (trim_silence skipped: torch absent)")
+        return
+    sr, keep = 24000, int(0.02 * 24000)
+    padded = torch.cat([torch.zeros(1, sr // 2), torch.ones(1, sr) * 0.5,
+                        torch.zeros(1, sr // 2)], dim=1)
+    trimmed = trim_silence(padded, sr)
+    assert abs(trimmed.shape[1] - (sr + 2 * keep)) <= 2, trimmed.shape   # keeps 20ms each side
+    assert trim_silence(torch.zeros(1, 100), sr).shape[1] == 100         # all-silent: untouched
     print("selftest OK")
 
 
@@ -104,6 +168,8 @@ def main() -> int:
     ap.add_argument("--apollo-ref", help="operator-approved Apollo reference audio")
     ap.add_argument("--exaggeration", type=float, default=0.5)
     ap.add_argument("--cfg", type=float, default=0.5)
+    ap.add_argument("--seed", type=int, default=SEED_DEFAULT,
+                    help="per-chunk sampling seed; keeps a re-rendered section identical")
     ap.add_argument("--selftest", action="store_true", help="check the chunker, no model")
     a = ap.parse_args()
 
@@ -137,12 +203,31 @@ def main() -> int:
     apollo_key = (hashlib.sha256(refs["APOLLO"].read_bytes()).hexdigest()
                   if "APOLLO" in refs else None)
 
+    headroom = commit_headroom_gb()
+    if headroom is not None and headroom < COMMIT_NEEDED_GB:
+        sys.exit(
+            f"commit headroom {headroom:.1f} GB < {COMMIT_NEEDED_GB} GB needed by Chatterbox.\n"
+            "This is commit charge, not free RAM. Close TradingView, Chromium/Firefox apps and\n"
+            "orphan codex app-servers; if an esq run holds multi-GB commit, wait it out rather\n"
+            "than killing it. Rendering now would fail mid-sampling and waste the whole pass."
+        )
+
     import torch
     import torchaudio as ta
     from chatterbox.tts import ChatterboxTTS
 
     build = prod / "build"
     build.mkdir(parents=True, exist_ok=True)
+
+    # what the previous render actually spoke, so an edited section cannot ship stale audio
+    prior_sha = {}
+    meta_path = build / "sections.json"
+    if meta_path.is_file():
+        try:
+            prior_sha = {entry["wav"]: entry.get("textSha256")
+                         for entry in json.loads(meta_path.read_text(encoding="utf-8"))}
+        except (ValueError, TypeError, KeyError):
+            prior_sha = {}
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"[clone] loading Chatterbox on {device}", flush=True)
@@ -151,27 +236,44 @@ def main() -> int:
     gap = torch.zeros(1, int(GAP_S * sr))
 
     meta, full = [], []
+    pause = torch.zeros(1, int(JOIN_PAUSE_S * sr))
     for s in sections:
         out = build / section_wav_name(s, apollo_key)
-        if out.exists():  # same skip-existing contract as produce.stage_vo —
+        text_sha = hashlib.sha256(s["text"].encode("utf-8")).hexdigest()
+        recorded = prior_sha.get(out.name)
+        # a pre-sha sections.json records nothing, so trust those rather than force a full
+        # re-render; only a sha that EXISTS and differs means the script moved under the audio
+        stale = out.exists() and recorded is not None and recorded != text_sha
+        if out.exists() and not stale:  # same skip-existing contract as produce.stage_vo —
             audio, file_sr = ta.load(str(out))  # delete a wav to regenerate that section
             if file_sr != sr:
                 audio = ta.functional.resample(audio, file_sr, sr)
             print(f"[clone] section {s['num']} ({s['slug']}) exists, skip", flush=True)
         else:
+            if stale:
+                print(f"[clone] section {s['num']} ({s['slug']}) text changed since its wav "
+                      "-> re-rendering", flush=True)
             pieces = []
-            for block in s["blocks"]:
-                for c in chunk(block["text"]):
+            for block_idx, block in enumerate(s["blocks"]):
+                for chunk_idx, c in enumerate(chunk(block["text"])):
+                    # seed per chunk, not once per run: re-rendering ONE section has to
+                    # reproduce it, and a run-level seed makes that depend on what ran before
+                    torch.manual_seed(a.seed + 1_000_000 * int(s["num"])
+                                      + 1000 * block_idx + chunk_idx)
                     wav = model.generate(c, audio_prompt_path=str(refs[block["speaker"]]),
                                          exaggeration=a.exaggeration, cfg_weight=a.cfg)
-                    pieces.append(wav if wav.dim() == 2 else wav.unsqueeze(0))
-            audio = torch.cat(pieces, dim=1)
+                    pieces.append(trim_silence(wav if wav.dim() == 2 else wav.unsqueeze(0), sr))
+            joined = []
+            for piece in pieces:
+                joined.extend([piece, pause])
+            audio = torch.cat(joined[:-1], dim=1)
             ta.save(str(out), audio, sr)
             voices = "+".join(block["speaker"] for block in s["blocks"])
             print(f"[clone] section {s['num']} ({s['slug']}, {voices}) "
                   f"-> {audio.shape[1]/sr:.1f}s", flush=True)
         dur = audio.shape[1] / sr
-        meta.append({**s, "wav": out.name, "duration": round(dur, 3)})
+        meta.append({**s, "wav": out.name, "duration": round(dur, 3),
+                     "textSha256": text_sha, "seed": a.seed})
         full.extend([audio, gap])
 
     full_wav = torch.cat(full[:-1], dim=1)

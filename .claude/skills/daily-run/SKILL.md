@@ -80,7 +80,7 @@ Detail + scars: skill **post-approval-derivatives**.
 ## Failure playbook (tonight's proven fixes)
 | Symptom | Fix |
 |---------|-----|
-| Chatterbox segfault 0xC0000005 at load | close TradingView (needs ~4–5 GB free RAM), rerun runner |
+| Chatterbox segfault 0xC0000005 / OSError 1455 / tiny alloc fails mid-sampling | all one cause: **commit charge**, not free RAM (16 GB RAM + fixed 16 GB pagefile = 32 GB ceiling; Chatterbox needs ~8 GB headroom). `tts_chatterbox.py` now preflights this and refuses rather than dying mid-render. Close TradingView, Chromium/Firefox apps, orphan codex app-servers; serialize behind any esq run holding multi-GB commit |
 | Assembler: news clip shorter than beat | recut re-opened the holdSec contract — bump `news-shots.json` holdSec ≥ VO+2s, delete stale mp4s, `fetch_news_shots.mjs <sources.json> <prod-dir> --reuse-png` |
 | "production approval changed after operator approval" | file bytes drifted (e.g. git touched them) — re-mint: `daily_postclose.collect_gates` + `script_approval.machine_approve`, never hand-edit a receipt |
 | Master under 10:00 | extend with already-receipted unused claim facts, re-record only changed sections |
