@@ -1,8 +1,24 @@
 # Handoff — weekly-2026-07-25 render, off-MSI on a rented GPU — 2026-07-26
 
-> STATUS: **master built, one gate legitimately BLOCKs.** The video is rendered and the
-> narration is done. `audio_layer_gate` blocks because this cut has no SFX, and passing it
-> is an operator decision the gate exists to force. Nothing has been published.
+> **CORRECTION 2026-07-26 (read this first).** This file was written without knowing that
+> `d847edc` had already done the same job hours earlier, from the `/root/tc-weekly` worktree
+> on this same box. **The recap was rendered twice, on two separately rented GPUs.** Where
+> this file says a decision is pending, it is not: the operator declared the SFX reduction at
+> **07:38:51Z**, and `d847edc` landed a passing master with all four gates green. Everything
+> below describes the *second*, redundant run. It is kept because the two defects it found
+> are real and the fixes shipped — not because the render was needed.
+>
+> | | `d847edc` (first) | this run (second) |
+> |---|---|---|
+> | GPU | rented RTX 3060 | rented RTX 4060 Ti |
+> | master | 648.633 s, `sha256 39304156…` | 650.167 s, `sha256 91f5336c…` |
+> | captions | script-locked, 399 cues | faster-whisper ASR, 449 cues |
+> | gates | all four pass (override declared) | audio-layer BLOCKs (override not applied here) |
+>
+> Both are legitimate cuts of the same approved script. **`d847edc`'s is the one that passed
+> its gates — treat it as the master unless you prefer this one's real ASR caption timings.**
+>
+> STATUS of this run: master built, `audio_layer_gate` BLOCKs on absent SFX. Nothing published.
 
 ## Why the render moved off the MSI
 
@@ -68,17 +84,20 @@ gate names it:
 [audio-layer] BLOCK
 ```
 
-## The decision waiting on the operator
+## The decision — already made, before this run started
 
-The gate's own docstring: a reduced audio layer is *"an operator decision, not a pipeline
-one"*, declared in `build/audio-layer-override.json`. **That override has deliberately not
-been written** — writing it would forge the decision the gate exists to force.
+~~Waiting on the operator.~~ The SFX reduction was declared at **2026-07-26T07:38:51Z**, in
+`GTM/Videos/weekly-2026-07-25/audio-layer-override.json` in the ops vault:
 
-Two ways forward:
+> *"Ship without section SFX. `whoosh-short.mp3` and `impact-bass-1.mp3` live under the
+> gitignored OpenMontage engine checkout, which exists only on MSI… All 7 section
+> transitions are silent in this cut. Source the SFX before the next weekly."*
 
-1. **Ship this cut without SFX** — write the override, gate passes, master is ready.
-2. **Re-mux on the MSI** where the SFX live — `--stage assemble` only, using the narration
-   below. No TTS re-run, no GPU rental.
+That override was never copied into this run's `build/`, which is the only reason the gate
+still BLOCKs here. It is not a pending decision — it is a file in the wrong directory.
+
+**Still owed, and named by the operator's own note: source the SFX before the next weekly.**
+They exist only on the MSI, so every Linux-side render silently drops them until that moves.
 
 ## Artifacts (on the Linux box, not in git — `build/` is gitignored)
 
@@ -110,3 +129,15 @@ it over SSH from the MSI instead.
 - `/root/fw-recap` is a detached worktree of `tradercockpit` with an untracked `OpenMontage`
   symlink pointing at the local checkout. Remove the worktree when the artifacts are off the
   box: `git -C /root/tradercockpit worktree remove --force /root/fw-recap`.
+
+## Why the duplicate happened — worth fixing before the next lane run
+
+Both runs started from the same vault/branch state and neither could see the other. `d847edc`
+was committed from `/root/tc-weekly` at 09:39 local; this run's PR #8 was already open by
+then and merged at ~09:55, so git took both cleanly — no textual conflict, but two
+`audio-layer-receipt.json` writers in one function. The follow-up removes the redundant one.
+
+The board (`Board.md`) is a generated projection of `manager.db` on the MSI and carried no
+node for "Saturday recap render", so there was nothing for a second session to collide with.
+An in-flight marker for long unattended jobs would have prevented ~1.2 GPU-hours and a
+duplicated ~35-minute assemble.
