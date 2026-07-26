@@ -6,7 +6,6 @@ import importlib.util
 import json
 import os
 import re
-import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -31,7 +30,8 @@ for _env_path in filter(None, [
         break
 _KEYS_ENV = Path.home() / "Desktop" / "keys.env"
 if _KEYS_ENV.exists():
-    load_dotenv(_KEYS_ENV)
+    # Operator-held credentials supersede stale project-local values.
+    load_dotenv(_KEYS_ENV, override=True)
 
 try:
     from tools.credential_custody import load_meta_env
@@ -57,73 +57,18 @@ def youtube_readiness():
     return probe_auth()
 
 
-TIKTOK_CDP_URL = "http://127.0.0.1:9333/json/version"
-TIKTOK_CDP_SCRIPT = Path(__file__).resolve().parent / "handoff" / "tiktok_post_cdp.cjs"
-
-
 def tiktok_readiness():
-    """Official Content Posting API first; fall back to the operator's CDP session.
-
-    Operator ruling 2026-07-20: the CDP lane is the established, working TikTok path
-    and is authorized for publishing, superseding the earlier ops/SETUP-CREDS.md line
-    that excluded CDP uploads. The official API stays preferred because it read-backs;
-    CDP is used when the API lane has no credentials, which is the current state.
-    """
+    """Require the official Content Posting API and provider read-back."""
     from upload_tiktok import probe_auth
 
-    official = probe_auth()
-    if official.get("status") == "ready":
-        return {**official, "ready": True}
-
-    import urllib.request
-
-    try:
-        with urllib.request.urlopen(TIKTOK_CDP_URL, timeout=3):
-            pass
-    except Exception as error:  # noqa: BLE001 - any failure means the lane is unusable
-        return {"status": "blocked", "ready": False, "lane": "cdp",
-                "detail": f"official API unauthorized and no debug Chrome on 9333 ({error}). "
-                          "Start the logged-in debug profile to enable the CDP lane."}
-    if not TIKTOK_CDP_SCRIPT.exists():
-        return {"status": "blocked", "ready": False, "lane": "cdp",
-                "detail": f"missing {TIKTOK_CDP_SCRIPT}"}
-    return {"status": "ready", "ready": True, "lane": "cdp",
-            "detail": "publishing via operator's logged-in TikTok Studio session on port 9333"}
+    return probe_auth()
 
 
 def publish_tiktok(asset, caption):
-    """Post one clip. Official API when authorized, else drive TikTok Studio over CDP.
+    """Post one clip through TikTok's official API."""
+    from upload_tiktok import upload
 
-    The CDP script is proven and carries hard-won handling the API path never needed:
-    TikTok prefills the FILENAME into the caption box late, so it clear-verify-retries
-    before typing, verifies the caption survived before clicking Post, and detects the
-    case where TikTok published the filename anyway. Do not reimplement it here.
-    """
-    readiness = tiktok_readiness()
-    if readiness.get("status") != "ready":
-        return {"status": "blocked", "platformResponse": readiness}
-
-    if readiness.get("lane") != "cdp":
-        from upload_tiktok import upload
-
-        return upload(str(asset), caption)
-
-    result = subprocess.run(
-        ["node", str(TIKTOK_CDP_SCRIPT), str(asset), caption],
-        cwd=str(TIKTOK_CDP_SCRIPT.parent), capture_output=True, text=True, timeout=300,
-    )
-    output = (result.stdout or "") + (result.stderr or "")
-    # The script refuses to Post on a caption it could not clear or verify; those runs
-    # exit 0 with a "SKIPPING (not posting)" / "caption mismatch" line. Treat as failure.
-    if result.returncode != 0 or "SKIPPING (not posting)" in output or "caption mismatch" in output:
-        return {"status": "failed", "platformResponse": {"lane": "cdp", "log": output[-2000:]}}
-    published = "tiktokstudio/content" in output
-    return {
-        "status": "uploaded-unverified" if not published else "published-unverified",
-        "platformResponse": {"lane": "cdp", "log": output[-2000:],
-                             "note": "CDP lane has no API read-back; verify in TikTok Studio. "
-                                     "New-account posts sit in 'Only me / under review' until cleared."},
-    }
+    return upload(str(asset), caption)
 
 
 def meta_readiness(channel):
@@ -166,7 +111,11 @@ def meta_readiness(channel):
         status = status or probe(os.environ[target_key], os.environ["META_PAGE_TOKEN"])
     except (requests.RequestException, ValueError):
         status = "verification-error"
-    return {"status": status or "valid", "ready": status is None}
+    if status:
+        return {"status": status, "ready": False}
+    if channel == "instagram":
+        return b2_readiness()
+    return {"status": "valid", "ready": True}
 
 
 def readiness_report():
@@ -193,9 +142,9 @@ def _b2_client():
     import boto3
     from botocore.config import Config
 
-    key_id = os.getenv("B2_KEY_ID") or os.getenv("AWS_ACCESS_KEY_ID")
-    app_key = os.getenv("B2_APP_KEY") or os.getenv("AWS_SECRET_ACCESS_KEY")
-    endpoint = os.getenv("B2_S3_ENDPOINT") or os.getenv("B2_ENDPOINT_URL")
+    key_id = os.getenv("AWS_ACCESS_KEY_ID") or os.getenv("B2_KEY_ID")
+    app_key = os.getenv("AWS_SECRET_ACCESS_KEY") or os.getenv("B2_APP_KEY")
+    endpoint = os.getenv("B2_ENDPOINT_URL") or os.getenv("B2_S3_ENDPOINT")
     bucket = os.getenv("B2_BUCKET")
     if not all([key_id, app_key, bucket, endpoint]):
         raise RuntimeError("Instagram needs B2 staging credentials")
@@ -207,10 +156,23 @@ def _b2_client():
     ), bucket
 
 
+def b2_readiness():
+    """Prove the Instagram staging credential against the configured bucket."""
+    try:
+        s3, bucket = _b2_client()
+        s3.head_bucket(Bucket=bucket)
+    except Exception:  # noqa: BLE001 - every provider or custody failure blocks upload
+        return {"status": "staging-verification-error", "ready": False}
+    return {"status": "valid", "ready": True}
+
+
 def b2_stage(video_path):
     s3, bucket = _b2_client()
     key = f"openmontage-staging/{Path(video_path).name}"
-    s3.upload_file(str(video_path), bucket, key)
+    try:
+        s3.upload_file(str(video_path), bucket, key)
+    except Exception as error:  # noqa: BLE001 - do not leak credential identifiers
+        raise RuntimeError("Instagram B2 staging failed") from None
     return s3.generate_presigned_url(
         "get_object", Params={"Bucket": bucket, "Key": key}, ExpiresIn=6 * 3600
     ), key
@@ -284,10 +246,13 @@ def publish_facebook(video_path, caption):
     readback = graph_check(requests.get(
         f"{GRAPH}/{video_id}", params={"fields": "id,permalink_url", "access_token": token}
     ))
-    if readback.get("id") != video_id or not readback.get("permalink_url"):
+    permalink = readback.get("permalink_url")
+    if readback.get("id") != video_id or not permalink:
         raise RuntimeError("Facebook returned no matching post read-back")
+    if permalink.startswith("/"):
+        permalink = f"https://www.facebook.com{permalink}"
     return {
-        "status": "published", "id": video_id, "url": readback["permalink_url"],
+        "status": "published", "id": video_id, "url": permalink,
         "platformResponse": {"finish": finish, "readback": readback},
     }
 

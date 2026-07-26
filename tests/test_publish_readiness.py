@@ -63,7 +63,7 @@ def make_v2(folder, channel="youtube", status="approved", caption_mode=None):
         "channel": channel,
         "status": status,
         "title": "Approved title",
-        "copy": "Approved copy",
+        "copy": "Approved copy. Research tooling, not financial advice. No performance is promised or implied.",
         "asset": asset.relative_to(ROOT).as_posix(),
         "claimsGate": claims.relative_to(ROOT).as_posix(),
         "productionApproval": production_approval.relative_to(ROOT).as_posix(),
@@ -177,13 +177,21 @@ class OtherReadinessTests(unittest.TestCase):
         with patch.object(publish, "module_available", return_value=False):
             self.assertEqual("dependency-missing", publish.youtube_readiness()["status"])
 
-    def report(self, env, boto3):
+    def test_tiktok_readiness_has_no_unverified_fallback(self):
+        absent = {"status": "absent", "ready": False, "readback": False}
+        with patch.object(upload_tiktok, "probe_auth", return_value=absent):
+            self.assertEqual(absent, publish.tiktok_readiness())
+
+    def report(self, env, boto3, b2=None):
         blocked = {"status": "absent", "ready": False}
+        b2 = b2 or {"status": "valid", "ready": True}
         response = type("Response", (), {"json": lambda self: {"id": "verified"}})()
         with patch.dict(os.environ, env, clear=True), patch.object(
             publish, "youtube_readiness", return_value=blocked
         ), patch.object(publish, "tiktok_readiness", return_value=blocked), patch.object(
             publish, "module_available", side_effect=lambda name: boto3 if name == "boto3" else False
+        ), patch.object(
+            publish, "b2_readiness", return_value=b2
         ), patch.object(publish.requests, "get", return_value=response):
             return publish.readiness_report()
 
@@ -200,6 +208,11 @@ class OtherReadinessTests(unittest.TestCase):
         }
         self.assertFalse(self.report(complete, boto3=False)["instagram"]["ready"])
         self.assertTrue(self.report(complete, boto3=True)["instagram"]["ready"])
+        blocked = {"status": "staging-verification-error", "ready": False}
+        self.assertEqual(
+            "staging-verification-error",
+            self.report(complete, boto3=True, b2=blocked)["instagram"]["status"],
+        )
         del complete["B2_S3_ENDPOINT"]
         self.assertFalse(self.report(complete, boto3=True)["instagram"]["ready"])
 
@@ -229,6 +242,34 @@ class OtherReadinessTests(unittest.TestCase):
         self.assertFalse(report["facebook"]["ready"])
         self.assertEqual("app-blocked", report["instagram"]["status"])
         self.assertFalse(report["instagram"]["ready"])
+
+    def test_facebook_relative_permalink_becomes_stable_url(self):
+        class Response:
+            def __init__(self, payload):
+                self.payload = payload
+
+            def json(self):
+                return self.payload
+
+        with tempfile.TemporaryDirectory() as folder:
+            video = Path(folder) / "clip.mp4"
+            video.write_bytes(b"video")
+            posts = [
+                Response({"video_id": "123", "upload_url": "https://upload.test"}),
+                Response({"success": True}),
+                Response({"success": True}),
+            ]
+            with patch.dict(os.environ, {
+                "META_PAGE_ID": "page", "META_PAGE_TOKEN": "token"
+            }), patch.object(
+                publish.requests, "post", side_effect=posts
+            ), patch.object(
+                publish.requests, "get",
+                return_value=Response({"id": "123", "permalink_url": "/reel/123/"}),
+            ):
+                result = publish.publish_facebook(video, "caption")
+
+        self.assertEqual("https://www.facebook.com/reel/123/", result["url"])
 
 
 class BatchAndPublicationTests(unittest.TestCase):
