@@ -9,7 +9,7 @@ Deterministic contract (operator 2026-07-21: repeatable, LLM-agnostic, own gates
   2. Editorial input = derivatives-plan.json in the production dir (writer-authored, like
      vo.txt; selection is editorial, execution is deterministic):
        {"segments": [{"section": "01", "offset": 0, "duration": 35,
-                      "label": "hook-bounce-failed", "anchor": "right", "layout": "crop",
+                      "label": "hook-bounce-failed", "anchor": "right", "layout": "chart",
                       "title": "<=100 chars, no '>'", "copy": "hook ... exact disclaimer"}]}
      Max 2 segments (YouTube 6-uploads/day quota discipline). Segment start is DERIVED:
      the captions.srt cue whose text opens the named section, plus offset — no whisper
@@ -44,6 +44,7 @@ HERE = Path(__file__).resolve().parent
 HUB = HERE.parent
 CLIPPER = HUB / "studio-kit" / "clipper" / "clip.js"
 MAX_SEGMENTS = 2
+SAFE_LAYOUTS = {"fit", "chart"}
 
 sys.path.insert(0, str(HERE))
 from script_style_gate import audit_text  # noqa: E402
@@ -83,6 +84,22 @@ def run(cmd: list[str], env_extra: dict | None = None) -> None:
     result = subprocess.run(cmd, env=env)
     if result.returncode != 0:
         sys.exit(f"command failed ({result.returncode}): {' '.join(str(part) for part in cmd)}")
+
+
+def derivative_layout(segment: dict) -> str:
+    """Fail closed on lossy full-height crops.
+
+    `fit` preserves a complete general frame. `chart` adds a readable current-bar
+    close-up without discarding the full chart. A plain crop cannot prove the
+    symbol identity and referenced bar remain visible together.
+    """
+    layout = str(segment.get("layout", "chart")).strip().lower()
+    if layout not in SAFE_LAYOUTS:
+        raise ValueError(
+            f"segment {segment.get('label', '<unlabeled>')}: layout {layout!r} is forbidden; "
+            "use 'chart' for market charts or 'fit' for a complete general frame"
+        )
+    return layout
 
 
 def main() -> int:
@@ -140,6 +157,10 @@ def main() -> int:
                      + "; ".join(b["type"] for b in report["blocked"]))
         if ">" in seg["title"]:
             sys.exit(f"segment {seg['label']}: YouTube rejects '>' in titles (invalidTitle scar)")
+        try:
+            derivative_layout(seg)
+        except ValueError as error:
+            sys.exit(str(error))
 
     # 3. cut — one clipper run per segment, per-production output dir
     shorts.mkdir(exist_ok=True)
@@ -154,9 +175,9 @@ def main() -> int:
             {"start": round(start, 2), "duration": float(seg["duration"]), "label": seg["label"]}
         ]}), encoding="utf-8")
         run(["node", str(CLIPPER), str(master), "--mode", "script", "--script", str(seg_file),
-             "--srt", str(captions), "--output", str(shorts), "--clips", "1", "--reframe"],
+            "--srt", str(captions), "--output", str(shorts), "--clips", "1", "--reframe"],
             env_extra={"CLIP_ANCHOR": seg.get("anchor", "right"),
-                       "CLIP_LAYOUT": seg.get("layout", "crop"),
+                       "CLIP_LAYOUT": derivative_layout(seg),
                        "CLIP_CLEAN_VERTICAL": "1"})
         rendered = sorted(shorts.glob(f"clip-001-{seg['label']}.vertical.mp4"))
         if not rendered:

@@ -67,17 +67,16 @@ operator-preferred reference corpus. Extract habits; do not copy sentences.
 - A signature line may land once. It must not become the vocabulary of every section.
 - End on the level, event, or condition that changes the thesis; add the CTA afterward.
 
-### Operator + Apollo script contract
+### Daily narration contract — operator only
 
-Use `## NN slug [APOLLO]` for a whole Apollo section. Untagged sections default to `OPERATOR`.
-Use `### APOLLO` and `### OPERATOR` inside a section when a handoff occurs without changing the
-visual section. Apollo carries news, official records, statistics, receipts, and the catalyst
-calendar; the Operator carries charts, levels, conditions, and judgment. Keep handoffs to six
-words or fewer and do not repeat the other speaker's point.
+Every daily-news section uses the operator voice from
+`productions/_voice/operator-clean.wav`. Do not add `[APOLLO]`, `### APOLLO`, or another narrator
+to a daily script. Hybrid Operator/Apollo narration belongs only to the separate Show lane under
+its own Show Bible and ruling; it does not apply to daily or weekly market recaps.
 
-The role split is an editorial contract, not a parser rule. An exact Apollo candidate file needs
-operator approval before duo TTS, and the exact `vo.txt` hash needs its own separate approval before
-any pilot narration or render. Voice approval never substitutes for script approval.
+`tools/tts_chatterbox.py` enforces this for `daily-*` folders: stale speaker tags are normalized to
+`OPERATOR`, and `--apollo-ref` is rejected. The exact `vo.txt` hash still requires operator
+approval before narration or render.
 
 Run the advisory style audit before narration:
 
@@ -157,6 +156,13 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
      even if the levels are correct. Do NOT re-attempt price-scale pinning — `setPriceRangeInPrice`
      takes internal units, not prices, and blanks the pane (reverted 2026-07-21; `pane.resetPriceScale()`
      recovers a blanked pane).
+   - **Symbol + current-bar visibility (operator ruling 2026-07-23):** every captured chart must
+     show a readable full instrument description/ticker and the newest referenced candle at the
+     same time. `tv_ta_capture.py` promotes TradingView's live symbol description into the
+     right-side safe area; failure to read that description blocks capture. A vertical chart uses
+     `layout: "chart"` (full approved frame plus a right-edge current-bar close-up). General
+     visuals use `layout: "fit"`. A plain `crop` is forbidden in the derivative lane. Inspect the
+     rendered 9:16 pixels; a declaration or source frame is not proof.
    - Symbols whose futures/CFD feed has already reopened (energy after ~20:00 ET, rates/indices
      after ~18:00 ET) will show Monday's settled candle PLUS a small live stub and a live-value
      header. Acceptable only if attested in the run notes; fully avoidable by capturing before the
@@ -253,6 +259,8 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    `visual_qa.gate()` now defaults to the production's own `shorts/` dir (the shared
    `studio-kit/clipper/output/` default remains only for legacy productions — stale clips
    from an old video blocked the 2026-07-20 long-form there).
+   Chart derivatives default to `layout: "chart"`; `tools/cut_derivatives.py` rejects lossy
+   `crop` plans so neither Sol nor Claude Code can silently cut off the symbol or latest bar.
    If verticals breach the bottom
    safe zone at y≈1772 (bottom margin ~148px), the burn path skipped the fixed caption style
    (`MarginV=64` in clip.js → bottom ≈1493) — fix the style path before re-cutting; do not

@@ -3,9 +3,9 @@
 // viewport, bypassing the short CDP webview (seen 1989x329 after an unmaximized
 // relaunch — the `tv screenshot` region then renders a thin strip, useless for 16:9).
 //
-// Emulation.setDeviceMetricsOverride (via puppeteer setViewport) forces the RENDER
-// size regardless of the OS window, so the chart reflows tall. Then clip to the
-// biggest canvas (the chart pane) so toolbars/sidebars are excluded.
+// Clear stale viewport emulation before capturing the Electron window's real compositor
+// surface. Fail closed when the live window is too short for a usable chart. Then clip
+// to the biggest canvas (the chart pane) so toolbars/sidebars are excluded.
 //
 //   node tools/visuals/cdp_chart_shot.mjs <out.png> [width] [height]
 import puppeteer from './puppeteer.mjs'
@@ -13,16 +13,37 @@ const argv = process.argv.slice(2).filter((a) => a !== '--fit')
 const FIT = process.argv.includes('--fit')  // Alt+R refit: ONLY on the first call after
 // a viewport change. It can pop the "Continue your last replay?" modal, and resuming
 // a SAVED replay switches the chart to the saved SYMBOL (hijacked an SPX shot to Brent).
-const [out, W = '2560', H = '1440'] = argv
+const [out] = argv
 if (!out) { console.error('usage: cdp_chart_shot.mjs <out.png> [w] [h] [--fit]'); process.exit(1) }
 
 const AD = `(()=>{let n=0;for(const f of document.querySelectorAll('iframe[src*="safeframe"],iframe[src*="googlesyn"],iframe[src*="doubleclick"]')){let x=f;for(let i=0;i<6&&x.parentElement;i++){const cs=getComputedStyle(x.parentElement);if(cs.position==='fixed'||cs.position==='absolute'){x=x.parentElement}else break}x.style.display='none';n++}return n})()`
 
-const browser = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9222', defaultViewport: null })
+console.error('[cdp-shot] connect')
+const browser = await puppeteer.connect({
+  browserURL: 'http://127.0.0.1:9222',
+  defaultViewport: null,
+  protocolTimeout: 10000,
+})
+console.error('[cdp-shot] connected')
 try {
-  const pages = await browser.pages()
-  const page = pages.find((p) => /\/chart\//.test(p.url())) || pages[0]
-  await page.setViewport({ width: +W, height: +H, deviceScaleFactor: 1 })
+  // TradingView Desktop exposes several internal/empty renderer targets. browser.pages()
+  // waits while Puppeteer materializes every one of them, so one wedged renderer can stall
+  // an otherwise healthy chart capture. Resolve only the live chart target.
+  const target = browser.targets().find((candidate) => /\/chart\//.test(candidate.url()))
+  if (!target) throw new Error('TradingView chart target not found on CDP :9222')
+  console.error('[cdp-shot] chart target')
+  const page = await target.page()
+  if (!page) throw new Error('TradingView chart target did not resolve to a page')
+  console.error('[cdp-shot] chart page')
+  await page.bringToFront()
+  const cdp = await page.createCDPSession()
+  await cdp.send('Emulation.clearDeviceMetricsOverride')
+  await new Promise((r) => setTimeout(r, 800))
+  const viewport = await page.evaluate(() => ({ width: innerWidth, height: innerHeight }))
+  if (viewport.width < 1200 || viewport.height < 700) {
+    throw new Error(`TradingView chart viewport too small: ${viewport.width}x${viewport.height}`)
+  }
+  console.error(`[cdp-shot] viewport ${viewport.width}x${viewport.height}`)
   // park pointer off the chart canvas — a hovering crosshair swaps the OHLC header
   // to the hovered bar and draws a dashed crosshair into the shot; (5,5) hovers the
   // account button and pops its tooltip, so use empty toolbar space instead
@@ -59,7 +80,12 @@ try {
   // onto the canvas during the reflow sleeps and repaint a crosshair
   await page.mouse.move(800, 15)
   await new Promise((r) => setTimeout(r, 300))
-  await page.screenshot({ path: out, ...(box ? { clip: box } : { fullPage: false }) })
+  await page.screenshot({
+    path: out,
+    captureBeyondViewport: false,
+    ...(box ? { clip: box } : { fullPage: false }),
+  })
+  console.error('[cdp-shot] screenshot')
   console.log('shot', out, box ? `${Math.round(box.width)}x${Math.round(box.height)}` : 'fullview')
 } finally {
   await browser.disconnect()

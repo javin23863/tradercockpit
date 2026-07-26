@@ -159,6 +159,7 @@ const APPROVED_SHOT_HOSTS = [
   'aljazeera.com', 'wsj.com', 'ft.com', 'cnbc.com', 'npr.org', 'bbc.com', 'bbc.co.uk',
   'usnews.com', 'washingtonpost.com', 'cnn.com', 'abcnews.go.com', 'nbcnews.com',
   'federalreserve.gov', 'eia.gov', 'sec.gov', 'prnewswire.com', 'businesswire.com',
+  'ir.supermicro.com', 'gevernova.com',
 ]
 const hostAllowed = (url) => {
   const h = new URL(url).hostname.replace(/^www\./, '')
@@ -264,6 +265,9 @@ if (args.includes('--selftest')) {
   }
   if ('clip' in screenshotOptions('selftest.png')) {
     throw new Error('source-card screenshots must use the centered 16:9 viewport')
+  }
+  if (!hostAllowed('https://ir.supermicro.com/release') || !hostAllowed('https://www.gevernova.com/news')) {
+    throw new Error('official company-primary sources must stay on the approved roster')
   }
   console.log('NEWS FIT SELFTEST PASS')
   process.exit(0)

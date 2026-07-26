@@ -235,21 +235,39 @@ async function reframeVertical(videoPath, seg, srtSlicePath, outFile) {
   // square pixels so the final DAR is exactly 9:16.
   const cw = 'trunc(ih*9/16/2)*2';
   const cropX = process.env.CLIP_ANCHOR === 'right' ? `iw-${cw}` : `(iw-${cw})/2`;
-  const layout = process.env.CLIP_LAYOUT === 'fit' ? 'fit' : 'crop';
+  const requestedLayout = process.env.CLIP_LAYOUT;
+  const layout = requestedLayout === 'fit' || requestedLayout === 'chart' ? requestedLayout : 'crop';
   // Full-frame fit is the safe path for article cards, maps, and multi-chart cockpit panels.
   // It keeps the entire approved 16:9 composition proportional inside a moving, darkened
   // duplicate background; captions stay in the lower vertical safe zone instead of covering
   // the evidence. Crop remains the default for source footage that was approved for a punch-in.
-  const vf = layout === 'fit'
-    ? `split=2[bg0][fg0];` +
+  const fitVf = `split=2[bg0][fg0];` +
       `[bg0]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,gblur=sigma=44,eq=brightness=-0.34:saturation=0.55,drawgrid=w=120:h=120:t=1:c=0xFF1744@0.10,drawbox=x=0:y=0:w=16:h=ih:color=0xFF1744@0.90:t=fill[bg];` +
       `[fg0]scale=1040:-2,pad=iw+8:ih+8:4:4:color=0xFF1744[fg];` +
       `[bg][fg]overlay=16:350,` +
       `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='TRADERCOCKPIT':fontcolor=white:fontsize=42:x=48:y=88,` +
       `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='PRESSURE CHAIN // DAILY MARKET MAP':fontcolor=0xFF1744:fontsize=24:x=48:y=150,` +
       `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='@thetradercockpit':fontcolor=white@0.72:fontsize=24:x=w-tw-48:y=h-86,` +
-      `setsar=1`
-    : `crop=${cw}:ih:${cropX}:0,scale=1080:1920,setsar=1`;
+      `setsar=1`;
+  // Chart-safe 9:16 shows the complete approved frame and a simultaneous,
+  // magnified right-edge view. The full panel preserves the symbol identity;
+  // the close-up makes the newest candle and price axis readable on a phone.
+  // It is intentionally additive: no chart evidence exists only inside a crop.
+  const chartVf = `split=3[bg0][full0][current0];` +
+      `[bg0]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,gblur=sigma=44,eq=brightness=-0.36:saturation=0.50,drawgrid=w=120:h=120:t=1:c=0xFF1744@0.10,drawbox=x=0:y=0:w=16:h=ih:color=0xFF1744@0.90:t=fill[bg];` +
+      `[full0]scale=1040:-2,pad=iw+8:ih+8:4:4:color=0xFF1744[full];` +
+      `[current0]crop=iw*0.55:ih:iw-iw*0.55:0,scale=1040:-2,pad=iw+8:ih+8:4:4:color=0xFF1744[current];` +
+      `[bg][full]overlay=16:238[withfull];` +
+      `[withfull][current]overlay=16:840,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='TRADERCOCKPIT':fontcolor=white:fontsize=42:x=48:y=54,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='FULL CHART + CURRENT BAR':fontcolor=0xFF1744:fontsize=24:x=48:y=116,` +
+      `drawtext=fontfile='C\\:/Windows/Fonts/arialbd.ttf':text='@thetradercockpit':fontcolor=white@0.72:fontsize=24:x=w-tw-48:y=h-44,` +
+      `setsar=1`;
+  const vf = layout === 'fit'
+    ? fitVf
+    : layout === 'chart'
+    ? chartVf
+    : `crop=${cw}:ih:${cropX}:0,scale=1040:1848,pad=1080:1920:20:36:color=black,setsar=1`;
   const subs = layout === 'fit'
     ? `,subtitles='${subPath}':force_style='${fitStyle}'`
     : `,subtitles='${subPath}':force_style='${style}'`;

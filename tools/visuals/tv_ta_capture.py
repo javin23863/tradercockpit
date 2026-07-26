@@ -38,6 +38,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 HUB = HERE.parents[1]
 CDP_SHOT = HERE / "cdp_chart_shot.mjs"
+CDP_SHOT_TIMEOUT_S = 45
 SETTLE_SYMBOL_S = 5   # data load after symbol/timeframe switch
 SETTLE_DRAW_S = 1.5
 
@@ -58,6 +59,29 @@ WHITE_JS = ("(()=>{try{const w=TradingViewApi._chartWidgetCollection.activeChart
             "'paneProperties.horzGridProperties.color':'#E8E8E8',"
             "'scalesProperties.textColor':'#131722'});return 'white'}"
             "catch(e){return 'ERR '+e.message}})()")
+
+# A 16:9 chart is later repurposed into 9:16. TradingView's native identity lives
+# at the far left, while the current bar and price axis live at the far right; a
+# vertical crop cannot show both. Promote the live symbol description into the
+# right-side safe area before capture so every downstream frame keeps an accurate,
+# readable identity without relying on an editor to retype it.
+CHART_IDENTITY_JS = ("(()=>{try{const c=TradingViewApi._chartWidgetCollection.activeChartWidget.value();"
+                     "const i=c.model().mainSeries().symbolInfo()||{};"
+                     "const d=String(i.description||i.short_description||i.name||'').trim();"
+                     "const t=String(i.name||'').trim();"
+                     "if(!d)throw new Error('symbol description unavailable');"
+                     "const label=t&&t.toLowerCase()!==d.toLowerCase()?`${d} (${t})`:d;"
+                     "let el=document.getElementById('tradercockpit-chart-identity');"
+                     "if(!el){el=document.createElement('div');el.id='tradercockpit-chart-identity';"
+                     "document.body.appendChild(el)}"
+                     "Object.assign(el.style,{position:'fixed',top:'54px',right:'180px',zIndex:'2147483647',"
+                     "maxWidth:'840px',padding:'10px 16px',background:'rgba(255,255,255,.96)',"
+                     "borderLeft:'6px solid #FF1744',boxShadow:'0 2px 10px rgba(0,0,0,.16)',"
+                     "color:'#111827',font:'700 30px/1.15 Arial,sans-serif',whiteSpace:'nowrap',"
+                     "overflow:'hidden',textOverflow:'ellipsis',pointerEvents:'none'});"
+                     "el.textContent=label;return label}catch(e){return 'ERR '+e.message}})()")
+REMOVE_CHART_IDENTITY_JS = ("(()=>{const el=document.getElementById('tradercockpit-chart-identity');"
+                            "if(el)el.remove();return 'removed'})()")
 
 sys.path.insert(0, str(HERE))
 from fetch_tv_charts import TV_CLI, record_chart_capture, tv  # noqa: E402  (same CLI bridge + receipt writer)
@@ -109,6 +133,23 @@ def remove_drawings(ids: list[str], dry: bool) -> None:
             tv(["draw", "remove", "--id", sid], dry)
         except SystemExit:
             print(f"  [warn] failed to remove drawing {sid} — remove manually")
+
+
+def show_chart_identity(dry: bool) -> None:
+    result = tv(["ui", "eval", "--js", CHART_IDENTITY_JS], dry)
+    if dry:
+        return
+    value = str(result.get("result", ""))
+    if not value or value.startswith("ERR "):
+        sys.exit(f"chart identity overlay failed closed: {value or 'empty result'}")
+
+
+def remove_chart_identity(dry: bool) -> None:
+    try:
+        tv(["ui", "eval", "--js", REMOVE_CHART_IDENTITY_JS], dry)
+    except SystemExit:
+        if not dry:
+            print("  [warn] failed to remove chart identity overlay — remove manually")
 
 
 def concat_clips(clips: list[Path], out: Path) -> None:
@@ -197,6 +238,7 @@ def main() -> int:
             "(()=>{try{TradingViewApi._chartWidgetCollection.activeChartWidget.value()"
             ".applyOverrides({'scalesProperties.fontSize':17});return 'font'}"
             "catch(e){return 'ERR '+e.message}})()"], a.dry_run)
+        show_chart_identity(a.dry_run)
         if not a.dry_run:
             time.sleep(1)
 
@@ -217,6 +259,7 @@ def main() -> int:
                 subprocess.run(
                     ["node", str(CDP_SHOT), str(png), "2560", "1440", "--dsf", "2"],
                     check=True,
+                    timeout=CDP_SHOT_TIMEOUT_S,
                 )
                 captured_at = datetime.now(timezone.utc)
                 clip = work / f"{name}.mp4"
@@ -224,6 +267,7 @@ def main() -> int:
                 clips.append(clip)
         finally:
             remove_drawings(drawn, a.dry_run)
+            remove_chart_identity(a.dry_run)
 
         if not a.dry_run:
             concat_clips(clips, out_mp4)
