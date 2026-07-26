@@ -425,7 +425,28 @@ def stage_assemble(prod: Path):
     cmd += [*encoder_args(19, "p5"), "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k", "-ar", MASTER_AR, "-ac", MASTER_AC,
             "-shortest", str(build / "master.mp4")]
+    # The receipt has to mean "the master beside me completed under this layer", and
+    # ffmpeg truncates master.mp4 the moment it starts. So drop the old receipt BEFORE
+    # the run and write the new one only after it returns 0: any interruption in
+    # between leaves a replaced master with no receipt, and audio_layer_gate is
+    # fail-closed, so that BLOCKs. Keeping the stale one instead would PASS whatever
+    # ffmpeg left on disk — a truncated file, or a cut with a different audio layer.
+    receipt = build / "audio-layer-receipt.json"
+    receipt.unlink(missing_ok=True)
     subprocess.run(cmd, check=True, cwd=build, capture_output=True)
+    # What actually reached the mix. audio_layer_gate cannot tell a full sound layer
+    # from a silently dropped one without this; every skip above is silent anyway
+    # (pick_music logs, a missing SFX file does not).
+    receipt.write_text(json.dumps({
+        "music": music.name if music else None,
+        "musicGainDb": round(music_gain, 1) if music_gain is not None else None,
+        "sectionBoundaries": len(boundaries),
+        "sfxDir": str(SFX_DIR),
+        "sfxDirPresent": SFX_DIR.is_dir(),
+        "whoosh": whoosh.name if whoosh_idx is not None else None,
+        "impact": impact.name if impact_idx is not None else None,
+        "layered": any(i is not None for i in (music_idx, whoosh_idx, impact_idx)),
+    }, indent=1), encoding="utf-8")
     log(f"master: {build / 'master.mp4'}")
 
 

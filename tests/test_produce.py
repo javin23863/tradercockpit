@@ -4,6 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tools.audio_layer_gate import RECEIPT, evaluate
 from tools.produce import (DELIVERY_LOUDNORM, DELIVERY_LUFS, VO_MASTER_FILTER, VO_MASTER_LUFS,
                            allocate_frame_counts, build_sound_filter, parse_sections,
                            section_starts, stage_assemble, stage_master, stage_shorts)
@@ -139,6 +140,47 @@ class VoMasteringTests(unittest.TestCase):
         # the bed is mixed on top, so VO at the delivery target would push the mix over it
         self.assertLess(VO_MASTER_LUFS, DELIVERY_LUFS)
         self.assertIn(f"I={VO_MASTER_LUFS}", VO_MASTER_FILTER)
+
+
+class AudioLayerReceiptTests(unittest.TestCase):
+    """The gate is fail-closed on a file assemble has to write.
+
+    audio_layer_gate shipped reading build/audio-layer-receipt.json before anything
+    wrote one, so the step could only ever BLOCK — no render reached it to notice.
+    These pin both halves of that contract: assemble writes the file, and the keys
+    it writes are the keys the gate reads.
+    """
+
+    def test_assemble_writes_the_file_the_gate_is_fail_closed_on(self):
+        self.assertIn(RECEIPT, inspect.getsource(stage_assemble))
+
+    def test_the_receipt_brackets_the_mux_rather_than_preceding_it(self):
+        # ffmpeg truncates master.mp4 as it starts, so a receipt that outlives a failed
+        # mux describes a master that is no longer there — and the standalone gate,
+        # reading fields only, PASSes whatever ffmpeg left on disk. Dropping it first
+        # and rewriting it last means an interrupted run leaves none, which BLOCKs.
+        src = inspect.getsource(stage_assemble)
+        mux = src.rindex("subprocess.run(cmd")   # rindex: the per-beat loop runs one too
+        self.assertLess(src.index("receipt.unlink"), mux)
+        self.assertLess(mux, src.index("receipt.write_text"))
+
+    def test_a_full_layer_passes_and_each_silent_drop_blocks(self):
+        full = {"music": "bed.mp3", "sectionBoundaries": 7, "sfxDir": "/sfx",
+                "sfxDirPresent": True, "whoosh": "whoosh-short.mp3",
+                "impact": "impact-bass-1.mp3", "layered": True}
+        self.assertEqual("PASS", evaluate(full)[0])
+        for key in ("music", "sfxDirPresent", "whoosh", "impact", "layered"):
+            with self.subTest(dropped=key):
+                self.assertEqual("BLOCK", evaluate({**full, key: None})[0])
+
+    def test_the_keys_assemble_writes_are_the_keys_the_gate_reads(self):
+        # field-name drift between the two files is exactly how a green gate would
+        # start meaning nothing — catch it in source, not in a shipped master
+        src = inspect.getsource(stage_assemble)
+        for key in ("music", "sectionBoundaries", "sfxDir", "sfxDirPresent",
+                    "whoosh", "impact", "layered"):
+            with self.subTest(key=key):
+                self.assertIn(f'"{key}":', src)
 
 
 if __name__ == "__main__":
