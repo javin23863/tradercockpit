@@ -384,6 +384,21 @@ def stage_assemble(prod: Path):
     if boundaries and impact.is_file():
         cmd += ["-i", str(impact)]
         impact_idx, next_idx = next_idx, next_idx + 1
+    # What actually reached the mix, recorded before ffmpeg runs. audio_layer_gate
+    # is fail-closed on this file: no receipt means it cannot tell a full sound
+    # layer from a silently dropped one, so it BLOCKs. Every skip above is silent
+    # (pick_music logs; a missing SFX file does not), and this is where that stops.
+    (build / "audio-layer-receipt.json").write_text(json.dumps({
+        "music": music.name if music else None,
+        "musicGainDb": round(music_gain, 1) if music_gain is not None else None,
+        "sectionBoundaries": len(boundaries),
+        "sfxDir": str(SFX_DIR),
+        "sfxDirPresent": SFX_DIR.is_dir(),
+        "whoosh": whoosh.name if whoosh_idx is not None else None,
+        "impact": impact.name if impact_idx is not None else None,
+        "layered": any(i is not None for i in (music_idx, whoosh_idx, impact_idx)),
+    }, indent=1), encoding="utf-8")
+
     sound = build_sound_filter(vo_idx, total_s, boundaries, music_idx, music_gain,
                                whoosh_idx, impact_idx)
     audio_map = "[aout]"      # build_sound_filter always returns a chain
