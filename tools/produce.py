@@ -408,15 +408,19 @@ def stage_assemble(prod: Path):
     cmd += [*encoder_args(19, "p5"), "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k", "-ar", MASTER_AR, "-ac", MASTER_AC,
             "-shortest", str(build / "master.mp4")]
+    # The receipt has to mean "the master beside me completed under this layer", and
+    # ffmpeg truncates master.mp4 the moment it starts. So drop the old receipt BEFORE
+    # the run and write the new one only after it returns 0: any interruption in
+    # between leaves a replaced master with no receipt, and audio_layer_gate is
+    # fail-closed, so that BLOCKs. Keeping the stale one instead would PASS whatever
+    # ffmpeg left on disk — a truncated file, or a cut with a different audio layer.
+    receipt = build / "audio-layer-receipt.json"
+    receipt.unlink(missing_ok=True)
     subprocess.run(cmd, check=True, cwd=build, capture_output=True)
-    # What actually reached the mix. Written only after ffmpeg returns 0, so the
-    # receipt attests to a master that exists rather than to one we intended: a
-    # receipt left behind by a failed run would let a later standalone gate call
-    # PASS the previous master, which is the failure this gate exists to stop.
-    # audio_layer_gate is fail-closed on this file -- no receipt means it cannot
-    # tell a full sound layer from a silently dropped one, so it BLOCKs. Every
-    # skip above is silent (pick_music logs; a missing SFX file does not).
-    (build / "audio-layer-receipt.json").write_text(json.dumps({
+    # What actually reached the mix. audio_layer_gate cannot tell a full sound layer
+    # from a silently dropped one without this; every skip above is silent anyway
+    # (pick_music logs, a missing SFX file does not).
+    receipt.write_text(json.dumps({
         "music": music.name if music else None,
         "musicGainDb": round(music_gain, 1) if music_gain is not None else None,
         "sectionBoundaries": len(boundaries),
