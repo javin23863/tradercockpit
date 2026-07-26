@@ -1,101 +1,40 @@
-# TraderCockpit
+# TraderCockpit — marketing site
 
-This repo owns the **TraderCockpit media operation**: market analysis, long-form videos,
-vertical cuts, publishing, and the marketing site. A market story goes in; a sourced video,
-shorts, thumbnail, and platform copy come out. Trust-first: the consumer product is never
-pitched on air.
+This repository serves the public TraderCockpit landing page via GitHub Pages, and nothing else.
 
-The future consumer-product repository owns runtime behavior, releases, pricing,
-platform support, and checkout. This repo may display those facts only through
-`docs/product-manifest.v1.json`; it does not reimplement or redefine the product.
+- **Site:** <https://javin23863.github.io/tradercockpit/>
+- **Channel:** [@Thetradercockpit](https://youtube.com/@Thetradercockpit)
 
-Channel: [@Thetradercockpit](https://youtube.com/@Thetradercockpit) · Landing: <https://javin23863.github.io/tradercockpit/>
+Everything published here lives under `docs/`.
 
----
+## What is in here
 
-## Read these first (they govern everything)
-
-| Doc | What it decides |
+| Path | What it is |
 |---|---|
-| **`MARKET-ANALYSIS-DOCTRINE.md`** | *How we analyze a market.* Fixed watchlist, shock taxonomy, transmission map, cross-asset confirmation, scenario protocol, and the 7-question brainstorm that every script is written from. Makes two different writers produce the same analysis. |
-| **`BRAND.md`** | *How we look and sound.* Red `#FF1744` on black, monospace, gauge mark; thumbnail rules; profile copy. |
-| **`GROWTH-AUTHORITY-PLAYBOOK.md`** | *How each platform is played.* Per-platform doctrine sourced to the recognized authority (Galloway / Mosseri / TikTok Creator Portal / Graham Stephan). |
-| **`GROWTH-EXPERIMENT-SYSTEM.md`** | *How ideas become measured learning.* Reusable audience/angle/hook/format/offer libraries, one-variable experiment cards, and the kill/iterate/reuse gate across social acquisition and the future consumer handoff. |
+| `docs/index.html` | the landing page (Pages publishing source) |
+| `docs/product-manifest.v1.json` | the ONLY source of product availability, pricing, platform support and checkout state |
+| `docs/prelaunch-config.v1.json` | pre-launch surface configuration |
+| `docs/confirmed.html`, `docs/thanks.html` | waitlist confirmation pages |
+| `docs/refund-policy.html`, `docs/strategy-claim-audit-checklist.html` | published policy pages |
+| `.github/workflows/public-surface-allowlist.yml` | the check that keeps this repo public-safe |
 
-The skills below treat these as mandatory inputs. Change the doctrine, and every future video changes with it.
+## The rule this repo enforces
 
-All social-media asset requests first pass through the project skill
-[`tradercockpit-free-media`](.agents/skills/tradercockpit-free-media/SKILL.md). It enforces the
-$0 incremental-spend boundary, keeps generated art separate from evidence, and preserves the
-operator gate on publishing.
+**Only `docs/` (plus repo plumbing) may live here.** This repository is PUBLIC, so anything
+committed to it is disclosed permanently — deleting a file later does not undisclose it, because
+the history remains fetchable.
 
-## Making a video
+`public-surface-allowlist.yml` fails the build when the tree contains anything outside the
+allowlist. That check exists because this repo previously carried the entire media operation —
+growth doctrine, ops runbooks, publish tooling, production media, session handoffs — in public.
+That content now lives in the private `tradercockpit-ops` repository.
 
-```powershell
-# Claude Code: the skill drives the whole pipeline
-/daily-news-video            # or: "make today's video about <story>"
-```
-
-It runs: `market-analysis` (→ `analysis-brief.md`) → fact pack → script + `claims.yaml` →
-**claims gate (blocking)** → TradingView chart capture → Godseye b-roll → cloned VO →
-captions → assemble → shorts → thumbnail → publish. Detail:
-[`.claude/skills/daily-news-video/SKILL.md`](.claude/skills/daily-news-video/SKILL.md).
-
-Underneath, the stages are `tools/produce.py <prod> --stage vo|captions|assemble|shorts`
-(engine venv: `OpenMontage\.venv\Scripts\python.exe`).
-
-**The verticals recipe of record is `tools/handoff/recut_shorts.cjs`**, not `produce.py --stage shorts`
-— the latter center-crops and cuts the price axis off the charts. See handoff scars 10-15.
-
-**Quality floor:** `productions/video-02-hormuz-v4/` is the reference build (script, claims,
-receipts, charts). Anything below it is a regression.
-
-## Publishing
-
-```powershell
-& $py tools\publish.py <video.mp4> --title "..." --caption "..." `
-    --platforms youtube instagram facebook tiktok --thumbnail <prod>\thumb.png
-```
-
-Public uploads are operator-gated. Credentials: [`ops/SETUP-CREDS.md`](ops/SETUP-CREDS.md).
-TikTok's uploader library is broken against current Chrome; the working path is CDP
-(`tools/handoff/tiktok_post_cdp.cjs` — see the handoff).
+If you need to add something here, ask first whether it is meant to be readable by anyone on the
+internet, forever. If not, it belongs in the private repo.
 
 ## Product boundary
 
-The landing page (`docs/index.html`) is the marketing surface, served by GitHub Pages. Product
-availability, pricing, platform support, and checkout come only from
-`docs/product-manifest.v1.json`. Keep the funnel honest: no pitch in the VO, link in the
-description only.
-
-The current manifest is a non-transactional waitlist placeholder. It names **Apollo** only as
-the assistant concept: local-first voice, ontology-grounded answers, free composition/preview,
-and one confirmation before a verdict-producing full battery. The consumer repo must publish
-those capabilities as verified before this site may present them as available.
-
-## Layout
-
-```
-BRAND.md, GROWTH-AUTHORITY-PLAYBOOK.md, MARKET-ANALYSIS-DOCTRINE.md   the doctrine (root = first-class)
-.claude/skills/     daily-news-video (pipeline) · market-analysis (the brainstorm) · godseye-footage (b-roll)
-.agents/skills/      Codex free-media router · local Open Generative AI operator · thin canonical-skill bridges
-tools/              produce.py, publish.py, claims_gate.py, visuals/ (charts, news shots, brand, thumbnails)
-tools/handoff/      the scripts that recovered/replaced live posts — CDP drivers, recut, platform replace
-productions/        one dir per video: vo.txt, claims.yaml, receipts, charts, shorts  (v4 = the baseline)
-docs/               the landing page (GitHub Pages) — the marketing surface
-design/helios/      immutable Helios v27 visual/motion reference and integration-gap receipt
-ops/                setup + SEO runbooks (creds, Meta/YouTube/social SEO, studio-kit wiring)
-handoffs/           dated session handoffs — read the newest before you touch anything live
-studio-kit/         extracted ai-video-studio-kit (clipper, generators)
-archive/            superseded: the pre-pivot strategy, video-01, the universal-skill runtimes, postiz
-OpenMontage/        the engine + its venv (gitignored — clone separately)
-Open-Generative-AI/ local-only Electron still-image studio (gitignored — clone separately)
-```
-
-Knowledge base (outside this repo): `C:\Users\MSI\Desktop\TraderCockpit-Vault` — read `_meta/hot.md`.
-
-## State
-
-Current live URLs, what's been replaced, and the hard-won scars (aspect-ratio traps, TikTok
-caption prefill, YouTube scopes, Meta tokens) live in **[`handoffs/2026-07-14.md`](handoffs/2026-07-14.md)**.
-Read it before touching anything already published.
+The landing page is a marketing surface only. Product availability, pricing, platform support and
+checkout come from `docs/product-manifest.v1.json` and are never reimplemented or redefined in
+page markup. The current manifest is a non-transactional waitlist placeholder: capabilities must
+be published as verified by the product repository before this site may present them as available.

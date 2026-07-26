@@ -1,0 +1,63 @@
+# public-surface-allowlist — fails if any tracked file sits outside the allowlist below.
+# Intended as a REQUIRED STATUS CHECK (job name: "allowlist") once branch protection is
+# enabled on this PUBLIC repo. A required check gates PR merges but NOT direct pushes —
+# pair with "Require a pull request before merging" + "Do not allow bypassing".
+#
+# NOTE: this check is EXPECTED RED until the E18 move (see E18-MOVE-MANIFEST.md) removes
+# everything outside the allowlist. Do not mark it required before the move merges.
+name: public-surface-allowlist
+
+on:
+  push:
+  pull_request:
+
+# ---------------------------------------------------------------------------
+# ALLOWLIST — the only paths permitted in this public repo.
+# Entries ending in "/" allow the whole directory; others are exact files.
+#   docs/           GitHub Pages publishing source (site is served from /docs on main;
+#                   no CNAME and no .nojekyll exist — the site uses the default
+#                   javin23863.github.io/tradercockpit domain and needs neither)
+#   .github/        this workflow and any future repo plumbing
+#   .gitattributes  byte-contract ("* -text") — docs/ JSON manifests rely on stable bytes
+#   .gitignore      repo plumbing
+#   README.md       public repo landing page (operator may veto; see manifest)
+# ---------------------------------------------------------------------------
+env:
+  ALLOWLIST: |
+    docs/
+    .github/
+    .gitattributes
+    .gitignore
+    README.md
+
+jobs:
+  allowlist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: tree must contain only allowlisted paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Exact prefix/file matching against the ALLOWLIST data above.
+          # No regex: "docs/" allows only paths starting with the literal "docs/",
+          # bare entries must match the whole path byte-for-byte.
+          violations=""
+          while IFS= read -r f; do
+            ok=""
+            while IFS= read -r p; do
+              [ -z "$p" ] && continue
+              case "$p" in
+                */) case "$f" in "$p"*) ok=1 ;; esac ;;
+                *)  [ "$f" = "$p" ] && ok=1 ;;
+              esac
+            done <<< "$ALLOWLIST"
+            [ -z "$ok" ] && violations="$violations$f"$'\n'
+          done < <(git ls-files)
+          if [ -n "$violations" ]; then
+            echo "::error::tracked files outside the public-surface allowlist:"
+            printf '%s' "$violations"
+            printf 'count: %s\n' "$(printf '%s' "$violations" | wc -l)"
+            exit 1
+          fi
+          echo "OK: all $(git ls-files | wc -l) tracked files are within the allowlist"
