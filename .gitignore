@@ -65,3 +65,16 @@ productions/*/qa-sol/
 
 # ta-work/ = per-stage chart-capture intermediates (tv_ta_capture.py), regenerable
 productions/*/ta-work/
+
+# _runs/ = daily-lane wrapper transcripts (multi-MB agent logs per run), receipts not source
+productions/_runs/
+
+# generated media, round 3 (2026-07-27 salvage) — weekly-lane layouts the earlier patterns miss
+# _original-*/ = archived pre-recut masters + VO takes · vo-finetuned/ = fine-tuned VO takes
+# ta-work-live/ = live chart-capture intermediates (successor layout to ta-work/)
+# small receipts in these dirs (sections.json, captions.srt, live-capture-receipts.json) stay tracked
+productions/*/_original-*/*.mp4
+productions/*/_original-*/*.wav
+productions/*/vo-finetuned/*.wav
+productions/*/ta-work-live/*.mp4
+productions/*/ta-work-live/*.png
