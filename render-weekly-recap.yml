@@ -1,0 +1,153 @@
+name: render-weekly-recap
+
+# Manual only. This never fires on push or PR — the single self-hosted runner is the
+# esq fast-suite gate, and stealing it implicitly would cost ~16 minutes from whichever
+# branch is next in line. Dispatch it deliberately, when the queue is clear.
+#
+# Why it lives in this repo at all: msi-desktop is registered here, not on tradercockpit.
+# The job does not build or test futures — it renders a tradercockpit video on the GPU,
+# because Chatterbox needs CUDA and the Linux box has none (measured: 13.5 s/sampling
+# step x 1000 steps x 44 chunks = ~165 hours on CPU).
+#
+# It NEVER writes to the operator's working tree. It adds a detached worktree, renders
+# there, uploads the master as an artifact, and removes the worktree in an always() step.
+
+on:
+  workflow_dispatch:
+    inputs:
+      production:
+        description: production folder name under productions/
+        required: true
+        default: weekly-2026-07-25
+      branch:
+        description: tradercockpit branch to render
+        required: true
+        default: lenox/weekly-2026-07-25
+      tc_root:
+        description: operator's tradercockpit checkout
+        required: true
+        default: 'C:\Users\MSI\Documents\tradercockpit'
+      vault_root:
+        description: ops vault checkout (supplies the verified chart stills)
+        required: true
+        default: 'C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit'
+
+concurrency:
+  group: render-weekly-recap
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: [self-hosted, windows, esq]
+    timeout-minutes: 90
+    steps:
+      - name: claim an isolated worktree
+        shell: pwsh
+        run: |
+          $tc = '${{ inputs.tc_root }}'
+          if (-not (Test-Path $tc)) { throw "tradercockpit checkout not found: $tc" }
+          $wt = "$env:RUNNER_TEMP\vidrender"
+          if (Test-Path $wt) { git -C $tc worktree remove --force $wt 2>$null; Remove-Item -Recurse -Force $wt -EA SilentlyContinue }
+          git -C $tc fetch origin '${{ inputs.branch }}' --quiet
+          # --detach: the branch may already be checked out elsewhere, and a plain
+          # `worktree add` refuses in that case (vastai-fanout scar).
+          git -C $tc worktree add --detach $wt FETCH_HEAD
+          "WT=$wt" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "TC=$tc" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Write-Host "worktree at $wt -> $(git -C $wt rev-parse --short HEAD)"
+
+      - name: bring in gitignored inputs (voice, engine, charts)
+        shell: pwsh
+        run: |
+          $p = "$env:WT\productions\${{ inputs.production }}"
+          New-Item -ItemType Directory -Force -Path "$env:WT\productions\_voice","$p\ta-work","$p\visuals","$p\build" | Out-Null
+
+          $ref = "$env:TC\productions\_voice\operator-clean.wav"
+          if (-not (Test-Path $ref)) { throw "operator voice reference missing: $ref" }
+          Copy-Item $ref "$env:WT\productions\_voice\operator-clean.wav" -Force
+
+          # engine + its CUDA venv are gitignored; reuse the operator's, read-only
+          cmd /c mklink /J "$env:WT\OpenMontage" "$env:TC\OpenMontage" | Out-Null
+
+          $charts = '${{ inputs.vault_root }}\GTM\Videos\${{ inputs.production }}\charts'
+          if (-not (Test-Path $charts)) { throw "verified chart stills not found: $charts" }
+          Copy-Item "$charts\*.png" "$p\ta-work\" -Force
+          Write-Host "stills: $((Get-ChildItem "$p\ta-work\*.png").Count)"
+
+      - name: re-encode the verified stills to 1080p clips
+        shell: pwsh
+        run: |
+          $p = "$env:WT\productions\${{ inputs.production }}"
+          Get-ChildItem "$p\ta-work\*.png" | ForEach-Object {
+            $out = "$p\visuals\$($_.BaseName).mp4"
+            ffmpeg -y -loglevel error -loop 1 -i $_.FullName -t 10 `
+              -vf "scale=-2:1080,pad=1920:1080:(ow-iw)/2:0:black,format=yuv420p" `
+              -r 30 -c:v h264_nvenc -cq 19 -preset p5 $out
+            if ($LASTEXITCODE -ne 0) { throw "encode failed: $($_.Name)" }
+          }
+          Write-Host "clips: $((Get-ChildItem "$p\visuals\*.mp4").Count)"
+
+      - name: gates must still pass on this box
+        shell: pwsh
+        run: |
+          cd $env:WT
+          py tools\claims_gate.py "productions\${{ inputs.production }}"
+          if ($LASTEXITCODE -ne 0) { throw "claims gate BLOCK" }
+          py tools\script_style_gate.py "productions\${{ inputs.production }}" --out "productions\${{ inputs.production }}\build\script-style-audit.json"
+          if ($LASTEXITCODE -ne 0) { throw "style gate BLOCK" }
+
+      - name: narration (Chatterbox, GPU)
+        shell: pwsh
+        run: |
+          cd $env:WT
+          OpenMontage\.venv-chatterbox\Scripts\python.exe tools\tts_chatterbox.py "productions\${{ inputs.production }}"
+          if ($LASTEXITCODE -ne 0) { throw "TTS failed" }
+
+      - name: captions, editorial gate, assemble
+        shell: pwsh
+        run: |
+          cd $env:WT
+          py tools\produce.py "productions\${{ inputs.production }}" --stage captions
+          if ($LASTEXITCODE -ne 0) { throw "captions failed" }
+          py tools\editorial_gate.py "productions\${{ inputs.production }}"
+          if ($LASTEXITCODE -ne 0) { throw "editorial gate BLOCK" }
+          py tools\produce.py "productions\${{ inputs.production }}" --stage assemble
+          if ($LASTEXITCODE -ne 0) { throw "assemble failed" }
+
+      - name: the sound layer must not have silently dropped
+        shell: pwsh
+        run: |
+          cd $env:WT
+          py tools\audio_layer_gate.py "productions\${{ inputs.production }}"
+          if ($LASTEXITCODE -ne 0) { throw "audio layer gate BLOCK — narration-only master" }
+
+      - name: master receipt
+        shell: pwsh
+        run: |
+          $m = "$env:WT\productions\${{ inputs.production }}\build\master.mp4"
+          if (-not (Test-Path $m)) { throw "no master produced" }
+          ffprobe -v error -show_entries format=duration,size -show_entries stream=width,height,codec_name -of default=nw=1 $m
+          Write-Host "sha256: $((Get-FileHash $m -Algorithm SHA256).Hash)"
+
+      - name: upload master + build receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-master
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            ${{ env.WT }}\productions\${{ inputs.production }}\build\master.mp4
+            ${{ env.WT }}\productions\${{ inputs.production }}\build\*.json
+            ${{ env.WT }}\productions\${{ inputs.production }}\build\captions.srt
+
+      - name: release the worktree
+        if: always()
+        shell: pwsh
+        run: |
+          if ($env:WT -and (Test-Path $env:WT)) {
+            cmd /c rmdir "$env:WT\OpenMontage" 2>$null
+            git -C $env:TC worktree remove --force $env:WT 2>$null
+            git -C $env:TC worktree prune
+          }
+          Write-Host "operator working tree untouched throughout"
