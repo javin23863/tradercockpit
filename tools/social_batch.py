@@ -31,6 +31,14 @@ SCENE_PLAN_SCHEMA = "tradercockpit-scene-plan/v1"
 SYNTHETIC_KIND_WORDS = {"generated", "synthetic"}
 NON_SYNTHETIC_KINDS = {
     "news", "official-footage", "source-chart-sequence", "tradingview", "tradingview-sequence",
+    # titlecard: typography rendered deterministically by ffmpeg drawtext onto a solid
+    # colour — no model, no sampling, no imagery. Introduced 2026-07-27 for the weekly
+    # opening card, whose only content is receipted figures and the video title.
+    # Classified explicitly rather than left to the conservative default, which is what
+    # the check above asks for. NOTE: this classification covers VISUALS only; the
+    # narration on this lane is a cloned voice and that disclosure is a platform-side
+    # setting, not something this flag represents.
+    "titlecard",
 }
 
 
