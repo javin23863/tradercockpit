@@ -1,7 +1,7 @@
 # Handoff — Teaching Series lane (on-camera playlist) — 2026-07-24
 
-> STATUS 2026-07-24: **BRAINSTORM / NOT RATIFIED.** Concept + script machinery built this wave.
-> Nothing scheduled, nothing published, no episode started. Operator explicitly halted
+> STATUS 2026-07-24: **E1 WORKING DRAFT / NOT RATIFIED / NOT FILMING-READY.**
+> Nothing scheduled, filmed, or published. Operator explicitly halted
 > finalization: *"We are not finalizing anything. This is still brainstorming."*
 > Doctrine + lane SoT = ops vault `GTM/Teaching Series — Concept Brainstorm 2026-07-24.md`.
 > This file is the repo-side implementation view only.
@@ -27,8 +27,31 @@ Daily news lane and weekly recap continue unchanged and remain the floor.
 | Codex bridge stub | `.agents/skills/series-script/SKILL.md` |
 | Visual reference exemplars (6, operator-supplied) | `productions/_series/visual-refs/` |
 | Lane doctrine + topic slate + open calls | ops vault `GTM/Teaching Series — Concept Brainstorm 2026-07-24.md` |
+| E1 working script + evidence package | `productions/series-01-backtest-is-not-a-strategy/` |
+| Shared working package + receipt index | `productions/_series/packaging-spec.md`, `productions/_series/receipt-library.md` |
 
-No code was written. No gates were modified. No production directory was created.
+No code or gate was modified. The E1 production directory contains drafting artifacts only.
+
+## E1 working direction — operator correction applied
+
+- Title: **You Don’t Have a Trading Strategy — You Have a Backtest**
+- Thumbnail: **DON’T TRADE THIS**
+- Opening thesis: a green backtest is a replay of old prices, not proof that an idea is ready for
+  real money.
+- Story: one moving-average idea runs through the green-line trap, the written plan, the
+  `NOT READY` card, Version A/Version B, old versus hidden prices, matching screens, and live fake
+  money. Monte Carlo remains a later tool and is not taught in E1.
+- Delivery: operator on camera. Chatterbox and voice-clone capture are parked.
+- Filming document: each scene contains the exact speech, why it is spoken, the matching screen
+  action, and the exact filming instructions.
+- Validation: claims gate PASS (9 sections, 4 claims, 0 receipts); style gate PASS (9 sections,
+  1361 words, advisory warnings only); `vo.txt` matches all nine `SAY THIS` blocks; independent
+  beginner-language critic reports no blockers; thumbnail-rule self-test 13/13 PASS.
+- Demand: **BLOCKED / UNMEASURED** because the authenticated `social_analytics.py hotdog`
+  command returned `RuntimeError: YouTube credential is not currently valid`.
+- Demonstration: the current card sequence is a construction exercise, not the required
+  unknown-result experiment. Filming needs an operator-authorized governed test on rented compute
+  or an explicit manifesto-episode waiver.
 
 ## The script process (10 stages, canonical detail in the skill)
 
@@ -74,12 +97,12 @@ against (`gate-before-trust`: an unfired gate is untrusted).
 
 ## Next step when the operator resumes
 
-Blocked on operator calls, not on tooling. In order:
+Blocked on operator calls and the invalid demand credential. In order:
 
-1. **E1 pick** — arc opener (thesis-pure, low search demand) vs highest-demand concept episode
-   (prop-firm math / the Monte Carlo lie) with the doctrine threaded in.
-2. Series name + known-intro ident design.
-3. Then, and only then: run `series-script` stages 1–4 and hand the operator the capture prompt.
+1. Operator read-aloud and approval or revision of the E1 working script.
+2. Authorize one exact governed unknown-result test, or explicitly waive it for manifesto E1.
+3. Repair the authenticated YouTube credential and rerun the official Hot Dog demand screen.
+4. Series name + known-intro ident design remain unratified.
 
 Full open list (cadence, episode length, Pine/MT5 handoff boundary, gate graduation) is in the
 vault brainstorm note.
