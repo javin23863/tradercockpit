@@ -1,0 +1,24 @@
+{
+  "schema": "social-batch/v2",
+  "batchId": "weekly-2026-07-25-recut",
+  "containsSyntheticMedia": false,
+  "items": [
+    {
+      "id": "youtube-long-weekly-2026-07-25-recut",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/weekly-2026-07-25/build/master-recut-live.mp4",
+      "claimsGate": "productions/weekly-2026-07-25/build/claims-gate.json",
+      "productionApproval": "productions/weekly-2026-07-25/production-approval.json",
+      "title": "The Oil Shock Nobody Bought",
+      "thumbnail": "productions/weekly-2026-07-25/thumb.png",
+      "captionMode": "native",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "copy": "Brent ran 11.8% this week and closed at 98.69, after attacks on two Saudi oil tankers put a second shipping route at risk. Crude settled above 100 dollars on Thursday and was back underneath it by Friday.\n\nThe part that matters is what did not happen. Energy producers captured 3.36% of an 11.8% move in the barrel. Volatility closed the week lower than it opened. The S&P 500 fell. Four instruments had every reason to confirm a supply shock, and each one declined to.\n\nThursday's settlement at 100.69 is the level to hold onto. It was the cleanest chance all week to turn a headline into something structural, and it did not take.\n\nChapters\n0:00 The take\n0:46 What the barrel actually did\n2:42 Where the confirmation broke\n4:35 What volatility was doing the whole time\n6:14 The tape underneath\n8:15 The one bid that was real\n9:16 What would tell me I am wrong\n10:16 Next week\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+      "reviewedBy": "operator",
+      "reviewedAt": "2026-07-26T18:08:32Z",
+      "approvalSha256": "a4380931b364670665cdae6c2e17dc80ac723c2a3e95fb5d18fff7b842a32b04"
+    }
+  ]
+}

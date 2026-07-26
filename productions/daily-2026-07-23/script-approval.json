@@ -1,0 +1,8 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/daily-2026-07-23/vo.txt",
+  "scriptSha256": "79f748e7250c99f02e441d5aadb494117f0dc8ec657c332de75222c3ad1e864b",
+  "reviewedBy": "operator (approved exact narration after on-screen review in Codex)",
+  "reviewedAt": "2026-07-23T23:26:43Z"
+}

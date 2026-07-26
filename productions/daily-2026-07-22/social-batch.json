@@ -1,0 +1,24 @@
+{
+  "schema": "social-batch/v2",
+  "batchId": "daily-2026-07-22-postclose",
+  "containsSyntheticMedia": false,
+  "items": [
+    {
+      "id": "youtube-long-daily-2026-07-22",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/daily-2026-07-22/build/master.mp4",
+      "claimsGate": "productions/daily-2026-07-22/build/claims-gate.json",
+      "productionApproval": "productions/daily-2026-07-22/production-approval.json",
+      "title": "Infrastructure Split: SMCI Surged as GEV Sank",
+      "thumbnail": "productions/daily-2026-07-22/thumb.png",
+      "captionMode": "native",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "operator (Codex task; instructed 'publish public on YouTube' after reviewing the staged release package)",
+      "reviewedAt": "2026-07-23T04:49:53Z",
+      "approvalSha256": "42a8625635620697ac694874ee3092c3822809afabb0ac0e791ac6d79e74ba11",
+      "copy": "Super Micro Computer surged 19.84% while the Nasdaq 100 fell 0.54%. GE Vernova dropped 8.69% while the Industrial Select Sector SPDR ETF finished up 0.11%. The July 22 close priced two company-specific reactions inside one infrastructure theme.\n\nThis post-close breakdown walks SMCI's 28.50–32.2844 decision range, the Nasdaq 100 control at 29,176.9139, GEV's 985.03 close and 1,038.985 recovery test, plus the S&P 500 and VIX confirmation.\n\nPrimary sources:\nSupermicro investor relations: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx\nGE Vernova investor relations: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial\nCharts: TradingView settled daily bars for July 22, 2026.\n\n0:00 Infrastructure split\n0:53 Supermicro update\n1:48 SMCI chart levels\n2:42 Nasdaq 100 control\n3:48 GE Vernova results\n4:26 GEV chart levels\n5:21 Industrial sector control\n6:28 S&P 500 and VIX\n7:36 Why the basket split\n8:45 Three scenarios\n10:12 What comes next\n11:01 Levels that change the thesis\n\nSubscribe for the next post-close read: https://www.youtube.com/@Thetradercockpit\n\nThe dispersion thesis weakens if SMCI closes below 28.50 or GEV reclaims 1,038.985 and then 1,068.97.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+    }
+  ]
+}

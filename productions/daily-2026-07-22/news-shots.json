@@ -1,0 +1,20 @@
+[
+  {
+    "out": "02-smci-release",
+    "url": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx",
+    "highlights": [
+      "more than $60 billion"
+    ],
+    "holdSec": 100,
+    "label": "SUPER MICRO COMPUTER  JULY 21, 2026"
+  },
+  {
+    "out": "05-gev-release",
+    "url": "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial",
+    "highlights": [
+      "Orders of $24.2 billion"
+    ],
+    "holdSec": 100,
+    "label": "GE VERNOVA  JULY 22, 2026"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "schema": "tradercockpit-news-source-plan/v1",
+  "cutoff": "2026-07-26T00:45:00Z",
+  "lead": "Weekly review 2026-07-20..24: Brent runs 11.80% on Houthi attacks against two Saudi tankers in the Red Sea, settles above $100 Thursday, and closes back under it Friday while energy equities, volatility and the index all decline to confirm.",
+  "sources": [
+    {
+      "role": "primary",
+      "publisher": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/7/22/yemens-houthis-claim-attack-on-two-saudi-oil-tankers",
+      "publishedAt": "2026-07-22",
+      "retrievedAt": "2026-07-26T00:45:00Z",
+      "use": "Framing source for the supply event. Houthi military spokesperson Yahya Saree claimed attacks on two Saudi oil tankers, the Encelia and the Layla, in the Red Sea, using 'ballistic and cruise missiles, as well as drones', for 'violation of the blockade decision issued by the armed forces'. UK Maritime Trade Operations recorded a fire from 'an unknown projectile'; the Saudi Press Agency reported all crew on the Encelia safe. The attacks followed the Houthi maritime blockade declared against Saudi Arabia on 2026-07-20."
+    },
+    {
+      "role": "primary",
+      "publisher": "Associated Press",
+      "url": "https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838",
+      "publishedAt": "2026-07-23",
+      "retrievedAt": "2026-07-25T20:15:00Z",
+      "use": "Thursday settlement and closing market context: Brent settled at 100.69; the S&P 500 fell as the VIX rose; XLE and Occidental surrendered most of their opening gaps. Carried in our own published receipt for 2026-07-23 (YouTube -Txh01-jcd0)."
+    },
+    {
+      "role": "corroborating",
+      "publisher": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/7/23/oil-surges-past-100-in-a-first-since-may-as-middle-east-conflicts-rage",
+      "publishedAt": "2026-07-23",
+      "retrievedAt": "2026-07-26T00:45:00Z",
+      "use": "Second source that Brent moved above $100 for the first time since May, corroborating the AP settlement figure. Promotes the $100 event from single_source to verified."
+    },
+    {
+      "role": "levels",
+      "publisher": "TradingView (chart feed)",
+      "url": "internal://tradingview/weekly-bars-2026-07-25",
+      "publishedAt": "2026-07-25",
+      "retrievedAt": "2026-07-25T21:40:00Z",
+      "use": "Every price level spoken in the script comes off the completed weekly bar, receipted in ohlcv-weekly-2026-07-25.json and visible in the six captures. News supplies events; the chart supplies levels."
+    }
+  ],
+  "notes": [
+    "Framing source declared for the production approval: Al Jazeera.",
+    "Section 122 tariff expiry on 2026-07-24 remains unresolved and is spoken on air as an open question."
+  ]
+}

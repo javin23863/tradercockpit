@@ -1,0 +1,1671 @@
+1
+00:00:00,000 --> 00:00:01,536
+The market just paid nearly
+
+2
+00:00:01,536 --> 00:00:03,243
+twenty percent for Super Micro
+
+3
+00:00:03,243 --> 00:00:05,064
+Computer and charged almost nine
+
+4
+00:00:05,064 --> 00:00:06,600
+percent for GE Vernova. The
+
+5
+00:00:06,600 --> 00:00:08,250
+Nasdaq 100 slipped about half
+
+6
+00:00:08,250 --> 00:00:09,901
+a percent. The industrial ETF
+
+7
+00:00:09,901 --> 00:00:11,437
+barely moved. That split is
+
+8
+00:00:11,437 --> 00:00:13,429
+the whole session. Supermicro sells
+
+9
+00:00:13,429 --> 00:00:15,193
+the computing boxes; GE Vernova
+
+10
+00:00:15,193 --> 00:00:16,729
+supplies the power and grid
+
+11
+00:00:16,729 --> 00:00:19,005
+equipment behind them. Wednesday's close
+
+12
+00:00:19,005 --> 00:00:20,883
+priced their risks separately. My
+
+13
+00:00:20,883 --> 00:00:22,988
+read is simple: basket-level exposure
+
+14
+00:00:22,988 --> 00:00:25,834
+lost explanatory power. Company-specific repricing
+
+15
+00:00:25,834 --> 00:00:28,224
+took over. Supermicro's preliminary update
+
+16
+00:00:28,224 --> 00:00:30,215
+created a violent repricing against
+
+17
+00:00:30,215 --> 00:00:31,410
+a weak Nasdaq 100. GE
+
+18
+00:00:31,410 --> 00:00:33,345
+Vernova reported strong growth and
+
+19
+00:00:33,345 --> 00:00:35,109
+raised guidance, then closed at
+
+20
+00:00:35,109 --> 00:00:36,133
+the low of the day
+
+21
+00:00:36,133 --> 00:00:38,182
+while the industrial sector finished
+
+22
+00:00:38,182 --> 00:00:39,718
+flat. Broad fear faded into
+
+23
+00:00:39,718 --> 00:00:41,027
+the bell. That gives us
+
+24
+00:00:41,027 --> 00:00:42,791
+a clean portfolio question. Are
+
+25
+00:00:42,791 --> 00:00:44,612
+these moves expanding into their
+
+26
+00:00:44,612 --> 00:00:46,262
+indexes, or are they isolated
+
+27
+00:00:46,262 --> 00:00:47,855
+gaps that need fresh company
+
+28
+00:00:47,855 --> 00:00:49,619
+evidence to survive? The answer
+
+29
+00:00:49,619 --> 00:00:50,928
+sits in the levels each
+
+30
+00:00:50,928 --> 00:00:52,920
+name printed on July twenty-second.
+
+31
+00:00:53,370 --> 00:00:55,707
+Supermicro released an unaudited preliminary
+
+32
+00:00:55,707 --> 00:00:57,726
+fiscal fourth-quarter update after the
+
+33
+00:00:57,726 --> 00:00:59,479
+prior session. The company placed
+
+34
+00:00:59,479 --> 00:01:00,754
+revenue near the low end
+
+35
+00:01:00,754 --> 00:01:04,207
+of its eleven-to-twelve-and-a-half-billion-dollar guidance range.
+
+36
+00:01:04,207 --> 00:01:05,376
+That was the soft part
+
+37
+00:01:05,376 --> 00:01:06,757
+of the release. The margin
+
+38
+00:01:06,757 --> 00:01:08,723
+estimate changed the tone. Supermicro
+
+39
+00:01:08,723 --> 00:01:10,476
+estimated GAAP and non-GAAP gross
+
+40
+00:01:10,476 --> 00:01:12,442
+margins between fifteen and seventeen
+
+41
+00:01:12,442 --> 00:01:14,089
+percent. Its prior guidance had
+
+42
+00:01:14,089 --> 00:01:15,311
+been eight point two to
+
+43
+00:01:15,311 --> 00:01:16,905
+eight point four percent. That
+
+44
+00:01:16,905 --> 00:01:18,870
+sharply changed the economics implied
+
+45
+00:01:18,870 --> 00:01:20,252
+by the update. The company
+
+46
+00:01:20,252 --> 00:01:21,792
+also reported more than sixty
+
+47
+00:01:21,792 --> 00:01:23,333
+billion dollars in new orders
+
+48
+00:01:23,333 --> 00:01:25,192
+and backlog. Management warned that
+
+49
+00:01:25,192 --> 00:01:26,468
+orders can be delayed or
+
+50
+00:01:26,468 --> 00:01:28,114
+cancelled, so backlog is demand
+
+51
+00:01:28,114 --> 00:01:29,974
+visibility rather than cash already
+
+52
+00:01:29,974 --> 00:01:32,418
+collected. Final fiscal fourth-quarter results
+
+53
+00:01:32,418 --> 00:01:34,224
+are scheduled for August eleventh.
+
+54
+00:01:34,224 --> 00:01:36,243
+The combination mattered: revenue near
+
+55
+00:01:36,243 --> 00:01:37,677
+the lower edge of guidance,
+
+56
+00:01:37,677 --> 00:01:39,484
+a much stronger preliminary margin
+
+57
+00:01:39,484 --> 00:01:40,918
+range, and a backlog figure
+
+58
+00:01:40,918 --> 00:01:42,299
+large enough to change the
+
+59
+00:01:42,299 --> 00:01:44,159
+debate. The release established the
+
+60
+00:01:44,159 --> 00:01:46,124
+business facts. The completed session
+
+61
+00:01:46,124 --> 00:01:47,984
+established what investors paid for
+
+62
+00:01:47,984 --> 00:01:48,250
+them.
+
+63
+00:01:48,700 --> 00:01:49,943
+SMCI came into the session
+
+64
+00:01:49,943 --> 00:01:52,333
+from a twenty-five-dollar-and-fifty-cent close. It
+
+65
+00:01:52,333 --> 00:01:53,959
+opened at twenty-eight dollars and
+
+66
+00:01:53,959 --> 00:01:55,537
+eighty-nine cents, traded as high
+
+67
+00:01:55,537 --> 00:01:57,354
+as thirty-two dollars and twenty-eight
+
+68
+00:01:57,354 --> 00:01:58,740
+cents, and finished at thirty
+
+69
+00:01:58,740 --> 00:02:00,270
+dollars and fifty-six cents. The
+
+70
+00:02:00,270 --> 00:02:01,657
+gain was nineteen point eight
+
+71
+00:02:01,657 --> 00:02:03,139
+four percent. The useful detail
+
+72
+00:02:03,139 --> 00:02:04,430
+is where the stock finished
+
+73
+00:02:04,430 --> 00:02:05,864
+inside that range. Buyers held
+
+74
+00:02:05,864 --> 00:02:07,012
+most of the opening gap,
+
+75
+00:02:07,012 --> 00:02:08,351
+yet the close remained below
+
+76
+00:02:08,351 --> 00:02:11,267
+the thirty-two-dollar-and-twenty-eight-cent high. That leaves
+
+77
+00:02:11,267 --> 00:02:12,606
+a wide decision area instead
+
+78
+00:02:12,606 --> 00:02:13,753
+of a clean breakout with
+
+79
+00:02:13,753 --> 00:02:15,092
+empty space underneath it. I
+
+80
+00:02:15,092 --> 00:02:16,766
+care about twenty-eight dollars and
+
+81
+00:02:16,766 --> 00:02:18,057
+fifty cents first. That was
+
+82
+00:02:18,057 --> 00:02:19,156
+the session low and the
+
+83
+00:02:19,156 --> 00:02:20,782
+lowest price buyers defended after
+
+84
+00:02:20,782 --> 00:02:21,929
+the update hit the tape.
+
+85
+00:02:21,929 --> 00:02:22,981
+A close below it would
+
+86
+00:02:22,981 --> 00:02:24,224
+put the gap under pressure
+
+87
+00:02:24,224 --> 00:02:27,045
+and bring the twenty-five-dollar-and-fifty-cent prior-close
+
+88
+00:02:27,045 --> 00:02:28,575
+area back into the conversation.
+
+89
+00:02:28,575 --> 00:02:29,675
+Above it, the market is
+
+90
+00:02:29,675 --> 00:02:31,349
+still carrying a meaningful portion
+
+91
+00:02:31,349 --> 00:02:32,639
+of the repricing. The other
+
+92
+00:02:32,639 --> 00:02:34,074
+side is thirty-two dollars and
+
+93
+00:02:34,074 --> 00:02:35,747
+twenty-eight cents. A close through
+
+94
+00:02:35,747 --> 00:02:37,038
+that high would show buyers
+
+95
+00:02:37,038 --> 00:02:38,281
+accepting the new range. A
+
+96
+00:02:38,281 --> 00:02:39,716
+rejection there would keep the
+
+97
+00:02:39,716 --> 00:02:41,819
+stock trapped inside Wednesday's volatility.
+
+98
+00:02:42,269 --> 00:02:43,499
+The Nasdaq 100 did not
+
+99
+00:02:43,499 --> 00:02:44,896
+travel with SMCI. It lost
+
+100
+00:02:44,896 --> 00:02:46,461
+zero point five four percent
+
+101
+00:02:46,461 --> 00:02:48,417
+and closed at twenty-eight thousand
+
+102
+00:02:48,417 --> 00:02:50,540
+nine hundred ninety-eight. The session
+
+103
+00:02:50,540 --> 00:02:52,385
+high was twenty-nine thousand one
+
+104
+00:02:52,385 --> 00:02:54,341
+hundred seventy-six point nine one.
+
+105
+00:02:54,341 --> 00:02:56,744
+That divergence changes the interpretation.
+
+106
+00:02:56,744 --> 00:02:57,973
+A broad AI or duration
+
+107
+00:02:57,973 --> 00:02:59,426
+bid would normally leave a
+
+108
+00:02:59,426 --> 00:03:01,494
+footprint across the index. Wednesday
+
+109
+00:03:01,494 --> 00:03:03,226
+delivered the opposite shape: a
+
+110
+00:03:03,226 --> 00:03:05,182
+hardware name exploded higher while
+
+111
+00:03:05,182 --> 00:03:07,362
+the large-cap growth benchmark finished
+
+112
+00:03:07,362 --> 00:03:09,709
+lower. Supermicro's move therefore belongs
+
+113
+00:03:09,709 --> 00:03:11,385
+to Supermicro until the Nasdaq
+
+114
+00:03:11,385 --> 00:03:12,894
+100 starts clearing its own
+
+115
+00:03:12,894 --> 00:03:14,515
+levels. The practical test is
+
+116
+00:03:14,515 --> 00:03:15,968
+a paired close. SMCI above
+
+117
+00:03:15,968 --> 00:03:18,259
+thirty-two dollars and twenty-eight cents
+
+118
+00:03:18,259 --> 00:03:19,768
+while the Nasdaq 100 closes
+
+119
+00:03:19,768 --> 00:03:21,892
+above twenty-nine thousand one hundred
+
+120
+00:03:21,892 --> 00:03:23,680
+seventy-six point nine one would
+
+121
+00:03:23,680 --> 00:03:25,524
+broaden the message. SMCI holding
+
+122
+00:03:25,524 --> 00:03:26,809
+its gap while the index
+
+123
+00:03:26,809 --> 00:03:28,374
+stays below that level keeps
+
+124
+00:03:28,374 --> 00:03:30,498
+the move company-specific. SMCI losing
+
+125
+00:03:30,498 --> 00:03:32,510
+twenty-eight dollars and fifty cents
+
+126
+00:03:32,510 --> 00:03:34,074
+while the index remains weak
+
+127
+00:03:34,074 --> 00:03:35,248
+would tell us the gap
+
+128
+00:03:35,248 --> 00:03:36,924
+is unwinding without help from
+
+129
+00:03:36,924 --> 00:03:38,824
+the broader tape. This distinction
+
+130
+00:03:38,824 --> 00:03:40,501
+matters for anyone holding the
+
+131
+00:03:40,501 --> 00:03:41,786
+theme through an ETF or
+
+132
+00:03:41,786 --> 00:03:43,183
+a group of related names.
+
+133
+00:03:43,183 --> 00:03:44,972
+A dramatic single-stock move can
+
+134
+00:03:44,972 --> 00:03:46,369
+make the whole trade feel
+
+135
+00:03:46,369 --> 00:03:47,989
+healthy. Breadth was missing.
+
+136
+00:03:48,439 --> 00:03:50,656
+GE Vernova reported second-quarter orders
+
+137
+00:03:50,656 --> 00:03:52,386
+of twenty-four point two billion
+
+138
+00:03:52,386 --> 00:03:54,818
+dollars, up eighty-eight percent organically.
+
+139
+00:03:54,818 --> 00:03:56,332
+Revenue was eleven point one
+
+140
+00:03:56,332 --> 00:03:58,386
+billion dollars, up twenty-two percent
+
+141
+00:03:58,386 --> 00:04:00,008
+as reported and twelve percent
+
+142
+00:04:00,008 --> 00:04:01,683
+organically. Net income was six
+
+143
+00:04:01,683 --> 00:04:03,684
+hundred million dollars, and adjusted
+
+144
+00:04:03,684 --> 00:04:04,981
+EBITDA was one point two
+
+145
+00:04:04,981 --> 00:04:06,765
+billion dollars. The company also
+
+146
+00:04:06,765 --> 00:04:09,684
+reported a thirteen-billion-dollar sequential increase
+
+147
+00:04:09,684 --> 00:04:11,035
+in backlog and raised its
+
+148
+00:04:11,035 --> 00:04:12,765
+full-year guidance. Yet GEV fell
+
+149
+00:04:12,765 --> 00:04:14,495
+sharply, so the operating report
+
+150
+00:04:14,495 --> 00:04:15,955
+and price reaction point in
+
+151
+00:04:15,955 --> 00:04:18,279
+opposite directions. Large projects convert
+
+152
+00:04:18,279 --> 00:04:20,225
+backlog through delivery. GE Vernova
+
+153
+00:04:20,225 --> 00:04:21,847
+posted strong growth and still
+
+154
+00:04:21,847 --> 00:04:23,036
+closed at the low; the
+
+155
+00:04:23,036 --> 00:04:24,333
+chart sets the next test
+
+156
+00:04:24,333 --> 00:04:26,279
+while seller motives remain unknown.
+
+157
+00:04:26,729 --> 00:04:28,014
+GEV entered from a prior
+
+158
+00:04:28,014 --> 00:04:29,888
+close of one thousand seventy-eight
+
+159
+00:04:29,888 --> 00:04:31,601
+dollars and eighty-one cents. It
+
+160
+00:04:31,601 --> 00:04:33,367
+opened at one thousand twenty-one
+
+161
+00:04:33,367 --> 00:04:34,920
+dollars and one cent, reached
+
+162
+00:04:34,920 --> 00:04:36,900
+one thousand thirty-eight dollars and
+
+163
+00:04:36,900 --> 00:04:38,613
+ninety-nine cents, and closed at
+
+164
+00:04:38,613 --> 00:04:40,540
+nine hundred eighty-five dollars and
+
+165
+00:04:40,540 --> 00:04:42,146
+three cents. The close matched
+
+166
+00:04:42,146 --> 00:04:43,484
+the session low. The loss
+
+167
+00:04:43,484 --> 00:04:44,769
+was eight point six nine
+
+168
+00:04:44,769 --> 00:04:46,429
+percent. Closing exactly at the
+
+169
+00:04:46,429 --> 00:04:47,660
+low is different from a
+
+170
+00:04:47,660 --> 00:04:49,319
+midday flush that buyers repair
+
+171
+00:04:49,319 --> 00:04:51,032
+before the bell. Supply remained
+
+172
+00:04:51,032 --> 00:04:52,745
+present through the final print.
+
+173
+00:04:52,745 --> 00:04:54,619
+That makes nine hundred eighty-five
+
+174
+00:04:54,619 --> 00:04:56,064
+dollars and three cents the
+
+175
+00:04:56,064 --> 00:04:57,616
+immediate line. A close below
+
+176
+00:04:57,616 --> 00:04:59,062
+it extends the repricing. A
+
+177
+00:04:59,062 --> 00:05:00,668
+recovery above it only returns
+
+178
+00:05:00,668 --> 00:05:02,327
+the stock to Wednesday's range.
+
+179
+00:05:02,327 --> 00:05:03,826
+The serious recovery test is
+
+180
+00:05:03,826 --> 00:05:05,806
+one thousand thirty-eight dollars and
+
+181
+00:05:05,806 --> 00:05:07,733
+ninety-nine cents, the session high.
+
+182
+00:05:07,733 --> 00:05:09,553
+Reclaiming that high would recover
+
+183
+00:05:09,553 --> 00:05:11,374
+most of Wednesday's range. Staying
+
+184
+00:05:11,374 --> 00:05:12,819
+below it leaves the sellers
+
+185
+00:05:12,819 --> 00:05:14,104
+in control of the range.
+
+186
+00:05:14,104 --> 00:05:15,495
+Strong orders did not stop
+
+187
+00:05:15,495 --> 00:05:16,994
+the selloff. The next useful
+
+188
+00:05:16,994 --> 00:05:18,814
+information comes from whether GEV
+
+189
+00:05:18,814 --> 00:05:20,313
+can stop closing beneath its
+
+190
+00:05:20,313 --> 00:05:21,169
+recovery levels.
+
+191
+00:05:21,619 --> 00:05:23,025
+XLI gained zero point one
+
+192
+00:05:23,025 --> 00:05:24,600
+one percent. Its session low
+
+193
+00:05:24,600 --> 00:05:26,680
+was one hundred seventy-eight dollars
+
+194
+00:05:26,680 --> 00:05:28,198
+and fourteen cents, and its
+
+195
+00:05:28,198 --> 00:05:30,054
+high was one hundred seventy-nine
+
+196
+00:05:30,054 --> 00:05:32,022
+dollars and eighty-four cents. That
+
+197
+00:05:32,022 --> 00:05:33,203
+is a flat sector tape
+
+198
+00:05:33,203 --> 00:05:34,608
+beside an eight point six
+
+199
+00:05:34,608 --> 00:05:36,014
+nine percent loss in GEV.
+
+200
+00:05:36,014 --> 00:05:37,589
+The industrial ETF gives the
+
+201
+00:05:37,589 --> 00:05:38,938
+GE Vernova move the same
+
+202
+00:05:38,938 --> 00:05:40,569
+treatment the Nasdaq 100 gave
+
+203
+00:05:40,569 --> 00:05:42,256
+Supermicro. It refuses to turn
+
+204
+00:05:42,256 --> 00:05:43,661
+a company reaction into a
+
+205
+00:05:43,661 --> 00:05:45,685
+sector conclusion. If investors were
+
+206
+00:05:45,685 --> 00:05:47,878
+broadly marking down industrial capital
+
+207
+00:05:47,878 --> 00:05:49,734
+spending, XLI should have carried
+
+208
+00:05:49,734 --> 00:05:50,971
+more of the damage. It
+
+209
+00:05:50,971 --> 00:05:52,321
+did not. The paired test
+
+210
+00:05:52,321 --> 00:05:54,457
+is straightforward. GEV reclaiming one
+
+211
+00:05:54,457 --> 00:05:56,988
+thousand thirty-eight dollars and ninety-nine
+
+212
+00:05:56,988 --> 00:05:58,562
+cents while XLI closes above
+
+213
+00:05:58,562 --> 00:06:00,586
+one hundred seventy-nine dollars and
+
+214
+00:06:00,586 --> 00:06:02,835
+eighty-four cents would show improvement
+
+215
+00:06:02,835 --> 00:06:03,960
+in both the name and
+
+216
+00:06:03,960 --> 00:06:05,647
+its control. GEV staying below
+
+217
+00:06:05,647 --> 00:06:07,671
+nine hundred eighty-five dollars and
+
+218
+00:06:07,671 --> 00:06:09,189
+three cents while XLI holds
+
+219
+00:06:09,189 --> 00:06:11,382
+above one hundred seventy-eight dollars
+
+220
+00:06:11,382 --> 00:06:12,957
+and fourteen cents keeps the
+
+221
+00:06:12,957 --> 00:06:14,925
+damage isolated. A broad industrial
+
+222
+00:06:14,925 --> 00:06:16,274
+break below that XLI low
+
+223
+00:06:16,274 --> 00:06:17,905
+would change the character of
+
+224
+00:06:17,905 --> 00:06:19,142
+the move. For now, GEV
+
+225
+00:06:19,142 --> 00:06:20,660
+is a company problem inside
+
+226
+00:06:20,660 --> 00:06:22,009
+a stable sector. That is
+
+227
+00:06:22,009 --> 00:06:24,427
+useful information for diversified holders.
+
+228
+00:06:24,427 --> 00:06:25,496
+It says the ETF did
+
+229
+00:06:25,496 --> 00:06:26,845
+its job while the single
+
+230
+00:06:26,845 --> 00:06:28,419
+name carried the event risk.
+
+231
+00:06:28,869 --> 00:06:30,015
+The S&P 500 lost zero
+
+232
+00:06:30,015 --> 00:06:31,434
+point one four percent and
+
+233
+00:06:31,434 --> 00:06:33,016
+closed at seven thousand four
+
+234
+00:06:33,016 --> 00:06:34,980
+hundred ninety-eight point nine six.
+
+235
+00:06:34,980 --> 00:06:36,726
+Its session stretched from seven
+
+236
+00:06:36,726 --> 00:06:38,854
+thousand four hundred eighty-five point
+
+237
+00:06:38,854 --> 00:06:40,382
+eight five to seven thousand
+
+238
+00:06:40,382 --> 00:06:42,291
+five hundred twenty-five point nine
+
+239
+00:06:42,291 --> 00:06:43,928
+four. The broad index absorbed
+
+240
+00:06:43,928 --> 00:06:45,947
+the violent single-name reactions and
+
+241
+00:06:45,947 --> 00:06:47,529
+still finished close to where
+
+242
+00:06:47,529 --> 00:06:49,057
+it opened. VIX completes the
+
+243
+00:06:49,057 --> 00:06:50,748
+picture. It opened at seventeen
+
+244
+00:06:50,748 --> 00:06:52,494
+point four two, reached nineteen
+
+245
+00:06:52,494 --> 00:06:53,967
+point four nine, and closed
+
+246
+00:06:53,967 --> 00:06:55,386
+at sixteen point six four.
+
+247
+00:06:55,386 --> 00:06:56,968
+The close matched the session
+
+248
+00:06:56,968 --> 00:06:58,332
+low, leaving VIX down two
+
+249
+00:06:58,332 --> 00:06:59,969
+point three five percent. That
+
+250
+00:06:59,969 --> 00:07:02,206
+intraday reversal matters. Traders bought
+
+251
+00:07:02,206 --> 00:07:04,170
+volatility while risk felt unstable,
+
+252
+00:07:04,170 --> 00:07:05,316
+then sold it into the
+
+253
+00:07:05,316 --> 00:07:06,734
+close. The final print did
+
+254
+00:07:06,734 --> 00:07:07,935
+not carry a broad fear
+
+255
+00:07:07,935 --> 00:07:09,844
+premium. The single-name gaps still
+
+256
+00:07:09,844 --> 00:07:11,372
+carry risk; the closing tape
+
+257
+00:07:11,372 --> 00:07:13,118
+kept that stress concentrated. I
+
+258
+00:07:13,118 --> 00:07:14,809
+am watching seven thousand four
+
+259
+00:07:14,809 --> 00:07:16,773
+hundred eighty-five point eight five
+
+260
+00:07:16,773 --> 00:07:17,755
+on the S&P 500 and
+
+261
+00:07:17,755 --> 00:07:19,228
+nineteen point four nine on
+
+262
+00:07:19,228 --> 00:07:20,483
+VIX. An S&P close below
+
+263
+00:07:20,483 --> 00:07:21,738
+that low with VIX above
+
+264
+00:07:21,738 --> 00:07:23,102
+that high would widen the
+
+265
+00:07:23,102 --> 00:07:24,903
+story beyond company earnings. An
+
+266
+00:07:24,903 --> 00:07:26,430
+S&P hold near seven thousand
+
+267
+00:07:26,430 --> 00:07:28,067
+five hundred while VIX remains
+
+268
+00:07:28,067 --> 00:07:29,704
+below nineteen point four nine
+
+269
+00:07:29,704 --> 00:07:31,505
+keeps the market backdrop orderly
+
+270
+00:07:31,505 --> 00:07:33,305
+enough for the single-name levels
+
+271
+00:07:33,305 --> 00:07:34,669
+to matter most. The broad
+
+272
+00:07:34,669 --> 00:07:36,469
+tape keeps the analysis specific.
+
+273
+00:07:36,919 --> 00:07:39,216
+Infrastructure demand reaches servers and
+
+274
+00:07:39,216 --> 00:07:40,897
+grid equipment, but cash flows
+
+275
+00:07:40,897 --> 00:07:43,250
+arrive through different margins, contract
+
+276
+00:07:43,250 --> 00:07:45,659
+terms, and delivery schedules. Supermicro's
+
+277
+00:07:45,659 --> 00:07:47,787
+update concentrated attention on gross
+
+278
+00:07:47,787 --> 00:07:49,748
+margin and backlog. Investors could
+
+279
+00:07:49,748 --> 00:07:51,877
+compare the preliminary economics with
+
+280
+00:07:51,877 --> 00:07:53,557
+prior guidance and reprice the
+
+281
+00:07:53,557 --> 00:07:55,742
+stock immediately. GE Vernova's release
+
+282
+00:07:55,742 --> 00:07:57,535
+carried strong orders and higher
+
+283
+00:07:57,535 --> 00:07:59,215
+guidance, yet the stock closed
+
+284
+00:07:59,215 --> 00:08:00,672
+at the low. Large projects
+
+285
+00:08:00,672 --> 00:08:02,577
+take time to manufacture, install,
+
+286
+00:08:02,577 --> 00:08:03,921
+and convert into cash. A
+
+287
+00:08:03,921 --> 00:08:05,602
+growing backlog can raise both
+
+288
+00:08:05,602 --> 00:08:07,842
+future opportunity and current execution
+
+289
+00:08:07,842 --> 00:08:09,131
+pressure. This is why a
+
+290
+00:08:09,131 --> 00:08:10,475
+theme can be right while
+
+291
+00:08:10,475 --> 00:08:12,548
+individual positions move in opposite
+
+292
+00:08:12,548 --> 00:08:14,733
+directions. The theme describes demand.
+
+293
+00:08:14,733 --> 00:08:16,581
+The stock price discounts demand,
+
+294
+00:08:16,581 --> 00:08:19,046
+margins, timing, financing, and expectations
+
+295
+00:08:19,046 --> 00:08:21,679
+together. Wednesday's divergences say investors
+
+296
+00:08:21,679 --> 00:08:23,472
+are sorting those pieces company
+
+297
+00:08:23,472 --> 00:08:25,040
+by company. For a portfolio,
+
+298
+00:08:25,040 --> 00:08:26,889
+that argues for matching exposure
+
+299
+00:08:26,889 --> 00:08:28,458
+to the question being asked.
+
+300
+00:08:28,458 --> 00:08:30,306
+The Nasdaq 100 measures large-cap
+
+301
+00:08:30,306 --> 00:08:32,659
+growth participation. XLI measures whether
+
+302
+00:08:32,659 --> 00:08:34,900
+industrials share GE Vernova's weakness.
+
+303
+00:08:34,900 --> 00:08:36,300
+SMCI and GEV show whether
+
+304
+00:08:36,300 --> 00:08:38,149
+their own disclosures changed the
+
+305
+00:08:38,149 --> 00:08:40,222
+price investors will accept. Blending
+
+306
+00:08:40,222 --> 00:08:41,846
+those questions into a single
+
+307
+00:08:41,846 --> 00:08:43,807
+infrastructure trade hides the part
+
+308
+00:08:43,807 --> 00:08:44,983
+of the risk that just
+
+309
+00:08:44,983 --> 00:08:45,319
+moved.
+
+310
+00:08:45,769 --> 00:08:47,134
+My base case is continued
+
+311
+00:08:47,134 --> 00:08:48,935
+dispersion. SMCI stays inside the
+
+312
+00:08:48,935 --> 00:08:53,791
+twenty-eight-dollar-and-fifty-cent to thirty-two-dollar-and-twenty-eight-cent range while
+
+313
+00:08:53,791 --> 00:08:55,319
+the Nasdaq 100 remains below
+
+314
+00:08:55,319 --> 00:08:57,720
+twenty-nine thousand one hundred seventy-six
+
+315
+00:08:57,720 --> 00:08:59,085
+point nine one. GEV stays
+
+316
+00:08:59,085 --> 00:09:01,213
+below one thousand thirty-eight dollars
+
+317
+00:09:01,213 --> 00:09:02,905
+and ninety-nine cents while XLI
+
+318
+00:09:02,905 --> 00:09:05,088
+remains inside one hundred seventy-eight
+
+319
+00:09:05,088 --> 00:09:06,670
+dollars and fourteen cents to
+
+320
+00:09:06,670 --> 00:09:08,635
+one hundred seventy-nine dollars and
+
+321
+00:09:08,635 --> 00:09:10,381
+eighty-four cents. That map says
+
+322
+00:09:10,381 --> 00:09:12,455
+company information still outranks the
+
+323
+00:09:12,455 --> 00:09:14,255
+basket. The broadening case needs
+
+324
+00:09:14,255 --> 00:09:16,002
+paired breaks. SMCI closes above
+
+325
+00:09:16,002 --> 00:09:18,239
+thirty-two dollars and twenty-eight cents
+
+326
+00:09:18,239 --> 00:09:19,712
+while the Nasdaq 100 closes
+
+327
+00:09:19,712 --> 00:09:21,786
+above twenty-nine thousand one hundred
+
+328
+00:09:21,786 --> 00:09:23,423
+seventy-six point nine one. On
+
+329
+00:09:23,423 --> 00:09:25,060
+the downside, GEV closes below
+
+330
+00:09:25,060 --> 00:09:27,025
+nine hundred eighty-five dollars and
+
+331
+00:09:27,025 --> 00:09:28,553
+three cents while XLI closes
+
+332
+00:09:28,553 --> 00:09:30,681
+below one hundred seventy-eight dollars
+
+333
+00:09:30,681 --> 00:09:32,373
+and fourteen cents. Those pairs
+
+334
+00:09:32,373 --> 00:09:34,447
+would extend the single-name reactions
+
+335
+00:09:34,447 --> 00:09:36,247
+into their controls. The reversal
+
+336
+00:09:36,247 --> 00:09:38,430
+case attacks Wednesday's reactions. SMCI
+
+337
+00:09:38,430 --> 00:09:40,449
+closes below twenty-eight dollars and
+
+338
+00:09:40,449 --> 00:09:41,704
+fifty cents and opens a
+
+339
+00:09:41,704 --> 00:09:44,815
+test of the twenty-five-dollar-and-fifty-cent prior-close
+
+340
+00:09:44,815 --> 00:09:46,452
+area. GEV recovers through one
+
+341
+00:09:46,452 --> 00:09:48,908
+thousand thirty-eight dollars and ninety-nine
+
+342
+00:09:48,908 --> 00:09:50,872
+cents. That combination would unwind
+
+343
+00:09:50,872 --> 00:09:52,237
+the cleanest parts of the
+
+344
+00:09:52,237 --> 00:09:55,020
+session's dispersion. The broad-market invalidation
+
+345
+00:09:55,020 --> 00:09:56,711
+sits beside those company maps.
+
+346
+00:09:56,711 --> 00:09:58,021
+The S&P 500 closes below
+
+347
+00:09:58,021 --> 00:10:00,149
+seven thousand four hundred eighty-five
+
+348
+00:10:00,149 --> 00:10:01,568
+point eight five while VIX
+
+349
+00:10:01,568 --> 00:10:03,314
+closes above nineteen point four
+
+350
+00:10:03,314 --> 00:10:05,006
+nine. That would promote market
+
+351
+00:10:05,006 --> 00:10:06,643
+stress from background risk to
+
+352
+00:10:06,643 --> 00:10:08,499
+an active driver. These conditions
+
+353
+00:10:08,499 --> 00:10:10,572
+form a conditional decision framework.
+
+354
+00:10:10,572 --> 00:10:11,828
+Price has to earn every
+
+355
+00:10:11,828 --> 00:10:12,210
+branch.
+
+356
+00:10:12,660 --> 00:10:14,429
+Supermicro is scheduled to report
+
+357
+00:10:14,429 --> 00:10:16,466
+final fiscal fourth-quarter results on
+
+358
+00:10:16,466 --> 00:10:18,289
+August eleventh. The final release
+
+359
+00:10:18,289 --> 00:10:20,111
+can replace the preliminary ranges
+
+360
+00:10:20,111 --> 00:10:21,720
+with completed figures and add
+
+361
+00:10:21,720 --> 00:10:24,025
+management detail around customers, timing,
+
+362
+00:10:24,025 --> 00:10:26,867
+margins, and the more-than-sixty-billion-dollar order
+
+363
+00:10:26,867 --> 00:10:28,421
+and backlog statement. For GE
+
+364
+00:10:28,421 --> 00:10:30,351
+Vernova, investors will keep testing
+
+365
+00:10:30,351 --> 00:10:32,335
+the raised full-year guidance against
+
+366
+00:10:32,335 --> 00:10:34,479
+order conversion, project execution, and
+
+367
+00:10:34,479 --> 00:10:36,570
+cash generation. The July twenty-second
+
+368
+00:10:36,570 --> 00:10:38,875
+release established strong reported growth;
+
+369
+00:10:38,875 --> 00:10:40,698
+later filings and earnings updates
+
+370
+00:10:40,698 --> 00:10:42,039
+will show how that growth
+
+371
+00:10:42,039 --> 00:10:43,861
+moves through the income statement
+
+372
+00:10:43,861 --> 00:10:45,416
+and balance sheet. The market
+
+373
+00:10:45,416 --> 00:10:47,346
+calendar matters because both stocks
+
+374
+00:10:47,346 --> 00:10:48,633
+just made large moves on
+
+375
+00:10:48,633 --> 00:10:51,099
+company information. Fresh company disclosures
+
+376
+00:10:51,099 --> 00:10:52,922
+carry more authority than sympathy
+
+377
+00:10:52,922 --> 00:10:54,798
+moves from neighboring names. Until
+
+378
+00:10:54,798 --> 00:10:56,567
+those arrive, the captured levels
+
+379
+00:10:56,567 --> 00:10:58,015
+provide the cleanest way to
+
+380
+00:10:58,015 --> 00:11:00,052
+judge whether Wednesday's repricing is
+
+381
+00:11:00,052 --> 00:11:01,500
+being accepted or rejected.
+
+382
+00:11:01,950 --> 00:11:03,424
+The lesson from this close
+
+383
+00:11:03,424 --> 00:11:05,013
+is that demand stopped being
+
+384
+00:11:05,013 --> 00:11:07,282
+enough. Infrastructure demand can remain
+
+385
+00:11:07,282 --> 00:11:09,437
+strong while individual stocks reprice
+
+386
+00:11:09,437 --> 00:11:11,763
+in opposite directions. Supermicro gained
+
+387
+00:11:11,763 --> 00:11:13,635
+nineteen point eight four percent
+
+388
+00:11:13,635 --> 00:11:15,110
+while the Nasdaq 100 fell.
+
+389
+00:11:15,110 --> 00:11:16,642
+GE Vernova lost eight point
+
+390
+00:11:16,642 --> 00:11:18,570
+six nine percent while industrials
+
+391
+00:11:18,570 --> 00:11:20,556
+finished flat. VIX touched nineteen
+
+392
+00:11:20,556 --> 00:11:22,030
+point four nine and closed
+
+393
+00:11:22,030 --> 00:11:23,505
+at sixteen point six four.
+
+394
+00:11:23,505 --> 00:11:25,150
+The completed tape kept those
+
+395
+00:11:25,150 --> 00:11:27,136
+company reactions separate inside a
+
+396
+00:11:27,136 --> 00:11:28,667
+theme that had been trading
+
+397
+00:11:28,667 --> 00:11:30,029
+as a broad bundle. Watch
+
+398
+00:11:30,029 --> 00:11:31,731
+the pairs. SMCI and thirty-two
+
+399
+00:11:31,731 --> 00:11:33,830
+dollars and twenty-eight cents beside
+
+400
+00:11:33,830 --> 00:11:35,531
+the Nasdaq 100 and twenty-nine
+
+401
+00:11:35,531 --> 00:11:37,687
+thousand one hundred seventy-six point
+
+402
+00:11:37,687 --> 00:11:38,878
+nine one. GEV and one
+
+403
+00:11:38,878 --> 00:11:41,431
+thousand thirty-eight dollars and ninety-nine
+
+404
+00:11:41,431 --> 00:11:42,792
+cents beside XLI and one
+
+405
+00:11:42,792 --> 00:11:45,288
+hundred seventy-nine dollars and eighty-four
+
+406
+00:11:45,288 --> 00:11:46,536
+cents. The S&P 500 low
+
+407
+00:11:46,536 --> 00:11:47,841
+and the VIX high decide
+
+408
+00:11:47,841 --> 00:11:49,940
+whether the story stays concentrated.
+
+409
+00:11:49,940 --> 00:11:51,528
+A close below seven thousand
+
+410
+00:11:51,528 --> 00:11:53,570
+four hundred eighty-five point eight
+
+411
+00:11:53,570 --> 00:11:54,648
+five in the S&P 500
+
+412
+00:11:54,648 --> 00:11:56,293
+with VIX above nineteen point
+
+413
+00:11:56,293 --> 00:11:57,711
+four nine would turn this
+
+414
+00:11:57,711 --> 00:11:59,980
+company-specific tape into a market-wide
+
+415
+00:11:59,980 --> 00:12:01,739
+warning. Subscribe for the next
+
+416
+00:12:01,739 --> 00:12:03,440
+post-close map; this is market
+
+417
+00:12:03,440 --> 00:12:05,312
+news and education, not financial
+
+418
+00:12:05,312 --> 00:12:05,710
+advice.

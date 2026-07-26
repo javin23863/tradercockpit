@@ -1,0 +1,451 @@
+{
+  "schema": "tradercockpit-publish-log/v2",
+  "entries": [
+    {
+      "batchId": "daily-2026-07-22-postclose",
+      "itemId": "youtube-long-daily-2026-07-22",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "2qmSPKsp-9k",
+      "url": "https://youtu.be/2qmSPKsp-9k",
+      "timestamp": "2026-07-23T04:53:47.466689Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "uG_7eLD5QL_ZknQgTrl6duJNCAI",
+          "id": "2qmSPKsp-9k",
+          "snippet": {
+            "publishedAt": "2026-07-23T04:53:18Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Infrastructure Split: SMCI Surged as GEV Sank",
+            "description": "Super Micro Computer surged 19.84% while the Nasdaq 100 fell 0.54%. GE Vernova dropped 8.69% while the Industrial Select Sector SPDR ETF finished up 0.11%. The July 22 close priced two company-specific reactions inside one infrastructure theme.\n\nThis post-close breakdown walks SMCI's 28.50\u201332.2844 decision range, the Nasdaq 100 control at 29,176.9139, GEV's 985.03 close and 1,038.985 recovery test, plus the S&P 500 and VIX confirmation.\n\nPrimary sources:\nSupermicro investor relations: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx\nGE Vernova investor relations: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial\nCharts: TradingView settled daily bars for July 22, 2026.\n\n0:00 Infrastructure split\n0:53 Supermicro update\n1:48 SMCI chart levels\n2:42 Nasdaq 100 control\n3:48 GE Vernova results\n4:26 GEV chart levels\n5:21 Industrial sector control\n6:28 S&P 500 and VIX\n7:36 Why the basket split\n8:45 Three scenarios\n10:12 What comes next\n11:01 Levels that change the thesis\n\nSubscribe for the next post-close read: https://www.youtube.com/@Thetradercockpit\n\nThe dispersion thesis weakens if SMCI closes below 28.50 or GEV reclaims 1,038.985 and then 1,068.97.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/2qmSPKsp-9k/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/2qmSPKsp-9k/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/2qmSPKsp-9k/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Infrastructure Split: SMCI Surged as GEV Sank",
+              "description": "Super Micro Computer surged 19.84% while the Nasdaq 100 fell 0.54%. GE Vernova dropped 8.69% while the Industrial Select Sector SPDR ETF finished up 0.11%. The July 22 close priced two company-specific reactions inside one infrastructure theme.\n\nThis post-close breakdown walks SMCI's 28.50\u201332.2844 decision range, the Nasdaq 100 control at 29,176.9139, GEV's 985.03 close and 1,038.985 recovery test, plus the S&P 500 and VIX confirmation.\n\nPrimary sources:\nSupermicro investor relations: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx\nGE Vernova investor relations: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial\nCharts: TradingView settled daily bars for July 22, 2026.\n\n0:00 Infrastructure split\n0:53 Supermicro update\n1:48 SMCI chart levels\n2:42 Nasdaq 100 control\n3:48 GE Vernova results\n4:26 GEV chart levels\n5:21 Industrial sector control\n6:28 S&P 500 and VIX\n7:36 Why the basket split\n8:45 Three scenarios\n10:12 What comes next\n11:01 Levels that change the thesis\n\nSubscribe for the next post-close read: https://www.youtube.com/@Thetradercockpit\n\nThe dispersion thesis weakens if SMCI closes below 28.50 or GEV reclaims 1,038.985 and then 1,068.97.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "TJDA7DLkL_d2n5aDVWiZ7dhQUfU",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "ektQQO0ob2yjP0oQodzHcrwsn9g",
+              "id": "2qmSPKsp-9k",
+              "snippet": {
+                "publishedAt": "2026-07-23T04:53:18Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Infrastructure Split: SMCI Surged as GEV Sank",
+                "description": "Super Micro Computer surged 19.84% while the Nasdaq 100 fell 0.54%. GE Vernova dropped 8.69% while the Industrial Select Sector SPDR ETF finished up 0.11%. The July 22 close priced two company-specific reactions inside one infrastructure theme.\n\nThis post-close breakdown walks SMCI's 28.50\u201332.2844 decision range, the Nasdaq 100 control at 29,176.9139, GEV's 985.03 close and 1,038.985 recovery test, plus the S&P 500 and VIX confirmation.\n\nPrimary sources:\nSupermicro investor relations: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx\nGE Vernova investor relations: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial\nCharts: TradingView settled daily bars for July 22, 2026.\n\n0:00 Infrastructure split\n0:53 Supermicro update\n1:48 SMCI chart levels\n2:42 Nasdaq 100 control\n3:48 GE Vernova results\n4:26 GEV chart levels\n5:21 Industrial sector control\n6:28 S&P 500 and VIX\n7:36 Why the basket split\n8:45 Three scenarios\n10:12 What comes next\n11:01 Levels that change the thesis\n\nSubscribe for the next post-close read: https://www.youtube.com/@Thetradercockpit\n\nThe dispersion thesis weakens if SMCI closes below 28.50 or GEV reclaims 1,038.985 and then 1,068.97.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/2qmSPKsp-9k/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/2qmSPKsp-9k/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/2qmSPKsp-9k/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "Infrastructure Split: SMCI Surged as GEV Sank",
+                  "description": "Super Micro Computer surged 19.84% while the Nasdaq 100 fell 0.54%. GE Vernova dropped 8.69% while the Industrial Select Sector SPDR ETF finished up 0.11%. The July 22 close priced two company-specific reactions inside one infrastructure theme.\n\nThis post-close breakdown walks SMCI's 28.50\u201332.2844 decision range, the Nasdaq 100 control at 29,176.9139, GEV's 985.03 close and 1,038.985 recovery test, plus the S&P 500 and VIX confirmation.\n\nPrimary sources:\nSupermicro investor relations: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx\nGE Vernova investor relations: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial\nCharts: TradingView settled daily bars for July 22, 2026.\n\n0:00 Infrastructure split\n0:53 Supermicro update\n1:48 SMCI chart levels\n2:42 Nasdaq 100 control\n3:48 GE Vernova results\n4:26 GEV chart levels\n5:21 Industrial sector control\n6:28 S&P 500 and VIX\n7:36 Why the basket split\n8:45 Three scenarios\n10:12 What comes next\n11:01 Levels that change the thesis\n\nSubscribe for the next post-close read: https://www.youtube.com/@Thetradercockpit\n\nThe dispersion thesis weakens if SMCI closes below 28.50 or GEV reclaims 1,038.985 and then 1,068.97.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals",
+      "itemId": "youtube-infrastructure-split",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "KGzT9TV4APM",
+      "url": "https://youtu.be/KGzT9TV4APM",
+      "timestamp": "2026-07-23T05:16:58.799473Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "pW5o454IyKsNVWhdRzXpy_HV-g4",
+          "id": "KGzT9TV4APM",
+          "snippet": {
+            "publishedAt": "2026-07-23T05:16:18Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "SMCI Surged While GEV Sank",
+            "description": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme as two company-specific trades. #SMCI #GEV #StockMarket #MarketNews #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/KGzT9TV4APM/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/KGzT9TV4APM/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/KGzT9TV4APM/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "SMCI Surged While GEV Sank",
+              "description": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme as two company-specific trades. #SMCI #GEV #StockMarket #MarketNews #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "5q-jBiW6t-RrCHHZLLAGKu9jsQ4",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "ubdfL4JAwdgweufDqDgeTE3Yc50",
+              "id": "KGzT9TV4APM",
+              "snippet": {
+                "publishedAt": "2026-07-23T05:16:18Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "SMCI Surged While GEV Sank",
+                "description": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme as two company-specific trades. #SMCI #GEV #StockMarket #MarketNews #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/KGzT9TV4APM/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/KGzT9TV4APM/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/KGzT9TV4APM/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "SMCI Surged While GEV Sank",
+                  "description": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme as two company-specific trades. #SMCI #GEV #StockMarket #MarketNews #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals",
+      "itemId": "youtube-smci-decision-range",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "htpGeN7pBnc",
+      "url": "https://youtu.be/htpGeN7pBnc",
+      "timestamp": "2026-07-23T05:18:04.025043Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "-4Y0p0H3mJBCVDTj--DK4WYYzL8",
+          "id": "htpGeN7pBnc",
+          "snippet": {
+            "publishedAt": "2026-07-23T05:17:26Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "SMCI's 28.50 to 32.28 Decision Range",
+            "description": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close through 32.2844 would show buyers accepting the new range. #SMCI #Stocks #MarketNews #TechnicalAnalysis #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/htpGeN7pBnc/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/htpGeN7pBnc/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/htpGeN7pBnc/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "SMCI's 28.50 to 32.28 Decision Range",
+              "description": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close through 32.2844 would show buyers accepting the new range. #SMCI #Stocks #MarketNews #TechnicalAnalysis #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "ogUilRR5SzqszlnikX0hgn22kDI",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "HVVD8rqE_IbPeosRCR28j6zyQys",
+              "id": "htpGeN7pBnc",
+              "snippet": {
+                "publishedAt": "2026-07-23T05:17:26Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "SMCI's 28.50 to 32.28 Decision Range",
+                "description": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close through 32.2844 would show buyers accepting the new range. #SMCI #Stocks #MarketNews #TechnicalAnalysis #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/htpGeN7pBnc/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/htpGeN7pBnc/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/htpGeN7pBnc/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "SMCI's 28.50 to 32.28 Decision Range",
+                  "description": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close through 32.2844 would show buyers accepting the new range. #SMCI #Stocks #MarketNews #TechnicalAnalysis #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals-instagram",
+      "itemId": "instagram-infrastructure-split",
+      "platform": "instagram",
+      "status": "failed",
+      "platformId": null,
+      "url": null,
+      "timestamp": "2026-07-23T05:21:02.909258Z",
+      "platformResponse": null,
+      "error": "Instagram B2 staging authentication failed before Meta container creation"
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals-instagram",
+      "itemId": "instagram-infrastructure-split",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "18096373475208420",
+      "url": "https://www.instagram.com/reel/DbH6XV1j4bO/",
+      "timestamp": "2026-07-23T05:27:33.915923Z",
+      "platformResponse": {
+        "publish": {
+          "id": "18096373475208420"
+        },
+        "readback": {
+          "id": "18096373475208420",
+          "permalink": "https://www.instagram.com/reel/DbH6XV1j4bO/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals-instagram",
+      "itemId": "instagram-smci-decision-range",
+      "platform": "instagram",
+      "status": "published",
+      "platformId": "18105774154865532",
+      "url": "https://www.instagram.com/reel/DbH6hR8nKL8/",
+      "timestamp": "2026-07-23T05:29:05.737128Z",
+      "platformResponse": {
+        "publish": {
+          "id": "18105774154865532"
+        },
+        "readback": {
+          "id": "18105774154865532",
+          "permalink": "https://www.instagram.com/reel/DbH6hR8nKL8/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals-facebook",
+      "itemId": "facebook-infrastructure-split",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "4602632909970052",
+      "url": "https://www.facebook.com/reel/4602632909970052/",
+      "timestamp": "2026-07-23T05:29:55.751784Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122110110981392490"
+        },
+        "readback": {
+          "id": "4602632909970052",
+          "permalink_url": "/reel/4602632909970052/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals-facebook",
+      "itemId": "facebook-smci-decision-range",
+      "platform": "facebook",
+      "status": "published",
+      "platformId": "1568911174863124",
+      "url": "https://www.facebook.com/reel/1568911174863124/",
+      "timestamp": "2026-07-23T05:31:48.482206Z",
+      "platformResponse": {
+        "finish": {
+          "success": true,
+          "message": "Video is Processing. To check the status of the video, please follow the instructions listed at https://developers.facebook.com/docs/video-api/guides/reels-publishing#get-the-upload-status.",
+          "post_id": "122110111305392490"
+        },
+        "readback": {
+          "id": "1568911174863124",
+          "permalink_url": "/reel/1568911174863124/"
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals-tiktok",
+      "itemId": "tiktok-infrastructure-split",
+      "platform": "tiktok",
+      "status": "failed",
+      "platformId": null,
+      "url": null,
+      "timestamp": "2026-07-23T05:32:10.907727Z",
+      "platformResponse": null,
+      "error": "tiktok authentication blocked: absent"
+    },
+    {
+      "batchId": "daily-2026-07-22-verticals-tiktok",
+      "itemId": "tiktok-smci-decision-range",
+      "platform": "tiktok",
+      "status": "failed",
+      "platformId": null,
+      "url": null,
+      "timestamp": "2026-07-23T05:32:14.717676Z",
+      "platformResponse": null,
+      "error": "tiktok authentication blocked: absent"
+    }
+  ]
+}

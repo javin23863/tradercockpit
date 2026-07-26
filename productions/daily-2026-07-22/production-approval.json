@@ -1,0 +1,16 @@
+{
+  "schema": "tradercockpit-production-approval/v1",
+  "status": "approved",
+  "analysisBrief": "productions/daily-2026-07-22/analysis-brief.md",
+  "analysisBriefSha256": "f1c5e1229781e4662b4bc6f9732e3a385d85726eace65ab6d7b8644c9fe6bfa6",
+  "sourceReceipt": "productions/daily-2026-07-22/news-sources.json",
+  "sourceReceiptSha256": "278c52a0ae73e4ea8438fd08df1d6a098b4854a00776879d7b29bf61be9c994b",
+  "scriptApproval": "productions/daily-2026-07-22/script-approval.json",
+  "scriptApprovalSha256": "9b243e62a2eae56f769b38bca79a4c41228d4fe66348a5e3d8f0fe633867d7cc",
+  "framingSources": [
+    "official_primary"
+  ],
+  "lead": "Infrastructure Split: SMCI Surged as GEV Sank",
+  "reviewedBy": "operator (Codex task; approved exact narration SHA-256 D88E96777997992957DDF335666E351DE7C8392FD56D2AE0549240A573B1C8FE)",
+  "reviewedAt": "2026-07-23T02:24:20Z"
+}

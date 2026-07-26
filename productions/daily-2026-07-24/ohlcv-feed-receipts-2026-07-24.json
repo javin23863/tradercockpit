@@ -1,0 +1,67 @@
+{
+  "schema": "tradercockpit-ohlcv-feed-receipts/v1",
+  "source": "TradingView public chart main series",
+  "transport": "repository-owned Puppeteer",
+  "timeframe": "1D",
+  "session": "2026-07-24",
+  "terminalBarTime": "2026-07-24T13:30:00Z",
+  "capturedAt": "2026-07-24T20:41:20Z",
+  "accepted": [
+    {
+      "symbol": "SP:SPX",
+      "priorClose": 7408.30,
+      "open": 7406.30,
+      "high": 7460.98,
+      "low": 7396.53,
+      "close": 7411.98,
+      "volume": 2973085867
+    },
+    {
+      "symbol": "DJ:DJI",
+      "priorClose": 51711.65,
+      "open": 51791.37,
+      "high": 52118.19,
+      "low": 51682.36,
+      "close": 51947.25,
+      "volume": 437577034
+    },
+    {
+      "symbol": "NASDAQ:AAPL",
+      "priorClose": 321.66,
+      "open": 321.79,
+      "high": 334.37,
+      "low": 321.62,
+      "close": 333.02,
+      "volume": 47365523
+    },
+    {
+      "symbol": "NASDAQ:MU",
+      "priorClose": 990.21,
+      "open": 959.03,
+      "high": 967.14,
+      "low": 904.00,
+      "close": 920.95,
+      "volume": 40170836
+    },
+    {
+      "symbol": "NASDAQ:AVGO",
+      "priorClose": 392.47,
+      "open": 387.68,
+      "high": 389.27,
+      "low": 378.75,
+      "close": 381.92,
+      "volume": 14885937
+    }
+  ],
+  "rejected": [
+    {
+      "symbol": "NASDAQ:NDX",
+      "reason": "capture displayed a current-bar countdown and Market open label"
+    },
+    {
+      "symbol": "TVC:UKOIL",
+      "reason": "capture displayed a current-bar countdown and Market open label; instrument quote was not AP Brent settlement"
+    }
+  ]
+}
+

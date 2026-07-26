@@ -1,0 +1,125 @@
+{
+  "schema": "tradercockpit-scene-plan/v1",
+  "episode": "series-01-backtest-is-not-a-strategy",
+  "status": "working_not_filming_ready",
+  "voice_mode": "operator_on_camera",
+  "beats": [
+    {
+      "id": "01-01",
+      "section": "01",
+      "narration": "Open TradingView, and a few clicks can give you a beautiful green backtest.",
+      "spokenSubjects": ["backtest"],
+      "visual": {
+        "path": "visuals/01-green-line.mp4",
+        "kind": "operator_action",
+        "visibleSubjects": ["operator", "illustrative_backtest"],
+        "fit": "cover",
+        "purpose": "Pay off DON’T TRADE THIS and define a backtest as a replay of old prices."
+      }
+    },
+    {
+      "id": "02-01",
+      "section": "02",
+      "narration": "You change how fast the line moves. The example backtest gets greener.",
+      "spokenSubjects": ["indicator", "settings", "answer_sheet"],
+      "visual": {
+        "path": "visuals/02-green-line-trap.mp4",
+        "kind": "tradingview_and_illustration",
+        "visibleSubjects": ["ES1!", "1H", "price_axis", "EMA_10", "EMA_50", "example_only_curve", "discarded_settings"],
+        "fit": "contain",
+        "purpose": "Show a familiar chart first, then an explicitly illustrative settings sequence that uses the answer sheet."
+      }
+    },
+    {
+      "id": "03-01",
+      "section": "03",
+      "narration": "A strategy starts with a written plan.",
+      "spokenSubjects": ["written_plan", "reason"],
+      "visual": {
+        "path": "visuals/03-written-plan.mp4",
+        "kind": "operator_action",
+        "visibleSubjects": ["buy_rule", "sell_rule", "maximum_loss", "reason", "stop_using"],
+        "fit": "cover",
+        "purpose": "Build a beginner-facing strategy card and translate hypothesis into MY REASON."
+      }
+    },
+    {
+      "id": "04-01",
+      "section": "04",
+      "narration": "On the chart, a fast blue average crosses above a slower white average, so we buy.",
+      "spokenSubjects": ["moving_average", "unfinished_idea"],
+      "visual": {
+        "path": "visuals/04-not-ready.mp4",
+        "kind": "tradingview_illustration_and_operator_action",
+        "visibleSubjects": ["ES1!", "1H", "price_axis", "EMA_10", "EMA_50", "question_card", "not_ready"],
+        "fit": "contain",
+        "purpose": "Use the same moving-average example, expose the exact missing answers, and stamp the card NOT READY."
+      }
+    },
+    {
+      "id": "05-01",
+      "section": "05",
+      "narration": "Imagine we fill every blank and call the card Version A.",
+      "spokenSubjects": ["version_a", "version_b", "changed_sell_rule"],
+      "visual": {
+        "path": "visuals/05-version-a-version-b.mp4",
+        "kind": "operator_action",
+        "visibleSubjects": ["version_a", "version_b", "original_sell_rule", "changed_sell_rule"],
+        "fit": "cover",
+        "purpose": "Show the exact sell-rule change on a new card while preserving Version A."
+      }
+    },
+    {
+      "id": "06-01",
+      "section": "06",
+      "narration": "The backtest answers a narrow question: how did these exact rules behave on this stretch of old prices?",
+      "spokenSubjects": ["backtest", "hidden_prices", "matching_screens", "fake_money"],
+      "visual": {
+        "path": "visuals/06-backtest-job.mp4",
+        "kind": "operator_action_and_screen_comparison",
+        "visibleSubjects": ["version_a", "used_history", "hidden_history", "backtest_screen", "trading_screen", "live_fake_money"],
+        "fit": "cover",
+        "purpose": "Make the separate tests physical: old prices, hidden prices, matching signals, then live fake money."
+      }
+    },
+    {
+      "id": "07-01",
+      "section": "07",
+      "narration": "Now the whole path should make sense.",
+      "spokenSubjects": ["strategy_process", "backtest_position"],
+      "visual": {
+        "path": "visuals/07-whole-path.mp4",
+        "kind": "operator_action",
+        "visibleSubjects": ["rough_idea", "exact_rules", "old_prices", "hidden_prices", "matching_screens", "live_fake_money", "small_risk", "watch_stop"],
+        "fit": "cover",
+        "purpose": "Move Version A through plain-English stage cards and place the green curve under OLD PRICES."
+      }
+    },
+    {
+      "id": "08-01",
+      "section": "08",
+      "narration": "We will take a simple rule like this moving-average idea and follow it all the way through.",
+      "spokenSubjects": ["series_promise", "visible_failure"],
+      "visual": {
+        "path": "visuals/08-series-promise.mp4",
+        "kind": "series_montage",
+        "visibleSubjects": ["version_a", "stopped", "keep_testing", "operator"],
+        "fit": "cover",
+        "purpose": "Promise exact rules, visible outcomes, visible failures, and no secret strategy for sale."
+      }
+    },
+    {
+      "id": "09-01",
+      "section": "09",
+      "narration": "Before you open the testing screen again, take out a piece of paper.",
+      "spokenSubjects": ["viewer_action"],
+      "visual": {
+        "path": "visuals/09-viewer-template.mp4",
+        "kind": "operator_action",
+        "visibleSubjects": ["belief_template", "wrong_if_template", "next_episode"],
+        "fit": "cover",
+        "purpose": "End with a beginner-ready writing exercise and a concrete next lesson about future information leaking into a backtest."
+      }
+    }
+  ]
+}

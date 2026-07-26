@@ -1,0 +1,259 @@
+'01':
+  - quote: nearly twenty percent
+    claim: smci-move
+  - quote: almost nine percent
+    claim: gev-move
+  - quote: about half a percent
+    claim: ndx-move
+  - quote: Nasdaq 100 slipped about half a percent
+    claim: ndx-move
+  - quote: Nasdaq 100
+    claim: ndx-name
+  - quote: July twenty-second
+    claim: session-date
+'02':
+  - quote: fiscal fourth-quarter
+    claim: smci-period
+    attributed: true
+  - quote: eleven-to-twelve-and-a-half-billion-dollar guidance range
+    claim: smci-revenue-range
+    attributed: true
+  - quote: between fifteen and seventeen percent
+    claim: smci-margin-range
+    attributed: true
+  - quote: eight point two to eight point four percent
+    claim: smci-prior-margin-range
+    attributed: true
+  - quote: more than sixty billion dollars
+    claim: smci-backlog
+    attributed: true
+  - quote: orders can be delayed or cancelled
+    claim: smci-order-caveat
+    attributed: true
+  - quote: August eleventh
+    claim: smci-final-date
+    attributed: true
+'03':
+  - quote: twenty-five-dollar-and-fifty-cent
+    claim: smci-prior-close
+  - quote: twenty-eight dollars and eighty-nine cents
+    claim: smci-open
+  - quote: thirty-two dollars and twenty-eight cents
+    claim: smci-high
+  - quote: thirty-two-dollar-and-twenty-eight-cent high
+    claim: smci-high
+  - quote: twenty-eight dollars and fifty cents
+    claim: smci-low
+  - quote: twenty-eight dollars and fifty cents first
+    claim: smci-low
+  - quote: thirty dollars and fifty-six cents
+    claim: smci-close
+  - quote: nineteen point eight four percent
+    claim: smci-move
+'04':
+  - quote: Nasdaq 100
+    claim: ndx-name
+  - quote: thirty-two dollars and twenty-eight cents
+    claim: smci-high
+  - quote: twenty-eight dollars and fifty cents
+    claim: smci-low
+  - quote: zero point five four percent
+    claim: ndx-move
+  - quote: twenty-eight thousand nine hundred ninety-eight
+    claim: ndx-close
+  - quote: twenty-nine thousand one hundred seventy-six point nine one
+    claim: ndx-high
+  - quote: Nasdaq 100 closes above twenty-nine thousand one hundred seventy-six point nine one
+    claim: ndx-high
+'05':
+  - quote: second-quarter
+    claim: gev-period
+    attributed: true
+  - quote: twenty-four point two billion dollars
+    claim: gev-orders
+    attributed: true
+  - quote: eighty-eight percent
+    claim: gev-orders-growth
+    attributed: true
+  - quote: second-quarter orders of twenty-four point two billion dollars, up eighty-eight percent
+    claim: gev-orders
+    attributed: true
+  - quote: second-quarter orders of twenty-four point two billion dollars, up eighty-eight percent
+    claim: gev-orders-growth
+    attributed: true
+  - quote: eleven point one billion dollars
+    claim: gev-revenue
+    attributed: true
+  - quote: twenty-two percent
+    claim: gev-revenue-growth-reported
+    attributed: true
+  - quote: eleven point one billion dollars, up twenty-two percent
+    claim: gev-revenue
+    attributed: true
+  - quote: eleven point one billion dollars, up twenty-two percent
+    claim: gev-revenue-growth-reported
+    attributed: true
+  - quote: twelve percent
+    claim: gev-revenue-growth-organic
+    attributed: true
+  - quote: six hundred million dollars
+    claim: gev-net-income
+    attributed: true
+  - quote: one point two billion dollars
+    claim: gev-adjusted-ebitda
+    attributed: true
+  - quote: thirteen-billion-dollar
+    claim: gev-backlog-increase
+    attributed: true
+  - quote: raised its full-year guidance
+    claim: gev-guidance-raised
+    attributed: true
+'06':
+  - quote: one thousand seventy-eight dollars and eighty-one cents
+    claim: gev-prior-close
+  - quote: one thousand twenty-one dollars and one cent
+    claim: gev-open
+  - quote: one thousand thirty-eight dollars and ninety-nine cents
+    claim: gev-high
+  - quote: one thousand twenty-one dollars and one cent, reached one thousand thirty-eight dollars and ninety-nine cents
+    claim: gev-open
+  - quote: one thousand twenty-one dollars and one cent, reached one thousand thirty-eight dollars and ninety-nine cents
+    claim: gev-high
+  - quote: nine hundred eighty-five dollars and three cents
+    claim: gev-low-close
+  - quote: eight point six nine percent
+    claim: gev-move
+'07':
+  - quote: Nasdaq 100
+    claim: ndx-name
+  - quote: one thousand thirty-eight dollars and ninety-nine cents
+    claim: gev-high
+  - quote: nine hundred eighty-five dollars and three cents
+    claim: gev-low-close
+  - quote: eight point six nine percent
+    claim: gev-move
+  - quote: zero point one one percent
+    claim: xli-move
+  - quote: one hundred seventy-eight dollars and fourteen cents
+    claim: xli-low
+  - quote: one hundred seventy-nine dollars and eighty-four cents
+    claim: xli-high
+'08':
+  - quote: S&P 500
+    claim: spx-name
+  - quote: zero point one four percent
+    claim: spx-move
+  - quote: S&P 500 lost zero point one four percent
+    claim: spx-move
+  - quote: seven thousand four hundred ninety-eight point nine six
+    claim: spx-close
+  - quote: near seven thousand five hundred
+    claim: spx-close
+  - quote: seven thousand four hundred eighty-five point eight five
+    claim: spx-low
+  - quote: seven thousand five hundred twenty-five point nine four
+    claim: spx-high
+  - quote: seven thousand four hundred eighty-five point eight five to seven thousand five hundred twenty-five point nine four
+    claim: spx-low
+  - quote: seven thousand four hundred eighty-five point eight five to seven thousand five hundred twenty-five point nine four
+    claim: spx-high
+  - quote: seventeen point four two
+    claim: vix-open
+  - quote: nineteen point four nine
+    claim: vix-high
+  - quote: seventeen point four two, reached nineteen point four nine
+    claim: vix-open
+  - quote: seventeen point four two, reached nineteen point four nine
+    claim: vix-high
+  - quote: S&P 500 and nineteen point four nine
+    claim: vix-high
+  - quote: sixteen point six four
+    claim: vix-low-close
+  - quote: two point three five percent
+    claim: vix-move
+'09':
+  - quote: Nasdaq 100
+    claim: ndx-name
+  - quote: higher guidance
+    claim: gev-guidance-raised
+    attributed: true
+'10':
+  - quote: Nasdaq 100
+    claim: ndx-name
+  - quote: S&P 500
+    claim: spx-name
+  - quote: twenty-five-dollar-and-fifty-cent
+    claim: smci-prior-close
+  - quote: thirty-two dollars and twenty-eight cents
+    claim: smci-high
+  - quote: twenty-eight dollars and fifty cents
+    claim: smci-low
+  - quote: twenty-eight-dollar-and-fifty-cent to thirty-two-dollar-and-twenty-eight-cent range
+    claim: smci-low
+  - quote: twenty-eight-dollar-and-fifty-cent to thirty-two-dollar-and-twenty-eight-cent range
+    claim: smci-high
+  - quote: twenty-nine thousand one hundred seventy-six point nine one
+    claim: ndx-high
+  - quote: Nasdaq 100 remains below twenty-nine thousand one hundred seventy-six point nine one
+    claim: ndx-high
+  - quote: Nasdaq 100 closes above twenty-nine thousand one hundred seventy-six point nine one
+    claim: ndx-high
+  - quote: one thousand thirty-eight dollars and ninety-nine cents
+    claim: gev-high
+  - quote: one hundred seventy-eight dollars and fourteen cents
+    claim: xli-low
+  - quote: nine hundred eighty-five dollars and three cents while XLI closes below one hundred seventy-eight dollars and fourteen cents
+    claim: gev-low-close
+  - quote: nine hundred eighty-five dollars and three cents while XLI closes below one hundred seventy-eight dollars and fourteen cents
+    claim: xli-low
+  - quote: one hundred seventy-nine dollars and eighty-four cents
+    claim: xli-high
+  - quote: one hundred seventy-eight dollars and fourteen cents to one hundred seventy-nine dollars and eighty-four cents
+    claim: xli-low
+  - quote: one hundred seventy-eight dollars and fourteen cents to one hundred seventy-nine dollars and eighty-four cents
+    claim: xli-high
+  - quote: seven thousand four hundred eighty-five point eight five
+    claim: spx-low
+  - quote: S&P 500 closes below seven thousand four hundred eighty-five point eight five
+    claim: spx-low
+  - quote: nineteen point four nine
+    claim: vix-high
+'11':
+  - quote: July twenty-second
+    claim: session-date
+  - quote: fiscal fourth-quarter
+    claim: smci-period
+    attributed: true
+  - quote: August eleventh
+    claim: smci-final-date
+    attributed: true
+  - quote: more-than-sixty-billion-dollar
+    claim: smci-backlog
+    attributed: true
+'12':
+  - quote: Nasdaq 100
+    claim: ndx-name
+  - quote: S&P 500
+    claim: spx-name
+  - quote: thirty-two dollars and twenty-eight cents
+    claim: smci-high
+  - quote: nineteen point eight four percent
+    claim: smci-move
+  - quote: twenty-nine thousand one hundred seventy-six point nine one
+    claim: ndx-high
+  - quote: Nasdaq 100 and twenty-nine thousand one hundred seventy-six point nine one
+    claim: ndx-high
+  - quote: one thousand thirty-eight dollars and ninety-nine cents
+    claim: gev-high
+  - quote: eight point six nine percent
+    claim: gev-move
+  - quote: one hundred seventy-nine dollars and eighty-four cents
+    claim: xli-high
+  - quote: nineteen point four nine
+    claim: vix-high
+  - quote: sixteen point six four
+    claim: vix-low-close
+  - quote: seven thousand four hundred eighty-five point eight five in the S&P 500 with VIX above nineteen point four nine
+    claim: spx-low
+  - quote: seven thousand four hundred eighty-five point eight five in the S&P 500 with VIX above nineteen point four nine
+    claim: vix-high

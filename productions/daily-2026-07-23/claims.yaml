@@ -1,0 +1,269 @@
+- id: brent-settlement
+  subject: Brent crude
+  predicate: settlement_price
+  value: 100.69
+  unit: USD_per_barrel
+  as_of: "2026-07-23"
+  source: https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: single_source
+
+- id: brent-settlement-move
+  subject: Brent crude
+  predicate: settlement_return
+  value: 7
+  unit: percent
+  as_of: "2026-07-23"
+  source: https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: single_source
+
+- id: brent-session-high
+  subject: Brent crude
+  predicate: session_high
+  value: 102
+  unit: USD_per_barrel
+  as_of: "2026-07-23"
+  source: https://apnews.com/article/wall-street-dow-nasdaq-stocks-3cb4bc150707e0a4378312fbb825f5e4
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: single_source
+
+- id: tanker-attacks
+  subject: Saudi oil tankers
+  predicate: vessels_attacked
+  value: 2
+  unit: vessels
+  as_of: "2026-07-23"
+  source: https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: single_source
+
+- id: spx-name
+  subject: SP:SPX
+  predicate: display_name
+  value: S&P 500
+  unit: text
+  as_of: "2026-07-23"
+  source: chart-capture-receipts.json#visuals/02-spx.mp4
+  retrieved_at: "2026-07-23T20:28:32Z"
+  status: verified
+
+- id: spx-close
+  subject: SP:SPX
+  predicate: session_close
+  value: 7408.30
+  unit: index_points
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#SP:SPX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: spx-move
+  subject: SP:SPX
+  predicate: session_return
+  value: -1.21
+  unit: percent
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#SP:SPX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: spx-prior-close
+  subject: SP:SPX
+  predicate: prior_close
+  value: 7498.96
+  unit: index_points
+  as_of: "2026-07-22"
+  source: ohlcv-feed-receipts-2026-07-23.json#SP:SPX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: spx-low
+  subject: SP:SPX
+  predicate: session_low
+  value: 7376.00
+  unit: index_points
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#SP:SPX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: vix-close
+  subject: TVC:VIX
+  predicate: session_close
+  value: 18.69
+  unit: index_points
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#TVC:VIX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: vix-move
+  subject: TVC:VIX
+  predicate: session_return
+  value: 12.32
+  unit: percent
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#TVC:VIX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: vix-prior-close
+  subject: TVC:VIX
+  predicate: prior_close
+  value: 16.64
+  unit: index_points
+  as_of: "2026-07-22"
+  source: ohlcv-feed-receipts-2026-07-23.json#TVC:VIX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: vix-high
+  subject: TVC:VIX
+  predicate: session_high
+  value: 20.31
+  unit: index_points
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#TVC:VIX
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: xle-prior-close
+  subject: AMEX:XLE
+  predicate: prior_close
+  value: 59.20
+  unit: USD
+  as_of: "2026-07-22"
+  source: ohlcv-feed-receipts-2026-07-23.json#AMEX:XLE
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: xle-open
+  subject: AMEX:XLE
+  predicate: session_open
+  value: 60.244
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#AMEX:XLE
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: xle-high
+  subject: AMEX:XLE
+  predicate: session_high
+  value: 60.3768
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#AMEX:XLE
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: xle-close
+  subject: AMEX:XLE
+  predicate: session_close
+  value: 59.38
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#AMEX:XLE
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: xle-move
+  subject: AMEX:XLE
+  predicate: session_return
+  value: 0.30
+  unit: percent
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#AMEX:XLE
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: xle-opening-gap
+  subject: AMEX:XLE
+  predicate: opening_gap
+  value: 1.044
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#AMEX:XLE
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: xle-close-above-prior
+  subject: AMEX:XLE
+  predicate: close_minus_prior_close
+  value: 0.18
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#AMEX:XLE
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: oxy-prior-close
+  subject: NYSE:OXY
+  predicate: prior_close
+  value: 57.50
+  unit: USD
+  as_of: "2026-07-22"
+  source: ohlcv-feed-receipts-2026-07-23.json#NYSE:OXY
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: oxy-open
+  subject: NYSE:OXY
+  predicate: session_open
+  value: 58.64
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#NYSE:OXY
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: oxy-high
+  subject: NYSE:OXY
+  predicate: session_high
+  value: 58.99
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#NYSE:OXY
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: oxy-close
+  subject: NYSE:OXY
+  predicate: session_close
+  value: 57.60
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#NYSE:OXY
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: oxy-move
+  subject: NYSE:OXY
+  predicate: session_return
+  value: 0.17
+  unit: percent
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#NYSE:OXY
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: oxy-opening-gap
+  subject: NYSE:OXY
+  predicate: opening_gap
+  value: 1.14
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#NYSE:OXY
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified
+
+- id: oxy-close-above-prior
+  subject: NYSE:OXY
+  predicate: close_minus_prior_close
+  value: 0.10
+  unit: USD
+  as_of: "2026-07-23"
+  source: ohlcv-feed-receipts-2026-07-23.json#NYSE:OXY
+  retrieved_at: "2026-07-23T20:37:34Z"
+  status: verified

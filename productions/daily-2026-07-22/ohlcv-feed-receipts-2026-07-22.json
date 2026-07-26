@@ -1,0 +1,128 @@
+{
+  "schema": "tradercockpit-ohlcv-feed-receipts/v1",
+  "session": "2026-07-22",
+  "retrievedAt": "2026-07-23T00:27:28Z",
+  "source": "TradingView Desktop via tradingview-mcp ohlcv, 1D",
+  "dashboard": [
+    {
+      "symbol": "TVC:UKOIL",
+      "open": 91.5,
+      "high": 95.63,
+      "low": 91.31,
+      "close": 95.49,
+      "priorClose": 91.63,
+      "movePct": 4.21,
+      "captureSelected": false,
+      "note": "Feed had reopened and the current last bar was a live 2026-07-23 stub; reviewed for the dashboard but excluded from capture and script levels."
+    },
+    {
+      "symbol": "SP:SPX",
+      "actualSymbol": "SP_DLY:SPX",
+      "open": 7497.47,
+      "high": 7525.94,
+      "low": 7485.85,
+      "close": 7498.96,
+      "priorClose": 7509.2,
+      "movePct": -0.14,
+      "captureSelected": true
+    },
+    {
+      "symbol": "NASDAQ:NDX",
+      "actualSymbol": "NASDAQ_DLY:NDX",
+      "open": 28949.8088,
+      "high": 29176.9139,
+      "low": 28934.5161,
+      "close": 28998.1005,
+      "priorClose": 29155.1788,
+      "movePct": -0.54,
+      "captureSelected": true
+    },
+    {
+      "symbol": "TVC:US10Y",
+      "open": 4.63,
+      "high": 4.665,
+      "low": 4.622,
+      "close": 4.659,
+      "priorClose": 4.626,
+      "moveBasisPoints": 3.3,
+      "captureSelected": false,
+      "note": "Feed had reopened and the current last bar was a live 2026-07-23 stub; reviewed for the dashboard but excluded from capture and script levels."
+    },
+    {
+      "symbol": "TVC:DXY",
+      "open": 101.194,
+      "high": 101.198,
+      "low": 101.02,
+      "close": 101.14,
+      "priorClose": 101.193,
+      "movePct": -0.05,
+      "captureSelected": false,
+      "note": "Feed had reopened and the current last bar was a live 2026-07-23 stub; excluded from capture and narration."
+    },
+    {
+      "symbol": "TVC:GOLD",
+      "open": 4082.3,
+      "high": 4166.07,
+      "low": 4076.188,
+      "close": 4128.354,
+      "priorClose": 4079.807,
+      "movePct": 1.19,
+      "captureSelected": false,
+      "note": "Dropped under the gold-roll rule: the feed's current last bar was a live 2026-07-23 stub."
+    },
+    {
+      "symbol": "TVC:VIX",
+      "open": 17.42,
+      "high": 19.49,
+      "low": 16.64,
+      "close": 16.64,
+      "priorClose": 17.04,
+      "movePct": -2.35,
+      "captureSelected": true
+    },
+    {
+      "symbol": "AMEX:XLE",
+      "actualSymbol": "BATS:XLE",
+      "open": 59.27,
+      "high": 59.52,
+      "low": 58.9,
+      "close": 59.2,
+      "priorClose": 58.5,
+      "movePct": 1.2,
+      "captureSelected": false
+    },
+    {
+      "symbol": "NASDAQ:SMCI",
+      "actualSymbol": "BATS:SMCI",
+      "open": 28.89,
+      "high": 32.2844,
+      "low": 28.5,
+      "close": 30.56,
+      "priorClose": 25.5,
+      "movePct": 19.84,
+      "captureSelected": true
+    },
+    {
+      "symbol": "NYSE:GEV",
+      "actualSymbol": "BATS:GEV",
+      "open": 1021.01,
+      "high": 1038.985,
+      "low": 985.03,
+      "close": 985.03,
+      "priorClose": 1078.81,
+      "movePct": -8.69,
+      "captureSelected": true
+    },
+    {
+      "symbol": "AMEX:XLI",
+      "actualSymbol": "BATS:XLI",
+      "open": 178.2,
+      "high": 179.84,
+      "low": 178.14,
+      "close": 178.85,
+      "priorClose": 178.66,
+      "movePct": 0.11,
+      "captureSelected": true
+    }
+  ]
+}

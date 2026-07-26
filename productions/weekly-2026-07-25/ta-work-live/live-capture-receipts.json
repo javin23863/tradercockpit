@@ -1,0 +1,36 @@
+{
+ "capturedFrom": "operator live authenticated session (Firefox 153, layout wbXb26vP)",
+ "theme": "dark; LuxAlgo SMC + Support Resistance Dynamic left intact",
+ "shots": [
+  {
+   "path": "visuals/03-brent-ta.mp4",
+   "symbol": "TVC:UKOIL",
+   "stages": 4
+  },
+  {
+   "path": "visuals/04-xle-ta.mp4",
+   "symbol": "AMEX:XLE",
+   "stages": 3
+  },
+  {
+   "path": "visuals/05-vix-ta.mp4",
+   "symbol": "TVC:VIX",
+   "stages": 1
+  },
+  {
+   "path": "visuals/06-spx-ta.mp4",
+   "symbol": "SP:SPX",
+   "stages": 2
+  },
+  {
+   "path": "visuals/07-mu-ta.mp4",
+   "symbol": "NASDAQ:MU",
+   "stages": 1
+  },
+  {
+   "path": "visuals/08-oxy-ta.mp4",
+   "symbol": "NYSE:OXY",
+   "stages": 1
+  }
+ ]
+}

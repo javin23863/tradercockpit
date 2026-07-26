@@ -1,0 +1,172 @@
+{
+  "retrieved_at": "2026-07-25T20:24:32.566482+00:00",
+  "feed": "TradingView Desktop 3.3.0 via tradingview-mcp CDP 9222 (unauthenticated session)",
+  "guard": "quote-symbol match + distinct-bar (stale-carry) + quote==bar close",
+  "series": {
+    "TVC:UKOIL": {
+      "label": "Brent",
+      "requested": "TVC:UKOIL",
+      "ok": true,
+      "state_symbol": "TVC:UKOIL",
+      "week_start_utc": "2026-07-19 Sun",
+      "bar": {
+        "open": 89.3,
+        "high": 102,
+        "low": 86.12,
+        "close": 98.69
+      },
+      "prev_close": 88.27,
+      "chg_pct": 11.8
+    },
+    "SP:SPX": {
+      "label": "S&P 500",
+      "requested": "SP:SPX",
+      "ok": true,
+      "state_symbol": "SP_NAUTH:SPX",
+      "week_start_utc": "2026-07-20 Mon",
+      "bar": {
+        "open": 7489.18,
+        "high": 7525.94,
+        "low": 7376,
+        "close": 7411.98
+      },
+      "prev_close": 7457.69,
+      "chg_pct": -0.61
+    },
+    "NASDAQ:NDX": {
+      "label": "Nasdaq 100",
+      "requested": "NASDAQ:NDX",
+      "ok": true,
+      "state_symbol": "NASDAQ_DLY:NDX",
+      "week_start_utc": "2026-07-20 Mon",
+      "bar": {
+        "open": 28871.1619,
+        "high": 29192.2913,
+        "low": 28053.0764,
+        "close": 28128.342
+      },
+      "prev_close": 28592.6588,
+      "chg_pct": -1.62
+    },
+    "TVC:US10Y": {
+      "label": "US 10Y",
+      "requested": "TVC:US10Y",
+      "ok": true,
+      "state_symbol": "TVC:US10Y",
+      "week_start_utc": "2026-07-19 Sun",
+      "bar": {
+        "open": 4.549,
+        "high": 4.714,
+        "low": 4.541,
+        "close": 4.681
+      },
+      "prev_close": 4.549,
+      "chg_pct": 2.9
+    },
+    "TVC:DXY": {
+      "label": "Dollar index",
+      "requested": "TVC:DXY",
+      "ok": true,
+      "state_symbol": "TVC:DXY",
+      "week_start_utc": "2026-07-19 Sun",
+      "bar": {
+        "open": 100.806,
+        "high": 101.544,
+        "low": 100.65,
+        "close": 101.465
+      },
+      "prev_close": 100.754,
+      "chg_pct": 0.71
+    },
+    "TVC:GOLD": {
+      "label": "Gold",
+      "requested": "TVC:GOLD",
+      "ok": true,
+      "state_symbol": "TVC:GOLD",
+      "week_start_utc": "2026-07-19 Sun",
+      "bar": {
+        "open": 4017.4,
+        "high": 4166.07,
+        "low": 3982.71,
+        "close": 4052.6
+      },
+      "prev_close": 4018.44,
+      "chg_pct": 0.85
+    },
+    "TVC:VIX": {
+      "label": "VIX",
+      "requested": "TVC:VIX",
+      "ok": true,
+      "state_symbol": "TVC:VIX",
+      "week_start_utc": "2026-07-20 Mon",
+      "bar": {
+        "open": 18.9,
+        "high": 20.31,
+        "low": 16.64,
+        "close": 18.57
+      },
+      "prev_close": 18.76,
+      "chg_pct": -1.01
+    },
+    "AMEX:XLE": {
+      "label": "Energy (XLE)",
+      "requested": "AMEX:XLE",
+      "ok": true,
+      "state_symbol": "BATS:XLE",
+      "week_start_utc": "2026-07-20 Mon",
+      "bar": {
+        "open": 57.555,
+        "high": 60.45,
+        "low": 57.41,
+        "close": 59.62
+      },
+      "prev_close": 57.68,
+      "chg_pct": 3.36
+    },
+    "NASDAQ:MU": {
+      "label": "Micron",
+      "requested": "NASDAQ:MU",
+      "ok": true,
+      "state_symbol": "BATS:MU",
+      "week_start_utc": "2026-07-20 Mon",
+      "bar": {
+        "open": 885.57,
+        "high": 1011.77,
+        "low": 858.9,
+        "close": 920.95
+      },
+      "prev_close": 848.95,
+      "chg_pct": 8.48
+    },
+    "NASDAQ:AAPL": {
+      "label": "Apple",
+      "requested": "NASDAQ:AAPL",
+      "ok": true,
+      "state_symbol": "BATS:AAPL",
+      "week_start_utc": "2026-07-20 Mon",
+      "bar": {
+        "open": 333.505,
+        "high": 334.37,
+        "low": 319.35,
+        "close": 333.02
+      },
+      "prev_close": 333.74,
+      "chg_pct": -0.22
+    },
+    "NYSE:OXY": {
+      "label": "Occidental",
+      "requested": "NYSE:OXY",
+      "ok": true,
+      "state_symbol": "BATS:OXY",
+      "week_start_utc": "2026-07-20 Mon",
+      "bar": {
+        "open": 54.21,
+        "high": 58.99,
+        "low": 54,
+        "close": 57.3
+      },
+      "prev_close": 54.86,
+      "chg_pct": 4.45
+    }
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "out": "02-spx",
+    "symbol": "SP:SPX",
+    "tf": "1D",
+    "purpose": "Broad risk appetite on the settled cash close: the S&P 500 lost the prior close and finished the session down 1.21 percent.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 7498.96, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 7376.0, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "04-vix",
+    "symbol": "TVC:VIX",
+    "tf": "1D",
+    "purpose": "Volatility confirmed the equity move: the VIX closed 18.69, up 12.32 percent, after tagging 20.31 intraday.",
+    "indicators": ["Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 20.31, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 16.64, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "05-xle",
+    "symbol": "AMEX:XLE",
+    "tf": "1D",
+    "purpose": "The thesis chart: XLE opened 1.044 points above its 59.20 prior close, tagged 60.3768, and closed with only 0.18 points of the opening gap remaining.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 60.3768, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 59.2, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "06-oxy",
+    "symbol": "NYSE:OXY",
+    "tf": "1D",
+    "purpose": "Single-name version of the same refusal: Occidental opened 1.14 points above its 57.50 prior close, tagged 58.99, and closed with only 0.10 points of the opening gap remaining.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 58.99, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 57.5, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  }
+]

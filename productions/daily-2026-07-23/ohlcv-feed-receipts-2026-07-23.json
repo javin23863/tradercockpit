@@ -1,0 +1,69 @@
+{
+  "schema": "tradercockpit-ohlcv-feed-receipts/v1",
+  "session": "2026-07-23",
+  "retrievedAt": "2026-07-23T20:37:34Z",
+  "source": "TradingView Desktop via tradingview-mcp",
+  "accepted": {
+    "SP:SPX": {
+      "sourceFile": "feed/SP_SPX.json",
+      "priorClose": 7498.96,
+      "open": 7418.29,
+      "high": 7450.12,
+      "low": 7376.0,
+      "close": 7408.3,
+      "returnPercent": -1.21,
+      "chart": "visuals/02-spx.mp4",
+      "headerMatchedFeed": true
+    },
+    "TVC:VIX": {
+      "sourceCommand": "node C:\\Users\\MSI\\repos\\tradingview-mcp\\src\\cli\\index.js ohlcv --count 2",
+      "priorClose": 16.64,
+      "open": 17.67,
+      "high": 20.31,
+      "low": 17.32,
+      "close": 18.69,
+      "returnPercent": 12.32,
+      "chart": "visuals/04-vix.mp4",
+      "headerMatchedFeed": true
+    },
+    "AMEX:XLE": {
+      "sourceFile": "feed/AMEX_XLE.json",
+      "priorClose": 59.2,
+      "open": 60.244,
+      "high": 60.3768,
+      "low": 59.265,
+      "close": 59.38,
+      "returnPercent": 0.3,
+      "chart": "visuals/05-xle.mp4",
+      "headerMatchedFeed": true
+    },
+    "NYSE:OXY": {
+      "sourceFile": "feed/NYSE_OXY.json",
+      "priorClose": 57.5,
+      "open": 58.64,
+      "high": 58.99,
+      "low": 57.5,
+      "close": 57.6,
+      "returnPercent": 0.17,
+      "chart": "visuals/06-oxy.mp4",
+      "headerMatchedFeed": true
+    }
+  },
+  "rejected": {
+    "TVC:GOLD": {
+      "chart": "visuals/01-gold.mp4",
+      "reason": "header close tracked the live quote and displayed a countdown"
+    },
+    "NASDAQ:NDX": {
+      "chart": "visuals/03-ndx.mp4",
+      "reason": "current-bar label displayed a countdown"
+    },
+    "TVC:UKOIL": {
+      "sourceFile": "feed/TVC_UKOIL.json",
+      "chart": "visuals/07-brent.mp4",
+      "feedSnapshotClose": 100.09,
+      "capturedHeaderClose": 100.18,
+      "reason": "header/feed mismatch and live countdown"
+    }
+  }
+}

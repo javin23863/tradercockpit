@@ -1,0 +1,15 @@
+{
+  "schema": "tradercockpit-production-approval/v1",
+  "status": "approved",
+  "analysisBrief": "productions/daily-2026-07-23/analysis-brief.md",
+  "analysisBriefSha256": "019d3ab986db9997cd2a4aaf9aa60f843989c7fb38d54412a6d7774f4944ae94",
+  "sourceReceipt": "productions/daily-2026-07-23/news-sources.json",
+  "sourceReceiptSha256": "b00d2b1438a7c9950b2d5fffaa9d084f73bc84c7d16fb09f339a98f7fa2ed1c7",
+  "scriptApproval": "productions/daily-2026-07-23/script-approval.json",
+  "scriptApprovalSha256": "37b9a9bda293aea0e1bda37d66f3d42e3958dc52cbd9c272b77b8bd3927a1b17",
+  "framingSources": [
+    "Associated Press"
+  ],
+  "reviewedBy": "operator (approved exact narration after on-screen review in Codex)",
+  "reviewedAt": "2026-07-23T23:26:43Z"
+}

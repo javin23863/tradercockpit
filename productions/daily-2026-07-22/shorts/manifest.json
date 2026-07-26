@@ -1,0 +1,19 @@
+{
+  "source": "C:\\Users\\MSI\\Documents\\tradercockpit\\productions\\daily-2026-07-22\\build\\master.mp4",
+  "mode": "script",
+  "clips_count": 2,
+  "segments": [
+    {
+      "start": null,
+      "duration": 53,
+      "label": "infrastructure-split"
+    },
+    {
+      "start": null,
+      "duration": 49.8,
+      "label": "smci-decision-range"
+    }
+  ],
+  "created_at": "2026-07-23T05:10:26.168305+00:00",
+  "parent_video": "https://youtu.be/2qmSPKsp-9k"
+}

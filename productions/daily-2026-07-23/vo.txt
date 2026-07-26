@@ -1,0 +1,248 @@
+## 01 hook
+
+Brent crude settled above one hundred dollars a barrel, but energy stocks did not carry the
+same conviction into the close.
+
+That tension is the useful part of Thursday's session. The oil shock was real. The broad
+tape reacted. The S and P five hundred fell, volatility rose, and the usual inflation and
+shipping questions came straight back into the portfolio conversation. Yet XLE and
+Occidental Petroleum opened higher and then surrendered most of those opening gaps before
+the bell.
+
+My read is that the market priced immediate supply risk faster than it priced durable
+producer earnings. The oil move was real, while transmission into producer equities remained
+incomplete.
+
+This matters because a headline can be directionally right while the obvious stock trade
+still disappoints. I want to separate the event from the equity response, show where that
+response faded, and map the levels that would turn a weak confirmation into either a broader
+energy move or an outright rejection.
+
+## 02 event
+
+According to the Associated Press, attacks hit two Saudi oil tankers in the Red Sea. That
+put another shipping route at risk alongside the Strait of Hormuz and pushed the supply-risk
+premium higher.
+
+AP reported that Brent settled at one hundred dollars and sixty-nine cents per barrel, up
+seven percent, after trading as high as one hundred two dollars.
+
+The mechanism is straightforward. When a tanker route looks less reliable, traders have to
+price the possibility of slower flows, higher insurance, longer voyages, or some combination
+of them. None of that proves physical barrels have disappeared. It does raise the cost
+of uncertainty around getting those barrels to buyers.
+
+The next question is whether that premium spreads into the assets that should benefit from
+more expensive crude. On Thursday, that link was much weaker than the oil headline.
+
+## 03 broad-tape
+
+Start with the broad close. The S and P five hundred finished at seven thousand four hundred
+eight point three zero, down one point two one percent from the prior close at seven thousand
+four hundred ninety-eight point nine six. The session low was seven thousand three hundred
+seventy-six.
+
+That bar confirms general risk appetite weakened during the oil shock. Buyers repaired part
+of the intraday damage, but the index still closed below the prior close and remained near
+the lower part of Thursday's range.
+
+The downside level is seven thousand three hundred seventy-six. A later close below
+that low would extend the broad risk move. The recovery level is seven thousand four hundred
+ninety-eight point nine six, the prior close. A close back above it would repair the part of
+the selloff visible on this chart.
+
+I am not treating the index decline as an oil-only verdict. Earnings reactions in large
+technology companies also weighed on the tape. The S and P chart simply establishes that
+risk appetite weakened at the same time the oil premium rose.
+
+## 04 volatility
+
+VIX supplied the independent confirmation. It closed at eighteen point six nine, up twelve
+point three two percent from sixteen point six four, after reaching twenty point three one
+intraday.
+
+The close matters because it held a meaningful portion of the volatility bid. This was not
+a scary headline against flat implied volatility. Broad equities fell while implied
+volatility rose, a coherent risk-off pair.
+
+Twenty point three one is the stress level on the captured chart. A later close above it
+would show that traders are carrying more protection than they did at Thursday's bell.
+Sixteen point six four is the lower reference. A close back below that prior level would
+remove the volatility confirmation from this story.
+
+Together, the S and P and VIX charts say the session contained real broad risk. They do not
+explain why producer equities failed to keep their opening gains. For that, the energy charts
+matter more.
+
+## 05 xle
+
+XLE is the cleanest chart in the package. It came into Thursday from fifty-nine dollars and
+twenty cents. It opened at sixty dollars and twenty-four point four cents, reached sixty
+dollars and thirty-seven point six eight cents, and closed at fifty-nine dollars and
+thirty-eight cents.
+
+The arithmetic is the point. The opening gap was one dollar and four point four cents above
+the prior close. By the bell, only eighteen cents of that gap remained. XLE still finished
+positive, but most of the opening response was gone.
+
+That is weak confirmation beside a seven-percent Brent settlement move. If the supply-risk
+premium were flowing cleanly into the producer basket, I would expect the sector to hold more
+of the opening bid. Thursday did not deliver that shape.
+
+The range now gives us a decision map. Fifty-nine dollars and twenty cents is the prior-close
+floor. Sixty dollars and thirty-seven point six eight cents is the session high. A close
+above the high would show the sector accepting a higher range. A close below the floor would
+turn a weak positive response into outright equity rejection.
+
+Until either level breaks, XLE is evidence of incomplete transmission.
+
+## 06 oxy
+
+Occidental Petroleum repeated the same pattern at the single-name level.
+
+OXY came in from fifty-seven dollars and fifty cents. It opened at fifty-eight dollars and
+sixty-four cents, reached fifty-eight dollars and ninety-nine cents, traded down to
+fifty-seven dollars and fifty cents, and closed at fifty-seven dollars and sixty cents.
+
+The stock opened one dollar and fourteen cents above its prior close. It finished only ten
+cents above that reference. Most of the opening gap disappeared before the close.
+
+The captured levels are fifty-seven dollars and fifty cents on the downside and fifty-eight
+dollars and ninety-nine cents on the upside. A close above the high would show buyers
+accepting Thursday's higher prices. A close below the prior-close floor would show that the
+opening oil bid failed to establish support.
+
+The same weak-confirmation pattern appeared at both the sector and single-name levels. The
+sector basket and a producer with direct crude exposure both finished green, but neither
+chart carried the oil headline through the full cash session.
+
+## 07 mechanism
+
+Why can crude rise sharply while producer equities barely hold a gain?
+
+The crude contract prices the barrel. A producer stock prices much more than the barrel:
+production volumes, hedges, transport access, royalties, operating costs, balance-sheet
+risk, capital spending, and the duration of the commodity move all sit inside the equity
+price.
+
+An abrupt shipping threat can lift crude immediately because the contract is the fastest
+place to express supply risk. Equity buyers have to decide whether that premium lasts long
+enough, and reaches realized company prices cleanly enough, to change future cash flows.
+They also have to price the broader damage from expensive energy. Higher fuel costs can
+pressure consumers and businesses, lift inflation concerns, and keep interest-rate risk
+alive.
+
+Thursday's close does not reveal which of those concerns dominated. It reveals the result:
+the oil benchmark carried a large event premium, broad risk weakened, and producer equities
+did not retain most of their opening gaps.
+
+That is why I will not turn a geopolitical headline into a simple buy-the-producers
+conclusion. The event belongs to the news source. The response belongs to the charts. Right
+now, those evidence sets point in the same direction for oil risk but in different
+directions for producer conviction.
+
+## 08 portfolio-impact
+
+Who got paid and who got hurt?
+
+Oil exposure held before the event benefited from the higher settlement. Broad equity
+holders absorbed a weaker index close, while holders of volatility protection saw VIX
+finish higher.
+
+Producer-equity holders got a mixed result. XLE and OXY closed slightly positive, so the
+session was not an outright loss from the prior close. But anyone who chased the opening
+gaps held a very different position by the bell. The sector and the stock both finished
+close to where they started the day before.
+
+Fuel-intensive businesses face the opposite mechanism. Higher crude can raise operating
+costs faster than those companies can raise prices. That link remains qualitative here.
+
+The portfolio lesson is narrow. Commodity exposure, producer equities, and fuel consumers
+are different instruments with different transmission speeds. Thursday rewarded anyone who
+kept those distinctions clear. The headline was about oil; the divergence was about what
+the equity market refused to capitalize.
+
+## 09 priced-in
+
+The opening bars show how quickly the obvious energy trade was attempted. The closes show
+how much of it survived.
+
+XLE opened more than a dollar above its prior close and finished eighteen cents above it.
+OXY opened one dollar and fourteen cents above its prior close and finished ten cents above
+it. In both cases, buyers paid up at the open and then lost control of most of that premium.
+
+I do not read that as proof the geopolitical risk will fade. Price cannot verify diplomacy,
+shipping access, or physical supply. I read it as evidence that producer equities had not
+followed the oil move by the close.
+
+That distinction prevents hindsight. The oil premium was already visible in the settlement.
+The equity charts then tested whether the premium deserved a durable earnings multiple.
+Thursday's answer was incomplete.
+
+The next session does not need another dramatic headline to clarify the trade. It needs a
+close outside the captured XLE and OXY ranges. Acceptance above the highs would broaden the
+move. Loss of the prior-close floors would show the equity market pricing more risk than
+reward for producers.
+
+## 10 map
+
+My base case is continued incomplete transmission. XLE remains between fifty-nine dollars
+and twenty cents and sixty dollars and thirty-seven point six eight cents. OXY remains
+between fifty-seven dollars and fifty cents and fifty-eight dollars and ninety-nine cents.
+That keeps the oil event large while the producer response stays trapped inside Thursday's
+range.
+
+The broadening case needs both producer charts to clear their highs. XLE closes above sixty
+dollars and thirty-seven point six eight cents, and OXY closes above fifty-eight dollars and
+ninety-nine cents. That pair would show the sector and the single name accepting the higher
+range together.
+
+The unwind case needs both prior-close floors to fail. XLE closes below fifty-nine dollars
+and twenty cents, and OXY closes below fifty-seven dollars and fifty cents. That would
+invalidate the idea that Thursday's weak confirmation was merely a pause.
+
+The broad-risk overlay sits beside those branches. S and P weakness below seven thousand
+three hundred seventy-six with VIX above twenty point three one would keep pressure on
+equities even if crude remains expensive. An S and P recovery above seven thousand four
+hundred ninety-eight point nine six with VIX below sixteen point six four would remove that
+broad confirmation.
+
+Every branch requires a close. None is a forecast.
+
+## 11 watch-next
+
+I am watching whether the Red Sea shipping threat persists. Another
+credible report of an attack, a route restriction, or a material insurance response would
+keep the event channel active. Documented de-escalation would reduce it. Headlines alone do not settle the
+equity question; the closes still have to confirm.
+
+On XLE, watch fifty-nine dollars and twenty cents below and sixty dollars and thirty-seven
+point six eight cents above. On OXY, watch fifty-seven dollars and fifty cents below and
+fifty-eight dollars and ninety-nine cents above.
+
+For broad risk, the S and P level is seven thousand three hundred seventy-six. The VIX level
+is twenty point three one. A paired S and P break lower and VIX close higher would show the
+risk-off move expanding. Failure to produce that pair would keep the producer divergence at
+the center of the analysis.
+
+XLE is the deciding chart. A close beyond its captured range tells us whether producer
+equities are beginning to confirm the oil move.
+
+## 12 close
+
+Brent closed above one hundred dollars, and the obvious producer trade still stalled.
+
+The S and P five hundred fell. VIX rose. XLE opened more than a dollar above its prior close
+and finished eighteen cents above it. OXY opened one dollar and fourteen cents above its
+prior close and finished ten cents above it.
+
+That is a real divergence, not a reason to dismiss the oil event. The benchmark priced
+shipping risk immediately. Producer equities asked for more proof that the premium would
+last.
+
+Watch the XLE high at sixty dollars and thirty-seven point six eight cents and the prior-close
+floor at fifty-nine dollars and twenty cents. Those levels decide whether the producer basket
+accepts a higher range or turns weak confirmation into rejection.
+
+Subscribe for Friday's post-close map. This is market news and education, not financial
+advice.

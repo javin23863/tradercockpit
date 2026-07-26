@@ -1,0 +1,129 @@
+- id: ap-final-market-recap
+  subject: Friday 2026-07-24 market close
+  predicate: final_close_and_settlement
+  value: "Brent 96.78; SPX 7411.98; DJI 51947.25; Nasdaq Composite 24975.82"
+  unit: composite
+  as_of: "2026-07-24"
+  source: https://apnews.com/article/02d01b8f38ccd51f605c4414cdd4fa9b
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: single_source
+
+- id: ap-weekly-index-moves
+  subject: major US indexes
+  predicate: weekly_return
+  value: "SPX -0.6%; DJI -0.4%; Nasdaq Composite -2.1%"
+  unit: percent
+  as_of: "2026-07-24"
+  source: https://apnews.com/article/02d01b8f38ccd51f605c4414cdd4fa9b
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: single_source
+
+- id: ap-yields-lower
+  subject: US Treasury yields
+  predicate: session_direction
+  value: lower
+  unit: direction
+  as_of: "2026-07-24"
+  source: https://apnews.com/article/02d01b8f38ccd51f605c4414cdd4fa9b
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: single_source
+
+- id: ap-micron-lag
+  subject: Micron
+  predicate: session_role
+  value: "AP identified Micron as a major reason the Nasdaq lagged during the session"
+  unit: text
+  as_of: "2026-07-24"
+  source: https://apnews.com/article/stocks-markets-tariffs-oil-trump-ai-0b9c3b2aa5ca83eb391c1388efe03c97
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: single_source
+
+- id: ai-spending-selectivity
+  subject: US technology equities
+  predicate: reported_session_mechanism
+  value: "AI investment profitability and cash-burn concerns contributed to stock selectivity"
+  unit: text
+  as_of: "2026-07-24"
+  source: news-sources.json#ap-session-context+reuters-session-mechanism
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: verified
+
+- id: weekly-selectivity
+  subject: Nasdaq Composite Micron Apple
+  predicate: weekly_and_session_relative_performance
+  value: "Nasdaq underperformed for the week; Friday MU fell while AAPL rose"
+  unit: text
+  as_of: "2026-07-24"
+  source: news-sources.json#ap-final-index-close+ohlcv-feed-receipts-2026-07-24.json
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: verified
+
+- id: tv-spx-dji-bars
+  subject: SP:SPX and DJ:DJI
+  predicate: completed_session_ohlcv
+  value: "SPX O7406.30 H7460.98 L7396.53 C7411.98; DJI O51791.37 H52118.19 L51682.36 C51947.25"
+  unit: index_points
+  as_of: "2026-07-24"
+  source: ohlcv-feed-receipts-2026-07-24.json
+  retrieved_at: "2026-07-24T20:41:20Z"
+  status: verified
+
+- id: tv-aapl-bar
+  subject: NASDAQ:AAPL
+  predicate: completed_session_ohlcv
+  value: "prior C321.66; O321.79 H334.37 L321.62 C333.02; +3.53%"
+  unit: USD
+  as_of: "2026-07-24"
+  source: ohlcv-feed-receipts-2026-07-24.json#NASDAQ:AAPL
+  retrieved_at: "2026-07-24T20:41:20Z"
+  status: verified
+
+- id: tv-mu-bar
+  subject: NASDAQ:MU
+  predicate: completed_session_ohlcv
+  value: "prior C990.21; O959.03 H967.14 L904.00 C920.95; -6.99%"
+  unit: USD
+  as_of: "2026-07-24"
+  source: ohlcv-feed-receipts-2026-07-24.json#NASDAQ:MU
+  retrieved_at: "2026-07-24T20:41:20Z"
+  status: verified
+
+- id: tv-composite-returns
+  subject: SPX AAPL MU
+  predicate: completed_session_return
+  value: "SPX +0.05%; AAPL +3.53%; MU -6.99%"
+  unit: percent
+  as_of: "2026-07-24"
+  source: ohlcv-feed-receipts-2026-07-24.json
+  retrieved_at: "2026-07-24T20:41:20Z"
+  status: verified
+
+- id: tv-decision-levels
+  subject: SPX MU AAPL
+  predicate: completed_session_range
+  value: "SPX 7396.53-7460.98; MU 904.00-967.14; AAPL 321.62-334.37"
+  unit: mixed_price_units
+  as_of: "2026-07-24"
+  source: ohlcv-feed-receipts-2026-07-24.json
+  retrieved_at: "2026-07-24T20:41:20Z"
+  status: verified
+
+- id: fomc-july-28-29
+  subject: Federal Open Market Committee
+  predicate: scheduled_meeting
+  value: "2026-07-28 through 2026-07-29; decision 14:00 ET; press conference 14:30 ET"
+  unit: datetime
+  as_of: "2026-07-24"
+  source: https://www.federalreserve.gov/newsevents/calendar.htm
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: verified
+
+- id: bea-july-30-releases
+  subject: Bureau of Economic Analysis
+  predicate: scheduled_release
+  value: "Advance Q2 GDP and June Personal Income and Outlays at 2026-07-30 08:30 ET"
+  unit: datetime
+  as_of: "2026-07-24"
+  source: https://www.bea.gov/news/schedule/
+  retrieved_at: "2026-07-24T20:43:50Z"
+  status: verified

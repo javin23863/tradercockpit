@@ -1,0 +1,30 @@
+[
+  {
+    "out": "spx-daily-2026-07-24",
+    "symbol": "SP:SPX",
+    "tf": "1D",
+    "path": "visuals/spx-daily-2026-07-24.png",
+    "purpose": "Broad close: the S&P 500 finished almost unchanged at 7,411.98 and closed in the lower quarter of its captured session range."
+  },
+  {
+    "out": "dji-daily-2026-07-24",
+    "symbol": "DJ:DJI",
+    "tf": "1D",
+    "path": "visuals/dji-daily-2026-07-24.png",
+    "purpose": "Index divergence: the Dow closed at 51,947.25, up 0.46 percent, while technology remained selective."
+  },
+  {
+    "out": "aapl-daily-2026-07-24",
+    "symbol": "NASDAQ:AAPL",
+    "tf": "1D",
+    "path": "visuals/aapl-daily-2026-07-24.png",
+    "purpose": "Positive technology counterexample: Apple closed at 333.02, up 3.53 percent and 1.35 dollars below its session high."
+  },
+  {
+    "out": "mu-daily-2026-07-24",
+    "symbol": "NASDAQ:MU",
+    "tf": "1D",
+    "path": "visuals/mu-daily-2026-07-24.png",
+    "purpose": "Thesis chart: Micron closed at 920.95, down 6.99 percent, with 904.00 and 967.14 defining Friday's range."
+  }
+]

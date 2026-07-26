@@ -1,0 +1,107 @@
+{
+  "schema": "tradercockpit-news-sources/v1",
+  "production": "daily-2026-07-24",
+  "story": "Oil Fell Below $100. Why Friday Still Wasn't Risk-On.",
+  "retrievedAt": "2026-07-24T20:43:50Z",
+  "sources": [
+    {
+      "id": "ap-final-index-close",
+      "outlet": "Associated Press",
+      "tier": "major_reputable",
+      "title": "How major US stock indexes fared Friday 7/24/2026",
+      "publishedAt": "2026-07-24T20:36:04Z",
+      "url": "https://apnews.com/article/02d01b8f38ccd51f605c4414cdd4fa9b",
+      "claimIds": [
+        "spx-close",
+        "dow-close",
+        "nasdaq-close",
+        "brent-settlement",
+        "weekly-index-moves"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "ap-session-context",
+      "outlet": "Associated Press",
+      "tier": "major_reputable",
+      "title": "Stocks rise on Wall Street while crude oil prices fall for the first time in a week",
+      "publishedAt": "2026-07-24",
+      "url": "https://apnews.com/article/stocks-markets-tariffs-oil-trump-ai-0b9c3b2aa5ca83eb391c1388efe03c97",
+      "claimIds": [
+        "ai-spending-selectivity",
+        "ap-micron-lag"
+      ],
+      "priceUse": "intraday_body_not_used_for_final_prices",
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "reuters-session-mechanism",
+      "outlet": "Reuters via MarketScreener",
+      "tier": "major_reputable",
+      "title": "S&P 500, Nasdaq fall as investors juggle earnings, Mideast risks and tariffs",
+      "publishedAt": "2026-07-24",
+      "url": "https://in.marketscreener.com/news/wall-st-set-for-higher-open-after-tech-rout-mideast-tariffs-in-focus-ce7f51dfdc81f12c",
+      "claimIds": [
+        "ai-spending-selectivity",
+        "semiconductor-pressure"
+      ],
+      "priceUse": "preclose_snapshot_not_used_for_final_prices",
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "fed-calendar",
+      "outlet": "Federal Reserve Board",
+      "tier": "primary_official",
+      "title": "Federal Reserve Board calendar",
+      "publishedAt": "2026-07",
+      "url": "https://www.federalreserve.gov/newsevents/calendar.htm",
+      "claimIds": [
+        "fomc-july-28-29"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "bea-release-schedule",
+      "outlet": "U.S. Bureau of Economic Analysis",
+      "tier": "primary_official",
+      "title": "Release Schedule",
+      "publishedAt": "2026-06-23",
+      "url": "https://www.bea.gov/news/schedule/",
+      "claimIds": [
+        "gdp-pce-july-30"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    }
+  ],
+  "marketData": {
+    "source": "TradingView public chart main-series data via repository-owned Puppeteer",
+    "session": "2026-07-24",
+    "receipt": "ohlcv-feed-receipts-2026-07-24.json",
+    "captureReceipt": "chart-capture-receipts.json",
+    "acceptedCharts": [
+      "visuals/spx-daily-2026-07-24.png",
+      "visuals/dji-daily-2026-07-24.png",
+      "visuals/aapl-daily-2026-07-24.png",
+      "visuals/mu-daily-2026-07-24.png"
+    ],
+    "validButUnselectedCharts": [
+      "visuals/avgo-daily-2026-07-24.png"
+    ],
+    "rejectedCharts": [
+      {
+        "path": "visuals/ndx-daily-2026-07-24.png",
+        "reason": "current-bar countdown and Market open label"
+      },
+      {
+        "path": "visuals/ukoil-daily-2026-07-24.png",
+        "reason": "current-bar countdown, Market open label, and CFD quote is not AP settlement"
+      }
+    ]
+  },
+  "externalCostUsd": 0
+}

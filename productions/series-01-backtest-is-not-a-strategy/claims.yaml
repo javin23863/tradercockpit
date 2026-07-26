@@ -1,0 +1,39 @@
+- id: e1-candidate-grade
+  subject: generated trading idea
+  predicate: remains
+  value: candidate-grade until it clears the declared evaluation process
+  unit: classification
+  as_of: "2026-07-24"
+  source: C:/Users/MSI/repos/futures/docs/vault/esq-genesis-pipeline-spec.md
+  retrieved_at: "2026-07-24"
+  status: verified
+
+- id: e1-lifecycle
+  subject: declared strategy lifecycle
+  predicate: extends_through
+  value: idea, candidate, evaluation, parity, paper, limited live, monitoring, demotion or retirement, and research
+  unit: ordered_process
+  as_of: "2026-07-24"
+  source: C:/Users/MSI/repos/futures/docs/vault/trader-cockpit-consumer-product-plan-2026-07-15.md
+  retrieved_at: "2026-07-24"
+  status: verified
+
+- id: e1-paper-before-real
+  subject: strategy promotion
+  predicate: requires
+  value: paper before real exposure
+  unit: governance_rule
+  as_of: "2026-07-24"
+  source: C:/Users/MSI/repos/futures/docs/CONTINUOUS_ALPHA_ARCHITECTURE.md
+  retrieved_at: "2026-07-24"
+  status: verified
+
+- id: e1-no-alpha-promise
+  subject: teaching series
+  predicate: does_not_promise
+  value: alpha, a profitable strategy, a win rate, or signals
+  unit: doctrine
+  as_of: "2026-07-24"
+  source: C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/Series/Operator Doctrine — You Are the Market.md
+  retrieved_at: "2026-07-24"
+  status: verified

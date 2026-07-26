@@ -1,0 +1,24 @@
+{
+  "segments": [
+    {
+      "section": "01",
+      "offset": 0,
+      "duration": 53,
+      "label": "infrastructure-split",
+      "anchor": "right",
+      "layout": "chart",
+      "title": "SMCI Surged While GEV Sank",
+      "copy": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme as two company-specific trades. #SMCI #GEV #StockMarket #MarketNews #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied."
+    },
+    {
+      "section": "03",
+      "offset": 0,
+      "duration": 49.8,
+      "label": "smci-decision-range",
+      "anchor": "right",
+      "layout": "chart",
+      "title": "SMCI's 28.50 to 32.28 Decision Range",
+      "copy": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close through 32.2844 would show buyers accepting the new range. #SMCI #Stocks #MarketNews #TechnicalAnalysis #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied."
+    }
+  ]
+}

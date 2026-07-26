@@ -1,0 +1,48 @@
+{
+  "schema": "tradercockpit-chart-capture-receipts/v1",
+  "captures": [
+    {
+      "path": "visuals/spx-daily-2026-07-24.png",
+      "capturedAt": "2026-07-24T20:38:15.9445973Z",
+      "sha256": "462b3dfea40d685c7d37d17eb72ad9732dffd73333c18ce12881afb5bb0c55d6",
+      "accepted": true
+    },
+    {
+      "path": "visuals/dji-daily-2026-07-24.png",
+      "capturedAt": "2026-07-24T20:40:50.7778556Z",
+      "sha256": "5820e6ae7103b21eb6f26c70d744acc7967637766a198ef83bddabec12809896",
+      "accepted": true
+    },
+    {
+      "path": "visuals/aapl-daily-2026-07-24.png",
+      "capturedAt": "2026-07-24T20:41:19.9965151Z",
+      "sha256": "7987353ecaf4656545ed294a658faf9095f69aaabc49bf65dc7466963896c92d",
+      "accepted": true
+    },
+    {
+      "path": "visuals/mu-daily-2026-07-24.png",
+      "capturedAt": "2026-07-24T20:39:19.1245788Z",
+      "sha256": "1017a691aa7fa85f822452cef63c71a3be71c51a63d975f64fc0de5254c51a8d",
+      "accepted": true
+    },
+    {
+      "path": "visuals/avgo-daily-2026-07-24.png",
+      "capturedAt": "2026-07-24T20:39:47.9718843Z",
+      "sha256": "d13f4cc2bdfed430a79e18e4188c920f9bc8f6af1760ae43e31eece5e38f5e1b",
+      "accepted": true
+    },
+    {
+      "path": "visuals/ndx-daily-2026-07-24.png",
+      "capturedAt": "2026-07-24T20:38:45.7282124Z",
+      "sha256": "8968843ccd2e23fb1fe8024524792f5b1b545b8d47ab356c04a5e8ebf6439628",
+      "accepted": false
+    },
+    {
+      "path": "visuals/ukoil-daily-2026-07-24.png",
+      "capturedAt": "2026-07-24T20:34:03.2335811Z",
+      "sha256": "4876fdaaef7fe2210b7972d8007ee5ac0708719958924ae98ca0bab9621132ef",
+      "accepted": false
+    }
+  ]
+}
+

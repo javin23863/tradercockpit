@@ -1,0 +1,61 @@
+{
+  "schema": "tradercockpit-news-sources/v1",
+  "production": "daily-2026-07-22",
+  "story": "Infrastructure Was Not One Trade",
+  "sources": [
+    {
+      "id": "supermicro-preliminary-q4",
+      "outlet": "Super Micro Computer investor relations",
+      "tier": "official_primary",
+      "title": "Supermicro Provides Fourth Quarter of Fiscal Year 2026 Preliminary Business Update",
+      "publishedAt": "2026-07-21",
+      "url": "https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx",
+      "claimIds": [
+        "smci-period",
+        "smci-revenue-range",
+        "smci-margin-range",
+        "smci-prior-margin-range",
+        "smci-backlog",
+        "smci-final-date"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "ge-vernova-q2-results",
+      "outlet": "GE Vernova",
+      "tier": "official_primary",
+      "title": "GE Vernova Reports Second Quarter 2026 Financial Results, Raises 2026 Financial Guidance",
+      "publishedAt": "2026-07-22",
+      "url": "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial",
+      "claimIds": [
+        "gev-period",
+        "gev-orders",
+        "gev-orders-growth",
+        "gev-revenue",
+        "gev-revenue-growth-reported",
+        "gev-revenue-growth-organic",
+        "gev-net-income",
+        "gev-adjusted-ebitda",
+        "gev-backlog-increase"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    }
+  ],
+  "marketData": {
+    "source": "TradingView Desktop via tradingview-mcp",
+    "session": "2026-07-22",
+    "receipt": "ohlcv-feed-receipts-2026-07-22.json",
+    "captureReceipt": "chart-capture-receipts.json",
+    "capturedCharts": [
+      "visuals/03-spx.mp4",
+      "visuals/04-ndx.mp4",
+      "visuals/05-smci.mp4",
+      "visuals/06-gev.mp4",
+      "visuals/07-xli.mp4",
+      "visuals/08-vix.mp4"
+    ]
+  },
+  "externalCostUsd": 0
+}

@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "bar_count": 2,
+  "total_available": 300,
+  "source": "direct_bars",
+  "bars": [
+    {
+      "time": 1784727000,
+      "open": 153.86,
+      "high": 154.8,
+      "low": 152.95,
+      "close": 154.45,
+      "volume": 13788729
+    },
+    {
+      "time": 1784813400,
+      "open": 156.6,
+      "high": 158.57,
+      "low": 156.06,
+      "close": 156.89,
+      "volume": 15558901
+    }
+  ]
+}

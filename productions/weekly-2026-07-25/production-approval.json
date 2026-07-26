@@ -1,0 +1,17 @@
+{
+  "schema": "tradercockpit-production-approval/v1",
+  "status": "approved",
+  "analysisBrief": "productions/weekly-2026-07-25/analysis-brief.md",
+  "analysisBriefSha256": "5a568172d4d175e1cc063a45ffaed7acfca26536f6a1482d112fe763651a7044",
+  "sourceReceipt": "productions/weekly-2026-07-25/news-sources.json",
+  "sourceReceiptSha256": "1dcaa6d06ebdfc2ec2b70fb3659f97502ab5356def9904d0711d69fd05fd093c",
+  "scriptApproval": "productions/weekly-2026-07-25/script-approval.json",
+  "scriptApprovalSha256": "17de73a5cd2f21bf9f0ab5735b7d6519aeba2745f820f8a98ec77cca912fe9cf",
+  "framingSources": [
+    "Al Jazeera"
+  ],
+  "reviewedBy": "operator",
+  "reviewedAt": "2026-07-25T22:42:11Z",
+  "approvalKind": "operator",
+  "operatorReviewed": true
+}

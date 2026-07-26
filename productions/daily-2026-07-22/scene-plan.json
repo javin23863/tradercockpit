@@ -1,0 +1,770 @@
+{
+  "schema": "tradercockpit-scene-plan/v1",
+  "beats": [
+    {
+      "id": "01-01",
+      "section": "01",
+      "narration": "The market just paid nearly twenty percent for Super Micro Computer and charged almost nine percent for GE Vernova.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "01-02",
+      "section": "01",
+      "narration": "The Nasdaq 100 slipped about half a percent.",
+      "spokenSubjects": [
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/04-ndx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "01-03",
+      "section": "01",
+      "narration": "The industrial ETF barely moved. That split is the whole session.",
+      "spokenSubjects": [
+        "xli"
+      ],
+      "visual": {
+        "path": "visuals/07-xli.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xli"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "01-04",
+      "section": "01",
+      "narration": "Supermicro sells the computing boxes; GE Vernova supplies the power and grid equipment behind them. Wednesday's close priced their risks separately. My read is simple: basket-level exposure lost explanatory power. Company-specific repricing took over. Supermicro's preliminary update created a violent repricing against a weak Nasdaq 100.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "01-05",
+      "section": "01",
+      "narration": "GE Vernova reported strong growth and raised guidance, then closed at the low of the day while the industrial sector finished flat. Broad fear faded into the bell. That gives us a clean portfolio question. Are these moves expanding into their indexes, or are they isolated gaps that need fresh company evidence to survive? The answer sits in the levels each name printed on July twenty-second.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "02-01",
+      "section": "02",
+      "narration": "Supermicro released an unaudited preliminary fiscal fourth-quarter update after the prior session. The company placed revenue near the low end of its eleven-to-twelve-and-a-half-billion-dollar guidance range. That was the soft part of the release. The margin estimate changed the tone. Supermicro estimated GAAP and non-GAAP gross margins between fifteen and seventeen percent. Its prior guidance had been eight point two to eight point four percent. That sharply changed the economics implied by the update. The company also reported more than sixty billion dollars in new orders and backlog. Management warned that orders can be delayed or cancelled, so backlog is demand visibility rather than cash already collected. Final fiscal fourth-quarter results are scheduled for August eleventh. The combination mattered: revenue near the lower edge of guidance, a much stronger preliminary margin range, and a backlog figure large enough to change the debate. The release established the business facts. The completed session established what investors paid for them.",
+      "spokenSubjects": [
+        "smci-release"
+      ],
+      "visual": {
+        "path": "visuals/02-smci-release.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "smci-release"
+        ],
+        "fit": "contain",
+        "purpose": "Show the official dated company release behind the spoken facts."
+      }
+    },
+    {
+      "id": "03-01",
+      "section": "03",
+      "narration": "SMCI came into the session from a twenty-five-dollar-and-fifty-cent close. It opened at twenty-eight dollars and eighty-nine cents, traded as high as thirty-two dollars and twenty-eight cents, and finished at thirty dollars and fifty-six cents. The gain was nineteen point eight four percent. The useful detail is where the stock finished inside that range. Buyers held most of the opening gap, yet the close remained below the thirty-two-dollar-and-twenty-eight-cent high. That leaves a wide decision area instead of a clean breakout with empty space underneath it. I care about twenty-eight dollars and fifty cents first. That was the session low and the lowest price buyers defended after the update hit the tape. A close below it would put the gap under pressure and bring the twenty-five-dollar-and-fifty-cent prior-close area back into the conversation. Above it, the market is still carrying a meaningful portion of the repricing. The other side is thirty-two dollars and twenty-eight cents. A close through that high would show buyers accepting the new range.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "03-02",
+      "section": "03",
+      "narration": "A rejection there would keep the stock trapped inside Wednesday's volatility.",
+      "spokenSubjects": [
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/08-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "04-01",
+      "section": "04",
+      "narration": "The Nasdaq 100 did not travel with SMCI. It lost zero point five four percent and closed at twenty-eight thousand nine hundred ninety-eight. The session high was twenty-nine thousand one hundred seventy-six point nine one. That divergence changes the interpretation. A broad AI or duration bid would normally leave a footprint across the index. Wednesday delivered the opposite shape: a hardware name exploded higher while the large-cap growth benchmark finished lower.",
+      "spokenSubjects": [
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/04-ndx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "04-02",
+      "section": "04",
+      "narration": "Supermicro's move therefore belongs to Supermicro until the Nasdaq 100 starts clearing its own levels. The practical test is a paired close. SMCI above thirty-two dollars and twenty-eight cents while the Nasdaq 100 closes above twenty-nine thousand one hundred seventy-six point nine one would broaden the message. SMCI holding its gap while the index stays below that level keeps the move company-specific. SMCI losing twenty-eight dollars and fifty cents while the index remains weak would tell us the gap is unwinding without help from the broader tape. This distinction matters for anyone holding the theme through an ETF or a group of related names. A dramatic single-stock move can make the whole trade feel healthy. Breadth was missing.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "05-01",
+      "section": "05",
+      "narration": "GE Vernova reported second-quarter orders of twenty-four point two billion dollars, up eighty-eight percent organically. Revenue was eleven point one billion dollars, up twenty-two percent as reported and twelve percent organically. Net income was six hundred million dollars, and adjusted EBITDA was one point two billion dollars. The company also reported a thirteen-billion-dollar sequential increase in backlog and raised its full-year guidance. Yet GEV fell sharply, so the operating report and price reaction point in opposite directions. Large projects convert backlog through delivery. GE Vernova posted strong growth and still closed at the low; the chart sets the next test while seller motives remain unknown.",
+      "spokenSubjects": [
+        "gev-release"
+      ],
+      "visual": {
+        "path": "visuals/05-gev-release.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "gev-release"
+        ],
+        "fit": "contain",
+        "purpose": "Show the official dated company release behind the spoken facts."
+      }
+    },
+    {
+      "id": "06-01",
+      "section": "06",
+      "narration": "GEV entered from a prior close of one thousand seventy-eight dollars and eighty-one cents. It opened at one thousand twenty-one dollars and one cent, reached one thousand thirty-eight dollars and ninety-nine cents, and closed at nine hundred eighty-five dollars and three cents. The close matched the session low. The loss was eight point six nine percent. Closing exactly at the low is different from a midday flush that buyers repair before the bell. Supply remained present through the final print. That makes nine hundred eighty-five dollars and three cents the immediate line. A close below it extends the repricing. A recovery above it only returns the stock to Wednesday's range. The serious recovery test is one thousand thirty-eight dollars and ninety-nine cents, the session high. Reclaiming that high would recover most of Wednesday's range. Staying below it leaves the sellers in control of the range. Strong orders did not stop the selloff. The next useful information comes from whether GEV can stop closing beneath its recovery levels.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "07-01",
+      "section": "07",
+      "narration": "XLI gained zero point one one percent. Its session low was one hundred seventy-eight dollars and fourteen cents, and its high was one hundred seventy-nine dollars and eighty-four cents.",
+      "spokenSubjects": [
+        "xli"
+      ],
+      "visual": {
+        "path": "visuals/07-xli.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xli"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "07-02",
+      "section": "07",
+      "narration": "That is a flat sector tape beside an eight point six nine percent loss in GEV.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "07-03",
+      "section": "07",
+      "narration": "The industrial ETF gives the GE Vernova move the same treatment the Nasdaq 100 gave Supermicro. It refuses to turn a company reaction into a sector conclusion. If investors were broadly marking down industrial capital spending, XLI should have carried more of the damage. It did not. The paired test is straightforward.",
+      "spokenSubjects": [
+        "xli"
+      ],
+      "visual": {
+        "path": "visuals/07-xli.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xli"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "07-04",
+      "section": "07",
+      "narration": "GEV reclaiming one thousand thirty-eight dollars and ninety-nine cents while XLI closes above one hundred seventy-nine dollars and eighty-four cents would show improvement in both the name and its control. GEV staying below nine hundred eighty-five dollars and three cents while XLI holds above one hundred seventy-eight dollars and fourteen cents keeps the damage isolated.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "07-05",
+      "section": "07",
+      "narration": "A broad industrial break below that XLI low would change the character of the move.",
+      "spokenSubjects": [
+        "xli"
+      ],
+      "visual": {
+        "path": "visuals/07-xli.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xli"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "07-06",
+      "section": "07",
+      "narration": "For now, GEV is a company problem inside a stable sector. That is useful information for diversified holders. It says the ETF did its job while the single name carried the event risk.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "08-01",
+      "section": "08",
+      "narration": "The S&P 500 lost zero point one four percent and closed at seven thousand four hundred ninety-eight point nine six. Its session stretched from seven thousand four hundred eighty-five point eight five to seven thousand five hundred twenty-five point nine four. The broad index absorbed the violent single-name reactions and still finished close to where it opened.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "08-02",
+      "section": "08",
+      "narration": "VIX completes the picture. It opened at seventeen point four two, reached nineteen point four nine, and closed at sixteen point six four. The close matched the session low, leaving VIX down two point three five percent. That intraday reversal matters. Traders bought volatility while risk felt unstable, then sold it into the close. The final print did not carry a broad fear premium. The single-name gaps still carry risk; the closing tape kept that stress concentrated.",
+      "spokenSubjects": [
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/08-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "08-03",
+      "section": "08",
+      "narration": "I am watching seven thousand four hundred eighty-five point eight five on the S&P 500 and nineteen point four nine on VIX.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "08-04",
+      "section": "08",
+      "narration": "An S&P close below that low with VIX above that high would widen the story beyond company earnings. An S&P hold near seven thousand five hundred while VIX remains below nineteen point four nine keeps the market backdrop orderly enough for the single-name levels to matter most. The broad tape keeps the analysis specific.",
+      "spokenSubjects": [
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/08-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "09-01",
+      "section": "09",
+      "narration": "Infrastructure demand reaches servers and grid equipment, but cash flows arrive through different margins, contract terms, and delivery schedules.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "09-02",
+      "section": "09",
+      "narration": "Supermicro's update concentrated attention on gross margin and backlog. Investors could compare the preliminary economics with prior guidance and reprice the stock immediately.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "09-03",
+      "section": "09",
+      "narration": "GE Vernova's release carried strong orders and higher guidance, yet the stock closed at the low. Large projects take time to manufacture, install, and convert into cash. A growing backlog can raise both future opportunity and current execution pressure. This is why a theme can be right while individual positions move in opposite directions. The theme describes demand. The stock price discounts demand, margins, timing, financing, and expectations together. Wednesday's divergences say investors are sorting those pieces company by company. For a portfolio, that argues for matching exposure to the question being asked.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "09-04",
+      "section": "09",
+      "narration": "The Nasdaq 100 measures large-cap growth participation.",
+      "spokenSubjects": [
+        "ndx"
+      ],
+      "visual": {
+        "path": "visuals/04-ndx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "ndx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "09-05",
+      "section": "09",
+      "narration": "XLI measures whether industrials share GE Vernova's weakness.",
+      "spokenSubjects": [
+        "xli"
+      ],
+      "visual": {
+        "path": "visuals/07-xli.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xli"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "09-06",
+      "section": "09",
+      "narration": "SMCI and GEV show whether their own disclosures changed the price investors will accept. Blending those questions into a single infrastructure trade hides the part of the risk that just moved.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-01",
+      "section": "10",
+      "narration": "My base case is continued dispersion.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-02",
+      "section": "10",
+      "narration": "SMCI stays inside the twenty-eight-dollar-and-fifty-cent to thirty-two-dollar-and-twenty-eight-cent range while the Nasdaq 100 remains below twenty-nine thousand one hundred seventy-six point nine one.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-03",
+      "section": "10",
+      "narration": "GEV stays below one thousand thirty-eight dollars and ninety-nine cents while XLI remains inside one hundred seventy-eight dollars and fourteen cents to one hundred seventy-nine dollars and eighty-four cents. That map says company information still outranks the basket. The broadening case needs paired breaks.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-04",
+      "section": "10",
+      "narration": "SMCI closes above thirty-two dollars and twenty-eight cents while the Nasdaq 100 closes above twenty-nine thousand one hundred seventy-six point nine one.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-05",
+      "section": "10",
+      "narration": "On the downside, GEV closes below nine hundred eighty-five dollars and three cents while XLI closes below one hundred seventy-eight dollars and fourteen cents. Those pairs would extend the single-name reactions into their controls. The reversal case attacks Wednesday's reactions.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-06",
+      "section": "10",
+      "narration": "SMCI closes below twenty-eight dollars and fifty cents and opens a test of the twenty-five-dollar-and-fifty-cent prior-close area.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-07",
+      "section": "10",
+      "narration": "GEV recovers through one thousand thirty-eight dollars and ninety-nine cents. That combination would unwind the cleanest parts of the session's dispersion. The broad-market invalidation sits beside those company maps.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "10-08",
+      "section": "10",
+      "narration": "The S&P 500 closes below seven thousand four hundred eighty-five point eight five while VIX closes above nineteen point four nine. That would promote market stress from background risk to an active driver. These conditions form a conditional decision framework. Price has to earn every branch.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "11-01",
+      "section": "11",
+      "narration": "Supermicro is scheduled to report final fiscal fourth-quarter results on August eleventh. The final release can replace the preliminary ranges with completed figures and add management detail around customers, timing, margins, and the more-than-sixty-billion-dollar order and backlog statement.",
+      "spokenSubjects": [
+        "smci-release"
+      ],
+      "visual": {
+        "path": "visuals/02-smci-release.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "smci-release"
+        ],
+        "fit": "contain",
+        "purpose": "Show the official dated company release behind the spoken facts."
+      }
+    },
+    {
+      "id": "11-02",
+      "section": "11",
+      "narration": "For GE Vernova, investors will keep testing the raised full-year guidance against order conversion, project execution, and cash generation. The July twenty-second release established strong reported growth; later filings and earnings updates will show how that growth moves through the income statement and balance sheet. The market calendar matters because both stocks just made large moves on company information. Fresh company disclosures carry more authority than sympathy moves from neighboring names. Until those arrive, the captured levels provide the cleanest way to judge whether Wednesday's repricing is being accepted or rejected.",
+      "spokenSubjects": [
+        "gev-release"
+      ],
+      "visual": {
+        "path": "visuals/05-gev-release.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "gev-release"
+        ],
+        "fit": "contain",
+        "purpose": "Show the official dated company release behind the spoken facts."
+      }
+    },
+    {
+      "id": "12-01",
+      "section": "12",
+      "narration": "The lesson from this close is that demand stopped being enough. Infrastructure demand can remain strong while individual stocks reprice in opposite directions.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "12-02",
+      "section": "12",
+      "narration": "Supermicro gained nineteen point eight four percent while the Nasdaq 100 fell.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "12-03",
+      "section": "12",
+      "narration": "GE Vernova lost eight point six nine percent while industrials finished flat.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "12-04",
+      "section": "12",
+      "narration": "VIX touched nineteen point four nine and closed at sixteen point six four. The completed tape kept those company reactions separate inside a theme that had been trading as a broad bundle. Watch the pairs.",
+      "spokenSubjects": [
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/08-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "12-05",
+      "section": "12",
+      "narration": "SMCI and thirty-two dollars and twenty-eight cents beside the Nasdaq 100 and twenty-nine thousand one hundred seventy-six point nine one.",
+      "spokenSubjects": [
+        "smci"
+      ],
+      "visual": {
+        "path": "visuals/05-smci.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "smci"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "12-06",
+      "section": "12",
+      "narration": "GEV and one thousand thirty-eight dollars and ninety-nine cents beside XLI and one hundred seventy-nine dollars and eighty-four cents.",
+      "spokenSubjects": [
+        "gev"
+      ],
+      "visual": {
+        "path": "visuals/06-gev.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "gev"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    },
+    {
+      "id": "12-07",
+      "section": "12",
+      "narration": "The S&P 500 low and the VIX high decide whether the story stays concentrated. A close below seven thousand four hundred eighty-five point eight five in the S&P 500 with VIX above nineteen point four nine would turn this company-specific tape into a market-wide warning. Subscribe for the next post-close map; this is market news and education, not financial advice.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Keep the full symbol identity, current bar, and price axis visible as the instrument is discussed."
+      }
+    }
+  ]
+}

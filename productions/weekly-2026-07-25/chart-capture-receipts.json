@@ -1,0 +1,71 @@
+{
+  "schema": "tradercockpit-chart-capture-receipts/v1",
+  "captures": [
+    {
+      "path": "visuals/03-brent-1w.mp4",
+      "capturedAt": "2026-07-25T23:05:28.000Z",
+      "sha256": "d7ba980cdfe2a77106b83de39cdf9af40dd9114e2f7318c08433c2dfc7fdfc89"
+    },
+    {
+      "path": "visuals/03-brent-ta.mp4",
+      "capturedAt": "2026-07-26T17:34:15.000Z",
+      "sha256": "6d8cd68e8c3862b06ebdb163494989c55bb7c9f5b384a5039f01af161066a81d",
+      "source": "operator live authenticated TradingView (Firefox, layout wbXb26vP), dark theme, LuxAlgo SMC + SR-Dynamic intact"
+    },
+    {
+      "path": "visuals/04-xle-1w.mp4",
+      "capturedAt": "2026-07-25T23:05:28.000Z",
+      "sha256": "1400853bc49a8b681a3387c002ed9fa86ac99628344b9a8387684780a95ca9df"
+    },
+    {
+      "path": "visuals/04-xle-ta.mp4",
+      "capturedAt": "2026-07-26T17:34:15.000Z",
+      "sha256": "471e561ab74e69e890bbb33d1969dab42d709af8ecc77e4ef2e6ab9d4f554f8a",
+      "source": "operator live authenticated TradingView (Firefox, layout wbXb26vP), dark theme, LuxAlgo SMC + SR-Dynamic intact"
+    },
+    {
+      "path": "visuals/05-vix-1w.mp4",
+      "capturedAt": "2026-07-25T23:05:28.000Z",
+      "sha256": "e9d0b2cb0e64d8cfc9e0dceae62395292d49d500edadc76d477ca1578cc6bfea"
+    },
+    {
+      "path": "visuals/05-vix-ta.mp4",
+      "capturedAt": "2026-07-26T17:34:15.000Z",
+      "sha256": "2cb4e152fb5adda171d407067eaa8d224725706a4c49509d4b0f01ad1bb658ac",
+      "source": "operator live authenticated TradingView (Firefox, layout wbXb26vP), dark theme, LuxAlgo SMC + SR-Dynamic intact"
+    },
+    {
+      "path": "visuals/06-spx-1w.mp4",
+      "capturedAt": "2026-07-25T23:05:28.000Z",
+      "sha256": "ef8366db8f4e1169461127c815272262b10123e795cd97219d043aab3a084aff"
+    },
+    {
+      "path": "visuals/06-spx-ta.mp4",
+      "capturedAt": "2026-07-26T17:34:15.000Z",
+      "sha256": "561343a0dda9902870e40383044909bc527b0edc36c02e2ad4ca0ad5d37df94c",
+      "source": "operator live authenticated TradingView (Firefox, layout wbXb26vP), dark theme, LuxAlgo SMC + SR-Dynamic intact"
+    },
+    {
+      "path": "visuals/07-mu-1w.mp4",
+      "capturedAt": "2026-07-25T23:05:28.000Z",
+      "sha256": "527d0a04ca784a0321a6188d27cde5b9af431bf1e69030d04f1c6b59a15de42c"
+    },
+    {
+      "path": "visuals/07-mu-ta.mp4",
+      "capturedAt": "2026-07-26T17:34:15.000Z",
+      "sha256": "7884224f7fc0b8436395aef6367232ffe801a2aa0efe8bb06a9162ce9b775c0a",
+      "source": "operator live authenticated TradingView (Firefox, layout wbXb26vP), dark theme, LuxAlgo SMC + SR-Dynamic intact"
+    },
+    {
+      "path": "visuals/08-oxy-1w.mp4",
+      "capturedAt": "2026-07-25T23:05:28.000Z",
+      "sha256": "01aaeadcf58cb131e6216590e7d5edece2f842c17b98a6239738bbea50411f10"
+    },
+    {
+      "path": "visuals/08-oxy-ta.mp4",
+      "capturedAt": "2026-07-26T17:34:15.000Z",
+      "sha256": "569b12129730c6a35f4dea8b49b7d605c772f0f72367f8bb3e3cdb4a99490db2",
+      "source": "operator live authenticated TradingView (Firefox, layout wbXb26vP), dark theme, LuxAlgo SMC + SR-Dynamic intact"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "tradercockpit-chart-capture-receipts/v1",
+  "captures": [
+    {
+      "path": "visuals/03-spx.mp4",
+      "capturedAt": "2026-07-23T01:22:38.333Z",
+      "sha256": "5310964ed8250f1e5f667e29683331276e3dc7161d879426d941a74281037161"
+    },
+    {
+      "path": "visuals/04-ndx.mp4",
+      "capturedAt": "2026-07-23T01:35:23.093Z",
+      "sha256": "333ddd93928a42440bfd83d479f1ec44af773d5c7d412a64cd4392716dd93724"
+    },
+    {
+      "path": "visuals/05-smci.mp4",
+      "capturedAt": "2026-07-23T01:36:29.853Z",
+      "sha256": "e60065fbc96b701e11bd191c25702d21d7d1a12109dc84f55e10c18a6ad990ff"
+    },
+    {
+      "path": "visuals/06-gev.mp4",
+      "capturedAt": "2026-07-23T01:37:27.491Z",
+      "sha256": "5f3c4a54c0389b81c28f9abcbcda1a340e6728bcef7f40d6637ae8a94a514554"
+    },
+    {
+      "path": "visuals/07-xli.mp4",
+      "capturedAt": "2026-07-23T01:38:16.585Z",
+      "sha256": "5aeb4375d3af9c29a3b78c11e86d27db4d4b1167625a1394876cab316a2b4228"
+    },
+    {
+      "path": "visuals/08-vix.mp4",
+      "capturedAt": "2026-07-23T01:39:07.815Z",
+      "sha256": "70e2cb12e70858b001c927f2ef38d7203446fe71d5bca592d26a0d98629036dd"
+    }
+  ]
+}

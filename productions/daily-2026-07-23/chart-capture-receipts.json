@@ -1,0 +1,40 @@
+{
+  "schema": "tradercockpit-chart-capture-receipts/v1",
+  "captures": [
+    {
+      "path": "visuals/01-gold.mp4",
+      "capturedAt": "2026-07-23T20:27:49.909Z",
+      "sha256": "b6f67460137a9fe9414e025dd8d555c8f2b253a3fcdd5b8e7853ddc0923394fd"
+    },
+    {
+      "path": "visuals/02-spx.mp4",
+      "capturedAt": "2026-07-23T20:28:32.922Z",
+      "sha256": "334331834d63de2000d67dc5a5ffb579fd94b9f0c3bab170429683cc99448520"
+    },
+    {
+      "path": "visuals/03-ndx.mp4",
+      "capturedAt": "2026-07-23T20:29:25.038Z",
+      "sha256": "dd74c8a645c0b90c4a2c855a7e38bd95a41a3f6d5cfc94c9a0a752e0d509abc6"
+    },
+    {
+      "path": "visuals/04-vix.mp4",
+      "capturedAt": "2026-07-23T20:30:14.631Z",
+      "sha256": "cfc34efd22ca8c5a61bd583a39de06f7158e3bb1950fad3e920a060b7cb8c134"
+    },
+    {
+      "path": "visuals/05-xle.mp4",
+      "capturedAt": "2026-07-23T20:31:00.414Z",
+      "sha256": "9a42fcb2fa70febec110577d68dcf7b50cffb4dbc7699798fa4a52960466a3e8"
+    },
+    {
+      "path": "visuals/06-oxy.mp4",
+      "capturedAt": "2026-07-23T20:31:43.340Z",
+      "sha256": "7a179642a22d80c353385d9afbffbf6c9ca2913086370892c8a4bd7ff4245006"
+    },
+    {
+      "path": "visuals/07-brent.mp4",
+      "capturedAt": "2026-07-23T20:32:34.689Z",
+      "sha256": "8850402bbb70143ea3e682dcc86a73e7328c7159dcf8cc073b94438c54f5a3d7"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+## 01 hook
+
+Brent crude settled back below one hundred dollars a barrel Friday, according to the
+Associated Press. Micron fell almost seven percent anyway.
+
+That pair tells you more than the green S and P five hundred close. The Associated Press also
+reported lower Treasury yields. The captured S and P and Dow bars both closed positive, while
+the AP final recap had the Nasdaq composite lower. Apple rallied as Micron sold off.
+
+My read is that Friday delivered relief without broad conviction. The market separated
+companies instead of rewarding technology as one trade. That matters for Monday because a
+flat index can hide a large difference between what is working and what is being repriced.
+
+I want to map that separation through the completed Friday bars, then set the levels that
+would show whether relief is spreading or Micron's weakness is extending.
+
+## 02 final-close
+
+The Associated Press reported that Brent fell almost four percent to settle at ninety-six
+dollars and seventy-eight cents. One day earlier, the benchmark had reached one hundred two
+dollars.
+
+The same final recap put the S and P five hundred at seven thousand four hundred eleven point
+nine eight, up three point six eight points. The Dow finished at fifty-one thousand nine
+hundred forty-seven point two five, up two hundred thirty-five point six zero. The Nasdaq
+composite ended at twenty-four thousand nine hundred seventy-five point eight two, down one
+hundred sixty-one point eight seven.
+
+Those closes describe a mixed session. Oil reversed part of Thursday's jump. The Dow
+advanced. The S and P barely moved. The Nasdaq declined.
+
+The Associated Press also reported lower Treasury yields. That combination removed part of the week's
+oil-and-rates pressure, but it did not pull the major equity indexes in the same direction.
+The internal stock bars make the separation clearer.
+
+## 03 broad-tape
+
+Start with the S and P five hundred. Friday opened at seven thousand four hundred six point
+three zero, reached seven thousand four hundred sixty point nine eight, fell to seven
+thousand three hundred ninety-six point five three, and closed at seven thousand four hundred
+eleven point nine eight.
+
+That close was only fifteen point four five points above the low inside a sixty-four point
+four five point range. The index finished positive, but it retained little of the move to
+the session high.
+
+The Dow had a stronger close. It finished at fifty-one thousand nine hundred forty-seven
+point two five, up zero point four six percent, after reaching fifty-two thousand one hundred
+eighteen point one nine.
+
+The comparison matters. Broad exposure did not collapse when oil eased, and it did not
+produce a uniform rally either. The Dow carried more of the positive tape while the S and P
+closed near the lower part of its own range. Index-level calm sat on top of meaningful
+rotation.
+
+## 04 apple
+
+Apple was Friday's strongest technology counterexample.
+
+The stock came into Friday from three hundred twenty-one dollars and sixty-six cents. It
+opened at three hundred twenty-one dollars and seventy-nine cents, reached three hundred
+thirty-four dollars and thirty-seven cents, and closed at three hundred thirty-three dollars
+and two cents.
+
+That was an eleven dollar and thirty-six cent gain, or three point five three percent. The
+close sat only one dollar and thirty-five cents below the session high.
+
+Apple's bar prevents a lazy all-tech explanation. Money could still move into a very large
+technology company while other high-value technology names fell. Friday rewarded a specific
+winner rather than lifting the whole group.
+
+For Monday, Apple has three hundred thirty-four dollars and thirty-seven cents above and
+three hundred twenty-one dollars and sixty-two cents below. Those are Friday's captured high
+and low.
+
+## 05 micron
+
+Micron supplied the sharpest negative bar.
+
+The prior close was nine hundred ninety dollars and twenty-one cents. Friday opened at nine
+hundred fifty-nine dollars and three cents, traded as high as nine hundred sixty-seven
+dollars and fourteen cents, fell to nine hundred four dollars, and closed at nine hundred
+twenty dollars and ninety-five cents.
+
+The loss was sixty-nine dollars and twenty-six cents, or six point nine nine percent. Micron
+closed sixteen dollars and ninety-five cents above its low inside a sixty-three dollar and
+fourteen cent session range.
+
+The Associated Press identified Micron as a major reason the Nasdaq lagged during the day.
+The completed bar shows how much pressure remained at the bell.
+
+Nine hundred sixty-seven dollars and fourteen cents is the repair level. A later close above
+it would recover Friday's entire range. Nine hundred four dollars is the downside level. A
+later close below it would extend the selloff beyond Friday's low.
+
+## 06 index-math
+
+How can Apple rise, Micron fall, and the S and P still finish almost flat?
+
+An index is an aggregate. It combines companies with different weights and different
+drivers. A strong move in one large company can offset weakness elsewhere without telling
+you that the whole market is healthy. A quiet index close can therefore sit above a violent
+day for a concentrated account.
+
+Friday made that distinction visible. Apple gained three point five three percent and
+finished near its high. Micron lost six point nine nine percent and finished near the lower
+part of its range. The S and P gained zero point zero five percent.
+
+Those results can coexist because the index reports the combined outcome. It does not
+promise that every position experienced the same session. For Monday, the broad close and
+the stock ranges must be read together.
+
+That distinction changes the question for Monday. A green S and P close by itself cannot
+repair Micron, and a Micron rebound by itself cannot prove the broad market strengthened.
+Each instrument has to clear its own Friday boundary before the tape earns a broader label.
+
+## 07 mechanism
+
+Why did lower oil and lower yields fail to lift the whole technology complex?
+
+Cheaper oil reduces one source of inflation pressure. Lower Treasury yields reduce one
+source of valuation pressure for long-duration growth companies. Both moves helped the
+macro backdrop at the margin.
+
+Company prices still have to absorb earnings quality and capital spending. Cash generation
+matters. So do competitive position and the return investors expect from AI investment. The
+Associated Press reported continued concern about whether spending on AI technology would
+produce profits large enough to justify elevated valuations. A Reuters session report
+described a market becoming more selective around AI spending and cash burn.
+
+Friday's bars fit that selective shape. Apple gained three point five three percent. Micron
+lost six point nine nine percent. The S and P finished up zero point zero five percent.
+
+Price alone cannot tell us which concern dominated each order. It can establish that macro
+relief was insufficient to create a broad technology bid. The next closes determine whether
+that separation persists.
+
+## 08 portfolio-impact
+
+Who got paid and who got hurt?
+
+Dow holders finished with a positive session. S and P holders were almost unchanged. Apple
+holders benefited from a strong gain that finished near the session high.
+
+Micron holders had a different day. The stock opened below its prior close and stayed
+negative into the bell. A portfolio concentrated in that name could therefore finish weak
+while the broad index appeared quiet.
+
+Oil exposure also reversed part of Thursday's surge. The Associated Press settlement at
+ninety-six dollars and seventy-eight cents placed Brent back below one hundred dollars after
+the prior day's move to one hundred two.
+
+The practical lesson is exposure mapping. A broad index can move differently from a dominant
+consumer-technology name, a memory-chip company, or a crude benchmark. Friday rewarded the
+distinction.
+
+A trader who watched only the broad close could miss both sides of that distribution.
+Apple's gain could offset weakness elsewhere inside a diversified account, while a
+hardware-heavy account could remain deeply red. The index close describes the total. It
+does not describe the path each holding took to get there.
+
+Friday's closes show where the relief reached price and where it stopped. Position labels
+such as technology or growth are too broad for this tape; the individual exposures decided
+the result.
+
+## 09 priced-in
+
+Friday was the end of a weak week, especially for the Nasdaq.
+
+The Associated Press reported that the S and P five hundred lost zero point six percent for
+the week. The Dow lost zero point four percent. The Nasdaq composite lost two point one
+percent.
+
+Friday added to a week in which the Nasdaq underperformed. Micron finished in the weak part
+of the tape, while Apple broke away from it.
+
+The S and P's Friday bar also warns against reading a green close as a clean reset. The index
+reached seven thousand four hundred sixty point nine eight and finished at seven thousand
+four hundred eleven point nine eight. Buyers did not retain most of that intraday advance.
+
+The weekly context raises the standard for calling a repair. A single positive S and P close
+cannot erase a week in which the Nasdaq underperformed. Micron has to reclaim its own range;
+the broad index cannot do that work for it.
+
+## 10 decision-map
+
+The base case keeps Friday's selectivity intact.
+
+For the broad index, that means the S and P remains between seven thousand three hundred
+ninety-six point five three and seven thousand four hundred sixty point nine eight. For
+Micron, it means price remains between nine hundred four dollars and nine hundred sixty-seven
+dollars and fourteen cents.
+
+The broadening case needs both charts to improve together. If the S and P closes above seven
+thousand four hundred sixty point nine eight and Micron closes above nine hundred sixty-seven
+dollars and fourteen cents, then the relief has broader price support.
+
+The breakdown case also needs both charts. If the S and P closes below seven thousand three
+hundred ninety-six point five three and Micron closes below nine hundred four dollars, then
+Friday's mixed tape has expanded into broader weakness.
+
+A break by only one of those charts is partial evidence. The broadening or breakdown case
+remains unconfirmed until both required closes occur, so a split result stays in the
+selectivity branch.
+
+Apple remains the counterexample. A close above three hundred thirty-four dollars and
+thirty-seven cents extends its relative strength. A close below three hundred twenty-one
+dollars and sixty-two cents removes it.
+
+Every branch requires a close.
+
+## 11 next-catalysts
+
+The calendar can test this map quickly.
+
+The Federal Reserve's official schedule lists a meeting across July twenty-eighth and
+twenty-ninth. The decision is scheduled for two p.m. Eastern on Wednesday, followed by the
+press conference at two thirty.
+
+The Bureau of Economic Analysis schedules the advance estimate of quarterly gross
+domestic product and the June Personal Income and Outlays report for Thursday, July
+thirtieth at eight thirty a.m. Eastern. That report includes the PCE price data the
+Federal Reserve watches closely.
+
+Those events can move yields and the valuation pressure sitting over growth stocks. Until
+then, Friday's ranges provide the cleaner evidence.
+
+Micron is the deciding chart for this thesis. Watch nine hundred sixty-seven dollars and
+fourteen cents above and nine hundred four dollars below. A close outside that range tells
+us whether Friday's hardware weakness is repairing or extending.
+
+## 12 close
+
+The Associated Press put Brent's settlement back below one hundred dollars, and Friday
+still failed to produce a broad risk-on close.
+
+The S and P finished almost flat. The Dow rose. Apple gained three point five three percent.
+Micron lost six point nine nine percent.
+
+The evidence points to selectivity. Macro pressure eased while Apple and Micron moved in
+opposite directions.
+
+Watch Micron at nine hundred sixty-seven dollars and fourteen cents above and nine hundred
+four dollars below. Watch the S and P between seven thousand three hundred ninety-six point
+five three and seven thousand four hundred sixty point nine eight.
+
+Subscribe for Monday's post-close map. The deciding Micron downside level is nine hundred
+four dollars.
+
+## 13 disclaimer
+
+Research tooling, not financial advice. No performance is promised or implied.

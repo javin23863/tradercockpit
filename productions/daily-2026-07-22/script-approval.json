@@ -1,0 +1,15 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/daily-2026-07-22/vo.txt",
+  "scriptSha256": "d88e96777997992957ddf335666e351de7c8392fd56d2ae0549240a573b1c8fe",
+  "reviewedBy": "operator (Codex task; replied 'approved' after exact SHA-256 D88E96777997992957DDF335666E351DE7C8392FD56D2AE0549240A573B1C8FE was presented)",
+  "reviewedAt": "2026-07-23T02:24:20Z",
+  "gates": {
+    "claimsGate": "PASS — 12 sections, 45 claims, 111 receipts",
+    "styleGate": "PASS — 12 sections, 2,214 gate-counted words",
+    "independentCritic": "GPT-5.6 Sol xhigh — SHIP",
+    "chartVisibility": "Six chart captures passed full-symbol and current-bar pixel QA"
+  },
+  "nextGate": "Local production may proceed. Publication requires separate operator exact-hash approval."
+}

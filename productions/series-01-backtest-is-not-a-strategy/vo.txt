@@ -1,0 +1,189 @@
+## 01 cold open
+
+Open TradingView, and a few clicks can give you a beautiful green backtest.
+
+That green line does not mean you have a trading strategy.
+
+If this is all you have, do not risk real money on it.
+
+What you have is a backtest: a replay of old prices. It asks, “If I had followed these rules in the past, what would have happened?”
+
+Useful? Yes.
+
+Proof it works tomorrow? No.
+
+The gap between a green line and a real strategy is where people trading their own money get hurt. They are not stupid. Nobody showed them what has to happen before the backtest, or what has to happen after it.
+
+That is what we are going to fix.
+
+## 02 the green-line trap
+
+You know how this happens.
+
+You open a chart. You add an indicator, which is just a line or signal built from price.
+
+You change how fast the line moves. The example backtest gets greener.
+
+You change it again. The losses get smaller. The result looks smoother. The screen rewards every change with a prettier picture.
+
+It feels like progress.
+
+But you saw the result before you made each choice.
+
+That is like practicing for an exam with the answer sheet open. You may learn something, but you cannot use that score as proof that you mastered the subject.
+
+The old chart already knows how the story ends. Every change you make can quietly fit the rules to that ending.
+
+Be honest. You do not save the ugly version. You save the pretty one. A few minutes later, you remember the winner and forget how many choices it took to create it.
+
+The green line feels like relief. Finally, something works.
+
+That is exactly when you need to slow down.
+
+## 03 start before the chart
+
+A strategy starts with a written plan. An indicator can be part of that plan, but it cannot be the whole plan.
+
+The plan tells you what must happen before you buy. It tells you when to sell, how much money you are willing to lose, and when to stop using the idea.
+
+It also gives a reason the idea might work.
+
+Traders call that reason a hypothesis. Forget the technical word. It is simply your explanation.
+
+For our moving-average example, the reason might be, “I believe a strong move above the recent average may continue because buyers are still pushing.”
+
+That explanation can be wrong. Good. An idea that can be wrong can be tested.
+
+An explanation that changes after every loss is being protected from the truth.
+
+Here is a quick check. Hand your written plan to another trader. Both of you should place the same trade. If you can follow the same words and do different things, the plan is not finished.
+
+## 04 make the idea answer questions
+
+Let us use the same idea for the rest of this episode.
+
+On the chart, a fast blue average crosses above a slower white average, so we buy. A moving average is just the average recent price drawn as a line.
+
+We are looking at S&P futures on an hourly chart. The exact line lengths are written on the card.
+
+Now the questions start.
+
+Do we buy the instant the lines touch, or wait until that hour ends? When do we sell? How much can we lose? What trading fees should we include? What would make us stop using the idea?
+
+The answer cannot be, “I will know it when I see it.” A computer cannot follow that, and another trader cannot repeat it.
+
+That may sound picky. It is. Real money disappears through small details.
+
+So I am not going to invent the missing answers just to make this card look finished.
+
+I am stamping it: not ready.
+
+Call it what it is: an unfinished idea.
+
+That is an honest place to start.
+
+## 05 do not rewrite the result
+
+Imagine we fill every blank and call the card Version A.
+
+Version A buys after the fast line crosses above the slow line and that hour ends. It sells when the fast line crosses back below.
+
+Then we run the backtest, and the result looks ugly.
+
+Now the temptation starts.
+
+Maybe we should wait a little longer before selling. That might make the old result look better.
+
+Fine. Test it.
+
+But write the change on a new card and call it Version B. Version A keeps its original result.
+
+You are allowed to improve an idea. You are not allowed to rewrite its history.
+
+Changing the rule after seeing the result is like moving the goalposts after the ball has already been kicked.
+
+Keep both cards. If every losing rule is allowed to change until it looks good, no idea ever dies. A test that can never say no tells you nothing.
+
+## 06 give the backtest a real job
+
+Now Version A can be tested honestly.
+
+The backtest answers a narrow question: how did these exact rules behave on this stretch of old prices?
+
+It can tell you whether the computer followed your instructions. It can expose a buy at a price that was never available. It can show you when normal trading fees erase the result.
+
+It can kill a weak idea quickly. That is valuable.
+
+Suppose the line turns green. Great. All we know is that Version A looked good on the part of history around which it was built.
+
+Next, uncover a different stretch of old prices that stayed hidden while the rules were written. If the idea falls apart there, we learned before risking money.
+
+Then check that the real trading platform sees the same buy and sell moments as the backtest. If one screen says buy and the other screen waits, you are testing different rules.
+
+After that, watch it in the live market with pretend money.
+
+The backtest is the doorway, not the destination.
+
+## 07 the whole path in one picture
+
+Now the whole path should make sense.
+
+The moving-average rule starts as a rough idea.
+
+We make it answer questions until different people can follow it the same way.
+
+We test the written version on old prices. We reveal the part of history we kept hidden. We make sure the real trading screen sees the same signals. We let it run live with pretend money.
+
+Only then do we consider a small amount of real risk.
+
+And the work still does not stop. We keep watching. If the idea stops behaving for the reason we wrote down, we turn it off.
+
+Look where the green curve belongs. It sits under old prices. Everything to its right still needs an answer.
+
+A green line earns the next question. It does not earn blind trust.
+
+## 08 the promise of the series
+
+This is what you are going to see in this series.
+
+We will take a simple rule like this moving-average idea and follow it all the way through.
+
+Before a test, you will see the exact rules we wrote down. You will see which part of the chart we used and which part stayed hidden.
+
+Then you will see what actually happened.
+
+If the idea fails, the failure stays. If it gets through a step, I will tell you what that step showed and what we still do not know.
+
+I am not selling you a secret strategy.
+
+Think about it. If somebody had a rule that reliably printed money, why would they need to sell that rule to you?
+
+What I can show you is how to catch a weak idea before it reaches your money.
+
+A magic indicator gives you excitement. An honest test gives a bad idea somewhere to die.
+
+When you skip this work, the better-prepared trader is trading against you.
+
+You are their market.
+
+## 09 close
+
+Before you open the testing screen again, take out a piece of paper.
+
+Write this:
+
+“I believe blank will happen after blank, because blank.”
+
+Underneath it, write:
+
+“I will admit I am wrong if blank.”
+
+If you cannot fill those blanks without looking at the green line, close the test.
+
+You have an idea. The work of building a strategy starts there.
+
+In the next episode, I will show you how a backtest can accidentally use information that was not available when the trade happened.
+
+Start with the reason. Write the rules. Make the idea earn the next step.
+
+That is your job today.

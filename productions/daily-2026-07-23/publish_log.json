@@ -1,0 +1,115 @@
+{
+  "schema": "tradercockpit-publish-log/v2",
+  "entries": [
+    {
+      "batchId": "daily-2026-07-23-postclose",
+      "itemId": "youtube-long-daily-2026-07-23",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "-Txh01-jcd0",
+      "url": "https://youtu.be/-Txh01-jcd0",
+      "timestamp": "2026-07-24T00:08:53.565818Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "wCmUHUSAl05E-7aHXfoO9Hqwvl8",
+          "id": "-Txh01-jcd0",
+          "snippet": {
+            "publishedAt": "2026-07-24T00:08:24Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Oil Closed Above $100. Energy Stocks Barely Moved.",
+            "description": "Brent settled at $100.69 after attacks on two Saudi oil tankers raised risk around another Middle East shipping route. The S&P 500 fell as VIX rose, but XLE and Occidental Petroleum surrendered most of their opening gaps.\n\nThe Associated Press reported the tanker event, Brent settlement, and closing market context: https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838\n\nThe portfolio test is the producer-equity response. XLE closed at 59.38 after opening at 60.244. A later close above 60.3768 would confirm a higher range; a close below 59.20 would turn weak confirmation into rejection.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i9.ytimg.com/vi/-Txh01-jcd0/default.jpg?sqp=CKzYitMG&rs=AOn4CLB6Sd_fVZCTeINvD1hqPbjIcc9gIw",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i9.ytimg.com/vi/-Txh01-jcd0/mqdefault.jpg?sqp=CKzYitMG&rs=AOn4CLB61_WiHL4KF9tQ2qbHxnx0RRoBIQ",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i9.ytimg.com/vi/-Txh01-jcd0/hqdefault.jpg?sqp=CKzYitMG&rs=AOn4CLBnXHWVfYBH6_sWCcxZ-0V_DSAlaA",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Oil Closed Above $100. Energy Stocks Barely Moved.",
+              "description": "Brent settled at $100.69 after attacks on two Saudi oil tankers raised risk around another Middle East shipping route. The S&P 500 fell as VIX rose, but XLE and Occidental Petroleum surrendered most of their opening gaps.\n\nThe Associated Press reported the tanker event, Brent settlement, and closing market context: https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838\n\nThe portfolio test is the producer-equity response. XLE closed at 59.38 after opening at 60.244. A later close above 60.3768 would confirm a higher range; a close below 59.20 would turn weak confirmation into rejection.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "private",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "9dT8yGHzVRhIOpxi_Edh3o439T4",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "v4N9rWGZCyEt9CRJQmCokmLLyy8",
+              "id": "-Txh01-jcd0",
+              "snippet": {
+                "publishedAt": "2026-07-24T00:08:24Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Oil Closed Above $100. Energy Stocks Barely Moved.",
+                "description": "Brent settled at $100.69 after attacks on two Saudi oil tankers raised risk around another Middle East shipping route. The S&P 500 fell as VIX rose, but XLE and Occidental Petroleum surrendered most of their opening gaps.\n\nThe Associated Press reported the tanker event, Brent settlement, and closing market context: https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838\n\nThe portfolio test is the producer-equity response. XLE closed at 59.38 after opening at 60.244. A later close above 60.3768 would confirm a higher range; a close below 59.20 would turn weak confirmation into rejection.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i9.ytimg.com/vi/-Txh01-jcd0/default.jpg?sqp=CKzYitMG&rs=AOn4CLB6Sd_fVZCTeINvD1hqPbjIcc9gIw",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i9.ytimg.com/vi/-Txh01-jcd0/mqdefault.jpg?sqp=CKzYitMG&rs=AOn4CLB61_WiHL4KF9tQ2qbHxnx0RRoBIQ",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i9.ytimg.com/vi/-Txh01-jcd0/hqdefault.jpg?sqp=CKzYitMG&rs=AOn4CLBnXHWVfYBH6_sWCcxZ-0V_DSAlaA",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "localized": {
+                  "title": "Oil Closed Above $100. Energy Stocks Barely Moved.",
+                  "description": "Brent settled at $100.69 after attacks on two Saudi oil tankers raised risk around another Middle East shipping route. The S&P 500 fell as VIX rose, but XLE and Occidental Petroleum surrendered most of their opening gaps.\n\nThe Associated Press reported the tanker event, Brent settlement, and closing market context: https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838\n\nThe portfolio test is the producer-equity response. XLE closed at 59.38 after opening at 60.244. A later close above 60.3768 would confirm a higher range; a close below 59.20 would turn weak confirmation into rejection.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "private",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    }
+  ]
+}

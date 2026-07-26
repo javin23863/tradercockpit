@@ -1,0 +1,206 @@
+"01":
+  - quote: >-
+      Brent crude settled back below one hundred dollars a barrel Friday, according to the
+      Associated Press.
+    claim: ap-final-market-recap
+    attributed: true
+  - quote: "Micron fell almost seven percent anyway."
+    claim: tv-mu-bar
+  - quote: "That pair tells you more than the green S and P five hundred close."
+    claim: tv-spx-dji-bars
+  - quote: "The Associated Press also reported lower Treasury yields."
+    claim: ap-yields-lower
+    attributed: true
+  - quote: >-
+      The captured S and P and Dow bars both closed positive, while the AP final recap had
+      the Nasdaq composite lower.
+    claim: tv-spx-dji-bars
+  - quote: >-
+      The captured S and P and Dow bars both closed positive, while the AP final recap had
+      the Nasdaq composite lower.
+    claim: ap-final-market-recap
+    attributed: true
+  - quote: "Apple rallied as Micron sold off."
+    claim: tv-composite-returns
+
+"02":
+  - quote: >-
+      The Associated Press reported that Brent fell almost four percent to settle at
+      ninety-six dollars and seventy-eight cents. One day earlier, the benchmark had reached
+      one hundred two dollars.
+    claim: ap-final-market-recap
+    attributed: true
+  - quote: >-
+      The same final recap put the S and P five hundred at seven thousand four hundred eleven
+      point nine eight, up three point six eight points. The Dow finished at fifty-one
+      thousand nine hundred forty-seven point two five, up two hundred thirty-five point six
+      zero. The Nasdaq composite ended at twenty-four thousand nine hundred seventy-five point
+      eight two, down one hundred sixty-one point eight seven.
+    claim: ap-final-market-recap
+    attributed: true
+  - quote: "The Associated Press also reported lower Treasury yields."
+    claim: ap-yields-lower
+    attributed: true
+
+"03":
+  - quote: >-
+      Start with the S and P five hundred. Friday opened at seven thousand four hundred six
+      point three zero, reached seven thousand four hundred sixty point nine eight, fell to
+      seven thousand three hundred ninety-six point five three, and closed at seven thousand
+      four hundred eleven point nine eight. That close was only fifteen point four five points
+      above the low inside a sixty-four point four five point range. The index finished
+      positive, but it retained little of the move to the session high. The Dow had a stronger
+      close. It finished at fifty-one thousand nine hundred forty-seven point two five, up zero
+      point four six percent, after reaching fifty-two thousand one hundred eighteen point one
+      nine.
+    claim: tv-spx-dji-bars
+
+"04":
+  - quote: >-
+      The stock came into Friday from three hundred twenty-one dollars and sixty-six cents. It
+      opened at three hundred twenty-one dollars and seventy-nine cents, reached three hundred
+      thirty-four dollars and thirty-seven cents, and closed at three hundred thirty-three
+      dollars and two cents. That was an eleven dollar and thirty-six cent gain, or three point
+      five three percent. The close sat only one dollar and thirty-five cents below the session
+      high.
+    claim: tv-aapl-bar
+  - quote: >-
+      For Monday, Apple has three hundred thirty-four dollars and thirty-seven cents above and
+      three hundred twenty-one dollars and sixty-two cents below.
+    claim: tv-aapl-bar
+
+"05":
+  - quote: >-
+      The prior close was nine hundred ninety dollars and twenty-one cents. Friday opened at
+      nine hundred fifty-nine dollars and three cents, traded as high as nine hundred
+      sixty-seven dollars and fourteen cents, fell to nine hundred four dollars, and closed at
+      nine hundred twenty dollars and ninety-five cents. The loss was sixty-nine dollars and
+      twenty-six cents, or six point nine nine percent. Micron closed sixteen dollars and
+      ninety-five cents above its low inside a sixty-three dollar and fourteen cent session
+      range.
+    claim: tv-mu-bar
+  - quote: >-
+      The Associated Press identified Micron as a major reason the Nasdaq lagged during the
+      day.
+    claim: ap-micron-lag
+    attributed: true
+  - quote: >-
+      Nine hundred sixty-seven dollars and fourteen cents is the repair level. A later close
+      above it would recover Friday's entire range. Nine hundred four dollars is the downside
+      level.
+    claim: tv-mu-bar
+
+"06":
+  - quote: >-
+      Friday made that distinction visible. Apple gained three point five three percent and
+      finished near its high. Micron lost six point nine nine percent and finished near the
+      lower part of its range. The S and P gained zero point zero five percent.
+    claim: tv-composite-returns
+
+"07":
+  - quote: >-
+      The Associated Press reported continued concern about whether spending on AI technology
+      would produce profits large enough to justify elevated valuations. A Reuters session
+      report described a market becoming more selective around AI spending and cash burn.
+    claim: ai-spending-selectivity
+  - quote: >-
+      Friday's bars fit that selective shape. Apple gained three point five three percent.
+      Micron lost six point nine nine percent. The S and P finished up zero point zero five
+      percent.
+    claim: tv-composite-returns
+
+"08":
+  - quote: >-
+      Dow holders finished with a positive session. S and P holders were almost unchanged.
+      Apple holders benefited from a strong gain that finished near the session high.
+    claim: tv-spx-dji-bars
+  - quote: >-
+      Dow holders finished with a positive session. S and P holders were almost unchanged.
+      Apple holders benefited from a strong gain that finished near the session high.
+    claim: tv-aapl-bar
+  - quote: >-
+      Micron holders had a different day. The stock opened below its prior close and stayed
+      negative into the bell.
+    claim: tv-mu-bar
+  - quote: >-
+      The Associated Press settlement at ninety-six dollars and seventy-eight cents placed
+      Brent back below one hundred dollars after the prior day's move to one hundred two.
+    claim: ap-final-market-recap
+    attributed: true
+
+"09":
+  - quote: >-
+      The Associated Press reported that the S and P five hundred lost zero point six percent
+      for the week. The Dow lost zero point four percent. The Nasdaq composite lost two point
+      one percent.
+    claim: ap-weekly-index-moves
+    attributed: true
+  - quote: >-
+      Friday added to a week in which the Nasdaq underperformed. Micron finished in the weak
+      part of the tape, while Apple broke away from it.
+    claim: weekly-selectivity
+  - quote: >-
+      The S and P's Friday bar also warns against reading a green close as a clean reset. The
+      index reached seven thousand four hundred sixty point nine eight and finished at seven
+      thousand four hundred eleven point nine eight.
+    claim: tv-spx-dji-bars
+
+"10":
+  - quote: >-
+      For the broad index, that means the S and P remains between seven thousand three hundred
+      ninety-six point five three and seven thousand four hundred sixty point nine eight. For
+      Micron, it means price remains between nine hundred four dollars and nine hundred
+      sixty-seven dollars and fourteen cents.
+    claim: tv-decision-levels
+  - quote: >-
+      If the S and P closes above seven thousand four hundred sixty point nine eight and Micron
+      closes above nine hundred sixty-seven dollars and fourteen cents, then the relief has
+      broader price support.
+    claim: tv-decision-levels
+  - quote: >-
+      If the S and P closes below seven thousand three hundred ninety-six point five three and
+      Micron closes below nine hundred four dollars, then Friday's mixed tape has expanded
+      into broader weakness.
+    claim: tv-decision-levels
+  - quote: >-
+      A close above three hundred thirty-four dollars and thirty-seven cents extends its
+      relative strength. A close below three hundred twenty-one dollars and sixty-two cents
+      removes it.
+    claim: tv-decision-levels
+
+"11":
+  - quote: >-
+      The Federal Reserve's official schedule lists a meeting across July twenty-eighth and
+      twenty-ninth. The decision is scheduled for two p.m. Eastern on Wednesday, followed by
+      the press conference at two thirty.
+    claim: fomc-july-28-29
+  - quote: >-
+      The Bureau of Economic Analysis schedules the advance estimate of quarterly gross
+      domestic product and the June Personal Income and Outlays report for Thursday, July
+      thirtieth at eight thirty a.m. Eastern.
+    claim: bea-july-30-releases
+  - quote: >-
+      Micron is the deciding chart for this thesis. Watch nine hundred sixty-seven dollars and
+      fourteen cents above and nine hundred four dollars below.
+    claim: tv-mu-bar
+
+"12":
+  - quote: >-
+      The Associated Press put Brent's settlement back below one hundred dollars, and Friday
+      still failed to produce a broad risk-on close.
+    claim: ap-final-market-recap
+    attributed: true
+  - quote: >-
+      The S and P finished almost flat. The Dow rose. Apple gained three point five three
+      percent. Micron lost six point nine nine percent.
+    claim: tv-composite-returns
+  - quote: >-
+      Watch Micron at nine hundred sixty-seven dollars and fourteen cents above and nine
+      hundred four dollars below. Watch the S and P between seven thousand three hundred
+      ninety-six point five three and seven thousand four hundred sixty point nine eight.
+    claim: tv-decision-levels
+  - quote: >-
+      The deciding Micron downside level is nine hundred four dollars.
+    claim: tv-mu-bar
+
+"13": []

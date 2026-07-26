@@ -1,0 +1,39 @@
+E1 CAPTURE BASIS — 2026-07-24
+
+No Chatterbox. No voice-clone recording. The operator is on camera.
+
+Existing operator language used as the voice source:
+
+“You are the market.”
+
+“You’re their market. You’re not educated. You don’t know what you’re doing because no one showed you.”
+
+“If anybody had money, a strategy, or edge, they would not sell it to you.”
+
+“We’re not promising them alpha.”
+
+“Backtesting isn’t enough. It just helps you formulate ideas.”
+
+Current operator correction:
+
+Monte Carlo belongs inside the institutional pipeline, but it is not the beginning of strategy or model development and it is not the opening subject for E1. E1 must introduce what the series is doing and put the process in its proper order.
+
+Drafting consequence:
+
+The episode starts before Monte Carlo, before robustness testing, and before a green backtest. It starts with a falsifiable hypothesis and shows the entire idea-to-retirement lifecycle. The operator should replace any sentence that does not fit his mouth during the read-aloud pass.
+
+Current production boundary:
+
+The authenticated Hot Dog demand screen is blocked by an invalid YouTube credential, so the package remains working rather than locked. The on-camera candidate card is a construction exercise, not the required unknown-result experiment. Filming needs an operator-authorized governed test or an explicit manifesto-episode waiver.
+
+Operator correction after reading the first draft:
+
+The script was dry, boring, and written in language only the repository team would understand.
+A normal viewer needs plain English. The filming document must state the exact words, why each
+section exists, and what appears on screen in direct reference to those words.
+
+Rewrite consequence:
+
+Audience-facing language now starts with old prices, the answer-sheet problem, pretend money, and
+moving the goalposts. Internal terms are removed or translated the moment they appear. `script.md`
+is now an operator-facing scene book with exact speech, purpose, screen action, and filming notes.

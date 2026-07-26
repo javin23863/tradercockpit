@@ -1,0 +1,156 @@
+"01":
+  - quote: "Brent crude settled above one hundred dollars a barrel"
+    claim: brent-settlement
+    attributed: true
+  - quote: "The S and P five hundred fell"
+    claim: spx-name
+
+"02":
+  - quote: "According to the Associated Press, attacks hit two Saudi oil tankers in the Red Sea."
+    claim: tanker-attacks
+    attributed: true
+  - quote: "AP reported that Brent settled at one hundred dollars and sixty-nine cents per barrel"
+    claim: brent-settlement
+    attributed: true
+  - quote: "up seven percent"
+    claim: brent-settlement-move
+    attributed: true
+  - quote: "after trading as high as one hundred two dollars"
+    claim: brent-session-high
+    attributed: true
+
+"03":
+  - quote: "The S and P five hundred finished at seven thousand four hundred eight point three zero, down one point two one percent"
+    claim: spx-name
+  - quote: "The S and P five hundred finished at seven thousand four hundred eight point three zero, down one point two one percent"
+    claim: spx-close
+  - quote: "The S and P five hundred finished at seven thousand four hundred eight point three zero, down one point two one percent"
+    claim: spx-move
+  - quote: "the prior close at seven thousand four hundred ninety-eight point nine six"
+    claim: spx-prior-close
+  - quote: "The session low was seven thousand three hundred seventy-six."
+    claim: spx-low
+  - quote: "The downside level is seven thousand three hundred seventy-six."
+    claim: spx-low
+  - quote: "The recovery level is seven thousand four hundred ninety-eight point nine six"
+    claim: spx-prior-close
+
+"04":
+  - quote: "It closed at eighteen point six nine, up twelve point three two percent from sixteen point six four, after reaching twenty point three one intraday."
+    claim: vix-close
+  - quote: "It closed at eighteen point six nine, up twelve point three two percent from sixteen point six four, after reaching twenty point three one intraday."
+    claim: vix-move
+  - quote: "It closed at eighteen point six nine, up twelve point three two percent from sixteen point six four, after reaching twenty point three one intraday."
+    claim: vix-prior-close
+  - quote: "It closed at eighteen point six nine, up twelve point three two percent from sixteen point six four, after reaching twenty point three one intraday."
+    claim: vix-high
+  - quote: "Twenty point three one is the stress level"
+    claim: vix-high
+  - quote: "Sixteen point six four is the lower reference."
+    claim: vix-prior-close
+
+"05":
+  - quote: "It came into Thursday from fifty-nine dollars and twenty cents."
+    claim: xle-prior-close
+  - quote: "It opened at sixty dollars and twenty-four point four cents, reached sixty dollars and thirty-seven point six eight cents"
+    claim: xle-open
+  - quote: "It opened at sixty dollars and twenty-four point four cents, reached sixty dollars and thirty-seven point six eight cents"
+    claim: xle-high
+  - quote: "closed at fifty-nine dollars and thirty-eight cents"
+    claim: xle-close
+  - quote: "The opening gap was one dollar and four point four cents above the prior close."
+    claim: xle-opening-gap
+  - quote: "only eighteen cents of that gap remained"
+    claim: xle-close-above-prior
+  - quote: "beside a seven-percent Brent settlement move"
+    claim: brent-settlement-move
+    attributed: true
+  - quote: "Fifty-nine dollars and twenty cents is the prior-close floor."
+    claim: xle-prior-close
+  - quote: "Sixty dollars and thirty-seven point six eight cents is the session high."
+    claim: xle-high
+
+"06":
+  - quote: "OXY came in from fifty-seven dollars and fifty cents."
+    claim: oxy-prior-close
+  - quote: "It opened at fifty-eight dollars and sixty-four cents, reached fifty-eight dollars and ninety-nine cents"
+    claim: oxy-open
+  - quote: "It opened at fifty-eight dollars and sixty-four cents, reached fifty-eight dollars and ninety-nine cents"
+    claim: oxy-high
+  - quote: "traded down to fifty-seven dollars and fifty cents"
+    claim: oxy-prior-close
+  - quote: "closed at fifty-seven dollars and sixty cents"
+    claim: oxy-close
+  - quote: "The stock opened one dollar and fourteen cents above its prior close."
+    claim: oxy-opening-gap
+  - quote: "It finished only ten cents above that reference."
+    claim: oxy-close-above-prior
+  - quote: "fifty-seven dollars and fifty cents on the downside"
+    claim: oxy-prior-close
+  - quote: "fifty-eight dollars and ninety-nine cents on the upside"
+    claim: oxy-high
+
+"09":
+  - quote: "XLE opened more than a dollar above its prior close and finished eighteen cents above it."
+    claim: xle-close-above-prior
+  - quote: "OXY opened one dollar and fourteen cents above its prior close"
+    claim: oxy-opening-gap
+  - quote: "finished ten cents above it"
+    claim: oxy-close-above-prior
+
+"10":
+  - quote: "XLE remains between fifty-nine dollars and twenty cents and sixty dollars and thirty-seven point six eight cents."
+    claim: xle-prior-close
+  - quote: "XLE remains between fifty-nine dollars and twenty cents and sixty dollars and thirty-seven point six eight cents."
+    claim: xle-high
+  - quote: "OXY remains between fifty-seven dollars and fifty cents and fifty-eight dollars and ninety-nine cents."
+    claim: oxy-prior-close
+  - quote: "OXY remains between fifty-seven dollars and fifty cents and fifty-eight dollars and ninety-nine cents."
+    claim: oxy-high
+  - quote: "XLE closes above sixty dollars and thirty-seven point six eight cents"
+    claim: xle-high
+  - quote: "OXY closes above fifty-eight dollars and ninety-nine cents"
+    claim: oxy-high
+  - quote: "XLE closes below fifty-nine dollars and twenty cents"
+    claim: xle-prior-close
+  - quote: "OXY closes below fifty-seven dollars and fifty cents"
+    claim: oxy-prior-close
+  - quote: "S and P weakness below seven thousand three hundred seventy-six"
+    claim: spx-low
+  - quote: "VIX above twenty point three one"
+    claim: vix-high
+  - quote: "An S and P recovery above seven thousand four hundred ninety-eight point nine six"
+    claim: spx-prior-close
+  - quote: "VIX below sixteen point six four"
+    claim: vix-prior-close
+
+"11":
+  - quote: "On XLE, watch fifty-nine dollars and twenty cents below"
+    claim: xle-prior-close
+  - quote: "sixty dollars and thirty-seven point six eight cents above"
+    claim: xle-high
+  - quote: "On OXY, watch fifty-seven dollars and fifty cents below"
+    claim: oxy-prior-close
+  - quote: "fifty-eight dollars and ninety-nine cents above"
+    claim: oxy-high
+  - quote: "the S and P level is seven thousand three hundred seventy-six"
+    claim: spx-low
+  - quote: "The VIX level is twenty point three one."
+    claim: vix-high
+
+"12":
+  - quote: "Brent closed above one hundred dollars"
+    claim: brent-settlement
+    attributed: true
+  - quote: "The S and P five hundred fell."
+    claim: spx-name
+  - quote: "finished eighteen cents above it"
+    claim: xle-close-above-prior
+  - quote: "OXY opened one dollar and fourteen cents above its prior close"
+    claim: oxy-opening-gap
+  - quote: "finished ten cents above it"
+    claim: oxy-close-above-prior
+  - quote: "the XLE high at sixty dollars and thirty-seven point six eight cents"
+    claim: xle-high
+  - quote: "the prior-close floor at fifty-nine dollars and twenty cents"
+    claim: xle-prior-close

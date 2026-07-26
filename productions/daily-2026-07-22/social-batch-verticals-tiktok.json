@@ -1,0 +1,39 @@
+{
+  "schema": "social-batch/v2",
+  "batchId": "daily-2026-07-22-verticals-tiktok",
+  "containsSyntheticMedia": false,
+  "items": [
+    {
+      "id": "tiktok-infrastructure-split",
+      "channel": "tiktok",
+      "status": "approved",
+      "asset": "productions/daily-2026-07-22/shorts/clip-001-infrastructure-split.vertical.mp4",
+      "claimsGate": "productions/daily-2026-07-22/build/claims-gate.json",
+      "productionApproval": "productions/daily-2026-07-22/production-approval.json",
+      "title": "SMCI Surged While GEV Sank",
+      "captionMode": "burned",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "machine: cut_derivatives downstream of operator-approved long-form https://youtu.be/2qmSPKsp-9k",
+      "reviewedAt": "2026-07-23T05:18:47Z",
+      "copy": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme as two company-specific trades. #SMCI #GEV #StockMarket #MarketNews #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+      "approvalSha256": "c5f1d5521ec834754b458e2fc99f039d30571c6cb068b5e4928594e1cda790d4"
+    },
+    {
+      "id": "tiktok-smci-decision-range",
+      "channel": "tiktok",
+      "status": "approved",
+      "asset": "productions/daily-2026-07-22/shorts/clip-002-smci-decision-range.vertical.mp4",
+      "claimsGate": "productions/daily-2026-07-22/build/claims-gate.json",
+      "productionApproval": "productions/daily-2026-07-22/production-approval.json",
+      "title": "SMCI's 28.50 to 32.28 Decision Range",
+      "captionMode": "burned",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "machine: cut_derivatives downstream of operator-approved long-form https://youtu.be/2qmSPKsp-9k",
+      "reviewedAt": "2026-07-23T05:18:47Z",
+      "copy": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close through 32.2844 would show buyers accepting the new range. #SMCI #Stocks #MarketNews #TechnicalAnalysis #TradingView\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+      "approvalSha256": "00969b26c263ea8f2b27e4eda7e88751a02af93b7b2be5f0d13f30078c08882e"
+    }
+  ]
+}

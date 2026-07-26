@@ -1,0 +1,41 @@
+{
+  "schema": "tradercockpit-master-approval/v1",
+  "status": "approved",
+  "master": "productions/weekly-2026-07-25/build/master-recut-live.mp4",
+  "sha256": "2477cbcd6a7be3399407b9776effce6bdfb7bd540b209b88d169588e7e30cdfb",
+  "bytes": 33545068,
+  "durationSeconds": 669.466667,
+  "supersedes": {
+    "master": "d847edc build/master.mp4",
+    "sha256": "393041562a4c8880149b8456a5bff3f6068f74ac21bfa9fb08aa18044db78004",
+    "why": "voice re-cloned, TA markup + news clippings added, hook rebuilt, SFX restored"
+  },
+  "scriptUnchanged": {
+    "vo.txt sha256": "4775779e1b86dad075e56017d22e8ac8d125c7979848bb8cd4c399a4905ab36d",
+    "matchesScriptApproval": true,
+    "note": "not one character of the approved script changed; only voice and visuals"
+  },
+  "changes": [
+    "voice: LoRA speaker adaptation on 18.28 min of operator audio (146 clips)",
+    "charts: recaptured from the operator's LIVE authenticated TradingView (layout wbXb26vP, dark, LuxAlgo SMC + Support Resistance Dynamic intact); SPX now the real SP:SPX feed, not the SP_NAUTH proxy",
+    "news: 3 receipted source cards, 6 beats, 13.7% of runtime (was 0%)",
+    "hook: 01-hook.mp4 opens on the thumbnail's subject and closes the title contract at 3.5s; first cut had zero scene changes in 30s",
+    "sfx: whoosh + impact synthesised; transitions and close were silent since the lane was built"
+  ],
+  "gates": {
+    "claims": "PASS (19 claims, 52 receipts)",
+    "audioLayer": "PASS",
+    "scriptStyle": "PASS (2 pre-existing warns)",
+    "editorial": "WARN (re-capture waiver: vo.txt still matches approved scriptSha256 and each instrument was receipted before the script)",
+    "firstFiveSeconds": "all 4 blockers pass; 3 non-blocker notes (input bias, pacing 1.7s vs 1.6s, intro 47s vs 45s ceiling)"
+  },
+  "knownOpen": [
+    "Al Jazeera cards carry an inline promo box the declutter pass does not catch (~95s)",
+    "Brent carries 38% of runtime and repeats visually across beats"
+  ],
+  "reviewedBy": "operator",
+  "reviewedAt": "2026-07-26T17:58:44Z",
+  "approvalKind": "operator",
+  "operatorReviewed": true,
+  "publication": "NOT performed by this receipt; uploading is a separate, explicit act"
+}

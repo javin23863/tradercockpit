@@ -1,0 +1,76 @@
+[
+  {
+    "out": "03-spx",
+    "symbol": "SP:SPX",
+    "tf": "1D",
+    "purpose": "Cash-session context: the broad index finished nearly flat and back below 7,504.02.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 10},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 7504.02, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 7485.85, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "04-ndx",
+    "symbol": "NASDAQ:NDX",
+    "tf": "1D",
+    "purpose": "Broad AI/growth proxy: NDX fell while SMCI surged, separating company-specific repricing from sector beta.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 10},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 29176.91, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 28814.57, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "05-smci",
+    "symbol": "NASDAQ:SMCI",
+    "tf": "1D",
+    "purpose": "SMCI's completed-session reaction to its preliminary revenue, gross-margin, and order update.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 10},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 32.2844, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 28.5, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 25.54, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "06-gev",
+    "symbol": "NYSE:GEV",
+    "tf": "1D",
+    "purpose": "GE Vernova's completed-session reaction after reporting strong orders, backlog, and raised guidance but weaker profit than analysts expected.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 10},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 985.03, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 1038.985, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 1068.97, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "07-xli",
+    "symbol": "AMEX:XLI",
+    "tf": "1D",
+    "purpose": "Industrial-sector control: XLI was nearly flat while GEV sold off sharply.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 10},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 179.84, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 178.14, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "08-vix",
+    "symbol": "TVC:VIX",
+    "tf": "1D",
+    "purpose": "Risk context: VIX touched the July high intraday and closed at the session low.",
+    "indicators": ["Smart Money Concepts [LuxAlgo]", "Support Resistance - Dynamic"],
+    "stages": [
+      {"holdSec": 10},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 19.49, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+      {"holdSec": 10, "draw": [{"type": "horizontal_line", "price": 16.64, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  }
+]

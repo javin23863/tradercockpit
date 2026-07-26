@@ -1,0 +1,449 @@
+  - id: session-date
+    subject: U.S. cash session
+    predicate: session_date
+    value: "2026-07-22"
+    unit: date
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: spx-name
+    subject: SP:SPX
+    predicate: display_name
+    value: S&P 500
+    unit: text
+    as_of: "2026-07-22"
+    source: chart-capture-receipts.json#visuals/03-spx.mp4
+    retrieved_at: "2026-07-23T01:22:38Z"
+    status: verified
+
+  - id: ndx-name
+    subject: NASDAQ:NDX
+    predicate: display_name
+    value: Nasdaq 100
+    unit: text
+    as_of: "2026-07-22"
+    source: chart-capture-receipts.json#visuals/04-ndx.mp4
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-move
+    subject: NASDAQ:SMCI
+    predicate: session_return
+    value: 19.84
+    unit: percent
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:SMCI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: gev-move
+    subject: NYSE:GEV
+    predicate: session_return
+    value: -8.69
+    unit: percent
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NYSE:GEV
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: ndx-move
+    subject: NASDAQ:NDX
+    predicate: session_return
+    value: -0.54
+    unit: percent
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:NDX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: xli-move
+    subject: AMEX:XLI
+    predicate: session_return
+    value: 0.11
+    unit: percent
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#AMEX:XLI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: smci-period
+    subject: Super Micro Computer
+    predicate: reporting_period
+    value: fiscal Q4 2026 preliminary update
+    unit: text
+    as_of: "2026-07-21"
+    source: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-revenue-range
+    subject: Super Micro Computer
+    predicate: revenue_guidance_range
+    value: 11.0-12.5
+    unit: USD_billion
+    as_of: "2026-07-21"
+    source: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-margin-range
+    subject: Super Micro Computer
+    predicate: preliminary_gross_margin_range
+    value: 15-17
+    unit: percent
+    as_of: "2026-07-21"
+    source: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-prior-margin-range
+    subject: Super Micro Computer
+    predicate: prior_gross_margin_guidance_range
+    value: 8.2-8.4
+    unit: percent
+    as_of: "2026-07-21"
+    source: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-backlog
+    subject: Super Micro Computer
+    predicate: new_orders_and_backlog
+    value: ">60"
+    unit: USD_billion
+    as_of: "2026-07-21"
+    source: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-order-caveat
+    subject: Super Micro Computer
+    predicate: order_timing_and_cancellation_caveat
+    value: orders may be delayed or cancelled
+    unit: text
+    as_of: "2026-07-21"
+    source: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-final-date
+    subject: Super Micro Computer
+    predicate: scheduled_final_results_date
+    value: "2026-08-11"
+    unit: date
+    as_of: "2026-07-21"
+    source: https://ir.supermicro.com/news/news-details/2026/Supermicro-Provides-Fourth-Quarter-of-Fiscal-Year-2026-Preliminary-Business-Update/default.aspx
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: smci-prior-close
+    subject: NASDAQ:SMCI
+    predicate: prior_close
+    value: 25.50
+    unit: USD
+    as_of: "2026-07-21"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:SMCI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: smci-open
+    subject: NASDAQ:SMCI
+    predicate: session_open
+    value: 28.89
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:SMCI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: smci-high
+    subject: NASDAQ:SMCI
+    predicate: session_high
+    value: 32.2844
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:SMCI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: smci-low
+    subject: NASDAQ:SMCI
+    predicate: session_low
+    value: 28.50
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:SMCI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: smci-close
+    subject: NASDAQ:SMCI
+    predicate: session_close
+    value: 30.56
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:SMCI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: ndx-close
+    subject: NASDAQ:NDX
+    predicate: session_close
+    value: 28998.1005
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:NDX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: ndx-high
+    subject: NASDAQ:NDX
+    predicate: session_high
+    value: 29176.9139
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NASDAQ:NDX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: gev-period
+    subject: GE Vernova
+    predicate: reporting_period
+    value: Q2 2026
+    unit: text
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-orders
+    subject: GE Vernova
+    predicate: quarterly_orders
+    value: 24.2
+    unit: USD_billion
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-orders-growth
+    subject: GE Vernova
+    predicate: organic_orders_growth
+    value: 88
+    unit: percent
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-revenue
+    subject: GE Vernova
+    predicate: quarterly_revenue
+    value: 11.1
+    unit: USD_billion
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-revenue-growth-reported
+    subject: GE Vernova
+    predicate: reported_revenue_growth
+    value: 22
+    unit: percent
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-revenue-growth-organic
+    subject: GE Vernova
+    predicate: organic_revenue_growth
+    value: 12
+    unit: percent
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-net-income
+    subject: GE Vernova
+    predicate: quarterly_net_income
+    value: 0.6
+    unit: USD_billion
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-adjusted-ebitda
+    subject: GE Vernova
+    predicate: quarterly_adjusted_EBITDA
+    value: 1.2
+    unit: USD_billion
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-backlog-increase
+    subject: GE Vernova
+    predicate: sequential_backlog_increase
+    value: 13
+    unit: USD_billion
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-guidance-raised
+    subject: GE Vernova
+    predicate: full_year_guidance_action
+    value: raised
+    unit: text
+    as_of: "2026-07-22"
+    source: https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial
+    retrieved_at: "2026-07-23"
+    status: verified
+
+  - id: gev-prior-close
+    subject: NYSE:GEV
+    predicate: prior_close
+    value: 1078.81
+    unit: USD
+    as_of: "2026-07-21"
+    source: ohlcv-feed-receipts-2026-07-22.json#NYSE:GEV
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: gev-open
+    subject: NYSE:GEV
+    predicate: session_open
+    value: 1021.01
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NYSE:GEV
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: gev-high
+    subject: NYSE:GEV
+    predicate: session_high
+    value: 1038.985
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NYSE:GEV
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: gev-low-close
+    subject: NYSE:GEV
+    predicate: session_low_and_close
+    value: 985.03
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#NYSE:GEV
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: xli-low
+    subject: AMEX:XLI
+    predicate: session_low
+    value: 178.14
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#AMEX:XLI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: xli-high
+    subject: AMEX:XLI
+    predicate: session_high
+    value: 179.84
+    unit: USD
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#AMEX:XLI
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: spx-move
+    subject: SP:SPX
+    predicate: session_return
+    value: -0.14
+    unit: percent
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#SP:SPX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: spx-close
+    subject: SP:SPX
+    predicate: session_close
+    value: 7498.96
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#SP:SPX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: spx-low
+    subject: SP:SPX
+    predicate: session_low
+    value: 7485.85
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#SP:SPX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: spx-high
+    subject: SP:SPX
+    predicate: session_high
+    value: 7525.94
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#SP:SPX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: vix-open
+    subject: TVC:VIX
+    predicate: session_open
+    value: 17.42
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#TVC:VIX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: vix-high
+    subject: TVC:VIX
+    predicate: session_high
+    value: 19.49
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#TVC:VIX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: vix-low-close
+    subject: TVC:VIX
+    predicate: session_low_and_close
+    value: 16.64
+    unit: index_points
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#TVC:VIX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
+
+  - id: vix-move
+    subject: TVC:VIX
+    predicate: session_return
+    value: -2.35
+    unit: percent
+    as_of: "2026-07-22"
+    source: ohlcv-feed-receipts-2026-07-22.json#TVC:VIX
+    retrieved_at: "2026-07-23T00:27:28Z"
+    status: verified
