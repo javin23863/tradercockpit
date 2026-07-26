@@ -248,10 +248,14 @@ def stage_captions(prod: Path):
                 lines += [str(i), f"{ts(grp[0].start)} --> {ts(grp[-1].end)}",
                           " ".join(w.word.strip() for w in grp), ""]
                 i += 1
-    except ImportError as exc:
-        # Windows Application Control can block PyAV's native DLL. The narration is
-        # generated from the exact script, so fall back to script-locked cues rather
-        # than bypassing policy or shipping transcription errors.
+    except (ImportError, RuntimeError, OSError) as exc:
+        # Windows Application Control can block PyAV's native DLL, and a CUDA-built
+        # faster-whisper raises RuntimeError (not ImportError) when cuBLAS is absent —
+        # "Library cublas64_12.dll is not found", which crashed the 2026-07-26 render
+        # AFTER the GPU narration had already succeeded. Catch the whole family: the
+        # narration is generated from the exact approved script, so script-locked cues
+        # are the better artifact anyway. Free ASR can burn words on screen that the
+        # operator never approved; vo.txt is the exact-hash-approved text.
         mode = "script-locked-timing"
         log(f"faster-whisper unavailable ({exc}); using script-locked timings")
         meta = json.loads((build / "sections.json").read_text(encoding="utf-8"))
