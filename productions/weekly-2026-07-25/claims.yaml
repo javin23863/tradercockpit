@@ -1,0 +1,176 @@
+# Backstage claim store — video-06-weekly-2026-07-25 (week Mon 2026-07-20 .. Fri 2026-07-24).
+# Weekly LEVELS bind to the TradingView weekly bar read on 2026-07-25
+# (ohlcv-weekly-2026-07-25.json) and the six verified captures in ta-work/.
+# Dated primary sources bind events. Intraweek session prints carry forward from the
+# receipted weekday packages daily-2026-07-20 and daily-2026-07-21.
+
+- id: clm-chart-brent-weekly-2026-07-24
+  subject: Brent crude (TVC:UKOIL), week ending 2026-07-24
+  predicate: feed-read weekly bar
+  value: "Weekly bar opened 89.30, high 102.00, low 86.12, closed 98.69 — up 11.80% on the week, a range of about sixteen dollars from low to high. 102.00 is the first hundred-dollar handle of this move."
+  as_of: 2026-07-24
+  source: TradingView weekly bar TVC:UKOIL (ohlcv-weekly-2026-07-25.json); capture ta-work/03-brent-1w.png header reads O 89.30 H 102.00 L 86.12 C 98.69 (+11.80%)
+  retrieved_at: 2026-07-25T21:40:00Z
+  status: verified
+
+- id: clm-brent-settle-2026-07-23
+  subject: Brent crude settlement, Thursday 2026-07-23
+  predicate: settled above one hundred dollars after tanker attacks
+  value: "Brent settled at 100.69 after attacks on two Saudi oil tankers raised risk around a second Middle East shipping route."
+  as_of: 2026-07-23
+  source: Associated Press — https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838 (settlement 100.69); Al Jazeera 2026-07-22 — Houthi spokesperson Yahya Saree claimed the attack on the tankers Encelia and Layla in the Red Sea; Al Jazeera 2026-07-23 corroborates Brent above $100 for the first time since May
+  retrieved_at: 2026-07-25T20:15:00Z
+  status: verified
+
+- id: clm-chart-xle-weekly-2026-07-24
+  subject: Energy Select Sector SPDR (AMEX:XLE), week ending 2026-07-24
+  predicate: feed-read weekly bar
+  value: "Weekly bar opened 57.56, high 60.45, low 57.41, closed 59.62 — up 3.36% on the week, under a third of Brent's 11.80%."
+  as_of: 2026-07-24
+  source: TradingView weekly bar AMEX:XLE (ohlcv-weekly-2026-07-25.json); capture ta-work/04-xle-1w.png header reads O 57.56 H 60.45 L 57.41 C 59.62 (+3.36%)
+  retrieved_at: 2026-07-25T21:40:00Z
+  status: verified
+
+- id: clm-xle-thursday-gap-2026-07-23
+  subject: Energy Select Sector SPDR, Thursday 2026-07-23
+  predicate: surrendered its opening gap on the day Brent settled above one hundred
+  value: "XLE opened at 60.244 and closed at 59.38 on the session Brent settled at 100.69; Occidental Petroleum surrendered most of its opening gap the same day."
+  as_of: 2026-07-23
+  source: Our published daily receipt for 2026-07-23 (YouTube -Txh01-jcd0 description), sourced to the Associated Press market close
+  retrieved_at: 2026-07-25T20:15:00Z
+  status: single_source
+
+- id: clm-chart-oxy-weekly-2026-07-24
+  subject: Occidental Petroleum (NYSE:OXY), week ending 2026-07-24
+  predicate: feed-read weekly bar
+  value: "Weekly bar opened 54.21, high 58.99, low 54.00, closed 57.30 — up 4.45% on the week, closing well below its 58.99 weekly high."
+  as_of: 2026-07-24
+  source: TradingView weekly bar NYSE:OXY (ohlcv-weekly-2026-07-25.json); capture ta-work/08-oxy-1w.png header reads O 54.21 H 58.99 L 54.00 C 57.30 (+4.45%)
+  retrieved_at: 2026-07-26T00:05:00Z
+  status: verified
+
+- id: clm-chart-vix-weekly-2026-07-24
+  subject: CBOE Volatility Index (TVC:VIX), week ending 2026-07-24
+  predicate: feed-read weekly bar
+  value: "Weekly bar opened 18.90, high 20.31, low 16.64, closed 18.57 — down about 1% on the week, closing beneath its own open. The VIX prices expected volatility over the next thirty days."
+  as_of: 2026-07-24
+  source: TradingView weekly bar TVC:VIX (ohlcv-weekly-2026-07-25.json); capture ta-work/05-vix-1w.png header reads O 18.90 H 20.31 L 16.64 C 18.57 (-1.01%)
+  retrieved_at: 2026-07-25T21:40:00Z
+  status: verified
+
+- id: clm-chart-spx-weekly-2026-07-24
+  subject: S&P 500 (SP:SPX), week ending 2026-07-24
+  predicate: feed-read weekly bar
+  value: "Weekly bar opened 7,489.18, high 7,525.94, low 7,376.00, closed 7,411.98 — down about six tenths of a percent on the week."
+  as_of: 2026-07-24
+  source: TradingView weekly bar SP:SPX (ohlcv-weekly-2026-07-25.json); capture ta-work/06-spx-1w.png header reads O 7,489.18 H 7,525.94 L 7,376.00 C 7,411.98 (-0.61%). Weekly open corroborated by clm-session-2026-07-20 in daily-2026-07-20.
+  retrieved_at: 2026-07-25T21:40:00Z
+  status: verified
+
+- id: clm-spx-level-7504-2026-07-16
+  subject: S&P 500 structural level
+  predicate: the July 16 session low, reclaimed then lost
+  value: "7,504.02 is the July sixteenth session low. The index closed beneath it in the back half of the prior week, reclaimed it Tuesday, then finished the week underneath it again — a failed reclaim."
+  as_of: 2026-07-24
+  source: TradingView SP:SPX daily; level named in the July 17 and July 20 videos and receipted as clm-chart-spx-2026-07-20 / clm-chart-spx-2026-07-21
+  retrieved_at: 2026-07-25T21:40:00Z
+  status: verified
+
+- id: clm-spx-monday-2026-07-20
+  subject: S&P 500 session, Monday 2026-07-20
+  predicate: settled at the low end of its range
+  value: "The index closed at 7,443.28, down about two tenths of a percent, within three points of the session low."
+  as_of: 2026-07-20
+  source: TradingView feed SP:SPX daily bar, receipted as clm-session-2026-07-20 (daily-2026-07-20/claims.yaml)
+  retrieved_at: 2026-07-21T02:30:00Z
+  status: verified
+
+- id: clm-spx-tuesday-2026-07-21
+  subject: S&P 500 session, Tuesday 2026-07-21
+  predicate: reclaimed the level and snapped a losing streak
+  value: "The index closed at 7,509.20, up about nine tenths of a percent, the first settle back above 7,504.02 and the end of a three-session losing streak whose down closes ran July sixteenth, seventeenth and twentieth."
+  as_of: 2026-07-21
+  source: TradingView feed SP:SPX daily bar, receipted as clm-session-2026-07-21 (daily-2026-07-21/claims.yaml); streak corroborated by The Motley Fool market wrap 2026-07-21
+  retrieved_at: 2026-07-21T23:30:00Z
+  status: verified
+
+- id: clm-brent-tuesday-2026-07-21
+  subject: Brent crude, Tuesday 2026-07-21
+  predicate: closed through Monday's rejection high
+  value: "Brent closed at 91.63, clearing Monday's rejection high at 91.42 on a closing basis."
+  as_of: 2026-07-21
+  source: TradingView feed TVC:UKOIL daily bar, receipted as clm-chart-brent-2026-07-21 (daily-2026-07-21/claims.yaml)
+  retrieved_at: 2026-07-21T23:30:00Z
+  status: verified
+
+- id: clm-xle-tuesday-2026-07-21
+  subject: Energy Select Sector SPDR, Tuesday 2026-07-21
+  predicate: confirmed the crude move that session
+  value: "XLE closed at 58.50, exceeding its prior July high print at 58.385 on a closing basis. The breakout trigger named on July 17 is 57.30."
+  as_of: 2026-07-21
+  source: TradingView feed AMEX:XLE daily bar, receipted as clm-chart-xle-2026-07-21 (daily-2026-07-21/claims.yaml)
+  retrieved_at: 2026-07-21T23:30:00Z
+  status: verified
+
+- id: clm-chart-mu-weekly-2026-07-24
+  subject: Micron Technology (NASDAQ:MU), week ending 2026-07-24
+  predicate: feed-read weekly bar
+  value: "Weekly bar opened 885.57, high 1,011.77, low 858.90, closed 920.95 — up about eight and a half percent on the week, with a four-figure print at the high."
+  as_of: 2026-07-24
+  source: TradingView weekly bar NASDAQ:MU (ohlcv-weekly-2026-07-25.json); capture ta-work/07-mu-1w.png header reads O 885.57 H 1,011.77 L 858.90 C 920.95 (+8.48%)
+  retrieved_at: 2026-07-25T21:40:00Z
+  status: verified
+
+- id: clm-mu-tuesday-2026-07-21
+  subject: Micron Technology, Tuesday 2026-07-21
+  predicate: memory-led rally on Korean export data
+  value: "Micron settled at 970.82, up about twelve percent on the day, in a memory-led rally driven by strong South Korean export data signalling continued artificial-intelligence demand."
+  as_of: 2026-07-21
+  source: TradingView feed NASDAQ:MU daily bar (clm-chart-mu-2026-07-21); driver corroborated by The Motley Fool market wrap 2026-07-21 (clm-memory-rally-2026-07-21)
+  retrieved_at: 2026-07-21T23:30:00Z
+  status: verified
+
+- id: clm-mu-friday-2026-07-24
+  subject: Micron Technology, Friday 2026-07-24
+  predicate: gave back part of the weekly gain
+  value: "Micron finished Friday down about seven percent."
+  as_of: 2026-07-24
+  source: Associated Press final market recap 2026-07-24, carried in the daily-2026-07-24 package (script SHA 1ec5d5390de015e7f66b254f2f39d39369ecc3a63bd22c1acead4304967b4d9f)
+  retrieved_at: 2026-07-25T20:15:00Z
+  status: single_source
+
+- id: clm-friday-no-risk-on-2026-07-24
+  subject: US session, Friday 2026-07-24
+  predicate: macro relief did not produce a broad risk-on close
+  value: "Brent finished back below one hundred dollars and Treasury yields eased, yet the S&P 500 closed almost flat; the Dow rose while the Nasdaq composite fell."
+  as_of: 2026-07-24
+  source: Associated Press final market recap 2026-07-24, carried in the daily-2026-07-24 package
+  retrieved_at: 2026-07-25T20:15:00Z
+  status: single_source
+
+- id: clm-wednesday-split-2026-07-22
+  subject: US session, Wednesday 2026-07-22
+  predicate: one infrastructure theme traded as two opposite single-name bets
+  value: "Two infrastructure names moved violently in opposite directions on the same session while the index barely moved."
+  as_of: 2026-07-22
+  source: Our published receipt for 2026-07-22, YouTube KGzT9TV4APM description
+  retrieved_at: 2026-07-25T20:15:00Z
+  status: single_source
+
+- id: clm-fomc-2026-07-28
+  subject: Federal Open Market Committee
+  predicate: scheduled meeting date
+  value: "The Federal Reserve meets Tuesday and Wednesday, July twenty-eighth and twenty-ninth."
+  as_of: 2026-07-25
+  source: federalreserve.gov FOMC calendar; carried forward from the 2026-07-18 weekly fact pack
+  retrieved_at: 2026-07-25T20:15:00Z
+  status: verified
+
+- id: clm-section122-expiry-2026-07-24
+  subject: Global ten percent tariff under Section 122
+  predicate: scheduled expiry, outcome not established
+  value: "The global ten percent tariff under Section 122 was scheduled to expire Friday the twenty-fourth. Whether it lapsed or was replaced is not established here and is stated on air as an open question."
+  as_of: 2026-07-24
+  source: BNN Bloomberg 2026-07-16, recorded in the 2026-07-18 weekly fact pack; no confirming source for the outcome
+  retrieved_at: 2026-07-25T20:15:00Z
+  status: single_source

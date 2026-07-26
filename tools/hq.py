@@ -18,15 +18,17 @@ from urllib.request import urlopen
 
 try:
     from .dashboard import leg_status
+    from .paths import vault_dir
     from .growth_experiments import load_growth_summary
 except ImportError:  # direct script execution
     from dashboard import leg_status
+    from paths import vault_dir
     from growth_experiments import load_growth_summary
 
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "operator-hq.html"
-DEPARTMENTS = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit\GTM\Departments")
+DEPARTMENTS = vault_dir() / "GTM" / "Departments"
 ANALYTICS = ROOT / "social-ops" / "analytics-latest.json"
 
 # Automation lane schedule of record — US/Eastern anchored per the 2026-07-20 re-anchor

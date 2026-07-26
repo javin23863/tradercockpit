@@ -76,8 +76,7 @@ def still(png: Path, out: Path, dur: float, dry: bool) -> None:
         print(f"  [dry] ffmpeg still {png.name} -> {out.name} ({dur:.0f}s)")
         return
     subprocess.run(["ffmpeg", "-y", "-loop", "1", "-i", str(png), "-t", f"{dur:.2f}",
-                    "-vf", vf, "-r", "30", "-c:v", "h264_nvenc", "-cq", "19",
-                    "-preset", "p5", str(out)], check=True, capture_output=True)
+                    "-vf", vf, "-r", "30", *encoder_args(19, "p5"), str(out)], check=True, capture_output=True)
 
 
 def draw_stage(shapes: list[dict], dry: bool) -> list[str]:

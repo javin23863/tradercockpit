@@ -23,6 +23,8 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from encoder import encoder_args  # noqa: E402
 
 try:
     from tools.script_approval import require_production_approval
@@ -317,7 +319,7 @@ def stage_assemble(prod: Path):
             scale_vf = ("scale=1920:1080:force_original_aspect_ratio=decrease,"
                         f"pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color={PAD_COLOR},"
                         "fps=30,format=yuv420p")
-        enc = ["-an", "-c:v", "h264_nvenc", "-preset", "p4", "-cq", "20",
+        enc = ["-an", *encoder_args(20, "p4"),
                "-frames:v", str(render_frames), str(part)]
         if vis.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}:
             cmd = [FFMPEG, "-y", "-loop", "1", "-t", f"{dur:.3f}", "-i", str(vis),
@@ -399,7 +401,7 @@ def stage_assemble(prod: Path):
     cmd += ["-map", video_map, "-map", audio_map]
     # yuv420p pin: without it the xfade graph promotes to yuv444p, which local
     # players cannot decode (2026-07-21 playback incident)
-    cmd += ["-c:v", "h264_nvenc", "-preset", "p5", "-cq", "19", "-pix_fmt", "yuv420p",
+    cmd += [*encoder_args(19, "p5"), "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "192k", "-ar", MASTER_AR, "-ac", MASTER_AC,
             "-shortest", str(build / "master.mp4")]
     subprocess.run(cmd, check=True, cwd=build, capture_output=True)

@@ -1,0 +1,61 @@
+[
+  {"out": "03-brent-1w", "symbol": "TVC:UKOIL", "tf": "1W",
+   "_why": "the shock: Brent +11.80% on the week, printed 102.00 intraweek",
+   "stages": [
+     {"holdSec": 9},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 102.00,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 100.69,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 98.69,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]},
+
+  {"out": "04-xle-1w", "symbol": "AMEX:XLE", "tf": "1W",
+   "_why": "the non-confirmation: +3.36% against an 11.80% barrel — under a third of the move",
+   "stages": [
+     {"holdSec": 9},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 60.45,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 59.62,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 57.30,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]},
+
+  {"out": "05-vix-1w", "symbol": "TVC:VIX", "tf": "1W",
+   "_why": "the complacency tell: closed 18.57 BELOW its 18.90 open, -1.01% on the week",
+   "stages": [
+     {"holdSec": 9},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 20.31,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 18.90,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 18.57,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]},
+
+  {"out": "06-spx-1w", "symbol": "SP:SPX", "tf": "1W",
+   "_why": "the tape: -0.61%, and the 7,504.02 wall that framed the whole prior week",
+   "stages": [
+     {"holdSec": 9},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 7504.02,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 7411.98,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 7376.00,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]}
+   ]},
+
+  {"out": "07-mu-1w", "symbol": "NASDAQ:MU", "tf": "1W",
+   "_why": "the only conviction bid, and it has nothing to do with oil: +8.48%, high 1,011.77",
+   "stages": [
+     {"holdSec": 9},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 1011.77,
+       "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 970.82,
+       "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+     {"holdSec": 9, "draw": [{"type": "horizontal_line", "price": 920.95,
+       "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+   ]}
+]

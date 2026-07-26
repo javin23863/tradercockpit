@@ -1,0 +1,183 @@
+"01":
+  - quote: >-
+      Brent crude went up almost twelve percent this week and closed at 98.69, and the market decided it didn't believe a word of it.
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      The barrel ran eleven point eight percent and printed 102.00 at the high.
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      Energy producers captured three point three six.
+    claim: clm-chart-xle-weekly-2026-07-24
+  - quote: >-
+      Volatility closed the week lower than it opened.
+    claim: clm-chart-vix-weekly-2026-07-24
+  - quote: >-
+      The S&P 500 fell.
+    claim: clm-chart-spx-weekly-2026-07-24
+  - quote: >-
+      An attack on two Saudi oil tankers put a second shipping route at risk, crude settled above a hundred dollars on Thursday, and by Friday it was back underneath.
+    claim: clm-brent-settle-2026-07-23
+    attributed: true
+  - quote: >-
+      four separate instruments declined to follow it
+    claim: clm-chart-brent-weekly-2026-07-24
+
+"02":
+  - quote: >-
+      Brent began the week at 89.30. It ran to 102.00 at the high — that's the print that matters, because it's the first time this move has carried a hundred-dollar handle. It finished at 98.69. Eleven point eight percent on the week, and a single bar that spans sixteen dollars from low to high.
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      That separation matters this week, because crude moved sixteen dollars between its low and its high, and depending on which hour you sampled you could tell four different stories about the same five sessions.
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      Two Saudi tankers were attacked. That threatens a second corridor on top of the one the market has been pricing since the spring.
+    claim: clm-brent-settle-2026-07-23
+    attributed: true
+  - quote: >-
+      Thursday is the day to hold onto. Brent settled at 100.69. That settlement figure is the wire's
+    claim: clm-brent-settle-2026-07-23
+    attributed: true
+  - quote: >-
+      Friday put crude back under a hundred, with Treasury yields easing alongside it.
+    claim: clm-friday-no-risk-on-2026-07-24
+    attributed: true
+  - quote: >-
+      a week where crude adds twelve percent and closes near its highs
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      Worth saying what the sixteen-dollar range means on its own.
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      carrying it to 102 and then deciding within days it had gone too far
+    claim: clm-chart-brent-weekly-2026-07-24
+
+"03":
+  - quote: >-
+      The energy sector fund started at 57.56 and closed at 59.62, with a high of 60.45. Three point three six percent.
+    claim: clm-chart-xle-weekly-2026-07-24
+  - quote: >-
+      Three point three six against eleven point eight. The producers captured under a third of the move in the commodity they produce.
+    claim: clm-chart-xle-weekly-2026-07-24
+  - quote: >-
+      Thursday — the day Brent settled above a hundred — energy opened at 60.244 and closed at 59.38.
+    claim: clm-xle-thursday-gap-2026-07-23
+    attributed: true
+  - quote: >-
+      Occidental did the same thing on a longer clock. It finished the week at 57.30, up four and a half percent, and its weekly high at 58.99 sits well above where it closed.
+    claim: clm-chart-oxy-weekly-2026-07-24
+  - quote: >-
+      Tuesday, Brent closed at 91.63 and cleared Monday's rejection high at 91.42.
+    claim: clm-brent-tuesday-2026-07-21
+  - quote: >-
+      That same session, energy closed at 58.50, through its own prior high at 58.385.
+    claim: clm-xle-tuesday-2026-07-21
+
+"04":
+  - quote: >-
+      The VIX started at 18.90 and closed at 18.57, with a high of 20.31 and a low of 16.64. Down about one percent on the week.
+    claim: clm-chart-vix-weekly-2026-07-24
+  - quote: >-
+      Tankers were attacked. Crude added twelve percent and printed a hundred-dollar handle.
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      the instrument whose entire job is pricing uncertainty over the next thirty days closed beneath where it opened
+    claim: clm-chart-vix-weekly-2026-07-24
+  - quote: >-
+      The path from 16.64 to 20.31 and back to 18.57 is what the selling-into-spikes version looks like.
+    claim: clm-chart-vix-weekly-2026-07-24
+  - quote: >-
+      The 20.31 high says somebody did reach for protection during the week. The 18.57 close says they were content to let it expire by Friday.
+    claim: clm-chart-vix-weekly-2026-07-24
+
+"05":
+  - quote: >-
+      The S&P 500 began at 7,489.18, reached 7,525.94, dropped to 7,376.00, and closed at 7,411.98. Down roughly six tenths of a percent.
+    claim: clm-chart-spx-weekly-2026-07-24
+  - quote: >-
+      The level I care about is 7,504.02 — the July sixteenth session low.
+    claim: clm-spx-level-7504-2026-07-16
+  - quote: >-
+      reclaimed it Tuesday with a close at 7,509.20, and then lost it again to finish the week underneath
+    claim: clm-spx-tuesday-2026-07-21
+  - quote: >-
+      The 7,376.00 low is the level beneath, and the close sits between the two without committing to either.
+    claim: clm-chart-spx-weekly-2026-07-24
+  - quote: >-
+      The index closed at 7,443.28, down about two tenths, and it settled within three points of the session low.
+    claim: clm-spx-monday-2026-07-20
+  - quote: >-
+      The index closed at 7,509.20, up nearly nine tenths of a percent, and that broke a three-session losing streak running back through the sixteenth and seventeenth of July.
+    claim: clm-spx-tuesday-2026-07-21
+  - quote: >-
+      A market that reclaims a level and loses it within three sessions has told you the sellers above are still there and still willing.
+    claim: clm-spx-level-7504-2026-07-16
+  - quote: >-
+      Crude came down, yields came down, and the index finished almost exactly flat.
+    claim: clm-friday-no-risk-on-2026-07-24
+    attributed: true
+  - quote: >-
+      That is the fourth instrument this week declining to cooperate with the obvious narrative.
+    claim: clm-friday-no-risk-on-2026-07-24
+    attributed: true
+
+"06":
+  - quote: >-
+      Micron started at 885.57, ran to 1,011.77, and closed at 920.95. Up eight and a half percent, with a four-figure print in the middle of it.
+    claim: clm-chart-mu-weekly-2026-07-24
+  - quote: >-
+      Tuesday alone it settled at 970.82, twelve percent higher on the day.
+    claim: clm-mu-tuesday-2026-07-21
+  - quote: >-
+      The driver was Korean export data pointing at continued memory demand
+    claim: clm-mu-tuesday-2026-07-21
+    attributed: true
+  - quote: >-
+      finishing Friday down about seven percent
+    claim: clm-mu-friday-2026-07-24
+    attributed: true
+  - quote: >-
+      two infrastructure names moved violently in opposite directions on the same session while the index barely moved at all
+    claim: clm-wednesday-split-2026-07-22
+    attributed: true
+
+"07":
+  - quote: >-
+      The containment call fails if Brent reclaims 100.69 on a close and holds it — better still if it takes 102.00.
+    claim: clm-brent-settle-2026-07-23
+  - quote: >-
+      The producer story flips if energy closes above 60.45, its weekly high.
+    claim: clm-chart-xle-weekly-2026-07-24
+  - quote: >-
+      Occidental clearing 58.99 would say the same thing in a single name.
+    claim: clm-chart-oxy-weekly-2026-07-24
+  - quote: >-
+      Going the other direction, energy back beneath 57.30 says the premium has left the sector completely.
+    claim: clm-xle-tuesday-2026-07-21
+  - quote: >-
+      For the index, 7,504.02 remains the line.
+    claim: clm-spx-level-7504-2026-07-16
+  - quote: >-
+      Beneath it, the July low at 7,376.00 is the next test.
+    claim: clm-chart-spx-weekly-2026-07-24
+  - quote: >-
+      And if the VIX starts closing above 20.31 while crude is still elevated
+    claim: clm-chart-vix-weekly-2026-07-24
+  - quote: >-
+      the fade I've just spent five minutes on was about timing rather than disbelief
+    claim: clm-chart-xle-weekly-2026-07-24
+
+"08":
+  - quote: >-
+      The Federal Reserve meets Tuesday and Wednesday, the twenty-eighth and twenty-ninth.
+    claim: clm-fomc-2026-07-28
+    attributed: true
+  - quote: >-
+      The global ten percent tariff under Section 122 was scheduled to expire Friday the twenty-fourth.
+    claim: clm-section122-expiry-2026-07-24
+    attributed: true
+  - quote: >-
+      An oil shock happened, and four instruments told me they expect it to fade.
+    claim: clm-chart-brent-weekly-2026-07-24
+  - quote: >-
+      The number that decides it is 100.69 on a Brent close, with the Federal Reserve on Wednesday the twenty-ninth as the event most likely to move everything else underneath it.
+    claim: clm-fomc-2026-07-28

@@ -12,12 +12,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.request import urlopen
 
+sys.path.insert(0, str(Path(__file__).parent))
+from paths import legacy_vault_dir  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
-VAULT = Path(r"C:\Users\MSI\Desktop\TraderCockpit-Vault")
+VAULT = legacy_vault_dir()
 REPORTS = VAULT / "wiki" / "reports"
 ICT = timezone(timedelta(hours=7))
 
-sys.path.insert(0, str(Path(__file__).parent))
 from daily_production_init import eastern_now  # noqa: E402
 from hq import latest_publish_entries, load_manager, read_json, ANALYTICS, LANES  # noqa: E402
 

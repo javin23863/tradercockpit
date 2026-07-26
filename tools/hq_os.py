@@ -32,12 +32,13 @@ from urllib.parse import parse_qs, quote, urlparse
 from urllib.request import Request, urlopen
 
 sys.path.insert(0, str(Path(__file__).parent))
-import hq  # verified dashboard core (views, loaders) — reused, not modified
+import hq  
+from paths import manager_dir, vault_dir  # noqa: E402# verified dashboard core (views, loaders) — reused, not modified
 from daily_production_init import eastern_now  # this box has no system tz database
 
 ROOT = hq.ROOT
 # ponytail: old TraderCockpit-Vault is tombstoned (read-only) — reports now live repo-local
-VAULT = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit")
+VAULT = vault_dir()
 REPORTS = ROOT / "social-ops" / "reports"
 LLM_CONFIG = ROOT / "tools" / "hq-llm.json"
 HOST, PORT = "127.0.0.1", 8786
@@ -117,7 +118,7 @@ MAX_CHAT_HISTORY = 40   # operator+apollo turns kept per chat
 MAX_CHATS = 20          # oldest chat evicted once this many chats exist
 TRANSCRIPT_CAP = 6000   # chars of stuffed transcript sent to non-session backends
 
-MANAGER_RECEIPTS = Path(r"C:\Users\MSI\Documents\Manager\vault")
+MANAGER_RECEIPTS = manager_dir()
 APOLLO_SYSTEM = f"""You are Apollo, the TraderCockpit operator's on-duty analyst. House Claims Ontology discipline applies (operator ruling 2026-07-13: everything Apollo says has an ontology receipt).
 RECEIPT CONTRACT — non-negotiable:
 - Every factual claim about our operations, metrics, pipelines, decisions, or history ends with a receipt tag in EXACTLY this literal format: [receipt: <path>] or [receipt: <path>#<anchor>]. Markdown links, backticked paths, or path:line mentions do NOT count as receipts — the audit gate only parses the [receipt: ...] tag and will BLOCK the reply without it.

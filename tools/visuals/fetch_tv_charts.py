@@ -29,7 +29,11 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 HUB = HERE.parents[1]
-TV_CLI = Path(r"C:\Users\MSI\repos\tradingview-mcp\src\cli\index.js")
+sys.path.insert(0, str(HUB / "tools"))
+from paths import tv_cli  # noqa: E402
+from encoder import encoder_args  # noqa: E402
+
+TV_CLI = tv_cli()
 
 # section -> TradingView symbol + timeframe. Symbols chosen for clean TradingView
 # coverage; timeframe "6M"/"12M" = the chart's visible range button equivalent.
@@ -116,8 +120,7 @@ def ken_burns(png: Path, out: Path, dur: float, dry: bool) -> None:
         print(f"  [dry] ffmpeg ken-burns {png.name} -> {out.name} ({dur:.0f}s)")
         return
     subprocess.run(["ffmpeg", "-y", "-loop", "1", "-i", str(png), "-t", f"{dur:.2f}",
-                    "-vf", vf, "-c:v", "h264_nvenc", "-cq", "19", "-preset", "p5",
-                    str(out)], check=True, capture_output=True)
+                    "-vf", vf, *encoder_args(19, "p5"), str(out)], check=True, capture_output=True)
 
 
 def main() -> int:

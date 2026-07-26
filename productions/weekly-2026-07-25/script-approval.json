@@ -1,0 +1,26 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/weekly-2026-07-25/vo.txt",
+  "scriptSha256": "4775779e1b86dad075e56017d22e8ac8d125c7979848bb8cd4c399a4905ab36d",
+  "reviewedBy": "operator",
+  "reviewedAt": "2026-07-25T23:08:10Z",
+  "approvalKind": "operator",
+  "operatorReviewed": true,
+  "operatorApproval": {
+    "channel": "claude-code session, Lenox",
+    "decision": "approved",
+    "scope": "exact script hash above (re-cut open per the restored weekly spec: defining question inside 15s). Approves TTS, assembly and render. Publication remains separate.",
+    "gates": {
+      "claimsVerdict": "PASS",
+      "claims": 19,
+      "receipts": 48,
+      "styleStatus": "PASS",
+      "styleWarnings": [
+        "ornamental group of three x1",
+        "slogan repetition x2"
+      ],
+      "captures": "6/6 verified against expected weekly bars"
+    }
+  }
+}

@@ -20,16 +20,18 @@ for stream in (sys.stdout, sys.stderr):
 try:
     from tools.daily_production_init import eastern_now, production_path
     from tools.notify_telegram import send as send_telegram
+    from tools.paths import vault_dir
 except ModuleNotFoundError:  # direct `python tools/daily_lane.py` execution
     sys.path.insert(0, str(Path(__file__).parent))
     from daily_production_init import eastern_now, production_path
     from notify_telegram import send as send_telegram
+    from paths import vault_dir
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = ROOT / "OpenMontage" / ".venv" / "Scripts" / "python.exe"
 INIT = ROOT / "tools" / "daily_production_init.py"
 RUNNER = ROOT / "tools" / "daily_postclose.py"
-VAULT = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit")
+VAULT = vault_dir()
 AGENT_TIMEOUT = 150 * 60
 RUNNER_TIMEOUT = 3 * 60 * 60
 LOG_PATH: Path | None = None
