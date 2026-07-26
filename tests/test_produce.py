@@ -154,6 +154,13 @@ class AudioLayerReceiptTests(unittest.TestCase):
     def test_assemble_writes_the_file_the_gate_is_fail_closed_on(self):
         self.assertIn(RECEIPT, inspect.getsource(stage_assemble))
 
+    def test_the_receipt_is_written_only_after_ffmpeg_returns(self):
+        # a receipt left behind by a failed mux describes inputs to a master that was
+        # never produced, so the next standalone gate call PASSes the PREVIOUS master
+        # — the exact false green this gate exists to prevent
+        src = inspect.getsource(stage_assemble)
+        self.assertLess(src.index("subprocess.run(cmd"), src.index(RECEIPT))
+
     def test_a_full_layer_passes_and_each_silent_drop_blocks(self):
         full = {"music": "bed.mp3", "sectionBoundaries": 7, "sfxDir": "/sfx",
                 "sfxDirPresent": True, "whoosh": "whoosh-short.mp3",
