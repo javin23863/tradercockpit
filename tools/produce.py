@@ -327,6 +327,17 @@ def stage_assemble(prod: Path):
     else:
         log("music bed: none (music_library/ empty)")
     whoosh, impact = SFX_DIR / "whoosh-short.mp3", SFX_DIR / "impact-bass-1.mp3"
+    # Fail loud on a thinner sound layer than doctrine. weekly-2026-07-25 shipped with
+    # all 7 transitions silent because SFX_DIR did not exist on the assembling box and
+    # this stage just skipped them (2026-07-27). A reduction is an operator decision:
+    # declare it in build/audio-layer-override.json, never let it happen by accident.
+    missing = [p.name for p in (whoosh, impact) if not p.is_file()]
+    if not music:
+        missing.append("music bed (music_library/ empty)")
+    if missing and not (build / "audio-layer-override.json").is_file():
+        sys.exit(f"[produce] sound layer incomplete: {', '.join(missing)} "
+                 f"(SFX_DIR={SFX_DIR}). Copy the pack to this box, or declare the "
+                 f"reduction in {build / 'audio-layer-override.json'}.")
     if boundaries and whoosh.is_file():
         cmd += ["-i", str(whoosh)]
         whoosh_idx, next_idx = next_idx, next_idx + 1

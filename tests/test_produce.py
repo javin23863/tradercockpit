@@ -73,6 +73,15 @@ class ProduceFrameAllocationTests(unittest.TestCase):
         self.assertNotIn("subtitles=captions.srt", inspect.getsource(stage_assemble))
         self.assertNotIn("master-clean.mp4", inspect.getsource(stage_shorts))
 
+    def test_thin_sound_layer_stops_the_build_unless_operator_declared_it(self):
+        # weekly-2026-07-25 shipped 7 silent transitions because the assembling box had
+        # no SFX_DIR and this stage just skipped them. Absence must halt, not degrade.
+        src = inspect.getsource(stage_assemble)
+        self.assertIn("sound layer incomplete", src)
+        self.assertIn("audio-layer-override.json", src)
+        guard = src[src.index("missing = [p.name"):src.index("if boundaries and whoosh.is_file()")]
+        self.assertIn("sys.exit", guard)
+
     def test_cumulative_boundaries_stay_locked_to_timeline(self):
         durations = [5.46, 11.188, 18.362, 1.253, 4.196, 18.419]
         timeline = []
