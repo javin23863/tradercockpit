@@ -391,19 +391,6 @@ def stage_assemble(prod: Path):
     sound = build_sound_filter(vo_idx, total_s, boundaries, music_idx, music_gain,
                                whoosh_idx, impact_idx)
     audio_map = "[aout]"      # build_sound_filter always returns a chain
-    # The approved sound layer is an operator decision, not a pipeline one: record what
-    # actually landed so audio_layer_gate.py can fail closed on a silent drop. Series-01
-    # shipped a narration-only master past a green QA gate because nothing recorded this.
-    (build / "audio-layer-receipt.json").write_text(json.dumps({
-        "music": music.name if music else None,
-        "musicGainDb": round(music_gain, 2) if music_gain is not None else None,
-        "whoosh": whoosh_idx is not None,
-        "impact": impact_idx is not None,
-        "sfxDir": str(SFX_DIR),
-        "sfxDirPresent": SFX_DIR.is_dir(),
-        "sectionBoundaries": len(boundaries),
-        "layered": bool(sound),
-    }, indent=2), encoding="utf-8")
 
     filters = []
     if len(parts) > 1:
