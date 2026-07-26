@@ -1,0 +1,47 @@
+2026-07-23T20:12:28Z LANE START eastern_day=2026-07-23 executable=C:\Users\MSI\Documents\tradercockpit\OpenMontage\.venv\Scripts\python.exe
+2026-07-23T20:12:28Z STAGE production-init START timeout=60s
+2026-07-23T20:12:28Z STAGE production-init PID 38288
+2026-07-23T20:12:28Z STAGE production-init OUTPUT daily-2026-07-23: NOT READY
+2026-07-23T20:12:28Z STAGE production-init OUTPUT   missing vo.txt (agent) — script_style_gate + the exact-hash approval bind to it
+2026-07-23T20:12:28Z STAGE production-init OUTPUT   missing claims.yaml (agent) — claims_gate maps every number-bearing region to a receipt
+2026-07-23T20:12:28Z STAGE production-init OUTPUT   missing scene-plan.json (agent) — editorial_gate validates beats against visible subjects
+2026-07-23T20:12:28Z STAGE production-init OUTPUT   missing analysis-brief.md (agent) — script_approval binds the production to its brief
+2026-07-23T20:12:28Z STAGE production-init OUTPUT   missing news-sources.json (agent) — source provenance for the claims ledger
+2026-07-23T20:12:28Z STAGE production-init OUTPUT   missing social-batch.json (agent) — publish.py publishes exactly one approved v2 item
+2026-07-23T20:12:28Z STAGE production-init END exit=1
+2026-07-23T20:12:28Z STAGE codex-content START timeout=9000s
+2026-07-23T20:12:28Z STAGE codex-content PID 31280
+2026-07-23T20:56:57Z STAGE codex-content END exit=0
+2026-07-23T20:56:57Z STAGE production-check START timeout=60s
+2026-07-23T20:56:57Z STAGE production-check PID 25576
+2026-07-23T20:56:58Z STAGE production-check OUTPUT {
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "schema": "tradercockpit-production-readiness/v1",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "production": "C:\\Users\\MSI\\Documents\\tradercockpit\\productions\\daily-2026-07-23",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "slug": "daily-2026-07-23",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "exists": true,
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "ready": false,
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "present": [
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     "vo.txt",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     "claims.yaml",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     "analysis-brief.md",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     "news-sources.json"
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   ],
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "missing": [
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     {
+2026-07-23T20:56:58Z STAGE production-check OUTPUT       "file": "scene-plan.json",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT       "owedBy": "agent",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT       "why": "editorial_gate validates beats against visible subjects"
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     },
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     {
+2026-07-23T20:56:58Z STAGE production-check OUTPUT       "file": "social-batch.json",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT       "owedBy": "agent",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT       "why": "publish.py publishes exactly one approved v2 item"
+2026-07-23T20:56:58Z STAGE production-check OUTPUT     }
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   ],
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "checkedAt": "2026-07-23T20:56:58Z",
+2026-07-23T20:56:58Z STAGE production-check OUTPUT   "note": "ready=false means the AGENT step has not run or did not finish. The runner must notify, never silently no-op \u2014 a missing folder and a missing video look identical from outside."
+2026-07-23T20:56:58Z STAGE production-check OUTPUT }
+2026-07-23T20:56:58Z STAGE production-check END exit=1
+sent message_id=108
+2026-07-23T20:56:58Z NOTIFY telegram sent
+2026-07-23T20:56:58Z LANE END exit=1

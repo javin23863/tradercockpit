@@ -1,33 +1,93 @@
 {
   "schema": "tradercockpit-social-velocity/v1",
-  "generatedAt": "2026-07-22T02:02:32.849612Z",
-  "samples": 25,
+  "generatedAt": "2026-07-26T23:00:47.634936Z",
+  "samples": 64,
   "posts": [
     {
-      "key": "ig:18089349110422532",
-      "views": 54,
-      "perHourRecent": 0.33,
-      "perHour24h": null,
+      "key": "yt:9Xlabw04luQ",
+      "views": 22,
+      "perHourRecent": 0.0,
+      "perHour24h": -0.04,
       "spiking": false,
-      "source": "instagram",
-      "title": "The S&P closed nineteen points above its July low at 7,421. Two closes below the 7,504 line, with yields pressing their July high. Levels to",
-      "url": "https://www.instagram.com/reel/DbCjUtOFfhN/"
+      "source": "youtube",
+      "title": "The S&P Is 19 Points From Breaking July",
+      "url": "https://youtu.be/9Xlabw04luQ"
     },
     {
-      "key": "ig:18201557836321553",
-      "views": 9,
-      "perHourRecent": 0.33,
-      "perHour24h": null,
+      "key": "yt:htpGeN7pBnc",
+      "views": 13,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
       "spiking": false,
-      "source": "instagram",
-      "title": "Oil touched ninety-one and gave it back. The S&P sold its bounce to close within three points of the low. The pressure is coming from rates.",
-      "url": "https://www.instagram.com/reel/DbCi-l3gEro/"
+      "source": "youtube",
+      "title": "SMCI's 28.50 to 32.28 Decision Range",
+      "url": "https://youtu.be/htpGeN7pBnc"
+    },
+    {
+      "key": "yt:4hd7Vzr_9FE",
+      "views": 12,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Both Triggers Hit: 7,504 Broke, Oil Says Not So Fast",
+      "url": "https://youtu.be/4hd7Vzr_9FE"
+    },
+    {
+      "key": "yt:2qmSPKsp-9k",
+      "views": 10,
+      "perHourRecent": 0.0,
+      "perHour24h": -0.08,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Infrastructure Split: SMCI Surged as GEV Sank",
+      "url": "https://youtu.be/2qmSPKsp-9k"
+    },
+    {
+      "key": "yt:fqiAmRJkYC8",
+      "views": 10,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "The S&P Sold Its Bounce in One Bar",
+      "url": "https://youtu.be/fqiAmRJkYC8"
+    },
+    {
+      "key": "yt:1ddWI5J4YBA",
+      "views": 10,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Oil Hit $91. The S&P Sold Its Bounce Anyway.",
+      "url": "https://youtu.be/1ddWI5J4YBA"
+    },
+    {
+      "key": "yt:e_zxBsWFnQc",
+      "views": 8,
+      "perHourRecent": 0.0,
+      "perHour24h": -0.08,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Micron Gapped 7% and Never Looked Back",
+      "url": "https://youtu.be/e_zxBsWFnQc"
+    },
+    {
+      "key": "yt:KGzT9TV4APM",
+      "views": 8,
+      "perHourRecent": 0.0,
+      "perHour24h": -0.04,
+      "spiking": false,
+      "source": "youtube",
+      "title": "SMCI Surged While GEV Sank",
+      "url": "https://youtu.be/KGzT9TV4APM"
     },
     {
       "key": "yt:clxfXQ2FqmU",
       "views": 164,
       "perHourRecent": 0.0,
-      "perHour24h": 0.04,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
       "title": "What the week ACTUALLY did — S&P weekly closes",
@@ -37,81 +97,81 @@
       "key": "yt:rSF2Ou-CkvA",
       "views": 71,
       "perHourRecent": 0.0,
-      "perHour24h": 0.04,
+      "perHour24h": -0.04,
       "spiking": false,
       "source": "youtube",
       "title": "Chart of the week: semis vs the market -7.5% in 5 days",
       "url": "https://youtu.be/rSF2Ou-CkvA"
     },
     {
-      "key": "yt:2LmAWN4yQCs",
-      "views": 54,
+      "key": "yt:-Txh01-jcd0",
+      "views": 6,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
-      "title": "The 3 levels that decide next week — 7581 / 7431 / 88.38",
-      "url": "https://youtu.be/2LmAWN4yQCs"
+      "title": "Oil Closed Above $100. Energy Stocks Barely Moved.",
+      "url": "https://youtu.be/-Txh01-jcd0"
+    },
+    {
+      "key": "yt:J2EBBMDoKhc",
+      "views": 11,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Oil Holds $84 as the Risk Premium Sticks",
+      "url": "https://youtu.be/J2EBBMDoKhc"
     },
     {
       "key": "yt:ANwcW1udU64",
       "views": 57,
       "perHourRecent": 0.0,
-      "perHour24h": 0.04,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
       "title": "Brent +17% in a week — trend, not spike",
       "url": "https://youtu.be/ANwcW1udU64"
     },
     {
-      "key": "yt:HW8VpcxvdAY",
-      "views": 45,
+      "key": "yt:Dy_XvwUi6Ng",
+      "views": 91,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
-      "title": "Oil +10%, Energy +4%: What Actually Moved #Shorts",
-      "url": "https://youtu.be/HW8VpcxvdAY"
+      "title": "Trump's 20% Hormuz Toll Sent Oil +10% 🛢️ #Shorts",
+      "url": "https://youtu.be/Dy_XvwUi6Ng"
     },
     {
-      "key": "yt:l8BuqCo3D9M",
-      "views": 44,
+      "key": "yt:IJjUNeuJSNE",
+      "views": 25,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
-      "title": "TSM's 403.50 Floor Is Being Tested",
-      "url": "https://youtu.be/l8BuqCo3D9M"
+      "title": "Trump's 20% Hormuz Toll: What It Means For Your Portfolio",
+      "url": "https://youtu.be/IJjUNeuJSNE"
+    },
+    {
+      "key": "yt:178YBzc4o2I",
+      "views": 3,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "How High Can Oil Actually Go? $100–$150 📈 #Shorts",
+      "url": "https://youtu.be/178YBzc4o2I"
     },
     {
       "key": "yt:cC6TZCTJ3l4",
-      "views": 34,
+      "views": 35,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
       "title": "Did the bull just crack? Oil +17%, tech -4% — same week",
       "url": "https://youtu.be/cC6TZCTJ3l4"
-    },
-    {
-      "key": "yt:D3FMz1Nncqg",
-      "views": 24,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "5 Tankers vs 130 a Day: What Hormuz Actually Closed #Shorts",
-      "url": "https://youtu.be/D3FMz1Nncqg"
-    },
-    {
-      "key": "yt:33cnTUL4ga4",
-      "views": 19,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Iran Deadline Day and TSMC's $403.50 Floor",
-      "url": "https://youtu.be/33cnTUL4ga4"
     },
     {
       "key": "yt:IQJsq4EYQXA",
@@ -124,44 +184,54 @@
       "url": "https://youtu.be/IQJsq4EYQXA"
     },
     {
-      "key": "yt:a-d0ND20Dzc",
-      "views": 13,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.04,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Stock Market Weekly Review: Oil +17%, Tech Cracks — Did The Bull Break?",
-      "url": "https://youtu.be/a-d0ND20Dzc"
-    },
-    {
-      "key": "yt:J2EBBMDoKhc",
-      "views": 11,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.12,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Oil Holds $84 as the Risk Premium Sticks",
-      "url": "https://youtu.be/J2EBBMDoKhc"
-    },
-    {
-      "key": "yt:Xgusm1MQWpI",
-      "views": 6,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "How High Can Oil Actually Go? $100-$150 #shorts",
-      "url": "https://youtu.be/Xgusm1MQWpI"
-    },
-    {
-      "key": "yt:IJjUNeuJSNE",
+      "key": "yt:D3FMz1Nncqg",
       "views": 24,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
-      "title": "Trump's 20% Hormuz Toll: What It Means For Your Portfolio",
-      "url": "https://youtu.be/IJjUNeuJSNE"
+      "title": "5 Tankers vs 130 a Day: What Hormuz Actually Closed #Shorts",
+      "url": "https://youtu.be/D3FMz1Nncqg"
+    },
+    {
+      "key": "yt:zFQ3gJCVD6Y",
+      "views": 1,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "How the War Premium Travels: Brent to Energy Equities",
+      "url": "https://youtu.be/zFQ3gJCVD6Y"
+    },
+    {
+      "key": "yt:33cnTUL4ga4",
+      "views": 19,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Iran Deadline Day and TSMC's $403.50 Floor",
+      "url": "https://youtu.be/33cnTUL4ga4"
+    },
+    {
+      "key": "yt:5yj8-xjsoJA",
+      "views": 1,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Stocks Broke the Wall. Oil Didn't Get the Memo.",
+      "url": "https://youtu.be/5yj8-xjsoJA"
+    },
+    {
+      "key": "yt:HW8VpcxvdAY",
+      "views": 45,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Oil +10%, Energy +4%: What Actually Moved #Shorts",
+      "url": "https://youtu.be/HW8VpcxvdAY"
     },
     {
       "key": "yt:Uhm8Xtdh3bg",
@@ -174,10 +244,110 @@
       "url": "https://youtu.be/Uhm8Xtdh3bg"
     },
     {
-      "key": "fb:1040506481679854",
+      "key": "yt:SHVn6IdgIUo",
+      "views": 4,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Is the Strait of Hormuz Actually Closed? 🚢 #Shorts",
+      "url": "https://youtu.be/SHVn6IdgIUo"
+    },
+    {
+      "key": "yt:Xgusm1MQWpI",
+      "views": 6,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "How High Can Oil Actually Go? $100-$150 #shorts",
+      "url": "https://youtu.be/Xgusm1MQWpI"
+    },
+    {
+      "key": "yt:Yu5hYKOsMbQ",
+      "views": 3,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "$83 Crude Flows Straight Into Producer Earnings #shorts",
+      "url": "https://youtu.be/Yu5hYKOsMbQ"
+    },
+    {
+      "key": "yt:a-d0ND20Dzc",
+      "views": 13,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Stock Market Weekly Review: Oil +17%, Tech Cracks — Did The Bull Break?",
+      "url": "https://youtu.be/a-d0ND20Dzc"
+    },
+    {
+      "key": "yt:2LmAWN4yQCs",
+      "views": 54,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "The 3 levels that decide next week — 7581 / 7431 / 88.38",
+      "url": "https://youtu.be/2LmAWN4yQCs"
+    },
+    {
+      "key": "yt:l8BuqCo3D9M",
+      "views": 44,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "TSM's 403.50 Floor Is Being Tested",
+      "url": "https://youtu.be/l8BuqCo3D9M"
+    },
+    {
+      "key": "fb:1568911174863124",
+      "views": 1,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "facebook",
+      "title": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close throu",
+      "url": "https://www.facebook.com/reel/1568911174863124/"
+    },
+    {
+      "key": "fb:4602632909970052",
       "views": 0,
       "perHourRecent": 0.0,
-      "perHour24h": null,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "facebook",
+      "title": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme",
+      "url": "https://www.facebook.com/reel/4602632909970052/"
+    },
+    {
+      "key": "fb:1717743126102350",
+      "views": 1,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "facebook",
+      "title": "Micron opened seven percent above Monday's close and settled up twelve. The gap cleared Monday's high at 901 — that is the floor that matter",
+      "url": "https://www.facebook.com/reel/1717743126102350/"
+    },
+    {
+      "key": "fb:1067547895797268",
+      "views": 1,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "facebook",
+      "title": "The S&P closed back above 7,504 on a memory-chip rally — Micron up twelve percent. Brent closed above 91.42 the same day. Stocks and oil are",
+      "url": "https://www.facebook.com/reel/1067547895797268/"
+    },
+    {
+      "key": "fb:1040506481679854",
+      "views": 1,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "facebook",
       "title": "The S&P closed nineteen points above its July low at 7,421. Two closes below the 7,504 line, with yields pressing their July high. Levels to",
@@ -185,9 +355,9 @@
     },
     {
       "key": "fb:1775769583849554",
-      "views": 0,
+      "views": 1,
       "perHourRecent": 0.0,
-      "perHour24h": null,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "facebook",
       "title": "Oil touched ninety-one and gave it back. The S&P sold its bounce to close within three points of the low. The pressure is coming from rates.",
@@ -334,8 +504,68 @@
       "url": "https://www.facebook.com/reel/1788844155613661/"
     },
     {
+      "key": "ig:18105774154865532",
+      "views": 6,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "instagram",
+      "title": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close throu",
+      "url": "https://www.instagram.com/reel/DbH6hR8nKL8/"
+    },
+    {
+      "key": "ig:18096373475208420",
+      "views": 24,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "instagram",
+      "title": "SMCI gained 19.84% while GEV lost 8.69%. The Nasdaq 100 fell 0.54%, and XLI gained 0.11%. The July 22 close treated one infrastructure theme",
+      "url": "https://www.instagram.com/reel/DbH6XV1j4bO/"
+    },
+    {
+      "key": "ig:17943378252052865",
+      "views": 15,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Micron opened seven percent above Monday's close and settled up twelve. The gap cleared Monday's high at 901 — that is the floor that matter",
+      "url": "https://www.instagram.com/reel/DbE6tCqjDXr/"
+    },
+    {
+      "key": "ig:18201813793364863",
+      "views": 22,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "instagram",
+      "title": "The S&P closed back above 7,504 on a memory-chip rally — Micron up twelve percent. Brent closed above 91.42 the same day. Stocks and oil are",
+      "url": "https://www.instagram.com/reel/DbE6kXtAMeA/"
+    },
+    {
+      "key": "ig:18089349110422532",
+      "views": 55,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "instagram",
+      "title": "The S&P closed nineteen points above its July low at 7,421. Two closes below the 7,504 line, with yields pressing their July high. Levels to",
+      "url": "https://www.instagram.com/reel/DbCjUtOFfhN/"
+    },
+    {
+      "key": "ig:18201557836321553",
+      "views": 12,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Oil touched ninety-one and gave it back. The S&P sold its bounce to close within three points of the low. The pressure is coming from rates.",
+      "url": "https://www.instagram.com/reel/DbCi-l3gEro/"
+    },
+    {
       "key": "ig:18449540437184955",
-      "views": 44,
+      "views": 59,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
@@ -345,7 +575,7 @@
     },
     {
       "key": "ig:17898382938477780",
-      "views": 47,
+      "views": 49,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
@@ -365,7 +595,7 @@
     },
     {
       "key": "ig:17923397229167207",
-      "views": 99,
+      "views": 101,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
@@ -375,7 +605,7 @@
     },
     {
       "key": "ig:18075630929680759",
-      "views": 44,
+      "views": 48,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
@@ -437,7 +667,7 @@
       "key": "ig:17897292288349032",
       "views": 21,
       "perHourRecent": 0.0,
-      "perHour24h": 0.17,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "instagram",
       "title": "$83 crude flows straight into producer earnings. Exxon +4%, Chevron +3% on the day. The war-premium rotation, one chart deeper. ⛽ #oil #bren",
@@ -457,7 +687,7 @@
       "key": "ig:18431531929135344",
       "views": 3,
       "perHourRecent": 0.0,
-      "perHour24h": 0.04,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "instagram",
       "title": "How high can oil actually go? Every big desk's number - Goldman, JPMorgan, gov models - on one chart. $100 to $150. None of them models it s",
@@ -472,78 +702,28 @@
       "source": "instagram",
       "title": "Trump just put a 20% toll on every ship through the Strait of Hormuz - and oil ripped 10% in a day. Here's what it means for your portfolio.",
       "url": "https://www.instagram.com/reel/Daw-KlzD-wR/"
-    },
-    {
-      "key": "tt:7664815847512329492",
-      "views": 0,
-      "perHourRecent": 0.0,
-      "perHour24h": null,
-      "spiking": false,
-      "source": "tiktok",
-      "title": "Oil touched ninety-one and gave it back. The S&P sold its bounce to close within three points of the low. The pressure is coming from rates. Full session breakdown on the channel. #stockmarket #sp500 #oil #markets #FinTok Research tooling, not financial advice. No performance is promised or implied.",
-      "url": "https://www.tiktok.com/@trader.cockpit/video/7664815847512329492"
-    },
-    {
-      "key": "tt:7662888296942685460",
-      "views": 0,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "tiktok",
-      "title": "clip-002-do-not-trade-the-siren.vertical",
-      "url": "https://www.tiktok.com/@trader.cockpit/video/7662888296942685460"
-    },
-    {
-      "key": "tt:7662291555864268053",
-      "views": 0,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "tiktok",
-      "title": "5 big banks report before the bell. The headline EPS matters less than 3 lines inside: net interest income, trading revenue, credit provisions. #banks #jpmorgan #earnings #stockmarket #FinTok",
-      "url": "https://www.tiktok.com/@trader.cockpit/video/7662291555864268053"
-    },
-    {
-      "key": "tt:7662291358417227029",
-      "views": 0,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "tiktok",
-      "title": "$83 crude flows straight into producer earnings. Exxon +4%, Chevron +3% on the day. The war-premium rotation, one chart deeper. #oil #energystocks #exxon #investing #FinTok",
-      "url": "https://www.tiktok.com/@trader.cockpit/video/7662291358417227029"
     }
   ],
   "breakouts": [
     {
-      "key": "yt:clxfXQ2FqmU",
+      "key": "yt:9Xlabw04luQ",
       "source": "youtube",
-      "title": "What the week ACTUALLY did — S&P weekly closes",
-      "url": "https://youtu.be/clxfXQ2FqmU",
-      "views": 158,
-      "medianTrailing20": 23.0,
-      "baselinePosts": 15,
-      "multiple": 6.9
+      "title": "The S&P Is 19 Points From Breaking July",
+      "url": "https://youtu.be/9Xlabw04luQ",
+      "views": 23,
+      "medianTrailing20": 6.0,
+      "baselinePosts": 20,
+      "multiple": 3.8
     },
     {
       "key": "ig:17923397229167207",
       "source": "instagram",
       "title": "Friday to Friday off the weekly bars: 7,575 to 7,458. The high and low that frame next week. #stockmarket #sp500 #investing #markets #FinTok",
       "url": "https://www.instagram.com/reel/Da70s8ODmuJ/",
-      "views": 99,
-      "medianTrailing20": 30.5,
-      "baselinePosts": 18,
-      "multiple": 3.2
-    },
-    {
-      "key": "yt:rSF2Ou-CkvA",
-      "source": "youtube",
-      "title": "Chart of the week: semis vs the market -7.5% in 5 days",
-      "url": "https://youtu.be/rSF2Ou-CkvA",
-      "views": 68,
-      "medianTrailing20": 23.0,
-      "baselinePosts": 15,
-      "multiple": 3.0
+      "views": 101,
+      "medianTrailing20": 26.5,
+      "baselinePosts": 20,
+      "multiple": 3.8
     },
     {
       "key": "ig:18136535584502601",
@@ -551,29 +731,39 @@
       "title": "Good news got sold. That's positioning unwinding, not fundamentals breaking. #semiconductors #stockmarket #investing #markets #FinTok",
       "url": "https://www.instagram.com/reel/Da70ziZDz1d/",
       "views": 73,
-      "medianTrailing20": 30.5,
-      "baselinePosts": 18,
-      "multiple": 2.4
+      "medianTrailing20": 26.5,
+      "baselinePosts": 20,
+      "multiple": 2.8
     },
     {
-      "key": "yt:ANwcW1udU64",
-      "source": "youtube",
-      "title": "Brent +17% in a week — trend, not spike",
-      "url": "https://youtu.be/ANwcW1udU64",
-      "views": 54,
-      "medianTrailing20": 23.0,
-      "baselinePosts": 15,
-      "multiple": 2.3
+      "key": "ig:18449540437184955",
+      "source": "instagram",
+      "title": "Above 7581 the dip is bought. Below 7431 the structure fails. 88.38 on crude. Everything else is noise. #stockmarket #sp500 #trading #market",
+      "url": "https://www.instagram.com/reel/Da71JPmidVX/",
+      "views": 59,
+      "medianTrailing20": 26.5,
+      "baselinePosts": 20,
+      "multiple": 2.2
     },
     {
-      "key": "yt:2LmAWN4yQCs",
-      "source": "youtube",
-      "title": "The 3 levels that decide next week — 7581 / 7431 / 88.38",
-      "url": "https://youtu.be/2LmAWN4yQCs",
-      "views": 54,
-      "medianTrailing20": 23.0,
-      "baselinePosts": 15,
-      "multiple": 2.3
+      "key": "ig:17942505390254664",
+      "source": "instagram",
+      "title": "Trump just put a 20% toll on every ship through the Strait of Hormuz - and oil ripped 10% in a day. Here's what it means for your portfolio.",
+      "url": "https://www.instagram.com/reel/Daw-KlzD-wR/",
+      "views": 57,
+      "medianTrailing20": 26.5,
+      "baselinePosts": 20,
+      "multiple": 2.2
+    },
+    {
+      "key": "ig:18089349110422532",
+      "source": "instagram",
+      "title": "The S&P closed nineteen points above its July low at 7,421. Two closes below the 7,504 line, with yields pressing their July high. Levels to",
+      "url": "https://www.instagram.com/reel/DbCjUtOFfhN/",
+      "views": 55,
+      "medianTrailing20": 26.5,
+      "baselinePosts": 20,
+      "multiple": 2.1
     }
   ]
 }
