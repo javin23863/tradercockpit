@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools import produce
+from tools import daily_postclose, produce
 from tools.script_approval import (
     ROOT,
     load_production_approval,
@@ -60,6 +60,9 @@ class ScriptApprovalTests(unittest.TestCase):
         self.assertLess(chatterbox_source.index("require_production_approval"), chatterbox_source.index("import torch"))
         produce_source = inspect.getsource(produce.main)
         self.assertLess(produce_source.index("require_production_approval"), produce_source.index("STAGES[name]"))
+        runner_source = inspect.getsource(daily_postclose.run)
+        self.assertIn("require_production_approval", runner_source)
+        self.assertNotIn("machine_approve", runner_source)
 
     def test_exact_topic_source_and_script_approvals_pass(self):
         with tempfile.TemporaryDirectory(dir=ROOT) as folder:
@@ -90,6 +93,20 @@ class ScriptApprovalTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=ROOT) as folder:
             production, _ = make_approved_production(folder)
             load_production_approval(production / "production-approval.json")
+        with tempfile.TemporaryDirectory(dir=ROOT) as folder:
+            production, _ = make_approved_production(folder, framing="official_primary")
+            receipt_path = production / "production-approval.json"
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            receipt["framingSources"] = ["official_primary"]
+            receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+            load_production_approval(receipt_path)
+        with tempfile.TemporaryDirectory(dir=ROOT) as folder:
+            production, _ = make_approved_production(folder, framing="Associated Press")
+            receipt_path = production / "production-approval.json"
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            receipt["framingSources"] = ["Associated Press"]
+            receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+            load_production_approval(receipt_path)
 
     def test_rejected_script_blocks(self):
         with tempfile.TemporaryDirectory(dir=ROOT) as folder:

@@ -4,12 +4,18 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+
+os.environ["PYTHONIOENCODING"] = "utf-8"
+for stream in (sys.stdout, sys.stderr):
+    if hasattr(stream, "reconfigure"):
+        stream.reconfigure(encoding="utf-8", errors="replace")
 
 try:
     from tools.daily_production_init import eastern_now, production_path
@@ -136,8 +142,8 @@ permission to skip ahead.
 
 def codex_command(production: Path, codex: str) -> list[str]:
     command = [
-        codex, "exec", "--strict-config", "-m", "gpt-5.6-luna",
-        "-c", 'model_reasoning_effort="max"',
+        codex, "exec", "--strict-config", "-m", "gpt-5.6-sol",
+        "-c", 'model_reasoning_effort="xhigh"',
         "-c", "sandbox_workspace_write.network_access=true",
         "-s", "workspace-write", "-C", str(ROOT),
     ]
@@ -160,6 +166,9 @@ def run_chain(init_stage, agent_stage, check_stage, publish_stage, alert=notify)
     ):
         ok, detail = stage()
         if not ok:
+            if detail.startswith("AWAITING_HUMAN"):
+                alert(f"TraderCockpit daily lane {detail}. Nothing was published.")
+                return 0
             alert(f"TraderCockpit daily lane BLOCKED at {name}: {detail}. Nothing was published.")
             return 1
     return 0
@@ -185,6 +194,9 @@ def wait_for_publish_hour(run_day) -> tuple[bool, str]:
 
 
 def selftest() -> None:
+    assert os.environ["PYTHONIOENCODING"] == "utf-8"
+    print("daily-lane UTF-8 smoke: \ufffd")
+
     def exercise(agent_ok: bool, ready: bool):
         calls, alerts = [], []
 
@@ -204,16 +216,25 @@ def selftest() -> None:
     assert code == 1 and calls == ["init", "agent"] and alerts, (code, calls, alerts)
     code, calls, alerts = exercise(True, False)
     assert code == 1 and calls == ["init", "agent", "check"] and alerts, (code, calls, alerts)
+    code = run_chain(
+        lambda: (True, "initialized"),
+        lambda: (True, "content complete"),
+        lambda: (False, "AWAITING_HUMAN exact-hash script approval"),
+        lambda: (True, "runner called"),
+        lambda message: None,
+    )
+    assert code == 0, code
     code, calls, alerts = exercise(True, True)
     assert code == 0 and calls == ["init", "agent", "check", "publish"] and not alerts
 
     publish = [str(PYTHON), str(RUNNER), "--at-publish-hour"]
     assert publish[-1] == "--at-publish-hour" and "--allow-public" not in publish
     command = codex_command(Path("productions/daily-test"), "codex.cmd")
-    assert command[-1] == "-" and "workspace-write" in command and "gpt-5.6-luna" in command
+    assert command[-1] == "-" and "workspace-write" in command and "gpt-5.6-sol" in command
+    assert 'model_reasoning_effort="xhigh"' in command
     prompt = agent_prompt(Path("productions/daily-test"))
     assert prompt.index("Charts-before-script") < prompt.index("Exact-hash script approval")
-    print("daily-lane self-test: 3/3 safety branches PASS")
+    print("daily-lane self-test: 4/4 safety branches PASS")
 
 
 def main(argv=None) -> int:
@@ -228,24 +249,25 @@ def main(argv=None) -> int:
         selftest()
         return 0
 
-    run_day = eastern_now().date()
+    now = eastern_now()
+    run_day = now.date()
+    production = production_path(now)
     global LOG_PATH
     LOG_PATH = ROOT / "productions" / "_runs" / f"daily-lane-{run_day:%Y-%m-%d}.log"
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     log(f"LANE START eastern_day={run_day} executable={sys.executable}")
 
-    if args.at_production_hour and eastern_now().hour != 16:
+    resume = now.hour == 17 and production.is_dir()
+    if args.at_production_hour and now.hour != 16 and not resume:
         # Conservative DST choice: paired local triggers are expected; the non-16:00 ET trigger
-        # is redundant, so it logs its guard decision but does not page as a failed production.
-        log(f"LANE STAND_DOWN outside 16:00 ET; eastern_now={eastern_now():%Y-%m-%d %H:%M:%S}")
+        # is redundant. At 17:00, an existing production gets one approval-resume attempt.
+        log(f"LANE STAND_DOWN outside start/resume window; eastern_now={now:%Y-%m-%d %H:%M:%S}")
         return 0
     if Path(sys.executable).resolve() != PYTHON.resolve():
         detail = f"wrapper must run with {PYTHON}, got {sys.executable}"
         log(f"LANE BLOCKED {detail}")
         notify(f"TraderCockpit daily lane BLOCKED: {detail}. Nothing was published.")
         return 1
-
-    production = production_path()
 
     def init_stage():
         code, output = run_process(
@@ -277,8 +299,21 @@ def main(argv=None) -> int:
             readiness = json.loads(output)
         except json.JSONDecodeError as error:
             return False, f"--check returned invalid JSON: {error}"
-        missing = ", ".join(item["file"] for item in readiness.get("missing", []))
+        missing_files = {item["file"] for item in readiness.get("missing", [])}
+        missing = ", ".join(sorted(missing_files))
         ok = code == 0 and readiness.get("ready") is True
+        approval_checkpoint = (
+            missing_files == {"scene-plan.json", "social-batch.json"}
+            and not (production / "script-approval.json").exists()
+            and all((production / path).is_file() for path in (
+                "vo.txt", "build/claims-gate.json", "build/script-style-audit.json",
+            ))
+        )
+        if approval_checkpoint:
+            return False, (
+                f"AWAITING_HUMAN exact-hash script approval for {production / 'vo.txt'}; "
+                "resume will run after script-approval.json exists"
+            )
         return ok, "READY" if ok else f"NOT READY (exit={code}; missing={missing or 'unknown'})"
 
     def publish_stage():

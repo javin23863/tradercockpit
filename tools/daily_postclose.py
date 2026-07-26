@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Unattended post-close daily runner: gates -> machine approval -> render -> publish.
+"""Post-close daily runner: gates -> operator approval -> render -> publish.
 
 Production starts after the 16:00 US/Eastern cash close and publishes at 18:00,
-which is ~05:00 Asia/Bangkok. Nobody is awake to hold the exact-hash approval, so
-this runner chains the existing tools and decides fail-closed:
+which is ~05:00 Asia/Bangkok. The runner validates the existing exact-hash approval
+and decides fail-closed:
 
-    all gates clean          -> machine-approve, render, publish PUBLIC
-    warning or unsourced     -> machine-approve, render, publish PRIVATE + notify
-    hard gate failure        -> no approval, no render, no publish + notify
+    all gates clean          -> render, publish PRIVATE unless --allow-public
+    warning or unsourced     -> render, publish PRIVATE + notify
+    missing/changed approval -> no render, no publish + notify
+    hard gate failure        -> no render, no publish + notify
     unexpected exception     -> no publish + notify
 
-It weakens nothing. Every gate still blocks exactly as before; the approval it
-writes is hash-bound to the same vo.txt and is stamped machine-approved so the
-operator can audit it in the morning.
+It weakens nothing. Every gate still blocks exactly as before, and the runner never
+writes or replaces operator approval state.
 
 Usage:
     python tools/daily_postclose.py productions/<video>
@@ -28,12 +28,12 @@ from pathlib import Path
 
 try:
     from tools import claims_gate, editorial_gate, script_style_gate, visual_qa
-    from tools.script_approval import machine_approve
+    from tools.script_approval import require_production_approval
     from tools.social_batch import approval_fingerprint, load as load_social_batch
 except ModuleNotFoundError:  # direct `python tools/daily_postclose.py` execution
     sys.path.insert(0, str(Path(__file__).parent))
     import claims_gate, editorial_gate, script_style_gate, visual_qa
-    from script_approval import machine_approve
+    from script_approval import require_production_approval
     from social_batch import approval_fingerprint, load as load_social_batch
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -255,8 +255,8 @@ def run(production, dry_run=False, allow_public=False):
         return 0
 
     try:
-        machine_approve(production, gates)
-        log("machine approval written (script + production), hash-bound to vo.txt")
+        require_production_approval(production)
+        log("operator production approval validated; approval state unchanged")
         subprocess.run([sys.executable, str(ROOT / "tools" / "produce.py"), str(production),
                         "--stage", "all"], check=True)
 
@@ -338,13 +338,6 @@ def selftest():
     decision, reasons, gates = safe_decide(explode)
     assert decision == NO_PUBLISH, decision
     assert "gate crashed" in reasons[0] and gates["hardFail"], (reasons, gates)
-
-    # machine_approve is fail-closed on hard failures
-    try:
-        machine_approve(Path("."), {"hardFail": ["b"]})
-        raise AssertionError("machine approval must refuse a hard failure")
-    except ValueError:
-        pass
 
     # publish-hour guard: 18:00 ET is 22:00 UTC in summer (EDT) and 23:00 UTC in winter (EST)
     assert is_publish_hour(datetime(2026, 7, 20, 22, 0, tzinfo=timezone.utc))

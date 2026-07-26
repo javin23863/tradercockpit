@@ -9,7 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = "tradercockpit-script-approval/v1"
 PRODUCTION_SCHEMA = "tradercockpit-production-approval/v1"
-FRAMING_SOURCES = {"Bloomberg", "Al Jazeera"}
+# Ruling 2026-07-21: major outlets OR official primary sources are allowed.
+# news-sources/v1 records the latter with the literal tier marker below.
+FRAMING_SOURCES = {"Associated Press", "Bloomberg", "Al Jazeera", "official_primary"}
 
 
 def _inside_repo(value: str) -> Path:
@@ -81,9 +83,9 @@ def load_production_approval(receipt_path: Path) -> dict:
 
     framing = data.get("framingSources")
     if not isinstance(framing, list) or not framing:
-        raise ValueError("production approval requires Bloomberg or Al Jazeera framing")
+        raise ValueError("production approval requires an approved major or official primary framing source")
     if any(source not in FRAMING_SOURCES for source in framing):
-        raise ValueError("production approval framingSources must be Bloomberg or Al Jazeera")
+        raise ValueError("production approval framingSources must be approved major or official primary sources")
     approved_text = (brief.read_text(encoding="utf-8") + "\n" + sources.read_text(encoding="utf-8")).lower()
     if any(source.lower() not in approved_text for source in framing):
         raise ValueError("declared framing source is absent from the approved topic material")
