@@ -466,6 +466,68 @@ def check_tiktok_selections(production):
     return hard, warns, results
 
 
+def check_master(production, out_dir):
+    """-> (hard_failures, warnings, result) — one frame per beat of the rendered master.
+
+    Why: this gate only ever inspected the vertical cuts. A run with CLIP_SKIP_SHORTS=1
+    produced no verticals, so it inspected NOTHING, warned about it, and still returned
+    PASS while the long-form master carried a cookie modal over the source card
+    (defect 2026-07-27). The per-beat PNGs written here are the artifact a human reads
+    before handoff — extracting them is not optional and skipping them is now visible.
+    """
+    hard, warns = [], []
+    build = Path(production) / "build"
+    master, timeline = build / "master.mp4", build / "timeline.json"
+    result = {"master": None, "beatsSampled": 0, "frames": [], "contactSheet": None}
+    if not master.is_file():
+        return hard, warns, result
+    result["master"] = str(master)
+    try:
+        beats = json.loads(timeline.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        hard.append({"clip": master.name, "problem": f"build/timeline.json unreadable: {error}"})
+        return hard, warns, result
+
+    frames_dir = build / "frame-review"
+    frames_dir.mkdir(parents=True, exist_ok=True)
+    for old in frames_dir.glob("beat-*.png"):
+        old.unlink()
+
+    times = []
+    for beat in beats:
+        start, duration = beat.get("start"), beat.get("duration")
+        if start is None or not duration:
+            warns.append(f"timeline beat {beat.get('id')} has no start/duration; not sampled")
+            continue
+        t = start + duration / 2.0
+        times.append(t)
+        png = frames_dir / f"beat-{beat.get('id', len(times))}.png"
+        subprocess.run(
+            [FFMPEG, "-y", "-v", "error", "-ss", f"{t:.3f}", "-i", str(master),
+             "-frames:v", "1", "-vf", "scale=960:-2", str(png)],
+            check=True, capture_output=True)
+        entry = {"id": beat.get("id"), "t": round(t, 2), "png": str(png.relative_to(HUB)),
+                 "visual": (beat.get("visual") or {}).get("path")}
+        # a flat frame means the beat rendered black/blank — objective, no OCR needed
+        plane = gray_frame(master, t)
+        if plane is not None and max(plane) - min(plane) < 4:
+            hard.append({"clip": master.name, "t": t,
+                         "problem": f"beat {beat.get('id')} is a blank frame"})
+            entry["blank"] = True
+        result["frames"].append(entry)
+
+    result["beatsSampled"] = len(times)
+    if not times:
+        hard.append({"clip": master.name, "problem": "no beat had a usable start/duration; "
+                                                     "the master was not inspected"})
+        return hard, warns, result
+    try:
+        result["contactSheet"] = str(contact_sheet(master, times, build / "frame-review" / "sheet.png"))
+    except subprocess.CalledProcessError as error:
+        warns.append(f"master contact sheet failed: {error}")
+    return hard, warns, result
+
+
 def check_clip(burned, clean, srt, zones):
     """-> (hard_failures, warnings, sampled_times)"""
     hard, warns = [], []
@@ -522,7 +584,7 @@ def gate(production, clips_dir=None):
     verticals = sorted(p for p in clips_dir.glob("*.vertical.mp4")
                        if not p.name.endswith(".vertical.clean.mp4"))
     if not verticals:
-        warns.append(f"no *.vertical.mp4 in {clips_dir}; nothing rendered was inspected")
+        warns.append(f"no *.vertical.mp4 in {clips_dir}; no vertical cut was inspected")
 
     for burned in verticals:
         clean = burned.with_name(burned.name.replace(".vertical.mp4", ".vertical.clean.mp4"))
@@ -558,9 +620,19 @@ def gate(production, clips_dir=None):
             except subprocess.CalledProcessError as error:
                 warns.append(f"{burned.name}: contact sheet failed: {error}")
 
+    master_hard, master_warns, master_check = check_master(production, out_dir)
+    hard += master_hard
+    warns += master_warns
+
     tiktok_hard, tiktok_warns, tiktok_selections = check_tiktok_selections(production)
     hard += tiktok_hard
     warns += tiktok_warns
+
+    # Fail closed when NOTHING was looked at. This is the exact hole that shipped
+    # daily-2026-07-27: no verticals, no master inspection, two warnings, status PASS.
+    if not verticals and not master_check["beatsSampled"]:
+        hard.append({"clip": "n/a", "problem": "nothing was inspected: no vertical cuts and "
+                                               "no build/master.mp4 beats sampled"})
 
     report = {
         "status": "BLOCK" if hard else "PASS",  # fail-closed, same convention as claims_gate
@@ -570,6 +642,7 @@ def gate(production, clips_dir=None):
         "hardFail": hard,
         "warnings": warns,
         "contactSheets": sheets,
+        "masterCheck": master_check,
         "audioChecks": audio_checks,
         "watermarkChecks": watermark_checks,
         "tiktokSelections": tiktok_selections,
@@ -581,6 +654,9 @@ def gate(production, clips_dir=None):
             "audio stream exists and complete track is not pure silence",
             "persistent corner watermark/logo edge clusters (HEURISTIC WARN only)",
             "manifest-selected TikTok asset is a local native exact-9:16 vertical render",
+            "one frame per scene-plan beat extracted from build/master.mp4 to build/frame-review/",
+            "no beat of the master renders blank",
+            "SOMETHING was inspected: zero verticals and zero master beats is a hard fail",
         ],
         "doesNotProve": [
             "caption legibility, font size, or blockiness — aesthetic quality is not machine-checked here",
@@ -591,6 +667,7 @@ def gate(production, clips_dir=None):
             "watermark identity: there is no logo OCR; the corner-edge heuristic can false-positive or miss marks overlapping native brand masks",
             "that tools/publish.py later dispatched the TikTok asset checked here, or that the file was not replaced after this report",
             "audio quality, loudness, intelligibility, synchronization, or whether short silent passages are editorially acceptable",
+            "that the master's beat frames are EDITORIALLY correct: a consent modal, a cropped masthead, or a chart showing the wrong symbol all render as perfectly valid pixels here. The frames are extracted so a human reads them; extraction is not review.",
         ],
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
     }

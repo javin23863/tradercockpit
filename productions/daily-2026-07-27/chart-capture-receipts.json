@@ -1,0 +1,30 @@
+{
+  "schema": "tradercockpit-chart-capture-receipts/v1",
+  "captures": [
+    {
+      "path": "visuals/03-spx.mp4",
+      "capturedAt": "2026-07-27T21:03:03.364Z",
+      "sha256": "894bb9613ff7404a85cb3a031356ceb6df3761e66c9df3b352616aaaf794cdf6"
+    },
+    {
+      "path": "visuals/04-nasdaq.mp4",
+      "capturedAt": "2026-07-27T21:03:43.494Z",
+      "sha256": "e38c3a4fc77dac6d2d2a675deac6eb52d4fbb9d9d0265f6135726eda88dfe2e7"
+    },
+    {
+      "path": "visuals/05-xlk.mp4",
+      "capturedAt": "2026-07-27T21:04:23.691Z",
+      "sha256": "028a88e7b816ded834d4be33d3939f5c10a6c8bef61d0553d1d996755d7fe950"
+    },
+    {
+      "path": "visuals/06-nvda.mp4",
+      "capturedAt": "2026-07-27T21:05:03.951Z",
+      "sha256": "bd34b4780c16e028833daf2e82f8620055cb0a91fddafb7024c8145cc5c8c326"
+    },
+    {
+      "path": "visuals/07-vix.mp4",
+      "capturedAt": "2026-07-27T21:17:38.593Z",
+      "sha256": "e5c4931b441d7f323c2c503adc2a08979a34a6026d455aaf0d7cfea779dd5bdc"
+    }
+  ]
+}

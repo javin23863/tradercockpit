@@ -1,0 +1,821 @@
+{
+  "schema": "tradercockpit-scene-plan/v1",
+  "beats": [
+    {
+      "id": "01-01",
+      "section": "01",
+      "narration": "Nvidia dropped 4.99% Monday, leading the technology selling that erased the peace-pause gap by the closing bell.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "01-02",
+      "section": "01",
+      "narration": "The US and Iran had gone 3 straight days without attacking each other. The S&P 500 opened 52.22 points above Friday. The Nasdaq opened 260.36 points higher. VIX opened below Friday's close. That is a clean relief open.",
+      "spokenSubjects": [
+        "attack-pause"
+      ],
+      "visual": {
+        "path": "visuals/02-ap-attack-pause.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "attack-pause"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP report of the three-day attack pause behind the event narration."
+      }
+    },
+    {
+      "id": "01-03",
+      "section": "01",
+      "narration": "Then cash trading took over. Nvidia closed at 196.51, within 1.07 of the low. XLK followed it down. The Nasdaq finished red, the S&P 500 finished almost exactly where Friday left it, and VIX closed higher.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "01-04",
+      "section": "01",
+      "narration": "My read is simple: the market paid for the good news before the opening bell, then spent the session deciding that chip concentration mattered more. A narrow, Nvidia-led selloff carried enough index weight to erase the broad relief gap. AP reported that most S&P 500 members gained.",
+      "spokenSubjects": [
+        "session-breadth"
+      ],
+      "visual": {
+        "path": "visuals/01-ap-session-close.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "session-breadth"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP session report behind the breadth and technology-drag claim."
+      }
+    },
+    {
+      "id": "01-05",
+      "section": "01",
+      "narration": "That distinction matters if your account owns more Nvidia and technology than the index headline suggests. Monday looked calm at the S&P 500 close. Underneath, the largest technology weight had a very different day.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "02-01",
+      "section": "02",
+      "narration": "Associated Press reported that neither the US nor Iran had carried out attacks for 3 days while Qatar- and Pakistan-led mediators worked to restart an interim framework. That pause changed the tone before US cash trading began.",
+      "spokenSubjects": [
+        "attack-pause"
+      ],
+      "visual": {
+        "path": "visuals/02-ap-attack-pause.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "attack-pause"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP report of the three-day attack pause behind the event narration."
+      }
+    },
+    {
+      "id": "02-02",
+      "section": "02",
+      "narration": "The diplomacy still had holes. AP reported that Iran said there were no direct US-Iran negotiations, the Strait of Hormuz remained closed, and the US naval blockade remained in force. Reuters reported no signed framework, no verification mechanism, and no agreed timeline.",
+      "spokenSubjects": [
+        "attack-pause"
+      ],
+      "visual": {
+        "path": "visuals/02-ap-attack-pause.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "attack-pause"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP report of the three-day attack pause behind the event narration."
+      }
+    },
+    {
+      "id": "02-03",
+      "section": "02",
+      "narration": "So Monday delivered relief without resolution. The absence of fresh attacks reduced the immediate pressure. Shipping and enforcement risks remained live. That combination can lift an opening auction without convincing investors to hold the bid all day.",
+      "spokenSubjects": [
+        "attack-pause"
+      ],
+      "visual": {
+        "path": "visuals/02-ap-attack-pause.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "attack-pause"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP report of the three-day attack pause behind the event narration."
+      }
+    },
+    {
+      "id": "02-04",
+      "section": "02",
+      "narration": "The useful evidence is what happened after that opening decision. The cash bars separate the event from the trade. They show broad relief at the open, then a technology-led reversal into the close. A headline gave the market a reason to gap. Concentration gave it a reason to sell.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "03-01",
+      "section": "03",
+      "narration": "The S&P 500 came into Monday from 7,411.98. It opened at 7,464.20, a 52.22-point relief gap, and reached 7,480.57. That bid did not survive the session. The index traded down to 7,382.74 and closed at 7,413.18. From open to close, it lost 51.02 points. Against Friday, the final change was just 1.20 points, or 0.02%. That arithmetic is the session in miniature. Buyers paid up before the bell, sellers removed almost the entire premium, and the broad index still avoided a negative close. The flat index reflected offsetting weights across the market. Large technology companies absorbed strength elsewhere. The decision range is 7,382.74 to 7,480.57. Clearing the upper boundary on a closing basis would show the broad market accepting the relief range. Losing the lower boundary would turn Monday's failed gap into broader damage. Inside that range, the S&P 500 says the opening optimism was removed, while the market underneath stayed healthier than the headline close.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "04-01",
+      "section": "04",
+      "narration": "The Nasdaq Composite makes the concentration problem clearer.",
+      "spokenSubjects": [
+        "nasdaq"
+      ],
+      "visual": {
+        "path": "visuals/04-nasdaq.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nasdaq"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nasdaq Composite chart while the index is named."
+      }
+    },
+    {
+      "id": "04-02",
+      "section": "04",
+      "narration": "Friday ended at 24,975.8238. Monday opened at 25,236.1852, up 260.36 points before cash trading had done any work. It reached 25,261.9122, then reversed to 24,774.8672 and closed at 24,932.0815.",
+      "spokenSubjects": [
+        "nasdaq"
+      ],
+      "visual": {
+        "path": "visuals/04-nasdaq.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nasdaq"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nasdaq Composite chart while the index is named."
+      }
+    },
+    {
+      "id": "04-03",
+      "section": "04",
+      "narration": "The close sat 304.10 points below the open and 43.74 points below Friday. The session return was negative 0.18%.",
+      "spokenSubjects": [
+        "nasdaq"
+      ],
+      "visual": {
+        "path": "visuals/04-nasdaq.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nasdaq"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nasdaq Composite chart while the index is named."
+      }
+    },
+    {
+      "id": "04-04",
+      "section": "04",
+      "narration": "Compare that with the nearly flat S&P 500. Both indexes received the same geopolitical news. Both opened higher. The Nasdaq carried more of the technology selling, so its relief gap became an outright loss.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "04-05",
+      "section": "04",
+      "narration": "The lower boundary is 24,774.8672. The repair boundary is Friday's 24,975.8238 close, with 25,261.9122 marking Monday's high. Regaining the prior close repairs the red finish. Settling through Monday's high recovers the full opening range. Trading under the low extends the concentration damage beyond one cash session.",
+      "spokenSubjects": [
+        "nasdaq"
+      ],
+      "visual": {
+        "path": "visuals/04-nasdaq.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nasdaq"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nasdaq Composite chart while the index is named."
+      }
+    },
+    {
+      "id": "05-01",
+      "section": "05",
+      "narration": "Nvidia is where the index-level tension becomes a single, auditable bar. The stock came in from 206.84 and opened at 208.20. Buyers briefly pushed it to 208.75. Sellers then drove it to 195.44 before the stock closed at 196.51. That is a 10.33-point loss from Friday and a 4.99% decline. From open to close, Nvidia lost 11.69 points. The full daily range was 13.31 points, and the close finished just 1.07 above the low. Sellers kept control through the session. The stock started above Friday, lost the prior close, and stayed near the session low into the bell. The portfolio mechanism is index weight. A large company can fall hard enough to pull a technology-heavy index lower even while many other stocks rise. That is why Monday's S&P 500 headline looks mild; the drawdown in a technology-heavy account did not. The map is tight. Nvidia has to reclaim 206.84 to repair the level it lost. A close below 195.44 extends the damage. Between those prices, the stock remains inside Monday's rejection range, and the burden stays on buyers to prove that the 4.99% drop was a one-session event.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "06-01",
+      "section": "06",
+      "narration": "XLK shows the Nvidia move reached the sector with much less force.",
+      "spokenSubjects": [
+        "xlk"
+      ],
+      "visual": {
+        "path": "visuals/05-xlk.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xlk"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed XLK chart while the technology sector is named."
+      }
+    },
+    {
+      "id": "06-02",
+      "section": "06",
+      "narration": "The technology fund closed Friday at 175.88. Monday opened at 177.83, a 1.95 gap, and traded as high as 178.30. It then fell to 171.73 and closed at 174.30.",
+      "spokenSubjects": [
+        "xlk"
+      ],
+      "visual": {
+        "path": "visuals/05-xlk.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xlk"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed XLK chart while the technology sector is named."
+      }
+    },
+    {
+      "id": "06-03",
+      "section": "06",
+      "narration": "XLK lost 3.53 from its open and finished down 0.90% from Friday. That is real sector weakness. It is also far smaller than Nvidia's 4.99% loss.",
+      "spokenSubjects": [
+        "xlk"
+      ],
+      "visual": {
+        "path": "visuals/05-xlk.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xlk"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed XLK chart while the technology sector is named."
+      }
+    },
+    {
+      "id": "06-04",
+      "section": "06",
+      "narration": "The difference is useful. Technology weakened, and the largest single name carried a disproportionate share of the damage. The sector fund spreads its weight across technology companies. Nvidia's bar was much more violent than the basket.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "06-05",
+      "section": "06",
+      "narration": "For the next close, 171.73 is the lower boundary and 178.30 is the upper boundary. The prior close at 175.88 sits between them. A close above 175.88 repairs the daily loss. A close above 178.30 accepts a higher range. A close below 171.73 says Monday's technology selling is spreading rather than merely consolidating.",
+      "spokenSubjects": [
+        "xlk"
+      ],
+      "visual": {
+        "path": "visuals/05-xlk.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xlk"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed XLK chart while the technology sector is named."
+      }
+    },
+    {
+      "id": "07-01",
+      "section": "07",
+      "narration": "VIX completes the open-to-close reversal. Friday's close was 18.58. Monday opened at 17.62, which matched the relief visible in the equity gaps. It traded down to 17.53, then climbed to 19.93 and closed at 18.67. From open to close, VIX added 1.05. Against Friday, it finished 0.09 higher, a 0.48% increase. That path matters more than the small final percentage. Traders began the cash session paying less for S&P 500 options protection, then raised that price while the equity gaps disappeared. The closing level says the initial relief did not hold through the bell. The working range is 17.53 to 19.93. A close below 17.53 would restore the de-escalation signal visible at Monday's open. A VIX close above 19.93 paired with an S&P 500 close below 7,382.74 would show the risk move broadening beyond technology concentration. Monday ended between those boundaries. VIX closed above Friday after opening lower, erasing the open's cheaper protection.",
+      "spokenSubjects": [
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/07-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed VIX chart while volatility is named."
+      }
+    },
+    {
+      "id": "08-01",
+      "section": "08",
+      "narration": "Why can good geopolitical news produce a weak technology close?",
+      "spokenSubjects": [
+        "attack-pause"
+      ],
+      "visual": {
+        "path": "visuals/02-ap-attack-pause.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "attack-pause"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP report of the three-day attack pause behind the event narration."
+      }
+    },
+    {
+      "id": "08-02",
+      "section": "08",
+      "narration": "The event moved the opening auction. Index weights drove the next decision. The bar identifies where the selling concentrated without identifying its catalyst. Nvidia's index weight carried that damage into the Nasdaq.",
+      "spokenSubjects": [
+        "nasdaq"
+      ],
+      "visual": {
+        "path": "visuals/04-nasdaq.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nasdaq"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nasdaq Composite chart while the index is named."
+      }
+    },
+    {
+      "id": "08-03",
+      "section": "08",
+      "narration": "AP reported that Nvidia and Micron were major technology drags while Microsoft and Apple gained and most S&P 500 members finished higher. The result was dispersion across the index.",
+      "spokenSubjects": [
+        "session-breadth"
+      ],
+      "visual": {
+        "path": "visuals/01-ap-session-close.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "session-breadth"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP session report behind the breadth and technology-drag claim."
+      }
+    },
+    {
+      "id": "08-04",
+      "section": "08",
+      "narration": "The S&P 500 can stay flat when gains across many smaller weights are offset by losses in a few enormous ones. The Nasdaq feels that imbalance more directly. Sector weakness also appeared in XLK. Nvidia carried the most concentrated damage.",
+      "spokenSubjects": [
+        "xlk"
+      ],
+      "visual": {
+        "path": "visuals/05-xlk.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xlk"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed XLK chart while the technology sector is named."
+      }
+    },
+    {
+      "id": "08-05",
+      "section": "08",
+      "narration": "This is the portfolio lesson. Owning the index and owning its largest winner are different positions. A calm broad close can hide a large drawdown in the name that dominates an account. Monday made that difference visible in one session, without requiring a story about every stock moving for the same reason.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "09-01",
+      "section": "09",
+      "narration": "Monday's opening prints prevent the lazy conclusion that markets ignored the peace pause.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "09-02",
+      "section": "09",
+      "narration": "The opening decision favored relief across the S&P 500, Nasdaq, and VIX. The full-day decision reversed it: both equity gaps disappeared, VIX finished above Friday, and Nvidia fell from 208.20 to 196.51.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "09-03",
+      "section": "09",
+      "narration": "The tension sits between the opening reaction and what investors were willing to hold after a full day of trading.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "09-04",
+      "section": "09",
+      "narration": "That framing also changes the next test. Another upbeat headline matters less than whether the cash market can keep its opening premium. The repair has to appear in a pair: Nvidia back through 206.84 and the S&P 500 above 7,480.57. A VIX close below 17.53 adds confirmation. Without that equity pair, Monday's opening relief remains a price investors rented for a few hours and returned before the bell.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "10-01",
+      "section": "10",
+      "narration": "My base case is a pause without a settlement and a market trapped inside Monday's ranges. The S&P 500 stays between 7,382.74 and 7,480.57. Nvidia stays between 195.44 and 206.84. VIX stays between 17.53 and 19.93. That leaves the event relief alive, while technology buyers still have repair work to do.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "10-02",
+      "section": "10",
+      "narration": "The escalation case starts with renewed attacks or a material hit to shipping infrastructure. The market pair is an S&P 500 close below 7,382.74 and a VIX close above 19.93. Both conditions matter. A lone index break or a lone volatility spike is weaker evidence than the pair.",
+      "spokenSubjects": [
+        "vix"
+      ],
+      "visual": {
+        "path": "visuals/07-vix.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "vix"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed VIX chart while volatility is named."
+      }
+    },
+    {
+      "id": "10-03",
+      "section": "10",
+      "narration": "The de-escalation case needs a signed framework with a verification process and restored Hormuz transit. The market pair is an S&P 500 close above 7,480.57 and Nvidia back above 206.84. That would show relief reaching both the broad index and the technology weight that blocked Monday's open.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "10-04",
+      "section": "10",
+      "narration": "There is also a technology warning inside every branch. XLK below 171.73 and Nvidia below 195.44 would extend the concentration damage even if the pause holds. XLK above 178.30 and Nvidia above 206.84 would repair it even if diplomacy remains slow.",
+      "spokenSubjects": [
+        "xlk"
+      ],
+      "visual": {
+        "path": "visuals/05-xlk.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "xlk"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed XLK chart while the technology sector is named."
+      }
+    },
+    {
+      "id": "10-05",
+      "section": "10",
+      "narration": "These are closing conditions tied to named events. None is a target, and none requires guessing tomorrow's direction.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "11-01",
+      "section": "11",
+      "narration": "The next scheduled test is the Federal Reserve.",
+      "spokenSubjects": [
+        "fed"
+      ],
+      "visual": {
+        "path": "visuals/08-fed-calendar.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "fed"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Federal Reserve calendar behind the scheduled-event narration."
+      }
+    },
+    {
+      "id": "11-02",
+      "section": "11",
+      "narration": "The Fed calendar lists the policy statement for Wednesday, July 29 at 2:00 p.m. ET and the press conference at 2:30 p.m. ET. Thursday, July 30 at 8:30 a.m. ET, the Bureau of Economic Analysis releases the advance estimate of second-quarter GDP and June Personal Income and Outlays.",
+      "spokenSubjects": [
+        "fed"
+      ],
+      "visual": {
+        "path": "visuals/08-fed-calendar.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "fed"
+        ],
+        "fit": "contain",
+        "purpose": "Show the Federal Reserve calendar behind the scheduled-event narration."
+      }
+    },
+    {
+      "id": "11-03",
+      "section": "11",
+      "narration": "Those events matter because Monday separated broad participation from technology concentration. The Fed can change the rate assumptions attached to large growth companies. GDP and income data can change the growth assumptions attached to the broader tape.",
+      "spokenSubjects": [
+        "nasdaq"
+      ],
+      "visual": {
+        "path": "visuals/04-nasdaq.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nasdaq"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nasdaq Composite chart while the index is named."
+      }
+    },
+    {
+      "id": "11-04",
+      "section": "11",
+      "narration": "Before those releases, the cleanest test remains Nvidia. Watch 195.44 below and 206.84 above. Pair that with the S&P 500 range at 7,382.74 to 7,480.57 and the VIX range at 17.53 to 19.93.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "11-05",
+      "section": "11",
+      "narration": "If Nvidia repairs while the S&P 500 holds its range, Monday stays a concentrated shakeout. If Nvidia loses its low while XLK loses 171.73, the damage is spreading. If the S&P 500 and VIX break together, the story has moved beyond one technology weight.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "12-01",
+      "section": "12",
+      "narration": "Monday's good news was real. So was the price investors refused to hold.",
+      "spokenSubjects": [
+        "attack-pause"
+      ],
+      "visual": {
+        "path": "visuals/02-ap-attack-pause.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "attack-pause"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP report of the three-day attack pause behind the event narration."
+      }
+    },
+    {
+      "id": "12-02",
+      "section": "12",
+      "narration": "The S&P 500 opened 52.22 points above Friday and finished only 1.20 points higher. The Nasdaq opened 260.36 points above Friday and closed 43.74 points below it. Nvidia fell 4.99% to 196.51, while VIX opened lower and closed at 18.67, above Friday's 18.58.",
+      "spokenSubjects": [
+        "spx"
+      ],
+      "visual": {
+        "path": "visuals/03-spx.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "spx"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed S&P 500 session chart while the broad index is named."
+      }
+    },
+    {
+      "id": "12-03",
+      "section": "12",
+      "narration": "The opening carried relief. The close carried concentration.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "12-04",
+      "section": "12",
+      "narration": "The deciding Nvidia range is 195.44 to 206.84. The broad S&P 500 range is 7,382.74 to 7,480.57. A break by one instrument is information. Pair the S&P 500 with Nvidia to test repair. Pair the S&P 500 with VIX to test whether risk is broadening.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "12-05",
+      "section": "12",
+      "narration": "Separate the attack pause from the position in your account. The pause can hold while a technology-heavy account still struggles. That is exactly what Monday's cash session delivered.",
+      "spokenSubjects": [
+        "attack-pause"
+      ],
+      "visual": {
+        "path": "visuals/02-ap-attack-pause.mp4",
+        "kind": "news",
+        "visibleSubjects": [
+          "attack-pause"
+        ],
+        "fit": "contain",
+        "purpose": "Show the dated AP report of the three-day attack pause behind the event narration."
+      }
+    },
+    {
+      "id": "12-06",
+      "section": "12",
+      "narration": "The next decision still sits at Nvidia 195.44 and 206.84.",
+      "spokenSubjects": [
+        "nvda"
+      ],
+      "visual": {
+        "path": "visuals/06-nvda.mp4",
+        "kind": "tradingview",
+        "visibleSubjects": [
+          "nvda"
+        ],
+        "fit": "contain",
+        "purpose": "Hold the completed Nvidia chart while the stock and its levels are named."
+      }
+    },
+    {
+      "id": "13-01",
+      "section": "13",
+      "narration": "Subscribe for the next post-close map. This is market news and education, not financial advice.",
+      "spokenSubjects": [
+        "tradercockpit"
+      ],
+      "visual": {
+        "path": "visuals/09-brand.mp4",
+        "kind": "titlecard",
+        "visibleSubjects": [
+          "tradercockpit"
+        ],
+        "fit": "contain",
+        "purpose": "Close on the channel card under the subscribe line."
+      }
+    }
+  ]
+}

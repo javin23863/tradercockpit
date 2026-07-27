@@ -1,0 +1,13 @@
+[
+  {
+    "out": "07-vix",
+    "symbol": "CBOE:VIX",
+    "tf": "1D",
+    "purpose": "Fear did not leave on the pause: VIX closed at 18.67 versus an 18.58 prior close, after spiking to 19.93 and trading as low as 17.53.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 18.58, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 19.93, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  }
+]

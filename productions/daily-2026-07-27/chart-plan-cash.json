@@ -1,0 +1,46 @@
+[
+  {
+    "out": "03-spx",
+    "symbol": "SP:SPX",
+    "tf": "1D",
+    "purpose": "Broad equity relief failed to follow: the S&P 500 closed at 7413.18, almost unchanged from the 7411.98 prior close, after trading down to 7382.74.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 7411.98, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 7382.74, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "04-nasdaq",
+    "symbol": "NASDAQ:IXIC",
+    "tf": "1D",
+    "purpose": "Technology lagged the attempted relief: the Nasdaq Composite closed at 24932.0815 after 24975.8238 and traded down to 24774.8672.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 24975.8238, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 24774.8672, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "05-xlk",
+    "symbol": "AMEX:XLK",
+    "tf": "1D",
+    "purpose": "The sector confirmed the Nasdaq weakness: XLK closed at 174.30 after 175.88 and traded down to 171.73.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 175.88, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 171.73, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "06-nvda",
+    "symbol": "NASDAQ:NVDA",
+    "tf": "1D",
+    "purpose": "Nvidia shows the concentration mechanism inside technology: it closed at 196.51 after 206.84 and traded down to 195.44.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 206.84, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 195.44, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  }
+]

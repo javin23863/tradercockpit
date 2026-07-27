@@ -1,0 +1,29 @@
+[
+  {
+    "out": "01-ap-session-close",
+    "url": "https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1",
+    "highlights": [
+      "Nvidia fell 5% and Micron Technology slumped 2.3%"
+    ],
+    "holdSec": 100,
+    "label": "ASSOCIATED PRESS  JULY 27, 2026"
+  },
+  {
+    "out": "02-ap-attack-pause",
+    "url": "https://apnews.com/article/d57e675a7be6dbdd34561909ced240d0",
+    "highlights": [
+      "three days"
+    ],
+    "holdSec": 100,
+    "label": "ASSOCIATED PRESS  JULY 27, 2026"
+  },
+  {
+    "out": "08-fed-calendar",
+    "url": "https://www.federalreserve.gov/newsevents/calendar.htm",
+    "highlights": [
+      "2:00 p.m."
+    ],
+    "holdSec": 60,
+    "label": "FEDERAL RESERVE  JULY 29, 2026"
+  }
+]

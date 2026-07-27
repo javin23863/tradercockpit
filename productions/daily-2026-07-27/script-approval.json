@@ -1,0 +1,8 @@
+{
+  "schema": "tradercockpit-script-approval/v1",
+  "status": "approved",
+  "script": "productions/daily-2026-07-27/vo.txt",
+  "scriptSha256": "4834fcfad45601c9fc9d9048a696c7a50eed5fca59725ea80fe4ac86347662cc",
+  "reviewedBy": "operator (approved exact hash in Claude Code session, script and thumbnail opened on screen)",
+  "reviewedAt": "2026-07-27T22:04:58Z"
+}

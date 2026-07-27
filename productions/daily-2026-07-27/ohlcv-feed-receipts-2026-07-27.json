@@ -1,0 +1,67 @@
+{
+  "schema": "tradercockpit-ohlcv-feed-receipts/v1",
+  "session": "2026-07-27",
+  "retrievedWindowUtc": "2026-07-27T20:32:24Z/2026-07-27T20:50:32Z",
+  "source": "TradingView Desktop via tradingview-mcp",
+  "sourceCommand": "node C:\\Users\\MSI\\repos\\tradingview-mcp\\src\\cli\\index.js ohlcv --count 2",
+  "dashboard": {
+    "TVC:UKOIL": {
+      "prior": {"time": 1784851200, "open": 100.67, "high": 101.19, "low": 95.13, "close": 98.69, "volume": 0},
+      "session": {"time": 1785103200, "open": 88.8, "high": 88.95, "low": 84.65, "close": 85.34, "volume": 0},
+      "returnPercent": -13.5272
+    },
+    "SP:SPX": {
+      "prior": {"time": 1784899800, "open": 7406.3, "high": 7460.98, "low": 7396.53, "close": 7411.98, "volume": 3022195086},
+      "session": {"time": 1785159000, "open": 7464.2, "high": 7480.57, "low": 7382.74, "close": 7413.18, "volume": 3096266988},
+      "returnPercent": 0.0162
+    },
+    "NASDAQ:IXIC": {
+      "prior": {"time": 1784899800, "open": 25107.3837, "high": 25222.1378, "low": 24918.093, "close": 24975.8238, "volume": 6328681757},
+      "session": {"time": 1785159000, "open": 25236.1852, "high": 25261.9122, "low": 24774.8672, "close": 24932.0815, "volume": 6609438404},
+      "returnPercent": -0.1751
+    },
+    "TVC:US10Y": {
+      "prior": {"time": 1784847600, "open": 4.699, "high": 4.712, "low": 4.651, "close": 4.681, "volume": 0},
+      "session": {"time": 1785106800, "open": 4.63, "high": 4.663, "low": 4.626, "close": 4.647, "volume": 0},
+      "changePercentagePoints": -0.034
+    },
+    "TVC:DXY": {
+      "prior": {"time": 1784847600, "open": 101.444, "high": 101.53, "low": 101.248, "close": 101.465, "volume": 0},
+      "session": {"time": 1785099600, "open": 101.318, "high": 101.54, "low": 101.116, "close": 101.531, "volume": 0},
+      "returnPercent": 0.065
+    },
+    "TVC:GOLD": {
+      "prior": {"time": 1784844000, "open": 4049.311, "high": 4082.14, "low": 4022.12, "close": 4052.6, "volume": 0},
+      "session": {"time": 1785103200, "open": 4052.28, "high": 4116.43, "low": 4052.28, "close": 4077.713, "volume": 0},
+      "returnPercent": 0.6197
+    },
+    "CBOE:VIX": {
+      "prior": {"time": 1784877300, "open": 18.96, "high": 19.05, "low": 17.41, "close": 18.58, "volume": 0},
+      "session": {"time": 1785136500, "open": 17.62, "high": 19.93, "low": 17.53, "close": 18.67, "volume": 0},
+      "returnPercent": 0.4844
+    },
+    "AMEX:XLK": {
+      "prior": {"time": 1784899800, "open": 177.82, "high": 179.01, "low": 175.05, "close": 175.88, "volume": 7739565},
+      "session": {"time": 1785159000, "open": 177.83, "high": 178.3, "low": 171.73, "close": 174.3, "volume": 8343941},
+      "returnPercent": -0.8983
+    },
+    "NASDAQ:NVDA": {
+      "prior": {"time": 1784899800, "open": 207.45, "high": 211.9099, "low": 204.81, "close": 206.84, "volume": 114836806},
+      "session": {"time": 1785159000, "open": 208.2, "high": 208.75, "low": 195.44, "close": 196.51, "volume": 153250276},
+      "returnPercent": -4.9942
+    }
+  },
+  "acceptedCharts": [],
+  "rejectedCaptures": [
+    {
+      "path": "ta-work/01-brent-s0.png",
+      "sha256": "857127ae3492d2e57a2a58315c736e940dab28327cd11cb82b7b77f0ec13d316",
+      "bytes": 100332,
+      "feedClose": 85.34,
+      "capturedHeaderClose": 85.41,
+      "reason": "Header/feed mismatch and a live countdown were visible; this is not a completed-session chart."
+    }
+  ],
+  "captureStatus": "blocked",
+  "captureBlocker": "TradingView CDP became unavailable after the controlled restart. The installed MSIX belongs to an inaccessible logon/package session: native activation failed with 0x80070520, the Windows-control native host was unavailable, and the documented local-package-copy launch exited immediately with status 0xFFFF7003. No chart passed pixel acceptance."
+}

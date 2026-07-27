@@ -1,0 +1,182 @@
+{
+  "schema": "tradercockpit-news-sources/v1",
+  "production": "daily-2026-07-27",
+  "story": "Oil relief arrived; broad equity relief did not",
+  "retrievedAt": "2026-07-27T20:17:50Z",
+  "sources": [
+    {
+      "id": "ap-session-close",
+      "outlet": "Associated Press",
+      "tier": "major_reputable",
+      "title": "Stocks drift on Wall Street and crude oil prices drop as Mideast tensions cool",
+      "publishedAt": "2026-07-27",
+      "url": "https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1",
+      "claimIds": [
+        "session-oil-down",
+        "session-yields-down",
+        "session-equities-mixed",
+        "session-ai-chip-lag"
+      ],
+      "priceUse": "session shape and named drivers only; all spoken prices, percentages, and levels require TradingView receipts",
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "ap-iran-mediation-shipping",
+      "outlet": "Associated Press",
+      "tier": "major_reputable",
+      "title": "Mediators see progress in diplomatic efforts to halt Iran war, 2 regional officials say",
+      "publishedAt": "2026-07-27",
+      "url": "https://apnews.com/article/d57e675a7be6dbdd34561909ced240d0",
+      "claimIds": [
+        "attack-pause-three-days",
+        "mediation-progress",
+        "no-direct-us-iran-talks",
+        "strait-remains-closed",
+        "us-naval-blockade-continues",
+        "saudi-petroleum-drone-threat",
+        "hormuz-traffic-three-week-low",
+        "bab-al-mandeb-risk"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "reuters-oil-shipping",
+      "outlet": "Reuters via Euronext",
+      "tier": "major_reputable",
+      "title": "Oil prices near one-week low after US, Iran pause fighting over weekend",
+      "publishedAt": "2026-07-27",
+      "url": "https://live.euronext.com/en/financial-news/oil-prices-near-one-week-low-after-us-iran-pause-fighting-over-weekend",
+      "claimIds": [
+        "hormuz-fewer-than-ten-vessels",
+        "pause-no-signed-framework",
+        "pause-no-verification-mechanism",
+        "saudi-oil-facility-drone-threat",
+        "houthi-supply-transport-targets"
+      ],
+      "priceUse": "event and shipping mechanism only; market values require TradingView receipts",
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "reuters-cross-asset-context",
+      "outlet": "Reuters via Euronext",
+      "tier": "major_reputable",
+      "title": "Stocks mixed, oil and Treasury yields drop on Iran-US truce",
+      "publishedAt": "2026-07-27",
+      "url": "https://live.euronext.com/en/financial-news/stocks-mixed-oil-and-treasury-yields-drop-iran-us-truce",
+      "claimIds": [
+        "cross-asset-mixed-stocks",
+        "cross-asset-oil-down",
+        "cross-asset-yields-down",
+        "investor-caution-regional-drones",
+        "fed-and-tech-earnings-focus"
+      ],
+      "priceUse": "directional wire context only; market values require TradingView receipts",
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "ap-michigan-tariffs-election",
+      "outlet": "Associated Press",
+      "tier": "major_reputable",
+      "title": "Trump visits Michigan to defend his economic policies",
+      "publishedAt": "2026-07-27",
+      "url": "https://apnews.com/article/7afc50b1ec74988e63880947efe0b818",
+      "claimIds": [
+        "michigan-auto-tariff-context",
+        "michigan-primary-context"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "white-house-canada-tariffs",
+      "outlet": "official_primary",
+      "tier": "primary_official",
+      "title": "Fact Sheet: President Donald J. Trump Imposes Additional Tariffs on Canada",
+      "publishedAt": "2026-07-20",
+      "url": "https://www.whitehouse.gov/fact-sheets/2026/07/fact-sheet-president-donald-j-trump-imposes-additional-tariffs-on-canada/",
+      "claimIds": [
+        "canada-tariff-scope",
+        "canada-tariff-effective-date",
+        "canada-tariff-exclusions"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "ofac-july-27-list-maintenance",
+      "outlet": "official_primary",
+      "tier": "primary_official",
+      "title": "Sanctions List Removals; Sanctions List Updates",
+      "publishedAt": "2026-07-27",
+      "url": "https://ofac.treasury.gov/recent-actions/20260727",
+      "claimIds": [
+        "ofac-duplicate-consolidation",
+        "ofac-targets-remain-sanctioned"
+      ],
+      "screenUse": "not_planned",
+      "captureStatus": "not_applicable"
+    },
+    {
+      "id": "ap-f35-turkey-watch",
+      "outlet": "Associated Press",
+      "tier": "major_reputable",
+      "title": "The Latest: Appeals court upholds injunction that blocks Trump’s order to create federal voter list",
+      "publishedAt": "2026-07-27",
+      "url": "https://apnews.com/article/2b4604703ae6c73c85978b597b2bb342",
+      "claimIds": [
+        "f35-turkey-sale-watch",
+        "netanyahu-trump-tuesday-meeting"
+      ],
+      "screenUse": "not_planned",
+      "captureStatus": "not_applicable"
+    },
+    {
+      "id": "fed-july-calendar",
+      "outlet": "official_primary",
+      "tier": "primary_official",
+      "title": "Federal Reserve Board calendar",
+      "publishedAt": "2026-06-22",
+      "url": "https://www.federalreserve.gov/newsevents/calendar.htm",
+      "claimIds": [
+        "fomc-july-28-29",
+        "fomc-statement-july-29",
+        "fomc-press-conference-july-29"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    },
+    {
+      "id": "bea-july-30-calendar",
+      "outlet": "official_primary",
+      "tier": "primary_official",
+      "title": "Release Schedule",
+      "publishedAt": "2026-07-26",
+      "url": "https://www.bea.gov/news/schedule",
+      "claimIds": [
+        "gdp-advance-july-30",
+        "personal-income-outlays-july-30"
+      ],
+      "screenUse": "post_approval_only",
+      "captureStatus": "not_started_before_script_approval"
+    }
+  ],
+  "marketData": {
+    "source": "TradingView via repository-owned tools",
+    "session": "2026-07-27",
+    "status": "awaiting_parent_completed_session_capture",
+    "receipt": null,
+    "captureReceipt": null,
+    "acceptedCharts": []
+  },
+  "boundedScan": {
+    "conflictDefenceEnergyShipping": "material_sources_included",
+    "sanctions": "official_action_was_administrative_list_maintenance_not_new_shock",
+    "electionTradePolicy": "material_context_included_not_promoted_to_lead",
+    "cyber": "no_separately_market_material_july_27_allowed_source_found"
+  },
+  "externalCostUsd": 0
+}

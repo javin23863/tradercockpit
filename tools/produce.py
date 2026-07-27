@@ -181,6 +181,16 @@ def parse_sections(prod: Path):
 
 
 def stage_vo(prod: Path, operator_ref=OPERATOR_REF, apollo_ref=None):
+    # ElevenLabs clone is the operator's voice of record (2026-07-28); Chatterbox stays
+    # as the offline path and still owns Apollo/hybrid narration for the Show lane.
+    try:  # local import: tts_elevenlabs imports this module
+        from tools.tts_elevenlabs import load_env
+    except ModuleNotFoundError:
+        from tts_elevenlabs import load_env
+    load_env()
+    if os.environ.get("ELEVENLABS_API_KEY") and not apollo_ref:
+        subprocess.run([sys.executable, str(HERE / "tts_elevenlabs.py"), str(prod)], check=True)
+        return
     if not CHATTERBOX_PYTHON.is_file():
         sys.exit(f"Chatterbox Python not found: {CHATTERBOX_PYTHON}")
     cmd = [str(CHATTERBOX_PYTHON), str(HERE / "tts_chatterbox.py"), str(prod),

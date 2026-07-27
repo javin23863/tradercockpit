@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import shutil
+import socket
 import subprocess
 import sys
 import time
@@ -32,6 +33,8 @@ RUNNER = ROOT / "tools" / "daily_postclose.py"
 VAULT = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit")
 AGENT_TIMEOUT = 150 * 60
 RUNNER_TIMEOUT = 3 * 60 * 60
+TV_CDP_PORT = 9222
+TV_LAUNCH_WAIT_S = 90
 LOG_PATH: Path | None = None
 
 
@@ -51,6 +54,41 @@ def notify(message: str) -> None:
         log("NOTIFY telegram sent")
     except BaseException as error:  # SystemExit is notify_telegram's fail-closed API
         log(f"NOTIFY FAILED: {type(error).__name__}: {error}")
+
+
+def cdp_up(port: int = TV_CDP_PORT) -> bool:
+    with socket.socket() as probe:
+        probe.settimeout(1)
+        return probe.connect_ex(("127.0.0.1", port)) == 0
+
+
+def ensure_tradingview() -> bool:
+    """Charts-before-script needs TradingView Desktop on CDP :9222, and the lane's own
+    'close TradingView before TTS' step leaves it down for the next day (2026-07-27:
+    content stopped at the charts gate, no video shipped). Start it here, idempotently.
+    """
+    if cdp_up():
+        log("STAGE tradingview OK already on CDP :%d" % TV_CDP_PORT)
+        return True
+    probe = subprocess.run(
+        ["powershell", "-NoProfile", "-Command",
+         "(Get-AppxPackage TradingView.Desktop).InstallLocation"],
+        capture_output=True, text=True, timeout=60,
+    )
+    exe = Path(probe.stdout.strip() or "nonexistent") / "TradingView.exe"
+    # ponytail: WindowsApps blocks directory listing, so resolve the MSIX path via Get-AppxPackage.
+    if not exe.is_file():
+        log(f"STAGE tradingview MISSING TradingView Desktop (looked at {exe})")
+        return False
+    subprocess.Popen([str(exe), f"--remote-debugging-port={TV_CDP_PORT}"],
+                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    for _ in range(TV_LAUNCH_WAIT_S):
+        if cdp_up():
+            log("STAGE tradingview LAUNCHED")
+            return True
+        time.sleep(1)
+    log(f"STAGE tradingview NO CDP after {TV_LAUNCH_WAIT_S}s")
+    return False
 
 
 def run_process(
@@ -270,6 +308,11 @@ def main(argv=None) -> int:
         return 1
 
     def init_stage():
+        if not ensure_tradingview():
+            return False, (
+                f"TradingView Desktop is not reachable on CDP :{TV_CDP_PORT}; "
+                "charts-before-script would block the whole content step"
+            )
         code, output = run_process(
             "production-init", [str(PYTHON), str(INIT), "--init"], 60, capture=True,
         )

@@ -1,0 +1,68 @@
+[
+  {
+    "out": "01-brent",
+    "symbol": "TVC:UKOIL",
+    "tf": "1D",
+    "purpose": "Oil relief was the first transmission link: Brent closed at 85.34 after a 98.69 prior close, while the 84.65 session low remains the de-escalation reference.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 98.69, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 85.34, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "02-us10y",
+    "symbol": "TVC:US10Y",
+    "tf": "1D",
+    "purpose": "The rates link fired: the 10-year yield closed at 4.647 after 4.681, with 4.626 as the session low.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 4.681, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 4.626, "overrides": {"linecolor": "#22AB94", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "03-spx",
+    "symbol": "SP:SPX",
+    "tf": "1D",
+    "purpose": "Broad equity relief failed to follow: the S&P 500 closed at 7413.18, almost unchanged from the 7411.98 prior close, after trading down to 7382.74.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 7411.98, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 7382.74, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "04-nasdaq",
+    "symbol": "NASDAQ:IXIC",
+    "tf": "1D",
+    "purpose": "Technology lagged the attempted relief: the Nasdaq Composite closed at 24932.0815 after 24975.8238 and traded down to 24774.8672.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 24975.8238, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 24774.8672, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "05-xlk",
+    "symbol": "AMEX:XLK",
+    "tf": "1D",
+    "purpose": "The sector confirmed the Nasdaq weakness: XLK closed at 174.30 after 175.88 and traded down to 171.73.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 175.88, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 171.73, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  },
+  {
+    "out": "06-nvda",
+    "symbol": "NASDAQ:NVDA",
+    "tf": "1D",
+    "purpose": "Nvidia shows the concentration mechanism inside technology: it closed at 196.51 after 206.84 and traded down to 195.44.",
+    "stages": [
+      {"holdSec": 12},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 206.84, "overrides": {"linecolor": "#FFB000", "linewidth": 2}}]},
+      {"holdSec": 12, "draw": [{"type": "horizontal_line", "price": 195.44, "overrides": {"linecolor": "#FF3D5E", "linewidth": 2}}]}
+    ]
+  }
+]
