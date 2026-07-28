@@ -269,7 +269,7 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     audio = a.episode / "hyperframes" / "assets" / "audio" / "v1"
 
-    total, n, slots, auds = 0.0, 0, [], []
+    total, n, slots, auds, drift = 0.0, 0, [], [], []
     HEAD = 0.6      # must match retime.py / wire_narration.py
     for sid, spec in specs.items():
         wav = audio / f"{sid}.wav"
@@ -282,10 +282,21 @@ def main() -> int:
         print(f"  {sid:24s} {d:6.2f}s  {beats:2d} beats")
         hid = "hf-sl" + re.sub(r"[^a-z0-9]", "", sid)[-4:]
         slots.append(
-            f'      <div data-hf-id="{hid}" class="scene-slot" data-composition-id="{sid}"\n'
+            f'      <div data-hf-id="{hid}" id="slot-{n:02d}" class="scene-slot" data-composition-id="{sid}"\n'
             f'           data-composition-src="compositions/{sid}.html"\n'
             f'           data-start="{total:.3f}" data-duration="{d:.3f}"\n'
             f'           data-width="1920" data-height="1080" data-track-index="1"></div>')
+        # THE AMBIENT ORBIT THE GENERATOR ASSUMED AND NEVER EMITTED. SAFE_W at the top of
+        # this file constrains every scene to 1642px because 'the master scales each
+        # .scene-slot to 1.105 with 52px of lateral travel' -- but the generated master
+        # registered an EMPTY timeline, so nothing ever moved between beats. Measured on
+        # ep03-v7: longest freeze 13.6s, and cut_census failed with 13 holds over its 15s
+        # cap because a body scene spends its last third completely static. A slow scale
+        # across the slot's own duration is what ep02 had and what SAFE_W reserved room for.
+        drift.append(
+            f'  window.__timelines.main.fromTo("#slot-{n:02d}", '
+            f'{{scale:1.0, x:-26}}, {{scale:1.105, x:26, duration:{d:.3f}, ease:"none"}}, '
+            f'{total:.3f});')
         auds.append(
             f'      <audio data-hf-id="hf-na{n:02d}" id="narration-{n:02d}" class="clip" '
             f'src="assets/audio/v1/{sid}.wav" data-start="{total + HEAD:.3f}" '
@@ -327,6 +338,7 @@ def main() -> int:
         + "<script>\n"
         + "  window.__timelines = window.__timelines || {};\n"
         + "  window.__timelines.main = gsap.timeline({ paused: true });\n"
+        + "\n".join(drift) + "\n"
         + "</script>\n</body>\n</html>\n", encoding="utf-8")
 
     print(f"\n{n} scenes, {total:.1f}s = {int(total//60)}:{int(total%60):02d}")
