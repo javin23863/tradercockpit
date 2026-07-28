@@ -1,10 +1,22 @@
 # AI writing gate — social department
 
-> STATUS 2026-07-28: PR open, **not merged, therefore not live**. The gate exists on
-> `feat/ai-writing-gate` (commit `01bad41ee352f4a4d798e360b29a81ca7f9610eb`,
-> [tradercockpit-ops PR 1](https://github.com/javin23863/tradercockpit-ops/pull/1)). The daily
-> lane runs from `Documents\tradercockpit`, so **no social copy is being checked by this yet**.
-> Board card `social.ai-writing-gate` sits in Verify. Only the operator moves it to Done.
+> STATUS 2026-07-28: **MERGED AND LIVE.**
+> [tradercockpit-ops PR 1](https://github.com/javin23863/tradercockpit-ops/pull/1) squash-merged as
+> `3a4252b1c390b46ddf105cf9ceea97b13132510b`, then merged forward into
+> `fix/news-shot-capture-and-visual-qa-master` — the branch the daily lane's working tree is
+> actually on — so the gate runs in the lane, not only on `ops/main`.
+>
+> **Proven live from the lane tree, not claimed.** `social_batch.validate` rejected
+> doctrine-clean copy carrying one banned word —
+> `items[0].copy ai writing gate BLOCK: house-banned x1 (empower)` — and accepted clean market
+> copy in the same run. `--selftest` ok. `--survey` over the 16 shipped scripts still reports all
+> 18 armed categories silent, exit 0.
+>
+> **Merge authorization: the operator ordered the merge directly. The standing 1-10 adversarial
+> review was NOT run.** Recorded here because an unstated skipped gate is the damaging case.
+>
+> Recovery tag `archive/pre-ai-writing-gate-merge-20260728` = `1b5b917`, the lane branch as it
+> stood before the forward merge.
 
 ## What changed
 
