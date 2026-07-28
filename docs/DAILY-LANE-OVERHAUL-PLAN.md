@@ -19,19 +19,29 @@
 | A1 step 1 — "Scale price chart only" | **not needed yet**: A4 has not fired since the window fix; it is the documented remedy when it does |
 | A7 — trendlines + swing levels, generated with receipts | **SHIPPED** | `tools/visuals/swing_levels.py` |
 | A6 multi-timeframe | **OPEN** — W/D/60 capture plus TF-qualified subjects; the level gates key on symbol alone, so a weekly chart of a symbol already charted daily needs a rule before it ships |
-| C1-C3 PVC | **OPEN** — blocked on Open Decision 2 (only ~2.3 min of genuine operator audio; 30-min floor) |
+| C1-C3 PVC | **OPEN, unblocked** — the audio shortage is over: `productions/_voice/pvc/` holds 16 vetted operator recordings, **36.1 min measured 2026-07-28**, above the 30-min floor. Tooling = `tools/pvc_clone.py` (`ffce749`), which refuses TTS output by filename so the one professional slot cannot be spent on a clone of a clone. Remaining step is **the operator's alone**: ElevenLabs requires a live consent captcha reading displayed text; no stored file satisfies it. Creating the PVC also **forces the daily lane off `eleven_v3`** (`can_be_finetuned: false`) onto a v2-family model — the operator's trade to make |
 | C7/OD3 tier | **OPEN and closing** — 98,678 of 130,984 chars left on 2026-07-28, about 9-10 nights |
 
 Acceptance table: all four **negative poles are green against the real 07-27 artifacts**
 (B1 blocks 5 recital sections; B5 blocks 15 unshown/unspoken levels; B3 blocks 17 spoken
 instruments across 12 beats; A4 blocks the 07-23 squashed captures at 0.702-0.880). The
-**positive poles need the next run's golden script and frame** — a passing artifact does not
-exist yet, so the table is not fully green and re-arm criterion 1 is not met.
+**positive poles now have their artifact**: `daily-2026-07-27` passed the full gate stack in
+the new format and shipped (below). Criterion 1 is met for the gates that ran on it; A6 and
+the voice items below are still open, so the lane stays stood down.
 
-Not shipped by decision: `daily-2026-07-27` was NOT re-assembled. The re-shot charts postdate
-the approved `vo.txt`, so `editorial_gate.check_chart_ordering` blocks it. Softening that gate
-or touching the mtime would forge the charts-before-script ordering. The format is proven and
-carries forward to the next run.
+**SHIPPED 2026-07-28 — supersedes this section's earlier "NOT re-assembled" ruling.**
+That ruling was correct when written and was resolved without touching a gate: the script was
+**rewritten** after the charts were re-shot (`abc9a3a`, approval NOT carried over), so
+`chart-capture-receipts.json` (11:07:57) legitimately predates `vo.txt` (11:08:18) and
+`editorial_gate.check_chart_ordering` passes on the real ordering. Nothing was mtime-touched
+and the gate was not softened. Live: **https://youtu.be/6thn5ErFNiQ** (public, operator-
+promoted 04:35Z), superseding private GC9rUbQGU2s / fhWrFEsOpj4 / PG0c74tUiPw. Two Shorts
+followed: **vwDh6wDfu2k** and **1THjr7B9KAE**. Re-arm criterion 2 (one supervised night the
+operator approves) is therefore **met**.
+
+Voice on that night ran on the instant clone under an explicit one-night operator waiver
+("use best voice we have for tonight only") — that is *not* the standing waiver criterion 3
+requires.
 
 Scores: v1 **4** · v2 **6** · v3 **7** · v4 **8** · v5 **9**. Every factual claim is
 verified against an artifact on disk or a live API call.
@@ -88,6 +98,12 @@ indicators, untouched."*
 = 78.1s. Profile-wide search to depth 5 found no other genuine recording;
 `Desktop/EP02-v5-SAMPLE.wav` (195s) and `series-01/narration-clean-48k.wav` (567s) are
 **ElevenLabs renders, not him**. PVC floor is 30 minutes.
+> **E11 SUPERSEDED 2026-07-28.** The operator recorded. `productions/_voice/pvc/` = 16 vetted
+> `.wav`, **36.1 min measured**, clearing the 30-min floor. (`ffce749` recorded 17 files /
+> 40.0 min; the extra entry is a stray file literally named `.wav`, which `*.wav` globbing
+> misses — the floor is cleared on either count.) The E11 *method* still stands: a profile-wide
+> search cannot distinguish TTS from microphone audio, which is why `pvc_clone.py` vets by
+> filename instead of trusting the directory.
 **E12 — model landscape (live `GET /v1/models`).** `tts_elevenlabs.py:44` hardcodes
 `eleven_multilingual_v2`. **`eleven_v3` has `can_be_finetuned: false`** — a PVC *is* a
 fine-tune, so **the paid PVC can never run on v3**. Finetunable: `multilingual_v2`,
@@ -321,11 +337,11 @@ script/frame.
 **0. The indicator** — if none of A1's first three steps reach the scale setting: hide the
 study for capture only (against your 07-28 ruling), or accept the squash?
 **1. Ticker card** — deleting it for the native watermark after pixel confirmation.
-**2. PVC audio** — only 78s of real recording exists on this machine and the floor is 30
-minutes. **Lead to hunt before asking him to record:** the 25-year trading doctrine was
-**dictated 2026-07-21**; if that dictation survives as audio (phone, vault, Telegram voice
-notes, the sinbox VPS) it is exactly the long-form clean single-speaker material the PVC
-needs. Otherwise ~30 min of reading. Either way, ~2 min of live captcha.
+**2. PVC audio — RESOLVED 2026-07-28.** ~~only 78s of real recording exists~~ He recorded:
+16 vetted files, **36.1 min**, in `productions/_voice/pvc/`. No hunt needed. What remains is
+the **~2 min live consent captcha, which only he can do** — ElevenLabs shows text that must be
+read live, so no stored file substitutes. Run `tools/pvc_clone.py` after. Decide alongside OD3:
+the PVC cannot run on `eleven_v3`, so creating it moves the lane to a v2-family model.
 **3. ElevenLabs tier / model** — per B4, even a 1,450-word script is ~188k chars/month
 against 131k, and real fit needs **15-20% headroom** for recuts, A/Bs and regeneration.
 Options: upgrade, usage-based billing, ~7-minute videos, **or a PVC on `turbo_v2_5`** — its 0.5× credit
