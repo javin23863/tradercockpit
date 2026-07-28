@@ -21,6 +21,10 @@ from pathlib import Path
 CHARTS = [("03-spx", "SP:SPX"), ("04-nasdaq", "NASDAQ:IXIC"), ("05-xlk", "AMEX:XLK"),
           ("06-nvda", "NASDAQ:NVDA"), ("07-vix", "CBOE:VIX")]
 PRIOR, HIGH, LOW, SWING = "#FFB000", "#F23645", "#22AB94", "#B8B8B8"
+# Trendlines get their OWN two colours. Reusing PRIOR/LOW put the resistance line in the same
+# orange as the prior-close level and the support line in the same green as the session low,
+# so the two things the viewer is asked to tell apart were drawn identically.
+TL_RESISTANCE, TL_SUPPORT = "#B14BF4", "#4B9BF4"
 
 
 def line(price, colour):
@@ -38,6 +42,7 @@ def build(production):
         bar = feed["dashboard"][symbol]
         entry = swing["instruments"][symbol]
         close = bar["session"]["close"]
+        session_ts = entry["barsWindow"]["to"]   # last bar in the window == the session charted
         # The four the script quotes, and nothing more. `session_close` is a level predicate,
         # so quoting the close obliges drawing it; four levels plus the day's return is
         # exactly the recital cap of five per (section, instrument), which is the point --
@@ -48,10 +53,14 @@ def build(production):
                   line(bar["session"]["high"], HIGH),
                   line(bar["session"]["low"], LOW),
                   line(close, SWING)]
+        # Second anchor is TODAY at the projected price, not the last touch. Drawn to its last
+        # touch, the SPX support line stopped on 2026-06-26 while the script said it "sits at
+        # 7,383.41 today" and that Monday's low stopped a point short of it -- the central
+        # visual claim of the video, and the line did not reach the candle it was about.
         lines = [{"type": "trend_line", "price": t["price"], "time": t["time"],
-                  "price2": t["price2"], "time2": t["time2"],
-                  "overrides": {"linecolor": PRIOR if t["kind"] == "resistance" else LOW,
-                                "linewidth": 2}}
+                  "price2": t["projectedNow"], "time2": session_ts,
+                  "overrides": {"linecolor": TL_RESISTANCE if t["kind"] == "resistance"
+                                else TL_SUPPORT, "linewidth": 2}}
                  for t in entry["trendlines"]]
         plan.append({
             "out": out, "symbol": symbol, "tf": "1D",

@@ -62,14 +62,14 @@ rising support under XLK projects to 172.41 today, and the sector traded through
 the session before it closed back above.
 
 So you got a failed break, and failed breaks tell you more than the clean ones do. The sector
-spent part of the day under a line that's held since the winter and couldn't finish there.
+spent part of the day under a line that's held since September and couldn't finish there.
 Sellers had their shot at it and couldn't keep it.
 
 ## 06 nvda
 
-Nvidia's the reason any of this happened. It closed Friday at 206.84 and opened Monday at
-208.75, which turned out to be the high of the day. Anybody who bought that relief gap was
-underwater inside an hour.
+Nvidia's the reason any of this happened. It closed Friday at 206.84, gapped up with
+everything else, and printed the high of the day at 208.75 inside the opening stretch.
+Anybody who bought that gap was underwater within the hour.
 
 The low was 195.44 and the close 196.51. That's a wide range for the biggest company in the
 market, and nothing came out of the company all day.
@@ -91,8 +91,9 @@ happens at 193.87 the next time it gets tested.
 Volatility agrees with the contained read. VIX came in at 18.58 and opened lower, which is
 what you'd expect on a relief morning. As tech broke it caught a bid and ran to 19.93.
 
-It couldn't hold there. That falling resistance overhead sits at 19.50, VIX pushed through it
-at the worst of the selling, and then it closed at 18.67. The low of the day was 17.53.
+It couldn't hold there. The resistance that's capped it since September sits at 19.50, VIX
+pushed through it at the worst of the selling, and then it closed at 18.67. The low of the
+day was 17.53.
 
 A market that's genuinely scared doesn't close volatility near where it opened after a hit
 like that to its biggest name. It closes higher and it stays there. This one handed the move
@@ -135,8 +136,8 @@ close underneath reads very differently from a wick underneath.
 On the Nasdaq Composite, watch 24,774.87, which was Monday's low. The Composite carries the
 concentration risk, so a real break shows up there before it shows up anywhere else.
 
-And on volatility, 19.50. VIX has been rejected there over and over. A close above it says
-this stopped being a rotation.
+And on volatility, 19.50. VIX has been turned back there since September without closing
+above it. A close above it says this stopped being a rotation.
 
 ## 10 close
 

@@ -6,12 +6,17 @@
   "sourceReceipt": "productions/daily-2026-07-27/news-sources.json",
   "sourceReceiptSha256": "1abde450d96d0370607916f0d865b4cce8f4f29c1ee40adc4ccd746134b0bb78",
   "scriptApproval": "productions/daily-2026-07-27/script-approval.json",
-  "scriptApprovalSha256": "c13376f5ec56f1aeefee6ea5f764ca2631455a0616bf7f0bcc5caf3fdb8912d9",
+  "scriptApprovalSha256": "b9dc227f58db754a6fae9518a945cc14d2ae63aa13a136678d0e1ad07e0ca943",
+  "supersedes": {
+    "scriptApprovalSha256": "70a673f5c24f2071a92271445db05579be753c5d88071a2c788edc2cc8d4b9c9",
+    "alsoSuperseded": "c13376f5ec56f1aeefee6ea5f764ca2631455a0616bf7f0bcc5caf3fdb8912d9",
+    "reason": "Operator approved corrected script sha256 6b5fbadb on 2026-07-28 after three factual errors were found by reading the rendered frames. analysisBrief and sourceReceipt remain byte-identical to the original approval."
+  },
   "framingSources": [
     "Associated Press"
   ],
   "reviewedBy": "operator",
-  "reviewedAt": "2026-07-28T02:39:14Z",
+  "reviewedAt": "2026-07-28T00:00:00Z",
   "approvalKind": "operator",
   "operatorReviewed": true
 }

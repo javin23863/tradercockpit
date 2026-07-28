@@ -44,10 +44,10 @@
       "type": "trend_line",
       "price": 6481.34,
       "time": 1755264600,
-      "price2": 7525.94,
-      "time2": 1784727000,
+      "price2": 7539.3898,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#FFB000",
+       "linecolor": "#B14BF4",
        "linewidth": 2
       }
      },
@@ -55,10 +55,10 @@
       "type": "trend_line",
       "price": 6343.86,
       "time": 1755696600,
-      "price2": 7294.18,
-      "time2": 1782480600,
+      "price2": 7383.4119,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#22AB94",
+       "linecolor": "#4B9BF4",
        "linewidth": 2
       }
      }
@@ -111,10 +111,10 @@
       "type": "trend_line",
       "price": 23147.3309,
       "time": 1763649000,
-      "price2": 26316.8139,
-      "time2": 1784122200,
+      "price2": 26475.2881,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#FFB000",
+       "linecolor": "#B14BF4",
        "linewidth": 2
       }
      },
@@ -122,10 +122,10 @@
       "type": "trend_line",
       "price": 25701.4391,
       "time": 1779197400,
-      "price2": 25014.9599,
-      "time2": 1782480600,
+      "price2": 24486.899,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#22AB94",
+       "linecolor": "#4B9BF4",
        "linewidth": 2
       }
      }
@@ -178,10 +178,10 @@
       "type": "trend_line",
       "price": 135.0249,
       "time": 1755091800,
-      "price2": 186.4,
-      "time2": 1783603800,
+      "price2": 189.1279,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#FFB000",
+       "linecolor": "#B14BF4",
        "linewidth": 2
       }
      },
@@ -189,10 +189,10 @@
       "type": "trend_line",
       "price": 134.31,
       "time": 1758115800,
-      "price2": 171.34,
-      "time2": 1784295000,
+      "price2": 172.4082,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#22AB94",
+       "linecolor": "#4B9BF4",
        "linewidth": 2
       }
      }
@@ -245,10 +245,10 @@
       "type": "trend_line",
       "price": 180.28,
       "time": 1757597400,
-      "price2": 213.99,
-      "time2": 1782135000,
+      "price2": 218.1603,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#FFB000",
+       "linecolor": "#B14BF4",
        "linewidth": 2
       }
      },
@@ -256,10 +256,10 @@
       "type": "trend_line",
       "price": 171.03,
       "time": 1770301800,
-      "price2": 191.14,
-      "time2": 1783431000,
+      "price2": 193.8734,
+      "time2": 1785159000,
       "overrides": {
-       "linecolor": "#22AB94",
+       "linecolor": "#4B9BF4",
        "linewidth": 2
       }
      }
@@ -312,10 +312,10 @@
       "type": "trend_line",
       "price": 19.38,
       "time": 1756797300,
-      "price2": 19.5,
-      "time2": 1784272500,
+      "price2": 19.5033,
+      "time2": 1785136500,
       "overrides": {
-       "linecolor": "#FFB000",
+       "linecolor": "#B14BF4",
        "linewidth": 2
       }
      },
@@ -323,10 +323,10 @@
       "type": "trend_line",
       "price": 15.27,
       "time": 1769069700,
-      "price2": 16.64,
-      "time2": 1784704500,
+      "price2": 16.6731,
+      "time2": 1785136500,
       "overrides": {
-       "linecolor": "#22AB94",
+       "linecolor": "#4B9BF4",
        "linewidth": 2
       }
      }

@@ -93,3 +93,5 @@ corpus/transcripts/
 # multi-MB media the visuals/ rules already exclude, under a different directory name.
 productions/*/visuals-v1-defect/*.mp4
 productions/*/*-v1-defect/*.mp4
+productions/*/visuals-v2-flatline/*.mp4
+productions/*/build/vo-*/*.wav

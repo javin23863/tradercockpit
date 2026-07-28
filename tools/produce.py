@@ -114,8 +114,16 @@ def allocate_frame_counts(timeline, fps=VIDEO_FPS):
     for beat in timeline:
         start = round(float(beat["start"]) * fps)
         end = round((float(beat["start"]) + float(beat["duration"])) * fps)
+        # compile_timeline stores `start` rounded to 3 dp while accumulating durations
+        # unrounded, so cumulative drift of a fraction of a millisecond can land on the far
+        # side of a frame boundary. Sub-frame drift is not a gap in the timeline -- absorb it
+        # and keep asserting on anything a viewer could actually see.
         if start != previous_end:
-            raise ValueError(f"non-contiguous timeline at {beat.get('id', '?')}")
+            if abs(start - previous_end) > 1:
+                raise ValueError(f"non-contiguous timeline at {beat.get('id', '?')}: "
+                                 f"starts at frame {start}, previous beat ended at {previous_end}")
+            end += previous_end - start
+            start = previous_end
         counts.append(max(1, end - start))
         previous_end = end
     return counts
@@ -210,8 +218,16 @@ def stage_captions(prod: Path):
         from faster_whisper import WhisperModel
 
         log("transcribing for word-level captions (faster-whisper small)...")
-        model = WhisperModel("small", device="auto", compute_type="int8")
-        segments, _ = model.transcribe(str(wav), word_timestamps=True)
+        try:
+            model = WhisperModel("small", device="auto", compute_type="int8")
+            segments, _ = model.transcribe(str(wav), word_timestamps=True)
+        except RuntimeError as exc:
+            # device="auto" selects CUDA whenever a GPU is present, then dies at encode time
+            # if the CUDA runtime is incomplete ("Library cublas64_12.dll is not found").
+            # Captions are cheap on CPU and correct captions beat a failed stage.
+            log(f"faster-whisper GPU path failed ({exc}); retrying on CPU")
+            model = WhisperModel("small", device="cpu", compute_type="int8")
+            segments, _ = model.transcribe(str(wav), word_timestamps=True)
         for seg in segments:
             words = seg.words or []
             # group words into <=5-word caption chunks (platform norm)

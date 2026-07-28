@@ -2,16 +2,33 @@
   "schema": "tradercockpit-script-approval/v1",
   "status": "approved",
   "script": "productions/daily-2026-07-27/vo.txt",
-  "scriptSha256": "4a8f20c9dba12fc4e2d57296cedd751aaebad144290dfbe5bf9b597d67629da1",
-  "reviewedBy": "operator (approved this exact sha256 in the Claude Code session, script opened on screen, 2026-07-27 ET)",
-  "reviewedAt": "2026-07-28T02:39:14Z",
+  "scriptSha256": "6b5fbadb9fa9c018435e7036c6fc8d688b6971ec571169af48698ce01b88208f",
+  "reviewedBy": "operator (replied 'approve' to the exact sha256 6b5fbadb presented in the Claude Code session, 2026-07-28 ET)",
+  "reviewedAt": "2026-07-28T00:00:00Z",
   "approvalKind": "operator",
   "operatorReviewed": true,
+  "supersedes": {
+    "scriptSha256": "3ea0ed4edc00d84dd281ded4d96f376f7a41d77613980aa56f8343f5ff53f1dd",
+    "alsoSuperseded": "4a8f20c9dba12fc4e2d57296cedd751aaebad144290dfbe5bf9b597d67629da1",
+    "preservedAs": "productions/daily-2026-07-27/vo-shipped-4a8f20c9.txt",
+    "reason": "Reading build/frame-review against the receipts found three false statements, all of which are also in the private upload: NVDA 'opened at 208.75' (open was 208.20, 208.75 is the high), VIX 'falling resistance' (19.38 -> 19.50 over 11 months is flat), XLK line 'held since the winter' (anchored 2025-09-17). Four sentences changed; every number, section and claim id unchanged."
+  },
   "gates": {
     "claims": "PASS",
     "style": "PASS",
     "levelBinding": "PASS",
-    "spokenVisible": "PASS"
+    "spokenVisible": "PASS",
+    "aiTell": "PASS"
+  },
+  "aiTellMetrics": {
+    "copulaPct": 2.19,
+    "copulaLimit": 6.1,
+    "unseenBigramPct": 38.9,
+    "unseenBigramLimit": 45.3,
+    "outOfRegisterWords": 3,
+    "outOfRegisterLimit": 36,
+    "essayShapes": 0,
+    "corpus": "196 videos / 477,308 words; thresholds leave-one-out p95 over 135 videos"
   },
   "attestations": {
     "readAloud": false,
@@ -20,6 +37,6 @@
     "factSeparatedFromJudgment": true,
     "visualsMatchTheSpokenClaim": true,
     "attestedBy": "operator",
-    "note": "Operator approved the exact hash after reading the script. readAloud False = not performed."
+    "note": "Operator approved the exact hash after the three-script comparison was presented. readAloud False = not performed."
   }
 }

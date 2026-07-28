@@ -323,6 +323,30 @@ def run_checks(sections, claims, receipts, today=None, feed_receipts=None):
             blocked.append({"type": "swing_schema",
                             "detail": f"claim {cid} value {c['value']} matches no {pred} in {filename}#{frag}"})
 
+    # 6c. verb/predicate agreement. Every other check binds a NUMBER to a receipt; none of
+    # them read the verb the sentence attaches it to. The 2026-07-27 script said Nvidia
+    # "opened Monday at 208.75" -- 208.75 is a correct session_high, so checks 4 and 6 both
+    # passed, and the false statement (it opened at 208.20) shipped to YouTube. Matched
+    # narrowly, verb then "at" then the value, because that form is unambiguous.
+    for sec, rs in receipts.items():
+        for r in rs:
+            c = claim_by_id.get(r.get("claim"))
+            if c is None or "quote" not in c and "quote" not in r:
+                continue
+            pred = str(c.get("predicate", ""))
+            value = to_float(c.get("value"))
+            if value is None:
+                continue
+            spoken = re.escape(f"{value:,.{decimals(c['value'])}f}")
+            for verb, tail in (("opened", "open"), ("closed", "close")):
+                pattern = rf"\b{verb}\b[^.!?]{{0,30}}?\bat\s+{spoken}\b"
+                if re.search(pattern, r.get("quote", ""), re.I) and not pred.endswith(tail):
+                    blocked.append({
+                        "type": "verb_predicate", "section": sec,
+                        "detail": f"claim {c['id']} is a {pred} but the sentence says "
+                                  f"'{verb} ... at {c['value']}'",
+                    })
+
     # 7. recital cap per (section, instrument). Attribution is the `#` fragment, never
     # `subject` -- `subject` is optional (see REQUIRED_CLAIM_FIELDS), so a writer could split
     # one instrument across spellings and duck the cap.
