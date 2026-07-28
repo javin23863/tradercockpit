@@ -342,3 +342,84 @@ shippability signal, and the corpus behind it has a known duplicate-variant defe
    plate appears in its episode. Either the rule means the promise, or all three need a cold open.
 4. ep04 end to end — its `place_cutaways` already carries the ep03 fixes
 5. ep01 retime + fresh whisper_back + re-render (clone is 7:07 vs recorded 9:06)
+
+---
+
+## §12 — the font shorthand, and four series assets resolving locally (2026-07-28, later still)
+
+### Every element in two episodes rendered at 16px
+
+`font: 700 74px/1.14 inherit` is **invalid CSS**. The shorthand requires a real font-family as its
+last component; `inherit` is not one, so the browser drops the ENTIRE declaration — size, weight
+and line-height with it — and the element falls back to the 16px default. Seven rules in
+`build_scenes.py` were written that way, which is every piece of type the generator emits.
+
+Measured on ep03's v2 master: the 74px title rendered **16px**, the 92px card values **16px**, the
+frame 95% empty black with a strip of body copy in the upper left.
+
+`intro_pace` read **2 visual changes in the first 25s** against a bar of 16. The animation was
+fine — the contact sheet shows all 19 reveals firing on time — but 16px text moves almost no
+pixels, so the meter saw nothing. **The BLOCK was true and its apparent cause was wrong.**
+
+The generator's own self-check passed throughout. It asserted
+`re.search(r"font:\s*\d+\s+\d+px/[\d.]+", CSS)` — the SHAPE of a shorthand no browser applies. It
+now asserts what has to be true: no `font:` shorthand anywhere in the CSS or emitted HTML, a
+line-height beside every font-size, and a largest size >= 74px so the title cannot become body
+copy. Commit `07bc2f6`.
+
+**Nothing automated caught this.** `npm run check` (0 errors, 46/46 WCAG AA), `broll_conflicts`
+(0), `check_bed` (PASS), `slop_gate` (clean) were all green on a master whose type was 16px. It
+took pulling frames and looking at them.
+
+ep03-v2 and its bed are deleted. ep03-v3 and ep04-v1 re-render from the fixed generator.
+
+### Four SERIES assets were resolving inside the EPISODE tree
+
+Same shape as the cutaway anchor in §11, four more times. Each one turned a gate into either a
+false BLOCK or a crash, and a gate that cannot read is indistinguishable from one nobody ran:
+
+| asset | symptom | fix |
+|---|---|---|
+| finance corpus (`corpus-fin`, 91 docs) | `lexicon_gate` BLOCK: "only 0 corpus doc(s)" | fall back to ep02's copy |
+| `intro_pace` fixture (`ep02-v32b-final.mp4`) | BLOCK: "fixture is gone" | fall back to ep02's renders |
+| `hyperframes` package.json / meta.json | ep04 `npm run check` ENOENT | copied into ep04 |
+| `slop_gate.py`, `thumb_gate.py` | absent from ep04's tools | copied |
+
+`intro_pace --demo` now re-calibrates anywhere: counts 9 on the pinned fixture against a hand
+count of 9, and correctly FAILS it at one change per 2.78s.
+
+### ep04 is built end to end
+
+15 slots voiced with the series clone, one setting, `voice_consistency` PASS (spread 1.89 st).
+`scenes.json` written, whisper-back fresh, 34 cutaways from the shared library plus three new
+boards, 0 conflicts, `slop_gate` clean, thumbnail built and squint-checked by looking.
+
+Three ep04 boards, `multi_shots: false`, zero trim, all inspected:
+`board-plateau` (`a3326ebd`), `board-fan` (`7625c2d7`), `board-percentile` (`4fe254c2`).
+
+**ep04's card copy failed `slop_gate` with 19 errors on the first build** — 16 unresolvable
+pronouns (`IT`, `THEY`, `THIS`, `EVERY ONE`) plus a `-0.06` whose leading minus is silent through
+TTS and unreadable on a card, plus one anthropomorphism ("what this test never LOOKED at"). On
+screen there is no antecedent: a viewer arriving mid-frame cannot resolve a pronoun. All 16
+rewritten in `scenes.json`.
+
+### Gate findings NOT actioned, deliberately
+
+* **`ai_tell_gate`** blocks all three finished episodes on unseen bigrams (ep01 47.6%, ep02 46.0%,
+  ep03 51.3%, bar 45.3%) — including two already accepted. Calibration question, not a ship
+  signal. Not softened.
+* **`lexicon_gate`** leaves ep04 at 81.52% novel trigrams against an 81.41% ceiling. 0.11pp. The
+  flagged phrases are ordinary English; rewriting to move a metric by a tenth of a point would be
+  fixing the gauge. Not softened, recorded.
+* **`script_style_gate` BLOCKS ep02** (2 corrective contrasts, limit 1). Release is four-at-once
+  so it matters, but ep02's v41 is an artifact the operator has already reviewed — re-cutting it
+  is an operator call, not mine. **Open.**
+
+### Next
+
+1. ep03-v3 lands -> pull frames and LOOK (the type must be a headline) -> `build_bed --mux`
+   -> `check_bed` -> `intro_pace` / `presentation_gate` / `cut_census` / contact sheet
+2. same chain for ep04-v1
+3. Telegram ping on both mastered (operator asked for it mid-run)
+4. ep02 style-gate decision
+5. ep01 retime + fresh whisper_back + re-render (clone 7:07 vs recorded 9:06)
