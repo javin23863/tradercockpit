@@ -6,8 +6,10 @@ from pathlib import Path
 
 try:
     from tools.credential_custody import credential_path
+    from tools import episode_gate
 except ImportError:  # direct `python tools/upload_youtube.py` execution
     from credential_custody import credential_path
+    import episode_gate
 
 
 SCOPES = [
@@ -85,8 +87,22 @@ def get_service(interactive=False):
 
 def upload(video, title, description="", tags=None, category="22", privacy="private", thumbnail=None,
            synthetic=False, interactive=False):
-    """Upload one video and return only after the inserted ID is read back."""
+    """Upload one video and return only after the inserted ID is read back.
+
+    A series master must carry a GREEN gate receipt whose sha256 matches THIS file. That check
+    lives here rather than in a runbook because a runbook is a thing a tired agent skips: ep03
+    and ep04 were mastered by hand while `ai_tell_gate` was red, and nothing between the gate
+    and the upload could tell. There is deliberately no override flag -- a bypass everyone
+    knows about is not a gate. Clear the red or record an operator waiver.
+
+    Scoped to the series tree: the daily lane has its own approval path
+    (`script_approval` -> `social_batch`) and is not double-gated here.
+    """
     from googleapiclient.http import MediaFileUpload
+
+    if episode_gate.verify(Path(video)) != 0:
+        raise SystemExit(f"BLOCKED: {video} is not certified. Run:\n"
+                         f"  py tools/episode_gate.py run <episode-dir> --master {video}")
 
     youtube = get_service(interactive=interactive)
     body = {
