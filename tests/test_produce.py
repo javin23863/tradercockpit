@@ -79,7 +79,7 @@ class ProduceFrameAllocationTests(unittest.TestCase):
         src = inspect.getsource(stage_assemble)
         self.assertIn("sound layer incomplete", src)
         self.assertIn("audio-layer-override.json", src)
-        guard = src[src.index("missing = [p.name"):src.index("if boundaries and whoosh.is_file()")]
+        guard = src[src.index("missing = [p.name"):src.index("if boundaries and impact.is_file()")]
         self.assertIn("sys.exit", guard)
 
     def test_cumulative_boundaries_stay_locked_to_timeline(self):
@@ -107,14 +107,15 @@ class SoundLayerTests(unittest.TestCase):
     def test_section_starts_skip_first_section_and_sub_beats(self):
         self.assertEqual([20.0, 30.0, 50.0], section_starts(self.TIMELINE))
 
-    def test_full_layer_mixes_vo_music_whooshes_and_final_impact(self):
+    def test_full_layer_mixes_vo_music_and_final_impact(self):
+        # operator ruling 2026-07-28: the per-transition whoosh is gone ("delayed and corny").
+        # The bed and the closing impact stand, and the impact still lands on the LAST boundary.
         f = build_sound_filter(6, 60.0, [20.0, 30.0, 50.0], music_idx=7,
-                               music_gain_db=-28.6, whoosh_idx=8, impact_idx=9)
+                               music_gain_db=-28.6, impact_idx=8)
         self.assertIn("atrim=0:60.000,volume=-28.6dB", f)
-        self.assertIn("asplit=2", f)                        # impact replaces the last whoosh
-        self.assertIn("adelay=19800|19800", f)              # whoosh leads the cut by 0.2s
         self.assertIn("adelay=50000|50000[imp]", f)
-        self.assertIn("amix=inputs=5:normalize=0", f)       # vo + music + 2 whoosh + impact
+        self.assertNotIn("adelay=19800|19800", f)            # no whoosh lead-in survives
+        self.assertIn("amix=inputs=3:normalize=0", f)        # vo + music + impact
 
     def test_no_music_and_no_boundaries_falls_back_to_plain_vo(self):
         self.assertIsNone(build_sound_filter(6, 60.0, []))

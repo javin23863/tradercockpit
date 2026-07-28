@@ -10,8 +10,27 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+import yaml
+
 
 SCHEMA = "tradercockpit-scene-plan/v1"
+# Predicates a viewer can see as a horizontal line. Mirrors the price entries of
+# claims_gate.FEED_PREDICATES, kept local so this gate carries no import-order dependency.
+LEVEL_PREDICATES = {"prior_open", "prior_high", "prior_low", "prior_close",
+                    "session_open", "session_high", "session_low", "session_close"}
+# Proper names only. "technology" is deliberately absent: it is a sector concept, not a
+# ticker, and aliasing it to XLK fires on nearly every section.
+INSTRUMENT_ALIASES = {
+    "SP:SPX": ["s&p 500", "s&p", "spx"],
+    "NASDAQ:IXIC": ["nasdaq composite", "nasdaq"],
+    "NASDAQ:NVDA": ["nvidia", "nvda"],
+    "AMEX:XLK": ["xlk"],
+    "CBOE:VIX": ["vix", "volatility index"],
+    "TVC:UKOIL": ["brent"],
+    "TVC:US10Y": ["10-year", "ten-year", "10 year"],
+    "TVC:GOLD": ["gold"],
+    "TVC:DXY": ["dollar index", "dxy"],
+}
 DEFAULT_GAP_S = 0.45
 GODSEYE_USES = {"geography", "observed-layer", "attributable-replay"}
 GENERIC_PURPOSES = {"b-roll", "generic b-roll", "atmosphere", "establishing shot"}
@@ -123,6 +142,170 @@ def check_chart_ordering(production, plan=None):
     return {"status": status, "charts": len(charts), "blocked": blocked, "warnings": warnings}
 
 
+def _price(value):
+    try:
+        return round(float(str(value).replace(",", "")), 4)
+    except (TypeError, ValueError):
+        return None
+
+
+def load_chart_plans(root):
+    """Every chart-plan*.json, merged by `out`. A day's charts are split across files
+    (chart-plan-cash.json, chart-plan-vix.json); reading only chart-plan.json silently
+    skipped the VIX chart from both level binding and the spoken/visible check."""
+    charts, errors = {}, []
+    for path in sorted(Path(root).glob("chart-plan*.json")):
+        for chart in json.loads(path.read_text(encoding="utf-8")):
+            out, symbol = _norm(chart.get("out")), _norm(chart.get("symbol"))
+            if out in charts and charts[out].get("symbol") != symbol:
+                errors.append(f"{out}: chart plans disagree on symbol "
+                              f"({charts[out].get('symbol')} vs {symbol})")
+            charts[out] = chart
+    return charts, errors
+
+
+def beat_chart_sections(scene):
+    """{chart `out`: sections whose beats show it}. The stem of visuals/03-spx.mp4 is the
+    chart's `out`, which is how a beat binds to the plan that drew it."""
+    owners = {}
+    for beat in scene.get("beats", []):
+        stem = Path(_norm((beat.get("visual") or {}).get("path"))).stem
+        if stem:
+            owners.setdefault(stem, set()).add(str(beat.get("section")))
+    return owners
+
+
+def check_level_binding(production):
+    """Every level drawn is spoken, and every level spoken is drawn.
+
+    Only horizontal lines count as levels: a trendline's anchors are swing pivots, not
+    figures the script quotes. This is the gate for "you don't speak in levels" -- on
+    daily-2026-07-27 each chart drew the prior close and the session low while the script
+    spoke five levels of that same instrument, so three were named and never shown."""
+    root = Path(production)
+    blocked = []
+    charts, plan_errors = load_chart_plans(root)
+    blocked.extend({"type": "level_binding", "detail": detail} for detail in plan_errors)
+    if not charts:
+        return {"status": "BLOCK" if blocked else "PASS", "charts": 0, "blocked": blocked}
+    missing = [name for name in ("scene-plan.json", "claims.yaml", "vo-receipts.yaml")
+               if not (root / name).is_file()]
+    if missing:
+        blocked.append({"type": "level_binding",
+                        "detail": f"chart plans are present but {missing} missing; levels unprovable"})
+        return {"status": "BLOCK", "charts": len(charts), "blocked": blocked}
+    scene = json.loads((root / "scene-plan.json").read_text(encoding="utf-8"))
+    claims = {c["id"]: c for c in (yaml.safe_load((root / "claims.yaml").read_text(encoding="utf-8")) or [])}
+    receipts = yaml.safe_load((root / "vo-receipts.yaml").read_text(encoding="utf-8")) or {}
+    owners = beat_chart_sections(scene)
+
+    for out, chart in sorted(charts.items()):
+        symbol = _norm(chart.get("symbol"))
+        sections = owners.get(out, set())
+        if not sections:
+            continue  # captured but never cut in: nothing is asserted on screen
+        drawn = {}
+        for stage in chart.get("stages", []):
+            for shape in stage.get("draw", []):
+                if "horizontal" not in _norm(shape.get("type")).lower():
+                    continue
+                price = _price(shape.get("price"))
+                if price is not None:
+                    drawn[price] = _norm(shape.get("type"))
+        spoken = {}
+        for section in sections:
+            for receipt in receipts.get(section, []):
+                claim = claims.get(receipt.get("claim")) or {}
+                if not symbol or symbol not in str(claim.get("source", "")):
+                    continue
+                if claim.get("predicate") not in LEVEL_PREDICATES:
+                    continue
+                price = _price(claim.get("value"))
+                if price is not None:
+                    spoken[price] = f"{claim['id']} ({claim['predicate']})"
+        for price, kind in sorted(drawn.items()):
+            if price not in spoken:
+                blocked.append({"type": "level_binding", "path": out,
+                                "detail": f"{out}: {kind} drawn at {price} is spoken in none of "
+                                          f"sections {sorted(sections)}"})
+        for price, who in sorted(spoken.items()):
+            if price not in drawn:
+                blocked.append({"type": "level_binding", "path": out,
+                                "detail": f"{out}: {who} is spoken at {price} but not drawn on "
+                                          f"the {symbol} chart"})
+    return {"status": "BLOCK" if blocked else "PASS", "charts": len(charts), "blocked": blocked}
+
+
+def check_spoken_visible(production):
+    """Derive what a beat SPEAKS from its receipts, not from what it declares.
+
+    `spokenSubjects` is written by the same pass that writes the narration, so a beat can
+    declare ["nvda"], name the S&P, the Nasdaq and XLK, and still satisfy the declared
+    overlap check -- daily-2026-07-27 beat 01-03 did exactly that.
+
+    Primary substrate is receipts: a beat's narration tiles the section text verbatim, and
+    every receipt quote is a verbatim substring, so any quoted number resolves claim ->
+    instrument regardless of paraphrase or anaphora. The lexicon only supplements number-free
+    proper names ("XLK followed it down"). Sector words like "technology" are deliberately
+    NOT aliased -- they fire on nearly every section.
+
+    An instrument may be spoken over another instrument's chart when the section shows its
+    chart in a neighbouring beat: that is the operator's un-splittable pair clause ("an S&P
+    close below X and a VIX close above Y"). News beats are exempt, or attributed sourcing
+    ("Micron slumped 2.3%") would demand a chart for every company a wire story names."""
+    root = Path(production)
+    blocked = []
+    charts, plan_errors = load_chart_plans(root)
+    blocked.extend({"type": "spoken_visible", "detail": detail} for detail in plan_errors)
+    if not (root / "scene-plan.json").is_file():
+        return {"status": "BLOCK" if blocked else "PASS", "beats": 0, "blocked": blocked}
+    scene = json.loads((root / "scene-plan.json").read_text(encoding="utf-8"))
+    claims, receipts = {}, {}
+    if (root / "claims.yaml").is_file() and (root / "vo-receipts.yaml").is_file():
+        claims = {c["id"]: c for c in (yaml.safe_load((root / "claims.yaml").read_text(encoding="utf-8")) or [])}
+        receipts = yaml.safe_load((root / "vo-receipts.yaml").read_text(encoding="utf-8")) or {}
+    elif charts:
+        blocked.append({"type": "spoken_visible",
+                        "detail": "chart plans present but claims.yaml/vo-receipts.yaml missing; "
+                                  "spoken instruments cannot be derived"})
+        return {"status": "BLOCK", "beats": 0, "blocked": blocked}
+
+    symbol_of = {out: _norm(chart.get("symbol")) for out, chart in charts.items()}
+    section_symbols = {}
+    for out, sections in beat_chart_sections(scene).items():
+        for section in sections:
+            if symbol_of.get(out):
+                section_symbols.setdefault(section, set()).add(symbol_of[out])
+
+    beats = scene.get("beats", [])
+    for beat in beats:
+        visual = beat.get("visual") or {}
+        if "news" in _norm(visual.get("kind")).lower():
+            continue
+        section = str(beat.get("section"))
+        narration = _norm(beat.get("narration"))
+        spoken = set()
+        for receipt in receipts.get(section, []):
+            quote = _norm(receipt.get("quote"))
+            if quote and quote in narration:
+                source = str((claims.get(receipt.get("claim")) or {}).get("source", ""))
+                if "ohlcv-feed-receipts" in source and "#" in source:
+                    spoken.add(source.split("#", 1)[1])
+        lowered = narration.lower()
+        for symbol, names in INSTRUMENT_ALIASES.items():
+            if any(re.search(rf"(?<![\w&]){re.escape(name)}(?![\w&])", lowered) for name in names):
+                spoken.add(symbol)
+        shown = symbol_of.get(Path(_norm(visual.get("path"))).stem)
+        allowed = ({shown} if shown else set()) | section_symbols.get(section, set())
+        for symbol in sorted(spoken - allowed):
+            blocked.append({
+                "type": "spoken_visible", "path": _norm(visual.get("path")),
+                "detail": f"beat {_norm(beat.get('id'))}: speaks {symbol} while showing "
+                          f"{shown or _norm(visual.get('path'))}, and section {section} never charts it",
+            })
+    return {"status": "BLOCK" if blocked else "PASS", "beats": len(beats), "blocked": blocked}
+
+
 def validate_scene_plan(plan, sections, production=None, require_files=True, warnings=None):
     errors = []
     if plan.get("schema") != SCHEMA:
@@ -193,6 +376,8 @@ def validate_scene_plan(plan, sections, production=None, require_files=True, war
         errors.extend(item["detail"] for item in ordering["blocked"])
         if warnings is not None:
             warnings.extend(ordering["warnings"])
+        errors.extend(item["detail"] for item in check_level_binding(root)["blocked"])
+        errors.extend(item["detail"] for item in check_spoken_visible(root)["blocked"])
     return errors
 
 
@@ -249,6 +434,8 @@ def load_timeline(production, gap_s=DEFAULT_GAP_S):
             "contain-only news policy",
             "purpose-gated Godseye policy",
             "receipted chart captures precede vo.txt",
+            "every level drawn is spoken and every level spoken is drawn",
+            "receipt-derived spoken instruments are charted in their own section",
         ],
         "warnings": warnings,
         "doesNotProve": [
@@ -291,6 +478,69 @@ def selftest():
         receipt["captures"][0]["capturedAt"] = datetime.fromtimestamp(cutover + 30, timezone.utc).isoformat()
         (production / "chart-capture-receipts.json").write_text(json.dumps(receipt), encoding="utf-8")
         assert check_chart_ordering(production, plan)["status"] == "BLOCK"
+
+        # level binding, both poles
+        def write_levels(drawn, spoken_predicates):
+            (production / "chart-plan.json").write_text(json.dumps([{
+                "out": "03-spx", "symbol": "SP:SPX",
+                "stages": [{"draw": [{"type": "horizontal_line", "price": p} for p in drawn]}],
+            }]), encoding="utf-8")
+            (production / "scene-plan.json").write_text(json.dumps({"beats": [
+                {"section": "03", "visual": {"path": "visuals/03-spx.mp4"}}]}), encoding="utf-8")
+            (production / "claims.yaml").write_text(yaml.safe_dump([
+                {"id": p, "value": v, "predicate": p, "source": "ohlcv-feed-receipts-x.json#SP:SPX"}
+                for p, v in spoken_predicates]), encoding="utf-8")
+            (production / "vo-receipts.yaml").write_text(yaml.safe_dump(
+                {"03": [{"quote": "q", "claim": p} for p, _ in spoken_predicates]}), encoding="utf-8")
+
+        write_levels([7411.98, 7382.74], [("prior_close", 7411.98), ("session_low", 7382.74)])
+        assert check_level_binding(production)["status"] == "PASS"
+        # the 07-27 shape: two levels drawn, five spoken -> three named and never shown
+        write_levels([7411.98, 7382.74], [("prior_close", 7411.98), ("session_low", 7382.74),
+                                          ("session_open", 7464.2), ("session_high", 7480.57),
+                                          ("session_close", 7413.18)])
+        report = check_level_binding(production)
+        assert report["status"] == "BLOCK" and len(report["blocked"]) == 3, report
+        # a line drawn at a price the script never says
+        write_levels([9999.0], [("prior_close", 9999.0), ("session_low", 1.0)])
+        assert check_level_binding(production)["status"] == "BLOCK"
+        # non-level predicates are not levels: a return is spoken but must not demand a line
+        write_levels([7411.98], [("prior_close", 7411.98), ("session_return", -4.99)])
+        assert check_level_binding(production)["status"] == "PASS"
+
+        # spoken/visible, both poles. Two charts exist; what changes is which beats show them.
+        (production / "chart-plan.json").write_text(json.dumps([
+            {"out": "03-spx", "symbol": "SP:SPX", "stages": []},
+            {"out": "07-vix", "symbol": "CBOE:VIX", "stages": []},
+        ]), encoding="utf-8")
+        (production / "claims.yaml").write_text(yaml.safe_dump([
+            {"id": "vix-close", "value": 18.67, "predicate": "session_close",
+             "source": "ohlcv-feed-receipts-x.json#CBOE:VIX"}]), encoding="utf-8")
+        (production / "vo-receipts.yaml").write_text(yaml.safe_dump(
+            {"09": [{"quote": "a close above 18.67", "claim": "vix-close"}]}), encoding="utf-8")
+
+        def write_scene(beats):
+            (production / "scene-plan.json").write_text(json.dumps({"beats": beats}), encoding="utf-8")
+
+        # a number quoted from a VIX receipt, spoken over the S&P chart, VIX never charted
+        write_scene([{"id": "09-01", "section": "09", "narration": "We want a close above 18.67 next.",
+                      "visual": {"path": "visuals/03-spx.mp4", "kind": "tradingview"}}])
+        assert check_spoken_visible(production)["status"] == "BLOCK"
+        # same clause, but the section shows the VIX chart in a neighbouring beat: the
+        # operator's un-splittable pair clause
+        write_scene([{"id": "09-01", "section": "09", "narration": "We want a close above 18.67 next.",
+                      "visual": {"path": "visuals/03-spx.mp4", "kind": "tradingview"}},
+                     {"id": "09-02", "section": "09", "narration": "Here is the volatility side.",
+                      "visual": {"path": "visuals/07-vix.mp4", "kind": "tradingview"}}])
+        assert check_spoken_visible(production)["status"] == "PASS"
+        # lexicon catches a number-free proper name that no receipt covers
+        write_scene([{"id": "09-01", "section": "09", "narration": "Nvidia stayed heavy all session.",
+                      "visual": {"path": "visuals/03-spx.mp4", "kind": "tradingview"}}])
+        assert check_spoken_visible(production)["status"] == "BLOCK"
+        # news beats are exempt: a wire story may name companies it does not chart
+        write_scene([{"id": "09-01", "section": "09", "narration": "Nvidia stayed heavy all session.",
+                      "visual": {"path": "visuals/01-ap.mp4", "kind": "news"}}])
+        assert check_spoken_visible(production)["status"] == "PASS"
     print("EDITORIAL ORDERING SELFTEST PASS")
 
 
@@ -298,6 +548,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("production", nargs="?")
     parser.add_argument("--ordering-only", action="store_true")
+    parser.add_argument("--levels-only", action="store_true")
+    parser.add_argument("--spoken-only", action="store_true")
     parser.add_argument("--selftest", action="store_true")
     args = parser.parse_args()
     if args.selftest:
@@ -309,6 +561,18 @@ def main():
         report = check_chart_ordering(args.production)
         print(f"EDITORIAL ORDERING {report['status']} — {report['charts']} chart artifact(s)")
         for item in [*report["warnings"], *report["blocked"]]:
+            print(f"  - {item['detail']}")
+        return 1 if report["blocked"] else 0
+    if args.levels_only:
+        report = check_level_binding(args.production)
+        print(f"LEVEL BINDING {report['status']} — {report['charts']} planned chart(s)")
+        for item in report["blocked"]:
+            print(f"  - {item['detail']}")
+        return 1 if report["blocked"] else 0
+    if args.spoken_only:
+        report = check_spoken_visible(args.production)
+        print(f"SPOKEN/VISIBLE {report['status']} — {report['beats']} beat(s)")
+        for item in report["blocked"]:
             print(f"  - {item['detail']}")
         return 1 if report["blocked"] else 0
     try:

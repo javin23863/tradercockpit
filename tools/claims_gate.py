@@ -8,7 +8,7 @@ Usage:
     python tools/claims_gate.py productions/<vid>
     python tools/claims_gate.py --selftest
 """
-import sys, os, re, json, datetime
+import sys, os, re, json, glob, datetime
 import yaml
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -32,6 +32,37 @@ STALE_PREDICATE_RE = re.compile(r"close|price|level|yield", re.I)
 
 TOKEN_RE = re.compile(r"\d+|[A-Za-z]+")
 WS_RE = re.compile(r"\s+")
+
+FEED_SOURCE_RE = re.compile(r"ohlcv-feed-receipts")
+# Closed vocabulary for feed-sourced claims. The tuple is the path inside dashboard.<SYMBOL>
+# that the claim's value must match; None = arithmetic over two fields, nothing single to
+# cross-check. An unlisted predicate BLOCKS: it would otherwise be a free hole in check 6.
+FEED_PREDICATES = {
+    "prior_open": ("prior", "open"), "prior_high": ("prior", "high"),
+    "prior_low": ("prior", "low"), "prior_close": ("prior", "close"),
+    "session_open": ("session", "open"), "session_high": ("session", "high"),
+    "session_low": ("session", "low"), "session_close": ("session", "close"),
+    "session_return": ("returnPercent",),
+    "close_minus_prior": None, "open_minus_prior_close": None, "close_minus_open": None,
+    "open_minus_close": None, "high_minus_low": None, "close_minus_low": None,
+    "high_minus_close": None, "low_minus_prior_close": None,
+}
+# Golden-derived from daily-2026-07-27: the recital sections 03-07 each cite 8-10 distinct
+# feed claims of ONE instrument, while the level-map sections 10-12 the operator asked for
+# cite at most 4. A cap of 5 blocks the first and leaves the second a slot of headroom.
+RECITAL_CAP = 5
+
+
+def to_float(v):
+    try:
+        return float(str(v).replace(",", "").rstrip("%"))
+    except ValueError:
+        return None
+
+
+def decimals(v):
+    s = str(v)
+    return len(s.split(".")[1]) if "." in s else 0
 
 
 def norm_ws(s):
@@ -126,8 +157,11 @@ def parse_as_of(v):
     return None  # ponytail: unparseable as_of (e.g. "static-geography") -> skip staleness, can't judge
 
 
-def run_checks(sections, claims, receipts, today=None):
-    """Core gate logic, file-format-agnostic. Returns (blocked, warns)."""
+def run_checks(sections, claims, receipts, today=None, feed_receipts=None):
+    """Core gate logic, file-format-agnostic. Returns (blocked, warns).
+
+    `feed_receipts` maps a receipt FILENAME to its parsed JSON, so a claim source of
+    `ohlcv-feed-receipts-<date>.json#SP:SPX` resolves exactly."""
     today = today or datetime.date.today()
     blocked, warns = [], []
 
@@ -199,7 +233,81 @@ def run_checks(sections, claims, receipts, today=None):
             continue
         d = parse_as_of(c["as_of"])
         if d is not None and (today - d).days > 30:
-            warns.append({"type": "staleness", "claim": c["id"], "as_of": str(c["as_of"]), "predicate": c.get("predicate")})
+            warns.append({"type": "staleness", "claim": c["id"],
+                          "detail": f"{c['id']} as_of={c['as_of']} predicate={c.get('predicate')}"})
+
+    # 6. feed-claim schema. A feed claim must name a closed-vocabulary predicate and an
+    # instrument that resolves under the receipt's `dashboard` object -- NOT the top level,
+    # which carries zero instruments; specified there this check would fail closed on every
+    # legitimate feed claim. The value is then cross-checked against the field the predicate
+    # names, at the claim's own precision (the script rounds 0.0162 -> 0.02).
+    feed_receipts = feed_receipts or {}
+    instrument_of = {}
+    for c in claims:
+        src = str(c.get("source", ""))
+        if not FEED_SOURCE_RE.search(src):
+            continue
+        cid = c.get("id", "<no id>")
+        if "#" not in src:
+            blocked.append({"type": "feed_schema", "detail": f"claim {cid} cites the feed with no #instrument fragment"})
+            continue
+        filename, frag = src.split("#", 1)
+        if c.get("predicate") not in FEED_PREDICATES:
+            blocked.append({"type": "feed_schema",
+                            "detail": f"claim {cid} predicate {c.get('predicate')!r} is outside the feed vocabulary"})
+        dashboard = (feed_receipts.get(filename) or {}).get("dashboard")
+        if not isinstance(dashboard, dict):
+            blocked.append({"type": "feed_schema", "detail": f"claim {cid} cites {filename}, which is missing or has no dashboard"})
+            continue
+        if frag not in dashboard:
+            blocked.append({"type": "feed_schema", "detail": f"claim {cid} instrument {frag} is not in {filename} dashboard"})
+            continue
+        instrument_of[cid] = frag
+        path = FEED_PREDICATES.get(c.get("predicate"))
+        if not path:
+            continue  # derived arithmetic: no single receipt field to compare against
+        expected = dashboard[frag]
+        for key in path:
+            expected = expected.get(key) if isinstance(expected, dict) else None
+        actual = to_float(c.get("value"))
+        dotted = ".".join(path)
+        if expected is None or actual is None:
+            blocked.append({"type": "feed_schema", "detail": f"claim {cid} value {c.get('value')!r} cannot be cross-checked against {dotted}"})
+        elif round(float(expected), decimals(c["value"])) != actual:
+            blocked.append({"type": "feed_schema", "detail": f"claim {cid} value {c['value']} != receipt {dotted} {expected}"})
+
+    # 7. recital cap per (section, instrument). Attribution is the `#` fragment, never
+    # `subject` -- `subject` is optional (see REQUIRED_CLAIM_FIELDS), so a writer could split
+    # one instrument across spellings and duck the cap.
+    for sec, rs in receipts.items():
+        per = {}
+        for cid in {r.get("claim") for r in rs}:
+            if cid in instrument_of:
+                per.setdefault(instrument_of[cid], set()).add(cid)
+        for inst, ids in sorted(per.items()):
+            if len(ids) > RECITAL_CAP:
+                blocked.append({"type": "recital", "section": sec,
+                                "detail": f"{inst}: {len(ids)} distinct feed claims in one section, "
+                                          f"cap is {RECITAL_CAP} ({', '.join(sorted(ids))})"})
+
+    # 8. alternate-source laundering (WARN). Re-sourcing a feed number to a news URL ducks
+    # checks 6 and 7 entirely; this cannot be blocked without breaking legitimate reporting
+    # of the same figure, so it routes to the supervised review.
+    feed_values, stack = set(), [(p or {}).get("dashboard") for p in feed_receipts.values()]
+    while stack:
+        node = stack.pop()
+        if isinstance(node, dict):
+            stack.extend(node.values())
+        elif isinstance(node, (int, float)) and not isinstance(node, bool):
+            feed_values.add(round(float(node), 4))
+    for c in claims:
+        if FEED_SOURCE_RE.search(str(c.get("source", ""))):
+            continue
+        v = to_float(c.get("value"))
+        if v is not None and round(v, 4) in feed_values:
+            warns.append({"type": "laundering", "claim": c.get("id"),
+                          "detail": f"{c.get('id')} value {c.get('value')} is in the session feed receipt "
+                                    f"but is sourced to {c.get('source')}"})
 
     return blocked, warns
 
@@ -215,8 +323,12 @@ def gate(vid_dir):
         claims = yaml.safe_load(f) or []
     with open(receipts_path, encoding="utf-8") as f:
         receipts = yaml.safe_load(f) or {}
+    feed_receipts = {}
+    for path in sorted(glob.glob(os.path.join(vid_dir, "ohlcv-feed-receipts*.json"))):
+        with open(path, encoding="utf-8") as f:
+            feed_receipts[os.path.basename(path)] = json.load(f)
 
-    blocked, warns = run_checks(sections, claims, receipts)
+    blocked, warns = run_checks(sections, claims, receipts, feed_receipts=feed_receipts)
 
     report = {
         "verdict": "BLOCK" if blocked else "PASS",  # fail-closed: never PASS if blocked is non-empty
@@ -239,7 +351,7 @@ def gate(vid_dir):
     if warns:
         print(f"  {len(warns)} warn(s):")
         for w in warns:
-            print(f"    - {w['type']}: {w['claim']} as_of={w['as_of']} predicate={w['predicate']}")
+            print(f"    - {w['type']}: {w['detail']}")
     if blocked:
         print(f"  {len(blocked)} block(s):")
         for b in blocked:
@@ -278,7 +390,47 @@ def selftest():
     blocked, warns = run_checks(sections, claims, receipts)
     assert blocked == [], f"expected clean pass, got {blocked}"
 
-    print("selftest: 3/3 PASS")
+    # cases 4-6 share one synthetic feed receipt and a section built from its own quotes,
+    # so number_coverage never fires and only the check under test can block.
+    feed = {"ohlcv-feed-receipts-test.json": {"dashboard": {"SP:SPX": {
+        "prior": {"open": 1.0, "high": 2.0, "low": 3.0, "close": 4.0},
+        "session": {"open": 5.0, "high": 6.0, "low": 7.0, "close": 8.0},
+        "returnPercent": 0.0162,
+    }}}}
+    fields = [("prior_open", 1.0), ("prior_high", 2.0), ("prior_low", 3.0), ("prior_close", 4.0),
+              ("session_open", 5.0), ("session_high", 6.0)]
+
+    def feed_case(pairs, source="ohlcv-feed-receipts-test.json#SP:SPX"):
+        cs = [{"id": f"c{i}", "value": v, "as_of": "2026-07-27", "source": source,
+               "retrieved_at": "2026-07-27", "status": "verified", "predicate": p}
+              for i, (p, v) in enumerate(pairs)]
+        text = " ".join(f"Level {c['value']} held." for c in cs)
+        rs = [{"quote": f"Level {c['value']} held.", "claim": c["id"]} for c in cs]
+        return run_checks({"01": text}, cs, {"01": rs}, feed_receipts=feed)
+
+    # 4. recital cap: RECITAL_CAP of one instrument passes, one more blocks
+    blocked, _ = feed_case(fields[:RECITAL_CAP])
+    assert blocked == [], f"expected {RECITAL_CAP} feed claims to pass, got {blocked}"
+    blocked, _ = feed_case(fields[:RECITAL_CAP + 1])
+    assert any(b["type"] == "recital" for b in blocked), f"expected recital block, got {blocked}"
+
+    # 5. feed schema: instrument must resolve under `dashboard`, and the value must match it
+    blocked, _ = feed_case(fields[:1], source="ohlcv-feed-receipts-test.json#SP:NOPE")
+    assert any(b["type"] == "feed_schema" for b in blocked), "expected unknown-instrument block"
+    blocked, _ = feed_case([("prior_open", 99.0)])
+    assert any(b["type"] == "feed_schema" for b in blocked), "expected value-mismatch block"
+    blocked, _ = feed_case([("made_up", 1.0)])
+    assert any(b["type"] == "feed_schema" for b in blocked), "expected predicate-vocabulary block"
+    # rounding: the script may quote a receipt's 0.0162 as 0.02
+    blocked, _ = feed_case([("session_return", 0.02)])
+    assert blocked == [], f"expected rounded return to pass, got {blocked}"
+
+    # 6. laundering: a feed value re-sourced elsewhere warns, never blocks
+    blocked, warns = feed_case([("prior_open", 1.0)], source="https://example.com/article")
+    assert blocked == [], f"laundering must not block, got {blocked}"
+    assert any(w["type"] == "laundering" for w in warns), "expected laundering warn"
+
+    print("selftest: 6/6 PASS")
 
 
 if __name__ == "__main__":
