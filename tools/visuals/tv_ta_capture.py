@@ -73,6 +73,38 @@ from fetch_tv_charts import TV_CLI, record_chart_capture, tv  # noqa: E402  (sam
 APP_CHROME_PX = 64
 
 
+# Pane fill: the vertical share of the plot area the candles actually span. TradingView
+# autoscales to the visible data, so candles fill the pane UNLESS something else is driving
+# the price scale -- which is exactly the 2026-07-27 squash, where price sat in the top fifth
+# and the axis ran 5,800-7,800 for an index at 7,413.
+# Floor MEASURED, never invented: the five clean 245-day captures score 0.959-0.989; the
+# squashed 100-day captures of 2026-07-23 score 0.702-0.880. 0.90 separates them cleanly and
+# still passes the two 07-23 charts that were genuinely fine (0.963, 0.967).
+CANDLE_RGB = ((242, 54, 69), (8, 153, 129))   # solid body colours of the operator's dark theme
+CANDLE_TOL = 26
+HEADER_PX, AXIS_PX, SCALE_PX = 100, 80, 95    # OHLC legend, date axis, right price gutter
+PANE_FILL_FLOOR = 0.90
+
+
+def pane_fill(png: Path) -> float:
+    """Share of the plot area spanned by candle-coloured pixels, 0.0 when none are found."""
+    from PIL import Image
+
+    image = Image.open(png).convert("RGB")
+    width, height = image.size
+    pixels = image.load()
+    top, bottom = HEADER_PX, height - AXIS_PX
+    rows = []
+    for y in range(top, bottom):
+        for x in range(0, width - SCALE_PX, 2):
+            r, g, b = pixels[x, y]
+            if any(abs(r - cr) < CANDLE_TOL and abs(g - cg) < CANDLE_TOL and abs(b - cb) < CANDLE_TOL
+                   for cr, cg, cb in CANDLE_RGB):
+                rows.append(y)
+                break
+    return (max(rows) - min(rows) + 1) / (bottom - top) if rows else 0.0
+
+
 def still(png: Path, out: Path, dur: float, dry: bool) -> None:
     """Static hold, NO zoom — zoompan pushed the price axis out of frame (v2 defect).
     Fit-pad at any pane aspect: the whole chart is letterboxed into 1920x1080 so nothing
@@ -135,12 +167,17 @@ def concat_clips(clips: list[Path], out: Path) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("prod")
-    ap.add_argument("plan")
+    ap.add_argument("prod", nargs="?")
+    ap.add_argument("plan", nargs="?")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--only", help="capture only the shot with this out name")
     ap.add_argument("--reuse-png", action="store_true",
                     help="re-render mp4s from cached stage PNGs (no TradingView, no re-shoot)")
+    ap.add_argument("--pane-fill-floor", type=float, default=PANE_FILL_FLOOR,
+                    help=f"minimum share of the plot area the candles must span "
+                         f"(default {PANE_FILL_FLOOR}, measured from clean captures)")
+    ap.add_argument("--measure-fill", metavar="PNG",
+                    help="print the pane fill of one PNG and exit; use to re-derive the floor")
     ap.add_argument("--expect-last-bar", metavar="YYYY-MM-DD",
                     help="abort a shot if the feed's last bar is not this session "
                          "(bar open-date may stamp the prior calendar day; both accepted). "
@@ -151,6 +188,13 @@ def main() -> int:
                          "legibility ruling 2026-07-21: a full-history chart is unreadable on a "
                          "phone. Requires --expect-last-bar for the anchor date. ~100 recommended.")
     a = ap.parse_args()
+
+    if a.measure_fill:
+        print(f"{a.measure_fill}: pane fill {pane_fill(Path(a.measure_fill)):.3f} "
+              f"(floor {a.pane_fill_floor:.2f})")
+        return 0
+    if not (a.prod and a.plan):
+        ap.error("prod and plan are required unless --measure-fill is used")
 
     prod = (HUB / a.prod) if not Path(a.prod).is_absolute() else Path(a.prod)
     visuals = prod / "visuals"
@@ -264,6 +308,16 @@ def main() -> int:
                     timeout=CDP_SHOT_TIMEOUT_S,
                 )
                 captured_at = datetime.now(timezone.utc)
+                # Fail HERE, not in visual_qa: a squashed chart caught after the render is a
+                # tombstone 90 minutes later, and the operator sees it before the gate does.
+                fill = pane_fill(png)
+                if fill < a.pane_fill_floor:
+                    raise SystemExit(
+                        f"[tv-ta] {name}: candles span {fill:.3f} of the plot area, floor "
+                        f"{a.pane_fill_floor:.2f}. Something other than price is driving the "
+                        f"scale -- check the price scale is set to 'Scale price chart only' "
+                        f"before re-shooting. PNG kept at {png}"
+                    )
                 clip = work / f"{name}.mp4"
                 still(png, clip, float(stage.get("holdSec", 8)), a.dry_run)
                 clips.append(clip)

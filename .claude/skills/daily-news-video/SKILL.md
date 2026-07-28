@@ -211,6 +211,16 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
      (reverted 2026-07-21; `pane.resetPriceScale()` recovers a blanked pane).
    - **The operator's own chart is captured untouched** (ruling 2026-07-28): his dark theme and
      his two daily indicators, never hidden or restyled for the shot.
+   - **Pane-fill gate, at capture.** `tv_ta_capture.py` measures the share of the plot area the
+     candles actually span and REFUSES the shot below 0.90. TradingView autoscales to the visible
+     data, so candles fill the pane unless something else is driving the price scale — the exact
+     07-27 squash, where price sat in the top fifth and the axis ran 5,800–7,800 for an index at
+     7,413. The floor is measured, not invented: clean 245-day captures score 0.959–0.989, the
+     squashed 100-day ones 0.702–0.880. Re-derive it with `--measure-fill <png>` if the theme
+     changes. When it fires, set the price scale to **"Scale price chart only"** so auto-fit
+     tracks the main series and every study is ignored — one persisted checkbox, nothing about
+     his indicators altered. Fixing it at capture matters: caught in `visual_qa` it is a
+     tombstone 90 minutes later, and he sees it before the gate does.
    - **Symbol + current-bar visibility (operator ruling 2026-07-23, method replaced 2026-07-28):**
      every captured chart must show a readable full instrument description/ticker and the newest
      referenced candle at the same time. This is now TradingView's OWN legend
