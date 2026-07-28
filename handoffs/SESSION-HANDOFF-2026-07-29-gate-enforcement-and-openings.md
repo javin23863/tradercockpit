@@ -55,7 +55,25 @@ is **no override flag**.
 Each render is ~20 min. **Use `-w 2`.** Runs at `-w 5` and `-w 3` both died at ~30% with
 `Protocol error (Page.captureScreenshot)`; `-w 2` cleared it. This box had 4.6 GB free of 15.8.
 
-### 3.1 ep03 — finish (render was in flight at handoff)
+### 3.1 ep03 — DONE at handoff. `ep03-v9-final.mp4`, 696.533s, 16 pass / 1 waived / 1 BLOCKED
+
+Render `ep03-v9.mp4` (293.5 MB, 28m35s at `-w 2`), bed at -16.3 LUFS / -2.0 dBTP, muxed to
+`ep03-v9-final.mp4`. Receipt at `artifacts/build/gate-receipt.json`, master sha `88a6dd92d7f9…`.
+
+- **The dark card is gone.** `blackdetect` finds no black anywhere in 11m36s, and frame 0 is the
+  blackboard with the three chalk bars — the thumbnail's own image. Verified by pulling frames.
+- `ai_tell_gate`, `term_gate`, `script_arc_gate`, `slop_gate` now PASS where they blocked or
+  falsely passed before.
+- `presentation_gate` **WAIVED** on `longest frozen picture: 4.067 vs 4.0` per the operator's
+  ruling, scoped by `findings` so it cannot forgive the head-black check if that ever regresses.
+- `cut_census` **BLOCKED at 9 holds** — left red on purpose. The operator's cut_census ruling
+  named episode two. **Do not copy it sideways.**
+
+**A prediction of mine was wrong and is recorded in the waiver:** the plate fade was expected to
+clear the 4.067s freeze as a side effect. It did not. That freeze is elsewhere in the episode and
+the figure is unchanged from v8.
+
+### 3.1b If ep03 needs re-rendering
 
 ```
 cd OpenMontage/projects/series-03-slippage
