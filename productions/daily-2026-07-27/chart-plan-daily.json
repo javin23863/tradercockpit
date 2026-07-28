@@ -1,0 +1,337 @@
+[
+ {
+  "out": "03-spx",
+  "symbol": "SP:SPX",
+  "tf": "1D",
+  "purpose": "SP:SPX closed at 7413.18; session range and the swing structure around it",
+  "stages": [
+   {
+    "holdSec": 70,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 7411.98,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 7480.57,
+      "overrides": {
+       "linecolor": "#F23645",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 7382.74,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 7413.18,
+      "overrides": {
+       "linecolor": "#B8B8B8",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 6481.34,
+      "time": 1755264600,
+      "price2": 7525.94,
+      "time2": 1784727000,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 6343.86,
+      "time": 1755696600,
+      "price2": 7294.18,
+      "time2": 1782480600,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "04-nasdaq",
+  "symbol": "NASDAQ:IXIC",
+  "tf": "1D",
+  "purpose": "NASDAQ:IXIC closed at 24932.0815; session range and the swing structure around it",
+  "stages": [
+   {
+    "holdSec": 70,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 24975.8238,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 25261.9122,
+      "overrides": {
+       "linecolor": "#F23645",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 24774.8672,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 24932.0815,
+      "overrides": {
+       "linecolor": "#B8B8B8",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 23147.3309,
+      "time": 1763649000,
+      "price2": 26316.8139,
+      "time2": 1784122200,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 25701.4391,
+      "time": 1779197400,
+      "price2": 25014.9599,
+      "time2": 1782480600,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "05-xlk",
+  "symbol": "AMEX:XLK",
+  "tf": "1D",
+  "purpose": "AMEX:XLK closed at 174.3; session range and the swing structure around it",
+  "stages": [
+   {
+    "holdSec": 70,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 175.88,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 178.3,
+      "overrides": {
+       "linecolor": "#F23645",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 171.73,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 174.3,
+      "overrides": {
+       "linecolor": "#B8B8B8",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 135.0249,
+      "time": 1755091800,
+      "price2": 186.4,
+      "time2": 1783603800,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 134.31,
+      "time": 1758115800,
+      "price2": 171.34,
+      "time2": 1784295000,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "06-nvda",
+  "symbol": "NASDAQ:NVDA",
+  "tf": "1D",
+  "purpose": "NASDAQ:NVDA closed at 196.51; session range and the swing structure around it",
+  "stages": [
+   {
+    "holdSec": 70,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 206.84,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 208.75,
+      "overrides": {
+       "linecolor": "#F23645",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 195.44,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 196.51,
+      "overrides": {
+       "linecolor": "#B8B8B8",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 180.28,
+      "time": 1757597400,
+      "price2": 213.99,
+      "time2": 1782135000,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 171.03,
+      "time": 1770301800,
+      "price2": 191.14,
+      "time2": 1783431000,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "out": "07-vix",
+  "symbol": "CBOE:VIX",
+  "tf": "1D",
+  "purpose": "CBOE:VIX closed at 18.67; session range and the swing structure around it",
+  "stages": [
+   {
+    "holdSec": 70,
+    "draw": [
+     {
+      "type": "horizontal_line",
+      "price": 18.58,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 19.93,
+      "overrides": {
+       "linecolor": "#F23645",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 17.53,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "horizontal_line",
+      "price": 18.67,
+      "overrides": {
+       "linecolor": "#B8B8B8",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 19.38,
+      "time": 1756797300,
+      "price2": 19.5,
+      "time2": 1784272500,
+      "overrides": {
+       "linecolor": "#FFB000",
+       "linewidth": 2
+      }
+     },
+     {
+      "type": "trend_line",
+      "price": 15.27,
+      "time": 1769069700,
+      "price2": 16.64,
+      "time2": 1784704500,
+      "overrides": {
+       "linecolor": "#22AB94",
+       "linewidth": 2
+      }
+     }
+    ]
+   }
+  ]
+ }
+]

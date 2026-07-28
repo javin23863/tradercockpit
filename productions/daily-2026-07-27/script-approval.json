@@ -2,7 +2,24 @@
   "schema": "tradercockpit-script-approval/v1",
   "status": "approved",
   "script": "productions/daily-2026-07-27/vo.txt",
-  "scriptSha256": "4834fcfad45601c9fc9d9048a696c7a50eed5fca59725ea80fe4ac86347662cc",
-  "reviewedBy": "operator (approved exact hash in Claude Code session, script and thumbnail opened on screen)",
-  "reviewedAt": "2026-07-27T22:04:58Z"
+  "scriptSha256": "4a8f20c9dba12fc4e2d57296cedd751aaebad144290dfbe5bf9b597d67629da1",
+  "reviewedBy": "operator (approved this exact sha256 in the Claude Code session, script opened on screen, 2026-07-27 ET)",
+  "reviewedAt": "2026-07-28T02:39:14Z",
+  "approvalKind": "operator",
+  "operatorReviewed": true,
+  "gates": {
+    "claims": "PASS",
+    "style": "PASS",
+    "levelBinding": "PASS",
+    "spokenVisible": "PASS"
+  },
+  "attestations": {
+    "readAloud": false,
+    "phrasingATraderWouldSay": true,
+    "takeBelongsToThisHost": true,
+    "factSeparatedFromJudgment": true,
+    "visualsMatchTheSpokenClaim": true,
+    "attestedBy": "operator",
+    "note": "Operator approved the exact hash after reading the script. readAloud False = not performed."
+  }
 }

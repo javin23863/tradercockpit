@@ -1,0 +1,1626 @@
+{
+  "schema": "tradercockpit-swing-receipts/v1",
+  "generatedAt": "2026-07-28T02:08:49Z",
+  "source": "tradingview-mcp tv ohlcv",
+  "sourceCommand": "node C:\\Users\\MSI\\repos\\tradingview-mcp\\src\\cli\\index.js ohlcv --count 245",
+  "params": {
+    "timeframe": "1D",
+    "count": 245,
+    "pivotStrength": 3,
+    "tolerancePct": 0.25
+  },
+  "instruments": {
+    "SP:SPX": {
+      "barsWindow": {
+        "from": 1754400600,
+        "to": 1785159000,
+        "count": 245,
+        "lastClose": 7413.18
+      },
+      "pivots": [
+        {
+          "time": 1755264600,
+          "price": 6481.34,
+          "kind": "high"
+        },
+        {
+          "time": 1755696600,
+          "price": 6343.86,
+          "kind": "low"
+        },
+        {
+          "time": 1756387800,
+          "price": 6508.23,
+          "kind": "high"
+        },
+        {
+          "time": 1756819800,
+          "price": 6360.58,
+          "kind": "low"
+        },
+        {
+          "time": 1758115800,
+          "price": 6551.15,
+          "kind": "low"
+        },
+        {
+          "time": 1758634200,
+          "price": 6699.52,
+          "kind": "high"
+        },
+        {
+          "time": 1758807000,
+          "price": 6569.22,
+          "kind": "low"
+        },
+        {
+          "time": 1760016600,
+          "price": 6764.58,
+          "kind": "high"
+        },
+        {
+          "time": 1760103000,
+          "price": 6550.78,
+          "kind": "low"
+        },
+        {
+          "time": 1761744600,
+          "price": 6920.34,
+          "kind": "high"
+        },
+        {
+          "time": 1762525800,
+          "price": 6631.44,
+          "kind": "low"
+        },
+        {
+          "time": 1762957800,
+          "price": 6869.91,
+          "kind": "high"
+        },
+        {
+          "time": 1763735400,
+          "price": 6521.92,
+          "kind": "low"
+        },
+        {
+          "time": 1765463400,
+          "price": 6903.46,
+          "kind": "high"
+        },
+        {
+          "time": 1765981800,
+          "price": 6720.43,
+          "kind": "low"
+        },
+        {
+          "time": 1766759400,
+          "price": 6945.77,
+          "kind": "high"
+        },
+        {
+          "time": 1767364200,
+          "price": 6824.31,
+          "kind": "low"
+        },
+        {
+          "time": 1768228200,
+          "price": 6986.33,
+          "kind": "high"
+        },
+        {
+          "time": 1768919400,
+          "price": 6789.05,
+          "kind": "low"
+        },
+        {
+          "time": 1769610600,
+          "price": 7002.28,
+          "kind": "high"
+        },
+        {
+          "time": 1770129000,
+          "price": 6993.08,
+          "kind": "high"
+        },
+        {
+          "time": 1770301800,
+          "price": 6780.13,
+          "kind": "low"
+        },
+        {
+          "time": 1770820200,
+          "price": 6993.48,
+          "kind": "high"
+        },
+        {
+          "time": 1771338600,
+          "price": 6775.5,
+          "kind": "low"
+        },
+        {
+          "time": 1771943400,
+          "price": 6815.43,
+          "kind": "low"
+        },
+        {
+          "time": 1772029800,
+          "price": 6952.51,
+          "kind": "high"
+        },
+        {
+          "time": 1772548200,
+          "price": 6710.42,
+          "kind": "low"
+        },
+        {
+          "time": 1773063000,
+          "price": 6636.04,
+          "kind": "low"
+        },
+        {
+          "time": 1773754200,
+          "price": 6754.3,
+          "kind": "high"
+        },
+        {
+          "time": 1774013400,
+          "price": 6473.52,
+          "kind": "low"
+        },
+        {
+          "time": 1774877400,
+          "price": 6316.91,
+          "kind": "low"
+        },
+        {
+          "time": 1776432600,
+          "price": 7147.52,
+          "kind": "high"
+        },
+        {
+          "time": 1776951000,
+          "price": 7046.55,
+          "kind": "low"
+        },
+        {
+          "time": 1777469400,
+          "price": 7107.86,
+          "kind": "low"
+        },
+        {
+          "time": 1778765400,
+          "price": 7517.12,
+          "kind": "high"
+        },
+        {
+          "time": 1779197400,
+          "price": 7333.68,
+          "kind": "low"
+        },
+        {
+          "time": 1780407000,
+          "price": 7620.9,
+          "kind": "high"
+        },
+        {
+          "time": 1781011800,
+          "price": 7237.85,
+          "kind": "low"
+        },
+        {
+          "time": 1781530200,
+          "price": 7577.92,
+          "kind": "high"
+        },
+        {
+          "time": 1782480600,
+          "price": 7294.18,
+          "kind": "low"
+        },
+        {
+          "time": 1783344600,
+          "price": 7551.31,
+          "kind": "high"
+        },
+        {
+          "time": 1783517400,
+          "price": 7421.82,
+          "kind": "low"
+        },
+        {
+          "time": 1784122200,
+          "price": 7581.5,
+          "kind": "high"
+        },
+        {
+          "time": 1784295000,
+          "price": 7431.26,
+          "kind": "low"
+        },
+        {
+          "time": 1784727000,
+          "price": 7525.94,
+          "kind": "high"
+        }
+      ],
+      "levels": [
+        {
+          "price": 7002.28,
+          "kind": "high",
+          "touches": 4,
+          "lastTouch": 1770820200,
+          "distancePct": 5.543,
+          "position": "below"
+        },
+        {
+          "price": 7525.94,
+          "kind": "high",
+          "touches": 2,
+          "lastTouch": 1784727000,
+          "distancePct": 1.521,
+          "position": "above"
+        },
+        {
+          "price": 7581.5,
+          "kind": "high",
+          "touches": 2,
+          "lastTouch": 1784122200,
+          "distancePct": 2.271,
+          "position": "above"
+        },
+        {
+          "price": 7421.82,
+          "kind": "low",
+          "touches": 2,
+          "lastTouch": 1784295000,
+          "distancePct": 0.117,
+          "position": "above"
+        },
+        {
+          "price": 7333.68,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1779197400,
+          "distancePct": 1.072,
+          "position": "below"
+        },
+        {
+          "price": 7294.18,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1782480600,
+          "distancePct": 1.605,
+          "position": "below"
+        }
+      ],
+      "trendlines": [
+        {
+          "kind": "resistance",
+          "time": 1755264600,
+          "price": 6481.34,
+          "time2": 1784727000,
+          "price2": 7525.94,
+          "spanBars": 233,
+          "touches": 5,
+          "broken": false,
+          "slopePerBar": 4.483262,
+          "projectedNow": 7539.3898
+        },
+        {
+          "kind": "support",
+          "time": 1755696600,
+          "price": 6343.86,
+          "time2": 1782480600,
+          "price2": 7294.18,
+          "spanBars": 213,
+          "touches": 5,
+          "broken": false,
+          "slopePerBar": 4.461596,
+          "projectedNow": 7383.4119
+        }
+      ]
+    },
+    "NASDAQ:IXIC": {
+      "barsWindow": {
+        "from": 1754400600,
+        "to": 1785159000,
+        "count": 245,
+        "lastClose": 24932.0815
+      },
+      "pivots": [
+        {
+          "time": 1755091800,
+          "price": 21803.7481,
+          "kind": "high"
+        },
+        {
+          "time": 1755696600,
+          "price": 20905.9906,
+          "kind": "low"
+        },
+        {
+          "time": 1756387800,
+          "price": 21742.4568,
+          "kind": "high"
+        },
+        {
+          "time": 1756819800,
+          "price": 21033.046,
+          "kind": "low"
+        },
+        {
+          "time": 1758547800,
+          "price": 22801.8957,
+          "kind": "high"
+        },
+        {
+          "time": 1758807000,
+          "price": 22185.8655,
+          "kind": "low"
+        },
+        {
+          "time": 1760103000,
+          "price": 23119.9065,
+          "kind": "high"
+        },
+        {
+          "time": 1760103000,
+          "price": 22193.074,
+          "kind": "low"
+        },
+        {
+          "time": 1760967000,
+          "price": 23031.8734,
+          "kind": "high"
+        },
+        {
+          "time": 1761744600,
+          "price": 24019.9935,
+          "kind": "high"
+        },
+        {
+          "time": 1762525800,
+          "price": 22563.4171,
+          "kind": "low"
+        },
+        {
+          "time": 1763649000,
+          "price": 23147.3309,
+          "kind": "high"
+        },
+        {
+          "time": 1763735400,
+          "price": 21898.2897,
+          "kind": "low"
+        },
+        {
+          "time": 1765377000,
+          "price": 23704.077,
+          "kind": "high"
+        },
+        {
+          "time": 1765981800,
+          "price": 22692.0035,
+          "kind": "low"
+        },
+        {
+          "time": 1766759400,
+          "price": 23665.1503,
+          "kind": "high"
+        },
+        {
+          "time": 1767364200,
+          "price": 23119.4936,
+          "kind": "low"
+        },
+        {
+          "time": 1768314600,
+          "price": 23813.298,
+          "kind": "high"
+        },
+        {
+          "time": 1768919400,
+          "price": 22916.8327,
+          "kind": "low"
+        },
+        {
+          "time": 1769610600,
+          "price": 23988.265,
+          "kind": "high"
+        },
+        {
+          "time": 1770301800,
+          "price": 22461.1379,
+          "kind": "low"
+        },
+        {
+          "time": 1770820200,
+          "price": 23320.6214,
+          "kind": "high"
+        },
+        {
+          "time": 1771338600,
+          "price": 22256.7601,
+          "kind": "low"
+        },
+        {
+          "time": 1771943400,
+          "price": 22528.2637,
+          "kind": "low"
+        },
+        {
+          "time": 1772029800,
+          "price": 23169.6837,
+          "kind": "high"
+        },
+        {
+          "time": 1772548200,
+          "price": 22124.7834,
+          "kind": "low"
+        },
+        {
+          "time": 1772634600,
+          "price": 22891.8799,
+          "kind": "high"
+        },
+        {
+          "time": 1773063000,
+          "price": 22061.9663,
+          "kind": "low"
+        },
+        {
+          "time": 1773149400,
+          "price": 22906.7176,
+          "kind": "high"
+        },
+        {
+          "time": 1773408600,
+          "price": 22069.2367,
+          "kind": "low"
+        },
+        {
+          "time": 1773754200,
+          "price": 22569.6416,
+          "kind": "high"
+        },
+        {
+          "time": 1774013400,
+          "price": 21522.7492,
+          "kind": "low"
+        },
+        {
+          "time": 1774877400,
+          "price": 20690.2492,
+          "kind": "low"
+        },
+        {
+          "time": 1777555800,
+          "price": 24491.8338,
+          "kind": "low"
+        },
+        {
+          "time": 1778765400,
+          "price": 26707.1412,
+          "kind": "high"
+        },
+        {
+          "time": 1779197400,
+          "price": 25701.4391,
+          "kind": "low"
+        },
+        {
+          "time": 1780320600,
+          "price": 27190.2067,
+          "kind": "high"
+        },
+        {
+          "time": 1781011800,
+          "price": 24980.3763,
+          "kind": "low"
+        },
+        {
+          "time": 1781616600,
+          "price": 26788.6179,
+          "kind": "high"
+        },
+        {
+          "time": 1782480600,
+          "price": 25014.9599,
+          "kind": "low"
+        },
+        {
+          "time": 1782999000,
+          "price": 26261.0906,
+          "kind": "high"
+        },
+        {
+          "time": 1783517400,
+          "price": 25526.465,
+          "kind": "low"
+        },
+        {
+          "time": 1784122200,
+          "price": 26316.8139,
+          "kind": "high"
+        },
+        {
+          "time": 1784295000,
+          "price": 25250.628,
+          "kind": "low"
+        }
+      ],
+      "levels": [
+        {
+          "price": 23169.6837,
+          "kind": "high",
+          "touches": 3,
+          "lastTouch": 1772029800,
+          "distancePct": 7.069,
+          "position": "below"
+        },
+        {
+          "price": 24019.9935,
+          "kind": "high",
+          "touches": 2,
+          "lastTouch": 1769610600,
+          "distancePct": 3.658,
+          "position": "below"
+        },
+        {
+          "price": 23704.077,
+          "kind": "high",
+          "touches": 2,
+          "lastTouch": 1766759400,
+          "distancePct": 4.925,
+          "position": "below"
+        },
+        {
+          "price": 24980.3763,
+          "kind": "low",
+          "touches": 2,
+          "lastTouch": 1782480600,
+          "distancePct": 0.194,
+          "position": "above"
+        },
+        {
+          "price": 25250.628,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1784295000,
+          "distancePct": 1.278,
+          "position": "above"
+        },
+        {
+          "price": 24491.8338,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1777555800,
+          "distancePct": 1.766,
+          "position": "below"
+        }
+      ],
+      "trendlines": [
+        {
+          "kind": "resistance",
+          "time": 1763649000,
+          "price": 23147.3309,
+          "time2": 1784122200,
+          "price2": 26316.8139,
+          "spanBars": 160,
+          "touches": 6,
+          "broken": false,
+          "slopePerBar": 19.809269,
+          "projectedNow": 26475.2881
+        },
+        {
+          "kind": "support",
+          "time": 1779197400,
+          "price": 25701.4391,
+          "time2": 1782480600,
+          "price2": 25014.9599,
+          "spanBars": 26,
+          "touches": 2,
+          "broken": false,
+          "slopePerBar": -26.403046,
+          "projectedNow": 24486.899
+        }
+      ]
+    },
+    "AMEX:XLK": {
+      "barsWindow": {
+        "from": 1754400600,
+        "to": 1785159000,
+        "count": 245,
+        "lastClose": 174.3
+      },
+      "pivots": [
+        {
+          "time": 1755091800,
+          "price": 135.02495,
+          "kind": "high"
+        },
+        {
+          "time": 1755696600,
+          "price": 127.92,
+          "kind": "low"
+        },
+        {
+          "time": 1756387800,
+          "price": 133.555,
+          "kind": "high"
+        },
+        {
+          "time": 1756819800,
+          "price": 128.14,
+          "kind": "low"
+        },
+        {
+          "time": 1758115800,
+          "price": 134.31,
+          "kind": "low"
+        },
+        {
+          "time": 1758547800,
+          "price": 141.445,
+          "kind": "high"
+        },
+        {
+          "time": 1758807000,
+          "price": 137.125,
+          "kind": "low"
+        },
+        {
+          "time": 1760103000,
+          "price": 145.67,
+          "kind": "high"
+        },
+        {
+          "time": 1760448600,
+          "price": 139.12,
+          "kind": "low"
+        },
+        {
+          "time": 1761744600,
+          "price": 152.995,
+          "kind": "high"
+        },
+        {
+          "time": 1762525800,
+          "price": 140.799,
+          "kind": "low"
+        },
+        {
+          "time": 1763735400,
+          "price": 133.74,
+          "kind": "low"
+        },
+        {
+          "time": 1765377000,
+          "price": 149.22,
+          "kind": "high"
+        },
+        {
+          "time": 1765981800,
+          "price": 139.32,
+          "kind": "low"
+        },
+        {
+          "time": 1766759400,
+          "price": 146.98,
+          "kind": "high"
+        },
+        {
+          "time": 1767364200,
+          "price": 143.405,
+          "kind": "low"
+        },
+        {
+          "time": 1767796200,
+          "price": 147.3799,
+          "kind": "high"
+        },
+        {
+          "time": 1767882600,
+          "price": 143.5,
+          "kind": "low"
+        },
+        {
+          "time": 1768487400,
+          "price": 147.57,
+          "kind": "high"
+        },
+        {
+          "time": 1768919400,
+          "price": 141.61,
+          "kind": "low"
+        },
+        {
+          "time": 1769610600,
+          "price": 149.9,
+          "kind": "high"
+        },
+        {
+          "time": 1770301800,
+          "price": 135.075,
+          "kind": "low"
+        },
+        {
+          "time": 1770820200,
+          "price": 144.755,
+          "kind": "high"
+        },
+        {
+          "time": 1771338600,
+          "price": 137.02,
+          "kind": "low"
+        },
+        {
+          "time": 1771857000,
+          "price": 137.89,
+          "kind": "low"
+        },
+        {
+          "time": 1772029800,
+          "price": 143.34,
+          "kind": "high"
+        },
+        {
+          "time": 1772548200,
+          "price": 134.99,
+          "kind": "low"
+        },
+        {
+          "time": 1773063000,
+          "price": 135.46,
+          "kind": "low"
+        },
+        {
+          "time": 1773235800,
+          "price": 141.59,
+          "kind": "high"
+        },
+        {
+          "time": 1773408600,
+          "price": 136.515,
+          "kind": "low"
+        },
+        {
+          "time": 1773754200,
+          "price": 140.27,
+          "kind": "high"
+        },
+        {
+          "time": 1774013400,
+          "price": 134.3224,
+          "kind": "low"
+        },
+        {
+          "time": 1774877400,
+          "price": 126.68,
+          "kind": "low"
+        },
+        {
+          "time": 1777296600,
+          "price": 160.62,
+          "kind": "high"
+        },
+        {
+          "time": 1778765400,
+          "price": 180.215,
+          "kind": "high"
+        },
+        {
+          "time": 1779197400,
+          "price": 170.831,
+          "kind": "low"
+        },
+        {
+          "time": 1780493400,
+          "price": 198.73,
+          "kind": "high"
+        },
+        {
+          "time": 1781011800,
+          "price": 172.88,
+          "kind": "low"
+        },
+        {
+          "time": 1782135000,
+          "price": 194.3,
+          "kind": "high"
+        },
+        {
+          "time": 1782739800,
+          "price": 178.67,
+          "kind": "low"
+        },
+        {
+          "time": 1782826200,
+          "price": 190.94,
+          "kind": "high"
+        },
+        {
+          "time": 1783431000,
+          "price": 176.36,
+          "kind": "low"
+        },
+        {
+          "time": 1783603800,
+          "price": 186.4,
+          "kind": "high"
+        },
+        {
+          "time": 1784295000,
+          "price": 171.34,
+          "kind": "low"
+        },
+        {
+          "time": 1784727000,
+          "price": 181.43,
+          "kind": "high"
+        }
+      ],
+      "levels": [
+        {
+          "price": 180.215,
+          "kind": "high",
+          "touches": 1,
+          "lastTouch": 1778765400,
+          "distancePct": 3.394,
+          "position": "above"
+        },
+        {
+          "price": 181.43,
+          "kind": "high",
+          "touches": 1,
+          "lastTouch": 1784727000,
+          "distancePct": 4.091,
+          "position": "above"
+        },
+        {
+          "price": 186.4,
+          "kind": "high",
+          "touches": 1,
+          "lastTouch": 1783603800,
+          "distancePct": 6.942,
+          "position": "above"
+        },
+        {
+          "price": 172.88,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1781011800,
+          "distancePct": 0.815,
+          "position": "below"
+        },
+        {
+          "price": 176.36,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1783431000,
+          "distancePct": 1.182,
+          "position": "above"
+        },
+        {
+          "price": 171.34,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1784295000,
+          "distancePct": 1.698,
+          "position": "below"
+        }
+      ],
+      "trendlines": [
+        {
+          "kind": "resistance",
+          "time": 1755091800,
+          "price": 135.0249,
+          "time2": 1783603800,
+          "price2": 186.4,
+          "spanBars": 226,
+          "touches": 3,
+          "broken": false,
+          "slopePerBar": 0.227323,
+          "projectedNow": 189.1279
+        },
+        {
+          "kind": "support",
+          "time": 1758115800,
+          "price": 134.31,
+          "time2": 1784295000,
+          "price2": 171.34,
+          "spanBars": 208,
+          "touches": 3,
+          "broken": false,
+          "slopePerBar": 0.178029,
+          "projectedNow": 172.4082
+        }
+      ]
+    },
+    "NASDAQ:NVDA": {
+      "barsWindow": {
+        "from": 1754400600,
+        "to": 1785159000,
+        "count": 245,
+        "lastClose": 196.51
+      },
+      "pivots": [
+        {
+          "time": 1755005400,
+          "price": 184.48,
+          "kind": "high"
+        },
+        {
+          "time": 1755696600,
+          "price": 168.801,
+          "kind": "low"
+        },
+        {
+          "time": 1756387800,
+          "price": 184.47,
+          "kind": "high"
+        },
+        {
+          "time": 1757079000,
+          "price": 164.07,
+          "kind": "low"
+        },
+        {
+          "time": 1757597400,
+          "price": 180.28,
+          "kind": "high"
+        },
+        {
+          "time": 1758115800,
+          "price": 168.41,
+          "kind": "low"
+        },
+        {
+          "time": 1758547800,
+          "price": 184.55,
+          "kind": "high"
+        },
+        {
+          "time": 1758807000,
+          "price": 173.125,
+          "kind": "low"
+        },
+        {
+          "time": 1759411800,
+          "price": 191.05,
+          "kind": "high"
+        },
+        {
+          "time": 1759757400,
+          "price": 183.33,
+          "kind": "low"
+        },
+        {
+          "time": 1760103000,
+          "price": 195.62,
+          "kind": "high"
+        },
+        {
+          "time": 1760535000,
+          "price": 177.29,
+          "kind": "low"
+        },
+        {
+          "time": 1760967000,
+          "price": 185.2,
+          "kind": "high"
+        },
+        {
+          "time": 1761139800,
+          "price": 176.76,
+          "kind": "low"
+        },
+        {
+          "time": 1761744600,
+          "price": 212.1899,
+          "kind": "high"
+        },
+        {
+          "time": 1762525800,
+          "price": 178.91,
+          "kind": "low"
+        },
+        {
+          "time": 1763649000,
+          "price": 196,
+          "kind": "high"
+        },
+        {
+          "time": 1764081000,
+          "price": 169.55,
+          "kind": "low"
+        },
+        {
+          "time": 1764685800,
+          "price": 185.66,
+          "kind": "high"
+        },
+        {
+          "time": 1765204200,
+          "price": 188,
+          "kind": "high"
+        },
+        {
+          "time": 1765981800,
+          "price": 170.31,
+          "kind": "low"
+        },
+        {
+          "time": 1766759400,
+          "price": 192.69,
+          "kind": "high"
+        },
+        {
+          "time": 1767623400,
+          "price": 193.63,
+          "kind": "high"
+        },
+        {
+          "time": 1768573800,
+          "price": 190.44,
+          "kind": "high"
+        },
+        {
+          "time": 1768919400,
+          "price": 177.61,
+          "kind": "low"
+        },
+        {
+          "time": 1769783400,
+          "price": 194.49,
+          "kind": "high"
+        },
+        {
+          "time": 1770301800,
+          "price": 171.03,
+          "kind": "low"
+        },
+        {
+          "time": 1770647400,
+          "price": 193.66,
+          "kind": "high"
+        },
+        {
+          "time": 1771338600,
+          "price": 179.18,
+          "kind": "low"
+        },
+        {
+          "time": 1772029800,
+          "price": 197.6299,
+          "kind": "high"
+        },
+        {
+          "time": 1772461800,
+          "price": 174.64,
+          "kind": "low"
+        },
+        {
+          "time": 1772634600,
+          "price": 184.7,
+          "kind": "high"
+        },
+        {
+          "time": 1773063000,
+          "price": 175.56,
+          "kind": "low"
+        },
+        {
+          "time": 1773408600,
+          "price": 179.94,
+          "kind": "low"
+        },
+        {
+          "time": 1773667800,
+          "price": 188.88,
+          "kind": "high"
+        },
+        {
+          "time": 1774013400,
+          "price": 171.72,
+          "kind": "low"
+        },
+        {
+          "time": 1774445400,
+          "price": 181.22,
+          "kind": "high"
+        },
+        {
+          "time": 1774877400,
+          "price": 164.27,
+          "kind": "low"
+        },
+        {
+          "time": 1776951000,
+          "price": 197.2206,
+          "kind": "low"
+        },
+        {
+          "time": 1777296600,
+          "price": 216.825,
+          "kind": "high"
+        },
+        {
+          "time": 1777901400,
+          "price": 194.74,
+          "kind": "low"
+        },
+        {
+          "time": 1778765400,
+          "price": 236.54,
+          "kind": "high"
+        },
+        {
+          "time": 1779888600,
+          "price": 208.78,
+          "kind": "low"
+        },
+        {
+          "time": 1780407000,
+          "price": 232.28,
+          "kind": "high"
+        },
+        {
+          "time": 1781011800,
+          "price": 199.34,
+          "kind": "low"
+        },
+        {
+          "time": 1781530200,
+          "price": 212.7107,
+          "kind": "high"
+        },
+        {
+          "time": 1782135000,
+          "price": 213.99,
+          "kind": "high"
+        },
+        {
+          "time": 1782739800,
+          "price": 189.8,
+          "kind": "low"
+        },
+        {
+          "time": 1783431000,
+          "price": 191.14,
+          "kind": "low"
+        },
+        {
+          "time": 1784122200,
+          "price": 213.81,
+          "kind": "high"
+        },
+        {
+          "time": 1784295000,
+          "price": 197.97,
+          "kind": "low"
+        },
+        {
+          "time": 1784727000,
+          "price": 214.39,
+          "kind": "high"
+        }
+      ],
+      "levels": [
+        {
+          "price": 184.7,
+          "kind": "high",
+          "touches": 4,
+          "lastTouch": 1772634600,
+          "distancePct": 6.01,
+          "position": "below"
+        },
+        {
+          "price": 196,
+          "kind": "high",
+          "touches": 2,
+          "lastTouch": 1763649000,
+          "distancePct": 0.26,
+          "position": "below"
+        },
+        {
+          "price": 193.66,
+          "kind": "high",
+          "touches": 2,
+          "lastTouch": 1770647400,
+          "distancePct": 1.45,
+          "position": "below"
+        },
+        {
+          "price": 197.2206,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1776951000,
+          "distancePct": 0.362,
+          "position": "above"
+        },
+        {
+          "price": 197.97,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1784295000,
+          "distancePct": 0.743,
+          "position": "above"
+        },
+        {
+          "price": 194.74,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1777901400,
+          "distancePct": 0.901,
+          "position": "below"
+        }
+      ],
+      "trendlines": [
+        {
+          "kind": "resistance",
+          "time": 1757597400,
+          "price": 180.28,
+          "time2": 1782135000,
+          "price2": 213.99,
+          "spanBars": 194,
+          "touches": 5,
+          "broken": false,
+          "slopePerBar": 0.173763,
+          "projectedNow": 218.1603
+        },
+        {
+          "kind": "support",
+          "time": 1770301800,
+          "price": 171.03,
+          "time2": 1783431000,
+          "price2": 191.14,
+          "spanBars": 103,
+          "touches": 4,
+          "broken": false,
+          "slopePerBar": 0.195243,
+          "projectedNow": 193.8734
+        }
+      ]
+    },
+    "CBOE:VIX": {
+      "barsWindow": {
+        "from": 1754550900,
+        "to": 1785136500,
+        "count": 245,
+        "lastClose": 18.67
+      },
+      "pivots": [
+        {
+          "time": 1755069300,
+          "price": 14.3,
+          "kind": "low"
+        },
+        {
+          "time": 1755760500,
+          "price": 17.24,
+          "kind": "high"
+        },
+        {
+          "time": 1755846900,
+          "price": 14.21,
+          "kind": "low"
+        },
+        {
+          "time": 1756365300,
+          "price": 14.12,
+          "kind": "low"
+        },
+        {
+          "time": 1756797300,
+          "price": 19.38,
+          "kind": "high"
+        },
+        {
+          "time": 1757661300,
+          "price": 14.41,
+          "kind": "low"
+        },
+        {
+          "time": 1758093300,
+          "price": 16.75,
+          "kind": "high"
+        },
+        {
+          "time": 1758179700,
+          "price": 14.33,
+          "kind": "low"
+        },
+        {
+          "time": 1758784500,
+          "price": 17.74,
+          "kind": "high"
+        },
+        {
+          "time": 1758870900,
+          "price": 15.29,
+          "kind": "low"
+        },
+        {
+          "time": 1759302900,
+          "price": 17.28,
+          "kind": "high"
+        },
+        {
+          "time": 1760685300,
+          "price": 28.99,
+          "kind": "high"
+        },
+        {
+          "time": 1761549300,
+          "price": 15.62,
+          "kind": "low"
+        },
+        {
+          "time": 1762503300,
+          "price": 22.72,
+          "kind": "high"
+        },
+        {
+          "time": 1762935300,
+          "price": 17.1,
+          "kind": "low"
+        },
+        {
+          "time": 1763626500,
+          "price": 28.27,
+          "kind": "high"
+        },
+        {
+          "time": 1764317700,
+          "price": 15.78,
+          "kind": "low"
+        },
+        {
+          "time": 1764922500,
+          "price": 15.28,
+          "kind": "low"
+        },
+        {
+          "time": 1765440900,
+          "price": 14.85,
+          "kind": "low"
+        },
+        {
+          "time": 1765527300,
+          "price": 14.85,
+          "kind": "low"
+        },
+        {
+          "time": 1765959300,
+          "price": 18,
+          "kind": "high"
+        },
+        {
+          "time": 1766564100,
+          "price": 13.38,
+          "kind": "low"
+        },
+        {
+          "time": 1767946500,
+          "price": 14.43,
+          "kind": "low"
+        },
+        {
+          "time": 1768896900,
+          "price": 20.99,
+          "kind": "high"
+        },
+        {
+          "time": 1769069700,
+          "price": 15.27,
+          "kind": "low"
+        },
+        {
+          "time": 1770279300,
+          "price": 23.1,
+          "kind": "high"
+        },
+        {
+          "time": 1770797700,
+          "price": 16.75,
+          "kind": "low"
+        },
+        {
+          "time": 1771316100,
+          "price": 22.96,
+          "kind": "high"
+        },
+        {
+          "time": 1771920900,
+          "price": 22.08,
+          "kind": "high"
+        },
+        {
+          "time": 1772093700,
+          "price": 17.5,
+          "kind": "low"
+        },
+        {
+          "time": 1773040500,
+          "price": 35.3,
+          "kind": "high"
+        },
+        {
+          "time": 1773386100,
+          "price": 28.47,
+          "kind": "high"
+        },
+        {
+          "time": 1774250100,
+          "price": 31.04,
+          "kind": "high"
+        },
+        {
+          "time": 1774250100,
+          "price": 20.28,
+          "kind": "low"
+        },
+        {
+          "time": 1774595700,
+          "price": 31.65,
+          "kind": "high"
+        },
+        {
+          "time": 1775027700,
+          "price": 23.5,
+          "kind": "low"
+        },
+        {
+          "time": 1775546100,
+          "price": 28,
+          "kind": "high"
+        },
+        {
+          "time": 1776410100,
+          "price": 16.87,
+          "kind": "low"
+        },
+        {
+          "time": 1776928500,
+          "price": 21.56,
+          "kind": "high"
+        },
+        {
+          "time": 1777878900,
+          "price": 19.08,
+          "kind": "high"
+        },
+        {
+          "time": 1778051700,
+          "price": 16.18,
+          "kind": "low"
+        },
+        {
+          "time": 1778742900,
+          "price": 17.2,
+          "kind": "low"
+        },
+        {
+          "time": 1779088500,
+          "price": 19.44,
+          "kind": "high"
+        },
+        {
+          "time": 1780038900,
+          "price": 15.22,
+          "kind": "low"
+        },
+        {
+          "time": 1780557300,
+          "price": 15.18,
+          "kind": "low"
+        },
+        {
+          "time": 1780989300,
+          "price": 23.34,
+          "kind": "high"
+        },
+        {
+          "time": 1781594100,
+          "price": 15.77,
+          "kind": "low"
+        },
+        {
+          "time": 1782458100,
+          "price": 20.72,
+          "kind": "high"
+        },
+        {
+          "time": 1783494900,
+          "price": 18.91,
+          "kind": "high"
+        },
+        {
+          "time": 1783667700,
+          "price": 14.96,
+          "kind": "low"
+        },
+        {
+          "time": 1784272500,
+          "price": 19.5,
+          "kind": "high"
+        },
+        {
+          "time": 1784704500,
+          "price": 16.64,
+          "kind": "low"
+        }
+      ],
+      "levels": [
+        {
+          "price": 17.28,
+          "kind": "high",
+          "touches": 2,
+          "lastTouch": 1759302900,
+          "distancePct": 7.445,
+          "position": "below"
+        },
+        {
+          "price": 18.91,
+          "kind": "high",
+          "touches": 1,
+          "lastTouch": 1783494900,
+          "distancePct": 1.285,
+          "position": "above"
+        },
+        {
+          "price": 19.08,
+          "kind": "high",
+          "touches": 1,
+          "lastTouch": 1777878900,
+          "distancePct": 2.196,
+          "position": "above"
+        },
+        {
+          "price": 17.5,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1772093700,
+          "distancePct": 6.267,
+          "position": "below"
+        },
+        {
+          "price": 17.2,
+          "kind": "low",
+          "touches": 1,
+          "lastTouch": 1778742900,
+          "distancePct": 7.874,
+          "position": "below"
+        }
+      ],
+      "trendlines": [
+        {
+          "kind": "resistance",
+          "time": 1756797300,
+          "price": 19.38,
+          "time2": 1784272500,
+          "price2": 19.5,
+          "spanBars": 220,
+          "touches": 3,
+          "broken": false,
+          "slopePerBar": 0.000545,
+          "projectedNow": 19.5033
+        },
+        {
+          "kind": "support",
+          "time": 1769069700,
+          "price": 15.27,
+          "time2": 1784704500,
+          "price2": 16.64,
+          "spanBars": 124,
+          "touches": 4,
+          "broken": false,
+          "slopePerBar": 0.011048,
+          "projectedNow": 16.6731
+        }
+      ]
+    }
+  }
+}

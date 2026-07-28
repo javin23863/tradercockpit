@@ -6,10 +6,12 @@
   "sourceReceipt": "productions/daily-2026-07-27/news-sources.json",
   "sourceReceiptSha256": "1abde450d96d0370607916f0d865b4cce8f4f29c1ee40adc4ccd746134b0bb78",
   "scriptApproval": "productions/daily-2026-07-27/script-approval.json",
-  "scriptApprovalSha256": "60bda491636445a9e94a655c1b7d6d83f2cb13270a9633b84f8b5d618d222756",
+  "scriptApprovalSha256": "c13376f5ec56f1aeefee6ea5f764ca2631455a0616bf7f0bcc5caf3fdb8912d9",
   "framingSources": [
     "Associated Press"
   ],
-  "reviewedBy": "operator (approved exact hash in Claude Code session, script and thumbnail opened on screen)",
-  "reviewedAt": "2026-07-27T22:04:58Z"
+  "reviewedBy": "operator",
+  "reviewedAt": "2026-07-28T02:39:14Z",
+  "approvalKind": "operator",
+  "operatorReviewed": true
 }

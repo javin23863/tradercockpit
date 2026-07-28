@@ -1,13 +1,8 @@
 {
-  "eyebrow": "NVIDIA",
+  "out": "thumb.png",
+  "eyebrow": "NVDA",
   "num": "-4.99%",
-  "phrase": "Ate The Peace Rally",
+  "phrase": "index never flinched",
   "dir": "down",
-  "sub": "",
-  "palette": [
-    "#08030a",
-    "#F5E8EA",
-    "#FF1744"
-  ],
-  "logoCorner": "bottom-right"
+  "numberSource": "ohlcv-feed-receipts-2026-07-27.json#NASDAQ:NVDA session_return"
 }

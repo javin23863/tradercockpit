@@ -87,3 +87,9 @@ productions/*/ta-work-live/*.png
 # tracked: ai_tell_gate refuses to score without them, and a threshold is only meaningful
 # against the exact profile it was measured on.
 corpus/transcripts/
+
+# quarantined defective renders. Kept on disk as the reference for what shipped wrong
+# (2026-07-27: consent modal, cropped masthead, app chrome), never in git -- the same
+# multi-MB media the visuals/ rules already exclude, under a different directory name.
+productions/*/visuals-v1-defect/*.mp4
+productions/*/*-v1-defect/*.mp4

@@ -3,28 +3,28 @@
   "captures": [
     {
       "path": "visuals/03-spx.mp4",
-      "capturedAt": "2026-07-27T21:03:03.364Z",
-      "sha256": "894bb9613ff7404a85cb3a031356ceb6df3761e66c9df3b352616aaaf794cdf6"
+      "capturedAt": "2026-07-28T02:47:19.911Z",
+      "sha256": "06f2790effbcd45c1978aee40b6a0819db6843b2543151c7f6a45876f4cd9a21"
     },
     {
       "path": "visuals/04-nasdaq.mp4",
-      "capturedAt": "2026-07-27T21:03:43.494Z",
-      "sha256": "e38c3a4fc77dac6d2d2a675deac6eb52d4fbb9d9d0265f6135726eda88dfe2e7"
+      "capturedAt": "2026-07-28T02:47:57.466Z",
+      "sha256": "fe9a7cf48e529abb3527b4ea9c2edcd03a59be525cd6bcb552b3633fd73ad215"
     },
     {
       "path": "visuals/05-xlk.mp4",
-      "capturedAt": "2026-07-27T21:04:23.691Z",
-      "sha256": "028a88e7b816ded834d4be33d3939f5c10a6c8bef61d0553d1d996755d7fe950"
+      "capturedAt": "2026-07-28T02:48:34.947Z",
+      "sha256": "37b4fa06ec1b78e6c516fc533a844ae38797fa70ee156a6524959bd6ca29354d"
     },
     {
       "path": "visuals/06-nvda.mp4",
-      "capturedAt": "2026-07-27T21:05:03.951Z",
-      "sha256": "bd34b4780c16e028833daf2e82f8620055cb0a91fddafb7024c8145cc5c8c326"
+      "capturedAt": "2026-07-28T02:50:07.075Z",
+      "sha256": "6b20a10e24bfe042a29a1c7bb3a4968d1f8c22886fc1184a29a7a8d7e9536404"
     },
     {
       "path": "visuals/07-vix.mp4",
-      "capturedAt": "2026-07-27T21:17:38.593Z",
-      "sha256": "e5c4931b441d7f323c2c503adc2a08979a34a6026d455aaf0d7cfea779dd5bdc"
+      "capturedAt": "2026-07-28T02:50:50.555Z",
+      "sha256": "5f64f07dd7e890bddf992b850f5ff872e8ea77fd8c8ce66999f1ca20f236fc77"
     }
   ]
 }
