@@ -126,6 +126,30 @@ def load_waivers(art: Path) -> dict[str, dict]:
     return out
 
 
+def covered(result: dict, waiver: dict) -> bool:
+    """Does this waiver actually cover everything the gate objected to?
+
+    A waiver keyed only by gate name is a blanket. `presentation_gate` checks first frame, first
+    audio, first spoken word, speech gaps, dead spans, freezes and black tail; the operator's
+    2026-07-29 ruling was about ONE of them, a 0.067s freeze overshoot. Waiving the gate would
+    have silently also waived the 4.667s of head-black the same ruling was quoted alongside --
+    the defect that ruling existed to stop mattering.
+
+    So an optional `findings` list names the substrings being forgiven, and EVERY BLOCK line the
+    gate emitted must match one of them. A new finding appearing later is not covered by an old
+    waiver, which is the whole point. Omit `findings` and the waiver is a blanket, deliberately
+    explicit rather than the default.
+    """
+    subs = waiver.get("findings")
+    if not subs:
+        return True
+    blocks = [ln.strip() for ln in result.get("detail", "").splitlines()
+              if ln.strip().startswith("BLOCK:") or ln.strip().startswith("FAIL")]
+    if not blocks:
+        return False  # nothing to match against; a waiver that cannot be checked does not apply
+    return all(any(s.lower() in ln.lower() for s in subs) for ln in blocks)
+
+
 def episode_meta(art: Path) -> dict:
     """Episode identity, with the syllabus number DECLARED rather than inferred.
 
@@ -201,7 +225,7 @@ def run(proj: Path, master: Path | None, only: str | None) -> int:
                  "detail": "render gate with no --master. Source-only runs cannot certify."}
         else:
             r = run_gate(name, where, argv, proj, subs)
-        if r["verdict"] == "BLOCK" and name in waivers:
+        if r["verdict"] == "BLOCK" and name in waivers and covered(r, waivers[name]):
             r["verdict"], r["waiver"] = "WAIVED", waivers[name]
             waived.append(name)
         elif r["verdict"] == "BLOCK":
@@ -231,7 +255,11 @@ def run(proj: Path, master: Path | None, only: str | None) -> int:
         "blocked": blocked, "waived": waived, "gates": results,
     }
     (art / "build").mkdir(exist_ok=True)
-    out = art / "build" / "gate-receipt.json"
+    # A --only run writes BESIDE the real receipt, never over it. Marking a partial receipt as
+    # partial is not enough: writing it to gate-receipt.json destroys a valid full certification
+    # and the episode silently becomes uncertified. Debugging one gate must not decertify a
+    # master.
+    out = art / "build" / ("gate-receipt-partial.json" if only else "gate-receipt.json")
     out.write_text(json.dumps(receipt, indent=2), encoding="utf-8")
     print(f"\n{len(results) - len(blocked) - len(waived)} pass · {len(waived)} waived · "
           f"{len(blocked)} BLOCKED -> {out}")
