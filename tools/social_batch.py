@@ -9,9 +9,10 @@ from datetime import datetime
 from pathlib import Path
 
 try:
-    from tools import script_style_gate
+    from tools import ai_writing_gate, script_style_gate
     from tools.script_approval import load_production_approval, load_script_approval
 except ImportError:  # direct `python tools/social_batch.py` execution
+    import ai_writing_gate
     import script_style_gate
     from script_approval import load_production_approval, load_script_approval
 
@@ -192,6 +193,16 @@ def validate(data):
                 if style["verdict"] != "PASS":
                     details = ", ".join(f"{finding['type']} x{finding['count']}" for finding in style["blocked"])
                     raise ValueError(f"{tag}.{field} script style gate BLOCK: {details}")
+                # Second gate, different question. script_style_gate asks "is this TraderCockpit
+                # doctrine?"; this one asks "did a chatbot write it?" -- the generic AI-isms in
+                # .claude/skills/no-ai-slop/SKILL.md, which until now nothing enforced.
+                slop = ai_writing_gate.audit_text(surface)
+                if slop["verdict"] != "PASS":
+                    details = "; ".join(
+                        f"{finding['type']} x{finding['count']} ({', '.join(finding['examples'])})"
+                        if finding.get("examples") else f"{finding['type']} x{finding['count']}"
+                        for finding in slop["blocked"])
+                    raise ValueError(f"{tag}.{field} ai writing gate BLOCK: {details}")
 
         if item["status"] == "approved":
             if schema == "social-batch/v1":
