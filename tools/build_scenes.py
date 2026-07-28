@@ -74,8 +74,15 @@ CSS = """
        invisible event and only its text registered, which is why three of the hook's
        beats produced nothing measurable and nothing visible. Lifted enough to read as
        a panel arriving, still dark. */
+    /* intro_pace counts a pixel as moved only if it shifts >= 40 grey levels, and needs 26
+       such pixels in a 320x180 frame. #0a0a0b -> #1a1a1f is 16 levels, so a card panel's
+       arrival qualifies ZERO pixels no matter how large the panel is -- which is why all
+       three card bodies were invisible to the meter and nearly so to the eye. This accent
+       rule is #c8b98a on near-black: 180 levels, and 180x8px downsamples to ~39 qualifying
+       pixels. It is also just a better card -- the panel now announces itself. */
     .card{flex:1;background:#1a1a1f;border:1px solid #3a3a45;border-radius:10px;
           padding:34px 32px 30px;opacity:0}
+    .cbar{height:8px;width:180px;background:#c8b98a;border-radius:2px;margin-bottom:26px}
     .lab{font-weight:600;font-size:24px;line-height:1.3;letter-spacing:.13em;
          color:#8f8a84;margin-bottom:18px}
     .val{font-weight:700;font-size:92px;line-height:1.06;letter-spacing:-.02em;color:#f2efe9}
@@ -166,6 +173,7 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
             vcls = "val sm" if len(str(c["value"])) > 9 else "val"
             inner.append(
                 f'      <div data-hf-id="{hid}c{i}" id="s-c{i}" class="card">\n'
+                f'        <div data-hf-id="{hid}a{i}" class="cbar"></div>\n'
                 f'        <div data-hf-id="{hid}l{i}" class="lab">{esc(c["label"])}</div>\n'
                 f'        <div data-hf-id="{hid}v{i}" class="{vcls}">{esc(str(c["value"]))}</div>\n'
                 + (f'        <div data-hf-id="{hid}n{i}" class="note">{esc(c["note"])}</div>\n'
@@ -183,7 +191,7 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
         if spec.get("stagger_parts"):
             for i in range(len(cards)):
                 tw.append(f'    tl.fromTo("#s-c{i}", {{opacity:0, y:26}}, '
-                          f'{{opacity:1, y:0, duration:.55}}, DUR * {nxt(0.20 + i * 0.16):.3f});')
+                          f'{{opacity:1, y:0, duration:.3}}, DUR * {nxt(0.20 + i * 0.16):.3f});')
                 for part, sel in (("l", "lab"), ("v", "val"), ("n", "note")):
                     if part == "n" and not cards[i].get("note"):
                         continue
@@ -193,7 +201,7 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
                     # do -- a small block that moves reads as a reveal, a small block that
                     # brightens reads as nothing.
                     tw.append(f'    tl.fromTo("#s-c{i} .{sel}", {{opacity:0, y:28}}, '
-                              f'{{opacity:1, y:0, duration:.5}}, DUR * {nxt(0.24 + i * 0.16):.3f});')
+                              f'{{opacity:1, y:0, duration:.28}}, DUR * {nxt(0.24 + i * 0.16):.3f});')
         else:
             for i in range(len(cards)):
                 tw.append(f'    tl.fromTo("#s-c{i}", {{opacity:0, y:26}}, '
@@ -204,9 +212,11 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
     # hook straddled the 16-change bar and which side a render landed on was encoder noise.
     for i, t in enumerate(spec.get("ticks") or []):
         add(f'  <div data-hf-id="{hid}k{i}" id="s-tk{i}" class="wrap clip" '
-            # 766 put the third tick's box at 874..922 against a kicker starting at 924,
-            # and the layout checker called the overlap on ep04. 700 leaves 68px clear.
-            f'style="top:{700 + i * 54}px;font-weight:600;font-size:34px;line-height:1.4;'
+            # Ticks stack under the card band and above the kicker, which starts at 924
+            # (bottom:104 + a 52px line box). A fourth tick at 700+3*54 ran to 910 and the
+            # layout checker called the overlap on ep04. 636 + i*52 puts a fourth tick's
+            # box at 792..840 -- 84px clear of the kicker, 71px below the card band.
+            f'style="top:{636 + i * 52}px;font-weight:600;font-size:34px;line-height:1.4;'
             f'letter-spacing:.16em;color:#a9a29a;'
             f'text-align:center" data-start="0.0" data-duration="{d:.3f}" '
             f'data-track-index="{idx}">{esc(t)}</div>', f"#s-tk{i}", nxt(0.50 + i * 0.04), "rise")
