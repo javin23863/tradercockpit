@@ -54,6 +54,36 @@ Use these as editorial checks, not as a detector score.
 - Do not accept a tool’s “human” score as an editorial gate. A script can avoid common tells and still be generic, inaccurate, or lifeless.
 - Do not let a style rewriter touch numbers, named entities, quotations, attributions, probabilities, chart levels, or the causal direction of a claim.
 
+## Superseded in part — operator order, 2026-07-28
+
+The operator instructed: install `github.com/conorbronsdon/avoid-ai-writing` and add it to the
+AI write gates for the social media department. That overrides two recommendations below:
+"do not add a generic humanizer dependency" (Bottom line) and the vale row's "Do not install
+now". The detector is vendored at `tools/vendor/avoid-ai-writing` and wired into
+`tools/social_batch.py` via `tools/ai_writing_gate.py`. Board card `social.ai-writing-gate`.
+
+What this document got right and what still stands, unchanged:
+
+- **"Use these as editorial checks, not as a detector score."** Kept. The gate's BLOCK
+  condition is a list of pattern CATEGORIES, never the detector's 0-100 score, which is
+  carried as an observability metric only. A score threshold would be a number with no
+  evidence behind it until baselined on a corpus of ours.
+- **"Do not accept a tool's 'human' score as an editorial gate."** Kept, same mechanism.
+- **"A word blacklist alone will produce bland copy."** Kept. This is a second gate, not a
+  rewriter: it blocks and names the pattern; it never edits copy, and it cannot touch numbers,
+  named entities or attributions because it has no write path.
+- **The bland-copy risk was measured, not assumed.** Every armed category was surveyed across
+  16 shipped scripts and 93 shipped social copy fields; all 18 were silent. The five
+  categories that DO fire on correct TraderCockpit copy (em-dash, low-ttr,
+  hollow-intensifier, hashtag-stuff, cross-para-burstiness) are demoted to WARN with the
+  reason recorded in `tools/ai_writing_gate.py`.
+- Item 2 below (a warning-only check in the editorial gate) shipped as
+  `tools/script_style_gate.py` and is unaffected — it enforces TraderCockpit doctrine; the new
+  gate enforces generic AI-ism. Two gates, two questions.
+
+Only the "do not take an outside dependency" recommendation is superseded. Everything else
+below is current.
+
 ## Recommended implementation decision
 
 Keep this local and small:
