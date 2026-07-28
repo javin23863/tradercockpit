@@ -223,8 +223,14 @@ def _group(issues: list[dict]) -> dict[str, list[dict]]:
 def _read(target: Path) -> str:
     path = target / "vo.txt" if target.is_dir() else target
     text = path.read_text(encoding="utf-8")
-    if path.name == "vo.txt":  # strip section headers, as script_style_gate does
-        text = "\n".join(line for line in text.splitlines() if not line.startswith("## "))
+    if path.name == "vo.txt":
+        # Spoken lines only. This dropped `## ` headers and kept the `#` provenance header and
+        # the `=== SLOT x -> x.wav ===` markers, so it scored engineering prose as narration --
+        # ep04 BLOCKED on tier1 `robust`, a word that appears twice in its header's own list of
+        # BANNED words and zero times in anything spoken. script_style_gate has always dropped
+        # `#`; this line was written to match it and did not. No threshold changed.
+        text = "\n".join(ln for ln in text.splitlines()
+                         if not ln.lstrip().startswith("#") and not ln.startswith("==="))
     return text
 
 
