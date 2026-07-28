@@ -54,28 +54,13 @@ AD_HIDE_JS = ("(()=>{let n=0;for(const f of document.querySelectorAll("
 # two daily indicators, untouched. The 2026-07-17 white-background override is deleted;
 # forcing a theme also fought the layout the indicators were tuned on.
 
-# A 16:9 chart is later repurposed into 9:16. TradingView's native identity lives
-# at the far left, while the current bar and price axis live at the far right; a
-# vertical crop cannot show both. Promote the live symbol description into the
-# right-side safe area before capture so every downstream frame keeps an accurate,
-# readable identity without relying on an editor to retype it.
-CHART_IDENTITY_JS = ("(()=>{try{const c=TradingViewApi._chartWidgetCollection.activeChartWidget.value();"
-                     "const i=c.model().mainSeries().symbolInfo()||{};"
-                     "const d=String(i.description||i.short_description||i.name||'').trim();"
-                     "const t=String(i.name||'').trim();"
-                     "if(!d)throw new Error('symbol description unavailable');"
-                     "const label=t&&t.toLowerCase()!==d.toLowerCase()?`${d} (${t})`:d;"
-                     "let el=document.getElementById('tradercockpit-chart-identity');"
-                     "if(!el){el=document.createElement('div');el.id='tradercockpit-chart-identity';"
-                     "document.body.appendChild(el)}"
-                     "Object.assign(el.style,{position:'fixed',top:'54px',right:'180px',zIndex:'2147483647',"
-                     "maxWidth:'840px',padding:'10px 16px',background:'rgba(19,23,34,.92)',"
-                     "borderLeft:'6px solid #FF1744',boxShadow:'0 2px 10px rgba(0,0,0,.45)',"
-                     "color:'#EAECEF',font:'700 30px/1.15 Arial,sans-serif',whiteSpace:'nowrap',"
-                     "overflow:'hidden',textOverflow:'ellipsis',pointerEvents:'none'});"
-                     "el.textContent=label;return label}catch(e){return 'ERR '+e.message}})()")
-REMOVE_CHART_IDENTITY_JS = ("(()=>{const el=document.getElementById('tradercockpit-chart-identity');"
-                            "if(el)el.remove();return 'removed'})()")
+# The drawn identity card is GONE (operator ruling 2026-07-28). It existed only because
+# still()'s right-anchored crop sliced TradingView's own symbol off the far left, which
+# is exactly what the operator complained about: "no one can see the ticker symbol, so
+# you have to create your own in the top right-hand corner". still() now fit-scales the
+# whole pane, so the NATIVE legend -- 'S&P 500 Index . 1D . SP' plus OHLC -- is in frame
+# and no substitute label is drawn. A generated label must never stand in for the real
+# one; same principle as the AP masthead fix earlier the same day.
 
 sys.path.insert(0, str(HERE))
 from fetch_tv_charts import TV_CLI, record_chart_capture, tv  # noqa: E402  (same CLI bridge + receipt writer)
@@ -90,13 +75,17 @@ APP_CHROME_PX = 64
 
 def still(png: Path, out: Path, dur: float, dry: bool) -> None:
     """Static hold, NO zoom — zoompan pushed the price axis out of frame (v2 defect).
-    Wider than 16:9 (maximized app, ~2.0): full-height RIGHT-anchored crop keeps the
-    price axis, trims oldest candles. Narrower (unmaximized relaunch, seen 1304x1187):
-    fit-pad instead — scaling a narrow crop straight to 1920x1080 squashes candles."""
-    vf = (f"crop=iw:ih-{APP_CHROME_PX}:0:{APP_CHROME_PX},"    # drop the dark app toolbar strip (visible on white theme)
-          "scale=-2:1080,"                                    # height always 1080
-          "crop='min(iw,1920)':1080:'max(iw-1920,0)':0,"      # wide -> right-crop (keep axis)
-          "pad=1920:1080:(ow-iw)/2:0:black,format=yuv420p")   # narrow -> side pads; dark chart
+    Fit-pad at any pane aspect: the whole chart is letterboxed into 1920x1080 so nothing
+    is ever cropped away."""
+    # Fit the WHOLE pane, never crop it. The old right-anchored crop kept the price axis
+    # but sliced the symbol off the far left, which is why a substitute identity card had
+    # to be drawn — the operator's 2026-07-28 complaint ("no one can see the ticker symbol,
+    # so you have to create your own"). Letterboxing costs some height and keeps the
+    # symbol, the OHLC legend, the price axis and the date axis all in frame, which is
+    # what his reference screenshot shows.
+    vf = (f"crop=iw:ih-{APP_CHROME_PX}:0:{APP_CHROME_PX},"    # drop the dark app toolbar strip
+          "scale=1920:1080:force_original_aspect_ratio=decrease,"
+          "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:black,format=yuv420p")
     if dry:
         print(f"  [dry] ffmpeg still {png.name} -> {out.name} ({dur:.0f}s)")
         return
@@ -136,23 +125,6 @@ def remove_drawings(ids: list[str], dry: bool) -> None:
             print(f"  [warn] failed to remove drawing {sid} — remove manually")
 
 
-def show_chart_identity(dry: bool) -> None:
-    result = tv(["ui", "eval", "--js", CHART_IDENTITY_JS], dry)
-    if dry:
-        return
-    value = str(result.get("result", ""))
-    if not value or value.startswith("ERR "):
-        sys.exit(f"chart identity overlay failed closed: {value or 'empty result'}")
-
-
-def remove_chart_identity(dry: bool) -> None:
-    try:
-        tv(["ui", "eval", "--js", REMOVE_CHART_IDENTITY_JS], dry)
-    except SystemExit:
-        if not dry:
-            print("  [warn] failed to remove chart identity overlay — remove manually")
-
-
 def concat_clips(clips: list[Path], out: Path) -> None:
     lst = out.with_suffix(".txt")
     lst.write_text("".join(f"file '{c.as_posix()}'\n" for c in clips), encoding="utf-8")
@@ -173,7 +145,7 @@ def main() -> int:
                     help="abort a shot if the feed's last bar is not this session "
                          "(bar open-date may stamp the prior calendar day; both accepted). "
                          "Catches replay landing on the wrong date per symbol (2026-07-20 incident).")
-    ap.add_argument("--range-days", type=int, default=0, metavar="N",
+    ap.add_argument("--range-days", type=int, default=245, metavar="N",
                     help="zoom every shot to the last N calendar days (+4d right pad) before "
                          "shooting, and pin the price scale to the visible bars' hi/lo. Mobile "
                          "legibility ruling 2026-07-21: a full-history chart is unreadable on a "
@@ -269,7 +241,6 @@ def main() -> int:
             "(()=>{try{TradingViewApi._chartWidgetCollection.activeChartWidget.value()"
             ".applyOverrides({'scalesProperties.fontSize':17});return 'font'}"
             "catch(e){return 'ERR '+e.message}})()"], a.dry_run)
-        show_chart_identity(a.dry_run)
         if not a.dry_run:
             time.sleep(1)
 
@@ -298,7 +269,6 @@ def main() -> int:
                 clips.append(clip)
         finally:
             remove_drawings(drawn, a.dry_run)
-            remove_chart_identity(a.dry_run)
 
         if not a.dry_run:
             concat_clips(clips, out_mp4)

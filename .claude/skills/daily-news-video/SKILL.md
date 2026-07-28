@@ -150,7 +150,7 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    - Dark chart theme is the shipped look (video-05 onward, operator-approved). The old white-
      background override silently no-ops on current TradingView builds; do not chase it mid-lane.
    - **Mobile legibility standard (operator ruling 2026-07-21 — "I can barely see the numbers"):**
-     every chart capture runs `tv_ta_capture.py` with `--expect-last-bar <session> --range-days 100`
+     every chart capture runs `tv_ta_capture.py` with `--expect-last-bar <session> --range-days 245`
      (zooms to ~100 days so candles are phone-readable; +4d right pad). The tool also bumps
      `scalesProperties.fontSize` to 17 and shoots at `--dsf 2`. A full-history chart is a defect
      even if the levels are correct. Do NOT re-attempt price-scale pinning — `setPriceRangeInPrice`

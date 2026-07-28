@@ -15,6 +15,11 @@ const FIT = process.argv.includes('--fit')  // Alt+R refit: ONLY on the first ca
 // a SAVED replay switches the chart to the saved SYMBOL (hijacked an SPX shot to Brent).
 const [out] = argv
 if (!out) { console.error('usage: cdp_chart_shot.mjs <out.png> [w] [h] [--fit]'); process.exit(1) }
+// Only used as the fallback viewport when the app window is too small to shoot as-is.
+const WIDTH = Number(argv[1]) || 2560
+const HEIGHT = Number(argv[2]) || 1440
+const dsfFlag = process.argv.indexOf('--dsf')
+const DSF = dsfFlag !== -1 ? Number(process.argv[dsfFlag + 1]) || 2 : 2
 
 const AD = `(()=>{let n=0;for(const f of document.querySelectorAll('iframe[src*="safeframe"],iframe[src*="googlesyn"],iframe[src*="doubleclick"]')){let x=f;for(let i=0;i<6&&x.parentElement;i++){const cs=getComputedStyle(x.parentElement);if(cs.position==='fixed'||cs.position==='absolute'){x=x.parentElement}else break}x.style.display='none';n++}return n})()`
 
@@ -22,7 +27,7 @@ console.error('[cdp-shot] connect')
 const browser = await puppeteer.connect({
   browserURL: 'http://127.0.0.1:9222',
   defaultViewport: null,
-  protocolTimeout: 10000,
+  protocolTimeout: 30000,   // 10s timed out once the clip grew to include the date axis
 })
 console.error('[cdp-shot] connected')
 try {
@@ -39,9 +44,26 @@ try {
   const cdp = await page.createCDPSession()
   await cdp.send('Emulation.clearDeviceMetricsOverride')
   await new Promise((r) => setTimeout(r, 800))
-  const viewport = await page.evaluate(() => ({ width: innerWidth, height: innerHeight }))
+  let viewport = await page.evaluate(() => ({ width: innerWidth, height: innerHeight }))
   if (viewport.width < 1200 || viewport.height < 700) {
-    throw new Error(`TradingView chart viewport too small: ${viewport.width}x${viewport.height}`)
+    // The app window is whatever size the operator last left it, and a restored-down
+    // window used to abort the whole capture (2026-07-28: 1477x640 after the window was
+    // resized mid-session). Force the renderer's own viewport instead of demanding the
+    // human maximize it — TradingView re-lays out to the override and the shot is
+    // identical to a genuinely large window.
+    console.error(`[cdp-shot] viewport ${viewport.width}x${viewport.height} too small — overriding to ${WIDTH}x${HEIGHT}`)
+    // deviceScaleFactor 1, not DSF: the override already gives a 2560-wide render, and
+    // 2560x1440 at dsf 2 is a 14 MP capture that blows Page.captureScreenshot's timeout.
+    // 2560 downsamples to the 1920 master cleanly.
+    await cdp.send('Emulation.setDeviceMetricsOverride', {
+      width: WIDTH, height: HEIGHT, deviceScaleFactor: 1, mobile: false,
+    })
+    await new Promise((r) => setTimeout(r, 1500))
+    viewport = await page.evaluate(() => ({ width: innerWidth, height: innerHeight }))
+    if (viewport.width < 1200 || viewport.height < 700) {
+      throw new Error(`TradingView chart viewport still too small after override: `
+        + `${viewport.width}x${viewport.height}`)
+    }
   }
   console.error(`[cdp-shot] viewport ${viewport.width}x${viewport.height}`)
   // park pointer off the chart canvas — a hovering crosshair swaps the OHLC header
@@ -72,9 +94,17 @@ try {
       if (r.width * r.height > area && r.width > 600 && r.height > 400) { area = r.width * r.height; best = r }
     }
     if (!best) return null
-    // extend right to include the price axis (~70px), keep top header
-    return { x: Math.max(0, best.x - 2), y: Math.max(0, best.y - 42),
-             width: best.width + 78, height: best.height + 44 }
+    // Union in the time-axis canvas that sits directly under the pane. Operator ruling
+    // 2026-07-28: his reference screenshot shows the date axis (Dec / Feb / Mar / ...),
+    // and without it a viewer cannot tell what period is on screen.
+    // extend right for the price axis (~70px), up for the header, and down far enough to
+    // include the DATE axis — the operator's reference screenshot shows it, and without
+    // it a viewer cannot tell what period is on screen (ruling 2026-07-28). Kept as a
+    // fixed margin rather than a canvas union: the union picked up stray offscreen
+    // canvases and the resulting giant clip made captureScreenshot time out.
+    const top = Math.max(0, best.y - 42)
+    return { x: Math.max(0, best.x - 2), y: top, width: best.width + 78,
+             height: Math.min(best.height + 76, innerHeight - top) }
   })
   // re-park right before the shot — the OS cursor (operator's real mouse) can wander
   // onto the canvas during the reflow sleeps and repaint a crosshair
