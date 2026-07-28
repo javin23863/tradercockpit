@@ -50,24 +50,35 @@ def esc(s: str) -> str:
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
+# NEVER use the `font:` shorthand here. `font: 700 74px/1.14 inherit` is INVALID CSS -- the
+# shorthand requires a real font-family as its last component and `inherit` is not one -- so the
+# browser drops the WHOLE declaration, size and weight with it, and every element falls back to
+# the 16px default. Two full episodes rendered that way on 2026-07-28 before anyone looked at a
+# frame: ep03's 74px title measured 16px on the master, `intro_pace` read 2 visual changes in
+# 25s instead of 18 because 16px text barely moves a pixel histogram, and the self-check below
+# "passed" the whole time because it only looked for the `<size>/<line-height>` pattern.
+# Longhand, always. It cannot be silently invalid.
 CSS = """
     *{margin:0;padding:0;box-sizing:border-box}
     #root{position:absolute;inset:0;background:#0a0a0b;overflow:hidden;
           font-family:'Inter','Helvetica Neue',Arial,sans-serif;color:#e8e6e2}
     .wrap{position:absolute;left:50%%;transform:translateX(-50%%);width:%(w)dpx}
     /* every rule that sets a large size sets a line-height with it. */
-    .title{top:96px;font:700 74px/1.14 inherit;letter-spacing:-.015em;color:#f2efe9;opacity:0}
-    .sub{top:196px;font:500 34px/1.32 inherit;letter-spacing:.10em;color:#8c8781;opacity:0}
+    .title{top:96px;font-weight:700;font-size:74px;line-height:1.14;
+           letter-spacing:-.015em;color:#f2efe9;opacity:0}
+    .sub{top:196px;font-weight:500;font-size:34px;line-height:1.32;
+         letter-spacing:.10em;color:#8c8781;opacity:0}
     .band{top:300px}
     .row{display:flex;gap:34px;justify-content:center;align-items:stretch}
     .card{flex:1;background:#131315;border:1px solid #24242a;border-radius:10px;
           padding:34px 32px 30px;opacity:0}
-    .lab{font:600 24px/1.3 inherit;letter-spacing:.13em;color:#8f8a84;margin-bottom:18px}
-    .val{font:700 92px/1.06 inherit;letter-spacing:-.02em;color:#f2efe9}
-    .val.sm{font:700 62px/1.1 inherit}
-    .note{font:400 25px/1.42 inherit;color:#9a938c;margin-top:18px}
-    .kick{bottom:104px;font:600 40px/1.3 inherit;letter-spacing:.02em;color:#c8b98a;
-          text-align:center;opacity:0}
+    .lab{font-weight:600;font-size:24px;line-height:1.3;letter-spacing:.13em;
+         color:#8f8a84;margin-bottom:18px}
+    .val{font-weight:700;font-size:92px;line-height:1.06;letter-spacing:-.02em;color:#f2efe9}
+    .val.sm{font-weight:700;font-size:62px;line-height:1.1}
+    .note{font-weight:400;font-size:25px;line-height:1.42;color:#9a938c;margin-top:18px}
+    .kick{bottom:104px;font-weight:600;font-size:40px;line-height:1.3;letter-spacing:.02em;
+          color:#c8b98a;text-align:center;opacity:0}
     .rule{position:absolute;left:50%%;transform:translateX(-50%%);width:%(w)dpx;height:1px;
           background:#26262c;opacity:0}
     /* Kling returns 1280x720; without this a clip lays out at intrinsic size in the corner. */
@@ -184,7 +195,8 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
     # hook straddled the 16-change bar and which side a render landed on was encoder noise.
     for i, t in enumerate(spec.get("ticks") or []):
         add(f'  <div data-hf-id="{hid}k{i}" id="s-tk{i}" class="wrap clip" '
-            f'style="top:{770 + i * 46}px;font:600 27px/1.4 inherit;letter-spacing:.16em;color:#8b8680;'
+            f'style="top:{770 + i * 46}px;font-weight:600;font-size:27px;line-height:1.4;'
+            f'letter-spacing:.16em;color:#8b8680;'
             f'text-align:center" data-start="0.0" data-duration="{d:.3f}" '
             f'data-track-index="{idx}">{esc(t)}</div>', f"#s-tk{i}", nxt(0.50 + i * 0.04), "rise")
 
@@ -214,7 +226,13 @@ def main() -> int:
         assert len(lits) == n == 6, (len(lits), n)
         assert "DUR * c[" not in html and "DUR *" in html
         assert html.count('data-start="0.0"') >= 4, "clips must share one full-scene window"
-        assert re.search(r"font:\s*\d+\s+\d+px/[\d.]+", CSS), "large type needs a line-height"
+        # This used to look for `font: <weight> <size>px/<lh>` and passed on a shorthand ending
+        # in `inherit`, which no browser applies. Assert what actually has to be true: no `font:`
+        # shorthand at all, and every font-size carries a line-height.
+        assert "font:" not in CSS and "font:" not in html, "use longhand -- see the note on CSS"
+        sizes = re.findall(r"font-size:\s*(\d+)px", CSS)
+        assert len(sizes) >= 6 and CSS.count("line-height:") >= len(sizes),             "every font-size needs a line-height beside it"
+        assert max(int(x) for x in sizes) >= 74, "the title must be a headline, not body copy"
         assert all(0.0 <= float(x) <= 1.0 for x in lits), "positions must be fractions of DUR"
         print(f"build_scenes selftest ok — {n} tweens, all DUR * <literal>, one window, "
               "line-heights present")
