@@ -17,7 +17,12 @@ SCHEMA = "tradercockpit-scene-plan/v1"
 # Predicates a viewer can see as a horizontal line. Mirrors the price entries of
 # claims_gate.FEED_PREDICATES, kept local so this gate carries no import-order dependency.
 LEVEL_PREDICATES = {"prior_open", "prior_high", "prior_low", "prior_close",
-                    "session_open", "session_high", "session_low", "session_close"}
+                    "session_open", "session_high", "session_low", "session_close",
+                    # swing levels are horizontal lines too; a trendline is not, so
+                    # trendline_anchor / trendline_projection stay out on purpose
+                    "swing_high", "swing_low"}
+# Sources that attribute a claim to one instrument via a `#SYMBOL` fragment.
+RECEIPT_SOURCE_RE = re.compile(r"(ohlcv-feed|swing)-receipts")
 # Proper names only. "technology" is deliberately absent: it is a sector concept, not a
 # ticker, and aliasing it to XLK fires on nearly every section.
 INSTRUMENT_ALIASES = {
@@ -216,7 +221,8 @@ def check_level_binding(production):
         for section in sections:
             for receipt in receipts.get(section, []):
                 claim = claims.get(receipt.get("claim")) or {}
-                if not symbol or symbol not in str(claim.get("source", "")):
+                source = str(claim.get("source", ""))
+                if not symbol or not RECEIPT_SOURCE_RE.search(source) or symbol not in source:
                     continue
                 if claim.get("predicate") not in LEVEL_PREDICATES:
                     continue
@@ -289,7 +295,7 @@ def check_spoken_visible(production):
             quote = _norm(receipt.get("quote"))
             if quote and quote in narration:
                 source = str((claims.get(receipt.get("claim")) or {}).get("source", ""))
-                if "ohlcv-feed-receipts" in source and "#" in source:
+                if RECEIPT_SOURCE_RE.search(source) and "#" in source:
                     spoken.add(source.split("#", 1)[1])
         lowered = narration.lower()
         for symbol, names in INSTRUMENT_ALIASES.items():

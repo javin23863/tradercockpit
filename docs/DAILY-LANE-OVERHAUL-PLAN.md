@@ -17,7 +17,8 @@
 | News capture — masthead kept, consent modals killed, unfound highlight throws | **SHIPPED** | `880daa5` |
 | visual_qa — per-beat frame review, zero-inspection hard fail | **SHIPPED** | `880daa5` |
 | A1 step 1 — "Scale price chart only" | **not needed yet**: A4 has not fired since the window fix; it is the documented remedy when it does |
-| A6 multi-timeframe, A7 trendlines | **OPEN** — generation work, belongs in the next run's chart plan |
+| A7 — trendlines + swing levels, generated with receipts | **SHIPPED** | `tools/visuals/swing_levels.py` |
+| A6 multi-timeframe | **OPEN** — W/D/60 capture plus TF-qualified subjects; the level gates key on symbol alone, so a weekly chart of a symbol already charted daily needs a rule before it ships |
 | C1-C3 PVC | **OPEN** — blocked on Open Decision 2 (only ~2.3 min of genuine operator audio; 30-min floor) |
 | C7/OD3 tier | **OPEN and closing** — 98,678 of 130,984 chars left on 2026-07-28, about 9-10 nights |
 

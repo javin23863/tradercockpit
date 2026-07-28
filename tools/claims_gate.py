@@ -34,6 +34,11 @@ TOKEN_RE = re.compile(r"\d+|[A-Za-z]+")
 WS_RE = re.compile(r"\s+")
 
 FEED_SOURCE_RE = re.compile(r"ohlcv-feed-receipts")
+SWING_SOURCE_RE = re.compile(r"swing-receipts")
+# Swing claims resolve against swing-receipts-<date>.json, whose instruments carry the
+# clustered levels, the raw pivots and the audited trendlines. Value is checked against the
+# matching structure, so "the line comes in at 7,383" cannot be a number someone liked.
+SWING_PREDICATES = {"swing_high", "swing_low", "trendline_anchor", "trendline_projection"}
 # Closed vocabulary for feed-sourced claims. The tuple is the path inside dashboard.<SYMBOL>
 # that the claim's value must match; None = arithmetic over two fields, nothing single to
 # cross-check. An unlisted predicate BLOCKS: it would otherwise be a free hole in check 6.
@@ -160,8 +165,9 @@ def parse_as_of(v):
 def run_checks(sections, claims, receipts, today=None, feed_receipts=None):
     """Core gate logic, file-format-agnostic. Returns (blocked, warns).
 
-    `feed_receipts` maps a receipt FILENAME to its parsed JSON, so a claim source of
-    `ohlcv-feed-receipts-<date>.json#SP:SPX` resolves exactly."""
+    `feed_receipts` maps a receipt FILENAME to its parsed JSON -- both the session feed
+    (`ohlcv-feed-receipts-<date>.json#SP:SPX`) and the swing levels
+    (`swing-receipts-<date>.json#SP:SPX`) -- so either source resolves exactly."""
     today = today or datetime.date.today()
     blocked, warns = [], []
 
@@ -276,6 +282,47 @@ def run_checks(sections, claims, receipts, today=None, feed_receipts=None):
         elif round(float(expected), decimals(c["value"])) != actual:
             blocked.append({"type": "feed_schema", "detail": f"claim {cid} value {c['value']} != receipt {dotted} {expected}"})
 
+    # 6b. swing claims: predicate from the swing vocabulary, instrument resolving under the
+    # swing receipt's `instruments`, and a value that matches the structure the predicate
+    # names -- a clustered level or raw pivot for swing_high/swing_low, an anchor or the
+    # projection for the trendline pair.
+    for c in claims:
+        src = str(c.get("source", ""))
+        if not SWING_SOURCE_RE.search(src):
+            continue
+        cid = c.get("id", "<no id>")
+        if "#" not in src:
+            blocked.append({"type": "swing_schema", "detail": f"claim {cid} cites swing levels with no #instrument fragment"})
+            continue
+        filename, frag = src.split("#", 1)
+        pred = c.get("predicate")
+        if pred not in SWING_PREDICATES:
+            blocked.append({"type": "swing_schema",
+                            "detail": f"claim {cid} predicate {pred!r} is outside the swing vocabulary"})
+        entry = ((feed_receipts.get(filename) or {}).get("instruments") or {}).get(frag)
+        if entry is None:
+            blocked.append({"type": "swing_schema", "detail": f"claim {cid} instrument {frag} is not in {filename}"})
+            continue
+        instrument_of[cid] = frag
+        value = to_float(c.get("value"))
+        if value is None:
+            blocked.append({"type": "swing_schema", "detail": f"claim {cid} value {c.get('value')!r} is not numeric"})
+            continue
+        places = decimals(c["value"])
+        if pred in {"swing_high", "swing_low"}:
+            side = "high" if pred == "swing_high" else "low"
+            candidates = [level["price"] for level in entry.get("levels", []) if level.get("kind") == side]
+            candidates += [p["price"] for p in entry.get("pivots", []) if p.get("kind") == side]
+        elif pred == "trendline_anchor":
+            candidates = [price for line in entry.get("trendlines", [])
+                          for price in (line.get("price"), line.get("price2"))]
+        else:
+            candidates = [line.get("projectedNow") for line in entry.get("trendlines", [])]
+        if not any(candidate is not None and round(float(candidate), places) == value
+                   for candidate in candidates):
+            blocked.append({"type": "swing_schema",
+                            "detail": f"claim {cid} value {c['value']} matches no {pred} in {filename}#{frag}"})
+
     # 7. recital cap per (section, instrument). Attribution is the `#` fragment, never
     # `subject` -- `subject` is optional (see REQUIRED_CLAIM_FIELDS), so a writer could split
     # one instrument across spellings and duck the cap.
@@ -301,7 +348,10 @@ def run_checks(sections, claims, receipts, today=None, feed_receipts=None):
         elif isinstance(node, (int, float)) and not isinstance(node, bool):
             feed_values.add(round(float(node), 4))
     for c in claims:
-        if FEED_SOURCE_RE.search(str(c.get("source", ""))):
+        source = str(c.get("source", ""))
+        # A swing level IS often a session extreme -- the day's high is a pivot high. Those
+        # are checked by 6b against their own receipt, so exempt them or every one warns.
+        if FEED_SOURCE_RE.search(source) or SWING_SOURCE_RE.search(source):
             continue
         v = to_float(c.get("value"))
         if v is not None and round(v, 4) in feed_values:
@@ -324,9 +374,10 @@ def gate(vid_dir):
     with open(receipts_path, encoding="utf-8") as f:
         receipts = yaml.safe_load(f) or {}
     feed_receipts = {}
-    for path in sorted(glob.glob(os.path.join(vid_dir, "ohlcv-feed-receipts*.json"))):
-        with open(path, encoding="utf-8") as f:
-            feed_receipts[os.path.basename(path)] = json.load(f)
+    for pattern in ("ohlcv-feed-receipts*.json", "swing-receipts*.json"):
+        for path in sorted(glob.glob(os.path.join(vid_dir, pattern))):
+            with open(path, encoding="utf-8") as f:
+                feed_receipts[os.path.basename(path)] = json.load(f)
 
     blocked, warns = run_checks(sections, claims, receipts, feed_receipts=feed_receipts)
 
@@ -430,7 +481,38 @@ def selftest():
     assert blocked == [], f"laundering must not block, got {blocked}"
     assert any(w["type"] == "laundering" for w in warns), "expected laundering warn"
 
-    print("selftest: 6/6 PASS")
+    # 7. swing claims resolve against the swing receipt, not the session feed
+    swing = {"swing-receipts-test.json": {"instruments": {"SP:SPX": {
+        "levels": [{"price": 7525.94, "kind": "high", "touches": 2},
+                   {"price": 7294.18, "kind": "low", "touches": 1}],
+        "pivots": [{"time": 1, "price": 7581.5, "kind": "high"}],
+        "trendlines": [{"kind": "support", "price": 6343.86, "price2": 7294.18,
+                        "projectedNow": 7383.41, "broken": False}],
+    }}}}
+    def swing_case(pairs, source="swing-receipts-test.json#SP:SPX"):
+        cs = [{"id": f"s{i}", "value": v, "as_of": "2026-07-28", "source": source,
+               "retrieved_at": "2026-07-28", "status": "verified", "predicate": p}
+              for i, (p, v) in enumerate(pairs)]
+        text = " ".join(f"Line {c['value']} matters." for c in cs)
+        rs = [{"quote": f"Line {c['value']} matters.", "claim": c["id"]} for c in cs]
+        return run_checks({"01": text}, cs, {"01": rs}, feed_receipts=swing)
+
+    blocked, warns = swing_case([("swing_high", 7525.94), ("swing_low", 7294.18),
+                                 ("trendline_projection", 7383.41), ("trendline_anchor", 6343.86)])
+    assert blocked == [], f"expected receipted swing levels to pass, got {blocked}"
+    assert not any(w["type"] == "laundering" for w in warns), warns
+    # a pivot the receipt carries but never clustered into a level still resolves
+    assert swing_case([("swing_high", 7581.5)])[0] == []
+    # a level nobody measured
+    blocked, _ = swing_case([("swing_high", 7500.0)])
+    assert any(b["type"] == "swing_schema" for b in blocked), "expected unmatched-level block"
+    # a support price claimed as a high
+    blocked, _ = swing_case([("swing_high", 7294.18)])
+    assert any(b["type"] == "swing_schema" for b in blocked), "expected wrong-side block"
+    blocked, _ = swing_case([("made_up", 7525.94)])
+    assert any(b["type"] == "swing_schema" for b in blocked), "expected predicate block"
+
+    print("selftest: 11/11 PASS")
 
 
 if __name__ == "__main__":

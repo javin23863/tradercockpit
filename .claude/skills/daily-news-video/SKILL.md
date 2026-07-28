@@ -185,6 +185,27 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    citing an uncaptured chart is a defect (2026-07-17 incident). Levels talk is conditions and
    invalidations off today's close ("watch X if and only if Y breaks"), never predictions.
 
+   **Derive the levels and trendlines first — do not eyeball them.**
+   ```
+   PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe tools/visuals/swing_levels.py \
+       productions/daily-<date> --symbols SP:SPX NASDAQ:NVDA ... --tf 1D --count 245 --emit-draw
+   ```
+   Writes `swing-receipts-<date>.json` and prints `draw` blocks ready to merge into the chart
+   plan's stages. It finds 7-bar fractal pivots, clusters them into at most three levels per
+   side WITHIN 8% of the last close (a level 10% away is history — the first run surfaced SPX
+   levels at 6,550 with price at 7,413, true and useless), and fits the best trendline through
+   two same-side pivots spanning ≥15 bars with a recent second anchor. **Never "the last two
+   pivots"** — that produced a 7-bar squiggle. Every trendline carries `spanBars`, `touches`,
+   `broken` and `projectedNow`: quote the projection, and never call a broken line intact.
+   A level's `kind` is where it came from, `position` is what it is now — a swing low price has
+   closed below is resistance today, and calling it support is wrong on the page.
+
+   Cite these through `swing-receipts-<date>.json#<SYMBOL>` with predicates `swing_high`,
+   `swing_low`, `trendline_anchor`, `trendline_projection`. `claims_gate` checks each value
+   against the receipt's own structure and BLOCKs a wrong-side or unmeasured number; swing
+   levels count toward the recital cap like feed claims, and `swing_high`/`swing_low` are
+   levels for the drawn↔spoken binding, while trendline anchors are exempt from it.
+
    Capture mechanics (deterministic — do not rely on judgment; 2026-07-20 incidents):
    - **No TV replay for post-close captures.** Between the 16:00 ET cash close and the futures
      reopen (~18:00 ET US10Y/indices feeds, 20:00 ET energy), the native last bar IS the settled
