@@ -1,3 +1,10 @@
+> ## SUPERSEDED ON THE SLATE — 2026-07-28d
+> This document describes **ep03 as timing and ep04 as cost**. Both are WRONG as of
+> `SESSION-HANDOFF-2026-07-28d-slate-correction-and-vault-gates.md`. The operator corrected the
+> slate to follow the 12-phase pipeline: **ep03 = phase04_cost (slippage), ep04 = phase06_mc_param**.
+> `phase03_timing` is parked. Everything below about ep02/v41 still stands; everything about the
+> slate does not. Read 28d first.
+
 # SESSION HANDOFF — 2026-07-28c · ep02 v41, the skill amendments, and the four-video batch
 
 > **STATUS 2026-07-28 17:45.** `ep02-v41-final.mp4` is rendered, muxed and gated. **One gate
