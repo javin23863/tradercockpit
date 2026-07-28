@@ -70,7 +70,11 @@ CSS = """
          letter-spacing:.10em;color:#8c8781;opacity:0}
     .band{top:300px}
     .row{display:flex;gap:34px;justify-content:center;align-items:stretch}
-    .card{flex:1;background:#131315;border:1px solid #24242a;border-radius:10px;
+    /* #131315 on a #0a0a0b field is a box you cannot see: the card's own reveal was an
+       invisible event and only its text registered, which is why three of the hook's
+       beats produced nothing measurable and nothing visible. Lifted enough to read as
+       a panel arriving, still dark. */
+    .card{flex:1;background:#1a1a1f;border:1px solid #3a3a45;border-radius:10px;
           padding:34px 32px 30px;opacity:0}
     .lab{font-weight:600;font-size:24px;line-height:1.3;letter-spacing:.13em;
          color:#8f8a84;margin-bottom:18px}
