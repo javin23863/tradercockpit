@@ -183,8 +183,13 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
                 for part, sel in (("l", "lab"), ("v", "val"), ("n", "note")):
                     if part == "n" and not cards[i].get("note"):
                         continue
-                    tw.append(f'    tl.fromTo("#s-c{i} .{sel}", {{opacity:0}}, '
-                              f'{{opacity:1, duration:.4}}, DUR * {nxt(0.24 + i * 0.16):.3f});')
+                    # A pure opacity fade on a 24px label is a change nobody sees and nothing
+                    # measures: ep03's hook authored 19 beats and intro_pace found 12, and the
+                    # seven it missed were all part-fades. The parts RISE now, same as the cards
+                    # do -- a small block that moves reads as a reveal, a small block that
+                    # brightens reads as nothing.
+                    tw.append(f'    tl.fromTo("#s-c{i} .{sel}", {{opacity:0, y:28}}, '
+                              f'{{opacity:1, y:0, duration:.5}}, DUR * {nxt(0.24 + i * 0.16):.3f});')
         else:
             for i in range(len(cards)):
                 tw.append(f'    tl.fromTo("#s-c{i}", {{opacity:0, y:26}}, '
