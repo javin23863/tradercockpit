@@ -507,3 +507,174 @@ slot now: **13.6s -> 4.07s**. Commit `aa423b5`.
 4. ep01 retime + fresh whisper_back + re-render (clone 7:07 vs recorded 9:06)
 5. `social-surface-audit` and the §(f) recalibration, which now owns `ai_tell_gate` and
    `cut_census`
+
+---
+
+## §14 — 2026-07-29: a BLOCK that did not block, and four gates measuring the wrong subject
+
+Operator, on being shown ep03/ep04 masters alongside a red `ai_tell_gate`:
+
+> *"If they didn't pass the AI gate, how did they get mastered? That means you're skipping a
+> gate. That needs to get fixed."*
+
+### 14.1 The trap — there was no place where the chain ran
+
+Not carelessness, structure. Fifteen gates were fifteen hand-typed commands whose verdicts
+lived in scrollback, and the master was a hand-typed `ffmpeg` mux that could not know about any
+of them. The one fail-closed finisher this series has — `tools/finish_master.sh`, whose header
+reads *"if the presentation gate blocks, NOTHING downstream runs"* — exists in series-01 and
+series-02 and **was never copied into series-03 or series-04**. A chain that shrinks silently
+when a directory is copied is not a chain.
+
+`tools/episode_gate.py` (repo-side, version-controlled) is the missing place:
+
+    py tools/episode_gate.py run <episode-dir> --master <mp4>
+    py tools/episode_gate.py verify <master.mp4>       # what an uploader calls
+    py tools/episode_gate.py --demo                    # must fail on purpose, twice
+
+Three rules:
+
+1. **A gate named in the chain but absent from disk BLOCKS.** Skipping a missing gate is the
+   same bypass as deleting it, and deleting it is exactly what happened.
+2. **Non-zero exit, crash and timeout all BLOCK.** A gate that cannot decide has not passed.
+3. **A red clears only through a waiver carrying the operator's ruling verbatim**
+   (`artifacts/waivers.json`). A malformed or unreadable waiver blocks; it is never ignored.
+
+The receipt records the **sha256 of the master it certified**, so it cannot outlive the file.
+Re-mux and `verify` refuses. That property is what makes hand-mastering detectable.
+
+### 14.2 What the first run found, none of which was known
+
+| finding | shape |
+|---|---|
+| `term_gate` had never run on ep03 | not in any prior gate record |
+| `presentation_gate` was **crashing** on ep03/ep04 | `TypeError`, not a verdict — see 14.4 |
+| ep01 has no `packaging.json` | so `packaging_gate` has **never** run on it |
+| ep02 had no `slop_gate.py`, no `thumb_gate.py` | neither gate had ever run on that episode |
+| `slop_gate` inspected **0 files and printed "clean"** | wrong root; the chain logged a PASS |
+| the runner guessed ep03's syllabus number | see 14.3 — it now refuses to guess |
+
+### 14.3 The runner fell into the trap its own comment warned about
+
+`term_gate` takes the **syllabus** number, and this slate is offset from the syllabus: ep03 is
+`phase04_cost` = `## Ep04`, ep04 is `phase06_mc_param` = `## Ep05`. The first cut defaulted it
+to the episode number and carried a comment saying an inferred wrong number makes term_gate
+check the wrong contract. It then did exactly that: ep03 was checked against `## Ep03`
+(`phase03_timing`) and BLOCKED on *split sample*, *session half*, *regime* — timing terms from
+an episode this is not. **A default that is right three times in four is worse than no default**,
+because the fourth is a confident wrong verdict. `syllabus_episode` is now a required field in
+`packaging.json` and missing it is a hard stop.
+
+### 14.4 `presentation_gate` — the void gate, and what it was hiding
+
+`_voice_stem()` looked only in `tools/clean/` for two ep01/ep02-era filenames. ep03 and ep04
+have no cleanup stage and no `clean/` — `build_bed.py` demuxes the voice to `bed/voice.wav`. So
+`first_word_s` was `None`. Then the second half: the comparisons are **arguments** to
+`check()`, so Python evaluated `None <= 2.0` before `check()` could return its UNKNOWN verdict,
+and the gate died with a traceback. Both halves fixed (stem lookup widened, a `le()` helper
+makes all 8 comparisons None-safe).
+
+With it working, the gate immediately produced the operator's own complaint as a hard finding:
+
+    BLOCK: first non-black frame: 4.667 (need <= 0.1s)
+    BLOCK: longest frozen picture: 4.067 (need <= 4.0s)
+
+Its speech checks had been void on both new masters and are now real.
+
+### 14.5 `ai_tell_gate` — 91% false-positive rate on known-good work
+
+It blocked all four episodes. The falsifiable question is not "are the scripts bad" but "what
+would this say about work known to be good", so 91 **human** finance-education transcripts were
+scored against the market-recap profile:
+
+    BLOCK 83 of 91 (91%).   unseen-bigram median 36.1%, p95 52.4%, bar 45.3%
+
+A detector that refuses nine of ten known-good documents is not measuring those documents. It
+was asking *"is this a daily market recap?"*, and a lesson on parameter stress is legitimately
+not one — `backtesting`, `curve-fitting`, `percentile`, `carlo` are out-of-register in a corpus
+that has never discussed them and are **the subject here**.
+
+The corpus is now per-register and declared at the call site (`--register market|teach`).
+**This is not a loosening** — the teach limits are that corpus's own leave-one-out p95 and are
+*tighter* on two of three:
+
+| limit | market | teach |
+|---|---|---|
+| copula | 6.1 | **5.0** |
+| unseen bigrams | 45.3 | 46.2 |
+| out-of-register | 36 | **34** |
+
+Two-way control, and the reason this is not a rubber stamp:
+
+| real transcripts | vs market profile | vs teach profile |
+|---|---|---|
+| market recaps (422) | ~5% block *(p95 by construction)* | **84% BLOCK** |
+| finance education (91) | **91% BLOCK** | ~5% block *(p95 by construction)* |
+
+**Stated ceiling, because the name overclaims:** this measures REGISTER, not authorship. It
+cannot separate a human teaching script from a machine one written in the same register.
+`ai_writing_gate` is the detector aimed at authorship. Read the two together.
+
+One `ESSAY_PATTERNS` entry was deleted: `(that|this) is (the|a|what|why|where|how)` fires on
+**78 of 91** known-good transcripts. It is how any human explains anything out loud. The other
+five fire on 0–3% and are untouched — ep04 failed on one of them (`the whole point of`), the
+line was rewritten and that slot re-voiced. Reproduce any of this with `--calibrate-patterns`.
+
+**All four episodes now PASS `ai_tell_gate`.**
+
+### 14.6 The dark card — measured before it was fixed
+
+The earlier claim that all four episodes open on a dark title card was wrong.
+
+| episode | first non-black frame | verdict |
+|---|---|---|
+| ep01 | passes | opens on terrain + `+$78,420` then `−$9,229`, series mark. Matches its thumbnail |
+| ep02 | passes | **no dark card**; its opening carries the thumbnail's WORDS but not its plate |
+| ep03 | **4.667s** | BLOCK |
+| ep04 | **4.333s** | BLOCK |
+
+Cause is in the generator, not the episodes: every element in `build_scenes.py` fades in from
+`opacity:0`, so **frame 0 of any generated scene is a black field by construction**. Scenes now
+take a `plate` — the thumbnail's own image, opaque from frame one, never fading in, fading
+*down* after a 5.0s hold. Five seconds is the vault's number (`GTM/Social-Media-Library/YouTube
+Intro & Hook — House Reference.md` Step 2 makes *first shot matches thumbnail* and *inside 5.0s*
+two BLOCKERS, not notes).
+
+**Render trap:** as a CSS `filter:` plus an `::after` vignette that is two full-screen
+compositing layers recomputed every frame in every worker, and the render died at 30% with all
+five Chrome workers returning `Protocol error (Page.captureScreenshot): Unable to capture
+screenshot`. The grade is baked into the PNG instead — same look, none of the per-frame cost:
+
+    ffmpeg -i plate.png -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,
+            eq=saturation=0.32:contrast=1.18:brightness=-0.09,vignette=a=1.1"
+
+### 14.7 The zero-inspection pass, shipped for the second time
+
+`slop_gate` globs `<root>/hyperframes/compositions/*.html` and `<root>/artifacts/*`. Handed
+`artifacts/` every glob misses, and it printed `0 file(s) ... clean` and returned 0. It now
+returns 3 on zero files. Given the right root: ep02 13 files clean, ep03 15 clean, ep04 15
+clean — the false PASS was not hiding a defect, but it was not evidence either.
+
+This is the second zero-inspection pass on this series; the first was `broll_conflicts` passing
+by detecting nothing. **Silence is not evidence of absence.**
+
+### 14.8 Operator rulings recorded
+
+- ep02 `cut_census` — **accepted**. 21 holds over the 15s cap. Recorded in
+  `series-02/artifacts/waivers.json` with the ruling verbatim.
+- ep02 `script_style_gate` — **left standing**, no re-voice. Same file.
+- `longest frozen picture 4.067 vs 4.0` — ruled instrument noise. Expected to clear on its own
+  with the plate fade, which is a real visual event.
+
+### 14.9 Stated ceilings
+
+- **The waiver ledger lives in `OpenMontage/`, which is gitignored.** So do all 20 episode gate
+  scripts. Four near-identical copies of each gate exist and every fix in this session had to be
+  applied three times by hand. That duplication is the disease behind several findings here.
+- ep01 cannot be certified: no `packaging.json`, and its packaging is genuinely unresolved — the
+  publish sheet title is *"You Don't Have a Trading Strategy — You Have a Backtest"* while the
+  first spoken line is *"I optimized the Golden Cross… That was the mistake."* Those do not
+  match, and the episode already carries four open operator calls. No record was fabricated to
+  make a gate run.
+- `cut_census`'s 15s cap is still unvalidated. It BLOCKS ep03 at 8 holds and ep04 at 10 while
+  the accepted ep02 has 21. Owned by the §(f) recalibration.
