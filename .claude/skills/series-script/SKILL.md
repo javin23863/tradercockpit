@@ -111,7 +111,8 @@ contractions and all — teleprompter-ready. Every SCREEN cell names its artifac
 But/therefore chaining between beats; no "and then".
 Word budget: on-camera natural pace ≈ 145–160 wpm → 8–12 min ≈ **1,200–1,900 words**.
 <!-- ponytail: 145-160 wpm is a prior, not a measurement — time the operator's first recording
-     and calibrate the band; the daily lane's 197 wpm is the CLONE rate, do not reuse it -->
+     and calibrate the band; the daily lane's MEASURED clone rate is 145 wpm (the old 197 figure
+     was wrong and produced a 14.3 min master), and it is a CLONE rate — do not reuse it -->
 
 **7. Visual column spec.** Attention graphics, rendered at production (OpenMontage/matplotlib/
 plotly — no new engine). When E1 hits rendering, build ONE reusable `tools/mc_visuals.py` (fan /

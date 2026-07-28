@@ -16,12 +16,14 @@ is $0.
   The subject is the session that just closed; the next session is the outlook, not the lead.
   No product pitch in narration.
 - One story, one portfolio thesis, **10–12 minutes ALWAYS** (operator 2026-07-21: ad inventory —
-  mid-rolls — not editorial preference). MEASURED clone rate is **~197 wpm** (2026-07-21: 1,931
-  words rendered 9:47 — under the floor; 2,049 words rendered 10:24), so the band is
-  **2,000–2,350 words**; size the script with this number before TTS and expand thin sections
-  rather than shipping short. After the VO stage, ffprobe `build/vo-full.wav` BEFORE assemble —
-  if it is under 10:00, extend sections with already-receipted unused claim facts and re-record
-  only the changed sections (delete their `vo-NN.wav` + `vo-full.wav`; the runner reuses the rest).
+  mid-rolls — not editorial preference). MEASURED rate is **145 wpm**, so the band is
+  **1,450–1,700 words**, which lands a 10.1–11.8 min master once the 12 × 0.45s section gaps
+  are counted. **The old "~197 wpm → 2,000–2,350 words" figure was wrong** and could never fit
+  the 10:00–12:00 rule at the real rate: it produced a 14.3 min master on 2026-07-27. Size the
+  script with 145 before TTS and expand thin sections rather than shipping short. After the VO
+  stage, ffprobe `build/vo-full.wav` BEFORE assemble — if it is under 10:00, extend sections with
+  already-receipted unused claim facts and re-record only the changed sections (delete their
+  `vo-NN.wav` + `vo-full.wav`; the runner reuses the rest).
   Depth comes from the v4 craft moves: drill sector → single names, walk every level's mechanism,
   three-beat chart sections (numbers walk → why mechanism → level framework).
 - **Instruments keep their names** (operator 2026-07-21: "The S&P 500 is the S&P 500. It's not
@@ -41,12 +43,47 @@ is $0.
   Godseye shot. Do not capture the entire dashboard merely because it was scanned.
 - Every chart shot is the completed session: the closing candle printed, the day's full range
   visible, levels drawn off settled prints. No mid-session or pre-open snapshots.
-- Narration uses the existing operator voice through `tools/tts_chatterbox.py` and
-  `productions/_voice/operator-clean.wav`.
+- Narration is the operator's ElevenLabs voice clone through `tools/tts_elevenlabs.py`
+  (`eleven_v3`, operator ruling 2026-07-28 after a three-way A/B). Chatterbox is the fallback
+  only, and `produce.stage_vo` WARNs when it fires — a Chatterbox render is not the shipped
+  voice. Two consequences of v3, already encoded in the tool: request stitching is impossible
+  (API 400) and there is **no `speed` parameter**, so pace cannot be dialled at the engine.
+  Pace is controlled by the SCRIPT — see the depth contract below.
 - Operator approval of the exact `vo.txt` hash is a separate hard gate before TTS, final chart
   capture, scene-plan/visual assembly, or render. Record it in `script-approval.json`; a claims,
   style, or editorial PASS does not substitute for operator script approval.
 - Existing public uploads stay public. A new or revised hash always needs its own approval.
+
+## Depth contract — the 2026-07-28 rejection
+
+The operator rejected daily-2026-07-27 as "boring", "surface level", charts "so zoomed in that
+no one can see the ticker", "only shows a couple days", "no trend lines", "you don't speak in
+levels", "you speak about a ticker and never put it on the screen". Four gates now enforce the
+fixes; this section is how to write so they pass on the first attempt.
+
+- **Recital cap — at most 5 distinct feed claims per (section, instrument).**
+  `claims_gate` BLOCKs above that, attributing by the `#` fragment of the claim source. The
+  07-27 sections cited 8–10 claims of ONE instrument: open, high, low, close, prior, gap,
+  open-to-close, return. That is a list, not analysis. **This is also the pace fix**: section 04
+  was the slowest section in all three voice A/B variants because it recites five nine-digit
+  four-decimal figures, each of which costs seconds of speech and counts as one word. "It's
+  boring" and "the speed varies" are the same defect and no model change reaches it.
+  Spend the freed words on the mechanism, not more digits.
+- **Every level you speak is drawn, and every level drawn is spoken.** `editorial_gate`
+  BLOCKs otherwise. On 07-27 each chart drew the prior close and the session low while the
+  script spoke five levels of that instrument — three named and never shown, per chart. Plan
+  the horizontal lines from the levels the script actually quotes. Trendline anchors are exempt:
+  they are swing pivots, not quoted figures.
+- **What a beat speaks is DERIVED, not declared.** `spokenSubjects` is written by the same pass
+  that writes the narration, so it can be satisfied while violated — 07-27 beat 01-03 declared
+  `["nvda"]` and named XLK, the Nasdaq, the VIX and the S&P. The gate now derives instruments
+  from the receipts quoted in the beat and from proper names, and BLOCKs an instrument that the
+  section never charts. An un-splittable pair clause ("an S&P close below X and a VIX close
+  above Y") is allowed when the section shows both charts across neighbouring beats. News beats
+  are exempt.
+- **Multi-timeframe and trendlines are the standing direction** (weekly/daily/60m, TF-qualified
+  subjects; swing-pivot trendlines through `draw_stage`, which is already type-agnostic and
+  supports `price2`/`time2`). Not yet gated — write them in.
 
 ## Voice authority
 
@@ -69,10 +106,11 @@ operator-preferred reference corpus. Extract habits; do not copy sentences.
 
 ### Daily narration contract — operator only
 
-Every daily-news section uses the operator voice from
-`productions/_voice/operator-clean.wav`. Do not add `[APOLLO]`, `### APOLLO`, or another narrator
-to a daily script. Hybrid Operator/Apollo narration belongs only to the separate Show lane under
-its own Show Bible and ruling; it does not apply to daily or weekly market recaps.
+Every daily-news section is the operator's own voice — the ElevenLabs clone in production, and
+`productions/_voice/operator-clean.wav` on the Chatterbox fallback. Do not add `[APOLLO]`,
+`### APOLLO`, or another narrator to a daily script. Hybrid Operator/Apollo narration belongs
+only to the separate Show lane under its own Show Bible and ruling; it does not apply to daily
+or weekly market recaps.
 
 `tools/tts_chatterbox.py` enforces this for `daily-*` folders: stale speaker tags are normalized to
 `OPERATOR`, and `--apollo-ref` is rejected. The exact `vo.txt` hash still requires operator
@@ -118,6 +156,20 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    internal corroboration while hunting the same fact on a major. `fetch_news_shots.mjs`
    enforces the on-screen half deterministically (`APPROVED_SHOT_HOSTS` — extend the list only
    with operator-grade outlets). The fact-pack agent must be told to FETCH majors first.
+
+   **The outlet's OWN masthead is the provenance (operator ruling 2026-07-28).** The drawn
+   `ASSOCIATED PRESS <date>` band is a FALLBACK, rendered only when no masthead survives, and
+   recorded as such in the capture receipt. `fetch_news_shots.mjs` finds the masthead by SHAPE,
+   not by tag — AP ships `<bsp-header class="Page-header">`, so `querySelector('header')`
+   returned null and the declutter sweep that was written to remove cookie bars removed the
+   publication's identity instead. Three more rules from that same shipped video:
+   consent buttons are matched by SUBSTRING (AP's reads "I Accept All", an anchored
+   `^accept all$` never fired); overlays are swept before EVERY screenshot, not once at load,
+   because the floating video widget lazy-loads on scroll; and a declared highlight that is not
+   found on the page THROWS — no mp4 is written, because a source card whose highlighted
+   sentence is missing is not a receipt for the claim it sits under. Probe the real article for
+   the exact sentence: "Nvidia and Micron" was never on the page; it reads "Nvidia fell 5% and
+   Micron Technology slumped 2.3%".
 2. Run the fixed TradingView dashboard and `market-analysis`. Choose the lead from confirmation or
    divergence. Emit `analysis-brief.md`, then lock title and thumbnail. Lock = RENDER it now
    (never a video frame; design rules = `thumbnails-first-impressions` house skill):
@@ -149,17 +201,23 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
      failed print reads as a silent success.
    - Dark chart theme is the shipped look (video-05 onward, operator-approved). The old white-
      background override silently no-ops on current TradingView builds; do not chase it mid-lane.
-   - **Mobile legibility standard (operator ruling 2026-07-21 — "I can barely see the numbers"):**
-     every chart capture runs `tv_ta_capture.py` with `--expect-last-bar <session> --range-days 245`
-     (zooms to ~100 days so candles are phone-readable; +4d right pad). The tool also bumps
-     `scalesProperties.fontSize` to 17 and shoots at `--dsf 2`. A full-history chart is a defect
-     even if the levels are correct. Do NOT re-attempt price-scale pinning — `setPriceRangeInPrice`
-     takes internal units, not prices, and blanks the pane (reverted 2026-07-21; `pane.resetPriceScale()`
-     recovers a blanked pane).
-   - **Symbol + current-bar visibility (operator ruling 2026-07-23):** every captured chart must
-     show a readable full instrument description/ticker and the newest referenced candle at the
-     same time. `tv_ta_capture.py` promotes TradingView's live symbol description into the
-     right-side safe area; failure to read that description blocks capture. A vertical chart uses
+   - **Window: 245 days ≈ 8 months (operator ruling 2026-07-28, "8 months is fine").** This is
+     the `--range-days` default; do not pass a tighter one. `--range-days 100` was the real cause
+     of the squashed 07-27 charts — not the operator's indicators, which his own reference
+     screenshot shows working fine at this width. Candles stay phone-readable
+     (operator ruling 2026-07-21 — "I can barely see the numbers"); the tool also bumps
+     `scalesProperties.fontSize` to 17 and shoots at `--dsf 2`. Do NOT re-attempt price-scale
+     pinning — `setPriceRangeInPrice` takes internal units, not prices, and blanks the pane
+     (reverted 2026-07-21; `pane.resetPriceScale()` recovers a blanked pane).
+   - **The operator's own chart is captured untouched** (ruling 2026-07-28): his dark theme and
+     his two daily indicators, never hidden or restyled for the shot.
+   - **Symbol + current-bar visibility (operator ruling 2026-07-23, method replaced 2026-07-28):**
+     every captured chart must show a readable full instrument description/ticker and the newest
+     referenced candle at the same time. This is now TradingView's OWN legend
+     (`NVIDIA Corporation · 1D · NASDAQ` with the full OHLC line) plus the date axis, preserved by
+     fitting the whole pane into frame and padding to 16:9. **The drawn identity card is deleted** —
+     the operator's read was that a self-drawn label stands in for provenance the capture cut off.
+     `APP_CHROME_PX = 64` is a MEASURED crop of the toolbar, not a guess. A vertical chart uses
      `layout: "chart"` (full approved frame plus a right-edge current-bar close-up). General
      visuals use `layout: "fit"`. A plain `crop` is forbidden in the derivative lane. Inspect the
      rendered 9:16 pixels; a declaration or source frame is not proof.
@@ -215,7 +273,7 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
 
    News-clip length contract (2026-07-20 incident): the assembler HARD-FAILS a news clip shorter
    than its narration beat — it will not loop entrance/exit animations. **Pre-size holdSec
-   BEFORE the first runner attempt**: narration words ÷ 197 wpm × 60 + ~8s buffer per news beat
+   BEFORE the first runner attempt**: narration words ÷ 145 wpm × 60 + ~8s buffer per news beat
    (2026-07-21: placeholder 24s holds vs 50–70s beats would have failed mid-run; generous holds
    cost nothing — the assembler trims to the beat). After the VO stage, read
    each news beat's length (`ffprobe build/vo-NN.wav`), set that shot's `holdSec` ≥ narration + 2s,
@@ -225,11 +283,12 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    ANY script recut re-opens this contract: section durations change, stale holdSec values
    survive in news-shots.json, and the assembler fails mid-run (2026-07-21 recut incident) —
    re-check every news beat's holdSec against the fresh `vo-NN.wav` lengths after re-recording.
-5. Generate only changed narration sections with `tools/tts_chatterbox.py`. Reuse all unchanged
+5. Generate only changed narration sections with `tools/tts_elevenlabs.py`. Reuse all unchanged
    audio and visual assets. Assemble through `tools/produce.py`. Assemble mixes the sound layer
-   automatically (operator-approved 2026-07-21 A/B): music bed from `music_library/` first-sorted
-   track auto-leveled ~21.5 dB under the voice, whoosh on section transitions, bass impact under
-   the final section. New bed tracks need a license row in `music_library/README.md` first;
+   automatically: music bed from `music_library/` first-sorted track auto-leveled ~21.5 dB under
+   the voice, and a bass impact under the final section. **The per-transition whoosh is gone**
+   (operator ruling 2026-07-28: "delayed and it just sounds corny"). It was removed from the
+   filter AND from the fail-closed missing-check — deleting the file alone blocks the render. New bed tracks need a license row in `music_library/README.md` first;
    craft judgment reference = the `video-editing-craft` house skill.
 
    VO-stage precondition (2026-07-20 incident, reproduced 3×; sharpened 2026-07-21): the binding
@@ -243,9 +302,14 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    killing production processes. `tools/daily_postclose.py` is rerun-safe: gates re-check,
    approval rewrites hash-bound, existing `vo-NN.wav` are skipped. Standing fix candidate:
    raise pagefile max to 32 GB (reboot, operator-gated).
-6. Inspect the actual final export at every declared subject-change boundary plus representative
-   midpoints. Check symbol, timeframe, price axis, source/date, containment, safe area, audio,
-   runtime, and 9:16 SAR. Declarations and contact sheets alone are not proof.
+6. **Read `build/frame-review/beat-NN.png` — one frame per beat of the rendered master — before
+   saying one word about the finished video.** `tools/visual_qa.py` samples them at each beat
+   midpoint from `build/timeline.json` and hard-fails a blank frame. It also hard-fails when it
+   inspected NOTHING: on 2026-07-27 it printed "nothing rendered was inspected" and returned
+   PASS, and that single line is how a video with a cookie modal over the source shipped. A gate
+   that checked nothing must BLOCK, and its verdict is worthless until you have looked at the
+   pixels yourself. Check symbol, timeframe, price axis, source/date, containment, safe area,
+   audio, runtime, and 9:16 SAR. Declarations and contact sheets alone are not proof.
 7. Derivatives are a SEPARATE post-approval lane: once the operator approves the long-form
    (public on YouTube), invoke the **post-approval-derivatives** skill —
    `tools/cut_derivatives.py <production> [--upload]` cuts ≤2 verticals from the master via

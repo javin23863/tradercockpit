@@ -7,11 +7,42 @@ ORCHESTRATOR: it sequences the production skill, the judging loop, promotion, an
 in the two child skills; this file owns the ORDER, the commands, and the handoffs.
 LLM-agnostic: any model that follows this file ships the same evening.
 
+## The button
+
+```
+PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe tools/daily_lane.py
+```
+
+That is the whole night: preflight → TradingView up → init → charts → script → gates →
+**AWAITING_HUMAN** → TTS → render → frame review → PRIVATE upload → Telegram. Verticals are
+not a separate skill — `tools/promote_daily.py` cuts, gates and publishes them to four
+platforms in one command after the operator approves.
+
+**On any night the operator sleeps through the approval window, the output is a held approval,
+not a video** (his ruling 2026-07-28, kept deliberately). `check_stage` returns
+`AWAITING_HUMAN` and the lane exits 0 with a Telegram notice; nothing renders and nothing
+uploads. Publishing is always operator-gated: the lane never passes `--allow-public`.
+
+**Re-arm criteria** for `tradercockpit-daily-autostart-a`/`-b` (currently **Disabled**) — all
+four, no partial credit: (1) the acceptance table in `docs/DAILY-LANE-OVERHAUL-PLAN.md` fully
+green; (2) one supervised manual night the operator approves; (3) voice preflight promoted to
+BLOCK via `--require-pvc`, or an explicit written waiver — without it the lane can re-arm on
+approved charts and quietly return the instant-clone voice he rejected; (4) the tier/model
+decision made. At ~8.6–10k chars/night an unresolved quota exhausts around night 12–14 and the
+lane dies at preflight mid-month, which from the outside looks exactly like the 07-27 stall.
+
 ## Sequence
 
-### 0. Pre-flight (5 min, before anything renders)
+### 0. Pre-flight (seconds, before anything renders)
+- `PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe tools/daily_preflight.py`
+  — TradingView CDP, ElevenLabs key + remaining quota + voice category, YouTube token, disk,
+  pagefile. Probed LIVE and refuses in seconds rather than stalling for hours. `daily_lane.py`
+  runs it automatically at the head of `init_stage`; run it by hand before a manual night.
+  Two WARNs are the lane's known state: the voice is still the instant clone (no PVC), and the
+  pagefile is still pinned rather than system-managed.
 - `PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe tools/publish.py --dry-run`
-  — platform auth from the LIVE probe only, never from memory/notes (2026-07-21 scar).
+  — the other three platforms, from the LIVE probe only, never from memory/notes (2026-07-21
+  scar).
 - YouTube quota ledger: ~6 uploads/day total. Tonight spends 1 long-form + up to 2 Shorts
   = 3 minimum; every judging recut that re-uploads spends another. Count before promising.
 - Capture window: energy symbols reopen ~20:00 ET, rates/indices ~18:00 ET — charts before
@@ -26,8 +57,26 @@ drop it silently and YT auto-frames went live) → chart plan + zoomed captures
 lands a 10.1–11.8 min master incl. the 12 × 0.45s section gaps; the old
 "2,000–2,350 @ 197 wpm" could never fit the 10:00–12:00 rule at the real 145 wpm and
 produced a 14.3 min master on 2026-07-27) →
-claims.yaml + vo-receipts.yaml → scene-plan (per-asset beats) → both gates → **second-model critic pass** (triage against
-receipts; receipts win) → runner:
+claims.yaml + vo-receipts.yaml → scene-plan (per-asset beats) → **all four gates** → **second-model
+critic pass** (triage against receipts; receipts win) → runner:
+
+The gates now BLOCK on the 2026-07-28 rejection, and each has both acceptance poles proven
+against real artifacts (`--selftest` on both tools):
+- `claims_gate` — recital cap of 5 distinct feed claims per (section, instrument); feed claims
+  must use a closed predicate vocabulary and resolve under the receipt's `dashboard`; feed
+  values cross-checked field by field.
+- `editorial_gate --levels-only` — every level drawn is spoken and every level spoken is drawn.
+- `editorial_gate --spoken-only` — spoken instruments derived from receipts, not from the beat's
+  own `spokenSubjects` declaration.
+- `visual_qa` — one frame per beat of the rendered master, and a hard fail when it inspected
+  nothing.
+
+**Surface the critic's verdict inside the approval prompt.** The critic stays advisory by
+decision — `daily_lane.check_stage` does not read `build/independent-critic.md` and will not —
+but the operator signing a hash should see "critic: thesis undisputable / no stakes" beside it.
+`script-approval.json` for 07-27 records that he approved the exact hash of the script he later
+called boring, with it open in front of him; a human backstop that has already failed once does
+not get quieter.
 ```
 CLIP_SKIP_SHORTS=1 PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe \
     tools/daily_postclose.py productions/daily-<date>
@@ -83,6 +132,9 @@ Detail + scars: skill **post-approval-derivatives**.
 ## Failure playbook (tonight's proven fixes)
 | Symptom | Fix |
 |---------|-----|
+| Lane refuses in seconds at `preflight` | read the BLOCK line; it names the one condition. Quota exhaustion and an expired YouTube token both look like a stall otherwise |
+| TradingView CDP dies mid-capture (stack-buffer-overrun) | seen 3× on 2026-07-28. Kill the 12 processes, relaunch via `daily_lane.ensure_tradingview()`, re-shoot only the missing charts with `--reuse-png` |
+| `capturedAt ... does not precede vo.txt mtime` | charts-before-script, working as designed: the charts were re-shot after the script was approved. Re-run the day properly (charts → script → gates → re-approve). **Never touch the mtime and never soften the gate** |
 | Chatterbox segfault 0xC0000005 at load | close TradingView (needs ~4–5 GB free RAM), rerun runner |
 | Assembler: news clip shorter than beat | recut re-opened the holdSec contract — bump `news-shots.json` holdSec ≥ VO+2s, delete stale mp4s, `fetch_news_shots.mjs <sources.json> <prod-dir> --reuse-png` |
 | "production approval changed after operator approval" | file bytes drifted (e.g. git touched them) — re-mint: `daily_postclose.collect_gates` + `script_approval.machine_approve`, never hand-edit a receipt |

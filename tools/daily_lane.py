@@ -29,6 +29,7 @@ except ModuleNotFoundError:  # direct `python tools/daily_lane.py` execution
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = ROOT / "OpenMontage" / ".venv" / "Scripts" / "python.exe"
 INIT = ROOT / "tools" / "daily_production_init.py"
+PREFLIGHT = ROOT / "tools" / "daily_preflight.py"
 RUNNER = ROOT / "tools" / "daily_postclose.py"
 VAULT = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit")
 AGENT_TIMEOUT = 150 * 60
@@ -313,6 +314,13 @@ def main(argv=None) -> int:
                 f"TradingView Desktop is not reachable on CDP :{TV_CDP_PORT}; "
                 "charts-before-script would block the whole content step"
             )
+        # Preflight AFTER the launch attempt (it probes, it does not start anything) and
+        # BEFORE any content work: a night that cannot be narrated, uploaded or written to
+        # disk must refuse in seconds, not stall for hours and look like 2026-07-27.
+        code, output = run_process("preflight", [str(PYTHON), str(PREFLIGHT)], 180, capture=True)
+        if code != 0:
+            refusals = [line for line in output.splitlines() if "BLOCK" in line]
+            return False, "preflight refused: " + "; ".join(refusals or [f"exit={code}"])
         code, output = run_process(
             "production-init", [str(PYTHON), str(INIT), "--init"], 60, capture=True,
         )
