@@ -10,6 +10,9 @@ tools/token.json
 tools/token_channel.json
 tools/client_secret.json
 archive/postiz/.env
+# repo .env = ELEVENLABS_API_KEY + ELEVEN_VOICE_ID, read by tools/tts_elevenlabs.load_env.
+# It was untracked but NOT ignored, so any `git add -A` would have published the keys.
+.env
 
 # python
 __pycache__/
