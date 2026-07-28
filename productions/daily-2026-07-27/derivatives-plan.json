@@ -1,0 +1,24 @@
+{
+  "segments": [
+    {
+      "section": "03",
+      "offset": 19.9,
+      "duration": 36,
+      "label": "spx-stopped-at-the-line",
+      "anchor": "right",
+      "layout": "chart",
+      "title": "The S&P 500 Stopped 0.67 Points Above Its Trendline",
+      "copy": "The S&P 500 sold off all afternoon and printed 7,382.74 at the low. The rising line off the August low sits at 7,383.41. It stopped 0.67 points short of a line it has held all year, then closed back above it at 7,413.18.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+    },
+    {
+      "section": "06",
+      "offset": 45.9,
+      "duration": 31,
+      "label": "nvda-held-193-87",
+      "anchor": "right",
+      "layout": "chart",
+      "title": "Nvidia Fell 4.99% And Still Held 193.87",
+      "copy": "Nvidia closed at 196.51, down 4.99%, its worst session in months. The rising line off February sits at 193.87. The stock sold off all day, stopped above that line, and closed back near the top of the support zone.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+    }
+  ]
+}

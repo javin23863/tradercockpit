@@ -1,0 +1,19 @@
+{
+  "source": "C:\\Users\\MSI\\Documents\\tradercockpit\\productions\\daily-2026-07-27\\build\\master.mp4",
+  "mode": "script",
+  "clips_count": 2,
+  "segments": [
+    {
+      "start": null,
+      "duration": 36,
+      "label": "spx-stopped-at-the-line"
+    },
+    {
+      "start": null,
+      "duration": 31,
+      "label": "nvda-held-193-87"
+    }
+  ],
+  "created_at": "2026-07-28T05:02:41.556901+00:00",
+  "parent_video": "https://youtu.be/6thn5ErFNiQ"
+}

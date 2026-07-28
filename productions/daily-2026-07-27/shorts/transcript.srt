@@ -1,0 +1,1383 @@
+1
+00:00:00,000 --> 00:00:01,500
+The S &P 500 closed
+
+2
+00:00:01,500 --> 00:00:03,399
+Monday about where it closed
+
+3
+00:00:03,399 --> 00:00:03,899
+Friday.
+
+4
+00:00:04,559 --> 00:00:05,660
+If the index is all
+
+5
+00:00:05,660 --> 00:00:07,160
+you look at, you'd say
+
+6
+00:00:07,160 --> 00:00:08,160
+nothing happened.
+
+7
+00:00:08,480 --> 00:00:10,720
+Underneath it, NVIDIA dropped 4
+
+8
+00:00:10,720 --> 00:00:13,060
+.99 % and took the
+
+9
+00:00:13,060 --> 00:00:14,820
+whole tech complex down with
+
+10
+00:00:14,820 --> 00:00:15,019
+it.
+
+11
+00:00:15,400 --> 00:00:17,179
+That's the session worth talking
+
+12
+00:00:17,179 --> 00:00:17,559
+about.
+
+13
+00:00:18,000 --> 00:00:19,120
+When a market takes a
+
+14
+00:00:19,120 --> 00:00:20,239
+hit like that in its
+
+15
+00:00:20,239 --> 00:00:22,160
+biggest name and still finishes
+
+16
+00:00:22,160 --> 00:00:22,579
+flat,
+
+17
+00:00:22,899 --> 00:00:24,399
+it's telling you something about
+
+18
+00:00:24,399 --> 00:00:25,480
+what's holding it up.
+
+19
+00:00:25,780 --> 00:00:26,719
+And you want to know
+
+20
+00:00:26,719 --> 00:00:27,960
+that before the open.
+
+21
+00:00:28,519 --> 00:00:30,199
+Coming in, this had all
+
+22
+00:00:30,199 --> 00:00:31,399
+the makings of a relief
+
+23
+00:00:31,399 --> 00:00:31,760
+trade.
+
+24
+00:00:32,200 --> 00:00:33,299
+The U .S. and Iran
+
+25
+00:00:33,299 --> 00:00:34,979
+went quiet over the weekend,
+
+26
+00:00:35,439 --> 00:00:36,420
+crude came off,
+
+27
+00:00:36,700 --> 00:00:38,200
+and the futures traded higher
+
+28
+00:00:38,200 --> 00:00:39,100
+before the bell.
+
+29
+00:00:39,780 --> 00:00:41,299
+Every one of those gives
+
+30
+00:00:41,299 --> 00:00:42,539
+you a reason to buy,
+
+31
+00:00:42,840 --> 00:00:43,960
+and early in the day,
+
+32
+00:00:44,119 --> 00:00:45,060
+buyers took it.
+
+33
+00:00:45,640 --> 00:00:47,079
+By the close, the gap
+
+34
+00:00:47,079 --> 00:00:47,700
+had gone.
+
+35
+00:00:48,240 --> 00:00:49,840
+What you got instead was
+
+36
+00:00:49,840 --> 00:00:50,439
+a rotation,
+
+37
+00:00:50,899 --> 00:00:52,100
+and the tape spent the
+
+38
+00:00:52,100 --> 00:00:54,299
+afternoon working out which names
+
+39
+00:00:54,299 --> 00:00:55,320
+would pay for it.
+
+40
+00:00:55,320 --> 00:00:57,539
+The morning bid assumed a
+
+41
+00:00:57,539 --> 00:00:59,719
+quiet weekend changes the math
+
+42
+00:00:59,719 --> 00:01:00,799
+on holding risk.
+
+43
+00:01:01,280 --> 00:01:01,960
+It doesn't.
+
+44
+00:01:02,340 --> 00:01:03,899
+It takes away a reason
+
+45
+00:01:03,899 --> 00:01:05,439
+to sell, which is a
+
+46
+00:01:05,439 --> 00:01:06,140
+different thing,
+
+47
+00:01:06,439 --> 00:01:07,780
+and the market spent the
+
+48
+00:01:07,780 --> 00:01:09,099
+rest of the day sorting
+
+49
+00:01:09,099 --> 00:01:10,879
+out that difference in public.
+
+50
+00:01:11,359 --> 00:01:12,359
+Start with the index.
+
+51
+00:01:12,959 --> 00:01:14,299
+The S &P 500 came
+
+52
+00:01:14,299 --> 00:01:15,719
+off a Friday close of
+
+53
+00:01:15,719 --> 00:01:18,480
+7 ,411 .98,
+
+54
+00:01:19,019 --> 00:01:20,719
+opened above it and ran
+
+55
+00:01:20,719 --> 00:01:24,180
+up to 7 ,480 .57
+
+56
+00:01:24,180 --> 00:01:24,879
+early.
+
+57
+00:01:25,409 --> 00:01:27,140
+From there, it bled lower
+
+58
+00:01:27,140 --> 00:01:28,019
+all afternoon.
+
+59
+00:01:28,519 --> 00:01:32,439
+It printed 7 ,382 .74
+
+60
+00:01:32,439 --> 00:01:33,439
+at the low,
+
+61
+00:01:33,780 --> 00:01:37,180
+and closed at 7 ,413
+
+62
+00:01:37,180 --> 00:01:38,060
+.18.
+
+63
+00:01:38,900 --> 00:01:40,200
+Now, here's the part I
+
+64
+00:01:40,200 --> 00:01:40,760
+care about.
+
+65
+00:01:41,299 --> 00:01:42,959
+That rising line off the
+
+66
+00:01:42,959 --> 00:01:45,140
+August low sits at 7
+
+67
+00:01:45,140 --> 00:01:49,040
+,383 .41 today.
+
+68
+00:01:49,520 --> 00:01:50,540
+The low of the day,
+
+69
+00:01:51,060 --> 00:01:54,120
+7 ,382 .74.
+
+70
+00:01:54,959 --> 00:01:56,700
+The index sold off for
+
+71
+00:01:56,700 --> 00:01:57,719
+a full afternoon
+
+72
+00:01:57,719 --> 00:01:59,719
+and stopped less than a
+
+73
+00:01:59,719 --> 00:02:01,299
+point from a line it's
+
+74
+00:02:01,299 --> 00:02:02,359
+held all year,
+
+75
+00:02:02,760 --> 00:02:04,420
+then closed back above it.
+
+76
+00:02:04,700 --> 00:02:06,000
+So you know the selling
+
+77
+00:02:06,000 --> 00:02:06,620
+was real,
+
+78
+00:02:07,019 --> 00:02:08,740
+and you know somebody stepped
+
+79
+00:02:08,740 --> 00:02:10,639
+in exactly where the structure
+
+80
+00:02:10,639 --> 00:02:11,439
+said they would.
+
+81
+00:02:12,000 --> 00:02:13,419
+They showed up with enough
+
+82
+00:02:13,419 --> 00:02:15,159
+size to close the index
+
+83
+00:02:15,159 --> 00:02:15,599
+green
+
+84
+00:02:15,599 --> 00:02:17,280
+on a day its biggest
+
+85
+00:02:17,280 --> 00:02:18,800
+name got hit hard.
+
+86
+00:02:19,419 --> 00:02:21,180
+An index that closes flat
+
+87
+00:02:21,180 --> 00:02:23,199
+because nothing happened is a
+
+88
+00:02:23,199 --> 00:02:23,919
+quiet market.
+
+89
+00:02:24,460 --> 00:02:26,240
+An index that closes flat
+
+90
+00:02:26,240 --> 00:02:28,039
+because buyers took down a
+
+91
+00:02:28,039 --> 00:02:28,740
+heavy seller
+
+92
+00:02:28,740 --> 00:02:30,639
+has a real bid under
+
+93
+00:02:30,639 --> 00:02:30,860
+it.
+
+94
+00:02:31,300 --> 00:02:32,960
+Those are different markets,
+
+95
+00:02:33,219 --> 00:02:35,060
+and only the bid version
+
+96
+00:02:35,060 --> 00:02:37,099
+tells you anything about tomorrow.
+
+97
+00:02:37,639 --> 00:02:39,759
+The NASDAQ composite tells you
+
+98
+00:02:39,759 --> 00:02:41,259
+the same story louder.
+
+99
+00:02:41,259 --> 00:02:46,500
+Fridays closed 24 ,975 .82.
+
+100
+00:02:47,139 --> 00:02:49,020
+Monday opened well above that
+
+101
+00:02:49,020 --> 00:02:53,419
+and tagged 25 ,261 .91
+
+102
+00:02:53,419 --> 00:02:54,819
+on the relief bid.
+
+103
+00:02:55,379 --> 00:02:56,680
+Then it gave the whole
+
+104
+00:02:56,680 --> 00:02:58,280
+move back and more.
+
+105
+00:02:58,879 --> 00:03:00,340
+The low came in at
+
+106
+00:03:00,340 --> 00:03:03,800
+24 ,774 .87,
+
+107
+00:03:04,300 --> 00:03:06,240
+and the close at 24
+
+108
+00:03:06,240 --> 00:03:09,939
+,932 .08 left it red
+
+109
+00:03:09,939 --> 00:03:10,599
+on the day.
+
+110
+00:03:11,239 --> 00:03:13,219
+That's a widespread between the
+
+111
+00:03:13,219 --> 00:03:14,740
+high and the low on
+
+112
+00:03:14,740 --> 00:03:16,120
+a session the S &P
+
+113
+00:03:16,120 --> 00:03:17,000
+finished higher.
+
+114
+00:03:17,900 --> 00:03:19,439
+The difference here comes down
+
+115
+00:03:19,439 --> 00:03:20,240
+to concentration.
+
+116
+00:03:20,979 --> 00:03:23,039
+The NASDAQ holds more of
+
+117
+00:03:23,039 --> 00:03:23,979
+what got sold,
+
+118
+00:03:24,240 --> 00:03:25,620
+so the same flow the
+
+119
+00:03:25,620 --> 00:03:27,520
+S &P handled without much
+
+120
+00:03:27,520 --> 00:03:27,960
+trouble
+
+121
+00:03:27,960 --> 00:03:29,680
+showed up in the composite
+
+122
+00:03:29,680 --> 00:03:31,080
+as a real reversal.
+
+123
+00:03:31,680 --> 00:03:32,719
+Tech is where you see
+
+124
+00:03:32,719 --> 00:03:34,020
+the rotation cleanest.
+
+125
+00:03:34,240 --> 00:03:36,280
+XLK came in at 175
+
+126
+00:03:36,280 --> 00:03:37,180
+.88,
+
+127
+00:03:37,180 --> 00:03:39,599
+opened higher with everything else,
+
+128
+00:03:39,780 --> 00:03:42,280
+and printed 178 .30 at
+
+129
+00:03:42,280 --> 00:03:42,719
+the high.
+
+130
+00:03:43,319 --> 00:03:44,199
+Then it broke.
+
+131
+00:03:44,699 --> 00:03:46,879
+The low was 171 .73
+
+132
+00:03:46,879 --> 00:03:49,860
+and the close 174 .30.
+
+133
+00:03:50,360 --> 00:03:51,539
+Look at where that low
+
+134
+00:03:51,539 --> 00:03:51,860
+sat.
+
+135
+00:03:52,319 --> 00:03:54,500
+The rising support under XLK
+
+136
+00:03:54,500 --> 00:03:57,360
+projects to 172 .41 today,
+
+137
+00:03:57,580 --> 00:03:59,180
+and the sector traded through
+
+138
+00:03:59,180 --> 00:04:00,199
+it during the session
+
+139
+00:04:00,199 --> 00:04:02,060
+before it closed back above.
+
+140
+00:04:02,060 --> 00:04:03,620
+So you got a failed
+
+141
+00:04:03,620 --> 00:04:05,699
+break, and failed breaks tell
+
+142
+00:04:05,699 --> 00:04:06,979
+you more than the clean
+
+143
+00:04:06,979 --> 00:04:07,539
+ones do.
+
+144
+00:04:08,039 --> 00:04:09,180
+The sector spent part of
+
+145
+00:04:09,180 --> 00:04:10,300
+the day under a line
+
+146
+00:04:10,300 --> 00:04:11,719
+that's held since September
+
+147
+00:04:11,719 --> 00:04:13,159
+and couldn't finish there.
+
+148
+00:04:13,580 --> 00:04:14,939
+Sellers had their shot at
+
+149
+00:04:14,939 --> 00:04:16,060
+it and couldn't keep it.
+
+150
+00:04:16,600 --> 00:04:17,879
+Nvidia is the reason any
+
+151
+00:04:17,879 --> 00:04:18,579
+of this happened.
+
+152
+00:04:18,920 --> 00:04:20,740
+A close Friday at 206
+
+153
+00:04:20,740 --> 00:04:21,500
+.84,
+
+154
+00:04:21,939 --> 00:04:23,519
+gapped up with everything else
+
+155
+00:04:23,519 --> 00:04:24,699
+and printed the high of
+
+156
+00:04:24,699 --> 00:04:26,939
+the day at 208 .75,
+
+157
+00:04:27,339 --> 00:04:28,720
+inside the opening stretch.
+
+158
+00:04:29,350 --> 00:04:30,839
+Anybody who bought that gap
+
+159
+00:04:30,839 --> 00:04:32,740
+was underwater within the hour.
+
+160
+00:04:33,360 --> 00:04:35,579
+The low was 195 .44
+
+161
+00:04:35,579 --> 00:04:38,720
+and the close 196 .51.
+
+162
+00:04:39,339 --> 00:04:40,699
+That's a wide range for
+
+163
+00:04:40,699 --> 00:04:41,939
+the biggest company in the
+
+164
+00:04:41,939 --> 00:04:42,279
+market,
+
+165
+00:04:42,519 --> 00:04:43,920
+and nothing came out of
+
+166
+00:04:43,920 --> 00:04:45,120
+the company all day.
+
+167
+00:04:45,519 --> 00:04:47,319
+So the selling was positional.
+
+168
+00:04:47,680 --> 00:04:49,060
+When one name holds that
+
+169
+00:04:49,060 --> 00:04:50,079
+much of the index,
+
+170
+00:04:50,480 --> 00:04:51,360
+a lot of the people
+
+171
+00:04:51,360 --> 00:04:52,740
+who own it don't own
+
+172
+00:04:52,740 --> 00:04:53,839
+it because they want to.
+
+173
+00:04:54,279 --> 00:04:55,519
+They own it because the
+
+174
+00:04:55,519 --> 00:04:57,019
+benchmark put them there.
+
+175
+00:04:57,019 --> 00:04:58,839
+And that kind of ownership
+
+176
+00:04:58,839 --> 00:05:00,620
+sells a lot faster than
+
+177
+00:05:00,620 --> 00:05:01,519
+conviction does.
+
+178
+00:05:01,800 --> 00:05:03,620
+Here's where structure pays you.
+
+179
+00:05:04,040 --> 00:05:05,720
+The rising line off February
+
+180
+00:05:05,720 --> 00:05:08,540
+sits at 193 .87 today.
+
+181
+00:05:09,019 --> 00:05:10,959
+Nvidia sold off all day,
+
+182
+00:05:11,259 --> 00:05:12,199
+stopped above it,
+
+183
+00:05:12,360 --> 00:05:13,800
+and closed back up near
+
+184
+00:05:13,800 --> 00:05:14,980
+the top of that support
+
+185
+00:05:14,980 --> 00:05:15,399
+zone.
+
+186
+00:05:15,800 --> 00:05:17,339
+Worst session in months,
+
+187
+00:05:17,639 --> 00:05:18,639
+and it didn't break the
+
+188
+00:05:18,639 --> 00:05:20,519
+line that's defined the uptrend
+
+189
+00:05:20,519 --> 00:05:21,379
+since the winter.
+
+190
+00:05:21,800 --> 00:05:23,139
+So the damage was real
+
+191
+00:05:23,139 --> 00:05:24,759
+and the structure held.
+
+192
+00:05:24,759 --> 00:05:26,680
+Which one you wait more
+
+193
+00:05:26,680 --> 00:05:28,339
+depends on what happens at
+
+194
+00:05:28,339 --> 00:05:31,100
+193 .87 the next time
+
+195
+00:05:31,100 --> 00:05:32,000
+it gets tested.
+
+196
+00:05:32,519 --> 00:05:34,579
+Volatility agrees with the contained
+
+197
+00:05:34,579 --> 00:05:34,980
+read.
+
+198
+00:05:35,540 --> 00:05:37,180
+VIX came in at 18
+
+199
+00:05:37,180 --> 00:05:39,199
+.58 and opened lower,
+
+200
+00:05:39,439 --> 00:05:40,660
+which is what you'd expect
+
+201
+00:05:40,660 --> 00:05:41,800
+on a relief morning.
+
+202
+00:05:42,339 --> 00:05:43,920
+As tech broke, it caught
+
+203
+00:05:43,920 --> 00:05:45,160
+a bid and ran to
+
+204
+00:05:45,160 --> 00:05:46,779
+19 .93.
+
+205
+00:05:47,319 --> 00:05:48,379
+It couldn't hold there.
+
+206
+00:05:48,879 --> 00:05:50,459
+The resistance that's capped it
+
+207
+00:05:50,459 --> 00:05:52,180
+since September sits at 19
+
+208
+00:05:52,180 --> 00:05:53,139
+.50.
+
+209
+00:05:53,939 --> 00:05:55,379
+VIX pushed through it at
+
+210
+00:05:55,379 --> 00:05:56,500
+the worst of the selling,
+
+211
+00:05:56,819 --> 00:05:58,199
+and then it closed at
+
+212
+00:05:58,199 --> 00:05:59,459
+18 .67.
+
+213
+00:06:00,180 --> 00:06:01,279
+The low of the day
+
+214
+00:06:01,279 --> 00:06:03,000
+was 17 .53.
+
+215
+00:06:03,639 --> 00:06:05,800
+A market that's genuinely scared
+
+216
+00:06:05,800 --> 00:06:07,500
+doesn't close volatility
+
+217
+00:06:07,500 --> 00:06:09,480
+near where it opened after
+
+218
+00:06:09,480 --> 00:06:10,860
+a hit like that to
+
+219
+00:06:10,860 --> 00:06:11,699
+its biggest name.
+
+220
+00:06:12,079 --> 00:06:13,699
+It closes higher and it
+
+221
+00:06:13,699 --> 00:06:14,319
+stays there.
+
+222
+00:06:14,819 --> 00:06:16,160
+This one handed the move
+
+223
+00:06:16,160 --> 00:06:17,240
+back into the close.
+
+224
+00:06:17,600 --> 00:06:19,180
+So that's the tell I'm
+
+225
+00:06:19,180 --> 00:06:20,319
+carrying into tomorrow.
+
+226
+00:06:20,879 --> 00:06:23,060
+Volatility that spikes and closes
+
+227
+00:06:23,060 --> 00:06:23,819
+back down
+
+228
+00:06:23,819 --> 00:06:26,079
+means the market's repricing part
+
+229
+00:06:26,079 --> 00:06:26,600
+of itself.
+
+230
+00:06:27,100 --> 00:06:29,279
+Volatility that spikes and stays
+
+231
+00:06:29,279 --> 00:06:31,720
+bid means it's repricing all
+
+232
+00:06:31,720 --> 00:06:32,220
+of itself.
+
+233
+00:06:32,699 --> 00:06:34,420
+And those sessions look nothing
+
+234
+00:06:34,420 --> 00:06:36,120
+alike no matter what the
+
+235
+00:06:36,120 --> 00:06:36,800
+index did.
+
+236
+00:06:37,300 --> 00:06:38,379
+So what happened here?
+
+237
+00:06:38,819 --> 00:06:40,500
+Money left the most crowded
+
+238
+00:06:40,500 --> 00:06:41,920
+position in the market.
+
+239
+00:06:42,139 --> 00:06:43,639
+It didn't leave the market.
+
+240
+00:06:43,860 --> 00:06:45,019
+It went somewhere.
+
+241
+00:06:45,279 --> 00:06:47,360
+And that somewhere was everything
+
+242
+00:06:47,360 --> 00:06:49,300
+outside the mega cap tech
+
+243
+00:06:49,300 --> 00:06:49,660
+names.
+
+244
+00:06:49,660 --> 00:06:51,120
+That's why the S &P
+
+245
+00:06:51,120 --> 00:06:53,019
+held while the Nasdaq slipped.
+
+246
+00:06:53,620 --> 00:06:55,019
+This matters for how you're
+
+247
+00:06:55,019 --> 00:06:55,540
+positioned
+
+248
+00:06:55,540 --> 00:06:57,540
+because a rotation and a
+
+249
+00:06:57,540 --> 00:06:58,920
+sell -off ask you for
+
+250
+00:06:58,920 --> 00:06:59,819
+opposite things.
+
+251
+00:07:00,160 --> 00:07:01,459
+A sell -off means cutting
+
+252
+00:07:01,459 --> 00:07:03,000
+risk across the board.
+
+253
+00:07:03,279 --> 00:07:04,920
+A rotation means the index
+
+254
+00:07:04,920 --> 00:07:06,160
+is doing its job
+
+255
+00:07:06,160 --> 00:07:07,800
+and the concentration in your
+
+256
+00:07:07,800 --> 00:07:09,300
+own book is what you
+
+257
+00:07:09,300 --> 00:07:09,720
+look at.
+
+258
+00:07:10,060 --> 00:07:11,980
+Practically it works like this.
+
+259
+00:07:12,259 --> 00:07:13,459
+If what you own is
+
+260
+00:07:13,459 --> 00:07:14,120
+the index,
+
+261
+00:07:14,360 --> 00:07:16,439
+Monday cost you almost nothing
+
+262
+00:07:16,439 --> 00:07:18,019
+and the structure under you
+
+263
+00:07:18,019 --> 00:07:18,639
+is fine.
+
+264
+00:07:18,639 --> 00:07:20,259
+If what you own is
+
+265
+00:07:20,259 --> 00:07:21,079
+the concentration,
+
+266
+00:07:21,480 --> 00:07:23,379
+Monday cost you real money
+
+267
+00:07:23,379 --> 00:07:25,180
+and a flat index close
+
+268
+00:07:25,180 --> 00:07:26,439
+doesn't change that.
+
+269
+00:07:26,680 --> 00:07:28,699
+Same session, opposite outcomes.
+
+270
+00:07:29,139 --> 00:07:30,600
+And the difference comes down
+
+271
+00:07:30,600 --> 00:07:31,720
+to what you were holding
+
+272
+00:07:31,720 --> 00:07:33,300
+when the rotation started.
+
+273
+00:07:33,879 --> 00:07:35,240
+Here's the level map going
+
+274
+00:07:35,240 --> 00:07:35,980
+into Tuesday.
+
+275
+00:07:36,439 --> 00:07:37,680
+And every one of these
+
+276
+00:07:37,680 --> 00:07:39,040
+has already been tested.
+
+277
+00:07:39,680 --> 00:07:41,240
+On the S &P 500,
+
+278
+00:07:41,480 --> 00:07:45,139
+the number is 7 ,383
+
+279
+00:07:45,139 --> 00:07:46,139
+.41.
+
+280
+00:07:46,939 --> 00:07:48,500
+That's where the rising support
+
+281
+00:07:48,500 --> 00:07:48,920
+projects.
+
+282
+00:07:49,439 --> 00:07:51,339
+That's where Monday's low stopped
+
+283
+00:07:51,339 --> 00:07:53,060
+and a daily close under
+
+284
+00:07:53,060 --> 00:07:54,579
+it gives you real evidence
+
+285
+00:07:54,579 --> 00:07:56,379
+that the afternoon buyers have
+
+286
+00:07:56,379 --> 00:07:57,040
+stepped away.
+
+287
+00:07:57,879 --> 00:08:00,899
+On NVIDIA, 193 .87.
+
+288
+00:08:01,660 --> 00:08:03,240
+The stock hasn't closed below
+
+289
+00:08:03,240 --> 00:08:03,920
+that line
+
+290
+00:08:03,920 --> 00:08:05,379
+through this whole advance
+
+291
+00:08:05,379 --> 00:08:06,860
+and it came close to
+
+292
+00:08:06,860 --> 00:08:07,899
+testing it on Monday.
+
+293
+00:08:08,540 --> 00:08:12,019
+On XLK, 172 .41.
+
+294
+00:08:12,759 --> 00:08:14,660
+The sector already traded below
+
+295
+00:08:14,660 --> 00:08:15,680
+it during the session
+
+296
+00:08:15,680 --> 00:08:17,480
+and recovered, so a close
+
+297
+00:08:17,480 --> 00:08:18,079
+underneath
+
+298
+00:08:18,079 --> 00:08:20,139
+reads very differently from a
+
+299
+00:08:20,139 --> 00:08:20,839
+wick underneath.
+
+300
+00:08:21,560 --> 00:08:23,720
+On the NASDAQ composite, watch
+
+301
+00:08:23,720 --> 00:08:27,480
+24 ,774 .87,
+
+302
+00:08:28,220 --> 00:08:29,459
+which was Monday's low.
+
+303
+00:08:30,040 --> 00:08:31,800
+The composite carries the concentration
+
+304
+00:08:31,800 --> 00:08:32,379
+risk,
+
+305
+00:08:32,720 --> 00:08:34,039
+so a real break shows
+
+306
+00:08:34,039 --> 00:08:34,559
+up there
+
+307
+00:08:34,559 --> 00:08:35,940
+before it shows up anywhere
+
+308
+00:08:35,940 --> 00:08:36,460
+else.
+
+309
+00:08:37,000 --> 00:08:39,799
+And on volatility, 19 .50.
+
+310
+00:08:40,519 --> 00:08:41,840
+VIX has been turned back
+
+311
+00:08:41,840 --> 00:08:42,980
+there since September
+
+312
+00:08:42,980 --> 00:08:44,419
+without closing above it.
+
+313
+00:08:44,419 --> 00:08:46,120
+A close above it says
+
+314
+00:08:46,120 --> 00:08:47,840
+this stopped being a rotation.
+
+315
+00:08:48,340 --> 00:08:49,960
+Honest read on Monday.
+
+316
+00:08:50,419 --> 00:08:51,740
+The market took a hard
+
+317
+00:08:51,740 --> 00:08:53,379
+hit in its biggest name
+
+318
+00:08:53,379 --> 00:08:54,779
+and paid for it with
+
+319
+00:08:54,779 --> 00:08:55,720
+a flat index
+
+320
+00:08:55,720 --> 00:08:57,460
+and a quiet close in
+
+321
+00:08:57,460 --> 00:08:57,860
+volatility.
+
+322
+00:08:58,779 --> 00:09:00,259
+That's a resilient tape
+
+323
+00:09:00,259 --> 00:09:02,759
+and resilient tapes stay resilient
+
+324
+00:09:02,759 --> 00:09:04,779
+until a level says otherwise.
+
+325
+00:09:05,580 --> 00:09:07,200
+The level that says otherwise
+
+326
+00:09:07,200 --> 00:09:11,379
+is 7 ,383 .41 on
+
+327
+00:09:11,379 --> 00:09:12,559
+the S &P 500.
+
+328
+00:09:13,280 --> 00:09:14,960
+Above it, this was a
+
+329
+00:09:14,960 --> 00:09:15,460
+rotation
+
+330
+00:09:15,460 --> 00:09:17,320
+and the structure that's worked
+
+331
+00:09:17,320 --> 00:09:19,200
+all year still works.
+
+332
+00:09:19,840 --> 00:09:21,200
+Below it, on a closing
+
+333
+00:09:21,200 --> 00:09:22,940
+basis, the read changes
+
+334
+00:09:22,940 --> 00:09:25,120
+and the afternoon bid that
+
+335
+00:09:25,120 --> 00:09:25,940
+saved Monday
+
+336
+00:09:25,940 --> 00:09:27,200
+is the thing that went
+
+337
+00:09:27,200 --> 00:09:27,559
+missing.
+
+338
+00:09:28,179 --> 00:09:29,200
+Watch that number.
+
+339
+00:09:29,899 --> 00:09:31,179
+I'm giving you a condition
+
+340
+00:09:31,179 --> 00:09:32,679
+and after the close,
+
+341
+00:09:33,019 --> 00:09:34,580
+a condition is about all
+
+342
+00:09:34,580 --> 00:09:36,399
+anybody can honestly hand you.
+
+343
+00:09:37,000 --> 00:09:38,059
+If that's the kind of
+
+344
+00:09:38,059 --> 00:09:39,039
+breakdown you want
+
+345
+00:09:39,039 --> 00:09:40,639
+after the close, subscribe
+
+346
+00:09:41,060 --> 00:09:42,220
+and I'll see you tomorrow.

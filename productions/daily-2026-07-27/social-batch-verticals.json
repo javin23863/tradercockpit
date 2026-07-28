@@ -1,0 +1,39 @@
+{
+  "schema": "social-batch/v2",
+  "batchId": "daily-2026-07-27-verticals",
+  "containsSyntheticMedia": false,
+  "items": [
+    {
+      "id": "youtube-spx-stopped-at-the-line",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/daily-2026-07-27/shorts/clip-001-spx-stopped-at-the-line.vertical.clean.mp4",
+      "claimsGate": "productions/daily-2026-07-27/build/claims-gate.json",
+      "productionApproval": "productions/daily-2026-07-27/production-approval.json",
+      "title": "The S&P 500 Stopped 0.67 Points Above Its Trendline",
+      "captionMode": "native",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "machine: cut_derivatives downstream of operator-approved long-form https://youtu.be/6thn5ErFNiQ",
+      "reviewedAt": "2026-07-28T05:04:20Z",
+      "copy": "The S&P 500 sold off all afternoon and printed 7,382.74 at the low. The rising line off the August low sits at 7,383.41. It stopped 0.67 points short of a line it has held all year, then closed back above it at 7,413.18.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+      "approvalSha256": "4598cee437e5be627366107c3ba53b9cb813bf1ab01fa8f99395e23aca029da2"
+    },
+    {
+      "id": "youtube-nvda-held-193-87",
+      "channel": "youtube",
+      "status": "approved",
+      "asset": "productions/daily-2026-07-27/shorts/clip-002-nvda-held-193-87.vertical.clean.mp4",
+      "claimsGate": "productions/daily-2026-07-27/build/claims-gate.json",
+      "productionApproval": "productions/daily-2026-07-27/production-approval.json",
+      "title": "Nvidia Fell 4.99% And Still Held 193.87",
+      "captionMode": "native",
+      "privacy": "public",
+      "publicationAuthorized": true,
+      "reviewedBy": "machine: cut_derivatives downstream of operator-approved long-form https://youtu.be/6thn5ErFNiQ",
+      "reviewedAt": "2026-07-28T05:04:20Z",
+      "copy": "Nvidia closed at 196.51, down 4.99%, its worst session in months. The rising line off February sits at 193.87. The stock sold off all day, stopped above that line, and closed back near the top of the support zone.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+      "approvalSha256": "7812eb5ea6a80f5166f5dd549b168b653207860daf38af14cba734bc57a89a1e"
+    }
+  ]
+}

@@ -68,15 +68,57 @@ def parse_srt(path: Path) -> list[tuple[float, str]]:
     return cues
 
 
-def section_start(cues: list[tuple[float, str]], section_text: str, section_num: str) -> float:
-    """First cue whose words open the section. Both artifacts are machine-written from the
-    same vo.txt, so a 5-word prefix match is exact, not fuzzy."""
+CAPTION_DRIFT_MAX_S = 2.0
+
+
+def caption_start(cues: list[tuple[float, str]], section_text: str) -> float | None:
+    """Where the section's opening words begin in the cue STREAM, or None if not found.
+
+    Matched across cues, not inside one. The original compared the prefix against a single
+    cue's first five words, which assumes every cue holds five -- true of script-locked cues,
+    false of transcribed ones. faster-whisper breaks at sentence boundaries, so section 03
+    opened with the four-word cue 'Start with the index.' and the cut aborted.
+    """
     prefix = _words(section_text)[:5]
-    for start, text in cues:
-        if _words(text)[: len(prefix)] == prefix:
+    if not prefix:
+        return None
+    stream = [(word, start) for start, text in cues for word in _words(text)]
+    for index in range(len(stream) - len(prefix) + 1):
+        if [word for word, _ in stream[index:index + len(prefix)]] == prefix:
+            return stream[index][1]
+    return None
+
+
+def section_start(prod: Path, cues: list[tuple[float, str]], section_text: str,
+                  section_num: str) -> float:
+    """Section start from build/timeline.json, cross-checked against the captions.
+
+    The timeline is the artifact the master was CUT from, so it is exact by construction;
+    the captions are a transcription of the result. Locating a section by caption text is
+    brittle for a reason that has nothing to do with the plan being wrong: ASR normalises.
+    Section 06 is spoken "Nvidia's the reason" and transcribed "Nvidia is the reason", and
+    the old locator called that "captions and sections.json disagree" and refused to cut.
+
+    Still no hand timestamps. The caption match is kept as a DIVERGENCE GUARD -- if both
+    agree on a section they must agree closely, and real audio/plan drift still hard-fails.
+    """
+    timeline_path = prod / "build" / "timeline.json"
+    derived = caption_start(cues, section_text)
+    if timeline_path.is_file():
+        timeline = json.loads(timeline_path.read_text(encoding="utf-8"))
+        starts = [float(b["start"]) for b in timeline
+                  if str(b.get("id", "")).split("-")[0] == section_num]
+        if starts:
+            start = min(starts)
+            if derived is not None and abs(derived - start) > CAPTION_DRIFT_MAX_S:
+                sys.exit(f"section {section_num}: timeline says {start:.2f}s but the captions "
+                         f"put it at {derived:.2f}s ({abs(derived - start):.2f}s apart) — "
+                         "the audio and the plan have drifted; re-run produce")
             return start
-    sys.exit(f"section {section_num}: opening words {prefix} not found in captions.srt — "
-             "captions and sections.json disagree; re-run produce before cutting derivatives")
+    if derived is not None:
+        return derived
+    sys.exit(f"section {section_num}: opening words {_words(section_text)[:5]} not found in "
+             "captions.srt and no timeline entry — re-run produce before cutting derivatives")
 
 
 def run(cmd: list[str], env_extra: dict | None = None) -> None:
@@ -169,7 +211,7 @@ def main() -> int:
     assets = []
     for index, seg in enumerate(segments, start=1):
         section = sections.get(seg["section"]) or sys.exit(f"unknown section {seg['section']}")
-        start = section_start(cues, section["text"], seg["section"]) + float(seg.get("offset", 0))
+        start = section_start(prod, cues, section["text"], seg["section"]) + float(seg.get("offset", 0))
         seg_file = scratch / f"seg-{index}.json"
         seg_file.write_text(json.dumps({"segments": [
             {"start": round(start, 2), "duration": float(seg["duration"]), "label": seg["label"]}

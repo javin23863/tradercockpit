@@ -1,244 +1,466 @@
 {
- "schema": "tradercockpit-publish-log/v2",
- "entries": [
-  {
-   "batchId": "daily-2026-07-27-postclose",
-   "itemId": "youtube-long-daily-2026-07-27",
-   "platform": "youtube",
-   "status": "published",
-   "platformId": "GC9rUbQGU2s",
-   "url": "https://youtu.be/GC9rUbQGU2s",
-   "timestamp": "2026-07-27T22:33:47.861176Z",
-   "platformResponse": {
-    "upload": {
-     "kind": "youtube#video",
-     "etag": "zSkwK33DKupT04F3lHLpQk3Aia4",
-     "id": "GC9rUbQGU2s",
-     "snippet": {
-      "publishedAt": "2026-07-27T22:33:21Z",
-      "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
-      "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-      "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
-      "thumbnails": {
-       "default": {
-        "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/default.jpg?sqp=COi3n9MG&rs=AOn4CLCuxgQtQlTyB442dZ6MvbNWyL9zpQ",
-        "width": 120,
-        "height": 90
-       },
-       "medium": {
-        "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/mqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLD2LgML2hxPjJoqXXwHwPW0Ou7S3Q",
-        "width": 320,
-        "height": 180
-       },
-       "high": {
-        "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/hqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLAMHf0WfBdVeBBEsG7BlZO53ocXcA",
-        "width": 480,
-        "height": 360
-       }
-      },
-      "channelTitle": "Tradercockpit",
-      "categoryId": "22",
-      "liveBroadcastContent": "none",
-      "localized": {
-       "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-       "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
-      }
-     },
-     "status": {
-      "uploadStatus": "uploaded",
-      "privacyStatus": "private",
-      "license": "youtube",
-      "embeddable": true,
-      "publicStatsViewable": true,
-      "selfDeclaredMadeForKids": false,
-      "containsSyntheticMedia": false
-     }
-    },
-    "readback": {
-     "kind": "youtube#videoListResponse",
-     "etag": "wKcvJnaSnrDSa-w36j74QR9LA40",
-     "items": [
-      {
-       "kind": "youtube#video",
-       "etag": "VJuSeJaCKO6dEFYsELn3C2Uy6dE",
-       "id": "GC9rUbQGU2s",
-       "snippet": {
-        "publishedAt": "2026-07-27T22:33:21Z",
-        "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
-        "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-        "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
-        "thumbnails": {
-         "default": {
-          "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/default.jpg?sqp=COi3n9MG&rs=AOn4CLCuxgQtQlTyB442dZ6MvbNWyL9zpQ",
-          "width": 120,
-          "height": 90
-         },
-         "medium": {
-          "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/mqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLD2LgML2hxPjJoqXXwHwPW0Ou7S3Q",
-          "width": 320,
-          "height": 180
-         },
-         "high": {
-          "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/hqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLAMHf0WfBdVeBBEsG7BlZO53ocXcA",
-          "width": 480,
-          "height": 360
-         }
+  "schema": "tradercockpit-publish-log/v2",
+  "entries": [
+    {
+      "batchId": "daily-2026-07-27-postclose",
+      "itemId": "youtube-long-daily-2026-07-27",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "GC9rUbQGU2s",
+      "url": "https://youtu.be/GC9rUbQGU2s",
+      "timestamp": "2026-07-27T22:33:47.861176Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "zSkwK33DKupT04F3lHLpQk3Aia4",
+          "id": "GC9rUbQGU2s",
+          "snippet": {
+            "publishedAt": "2026-07-27T22:33:21Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+            "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/default.jpg?sqp=COi3n9MG&rs=AOn4CLCuxgQtQlTyB442dZ6MvbNWyL9zpQ",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/mqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLD2LgML2hxPjJoqXXwHwPW0Ou7S3Q",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/hqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLAMHf0WfBdVeBBEsG7BlZO53ocXcA",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+              "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "private",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
         },
-        "channelTitle": "Tradercockpit",
-        "categoryId": "22",
-        "liveBroadcastContent": "none",
-        "localized": {
-         "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-         "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "wKcvJnaSnrDSa-w36j74QR9LA40",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "VJuSeJaCKO6dEFYsELn3C2Uy6dE",
+              "id": "GC9rUbQGU2s",
+              "snippet": {
+                "publishedAt": "2026-07-27T22:33:21Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+                "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/default.jpg?sqp=COi3n9MG&rs=AOn4CLCuxgQtQlTyB442dZ6MvbNWyL9zpQ",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/mqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLD2LgML2hxPjJoqXXwHwPW0Ou7S3Q",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i9.ytimg.com/vi/GC9rUbQGU2s/hqdefault.jpg?sqp=COi3n9MG&rs=AOn4CLAMHf0WfBdVeBBEsG7BlZO53ocXcA",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "localized": {
+                  "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+                  "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "private",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
         }
-       },
-       "status": {
-        "uploadStatus": "uploaded",
-        "privacyStatus": "private",
-        "license": "youtube",
-        "embeddable": true,
-        "publicStatsViewable": true,
-        "madeForKids": false,
-        "selfDeclaredMadeForKids": false
-       }
-      }
-     ],
-     "pageInfo": {
-      "totalResults": 1,
-      "resultsPerPage": 1
-     }
-    }
-   },
-   "error": null
-  },
-  {
-   "batchId": "daily-2026-07-27-postclose",
-   "itemId": "youtube-long-daily-2026-07-27",
-   "platform": "youtube",
-   "status": "published",
-   "platformId": "fhWrFEsOpj4",
-   "url": "https://youtu.be/fhWrFEsOpj4",
-   "timestamp": "2026-07-27T23:17:31.134321Z",
-   "platformResponse": {
-    "upload": {
-     "kind": "youtube#video",
-     "etag": "CNDqhPftlJCGLgCaJVYmLgeoPc0",
-     "id": "fhWrFEsOpj4",
-     "snippet": {
-      "publishedAt": "2026-07-27T23:15:47Z",
-      "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
-      "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-      "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
-      "thumbnails": {
-       "default": {
-        "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/default.jpg?sqp=CPTMn9MG&rs=AOn4CLDkMQ1QvBw_k-I6QtbMhi0fTimozw",
-        "width": 120,
-        "height": 90
-       },
-       "medium": {
-        "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/mqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLDrAFq_zPn4Gj3V5iCOjnE-Zv3BWw",
-        "width": 320,
-        "height": 180
-       },
-       "high": {
-        "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/hqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLCKbCh1r1nAYNGP5p5fZn071y1BEg",
-        "width": 480,
-        "height": 360
-       }
       },
-      "channelTitle": "Tradercockpit",
-      "categoryId": "22",
-      "liveBroadcastContent": "none",
-      "localized": {
-       "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-       "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
-      }
-     },
-     "status": {
-      "uploadStatus": "uploaded",
-      "privacyStatus": "private",
-      "license": "youtube",
-      "embeddable": true,
-      "publicStatsViewable": true,
-      "selfDeclaredMadeForKids": false,
-      "containsSyntheticMedia": false
-     }
+      "error": null
     },
-    "readback": {
-     "kind": "youtube#videoListResponse",
-     "etag": "eiWhOQTdtwKir2uiz27l8YX3qMM",
-     "items": [
-      {
-       "kind": "youtube#video",
-       "etag": "9T3GpOEBhfUVVln8wNQQ3keYn0w",
-       "id": "fhWrFEsOpj4",
-       "snippet": {
-        "publishedAt": "2026-07-27T23:15:47Z",
-        "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
-        "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-        "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
-        "thumbnails": {
-         "default": {
-          "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/default.jpg?sqp=CPTMn9MG&rs=AOn4CLDkMQ1QvBw_k-I6QtbMhi0fTimozw",
-          "width": 120,
-          "height": 90
-         },
-         "medium": {
-          "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/mqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLDrAFq_zPn4Gj3V5iCOjnE-Zv3BWw",
-          "width": 320,
-          "height": 180
-         },
-         "high": {
-          "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/hqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLCKbCh1r1nAYNGP5p5fZn071y1BEg",
-          "width": 480,
-          "height": 360
-         }
+    {
+      "batchId": "daily-2026-07-27-postclose",
+      "itemId": "youtube-long-daily-2026-07-27",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "fhWrFEsOpj4",
+      "url": "https://youtu.be/fhWrFEsOpj4",
+      "timestamp": "2026-07-27T23:17:31.134321Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "CNDqhPftlJCGLgCaJVYmLgeoPc0",
+          "id": "fhWrFEsOpj4",
+          "snippet": {
+            "publishedAt": "2026-07-27T23:15:47Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+            "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/default.jpg?sqp=CPTMn9MG&rs=AOn4CLDkMQ1QvBw_k-I6QtbMhi0fTimozw",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/mqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLDrAFq_zPn4Gj3V5iCOjnE-Zv3BWw",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/hqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLCKbCh1r1nAYNGP5p5fZn071y1BEg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+              "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "private",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
         },
-        "channelTitle": "Tradercockpit",
-        "categoryId": "22",
-        "liveBroadcastContent": "none",
-        "localized": {
-         "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
-         "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "eiWhOQTdtwKir2uiz27l8YX3qMM",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "9T3GpOEBhfUVVln8wNQQ3keYn0w",
+              "id": "fhWrFEsOpj4",
+              "snippet": {
+                "publishedAt": "2026-07-27T23:15:47Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+                "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/default.jpg?sqp=CPTMn9MG&rs=AOn4CLDkMQ1QvBw_k-I6QtbMhi0fTimozw",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/mqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLDrAFq_zPn4Gj3V5iCOjnE-Zv3BWw",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i9.ytimg.com/vi/fhWrFEsOpj4/hqdefault.jpg?sqp=CPTMn9MG&rs=AOn4CLCKbCh1r1nAYNGP5p5fZn071y1BEg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "localized": {
+                  "title": "Nvidia Fell 4.99%. The Peace Rally Was Gone By The Close.",
+                  "description": "Nvidia closed at 196.51, down 4.99%, and led the technology selling that erased the morning's peace-pause gap. The S&P 500 opened 52.22 points above Friday and finished just 1.20 points higher. The Nasdaq opened 260.36 points higher and closed 43.74 points below Friday.\n\nThe Associated Press reported the three-day pause in US-Iran attacks, and that Nvidia and Micron were major technology drags while most S&P 500 members finished higher: https://apnews.com/article/2b81f0e01bb318ae8d4281964f89f2f1\n\nMy read is that the portfolio test here is concentration. A technology-heavy account did not have the S&P 500's flat day. The deciding Nvidia range is 195.44 to 206.84, and the broad S&P 500 range is 7,382.74 to 7,480.57.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "private",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
         }
-       },
-       "status": {
-        "uploadStatus": "uploaded",
-        "privacyStatus": "private",
-        "license": "youtube",
-        "embeddable": true,
-        "publicStatsViewable": true,
-        "madeForKids": false,
-        "selfDeclaredMadeForKids": false
-       }
-      }
-     ],
-     "pageInfo": {
-      "totalResults": 1,
-      "resultsPerPage": 1
-     }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-27-postclose",
+      "itemId": "youtube-long-daily-2026-07-27",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "6thn5ErFNiQ",
+      "url": "https://youtu.be/6thn5ErFNiQ",
+      "privacyStatus": "public",
+      "timestamp": "2026-07-28T00:00:00Z",
+      "scriptSha256": "6b5fbadb9fa9c018435e7036c6fc8d688b6971ec571169af48698ce01b88208f",
+      "supersedes": [
+        "GC9rUbQGU2s",
+        "fhWrFEsOpj4",
+        "PG0c74tUiPw"
+      ],
+      "note": "Corrected cut: script rewritten in market register, then three false statements fixed after reading build/frame-review against the receipts (NVDA open, VIX 'falling' resistance, XLK anchor month). Charts re-captured with trendlines projected to the session and their own colours. Superseded uploads are still private and were NOT deleted.",
+      "promotedAt": "2026-07-28T04:35:00Z",
+      "promotedBy": "operator instruction 'post a video use best voice we have for tonight only'"
+    },
+    {
+      "batchId": "daily-2026-07-27-verticals",
+      "itemId": "youtube-spx-stopped-at-the-line",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "vwDh6wDfu2k",
+      "url": "https://youtu.be/vwDh6wDfu2k",
+      "timestamp": "2026-07-28T05:09:48.741655Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "WXSt3egHOf8j41s5-AunjB54ZuU",
+          "id": "vwDh6wDfu2k",
+          "snippet": {
+            "publishedAt": "2026-07-28T05:09:21Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "The S&P 500 Stopped 0.67 Points Above Its Trendline",
+            "description": "The S&P 500 sold off all afternoon and printed 7,382.74 at the low. The rising line off the August low sits at 7,383.41. It stopped 0.67 points short of a line it has held all year, then closed back above it at 7,413.18.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/vwDh6wDfu2k/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/vwDh6wDfu2k/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/vwDh6wDfu2k/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "The S&P 500 Stopped 0.67 Points Above Its Trendline",
+              "description": "The S&P 500 sold off all afternoon and printed 7,382.74 at the low. The rising line off the August low sits at 7,383.41. It stopped 0.67 points short of a line it has held all year, then closed back above it at 7,413.18.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "Ss-Nic2yB05eZMNUae5-vvg-tlI",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "AGwK0kTtjUbozlns15ztQY3m0EM",
+              "id": "vwDh6wDfu2k",
+              "snippet": {
+                "publishedAt": "2026-07-28T05:09:21Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "The S&P 500 Stopped 0.67 Points Above Its Trendline",
+                "description": "The S&P 500 sold off all afternoon and printed 7,382.74 at the low. The rising line off the August low sits at 7,383.41. It stopped 0.67 points short of a line it has held all year, then closed back above it at 7,413.18.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/vwDh6wDfu2k/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/vwDh6wDfu2k/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/vwDh6wDfu2k/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "The S&P 500 Stopped 0.67 Points Above Its Trendline",
+                  "description": "The S&P 500 sold off all afternoon and printed 7,382.74 at the low. The rising line off the August low sits at 7,383.41. It stopped 0.67 points short of a line it has held all year, then closed back above it at 7,413.18.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
+    },
+    {
+      "batchId": "daily-2026-07-27-verticals",
+      "itemId": "youtube-nvda-held-193-87",
+      "platform": "youtube",
+      "status": "published",
+      "platformId": "1THjr7B9KAE",
+      "url": "https://youtu.be/1THjr7B9KAE",
+      "timestamp": "2026-07-28T05:10:25.858415Z",
+      "platformResponse": {
+        "upload": {
+          "kind": "youtube#video",
+          "etag": "ipVZN79qURcsKAviDz9euWyLia4",
+          "id": "1THjr7B9KAE",
+          "snippet": {
+            "publishedAt": "2026-07-28T05:10:00Z",
+            "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+            "title": "Nvidia Fell 4.99% And Still Held 193.87",
+            "description": "Nvidia closed at 196.51, down 4.99%, its worst session in months. The rising line off February sits at 193.87. The stock sold off all day, stopped above that line, and closed back near the top of the support zone.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/1THjr7B9KAE/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/1THjr7B9KAE/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/1THjr7B9KAE/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "Tradercockpit",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "Nvidia Fell 4.99% And Still Held 193.87",
+              "description": "Nvidia closed at 196.51, down 4.99%, its worst session in months. The rising line off February sits at 193.87. The stock sold off all day, stopped above that line, and closed back near the top of the support zone.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+            }
+          },
+          "status": {
+            "uploadStatus": "uploaded",
+            "privacyStatus": "public",
+            "license": "youtube",
+            "embeddable": true,
+            "publicStatsViewable": true,
+            "selfDeclaredMadeForKids": false,
+            "containsSyntheticMedia": false
+          }
+        },
+        "readback": {
+          "kind": "youtube#videoListResponse",
+          "etag": "ZxQElPIPja6P3BnyRINhiQlf9Gk",
+          "items": [
+            {
+              "kind": "youtube#video",
+              "etag": "YxP2JjsDysS2ABTVyD2s9mNui2Q",
+              "id": "1THjr7B9KAE",
+              "snippet": {
+                "publishedAt": "2026-07-28T05:10:00Z",
+                "channelId": "UCBc6RR49Qk5vtDQaw8BjH3A",
+                "title": "Nvidia Fell 4.99% And Still Held 193.87",
+                "description": "Nvidia closed at 196.51, down 4.99%, its worst session in months. The rising line off February sits at 193.87. The stock sold off all day, stopped above that line, and closed back near the top of the support zone.\n\nResearch tooling, not financial advice. No performance is promised or implied.",
+                "thumbnails": {
+                  "default": {
+                    "url": "https://i.ytimg.com/vi/1THjr7B9KAE/default.jpg",
+                    "width": 120,
+                    "height": 90
+                  },
+                  "medium": {
+                    "url": "https://i.ytimg.com/vi/1THjr7B9KAE/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                  },
+                  "high": {
+                    "url": "https://i.ytimg.com/vi/1THjr7B9KAE/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                  }
+                },
+                "channelTitle": "Tradercockpit",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                  "title": "Nvidia Fell 4.99% And Still Held 193.87",
+                  "description": "Nvidia closed at 196.51, down 4.99%, its worst session in months. The rising line off February sits at 193.87. The stock sold off all day, stopped above that line, and closed back near the top of the support zone.\n\nResearch tooling, not financial advice. No performance is promised or implied."
+                }
+              },
+              "status": {
+                "uploadStatus": "uploaded",
+                "privacyStatus": "public",
+                "license": "youtube",
+                "embeddable": true,
+                "publicStatsViewable": true,
+                "madeForKids": false,
+                "selfDeclaredMadeForKids": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "totalResults": 1,
+            "resultsPerPage": 1
+          }
+        }
+      },
+      "error": null
     }
-   },
-   "error": null
-  },
-  {
-   "batchId": "daily-2026-07-27-postclose",
-   "itemId": "youtube-long-daily-2026-07-27",
-   "platform": "youtube",
-   "status": "published",
-   "platformId": "6thn5ErFNiQ",
-   "url": "https://youtu.be/6thn5ErFNiQ",
-   "privacyStatus": "public",
-   "timestamp": "2026-07-28T00:00:00Z",
-   "scriptSha256": "6b5fbadb9fa9c018435e7036c6fc8d688b6971ec571169af48698ce01b88208f",
-   "supersedes": [
-    "GC9rUbQGU2s",
-    "fhWrFEsOpj4",
-    "PG0c74tUiPw"
-   ],
-   "note": "Corrected cut: script rewritten in market register, then three false statements fixed after reading build/frame-review against the receipts (NVDA open, VIX 'falling' resistance, XLK anchor month). Charts re-captured with trendlines projected to the session and their own colours. Superseded uploads are still private and were NOT deleted.",
-   "promotedAt": "2026-07-28T04:35:00Z",
-   "promotedBy": "operator instruction 'post a video use best voice we have for tonight only'"
-  }
- ]
+  ]
 }
