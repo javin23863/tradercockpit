@@ -247,6 +247,15 @@ render** → ep04 → upload all four with auto-dub on.
   the only copy of a defect analysis that has been rediscovered twice.
 - **The board card was filed mid-wave, not before the code**, which the drift gate forbids
   ("a card filed after the work is a receipt, not a plan"). Recorded rather than hidden.
+- **GRAPHS — one rebuilt, one deliberately not.** The **ops-vault graph is CURRENT**: `vault_sync.py`
+  rebuilt it and the new `Decisions/` ruling is indexed (6 nodes — the note plus its sections),
+  3,435 nodes / 4,957 links. The **tradercockpit code graph was NOT rebuilt and is stale** —
+  `detect_incremental` reports **928 changed files** against its manifest, which is accumulated
+  repo drift, not this wave's. Rebuilding it is a large multi-agent extraction and belongs to a
+  wave that budgets for it. Worth knowing either way: it indexes **zero** of the episode tools
+  (`broll_conflicts`, `place_cutaways` — 0 nodes), because they live in the double-gitignored
+  `OpenMontage/projects/` tree. **Do not ask that graph about episode tooling; it has never
+  seen them.**
 
 ## 8. Warden findings this wave did NOT close
 
