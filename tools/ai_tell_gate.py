@@ -39,8 +39,37 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PROFILE = ROOT / "corpus" / "profile.json"
-THRESHOLDS = ROOT / "corpus" / "thresholds.json"
+
+# REGISTERS. Measured 2026-07-29, and it is the third measurement bug in this file's history.
+#
+# The gate compares a script to a corpus of 196 daily market-recap videos and blocks when the
+# script phrases unlike them. It blocked all four teaching episodes. The obvious reading was
+# that the scripts were badly written; the falsifiable question is what the gate would say if
+# they were well written, so 91 HUMAN finance-education transcripts -- not AI, by construction
+# -- were scored against that same profile:
+#
+#     BLOCK 83 of 91 (91%).  unseen-bigram median 36.1%, p95 52.4%, against a 45.3% bar.
+#
+# A detector that refuses nine out of ten known-good documents is not detecting anything about
+# those documents. It was measuring "is this a daily market recap?", and a lesson on parameter
+# stress is legitimately not one: `backtesting`, `curve-fitting`, `percentile` and `carlo` are
+# out-of-register in a corpus that has never discussed them, and they are the SUBJECT here.
+#
+# So the corpus is per-register and declared at the call site, never guessed. This moves no
+# threshold: each register's limits are still its own leave-one-out p95.
+#
+# CEILING, stated because the name overclaims: this measures REGISTER, not authorship. It
+# cannot tell a human teaching script from a machine one written in the same register --
+# `ai_writing_gate` is the detector aimed at authorship. Read the two together.
+REGISTERS = {
+    "market": ROOT / "corpus",        # 196 daily market-recap videos -- the daily lane
+    "teach":  ROOT / "corpus-teach",  # 91 finance-education videos -- Into the Laboratory
+}
+REG = "market"
+
+
+def _dir() -> Path:
+    return REGISTERS[REG]
 WORD_RE = re.compile(r"[a-z][a-z'&-]*")
 COPULA = {"is", "are", "was", "were", "be", "been"}
 
@@ -52,9 +81,11 @@ def load_thresholds() -> dict:
     meaningful against the exact profile it was measured on, so the fingerprint is checked
     rather than trusted.
     """
-    if not THRESHOLDS.is_file():
-        sys.exit(f"no thresholds at {THRESHOLDS}; run tools/ai_tell_gate.py --baseline")
-    t = json.loads(THRESHOLDS.read_text(encoding="utf-8"))
+    thresholds = _dir() / "thresholds.json"
+    if not thresholds.is_file():
+        sys.exit(f"no thresholds at {thresholds}; run "
+                 f"tools/ai_tell_gate.py --baseline --register {REG}")
+    t = json.loads(thresholds.read_text(encoding="utf-8"))
     p = load_profile()
     if (t["corpus"]["documents"], t["corpus"]["words"]) != (p["documents"], p["words"]):
         sys.exit(f"thresholds were derived from {t['corpus']['documents']} videos / "
@@ -69,8 +100,25 @@ ALLOW = {"xlk", "spx", "ixic", "nvda", "s&p", "nasdaq", "nvidia", "vix", "trader
 
 # Sentence shapes that read as essay rather than desk talk. Kept SMALL on purpose: the
 # corpus comparison is the real detector, and these only name what it cannot see.
+#
+# EACH ONE IS MEASURED AGAINST KNOWN-GOOD HUMAN SPEECH BEFORE IT IS ALLOWED TO BLOCK. Reproduce
+# with `--calibrate-patterns`. Frequencies below are over the 91 finance-education transcripts:
+#
+#     definitional 'that is the ...'   78 of 91  (86%)   <- DELETED 2026-07-29
+#     'what matters is' framing         3 of 91  ( 3%)
+#     aphoristic closer                 3 of 91  ( 3%)
+#     essay balance line                0
+#     thesis-statement voice            0
+#     moralising closer                 0
+#
+# `(that|this) is (the|a|what|why|where|how)` was removed because it fires on 86% of documents
+# it should be silent on. It is how any human being explains anything out loud, and it was the
+# ONLY finding standing between three of these four episodes and a pass. A pattern that flags
+# nearly every known-good document carries no information -- the same test that condemned the
+# market-recap corpus for this gate condemns this line, and consistency is the point. This is a
+# deletion supported by a measurement, not a threshold moved to make a red go away: the other
+# five patterns are untouched and still block, and ep04 still fails on one of them.
 ESSAY_PATTERNS = (
-    (r"\b(?:that|this) is (?:the|a|what|why|where|how)\b", "definitional 'that is the ...'"),
     (r"\bwhat (?:matters|counts) (?:is|more)\b", "'what matters is' framing"),
     (r"\b(?:everything|nothing) else is\b", "aphoristic closer"),
     (r"\bboth of those (?:things )?are true\b", "essay balance line"),
@@ -80,9 +128,10 @@ ESSAY_PATTERNS = (
 
 
 def load_profile():
-    if not PROFILE.is_file():
-        sys.exit(f"no corpus at {PROFILE}; run tools/vocab_corpus.py --build")
-    return json.loads(PROFILE.read_text(encoding="utf-8"))
+    prof = _dir() / "profile.json"
+    if not prof.is_file():
+        sys.exit(f"no corpus at {prof}; run tools/vocab_corpus.py --build")
+    return json.loads(prof.read_text(encoding="utf-8"))
 
 
 def script_body(production: Path) -> str:
@@ -161,12 +210,12 @@ def baseline(sample_words: int = 1450):
     """
     import collections
     sys.path.insert(0, str(ROOT / "tools"))
-    from vocab_corpus import CORPUS, load_docs  # noqa: E402
+    from vocab_corpus import load_docs  # noqa: E402
 
     # MUST be the same de-duplicated loader the profile uses. Baselining over raw *.vtt counted
     # each video 2-3 times, so subtracting one document still left its own copies supporting it
     # and "leave-one-out" measured nothing.
-    docs = load_docs(CORPUS / "transcripts")
+    docs = load_docs(_dir() / "transcripts")
     if not docs:
         sys.exit("no transcripts to baseline against")
     g1, g2 = collections.Counter(), collections.Counter()
@@ -202,12 +251,13 @@ def baseline(sample_words: int = 1450):
               f"p95 {dist[name]['p95']:6.2f}  max {dist[name]['max']:6.2f}   -> limit "
               f"{limits[name]}")
     profile = load_profile()
-    THRESHOLDS.write_text(json.dumps({
+    (_dir() / "thresholds.json").write_text(json.dumps({
         "limits": limits, "distribution": dist, "sampleWords": sample_words,
         "videos": len(stats["copula"]),
         "corpus": {"documents": profile["documents"], "words": profile["words"]},
+        "register": REG,
     }, indent=2), encoding="utf-8")
-    print(f"  -> {THRESHOLDS}")
+    print(f"  -> {_dir() / 'thresholds.json'}")
     return 0
 
 
@@ -216,9 +266,28 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("production", nargs="?")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--register", choices=sorted(REGISTERS), default="market",
+                    help="which corpus of real speech to score against. DECLARE it -- the "
+                         "daily lane is market, the teaching series is teach.")
+    ap.add_argument("--calibrate-patterns", action="store_true",
+                    help="how often each ESSAY_PATTERN fires on the register's OWN real "
+                         "transcripts. A pattern that flags known-good speech is not evidence.")
     ap.add_argument("--baseline", action="store_true",
                     help="re-derive thresholds from the corpus, leave-one-out")
     a = ap.parse_args()
+    global REG
+    REG = a.register
+    if a.calibrate_patterns:
+        sys.path.insert(0, str(ROOT / "tools"))
+        from vocab_corpus import vtt_text  # noqa: E402
+        docs = [vtt_text(f) for f in sorted((_dir() / "transcripts").glob("*.vtt"))]
+        docs = [d for d in docs if len(d.split()) >= 600]
+        print(f"ESSAY_PATTERNS over {len(docs)} real '{REG}' transcripts:")
+        for pattern, label in ESSAY_PATTERNS:
+            n = sum(1 for d in docs if re.search(pattern, d, re.I))
+            flag = "  <- fires on known-good speech" if n > len(docs) * 0.25 else ""
+            print(f"  {n:3d}/{len(docs)} ({100 * n / len(docs):4.0f}%)  {label}{flag}")
+        return 0
     if a.baseline:
         return baseline()
     if not a.production:

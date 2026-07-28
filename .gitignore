@@ -88,6 +88,13 @@ productions/*/ta-work-live/*.png
 # against the exact profile it was measured on.
 corpus/transcripts/
 
+# corpus-teach/transcripts/ = the same deal for the TEACHING register: 91 finance-education
+# YouTube caption files, staged from the ep02 lexicon corpus at
+# OpenMontage/projects/series-02-out-of-sample/artifacts/corpus-fin/. Same rule -- captions out,
+# derived profile.json and thresholds.json in. NOTE the recovery path is that episode directory,
+# not `vocab_corpus.py --build`, which fetches the market-recap set.
+corpus-teach/transcripts/
+
 # quarantined defective renders. Kept on disk as the reference for what shipped wrong
 # (2026-07-27: consent modal, cropped masthead, app chrome), never in git -- the same
 # multi-MB media the visuals/ rules already exclude, under a different directory name.

@@ -37,6 +37,12 @@ if hasattr(sys.stdout, "reconfigure"):
 # (960 - 52) / 1.105 ~= 821px. Content must live inside x 139..1781, not the full 1920.
 SAFE_W = 1642
 
+# How long the thumbnail plate is held at full before it drops back to a backdrop. Five seconds
+# is the vault's number, not a taste call: `GTM/Social-Media-Library/YouTube Intro & Hook --
+# House Reference.md` Step 2 makes "first shot matches the thumbnail" and "inside 5.0s" two
+# BLOCKERS, not notes.
+PLATE_HOLD_S = 5.0
+
 
 def dur(wav: Path) -> float:
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -94,6 +100,25 @@ CSS = """
           background:#3a3a44;opacity:0}
     /* Kling returns 1280x720; without this a clip lays out at intrinsic size in the corner. */
     #root > video{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover}
+    /* THE THUMBNAIL PLATE, ON FRAME ONE. Every other element in this file starts at opacity 0
+       and fades in on a beat, so frame 0 of a generated scene is a BLACK FIELD by construction.
+       ep03 measured 4.667s and ep04 4.333s before a non-black frame against presentation_gate's
+       0.1s bar -- five seconds of nothing at the exact point the vault calls "the biggest
+       drop-off in the video" (Intro & Hook House Reference, Step 2). It also silently broke the
+       other half of that rule: the first shot is supposed to match the thumbnail in subject,
+       composition and primary colours, and black matches nothing.
+       So this one is opaque from frame 0 and never fades IN -- it fades DOWN, after the match
+       has been held. Same treatment as the thumbnail's own plate so the two read as one image.
+
+       THE GRADE IS BAKED INTO THE PNG, NOT APPLIED IN CSS. The first cut used
+       `filter:saturate(.32) contrast(1.18) brightness(.80)` plus a full-frame ::after vignette.
+       That is two full-screen compositing layers recomputed every frame in every worker, and
+       the render died at 30%% with all five Chrome workers returning "Protocol error
+       (Page.captureScreenshot): Unable to capture screenshot". Same look, none of the cost:
+         ffmpeg -i plate.png -vf "scale=1920:1080:force_original_aspect_ratio=increase,
+                crop=1920:1080,eq=saturation=0.32:contrast=1.18:brightness=-0.09,vignette=a=1.1" */
+    .plate{position:absolute;inset:0;background-position:center;background-size:cover;
+           background-repeat:no-repeat}
 """
 
 SCENE = """<!doctype html>
@@ -154,6 +179,22 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
             return float(next(b))
         except StopIteration:
             return default
+
+    # Track 0, ahead of everything, and NOT routed through add() -- add() fades an element in
+    # from opacity 0, which is precisely the behaviour that made frame 0 black.
+    if spec.get("plate"):
+        els.append(f'  <div data-hf-id="{hid}p" id="s-plate" class="plate clip" '
+                   # Root-relative, NOT "../assets/...". Compositions are served with the
+                   # project root as base URL; a "../" path renders fine and 404s in preview,
+                   # which npm run check calls invalid_parent_traversal_in_asset_path.
+                   f"style=\"background-image:url('assets/images/{spec['plate']}')\" "
+                   f'data-start="0.0" data-duration="{d:.3f}" data-track-index="0"></div>')
+        # Held at full for PLATE_HOLD_S, then down to a backdrop. The hold is the thumbnail
+        # match and the vault gives it five seconds; the fade is also a real visual event, which
+        # is why the 4.067s freeze that sat 0.067s over the cap goes away with it.
+        hold = min(PLATE_HOLD_S, d * 0.5) / d
+        tw.append(f'    tl.fromTo("#s-plate", {{opacity:1}}, '
+                  f'{{opacity:.15, duration:1.1, ease:"none"}}, DUR * {hold:.3f});')
 
     add(f'  <div data-hf-id="{hid}t" id="s-title" class="wrap title clip" '
         f'data-start="0.0" data-duration="{d:.3f}" data-track-index="{idx}">{esc(spec["title"])}</div>',
