@@ -248,3 +248,97 @@ whisper_back with every beat re-derived, and a re-render. The new master does no
 3. render `--workers 3`, absolute `-o`, background, never piped through `tail`
 4. `build_bed --video` -> `check_bed` -> mux (two-pass loudnorm, true peak -2.0)
 5. render gates: `intro_pace`, `presentation_gate`, `cut_census` rate, contact sheet + LOOK
+
+---
+
+## §11 — ep03 to picture-lock (2026-07-28, later)
+
+### The Higgsfield boards are done, and `multi_shots` was the trap
+
+Three teaching boards, all inspected frame-by-frame before use, all zero-text and on-world:
+
+| clip | job | usable | teaches |
+|---|---|---|---|
+| `board-cost-stack.mp4` | `bc866dae` | **12.0 / 12.0s** | three chalk bars of rising length |
+| `board-cliff.mp4` | `c1e52c68` | **12.0 / 12.0s** | a flat line that runs level, then drops |
+| `board-trade-count.mp4` | `65e61a2e` | **12.0 / 12.0s** | a rising curve, downward ticks hanging off it |
+
+**`multi_shots: true` is what made the ep02 bank need trimming.** With it on, the model spends the
+12s cutting to new angles and the diagram is square to camera for a few seconds only — the
+cost-stack v1 (`c33818d1`) gave **3.2 of 12s**. With `multi_shots: false` plus a prompt that says
+*locked-off, square to the board, never oblique*, all three above needed **zero trim**. Keep
+`multi_shots` for atmosphere, where a cut costs nothing; never for a board.
+
+**Pass the params explicitly.** `generate_video` defaults this model to `mode: std` and `sound: on`
+against a bank of `mode: pro` / `sound: off` / `genre: suspense` / `cfg_scale: 0.7`. Job
+`11647d9e` was submitted without them, completed normally, and is off-bank. The defect is visible
+only in the params echo.
+
+### `place_cutaways` reported 35 cutaways into a file with zero video tags
+
+The generated `index.html` had neither the `<!-- CUTAWAYS -->` markers nor the ep02
+`TODO(ep02)` anchor, so the insertion fell through to a `str.replace()` that matched nothing. The
+file was written back byte-identical and the tool printed `written.` **`broll_conflicts` then said
+"no B-roll <video> clips found in index.html" and exited 0** — the second gate passed by having
+nothing to inspect. Same void-evidence shape as the two beat-parser misses.
+
+Fixed in `tools/build_scenes.py` (commit `43a24f0`): the marker pair is emitted into every
+generated index, plus `#root > video{position:absolute;inset:0;width:1920px;height:1080px;
+object-fit:cover}` — without that rule a 1344x768 cutaway lays out at intrinsic size in the corner.
+`place_cutaways.py` now BLOCKs when it finds no insertion point and verifies the written tag count.
+Ported to ep04's copy.
+
+With the gate finally able to see, it found a real one: `board-cliff` ended **exactly on**
+`scene-cliff`'s kicker beat, because the cue clamp was `hi - CUT_S` and `hi` IS a beat.
+`CUE_MARGIN = 0.5` (> `broll_conflicts.LEAD` 0.4) fixes it. 0 conflicts now.
+
+### `script_style_gate` was in the router and was not run
+
+`GTM/README.md:32-45` ends *"Then run: `claims_gate.py`, `script_style_gate.py`, and the read-aloud
+gate."* Run after the fact it BLOCKED on spoken copy:
+
+* **edit-room narration ×2** — *"It's on screen, and I want you to notice something about it"*,
+  *"Link's on screen."* Both break router item 3, `Backstage vs Receipts`: never name the machinery.
+* **corrective contrast ×3, limit 1** — a triple negation in `scene-count`, and *"It isn't a hard
+  bar, it's an impossible one"* in `scene-scar`.
+
+Four lines rewritten → four slots re-voiced → `scene-survivor` re-rolled, because the four new
+takes moved the episode median F0 and pushed it 1.59 st out of a ±1.5 band. PASS now, spread
+2.59 st. The surviving correction is *"That's 7 in total, not 7 on top of the 2"* — earned.
+
+### `ai_tell_gate` was scoring the file, not the narration
+
+`script_body()` dropped `## slot` headers and kept everything else, including each vo.txt's `#`
+provenance header and its `=== SLOT ===` markers. Its top reported offenders were literally
+`ep narration, narration v, v written, written against, the contract, contract router` — header
+words. Fixed in commit `77d9d93`; no threshold touched. After the fix:
+
+| | unseen bigrams (bar 45.3%) | out-of-register (bar 36) |
+|---|---|---|
+| ep01 **shipped** | 47.6% | 21 |
+| ep02 **shipped** | 46.0% | 46 |
+| ep03 | 51.3% | 38 |
+
+**The bar rejects both accepted episodes.** That is a calibration question for the §(f) pass, not a
+shippability signal, and the corpus behind it has a known duplicate-variant defect. NOT softened.
+
+### State at handoff
+
+`artifacts/`: `vo.txt` (15 slots, 11:36), `scenes.json`, `whisper-back.json` (fresh),
+`packaging.json` (LOCKED), `thumbnail-ep03.png` + squint pair, `_yt_desc.txt`, `_yt_tags.json`,
+`publish-ep03.md`. All script gates green except `ai_tell_gate` as above.
+
+`ep03-v2.mp4` rendering — 15 slots, 35 cutaways, 0 conflicts, `npm run check` 0 errors.
+**v1 was killed mid-encode and deleted**: the VO changed under it. Its orphaned `ffmpeg` (pid
+24488) survived the shell kill and had to be stopped by hand — check for one after any TaskStop.
+
+### Next, in order
+
+1. `build_bed --video` -> `check_bed` -> mux (two-pass loudnorm, true peak -2.0)
+2. render gates on the muxed master: `intro_pace <video>`, `presentation_gate <video>`,
+   `cut_census`, contact sheet + **LOOK at it**
+3. operator decision, recorded in `publish-ep03.md`: *"first shot matches the thumbnail inside
+   5.0s"* — ep01 and ep02 both ship a title card first with the first cutaway at 31s and neither
+   plate appears in its episode. Either the rule means the promise, or all three need a cold open.
+4. ep04 end to end — its `place_cutaways` already carries the ep03 fixes
+5. ep01 retime + fresh whisper_back + re-render (clone is 7:07 vs recorded 9:06)
