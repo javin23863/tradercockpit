@@ -71,7 +71,10 @@ CHAIN = (
     ("ai_tell_gate",     "repo",  ["tools/ai_tell_gate.py", "--register", "teach", "{art}"], False),
     ("check_figures",    "ep",    ["tools/check_figures.py"], False),
     ("term_gate",        "ep",    ["tools/term_gate.py", "--episode", "{syllabus_ep}"], False),
-    ("slop_gate",        "ep",    ["tools/slop_gate.py", "{art}"], False),
+    # {proj}, not {art}: slop_gate globs <root>/hyperframes/compositions and <root>/artifacts.
+    # Handed artifacts/ it matched nothing and printed "0 file(s) ... clean", and this chain
+    # recorded a PASS for a gate that inspected nothing. It BLOCKs on zero files now too.
+    ("slop_gate",        "ep",    ["tools/slop_gate.py", "{proj}"], False),
     ("lexicon_gate",     "ep",    ["tools/lexicon_gate.py"], False),
     ("thumb_gate",       "ep",    ["tools/thumb_gate.py", "{art}/thumbnail-ep{ep2}.html"], False),
     ("broll_conflicts",  "ep",    ["tools/broll_conflicts.py"], False),
