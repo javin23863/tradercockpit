@@ -1,13 +1,23 @@
 {
   "schema": "tradercockpit-social-velocity/v1",
-  "generatedAt": "2026-07-26T23:00:47.634936Z",
-  "samples": 64,
+  "generatedAt": "2026-07-28T05:01:28.894312Z",
+  "samples": 73,
   "posts": [
+    {
+      "key": "ig:18012925757872238",
+      "views": 14,
+      "perHourRecent": 0.33,
+      "perHour24h": 0.04,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Is the Strait of Hormuz actually closed? Wrong question. The right one moves oil. 🚢 #oil #brentcrude #hormuz #stockmarket #trading #investin",
+      "url": "https://www.instagram.com/reel/Daw-azDj0GJ/"
+    },
     {
       "key": "yt:9Xlabw04luQ",
       "views": 22,
       "perHourRecent": 0.0,
-      "perHour24h": -0.04,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
       "title": "The S&P Is 19 Points From Breaking July",
@@ -37,7 +47,7 @@
       "key": "yt:2qmSPKsp-9k",
       "views": 10,
       "perHourRecent": 0.0,
-      "perHour24h": -0.08,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
       "title": "Infrastructure Split: SMCI Surged as GEV Sank",
@@ -54,6 +64,26 @@
       "url": "https://youtu.be/fqiAmRJkYC8"
     },
     {
+      "key": "yt:e_zxBsWFnQc",
+      "views": 8,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Micron Gapped 7% and Never Looked Back",
+      "url": "https://youtu.be/e_zxBsWFnQc"
+    },
+    {
+      "key": "yt:KGzT9TV4APM",
+      "views": 8,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "SMCI Surged While GEV Sank",
+      "url": "https://youtu.be/KGzT9TV4APM"
+    },
+    {
       "key": "yt:1ddWI5J4YBA",
       "views": 10,
       "perHourRecent": 0.0,
@@ -64,64 +94,14 @@
       "url": "https://youtu.be/1ddWI5J4YBA"
     },
     {
-      "key": "yt:e_zxBsWFnQc",
-      "views": 8,
-      "perHourRecent": 0.0,
-      "perHour24h": -0.08,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Micron Gapped 7% and Never Looked Back",
-      "url": "https://youtu.be/e_zxBsWFnQc"
-    },
-    {
-      "key": "yt:KGzT9TV4APM",
-      "views": 8,
-      "perHourRecent": 0.0,
-      "perHour24h": -0.04,
-      "spiking": false,
-      "source": "youtube",
-      "title": "SMCI Surged While GEV Sank",
-      "url": "https://youtu.be/KGzT9TV4APM"
-    },
-    {
-      "key": "yt:clxfXQ2FqmU",
-      "views": 164,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "What the week ACTUALLY did — S&P weekly closes",
-      "url": "https://youtu.be/clxfXQ2FqmU"
-    },
-    {
       "key": "yt:rSF2Ou-CkvA",
       "views": 71,
       "perHourRecent": 0.0,
-      "perHour24h": -0.04,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
       "title": "Chart of the week: semis vs the market -7.5% in 5 days",
       "url": "https://youtu.be/rSF2Ou-CkvA"
-    },
-    {
-      "key": "yt:-Txh01-jcd0",
-      "views": 6,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Oil Closed Above $100. Energy Stocks Barely Moved.",
-      "url": "https://youtu.be/-Txh01-jcd0"
-    },
-    {
-      "key": "yt:J2EBBMDoKhc",
-      "views": 11,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Oil Holds $84 as the Risk Premium Sticks",
-      "url": "https://youtu.be/J2EBBMDoKhc"
     },
     {
       "key": "yt:ANwcW1udU64",
@@ -134,34 +114,14 @@
       "url": "https://youtu.be/ANwcW1udU64"
     },
     {
-      "key": "yt:Dy_XvwUi6Ng",
-      "views": 91,
+      "key": "yt:5yj8-xjsoJA",
+      "views": 1,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
-      "title": "Trump's 20% Hormuz Toll Sent Oil +10% 🛢️ #Shorts",
-      "url": "https://youtu.be/Dy_XvwUi6Ng"
-    },
-    {
-      "key": "yt:IJjUNeuJSNE",
-      "views": 25,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Trump's 20% Hormuz Toll: What It Means For Your Portfolio",
-      "url": "https://youtu.be/IJjUNeuJSNE"
-    },
-    {
-      "key": "yt:178YBzc4o2I",
-      "views": 3,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "How High Can Oil Actually Go? $100–$150 📈 #Shorts",
-      "url": "https://youtu.be/178YBzc4o2I"
+      "title": "Stocks Broke the Wall. Oil Didn't Get the Memo.",
+      "url": "https://youtu.be/5yj8-xjsoJA"
     },
     {
       "key": "yt:cC6TZCTJ3l4",
@@ -174,114 +134,14 @@
       "url": "https://youtu.be/cC6TZCTJ3l4"
     },
     {
-      "key": "yt:IQJsq4EYQXA",
-      "views": 15,
+      "key": "yt:clxfXQ2FqmU",
+      "views": 164,
       "perHourRecent": 0.0,
       "perHour24h": 0.0,
       "spiking": false,
       "source": "youtube",
-      "title": "Nasdaq Broke 7431, S&P Held Its Band — The Divergence",
-      "url": "https://youtu.be/IQJsq4EYQXA"
-    },
-    {
-      "key": "yt:D3FMz1Nncqg",
-      "views": 24,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "5 Tankers vs 130 a Day: What Hormuz Actually Closed #Shorts",
-      "url": "https://youtu.be/D3FMz1Nncqg"
-    },
-    {
-      "key": "yt:zFQ3gJCVD6Y",
-      "views": 1,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "How the War Premium Travels: Brent to Energy Equities",
-      "url": "https://youtu.be/zFQ3gJCVD6Y"
-    },
-    {
-      "key": "yt:33cnTUL4ga4",
-      "views": 19,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Iran Deadline Day and TSMC's $403.50 Floor",
-      "url": "https://youtu.be/33cnTUL4ga4"
-    },
-    {
-      "key": "yt:5yj8-xjsoJA",
-      "views": 1,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Stocks Broke the Wall. Oil Didn't Get the Memo.",
-      "url": "https://youtu.be/5yj8-xjsoJA"
-    },
-    {
-      "key": "yt:HW8VpcxvdAY",
-      "views": 45,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Oil +10%, Energy +4%: What Actually Moved #Shorts",
-      "url": "https://youtu.be/HW8VpcxvdAY"
-    },
-    {
-      "key": "yt:Uhm8Xtdh3bg",
-      "views": 3,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "5 Big Banks Report: Watch These 3 Lines #shorts",
-      "url": "https://youtu.be/Uhm8Xtdh3bg"
-    },
-    {
-      "key": "yt:SHVn6IdgIUo",
-      "views": 4,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Is the Strait of Hormuz Actually Closed? 🚢 #Shorts",
-      "url": "https://youtu.be/SHVn6IdgIUo"
-    },
-    {
-      "key": "yt:Xgusm1MQWpI",
-      "views": 6,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "How High Can Oil Actually Go? $100-$150 #shorts",
-      "url": "https://youtu.be/Xgusm1MQWpI"
-    },
-    {
-      "key": "yt:Yu5hYKOsMbQ",
-      "views": 3,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "$83 Crude Flows Straight Into Producer Earnings #shorts",
-      "url": "https://youtu.be/Yu5hYKOsMbQ"
-    },
-    {
-      "key": "yt:a-d0ND20Dzc",
-      "views": 13,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "Stock Market Weekly Review: Oil +17%, Tech Cracks — Did The Bull Break?",
-      "url": "https://youtu.be/a-d0ND20Dzc"
+      "title": "What the week ACTUALLY did — S&P weekly closes",
+      "url": "https://youtu.be/clxfXQ2FqmU"
     },
     {
       "key": "yt:2LmAWN4yQCs",
@@ -292,16 +152,6 @@
       "source": "youtube",
       "title": "The 3 levels that decide next week — 7581 / 7431 / 88.38",
       "url": "https://youtu.be/2LmAWN4yQCs"
-    },
-    {
-      "key": "yt:l8BuqCo3D9M",
-      "views": 44,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "youtube",
-      "title": "TSM's 403.50 Floor Is Being Tested",
-      "url": "https://youtu.be/l8BuqCo3D9M"
     },
     {
       "key": "fb:1568911174863124",
@@ -505,9 +355,9 @@
     },
     {
       "key": "ig:18105774154865532",
-      "views": 6,
+      "views": 8,
       "perHourRecent": 0.0,
-      "perHour24h": 0.0,
+      "perHour24h": 0.04,
       "spiking": false,
       "source": "instagram",
       "title": "SMCI held most of its July 22 opening gap but closed below the 32.2844 session high. The 28.50 low is the first downside test; a close throu",
@@ -615,9 +465,9 @@
     },
     {
       "key": "ig:18071105546390143",
-      "views": 37,
+      "views": 38,
       "perHourRecent": 0.0,
-      "perHour24h": 0.0,
+      "perHour24h": 0.04,
       "spiking": false,
       "source": "instagram",
       "title": "The Nasdaq broke its support. The S&P held its band. That difference is the whole story.",
@@ -674,16 +524,6 @@
       "url": "https://www.instagram.com/reel/Daw-hoRiNHr/"
     },
     {
-      "key": "ig:18012925757872238",
-      "views": 13,
-      "perHourRecent": 0.0,
-      "perHour24h": 0.0,
-      "spiking": false,
-      "source": "instagram",
-      "title": "Is the Strait of Hormuz actually closed? Wrong question. The right one moves oil. 🚢 #oil #brentcrude #hormuz #stockmarket #trading #investin",
-      "url": "https://www.instagram.com/reel/Daw-azDj0GJ/"
-    },
-    {
       "key": "ig:18431531929135344",
       "views": 3,
       "perHourRecent": 0.0,
@@ -705,16 +545,6 @@
     }
   ],
   "breakouts": [
-    {
-      "key": "yt:9Xlabw04luQ",
-      "source": "youtube",
-      "title": "The S&P Is 19 Points From Breaking July",
-      "url": "https://youtu.be/9Xlabw04luQ",
-      "views": 23,
-      "medianTrailing20": 6.0,
-      "baselinePosts": 20,
-      "multiple": 3.8
-    },
     {
       "key": "ig:17923397229167207",
       "source": "instagram",
