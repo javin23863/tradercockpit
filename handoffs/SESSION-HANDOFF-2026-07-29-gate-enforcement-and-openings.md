@@ -204,3 +204,47 @@ cannot separate a human teaching script from a machine one written in the same r
   `build_scenes.py` fades in from `opacity:0`. No gate that reads the source could ever see it.
 - **A full-screen CSS `filter` is a compositing layer per frame per worker** and killed a render
   outright. Bake the grade into the asset.
+
+## 11 — Drift audit (plan-warden, 2026-07-29): ON PLAN, three things owed at close
+
+Run before close per the standing drift gate. Verdict **ON PLAN** — the wave did the work the
+record already said was next (§13 items 2 and 5 of the 07-28d handoff) under an operator order
+that made it urgent. Three findings acted on rather than filed:
+
+1. **Say the mechanism plainly.** All four episodes pass `ai_tell_gate` because **the gate
+   changed, not the scripts** (ep04's one rewritten line excepted). Gate-softening is presumed
+   wrong until the operator ratifies. Stated to the operator at close; **ratify or revert**.
+2. **The teach control is not independent.** The 91 transcripts used to derive the teach limits
+   are the same 91 used as the known-good control, so "~5% block by construction" is circular by
+   design. The load-bearing assumption is the corpus's provenance. The *cross*-register control
+   (market vs teach, 84% BLOCK) is the independent half, and it is the one that shows the
+   instrument still discriminates.
+3. **No board card existed before the feature code.** `episode_gate.py` and the `ai_tell_gate`
+   rework were written first; `social.laboratory-ep03-ep04-slippage` was receipted afterwards
+   (`ev.lab-gate-enforcement-20260729`, manager revision 2161, status **fail** because nothing is
+   certified). A card filed after the work is a receipt, not a plan. Recorded as the violation it
+   is rather than dressed up.
+
+Also flagged, and folded into §3 and §5: **ep01 blocks the batch and was missing from the
+continuation runbook.** Release is four-at-once, and ep01 owes a clone retime + fresh
+`whisper_back` + re-render, a `packaging.json` it has never had, the title/first-line mismatch,
+and the bespoke-sweep mislabel fix — *"Ep01 does not publish carrying the mislabel, batch or
+not"*.
+
+**Do not copy ep02's `cut_census` waiver sideways to ep03/ep04.** The operator's ruling named
+episode two.
+
+Still required before four episodes can release, from `series-plan.md` §11/§13 and the
+batch-of-four Decision — none of it done this wave:
+
+- operator approval of ep03 + ep04 packaging (both still recorded `PROPOSED`)
+- per-episode syllabus ratification (`series-plan.md:728`)
+- four-video CTA + end-screen chain — part of the ruling, not an extra
+- cohesion: playlist, channel section, trailer
+- synthetic-content YES + auto-dub ON at upload — confirm the newly gated upload path sets it
+- kill/roll criterion recorded with thresholds before publish, which drags the §(f) recalibration
+- **operator review of every new render** — a new render never inherits the previous one's
+  approval, and every render gate must be re-scored on the plated masters. The §13 figures
+  (`intro_pace` 20/21, first-five-seconds) do **not** carry over a changed opening.
+- `subtitles.srt` regenerated from current stems after the ep04 re-voice
+- ElevenLabs key rotation (`series-plan.md:723`), operator-owed, still open
