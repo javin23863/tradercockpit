@@ -41,8 +41,15 @@ except ModuleNotFoundError:  # direct `python tools/tts_elevenlabs.py` execution
 ROOT = Path(__file__).resolve().parents[1]
 GAP_S = 0.45              # silence between sections — matches produce.GAP_S
 API = "https://api.elevenlabs.io/v1/text-to-speech"
-MODEL = "eleven_multilingual_v2"
+# Operator ruling 2026-07-28: eleven_v3. Its voice_settings contract differs from the v2
+# family — stability is a three-position control (0.0 Creative / 0.5 Natural / 1.0 Robust),
+# not a continuous dial, and `speed` is a v2-only parameter. NOTE: v3 reports
+# can_be_finetuned=false, so a Professional Voice Clone cannot run on it; v3 is fine with
+# the instant clone configured today, but the PVC would have to live on a v2-family model.
+MODEL = "eleven_v3"
+V3_STABILITY = {0.0, 0.5, 1.0}
 OUTPUT_FORMAT = "mp3_44100_128"
+SEED = 20260728  # fixed: identical text + settings must render identically across runs
 TARGET_WPM = 145          # operator ruling 2026-07-28: "new clone, medium (145 wpm)"
 WPM_TOLERANCE = 12        # flag a render that drifts far enough to hear
 
@@ -72,12 +79,42 @@ def word_count(text: str) -> int:
     return len(re.findall(r"[A-Za-z0-9]+(?:[.'’][A-Za-z0-9]+)*", text))
 
 
-def synth(text: str, voice: str, key: str, speed: float, out: Path) -> None:
-    body = json.dumps({
+def voice_settings(speed: float, stability: float) -> dict:
+    """Model-aware settings. v3 takes a three-position stability and rejects `speed`;
+    the v2 family takes a continuous stability and the 0.7-1.2 speed multiplier."""
+    settings = {"stability": stability, "similarity_boost": 0.75, "use_speaker_boost": True}
+    if MODEL.startswith("eleven_v3"):
+        if stability not in V3_STABILITY:
+            sys.exit(f"eleven_v3 stability must be one of {sorted(V3_STABILITY)} "
+                     f"(0.0 Creative / 0.5 Natural / 1.0 Robust); got {stability}")
+    else:
+        settings["speed"] = speed
+    return settings
+
+
+def synth(text: str, voice: str, key: str, speed: float, out: Path,
+          stability: float = 0.5, previous_text: str = None, next_text: str = None) -> None:
+    """One section. `previous_text`/`next_text` are the neighbouring sections' words: they
+    are NOT spoken, they only give the model the surrounding context so prosody and pace
+    carry across a section boundary instead of resetting. Without them every section is an
+    unrelated read, which is what made the delivery drift mid-video (defect 2026-07-28).
+    Deliberately NOT previous_request_ids: those expire within hours and would force a full
+    re-read for any next-morning recut, and would break the per-section resume contract."""
+    payload = {
         "text": text,
         "model_id": MODEL,
-        "voice_settings": {"stability": 0.5, "similarity_boost": 0.75, "speed": speed},
-    }).encode("utf-8")
+        "voice_settings": voice_settings(speed, stability),
+        "seed": SEED,
+    }
+    # eleven_v3 rejects stitching outright — API 400 "unsupported_model: Providing
+    # previous_text or next_text is not yet supported with the 'eleven_v3' model".
+    # Silently dropping it here keeps both model choices runnable from one code path.
+    if not MODEL.startswith("eleven_v3"):
+        if previous_text:
+            payload["previous_text"] = previous_text
+        if next_text:
+            payload["next_text"] = next_text
+    body = json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(
         f"{API}/{voice}?output_format={OUTPUT_FORMAT}", data=body,
         headers={"xi-api-key": key, "Content-Type": "application/json"},
@@ -146,7 +183,10 @@ def main(argv=None) -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("prod", nargs="?", help="production folder (contains vo.txt)")
     ap.add_argument("--voice", help="ElevenLabs voice id (default: $ELEVEN_VOICE_ID)")
-    ap.add_argument("--speed", type=float, default=1.0, help="0.7-1.2 delivery multiplier")
+    ap.add_argument("--speed", type=float, default=1.0,
+                    help="0.7-1.2 delivery multiplier (v2 models only; eleven_v3 ignores it)")
+    ap.add_argument("--stability", type=float, default=0.5,
+                    help="eleven_v3: 0.0 Creative / 0.5 Natural / 1.0 Robust")
     ap.add_argument("--dry-run", action="store_true", help="print characters + cost shape, spend nothing")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args(argv)
@@ -185,19 +225,28 @@ def main(argv=None) -> int:
     build = prod / "build"
     build.mkdir(parents=True, exist_ok=True)
 
+    texts = [section_text(section) for section in sections]
     meta, wavs = [], []
-    for section in sections:
+    for index, section in enumerate(sections):
         wav = build / section_wav_name(section)
         if wav.exists():  # same skip-existing contract as tts_chatterbox — delete a wav to
             print(f"[eleven] section {section['num']} ({section['slug']}) exists, skip")  # regenerate it
         else:
             mp3 = build / f"{wav.stem}.mp3"
-            synth(section_text(section), voice, key, a.speed, mp3)
+            # stitch on the neighbouring section text so delivery carries across the seam
+            synth(texts[index], voice, key, a.speed, mp3, stability=a.stability,
+                  previous_text=texts[index - 1] if index else None,
+                  next_text=texts[index + 1] if index + 1 < len(texts) else None)
             to_wav(mp3, wav)
             mp3.unlink()
             print(f"[eleven] section {section['num']} ({section['slug']}) -> {duration(wav):.1f}s")
         seconds = duration(wav)
-        meta.append({**section, "wav": wav.name, "duration": round(seconds, 3)})
+        # per-section wpm: a whole-file average hides one section drifting (defect 2026-07-28)
+        section_wpm = word_count(texts[index]) / (seconds / 60) if seconds else 0
+        drift = "" if abs(section_wpm - TARGET_WPM) <= WPM_TOLERANCE else "  <-- OFF TARGET"
+        print(f"[eleven]   section {section['num']}: {section_wpm:.0f} wpm{drift}")
+        meta.append({**section, "wav": wav.name, "duration": round(seconds, 3),
+                     "wpm": round(section_wpm)})
         wavs.append(wav)
 
     full = build / "vo-full.wav"
@@ -206,10 +255,24 @@ def main(argv=None) -> int:
     total = duration(full)
     wpm = total_words / (total / 60) if total else 0
     print(f"[eleven] DONE: {len(meta)} sections, {total/60:.1f} min -> build/vo-full.wav")
-    print(f"[eleven] measured {wpm:.0f} wpm at speed={a.speed} (target {TARGET_WPM})")
+    spread = max(m["wpm"] for m in meta) - min(m["wpm"] for m in meta)
+    print(f"[eleven] measured {wpm:.0f} wpm (target {TARGET_WPM}), per-section spread {spread}")
     if abs(wpm - TARGET_WPM) > WPM_TOLERANCE:
-        print(f"[eleven] WARNING: off target — rerun with --speed {a.speed * wpm / TARGET_WPM:.2f} "
-              "after deleting build/vo-*.wav")
+        if MODEL.startswith("eleven_v3"):
+            # v3 takes no `speed`, so there is no multiplier to re-run with. Measured
+            # 2026-07-28: the slow sections are the ones dense with long decimals — a
+            # 9-digit 4-decimal figure costs seconds of speech and counts as ~1 word.
+            # The lever on v3 is the SCRIPT (fewer raw OHLC prints), not a parameter.
+            print("[eleven] WARNING: off target. eleven_v3 has no speed control — the "
+                  "lever is the script: cut raw OHLC recital in the slowest sections.")
+        else:
+            print(f"[eleven] WARNING: off target — rerun with --speed "
+                  f"{a.speed * wpm / TARGET_WPM:.2f} after deleting build/vo-*.wav")
+    if spread > 2 * WPM_TOLERANCE:
+        worst = min(meta, key=lambda m: m["wpm"])
+        print(f"[eleven] WARNING: pace spread {spread} wpm across sections — slowest is "
+              f"{worst['num']} ({worst['wpm']} wpm). Uneven delivery is usually number "
+              "density, not the voice.")
     return 0
 
 
