@@ -81,3 +81,9 @@ productions/*/_original-*/*.wav
 productions/*/vo-finetuned/*.wav
 productions/*/ta-work-live/*.mp4
 productions/*/ta-work-live/*.png
+
+# corpus/transcripts/ = 27MB of raw third-party YouTube captions, re-fetchable with
+# `python tools/vocab_corpus.py --build`. The derived profile.json and thresholds.json ARE
+# tracked: ai_tell_gate refuses to score without them, and a threshold is only meaningful
+# against the exact profile it was measured on.
+corpus/transcripts/

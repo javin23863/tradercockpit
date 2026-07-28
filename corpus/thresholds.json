@@ -1,0 +1,33 @@
+{
+  "limits": {
+    "copula": 6.1,
+    "unseen": 45.3,
+    "outOfRegister": 36
+  },
+  "distribution": {
+    "copula": {
+      "mean": 3.67,
+      "p90": 5.38,
+      "p95": 6.07,
+      "max": 6.34
+    },
+    "unseen": {
+      "mean": 31.99,
+      "p90": 41.41,
+      "p95": 45.25,
+      "max": 51.0
+    },
+    "outOfRegister": {
+      "mean": 16.4,
+      "p90": 30,
+      "p95": 36,
+      "max": 59
+    }
+  },
+  "sampleWords": 1450,
+  "videos": 135,
+  "corpus": {
+    "documents": 196,
+    "words": 477308
+  }
+}
