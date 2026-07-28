@@ -79,8 +79,8 @@ CSS = """
     .note{font-weight:400;font-size:25px;line-height:1.42;color:#9a938c;margin-top:18px}
     .kick{bottom:104px;font-weight:600;font-size:40px;line-height:1.3;letter-spacing:.02em;
           color:#c8b98a;text-align:center;opacity:0}
-    .rule{position:absolute;left:50%%;transform:translateX(-50%%);width:%(w)dpx;height:1px;
-          background:#26262c;opacity:0}
+    .rule{position:absolute;left:50%%;transform:translateX(-50%%);width:%(w)dpx;height:2px;
+          background:#3a3a44;opacity:0}
     /* Kling returns 1280x720; without this a clip lays out at intrinsic size in the corner. */
     #root > video{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover}
 """
@@ -195,8 +195,10 @@ def build_scene(sid: str, spec: dict, d: float) -> tuple[str, int]:
     # hook straddled the 16-change bar and which side a render landed on was encoder noise.
     for i, t in enumerate(spec.get("ticks") or []):
         add(f'  <div data-hf-id="{hid}k{i}" id="s-tk{i}" class="wrap clip" '
-            f'style="top:{770 + i * 46}px;font-weight:600;font-size:27px;line-height:1.4;'
-            f'letter-spacing:.16em;color:#8b8680;'
+            # 766 put the third tick's box at 874..922 against a kicker starting at 924,
+            # and the layout checker called the overlap on ep04. 700 leaves 68px clear.
+            f'style="top:{700 + i * 54}px;font-weight:600;font-size:34px;line-height:1.4;'
+            f'letter-spacing:.16em;color:#a9a29a;'
             f'text-align:center" data-start="0.0" data-duration="{d:.3f}" '
             f'data-track-index="{idx}">{esc(t)}</div>', f"#s-tk{i}", nxt(0.50 + i * 0.04), "rise")
 
