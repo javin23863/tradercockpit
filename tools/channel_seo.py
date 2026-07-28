@@ -18,7 +18,7 @@ from googleapiclient.discovery import build
 
 try:
     from tools.credential_custody import credential_path
-except ModuleNotFoundError:  # direct `python tools/channel_seo.py` execution
+except ImportError:  # direct `python tools/channel_seo.py` execution
     from credential_custody import credential_path
 
 SCOPES = ["https://www.googleapis.com/auth/youtube"]

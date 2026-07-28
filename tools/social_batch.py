@@ -11,7 +11,7 @@ from pathlib import Path
 try:
     from tools import script_style_gate
     from tools.script_approval import load_production_approval, load_script_approval
-except ModuleNotFoundError:  # direct `python tools/social_batch.py` execution
+except ImportError:  # direct `python tools/social_batch.py` execution
     import script_style_gate
     from script_approval import load_production_approval, load_script_approval
 

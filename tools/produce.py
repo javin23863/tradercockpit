@@ -26,7 +26,7 @@ from pathlib import Path
 
 try:
     from tools.script_approval import require_production_approval
-except ModuleNotFoundError:  # direct `python tools/produce.py` execution
+except ImportError:  # direct `python tools/produce.py` execution
     from script_approval import require_production_approval
 
 HERE = Path(__file__).parent
@@ -186,7 +186,7 @@ def stage_vo(prod: Path, operator_ref=OPERATOR_REF, apollo_ref=None):
     # as the offline path and still owns Apollo/hybrid narration for the Show lane.
     try:  # local import: tts_elevenlabs imports this module
         from tools.tts_elevenlabs import load_env
-    except ModuleNotFoundError:
+    except ImportError:
         from tts_elevenlabs import load_env
     load_env()
     if os.environ.get("ELEVENLABS_API_KEY") and not apollo_ref:

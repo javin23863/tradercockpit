@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 try:
     from tools.social_batch import ROOT, load as load_social_batch
-except ModuleNotFoundError:  # direct `python tools/publish.py` execution
+except ImportError:  # direct `python tools/publish.py` execution
     from social_batch import ROOT, load as load_social_batch
 
 
@@ -35,7 +35,7 @@ if _KEYS_ENV.exists():
 
 try:
     from tools.credential_custody import load_meta_env
-except ModuleNotFoundError:
+except ImportError:
     from credential_custody import load_meta_env
 load_meta_env()  # Meta publish creds live in operator custody, not the repo
 

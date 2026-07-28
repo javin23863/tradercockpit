@@ -28,7 +28,7 @@ TOOLS = ROOT / "tools"
 ENV_FILE = ROOT / "OpenMontage" / ".env"
 try:
     from tools.credential_custody import credential_path
-except ModuleNotFoundError:  # direct `python tools/social_analytics.py` execution
+except ImportError:  # direct `python tools/social_analytics.py` execution
     from credential_custody import credential_path
 
 TOKEN_FILE = credential_path("token.json")

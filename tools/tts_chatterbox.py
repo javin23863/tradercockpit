@@ -31,7 +31,7 @@ from pathlib import Path
 
 try:
     from tools.produce import parse_sections, require_production_approval
-except ModuleNotFoundError:  # direct `python tools/tts_chatterbox.py` execution
+except ImportError:  # direct `python tools/tts_chatterbox.py` execution
     from produce import parse_sections, require_production_approval
 
 GAP_S = 0.45          # silence between sections — matches produce.GAP_S

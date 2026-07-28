@@ -23,7 +23,7 @@ import requests
 GRAPH = "https://graph.facebook.com/v25.0"
 try:
     from tools.credential_custody import credential_path
-except ModuleNotFoundError:  # direct `python tools/meta_setup.py` execution
+except ImportError:  # direct `python tools/meta_setup.py` execution
     from credential_custody import credential_path
 ENV = credential_path("meta.env")  # operator custody, never the repo
 

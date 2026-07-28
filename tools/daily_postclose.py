@@ -27,12 +27,12 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 try:
-    from tools import claims_gate, editorial_gate, script_style_gate, visual_qa
+    from tools import ai_tell_gate, claims_gate, editorial_gate, script_style_gate, visual_qa
     from tools.script_approval import require_production_approval
     from tools.social_batch import approval_fingerprint, load as load_social_batch
-except ModuleNotFoundError:  # direct `python tools/daily_postclose.py` execution
+except ImportError:  # direct `python tools/daily_postclose.py` execution
     sys.path.insert(0, str(Path(__file__).parent))
-    import claims_gate, editorial_gate, script_style_gate, visual_qa
+    import ai_tell_gate, claims_gate, editorial_gate, script_style_gate, visual_qa
     from script_approval import require_production_approval
     from social_batch import approval_fingerprint, load as load_social_batch
 
@@ -48,7 +48,7 @@ def notify(text):
     """Best-effort operator ping. A dead Telegram never changes the decision."""
     try:
         from tools.notify_telegram import send
-    except ModuleNotFoundError:
+    except ImportError:
         from notify_telegram import send
     try:
         send(text)
@@ -106,6 +106,22 @@ def collect_gates(production):
     # Deterministic style violations are hard stops; heuristic signals still route private.
     hard += [f"script_style_gate {b['type']}: {b['detail']}" for b in style["blocked"]]
     warnings += [f"style {w['type']} x{w['count']}" for w in style["warns"]]
+    # Register check. script_style_gate is a hand-written pattern list, which cannot catch
+    # what the operator actually heard on 2026-07-28 ("it sounds like you personally wrote
+    # it") -- the author of the list is the writer producing the tells. ai_tell_gate measures
+    # distance from 477k words of real market speech instead. A missing or STALE corpus is a
+    # hard stop, not a skip: a gate that silently checks nothing is how the 2026-07-27 cut
+    # shipped with visual_qa reporting PASS on zero inspected clips.
+    try:
+        tell = ai_tell_gate.score(ai_tell_gate.script_body(production),
+                                  ai_tell_gate.load_profile(),
+                                  ai_tell_gate.load_thresholds()["limits"])
+    except SystemExit as exc:
+        hard.append(f"ai_tell_gate unavailable: {exc}")
+    else:
+        (production / "build" / "ai-tell-gate.json").write_text(
+            json.dumps(tell, indent=2), encoding="utf-8")
+        hard += [f"ai_tell_gate {f['type']}: {f['detail']}" for f in tell["findings"]]
 
     # editorial gate needs build/sections.json (VO stage output), so pre-render we
     # can only validate the plan's structure against the parsed script.
@@ -175,7 +191,7 @@ def publish_all(batch_path, data):
     """Publish each approved item. An unauthorized lane (TikTok) is skipped, not fatal."""
     try:
         from tools.publish import publish_batch_item, readiness_report
-    except ModuleNotFoundError:
+    except ImportError:
         from publish import publish_batch_item, readiness_report
 
     report, results = readiness_report(), []
@@ -296,7 +312,7 @@ def run(production, dry_run=False, allow_public=False):
         # master itself. Best-effort like notify(); a failed send never changes the decision.
         try:
             from tools.notify_telegram import send_video
-        except ModuleNotFoundError:
+        except ImportError:
             from notify_telegram import send_video
         try:
             send_video(production / "build" / "master.mp4",
@@ -375,7 +391,7 @@ def main(argv=None):
     if not args.production:
         try:
             from tools.daily_production_init import check as production_check
-        except ModuleNotFoundError:
+        except ImportError:
             from daily_production_init import check as production_check
         readiness = production_check()
         if not readiness["ready"]:

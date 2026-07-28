@@ -13,7 +13,7 @@ import requests
 
 try:
     from tools.credential_custody import credential_path
-except ModuleNotFoundError:  # direct `python tools/upload_tiktok.py` execution
+except ImportError:  # direct `python tools/upload_tiktok.py` execution
     from credential_custody import credential_path
 
 

@@ -15,7 +15,7 @@ from pathlib import Path
 
 try:
     from tools.credential_custody import credential_path
-except ModuleNotFoundError:
+except ImportError:
     sys.path.insert(0, str(Path(__file__).parent))
     from credential_custody import credential_path
 

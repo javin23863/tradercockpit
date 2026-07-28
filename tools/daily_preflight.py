@@ -21,7 +21,7 @@ from pathlib import Path
 
 try:
     from tools.tts_elevenlabs import load_env
-except ModuleNotFoundError:  # direct `python tools/daily_preflight.py` execution
+except ImportError:  # direct `python tools/daily_preflight.py` execution
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from tts_elevenlabs import load_env
 

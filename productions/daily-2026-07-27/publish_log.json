@@ -228,7 +228,7 @@
    "status": "published",
    "platformId": "6thn5ErFNiQ",
    "url": "https://youtu.be/6thn5ErFNiQ",
-   "privacyStatus": "private",
+   "privacyStatus": "public",
    "timestamp": "2026-07-28T00:00:00Z",
    "scriptSha256": "6b5fbadb9fa9c018435e7036c6fc8d688b6971ec571169af48698ce01b88208f",
    "supersedes": [
@@ -236,7 +236,9 @@
     "fhWrFEsOpj4",
     "PG0c74tUiPw"
    ],
-   "note": "Corrected cut: script rewritten in market register, then three false statements fixed after reading build/frame-review against the receipts (NVDA open, VIX 'falling' resistance, XLK anchor month). Charts re-captured with trendlines projected to the session and their own colours. Superseded uploads are still private and were NOT deleted."
+   "note": "Corrected cut: script rewritten in market register, then three false statements fixed after reading build/frame-review against the receipts (NVDA open, VIX 'falling' resistance, XLK anchor month). Charts re-captured with trendlines projected to the session and their own colours. Superseded uploads are still private and were NOT deleted.",
+   "promotedAt": "2026-07-28T04:35:00Z",
+   "promotedBy": "operator instruction 'post a video use best voice we have for tonight only'"
   }
  ]
 }

@@ -21,7 +21,7 @@ for stream in (sys.stdout, sys.stderr):
 try:
     from tools.daily_production_init import eastern_now, production_path
     from tools.notify_telegram import send as send_telegram
-except ModuleNotFoundError:  # direct `python tools/daily_lane.py` execution
+except ImportError:  # direct `python tools/daily_lane.py` execution
     sys.path.insert(0, str(Path(__file__).parent))
     from daily_production_init import eastern_now, production_path
     from notify_telegram import send as send_telegram

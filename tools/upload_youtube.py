@@ -6,7 +6,7 @@ from pathlib import Path
 
 try:
     from tools.credential_custody import credential_path
-except ModuleNotFoundError:  # direct `python tools/upload_youtube.py` execution
+except ImportError:  # direct `python tools/upload_youtube.py` execution
     from credential_custody import credential_path
 
 

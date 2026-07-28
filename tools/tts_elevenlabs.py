@@ -33,7 +33,7 @@ from pathlib import Path
 try:
     from tools.produce import parse_sections, require_production_approval
     from tools.tts_chatterbox import force_daily_operator_voice, section_wav_name
-except ModuleNotFoundError:  # direct `python tools/tts_elevenlabs.py` execution
+except ImportError:  # direct `python tools/tts_elevenlabs.py` execution
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from produce import parse_sections, require_production_approval
     from tts_chatterbox import force_daily_operator_voice, section_wav_name

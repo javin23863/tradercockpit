@@ -12,7 +12,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 try:
     from tools.credential_custody import credential_path
     from tools.social_batch import REQUIRED_DISCLAIMER
-except ModuleNotFoundError:  # direct `python tools/conversion.py` execution
+except ImportError:  # direct `python tools/conversion.py` execution
     from credential_custody import credential_path
     from social_batch import REQUIRED_DISCLAIMER
 

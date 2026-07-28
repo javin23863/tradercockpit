@@ -34,7 +34,7 @@ try:
         ENV_FILE, ROOT, TOOLS, credential_path, dotenv_values, graph_get,
         iso_now, numeric, safe_error, write_atomic, youtube_credentials,
     )
-except ModuleNotFoundError:  # direct `python tools/engagement.py` execution
+except ImportError:  # direct `python tools/engagement.py` execution
     from social_analytics import (
         ENV_FILE, ROOT, TOOLS, credential_path, dotenv_values, graph_get,
         iso_now, numeric, safe_error, write_atomic, youtube_credentials,
@@ -241,7 +241,7 @@ def auto_like(targets: list[dict[str, Any]], count: int) -> tuple[list[str], lis
         return [], []
     try:
         from tools.channel_seo import get_service
-    except ModuleNotFoundError:
+    except ImportError:
         from channel_seo import get_service
     youtube = get_service()
     done: list[str] = []
