@@ -102,9 +102,16 @@ try {
     // it a viewer cannot tell what period is on screen (ruling 2026-07-28). Kept as a
     // fixed margin rather than a canvas union: the union picked up stray offscreen
     // canvases and the resulting giant clip made captureScreenshot time out.
-    const top = Math.max(0, best.y - 42)
+    // Clip from the pane canvas itself, never above it. A fixed negative margin plus a
+    // fixed ffmpeg crop is scale-dependent: after the app relaunched at 1707x874 the same
+    // constants left the toolbar (Replay / Save / Trade) burned into every chart. The
+    // legend is drawn ON the pane canvas, so starting at its top keeps identity and drops
+    // the app frame at any window size.
+    const top = Math.max(0, best.y)
+    // +44 reaches the date axis and stops above the timeframe footer (1D 5D 1M ... All +
+    // the UTC clock), which +76 pulled into frame once the top margin was removed.
     return { x: Math.max(0, best.x - 2), y: top, width: best.width + 78,
-             height: Math.min(best.height + 76, innerHeight - top) }
+             height: Math.min(best.height + 44, innerHeight - top) }
   })
   // re-park right before the shot — the OS cursor (operator's real mouse) can wander
   // onto the canvas during the reflow sleeps and repaint a crosshair

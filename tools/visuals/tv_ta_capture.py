@@ -66,11 +66,13 @@ sys.path.insert(0, str(HERE))
 from fetch_tv_charts import TV_CLI, record_chart_capture, tv  # noqa: E402  (same CLI bridge + receipt writer)
 
 
-# Rows of TradingView app chrome above the chart pane. MEASURED, not guessed: across the
-# 2026-07-27 captures the icon toolbar occupies rows 8-49 and the tab/Save strip rows 57-62,
-# with the chart background clean from row 63. The old value of 40 left the Save link and
-# toolbar fragments in every chart frame. Re-measure if the app layout changes.
-APP_CHROME_PX = 64
+# Now ZERO, and it must stay zero: cdp_chart_shot.mjs clips from the pane canvas itself, so
+# no app chrome reaches the PNG and there is nothing left to crop. Cropping here as well
+# would eat the symbol legend -- the identity the whole 07-28 chart fix exists to preserve.
+# The old value (64, measured at one window size) was scale-dependent and silently stopped
+# covering the toolbar the moment the app relaunched at 1707x874: Replay / Save / Trade were
+# burned into every chart of the first re-shoot.
+APP_CHROME_PX = 0
 
 
 # Pane fill: the vertical share of the plot area the candles actually span. TradingView

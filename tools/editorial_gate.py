@@ -154,6 +154,25 @@ def _price(value):
         return None
 
 
+def _decimals(value):
+    text = repr(float(value))
+    return len(text.split(".")[1].rstrip("0")) if "." in text else 0
+
+
+def _same_level(a, b):
+    """One line on the chart, compared at the coarser of the two precisions.
+
+    The feed carries the Nasdaq at 24,774.8672 and no human says that out loud; the script
+    says 24,774.87. Demanding exact equality would block the correct sentence for quoting a
+    price at the precision a person can speak."""
+    places = min(_decimals(a), _decimals(b))
+    return round(a, places) == round(b, places)
+
+
+def _matched(price, pool):
+    return any(_same_level(price, candidate) for candidate in pool)
+
+
 def load_chart_plans(root):
     """Every chart-plan*.json, merged by `out`. A day's charts are split across files
     (chart-plan-cash.json, chart-plan-vix.json); reading only chart-plan.json silently
@@ -230,12 +249,12 @@ def check_level_binding(production):
                 if price is not None:
                     spoken[price] = f"{claim['id']} ({claim['predicate']})"
         for price, kind in sorted(drawn.items()):
-            if price not in spoken:
+            if not _matched(price, spoken):
                 blocked.append({"type": "level_binding", "path": out,
                                 "detail": f"{out}: {kind} drawn at {price} is spoken in none of "
                                           f"sections {sorted(sections)}"})
         for price, who in sorted(spoken.items()):
-            if price not in drawn:
+            if not _matched(price, drawn):
                 blocked.append({"type": "level_binding", "path": out,
                                 "detail": f"{out}: {who} is spoken at {price} but not drawn on "
                                           f"the {symbol} chart"})
