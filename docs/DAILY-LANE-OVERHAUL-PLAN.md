@@ -1,5 +1,37 @@
 # Daily lane overhaul — v6
 
+## Status — 2026-07-28
+
+| Fix | State | Where |
+|---|---|---|
+| A2/A3/E2-chart — 245d window, whole-pane fit, native legend + date axis, identity card deleted | **SHIPPED** | `966b412` |
+| A4 — pane-fill gate at capture, floor 0.90 measured | **SHIPPED** | `9913b8a` |
+| B1 — recital cap 5 + feed-claim schema + laundering WARN | **SHIPPED** | `fd3ad42` |
+| B3 — receipt-derived spoken instruments | **SHIPPED** | `fd3ad42` |
+| B4 — word budget 1,450–1,700 @ 145 wpm | **SHIPPED** | `03b9af1` |
+| B5 — drawn↔spoken level binding | **SHIPPED** | `fd3ad42` |
+| C8 — `eleven_v3`, seed, per-section pace | **SHIPPED** | `3f357dd` |
+| D1 — whoosh removed from filter and missing-check | **SHIPPED** | `03b9af1` |
+| E1/E2 — one button, preflight or refuse | **SHIPPED** | `5d4ed57` |
+| E3 — verticals via `promote_daily.py` | already existed | — |
+| News capture — masthead kept, consent modals killed, unfound highlight throws | **SHIPPED** | `880daa5` |
+| visual_qa — per-beat frame review, zero-inspection hard fail | **SHIPPED** | `880daa5` |
+| A1 step 1 — "Scale price chart only" | **not needed yet**: A4 has not fired since the window fix; it is the documented remedy when it does |
+| A6 multi-timeframe, A7 trendlines | **OPEN** — generation work, belongs in the next run's chart plan |
+| C1-C3 PVC | **OPEN** — blocked on Open Decision 2 (only ~2.3 min of genuine operator audio; 30-min floor) |
+| C7/OD3 tier | **OPEN and closing** — 98,678 of 130,984 chars left on 2026-07-28, about 9-10 nights |
+
+Acceptance table: all four **negative poles are green against the real 07-27 artifacts**
+(B1 blocks 5 recital sections; B5 blocks 15 unshown/unspoken levels; B3 blocks 17 spoken
+instruments across 12 beats; A4 blocks the 07-23 squashed captures at 0.702-0.880). The
+**positive poles need the next run's golden script and frame** — a passing artifact does not
+exist yet, so the table is not fully green and re-arm criterion 1 is not met.
+
+Not shipped by decision: `daily-2026-07-27` was NOT re-assembled. The re-shot charts postdate
+the approved `vo.txt`, so `editorial_gate.check_chart_ordering` blocks it. Softening that gate
+or touching the mtime would forge the charts-before-script ordering. The format is proven and
+carries forward to the next run.
+
 Scores: v1 **4** · v2 **6** · v3 **7** · v4 **8** · v5 **9**. Every factual claim is
 verified against an artifact on disk or a live API call.
 
