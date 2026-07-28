@@ -423,3 +423,87 @@ rewritten in `scenes.json`.
 3. Telegram ping on both mastered (operator asked for it mid-run)
 4. ep02 style-gate decision
 5. ep01 retime + fresh whisper_back + re-render (clone 7:07 vs recorded 9:06)
+
+---
+
+## §13 — ep03 and ep04 MASTERED (2026-07-29)
+
+    ep03  slippage          phase04_cost      11:36   hyperframes/renders/ep03-v8-final.mp4
+    ep04  parameter stress  phase06_mc_param  11:23   hyperframes/renders/ep04-v6-final.mp4
+
+| gate | ep03 | ep04 |
+|---|---|---|
+| `intro_pace` (bar 16 / 25s) | **PASS 20** | **PASS 21** |
+| `check_bed` | PASS | PASS |
+| `broll_conflicts` | 0 | 0 |
+| `slop_gate` | clean | clean |
+| `npm run check` | 0 errors, 47/47 WCAG | 0 errors, 25/25 WCAG |
+| `cut_census` (cap 15s) | FAIL 8 holds | FAIL 10 holds |
+| longest freeze | 4.07s | 4.80s |
+| first non-black frame | 4.67s | 4.33s |
+
+### The defect that mattered
+
+**`font: 700 74px/1.14 inherit` is invalid CSS.** The shorthand needs a real family last;
+`inherit` is not one, so the browser drops the whole declaration and the element falls back to
+**16px**. Seven rules — every piece of type the generator emits. ep03's master had a 16px title
+and 16px card values, and `intro_pace` read 2 changes in 25s because 16px text moves no pixels.
+**No automated gate caught it.** `npm run check` was green at 0 errors and 46/46 WCAG AA on that
+master. It took pulling frames and looking at them. Commit `07bc2f6`.
+
+### intro_pace: five rounds, each one the artifact
+
+2 → 13 → 12 → 15 → **20**. Every step fixed the episode, never the bar:
+
+1. the invalid font (everything 16px)
+2. a 1px `#26262c` rule and 27px ticks — beats nobody could see
+3. beats front-loaded into 15 of 25 seconds, then a dead stretch
+4. **card panels cannot cross the detector's floor**: it needs a pixel to move >= 40 grey
+   levels; `#0a0a0b -> #1a1a1f` is 16, so a panel's AREA is irrelevant — zero pixels qualify.
+   Fixed with an 8x180px `#c8b98a` accent rule per card (180 levels). Notes were a sampling
+   artifact: a .5s fade at 5fps splits the delta across three samples and lands under 40 about
+   half the time — tweens are .28-.3s now.
+5. a fourth funnel tick, real content: `1,335 DOWN TO 53` / `DOWN TO 46`.
+
+**The generator was reserving room for motion it never emitted.** `SAFE_W` constrains scenes to
+1642px because "the master scales each .scene-slot to 1.105 with 52px of travel" — and the
+generated master registered an EMPTY timeline. Longest freeze was 13.6s. One drift tween per
+slot now: **13.6s -> 4.07s**. Commit `aa423b5`.
+
+### Reds left standing, all measured against accepted work
+
+* **`cut_census`**: ep03 8 holds, ep04 10 — **ep02 v41, accepted and shipped, has 21.** The
+  15s cap rejects the operator's own work. NOT softened.
+* **`ai_tell_gate`**: blocks all four episodes, ep01 47.6% / ep02 46.0% / ep03 51.3% against a
+  45.3% bar. Two of those are accepted. Calibration question.
+* **`lexicon_gate`** on ep04: 81.52% novel trigrams against an 81.41% ceiling. 0.11pp.
+* **`script_style_gate` BLOCKS ep02** — `"So the line is a line, not a cliff"` in `scene-funnel`,
+  seven words, but it means re-voicing a slot and re-rendering a reviewed episode. **Operator call.**
+* **`presentation_gate` voice_stem is null on both** — its speech checks (first spoken word,
+  longest speech gap) are VOID. Its black/freeze numbers are real and are what is quoted above.
+  ep02 resolves its stem at `tools/clean/narration-master.wav`; the generated episodes have no
+  equivalent. **Unfixed.**
+* **first non-black frame 4.67s / 4.33s** vs ep02's 0.0s. The title is up at 0.5s — ffmpeg calls
+  it black because the design is 98% pure black until the cards arrive. ep02 opens on texture.
+
+### Process scars from this session
+
+* **Four renders were killed mid-flight** because I started them while still changing the
+  generator. Freeze the generator, THEN render. Roughly two hours lost.
+* **Four ep03 renders went to intro_pace guesses** that `LEVEL`, `THRESH` and `REFRACTORY` in
+  `intro_pace.py` would have answered in one reading. Read the meter's constants before
+  spending a render on a hypothesis about it.
+* A killed background task leaves **orphaned `ffmpeg`/`node`** behind — check and kill by PID.
+* `pgrep` does not exist on this box; a Monitor guard using it fires instantly and reads as
+  "process gone". Use the log's mtime.
+* The Bash heredoc eats one backslash: `"\n"` arrives as `\n`. Build backslashes with
+  `chr(92)` in any patch script.
+
+### Next
+
+1. operator review of the two masters, and the four open calls above
+2. `presentation_gate` voice-stem lookup for generated episodes
+3. four-video CTA + end-screen chain (task 7)
+4. ep01 retime + fresh whisper_back + re-render (clone 7:07 vs recorded 9:06)
+5. `social-surface-audit` and the §(f) recalibration, which now owns `ai_tell_gate` and
+   `cut_census`
