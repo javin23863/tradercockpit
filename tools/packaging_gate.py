@@ -86,10 +86,16 @@ def rules(text: str) -> dict:
 
     out["zero_shared"] = bool(re.search(r"zero shared words", text, re.I))
     out["formula"] = bool(re.search(r"famous beginner strategy", text, re.I))
+    # AMENDED 2026-07-28: the left side may be a BELIEF when the phase tests a field rather than a
+    # named strategy. Detected from the document, so the gate follows the standard rather than a
+    # constant here -- revert the amendment and this check tightens again by itself.
+    out["belief_allowed"] = bool(re.search(r"famous beginner belief", text, re.I))
     out["phase_labels_banned"] = bool(re.search(r"Phase labels are the syllabus, NOT titles", text))
     out["package_before_script"] = bool(re.search(r"Package BEFORE the script", text, re.I))
 
-    missing = [k for k, v in out.items() if v is None or v is False]
+    optional = {"belief_allowed"}
+    missing = [k for k, v in out.items()
+               if k not in optional and (v is None or v is False)]
     if missing:
         die("the Production Standard no longer states: " + ", ".join(missing) +
             "\n       Either section (a)/(b) was edited or this parser is stale. "
@@ -134,11 +140,14 @@ def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[s
          0 < len(title) <= r["max_title_chars"],
          f"{len(title)} chars"),
 
-        ("(a) FORMULA — title names a beginner strategy",
-         any(v in title.lower() for v in vocab),
-         "found: " + (", ".join(sorted(v for v in vocab if v in title.lower())) or
-                      "NONE — the formula is [famous beginner strategy] x [what this phase "
-                      "reveals]; the strategy earns the click")),
+        ("(a) FORMULA — left side is a strategy or a belief",
+         any(v in title.lower() for v in vocab) or
+         (r["belief_allowed"] and bool(pk.get("beginner_belief"))),
+         ("strategy: " + ", ".join(sorted(v for v in vocab if v in title.lower())))
+         if any(v in title.lower() for v in vocab) else
+         (f"belief: {pk['beginner_belief']!r}" if (r["belief_allowed"] and pk.get("beginner_belief"))
+          else "NONE — name a beginner strategy in the title, or (amended 2026-07-28) declare the "
+               "beginner belief this title debunks in a `beginner_belief` field")),
 
         ("(a)1 title is not a phase label",
          not any(p in title.lower() for p in PHASE_LABELS),
