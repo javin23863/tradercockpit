@@ -622,7 +622,7 @@
    ],
    "visual": {
     "path": "visuals/09-brand.mp4",
-    "kind": "broll",
+    "kind": "brandcard",
     "fit": "contain",
     "visibleSubjects": [
      "brand"

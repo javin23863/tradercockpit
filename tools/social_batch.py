@@ -39,6 +39,13 @@ NON_SYNTHETIC_KINDS = {
     # narration on this lane is a cloned voice and that disclosure is a platform-side
     # setting, not something this flag represents.
     "titlecard",
+    # brandcard: the channel's own outro, tools/visuals/brand-v2.html rendered to PNG by
+    # puppeteer (tools/visuals/render_brand.cjs) and held on screen. HTML/CSS painted by a
+    # browser -- deterministic, no model, no sampling. Classified explicitly 2026-07-28,
+    # replacing the vague "broll" kind on that beat: "broll" is a BUCKET, not a provenance,
+    # and the conservative default is right to refuse it. Naming the pipeline is what makes
+    # a false declaration checkable.
+    "brandcard",
 }
 
 
