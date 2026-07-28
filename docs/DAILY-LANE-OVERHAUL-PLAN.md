@@ -177,9 +177,10 @@ better-informed human.
 is **5.90 chars/word** (E13). So 1,450-1,750 words = **8,561-10,332 chars/night** →
 **188k-227k/month against a 130,984 limit**. v4's "~6k chars fits Creator" was false. To
 actually fit Creator you need ~5,950 chars/night ≈ **1,009 words ≈ 7 minutes** at 145 wpm.
-Therefore: set 1,450-1,750 words @145 wpm for a 10-12 min master (fixing E6), and treat the
-**tier as an unavoidable Open Decision**, not something the shorter script dodges. Update
-`daily-run/SKILL.md:25` and `tts_elevenlabs.py:46` together.
+Therefore: **SHIPPED — 1,450-1,700 words @145 wpm** (`daily-run/SKILL.md:25`), which lands
+a 10.1-11.8 min master once the 12 × 0.45s section gaps are counted; 1,750 would overshoot
+12:00. `tts_elevenlabs.py` TARGET_WPM stays 145. The **tier remains an unavoidable Open
+Decision** — at ~8.6-10.0k chars/night this is still 188k-220k/month against 130,984.
 **B5. Drawn↔spoken level binding** (restored in v4): every level drawn is spoken, every
 level spoken is drawn — cross-check `chart-plan.json` `draw[].price` against receipted
 claims cited in the owning section. This is the fix for *"you don't speak in levels"*.

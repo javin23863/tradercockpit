@@ -40,15 +40,15 @@ OPERATOR_REF = HUB / "productions" / "_voice" / "operator-clean.wav"
 CHATTERBOX_PYTHON = HUB / "OpenMontage" / ".venv-chatterbox" / (
     "Scripts/python.exe" if os.name == "nt" else "bin/python")
 
-# Sound layer (operator-approved on daily-2026-07-20 A/B, 2026-07-21): music bed
-# ~21.5 dB under the voice ("subtle ambiance"), whoosh on each section transition,
-# one bass impact under the final (closing-thesis) section.
+# Sound layer: music bed ~21.5 dB under the voice ("subtle ambiance") and one bass impact
+# under the final (closing-thesis) section.
+# The per-transition whoosh is REMOVED — operator ruling 2026-07-28 on daily-2026-07-27:
+# "The swoosh is delayed and it just sounds corny, so get rid of that." This supersedes the
+# whoosh half of the 2026-07-20 A/B approval; the music bed and the closing impact stand.
 MUSIC_DIR = HUB / "music_library"     # operator-curated royalty-free tracks; first file (sorted) is the bed
 SFX_DIR = HUB / "OpenMontage" / ".agents" / "skills" / "hyperframes-media" / "assets" / "sfx"
 MUSIC_UNDER_VO_DB = 21.5
-WHOOSH_DB = -12.0
 IMPACT_DB = -14.0
-SFX_LEAD_S = 0.2                      # whoosh starts just before the cut so it peaks on it
 AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".flac", ".ogg"}
 
 
@@ -84,11 +84,12 @@ def section_starts(timeline):
 
 
 def build_sound_filter(vo_idx, total_s, boundaries, music_idx=None, music_gain_db=None,
-                       whoosh_idx=None, impact_idx=None):
-    """Audio filter_complex mixing VO + music bed + section SFX into [aout].
+                       impact_idx=None):
+    """Audio filter_complex mixing VO + music bed + the closing impact into [aout].
 
     Returns None when there is nothing to layer (falls back to plain VO map).
-    Whoosh lands on every section transition except the last, which gets the impact.
+    The impact lands on the final section boundary. No per-transition whoosh — removed
+    by operator ruling 2026-07-28 ("delayed and it just sounds corny").
     """
     chains, mix = [], [f"[{vo_idx}:a]"]
     if music_idx is not None:
@@ -96,14 +97,6 @@ def build_sound_filter(vo_idx, total_s, boundaries, music_idx=None, music_gain_d
             f"[{music_idx}:a]atrim=0:{total_s:.3f},volume={music_gain_db:.1f}dB,"
             f"afade=t=in:d=2,afade=t=out:st={max(total_s - 4, 0):.3f}:d=4[mus]")
         mix.append("[mus]")
-    whooshes = boundaries[:-1] if impact_idx is not None else boundaries
-    if whoosh_idx is not None and whooshes:
-        split = "".join(f"[wsp{i}]" for i in range(len(whooshes)))
-        chains.append(f"[{whoosh_idx}:a]volume={WHOOSH_DB:.1f}dB,asplit={len(whooshes)}{split}")
-        for i, t in enumerate(whooshes):
-            ms = max(round((t - SFX_LEAD_S) * 1000), 0)
-            chains.append(f"[wsp{i}]adelay={ms}|{ms}[w{i}]")
-            mix.append(f"[w{i}]")
     if impact_idx is not None and boundaries:
         ms = round(boundaries[-1] * 1000)
         chains.append(f"[{impact_idx}:a]volume={IMPACT_DB:.1f}dB,adelay={ms}|{ms}[imp]")
@@ -327,7 +320,7 @@ def stage_assemble(prod: Path):
     boundaries = section_starts(timeline)
     vo_idx = len(parts)
     next_idx = vo_idx + 1
-    music_idx = music_gain = whoosh_idx = impact_idx = None
+    music_idx = music_gain = impact_idx = None
     music = pick_music()
     if music:
         music_gain = (measure_lufs(vo) - MUSIC_UNDER_VO_DB) - measure_lufs(music)
@@ -336,26 +329,25 @@ def stage_assemble(prod: Path):
         log(f"music bed: {music.name} at {music_gain:+.1f} dB")
     else:
         log("music bed: none (music_library/ empty)")
-    whoosh, impact = SFX_DIR / "whoosh-short.mp3", SFX_DIR / "impact-bass-1.mp3"
+    impact = SFX_DIR / "impact-bass-1.mp3"
     # Fail loud on a thinner sound layer than doctrine. weekly-2026-07-25 shipped with
     # all 7 transitions silent because SFX_DIR did not exist on the assembling box and
     # this stage just skipped them (2026-07-27). A reduction is an operator decision:
     # declare it in build/audio-layer-override.json, never let it happen by accident.
-    missing = [p.name for p in (whoosh, impact) if not p.is_file()]
+    # whoosh deliberately absent from this list — its removal is the 2026-07-28 ruling,
+    # not an accident. The fail-closed check still guards the bed and the closing impact.
+    missing = [p.name for p in (impact,) if not p.is_file()]
     if not music:
         missing.append("music bed (music_library/ empty)")
     if missing and not (build / "audio-layer-override.json").is_file():
         sys.exit(f"[produce] sound layer incomplete: {', '.join(missing)} "
                  f"(SFX_DIR={SFX_DIR}). Copy the pack to this box, or declare the "
                  f"reduction in {build / 'audio-layer-override.json'}.")
-    if boundaries and whoosh.is_file():
-        cmd += ["-i", str(whoosh)]
-        whoosh_idx, next_idx = next_idx, next_idx + 1
     if boundaries and impact.is_file():
         cmd += ["-i", str(impact)]
         impact_idx, next_idx = next_idx, next_idx + 1
     sound = build_sound_filter(vo_idx, total_s, boundaries, music_idx, music_gain,
-                               whoosh_idx, impact_idx)
+                               impact_idx)
     audio_map = "[aout]" if sound else f"{vo_idx}:a"
 
     filters = []

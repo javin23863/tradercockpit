@@ -22,7 +22,10 @@ LLM-agnostic: any model that follows this file ships the same evening.
 Follow it in full: analysis brief → **rendered thumbnail** (`render_thumb.cjs`, never a
 video frame; path into social-batch `"thumbnail"` — 2026-07-21 scar: publish.py used to
 drop it silently and YT auto-frames went live) → chart plan + zoomed captures
-(`--expect-last-bar`, `--range-days 100`) → vo.txt (2,000–2,350 words @ 197 wpm) →
+(`--expect-last-bar`, `--range-days 100`) → vo.txt (**1,450–1,700 words @ 145 wpm** —
+lands a 10.1–11.8 min master incl. the 12 × 0.45s section gaps; the old
+"2,000–2,350 @ 197 wpm" could never fit the 10:00–12:00 rule at the real 145 wpm and
+produced a 14.3 min master on 2026-07-27) →
 claims.yaml + vo-receipts.yaml → scene-plan (per-asset beats) → both gates → **second-model critic pass** (triage against
 receipts; receipts win) → runner:
 ```
