@@ -99,6 +99,17 @@ other people's slop is our normal. The corpus is our own shipped copy only.
 - Vendored code is stale by default. `VERSION` pins the upstream commit and upstream's own suite
   is vendored so a bump is checkable; re-run `--survey` before re-arming.
 
+## Graph state
+
+The code graph at `graphify-out/` was rebuilt this wave (11,598 nodes / 22,939 edges) but it
+indexes the shared clone, which is on `ops/main` — **so it does not contain `ai_writing_gate.py`
+or the vendored detector until PR 1 merges.** Querying the graph for them returns nothing, and
+that absence is the graph being correct, not the gate being missing. Re-run
+`graphify update .` after the merge.
+
+The ops-vault graph is rebuilt by `vault_sync.py` and carries no repo sources — it is the wrong
+graph for this question either way.
+
 ## Coordination
 
 Wave ran in its own worktree `C:\tmp\tradercockpit-ai-write-gate` on branch
