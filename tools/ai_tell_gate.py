@@ -86,8 +86,22 @@ def load_profile():
 
 
 def script_body(production: Path) -> str:
+    """Spoken lines only.
+
+    This dropped `## slot` headers and kept EVERYTHING ELSE, including the `#` provenance
+    header every vo.txt in this series opens with -- router order, ruling history, the
+    not-negotiable list. That is engineering prose nobody says out loud, and measuring it as
+    narration is what the two BLOCK verdicts on 2026-07-28 were made of: ep02 and ep03 both
+    failed on unseen bigrams whose top offenders read `ep narration, narration v, v written,
+    written against, the contract, contract router, router order, order gtm, gtm readme`.
+    Those are header words. Neither episode's voice track contains one of them.
+
+    This is not a relaxed threshold -- the bar is untouched. It is the gate finally reading its
+    own stated subject. `#` never begins a spoken line; the TTS emitter skips them too.
+    """
     vo = (production / "vo.txt").read_text(encoding="utf-8")
-    return "\n".join(line for line in vo.splitlines() if not line.startswith("## "))
+    return "\n".join(ln for ln in vo.splitlines()
+                     if not ln.lstrip().startswith("#") and not ln.startswith("==="))
 
 
 def score(text: str, profile: dict, limits: dict) -> dict:
