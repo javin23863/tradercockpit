@@ -70,7 +70,8 @@ CHAIN = (
     # that corpus blocked 91% of real finance-education transcripts too. See ai_tell_gate.py.
     ("ai_tell_gate",     "repo",  ["tools/ai_tell_gate.py", "--register", "teach", "{art}"], False),
     ("check_figures",    "ep",    ["tools/check_figures.py"], False),
-    ("term_gate",        "ep",    ["tools/term_gate.py", "--episode", "{syllabus_ep}"], False),
+    ("term_gate",        "repo",  ["tools/term_gate.py", "--production", "{proj}",
+                                   "--episode", "{syllabus_ep}", "--strict"], False),
     # {proj}, not {art}: slop_gate globs <root>/hyperframes/compositions and <root>/artifacts.
     # Handed artifacts/ it matched nothing and printed "0 file(s) ... clean", and this chain
     # recorded a PASS for a gate that inspected nothing. It BLOCKs on zero files now too.
@@ -194,7 +195,12 @@ def run_gate(name, where, argv, proj: Path, subs: dict) -> dict:
                 "detail": f"{script} does not exist. A gate you can delete is not a gate."}
     t0 = time.time()
     try:
-        p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True,
+        env = os.environ.copy()
+        if where == "node":
+            npm_cache = proj / "artifacts" / "build" / "npm-cache"
+            npm_cache.mkdir(parents=True, exist_ok=True)
+            env["NPM_CONFIG_CACHE"] = str(npm_cache)
+        p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, env=env,
                            timeout=TIMEOUT, shell=(where == "node"))
         rc, out = p.returncode, (p.stdout or "") + (p.stderr or "")
     except subprocess.TimeoutExpired:

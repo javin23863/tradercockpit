@@ -1,68 +1,8 @@
 {
   "schema": "tradercockpit-social-velocity/v1",
-  "generatedAt": "2026-07-29T02:01:06.630395Z",
-  "samples": 80,
+  "generatedAt": "2026-07-29T05:00:59.434893Z",
+  "samples": 81,
   "posts": [
-    {
-      "key": "ig:17943378252052865",
-      "views": 16,
-      "perHourRecent": 0.33,
-      "perHour24h": 0.04,
-      "spiking": false,
-      "source": "instagram",
-      "title": "Micron opened seven percent above Monday's close and settled up twelve. The gap cleared Monday's high at 901 — that is the floor that matter",
-      "url": "https://www.instagram.com/reel/DbE6tCqjDXr/"
-    },
-    {
-      "key": "ig:17898382938477780",
-      "views": 50,
-      "perHourRecent": 0.33,
-      "perHour24h": 0.04,
-      "spiking": false,
-      "source": "instagram",
-      "title": "Two weekly bars, both up hard, both closing near highs. The premium is sticky. #oil #brentcrude #markets #investing #FinTok",
-      "url": "https://www.instagram.com/reel/Da71CYviQpw/"
-    },
-    {
-      "key": "ig:18136535584502601",
-      "views": 76,
-      "perHourRecent": 0.33,
-      "perHour24h": 0.13,
-      "spiking": false,
-      "source": "instagram",
-      "title": "Good news got sold. That's positioning unwinding, not fundamentals breaking. #semiconductors #stockmarket #investing #markets #FinTok",
-      "url": "https://www.instagram.com/reel/Da70ziZDz1d/"
-    },
-    {
-      "key": "ig:18075630929680759",
-      "views": 49,
-      "perHourRecent": 0.33,
-      "perHour24h": 0.04,
-      "spiking": false,
-      "source": "instagram",
-      "title": "Oil ripped 17%. Tech dropped 4%. The average stock went UP. Saturday weekend review. #stockmarket #investing #markets #finance #FinTok",
-      "url": "https://www.instagram.com/reel/Da70Uw7AThQ/"
-    },
-    {
-      "key": "ig:18067283252474399",
-      "views": 30,
-      "perHourRecent": 0.33,
-      "perHour24h": 0.04,
-      "spiking": false,
-      "source": "instagram",
-      "title": "TSMC printed a record quarter and the stock still fell. Now the $403.50 floor is being tested from underneath.",
-      "url": "https://www.instagram.com/reel/Da42RTWCkK-/"
-    },
-    {
-      "key": "ig:17978378574107712",
-      "views": 7,
-      "perHourRecent": 0.33,
-      "perHour24h": 0.04,
-      "spiking": false,
-      "source": "instagram",
-      "title": "Don't trade the siren. Trade the pressure chain.",
-      "url": "https://www.instagram.com/reel/Da1DaPXALWO/"
-    },
     {
       "key": "yt:htpGeN7pBnc",
       "views": 13,
@@ -92,6 +32,16 @@
       "source": "youtube",
       "title": "SMCI Surged While GEV Sank",
       "url": "https://youtu.be/KGzT9TV4APM"
+    },
+    {
+      "key": "yt:-Txh01-jcd0",
+      "views": 6,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Oil Closed Above $100. Energy Stocks Barely Moved.",
+      "url": "https://youtu.be/-Txh01-jcd0"
     },
     {
       "key": "yt:e_zxBsWFnQc",
@@ -172,6 +122,16 @@
       "source": "youtube",
       "title": "The S&P Sold Its Bounce in One Bar",
       "url": "https://youtu.be/fqiAmRJkYC8"
+    },
+    {
+      "key": "yt:IJjUNeuJSNE",
+      "views": 25,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.0,
+      "spiking": false,
+      "source": "youtube",
+      "title": "Trump's 20% Hormuz Toll: What It Means For Your Portfolio",
+      "url": "https://youtu.be/IJjUNeuJSNE"
     },
     {
       "key": "yt:cC6TZCTJ3l4",
@@ -414,6 +374,16 @@
       "url": "https://www.instagram.com/reel/DbH6XV1j4bO/"
     },
     {
+      "key": "ig:17943378252052865",
+      "views": 16,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.04,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Micron opened seven percent above Monday's close and settled up twelve. The gap cleared Monday's high at 901 — that is the floor that matter",
+      "url": "https://www.instagram.com/reel/DbE6tCqjDXr/"
+    },
+    {
       "key": "ig:18201813793364863",
       "views": 22,
       "perHourRecent": 0.0,
@@ -454,6 +424,26 @@
       "url": "https://www.instagram.com/reel/Da71JPmidVX/"
     },
     {
+      "key": "ig:17898382938477780",
+      "views": 50,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.04,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Two weekly bars, both up hard, both closing near highs. The premium is sticky. #oil #brentcrude #markets #investing #FinTok",
+      "url": "https://www.instagram.com/reel/Da71CYviQpw/"
+    },
+    {
+      "key": "ig:18136535584502601",
+      "views": 76,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.13,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Good news got sold. That's positioning unwinding, not fundamentals breaking. #semiconductors #stockmarket #investing #markets #FinTok",
+      "url": "https://www.instagram.com/reel/Da70ziZDz1d/"
+    },
+    {
       "key": "ig:17923397229167207",
       "views": 101,
       "perHourRecent": 0.0,
@@ -462,6 +452,16 @@
       "source": "instagram",
       "title": "Friday to Friday off the weekly bars: 7,575 to 7,458. The high and low that frame next week. #stockmarket #sp500 #investing #markets #FinTok",
       "url": "https://www.instagram.com/reel/Da70s8ODmuJ/"
+    },
+    {
+      "key": "ig:18075630929680759",
+      "views": 49,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.04,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Oil ripped 17%. Tech dropped 4%. The average stock went UP. Saturday weekend review. #stockmarket #investing #markets #finance #FinTok",
+      "url": "https://www.instagram.com/reel/Da70Uw7AThQ/"
     },
     {
       "key": "ig:18071105546390143",
@@ -474,6 +474,16 @@
       "url": "https://www.instagram.com/reel/Da42fOaFQBn/"
     },
     {
+      "key": "ig:18067283252474399",
+      "views": 30,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.04,
+      "spiking": false,
+      "source": "instagram",
+      "title": "TSMC printed a record quarter and the stock still fell. Now the $403.50 floor is being tested from underneath.",
+      "url": "https://www.instagram.com/reel/Da42RTWCkK-/"
+    },
+    {
       "key": "ig:18122869177702832",
       "views": 32,
       "perHourRecent": 0.0,
@@ -482,6 +492,16 @@
       "source": "instagram",
       "title": "The war is real. The market message is selective.",
       "url": "https://www.instagram.com/reel/Da4K2pnCYgt/"
+    },
+    {
+      "key": "ig:17978378574107712",
+      "views": 7,
+      "perHourRecent": 0.0,
+      "perHour24h": 0.04,
+      "spiking": false,
+      "source": "instagram",
+      "title": "Don't trade the siren. Trade the pressure chain.",
+      "url": "https://www.instagram.com/reel/Da1DaPXALWO/"
     },
     {
       "key": "ig:17924140185384698",
@@ -507,7 +527,7 @@
       "key": "ig:18012925757872238",
       "views": 14,
       "perHourRecent": 0.0,
-      "perHour24h": 0.04,
+      "perHour24h": 0.0,
       "spiking": false,
       "source": "instagram",
       "title": "Is the Strait of Hormuz actually closed? Wrong question. The right one moves oil. 🚢 #oil #brentcrude #hormuz #stockmarket #trading #investin",
