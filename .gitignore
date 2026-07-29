@@ -102,3 +102,14 @@ productions/*/visuals-v1-defect/*.mp4
 productions/*/*-v1-defect/*.mp4
 productions/*/visuals-v2-flatline/*.mp4
 productions/*/build/vo-*/*.wav
+
+# social-ops run churn. These three surfaces rewrite on every scheduled run, so the
+# repo read dirty continuously and the Manager `tradercockpit-repo` source sat degraded
+# with 10 uncommitted paths as its permanent state -- a real signal drowned in noise.
+# The derived analytics JSONs beside them ARE tracked: they are the engagement history
+# the growth lane reasons over. Logs, scratch and the stray thumbnail are regenerable.
+# NOTE: social-ops/logs/autostart-daily-*.log were already tracked before this rule and
+# stay tracked -- gitignore does not untrack, and rewriting that history is not worth it.
+social-ops/logs/
+.scratch/
+thumb.png
