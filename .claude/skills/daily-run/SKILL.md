@@ -18,18 +18,17 @@ That is the whole night: preflight → TradingView up → init → charts → sc
 not a separate skill — `tools/promote_daily.py` cuts, gates and publishes them to four
 platforms in one command after the operator approves.
 
+The live cron fires at exactly 16:00 US/Eastern using paired 03:00/04:00 Bangkok triggers for
+EDT/EST. The wrong trigger stands down. Production is allowed roughly five hours and proceeds
+as soon as its gates finish; it does not wait for or race a fixed 18:00 publish clock.
+
 **On any night the operator sleeps through the approval window, the output is a held approval,
 not a video** (his ruling 2026-07-28, kept deliberately). `check_stage` returns
 `AWAITING_HUMAN` and the lane exits 0 with a Telegram notice; nothing renders and nothing
 uploads. Publishing is always operator-gated: the lane never passes `--allow-public`.
 
-**Re-arm criteria** for `tradercockpit-daily-autostart-a`/`-b` (currently **Disabled**) — all
-four, no partial credit: (1) the acceptance table in `docs/DAILY-LANE-OVERHAUL-PLAN.md` fully
-green; (2) one supervised manual night the operator approves; (3) voice preflight promoted to
-BLOCK via `--require-pvc`, or an explicit written waiver — without it the lane can re-arm on
-approved charts and quietly return the instant-clone voice he rejected; (4) the tier/model
-decision made. At ~8.6–10k chars/night an unresolved quota exhausts around night 12–14 and the
-lane dies at preflight mid-month, which from the outside looks exactly like the 07-27 stall.
+The Codex automation `tradercockpit-daily-market-authority` is the active schedule authority.
+The legacy `tradercockpit-daily-autostart-a`/`-b` tasks are not the source of truth.
 
 ## Sequence
 

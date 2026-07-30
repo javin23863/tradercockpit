@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Post-close daily runner: gates -> operator approval -> render -> publish.
 
-Production starts after the 16:00 US/Eastern cash close and publishes at 18:00,
-which is ~05:00 Asia/Bangkok. The runner validates the existing exact-hash approval
-and decides fail-closed:
+Production starts at the 16:00 US/Eastern cash close. This runner begins only after
+the content, exact-hash approval, and readiness gates complete; there is no fixed
+publish clock. The runner validates the existing exact-hash approval and decides
+fail-closed:
 
     all gates clean          -> render, publish PRIVATE unless --allow-public
     warning or unsourced     -> render, publish PRIVATE + notify
@@ -23,7 +24,7 @@ import argparse
 import json
 import subprocess
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
@@ -215,32 +216,6 @@ def publish_all(batch_path, data):
 
 # --- run ---------------------------------------------------------------------
 
-def _second_sunday(year, month):
-    first = datetime(year, month, 1)
-    return 1 + (6 - first.weekday()) % 7 + 7
-
-
-def _first_sunday(year, month):
-    first = datetime(year, month, 1)
-    return 1 + (6 - first.weekday()) % 7
-
-
-def eastern_now(utc=None):
-    """US/Eastern without tzdata: this box has no zoneinfo database (ZoneInfoNotFoundError).
-    US DST = 02:00 local on the 2nd Sunday of March through the 1st Sunday of November.
-    """
-    utc = utc or datetime.now(timezone.utc)
-    naive = utc.replace(tzinfo=None)
-    start = datetime(naive.year, 3, _second_sunday(naive.year, 3), 7)   # 02:00 EST = 07:00 UTC
-    end = datetime(naive.year, 11, _first_sunday(naive.year, 11), 6)    # 02:00 EDT = 06:00 UTC
-    return naive - timedelta(hours=4 if start <= naive < end else 5)
-
-
-def is_publish_hour(utc=None):
-    """18:00 US/Eastern. Windows tasks fire in local time, so the two ICT triggers
-    that straddle US DST both exist and this guard drops the wrong one."""
-    return eastern_now(utc).hour == 18
-
 
 def run(production, dry_run=False, allow_public=False):
     production = Path(production).resolve()
@@ -355,13 +330,7 @@ def selftest():
     assert decision == NO_PUBLISH, decision
     assert "gate crashed" in reasons[0] and gates["hardFail"], (reasons, gates)
 
-    # publish-hour guard: 18:00 ET is 22:00 UTC in summer (EDT) and 23:00 UTC in winter (EST)
-    assert is_publish_hour(datetime(2026, 7, 20, 22, 0, tzinfo=timezone.utc))
-    assert not is_publish_hour(datetime(2026, 7, 20, 23, 0, tzinfo=timezone.utc))
-    assert is_publish_hour(datetime(2026, 1, 20, 23, 0, tzinfo=timezone.utc))
-    assert not is_publish_hour(datetime(2026, 1, 20, 22, 0, tzinfo=timezone.utc))
-
-    print("daily-postclose self-test: 17/17 PASS")
+    print("daily-postclose self-test: PASS")
 
 
 def main(argv=None):
@@ -372,8 +341,6 @@ def main(argv=None):
                              "by convention via daily_production_init — that is how the scheduled "
                              "task runs, so the trigger never carries a stale hardcoded path.")
     parser.add_argument("--dry-run", action="store_true", help="decide only; never publish")
-    parser.add_argument("--at-publish-hour", action="store_true",
-                        help="no-op unless it is currently the 18:00 US/Eastern hour")
     parser.add_argument("--allow-public", action="store_true",
                         help="arm public auto-publish on a clean gate run. Default is PRIVATE + "
                              "morning operator promotion: the gates cannot prove the pixels are "
@@ -403,11 +370,6 @@ def main(argv=None):
         args.production = readiness["production"]
         log(f"resolved today's production: {readiness['slug']}")
 
-    if args.at_publish_hour and not is_publish_hour():
-        log("not the 18:00 US/Eastern hour; standing down")
-        notify("TraderCockpit: post-close lane stood down — fired outside the 18:00 ET hour "
-               "(box asleep or late trigger). No video today unless run manually.")
-        return 0
     return run(args.production, args.dry_run, args.allow_public)
 
 

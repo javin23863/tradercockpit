@@ -15,9 +15,10 @@ paths from the active TraderCockpit checkout; never use the former desktop check
 
 ## Procedure
 
-The daily publishes 17:00 US/Eastern, after the 16:00 cash close. The subject is what the session
-DID — settled closing prints, not intraday guesses or an open that hasn't happened. Run this after
-the close; every level is a settled or official close unless labelled otherwise.
+The daily production starts exactly at 16:00 US/Eastern. The subject is what the session DID —
+settled closing prints, not intraday guesses or an open that hasn't happened. Run this after the
+close; every level is a settled or official close unless labelled otherwise. Completion is
+gate-driven and may take roughly five hours; there is no fixed early publish clock.
 
 1. **Gather facts** — the closed session's fact pack (or build one: headlines with outlet+date, and
    settled closing levels via the TradingView tools per vault [[TradingView TA Runbook]]). No numbers

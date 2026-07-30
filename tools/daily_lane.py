@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scheduled post-close lane: initialize -> Codex content -> readiness -> private runner."""
+"""Scheduled 16:00 US/Eastern lane: initialize -> Codex content -> readiness -> private runner."""
 from __future__ import annotations
 
 import argparse
@@ -64,28 +64,42 @@ def cdp_up(port: int = TV_CDP_PORT) -> bool:
 
 
 def ensure_tradingview() -> bool:
-    """Charts-before-script needs TradingView Desktop on CDP :9222, and the lane's own
-    'close TradingView before TTS' step leaves it down for the next day (2026-07-27:
-    content stopped at the charts gate, no video shipped). Start it here, idempotently.
-    """
+    """Start a TradingView chart target on CDP :9222, preferring Chrome web."""
     if cdp_up():
         log("STAGE tradingview OK already on CDP :%d" % TV_CDP_PORT)
         return True
-    probe = subprocess.run(
-        ["powershell", "-NoProfile", "-Command",
-         "(Get-AppxPackage TradingView.Desktop).InstallLocation"],
-        capture_output=True, text=True, timeout=60,
-    )
-    exe = Path(probe.stdout.strip() or "nonexistent") / "TradingView.exe"
-    # ponytail: WindowsApps blocks directory listing, so resolve the MSIX path via Get-AppxPackage.
-    if not exe.is_file():
-        log(f"STAGE tradingview MISSING TradingView Desktop (looked at {exe})")
-        return False
-    subprocess.Popen([str(exe), f"--remote-debugging-port={TV_CDP_PORT}"],
+    chrome = (Path(os.environ.get("PROGRAMFILES", r"C:\Program Files"))
+              / "Google" / "Chrome" / "Application" / "chrome.exe")
+    if chrome.is_file():
+        profile = (Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData" / "Local"))
+                   / "TraderCockpit" / "TradingView-Chrome")
+        launch = [
+            str(chrome),
+            f"--remote-debugging-port={TV_CDP_PORT}",
+            f"--user-data-dir={profile}",
+            "--no-first-run",
+            "--no-default-browser-check",
+            "https://www.tradingview.com/chart/",
+        ]
+        source = "Chrome web"
+    else:
+        probe = subprocess.run(
+            ["powershell", "-NoProfile", "-Command",
+             "(Get-AppxPackage TradingView.Desktop).InstallLocation"],
+            capture_output=True, text=True, timeout=60,
+        )
+        exe = Path(probe.stdout.strip() or "nonexistent") / "TradingView.exe"
+        # ponytail: WindowsApps blocks listing; Get-AppxPackage resolves the optional fallback.
+        if not exe.is_file():
+            log(f"STAGE tradingview MISSING Chrome ({chrome}) and Desktop ({exe})")
+            return False
+        launch = [str(exe), f"--remote-debugging-port={TV_CDP_PORT}"]
+        source = "Desktop fallback"
+    subprocess.Popen(launch,
                      stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     for _ in range(TV_LAUNCH_WAIT_S):
         if cdp_up():
-            log("STAGE tradingview LAUNCHED")
+            log(f"STAGE tradingview LAUNCHED {source}")
             return True
         time.sleep(1)
     log(f"STAGE tradingview NO CDP after {TV_LAUNCH_WAIT_S}s")
@@ -164,6 +178,9 @@ Hard boundaries:
 - Use OpenMontage\\.venv\\Scripts\\python.exe for every Python command.
 - Charts-before-script is a hard order: capture completed-session working charts before vo.txt,
   and never cite an uncaptured chart.
+- Use the authenticated TradingView web chart in the dedicated Google Chrome CDP profile;
+  TradingView Desktop is optional. If the operator's two indicators are absent, stop rather
+  than capture a guest/default chart.
 - Run the existing claims and script-style gates. Do not weaken claims, editorial, visual_qa,
   script_style_gate, or script_approval.
 - Exact-hash script approval is a hard gate. Never create, forge, or alter an approval receipt.
@@ -213,25 +230,6 @@ def run_chain(init_stage, agent_stage, check_stage, publish_stage, alert=notify)
     return 0
 
 
-def wait_for_publish_hour(run_day) -> tuple[bool, str]:
-    log("STAGE publish-hour-wait START target=18:00 US/Eastern")
-    heartbeat = -1
-    while True:
-        now = eastern_now()
-        if now.date() != run_day or now.hour > 18 or now.hour < 16:
-            detail = f"missed 18:00 ET window; eastern_now={now:%Y-%m-%d %H:%M:%S}"
-            log(f"STAGE publish-hour-wait END {detail}")
-            return False, detail
-        if now.hour == 18:
-            log("STAGE publish-hour-wait END publish hour reached")
-            return True, "18:00 ET reached"
-        minute_bucket = now.minute // 5
-        if minute_bucket != heartbeat:
-            heartbeat = minute_bucket
-            log(f"STAGE publish-hour-wait HEARTBEAT eastern_now={now:%Y-%m-%d %H:%M:%S}")
-        time.sleep(60)
-
-
 def selftest() -> None:
     assert os.environ["PYTHONIOENCODING"] == "utf-8"
     print("daily-lane UTF-8 smoke: \ufffd")
@@ -266,8 +264,8 @@ def selftest() -> None:
     code, calls, alerts = exercise(True, True)
     assert code == 0 and calls == ["init", "agent", "check", "publish"] and not alerts
 
-    publish = [str(PYTHON), str(RUNNER), "--at-publish-hour"]
-    assert publish[-1] == "--at-publish-hour" and "--allow-public" not in publish
+    publish = [str(PYTHON), str(RUNNER)]
+    assert "--at-publish-hour" not in publish and "--allow-public" not in publish
     command = codex_command(Path("productions/daily-test"), "codex.cmd")
     assert command[-1] == "-" and "workspace-write" in command and "gpt-5.6-sol" in command
     assert 'model_reasoning_effort="xhigh"' in command
@@ -311,7 +309,7 @@ def main(argv=None) -> int:
     def init_stage():
         if not ensure_tradingview():
             return False, (
-                f"TradingView Desktop is not reachable on CDP :{TV_CDP_PORT}; "
+                f"TradingView web/Desktop is not reachable on CDP :{TV_CDP_PORT}; "
                 "charts-before-script would block the whole content step"
             )
         # Preflight AFTER the launch attempt (it probes, it does not start anything) and
@@ -368,12 +366,10 @@ def main(argv=None) -> int:
         return ok, "READY" if ok else f"NOT READY (exit={code}; missing={missing or 'unknown'})"
 
     def publish_stage():
-        on_time, detail = wait_for_publish_hour(run_day)
-        if not on_time:
-            return False, detail
+        # Production starts at the close and completes when its gates and render complete.
         # Public auto-publish stays off: this is the complete runner argv by construction.
         code, _ = run_process(
-            "daily-postclose", [str(PYTHON), str(RUNNER), "--at-publish-hour"],
+            "daily-postclose", [str(PYTHON), str(RUNNER)],
             RUNNER_TIMEOUT,
         )
         return code == 0, f"daily_postclose exit={code}"

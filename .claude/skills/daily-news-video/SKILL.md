@@ -12,9 +12,10 @@ is $0.
 
 ## Output contract
 
-- Trust-first post-close market recap, published 17:00 US/Eastern after the 16:00 cash close.
-  The subject is the session that just closed; the next session is the outlook, not the lead.
-  No product pitch in narration.
+- Trust-first post-close market recap. Production starts exactly at the 16:00 US/Eastern cash
+  close and runs until the evidence, approval, render, and review gates finish (plan roughly five
+  hours end to end; there is no fixed early publish clock). The subject is the session that just
+  closed; the next session is the outlook, not the lead. No product pitch in narration.
 - One story, one portfolio thesis, **10–12 minutes ALWAYS** (operator 2026-07-21: ad inventory —
   mid-rolls — not editorial preference). MEASURED rate is **145 wpm**, so the band is
   **1,450–1,700 words**, which lands a 10.1–11.8 min master once the 12 × 0.45s section gaps
@@ -128,7 +129,8 @@ number, name, quotation, attribution, probability, chart level, or causal direct
 
 ## Fast production lane
 
-Target a reviewable flagship within 120 minutes; 150 minutes is the hard escalation point.
+Start at 16:00 US/Eastern. Keep research and editorial preparation within 120 minutes; local
+TTS, rendering, and final QA may extend total wall time to roughly five hours.
 
 | Stage | Budget | Receipt |
 |---|---:|---|
@@ -386,4 +388,4 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
 - A bad chart/news/Godseye shot replaces only that beat.
 - A failed social derivative never invalidates an accepted long-form master.
 - Keep rejected renders as local receipts until the production is closed; keep public uploads.
-- At 150 minutes, stop and record the exact slow stage, cause, and next delta action.
+- At five hours, record the exact slow stage, cause, and next delta action rather than hiding it.
