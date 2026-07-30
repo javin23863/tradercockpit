@@ -704,16 +704,28 @@ def show_bible_cross_reference(finds: list[dict[str, Any]], complete: bool) -> l
     return cross_reference
 
 
-def hotdog() -> dict[str, Any]:
+def demand_queries(values: list[str] | tuple[str, ...] | None = None) -> tuple[str, ...]:
+    source = FAILURE_PHRASES if values is None else values
+    queries = tuple(dict.fromkeys(value.strip() for value in source if value.strip()))
+    if not queries:
+        raise ValueError("at least one non-empty demand query is required")
+    return queries
+
+
+def hotdog(
+    phrases: list[str] | tuple[str, ...] | None = None,
+    output_path: Path = HOTDOG_FILE,
+) -> dict[str, Any]:
     """Search failure-mode ideas, then apply Shane's 5x/sub-100k Hot Dog screen."""
     from googleapiclient.discovery import build
 
+    phrases = demand_queries(phrases)
     # This lane is read-only: an expired credential fails closed instead of refreshing token state.
     youtube = build("youtube", "v3", credentials=youtube_credentials(allow_refresh=False), cache_discovery=False)
     coverage: list[dict[str, Any]] = []
     errors: list[str] = []
     video_phrases: dict[str, list[str]] = {}
-    for phrase in FAILURE_PHRASES:
+    for phrase in phrases:
         try:
             response = youtube.search().list(
                 part="snippet", q=f"{phrase} trading", type="video", order="viewCount",
@@ -772,7 +784,7 @@ def hotdog() -> dict[str, Any]:
         "finds": finds,
         "showBibleCrossReference": show_bible_cross_reference(finds, complete),
     }
-    write_atomic(HOTDOG_FILE, json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+    write_atomic(output_path, json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     return payload
 
 
@@ -973,6 +985,8 @@ def collect() -> dict[str, Any]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["auth-youtube", "collect", "velocity", "hotdog", "report", "selftest"])
+    parser.add_argument("--query", action="append", help="Hot Dog query phrase; repeat for an episode-specific screen.")
+    parser.add_argument("--output", type=Path, help="Hot Dog JSON output; defaults to the shared latest screen.")
     args = parser.parse_args()
     if args.command == "auth-youtube":
         auth_youtube()
@@ -983,8 +997,9 @@ def main() -> None:
               f"{len(velocity.get('breakouts', []))} breakouts)")
         return
     if args.command == "hotdog":
-        payload = hotdog()
-        print(f"wrote {HOTDOG_FILE} ({len(payload.get('finds', []))} finds, errors={payload.get('errors', [])})")
+        output = args.output or HOTDOG_FILE
+        payload = hotdog(args.query, output)
+        print(f"wrote {output} ({len(payload.get('finds', []))} finds, errors={payload.get('errors', [])})")
         return
     if args.command == "selftest":
         hotdog_selftest()

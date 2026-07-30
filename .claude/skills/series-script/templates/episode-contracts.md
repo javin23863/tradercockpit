@@ -54,7 +54,7 @@ PNG is hash-bound only by final certification. Do not claim a pre-TTS visual pas
 ```json
 {
   "episode": 5,
-  "syllabus_episode": "06",
+  "syllabus_episode": "05",
   "title": "REPLACE WITH APPROVED TITLE",
   "release": {
     "privacy": "private",

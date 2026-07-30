@@ -1,6 +1,12 @@
 from tools import dashboard, social_analytics
 
 
+def test_demand_queries_support_episode_specific_phrases():
+    assert social_analytics.demand_queries(
+        [" monte carlo backtest ", "monte carlo backtest", "exit setting sensitivity"]
+    ) == ("monte carlo backtest", "exit setting sensitivity")
+
+
 def test_safe_error_redacts_access_token():
     value = social_analytics.safe_error("boom https://example.test?a=1&access_token=secret&x=2")
     assert "secret" not in value

@@ -83,6 +83,10 @@ or they leave.**
   types — "is my strategy overfit", prop-firm math, Monte Carlo backtest) via the Hot Dog
   automation (YouTube Desk §2). Thesis-strong but demand-dead topics get the doctrine threaded
   into a searched topic instead of their own video.
+  Run episode-specific phrases and keep the receipt with the episode:
+  `python -B tools/social_analytics.py hotdog --query "<phrase>" --query "<phrase>" --output "<episode-dir>/artifacts/demand-screen.json"`.
+  An expired read-only credential or incomplete query set blocks package lock; it never falls back
+  to a writer's intuition.
 - Title: confrontation or curiosity gap, search-aware, never a topic label.
 - Thumbnail: mechanics per the house reference ([[Thumbnails & First Impressions — House
   Reference]], [[First Impression System Team Brief]]); geometry gated by `tools/visual_qa.py`.

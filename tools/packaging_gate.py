@@ -132,12 +132,15 @@ def words(s: str) -> set[str]:
 def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[str, bool, str]]:
     title = str(pk.get("title", ""))
     thumb = pk.get("thumbnail", {}) or {}
-    elements = [str(e) for e in (thumb.get("elements") or [])]
+    elements = [str(e) for e in (thumb.get("elements") or thumb.get("copy") or [])]
     tw = words(title)
     thw = set().union(*[words(e) for e in elements]) if elements else set()
     lo, hi = r["thumb_elements"]
     wlo, whi = r["thumb_words"]
-    status = str(pk.get("STATUS", ""))
+    status = str(pk.get("STATUS") or pk.get("status") or "")
+    first_sentence = str(
+        pk.get("first_spoken_sentence") or pk.get("candidate_first_post_ident_sentence") or ""
+    )
 
     checks = [
         (f"(a)6 title max {r['max_title_chars']} chars",
@@ -174,20 +177,21 @@ def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[s
          f"{len(elements)} element(s)"),
 
         ("(c)2 first sentence matches the title",
-         bool(pk.get("first_spoken_sentence")) and
-         len(words(str(pk["first_spoken_sentence"])) & tw) >= max(1, len(tw) // 3),
-         "overlap " + str(len(words(str(pk.get("first_spoken_sentence", ""))) & tw)) +
+         bool(first_sentence) and
+         len(words(first_sentence) & tw) >= max(1, len(tw) // 3),
+         "overlap " + str(len(words(first_sentence) & tw)) +
          f" of {len(tw)} title words"),
     ]
 
     # (b)1 / (c)1 -- package BEFORE the script, checked mechanically rather than trusted.
     if proj is not None:
         vo = proj / "artifacts" / "vo.txt"
+        approved = "APPROVED" in status.upper() and "AWAITING" not in status.upper()
         checks.append((
             "(b)1 package BEFORE the script",
-            not (vo.is_file() and "PROPOSED" in status.upper()),
-            "vo.txt exists while STATUS is still PROPOSED" if
-            (vo.is_file() and "PROPOSED" in status.upper()) else "ok"))
+            not (vo.is_file() and not approved),
+            f"vo.txt exists while package status is {status!r}" if
+            (vo.is_file() and not approved) else "ok"))
     return checks
 
 
