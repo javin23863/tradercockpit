@@ -35,6 +35,7 @@ length, overlap, vocabulary, ordering and the phase-label ban.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -50,11 +51,22 @@ VAULT = Path(os.environ.get(
 ))
 STANDARD = VAULT / "GTM" / "Social-Media-Library" / "Into the Laboratory — Production Standard.md"
 
-# Phase labels are the syllabus, never titles -- (a)1. Sourced from the pipeline's own phase
-# labels rather than invented here.
-PHASE_LABELS = ("out-of-sample", "out of sample", "in-sample", "intake", "cost stress",
-                "timing", "session stress", "monte carlo", "walk-forward", "walk forward",
-                "governance", "mc param", "mc trade", "final oos", "oos retest", "perturbation")
+# Internal phase labels stay in the syllabus. Searched public method names may appear only when the
+# same title carries a concrete result; the Production Standard records the operator's ruling.
+INTERNAL_PHASE_LABELS = ("in-sample", "intake", "cost stress", "timing", "session stress",
+                         "governance", "mc param", "mc trade", "final oos", "oos retest",
+                         "perturbation")
+PUBLIC_METHOD_NAMES = ("out-of-sample", "out of sample", "monte carlo", "walk-forward",
+                       "walk forward")
+INTERNAL_PHASE_CODE = re.compile(
+    r"\bphase\s*\d+(?:_[a-z0-9_]+)?\b|\bs\d+e\d+\b|\bep\d+\b", re.I
+)
+PUBLIC_RESULT = re.compile(
+    r"\b\d+\s+(?:of|out of)\s+\d+\b|[$£€]\s*\d|\b\d+(?:\.\d+)?%|"
+    r"\b\d+\b.*\b(?:passed|failed|survived|left|lost|gained|fell|rose|dropped|killed)\b|"
+    r"\b(?:passed|failed|survived|left|lost|gained|fell|rose|dropped|killed)\b.*\b\d+\b",
+    re.I,
+)
 
 STOPWORDS = {"a", "an", "the", "and", "or", "but", "of", "to", "in", "on", "at", "for", "with",
              "is", "was", "it", "its", "this", "that", "my", "i", "you", "your", "me", "we",
@@ -95,6 +107,10 @@ def rules(text: str) -> dict:
     # constant here -- revert the amendment and this check tightens again by itself.
     out["belief_allowed"] = bool(re.search(r"famous beginner belief", text, re.I))
     out["phase_labels_banned"] = bool(re.search(r"Phase labels are the syllabus, NOT titles", text))
+    out["public_method_result_allowed"] = bool(re.search(
+        r"Searched public method names may appear only when the title also states a concrete",
+        text,
+    ))
     out["package_before_script"] = bool(re.search(r"Package BEFORE the script", text, re.I))
 
     optional = {"belief_allowed"}
@@ -163,6 +179,63 @@ def demand_screen_check(proj: Path) -> tuple[bool, str]:
     )
 
 
+def title_result_check(
+    package: dict, proj: Path | None, title: str, public_method_hits: list[str]
+) -> tuple[bool, str]:
+    if not public_method_hits:
+        return True, "not required"
+    result = package.get("title_result")
+    if not isinstance(result, dict):
+        return False, "title_result is missing"
+    statement = str(result.get("statement", ""))
+    source_text = str(result.get("source", ""))
+    expected_hash = str(result.get("sha256", "")).lower()
+    statement_numbers = set(re.findall(r"\d+(?:\.\d+)?", statement))
+    title_numbers = set(re.findall(r"\d+(?:\.\d+)?", title))
+    declared = (
+        bool(PUBLIC_RESULT.search(title))
+        and bool(PUBLIC_RESULT.search(statement))
+        and statement_numbers == title_numbers
+        and bool(source_text)
+        and bool(re.fullmatch(r"[0-9a-f]{64}", expected_hash))
+    )
+    if not declared:
+        return False, "title_result must bind the title's result numbers to a source SHA-256"
+    if proj is None:
+        return True, "declared; source verification requires an episode project"
+    source_name, separator, pointer = source_text.partition("#")
+    if not separator or not pointer.startswith("/"):
+        return False, f"title_result source must select a JSON value: {source_text!r}"
+    source = (proj / source_name).resolve()
+    try:
+        source.relative_to(proj.resolve())
+    except ValueError:
+        return False, f"title_result source escapes the episode project: {source_text!r}"
+    if not source.is_file():
+        return False, f"title_result source is missing: {source_text!r}"
+    actual_hash = hashlib.sha256(source.read_bytes()).hexdigest()
+    if actual_hash != expected_hash:
+        return False, f"{source_text!r} hash mismatch"
+    if source.suffix.lower() != ".json":
+        return False, f"title_result locator is not a JSON pointer: {source_text!r}"
+    try:
+        value = json.loads(source.read_text(encoding="utf-8"))
+        for raw_token in pointer[1:].split("/"):
+            token = raw_token.replace("~1", "/").replace("~0", "~")
+            if isinstance(value, list):
+                if not re.fullmatch(r"0|[1-9]\d*", token):
+                    raise ValueError
+                value = value[int(token)]
+            else:
+                value = value[token]
+    except (OSError, UnicodeError, json.JSONDecodeError, KeyError, IndexError, ValueError, TypeError):
+        return False, f"title_result JSON pointer is missing: {source_text!r}"
+    evidence_numbers = set(re.findall(r"\d+(?:\.\d+)?", json.dumps(value)))
+    if not statement_numbers <= evidence_numbers:
+        return False, f"title_result numbers are absent at: {source_text!r}"
+    return True, f"{source_text!r} hash and locator match"
+
+
 def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[str, bool, str]]:
     title = str(pk.get("title", ""))
     thumb = pk.get("thumbnail", {}) or {}
@@ -188,6 +261,14 @@ def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[s
     ):
         if current_value is not None and legacy_value is not None and current_value != legacy_value:
             conflicts.append(f"{current} != {legacy}")
+    internal_hits = [label for label in INTERNAL_PHASE_LABELS if label in title.lower()]
+    if INTERNAL_PHASE_CODE.search(title):
+        internal_hits.append(INTERNAL_PHASE_CODE.search(title).group(0))
+    public_method_hits = [name for name in PUBLIC_METHOD_NAMES if name in title.lower()]
+    method_has_result = not public_method_hits or bool(PUBLIC_RESULT.search(title))
+    title_result_ok, title_result_detail = title_result_check(
+        pk, proj, title, public_method_hits
+    )
 
     checks = [
         ("package field aliases do not conflict",
@@ -207,9 +288,15 @@ def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[s
           else "NONE — name a beginner strategy in the title, or (amended 2026-07-28) declare the "
                "beginner belief this title debunks in a `beginner_belief` field")),
 
-        ("(a)1 title is not a phase label",
-         not any(p in title.lower() for p in PHASE_LABELS),
-         "hits: " + (", ".join(p for p in PHASE_LABELS if p in title.lower()) or "none")),
+        ("(a)1 title is not an internal phase label; public method names carry a result",
+         not internal_hits and method_has_result,
+         "internal: " + (", ".join(internal_hits) or "none") +
+         "; public method: " + (", ".join(public_method_hits) or "none") +
+         f"; concrete result: {'yes' if method_has_result else 'no'}"),
+
+        ("(a)1 searched public method result is hash-bound",
+         title_result_ok,
+         title_result_detail),
 
         ("(a)3 title and thumbnail share zero words",
          not (tw & thw),

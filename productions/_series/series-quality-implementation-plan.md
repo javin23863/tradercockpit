@@ -165,9 +165,10 @@ and local hooks would not protect the Linux worker or upload boundary.
 - Define one simulation, explain the 200-run configuration without calling it an optimum, and
   distinguish parameter perturbation from trade dropout, trade-order permutation, a
   with-replacement bootstrap, and MCMC.
-- Resolve the title-policy conflict before package lock: internal phase codes and numbers remain
-  banned, while using a searched public method name such as “Monte Carlo backtest” requires an
-  explicit operator-ratified amendment to the current phase-label rule.
+- Apply the operator's 2026-07-30 title ruling: internal phase codes, numbers, and bare topic
+  labels remain banned; a searched public method name is allowed only when the same title states
+  a concrete, receipt-backed result. Episode 5's approved title is
+  “Monte Carlo Backtest: We Moved the Exits. 28 of 46 Failed.”
 - Rebuild claims, narration, packaging, scene identifiers, transitions, and render.
 
 ## Linux repair and render lane
