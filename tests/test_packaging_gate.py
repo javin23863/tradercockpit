@@ -25,7 +25,7 @@ def test_audit_blocks_script_before_current_package_approval(tmp_path):
     artifacts.mkdir()
     (artifacts / "vo.txt").write_text("legacy narration", encoding="utf-8")
     package = {
-        "status": "candidate_awaiting_operator_package_approval",
+        "status": "candidate_not_operator_approved",
         "title": "I Optimised the Golden Cross. That Was the Mistake.",
         "candidate_first_post_ident_sentence": "I optimised the Golden Cross, and that was the mistake.",
         "thumbnail": {"copy": ["$78,420 \u2192 -$9,229", "SAME STRATEGY"]},

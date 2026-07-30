@@ -186,7 +186,7 @@ def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[s
     # (b)1 / (c)1 -- package BEFORE the script, checked mechanically rather than trusted.
     if proj is not None:
         vo = proj / "artifacts" / "vo.txt"
-        approved = "APPROVED" in status.upper() and "AWAITING" not in status.upper()
+        approved = bool(re.match(r"^APPROVED(?:\s|$|[-\u2014:])", status.strip(), re.I))
         checks.append((
             "(b)1 package BEFORE the script",
             not (vo.is_file() and not approved),
