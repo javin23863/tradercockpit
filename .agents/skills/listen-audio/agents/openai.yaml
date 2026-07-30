@@ -1,0 +1,4 @@
+interface:
+  display_name: "Listen to Audio"
+  short_description: "Hear, transcribe, and QA rendered audio"
+  default_prompt: "Use $listen-audio to inspect this rendered audio and return an evidence-backed listening receipt."

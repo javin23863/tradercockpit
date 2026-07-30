@@ -102,6 +102,15 @@ The primary task remains responsible for implementation, full-diff review, test 
 - Trigger: `/see-video` or a request to inspect what is shown in a shared video.
 - Use the skill for those requests.
 
+# listen-audio
+
+- **listen-audio** (`.agents/skills/listen-audio/SKILL.md`) decodes, measures, transcribes, and
+  visualizes the actual audio bytes, then hands the playable file to the operator.
+- Trigger: any request to hear, listen to, transcribe, review, diagnose, compare, or approve audio,
+  narration, TTS, music, a mix, a voice memo, or a rendered video audio track.
+- Every generated narration variant, final narration, mix, and rendered master needs a listening
+  receipt before approval. Text, filenames, and render logs are never substitutes.
+
 # tiktok-upload
 
 - **tiktok-upload** (`.agents/skills/tiktok-upload/SKILL.md`) posts an approved 9:16 MP4 through TikTok's official free Content Posting API with refreshable OAuth and provider read-back.
