@@ -11,6 +11,10 @@ daily (`daily-news-video`) and from the parked Show.
 
 ## Read before drafting
 
+Read `templates/episode-contracts.md` in this skill directory before creating episode files. It
+contains the literal JSON skeletons, working-to-runtime handoff, and source/final gate inventory;
+do not improvise those contracts from an older episode.
+
 Vault (`Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit`):
 - `GTM/README.md` → "Writing a script" list (voice guide, claims ontology, offer constraints)
 - `Series/Operator Doctrine — You Are the Market.md` — the thesis; binding claims position
@@ -53,15 +57,20 @@ Work in `productions/series-<nn>-<slug>/`. Stages, in order:
 **1. Thesis.** One controversial-but-true sentence, doctrine-derived. If it can't be said in one
 sentence a retail trader would repeat to a friend, it's not the thesis yet.
 
-**2. Receipt pull — the trusted-source spine.** Every factual claim binds to a real repo
+**2. Receipt pull + strategy passport — the trusted-source spine.** Every factual claim binds to a real repo
 artifact BEFORE drafting: cert outputs, robustness runs, battery verdicts, equity curves, the
 killed-strategy fact pack (`repos\futures` docs/vault + run artifacts; lake catalog for data
 claims). **Check `productions/_series/receipt-library.md` FIRST** — the accumulating index of
 camera-ready artifacts (artifact path → what it shows → episodes that used it). Pull from it;
 add every new artifact discovered back to it. Per-episode archaeology is the throughput killer —
 the library turns it into a one-time cost. Write `fact-pack.md`: claim → artifact path → what
-appears on screen. No artifact → claim is cut, or explicitly voiced as opinion ("my read, after
-25 years"). Mint `claims.yaml` per the Claims Ontology as for the daily lane.
+appears on screen. Also write `artifacts/strategy-passport.json` from receipts: asset class, instrument,
+venue, timeframe/session/timezone, entry and exit rules, sizing, costs/slippage/fees, data and
+test windows, split method, tunable parameters with ranges/steps, validation settings/seeds,
+pass thresholds, results, limitations, and an exact source locator for each value. Use `unknown`
+when a field is not evidenced. Never infer a missing formula or parameter. No artifact → cut the
+claim, or explicitly voice it as opinion ("my read, after 25 years"). Keep the working claim
+map in the fact pack; do not mint `artifacts/claims.json` until the final spoken script exists.
 
 **3. Package first — the first-impression contract (operator ruling 2026-07-24).**
 Thumbnail and title are attention-grabbing or the video does not exist. Then the chain is
@@ -106,13 +115,30 @@ draft is built FROM this transcript: his sentence rhythm, his metaphors, his emp
 skill supplies structure, never voice. Every captured session (and every recorded episode)
 feeds the phrase bank, so the voice spec compounds instead of drifting AI-generic.
 
-**6. Draft the words** (`script.md`, two columns: SPOKEN | SCREEN). Full sentences as delivered,
+**6. Draft and refine the words** (`script.md`, two columns: SPOKEN | SCREEN). Full sentences as delivered,
 contractions and all — teleprompter-ready. Every SCREEN cell names its artifact or animation.
 But/therefore chaining between beats; no "and then".
 Word budget: on-camera natural pace ≈ 145–160 wpm → 8–12 min ≈ **1,200–1,900 words**.
+Give every SPOKEN paragraph one stable claim ID. After approval, export the SPOKEN cells in
+delivery order to `OpenMontage/projects/<episode>/artifacts/vo.txt`, putting
+`# receipt: <claim-id>` immediately before each paragraph. `vo.txt` is the canonical narration
+that the claim gate, TTS, captions, and final receipt bind; it may not be edited independently.
 <!-- ponytail: 145-160 wpm is a prior, not a measurement — time the operator's first recording
      and calibrate the band; the daily lane's MEASURED clone rate is 145 wpm (the old 197 figure
      was wrong and produced a 14.3 min master), and it is a CLONE rate — do not reuse it -->
+
+After the factual draft, read `.claude/skills/no-ai-slop/SKILL.md` and its `eval.md` completely
+and run its minimum-edit pass against the operator capture. Preserve information, not sentence
+shape: do not add, remove, soften, strengthen, or generalize any claim; preserve every number,
+range, unit, parameter, negation, uncertainty marker, limitation, quote, source relationship,
+and disclosure. If a cleaner sentence would require a new fact or interpretation, leave it
+alone and flag it. Compare the revision to the fact pack and strategy passport, fix every failed
+eval check, and record the protected-item comparison plus the short change summary in the
+hash-bound `artifacts/human-facing-review.json`.
+
+Aim for the operator's recognizable voice and a natural read, never a classifier score or hidden
+authorship. Preserve internal drafting provenance and every required disclosure for synthetic
+narration, visuals, or other generated media.
 
 **7. Visual column spec.** Attention graphics, rendered at production (OpenMontage/matplotlib/
 plotly — no new engine). When E1 hits rendering, build ONE reusable `tools/mc_visuals.py` (fan /
@@ -159,26 +185,84 @@ platform — that reproducibility is exactly what the studied channels withhold,
 differentiation. Frame any handed-over rule as a lesson artifact under honest validation, never
 a signal or a promise. Machinery stays unnamed on camera (backstage ruling).
 
-**8. Gates.**
-```powershell
-$py = "C:\Users\MSI\Documents\tradercockpit\OpenMontage\.venv\Scripts\python.exe"
-& $py tools\claims_gate.py productions\<episode>
-& $py tools\script_style_gate.py productions\<episode> --out productions\<episode>\build\script-style-audit.json
-```
-Then manual scrubs (style gate coverage is partial — a clean run is not compliance):
+**8. Independent critic + operator read-aloud.** Give a separate critic the complete factual
+package — promise, capture transcript, final draft, fact pack, strategy passport, working claim
+map, and source locators — without the writer's conclusions. The critic checks unsupported or
+distorted claims, omitted strategy mechanics, promise/payoff alignment, operator-voice drift,
+teaching clarity, and disclosure. Save the findings and their receipt-backed disposition in
+`critic-review.md`; receipts outrank both writer and critic.
+
+The operator then reads the entire SPOKEN column aloud in delivery cadence. Fix anything that
+does not fit his mouth. An operator edit wins, but it sends the script back through the
+information-preservation check and independent critic. Approve the exact final script only after
+that loop passes. Record the critic disposition and dated read-aloud approval in
+`artifacts/human-facing-review.json`. Do not generate TTS or start a render yet.
+
+**9. Final claims freeze + gates.** Build the episode project's final ontology at
+`artifacts/claims.json` from the exact approved spoken text and bind it to that script's SHA-256.
+Every rewrite invalidates that hash and requires a rebuilt ontology plus a fresh source-gate
+receipt.
+
+The executable JSON contracts are:
+
+- `packaging.json.release`: `privacy`, `category`, boolean `containsSyntheticMedia`,
+  `captionLanguage`, and `captionName`. The title remains at top level; description and tags
+  remain `_yt_desc.txt` and `_yt_tags.json`.
+- `strategy-passport.json`: `schema: strategy-passport/v1`; non-empty `strategy` fields
+  `asset_class`, `instrument`, `venue`, `timeframe`, `session_timezone`, `entry`, `exits`,
+  `sizing`, `costs`, `parameters`; non-empty `validation` fields `phase`, `test_window`, `settings`,
+  `thresholds`, `result`; non-empty `limitations`; and at least one `sources` row with
+  `citation`, `locator`, `supports`, and `limitations`.
+- `human-facing-review.json`: `schema: human-facing-review/v1`; exact SHA-256 values for
+  `script_sha256`, `operator_capture_sha256`, and `strategy_passport_sha256`; PASS
+  `protected_items_status` and `disclosure_status`; a named PASS `independent_critic` with
+  empty `unresolved_findings`; and a dated APPROVED `operator_read_aloud`.
+- `claims.json`: `schema: teaching-claims/v1`; exact `script_sha256`; a `sources` object whose
+  entries contain `citation`, `locator`, `supports`, `limitations`, and an artifacts-relative
+  evidence `path` plus exact `sha256`; and one `claims` entry for every `# receipt:` ID.
+  Factual claims use `academic` or `run_receipt` plus source IDs. Pure delivery lines use
+  `delivery`, no source IDs, and a non-empty `why_non_claim`.
+- `operator-script-approval.json`: `schema: tradercockpit-series-script-approval/v1`; approved
+  `vo.txt` and exact `scriptSha256`; timezone-bearing `reviewedAt`; operator `reviewedBy`;
+  `approvalKind: operator`; `operatorReviewed: true`; and true `readAloud`,
+  `phrasingATraderWouldSay`, and `factSeparatedFromJudgment` attestations. A writer or worker
+  may prepare a candidate but may not issue this receipt.
+
+Manual scrubs (automated style coverage is partial — a clean run is not compliance):
 - **Promise check:** read thumbnail + title, then the first 5s of script post-intro. If a viewer
   who clicked would feel baited, the open is rewritten before anything else is polished.
 - Never-say table: reviewer corrections ("7 of 7", "only order-dependence", "passes every
   check", "reproducible without product" → "from the spoken track", options critique unscoped).
 - Banned-claims grep: win-rate %, "easiest", "guaranteed", urgency. Regex source
   `Series/verify_claims.py` §F. Any hit = blocker.
-- Read-aloud pass in the operator's cadence.
+- Verify every strategy-passport value used in speech against its source locator.
 
-**9. Operator approval + delivery mode.** Deliver script + beat sheet + shot list. Operator
-rewrites anything into his own mouth-feel; his edits win, gates re-run only if claims changed.
-Delivery split: teleprompter for teach loops is fine; the demonstration and resolution beats run
-from beat cards, not prompter — read delivery kills the register exactly where authenticity is
-the payload.
+Run the unified source gate from the repository root:
+
+```text
+python -B tools/episode_gate.py source <absolute-episode-dir>
+```
+
+Only a PASS from that command may unlock TTS, screen capture, composition, or rendering. Delivery split:
+teleprompter for teach loops is fine; the demonstration and resolution beats run from beat cards,
+not prompter — read delivery kills the register exactly where authenticity is the payload. After
+rendering, the operator reviews the exact master and issues
+`artifacts/operator-master-approval.json` using
+`schema: tradercockpit-series-master-approval/v1`, the project-relative `master`, exact `sha256`,
+timezone-bearing reviewer fields, `approvalKind: operator`, `operatorReviewed: true`, and
+`publicationAuthorized: false`. The master approval never authorizes upload. Then run the full
+gate against that exact master:
+
+```text
+python -B tools/episode_gate.py run <absolute-episode-dir> --master <master.mp4>
+```
+
+A source receipt never certifies a render.
+Publication must go through `tools/upload_youtube.py`, which requires the series lane, checks the
+exact certified public values before authentication, inserts the video private, uploads and
+downloads the certified caption track for an exact-content check, verifies the custom thumbnail,
+and only then promotes to the certified privacy. Copying a master outside its episode does not
+carry its certification with it.
 
 **10. After publish — measure, don't guess.** Pull the episode's numbers via
 `tools/social_analytics.py`: retention curve (drop at the ident? at 30s? at the first teach
@@ -198,8 +282,15 @@ the promise check by definition.
 
 ## Output contract
 
-`productions/series-<nn>-<slug>/`: `fact-pack.md`, `claims.yaml`, `beats.md`,
-`capture-transcript.txt`, `script.md` (two-column), `scene-plan.json` (beat → visual binding,
-daily-lane format), thumbnail brief. Shared, cross-episode: `productions/_series/`
+`productions/series-<nn>-<slug>/`: `fact-pack.md`, `beats.md`, `capture-transcript.txt`,
+`script.md` (two-column), `critic-review.md`, `scene-plan.json` (beat → visual binding,
+daily-lane format), and `thumbnail-brief.md`. Export the approved `scene-plan.json` to the
+episode runtime's canonical `artifacts/scenes.json`; that runtime file may not be edited
+independently. Copy the approved operator capture to
+`OpenMontage/projects/<episode>/artifacts/operator-capture.txt`; the final
+`strategy-passport.json`, `human-facing-review.json`, `claims.json`,
+`operator-script-approval.json`, and `operator-master-approval.json` live beside it and are
+exact-hash bound by `episode_gate.py`.
+Shared, cross-episode: `productions/_series/`
 (`packaging-spec.md`, `receipt-library.md`, phrase-bank additions).
 Derivatives after approval via `post-approval-derivatives` — each teach loop is a natural short.

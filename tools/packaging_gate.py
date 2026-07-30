@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -43,7 +44,10 @@ from pathlib import Path
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-VAULT = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit")
+VAULT = Path(os.environ.get(
+    "TRADERCOCKPIT_VAULT",
+    r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit",
+))
 STANDARD = VAULT / "GTM" / "Social-Media-Library" / "Into the Laboratory — Production Standard.md"
 
 # Phase labels are the syllabus, never titles -- (a)1. Sourced from the pipeline's own phase

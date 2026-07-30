@@ -144,6 +144,16 @@ def approval_fingerprint(batch_id, item, contains_synthetic_media=False, schema=
             "reviewedBy": item.get("reviewedBy"),
             "reviewedAt": item.get("reviewedAt"),
         })
+        if item.get("channel") == "youtube":
+            captions_path = inside_repo(item.get("captions", ""))
+            if not captions_path.is_file():
+                raise ValueError("approved YouTube captions do not exist")
+            payload.update({
+                "captions": item.get("captions"),
+                "captionsSha256": hashlib.sha256(captions_path.read_bytes()).hexdigest(),
+                "captionLanguage": item.get("captionLanguage"),
+                "captionName": item.get("captionName"),
+            })
     else:
         raise ValueError(f"unsupported batch schema: {schema}")
     canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
@@ -221,6 +231,12 @@ def validate(data):
                     raise ValueError(f"{tag}.privacy must be one of: {', '.join(sorted(PRIVACY))}")
                 if item["channel"] == "youtube" and item["captionMode"] != "native":
                     raise ValueError(f"{tag}: YouTube requires the caption-free master and native captions")
+                if item["channel"] == "youtube":
+                    for field in ("captions", "captionLanguage", "captionName"):
+                        if not isinstance(item.get(field), str) or not item[field].strip():
+                            raise ValueError(f"{tag}.{field} is required for native captions")
+                    if not inside_repo(item["captions"]).is_file():
+                        raise ValueError(f"{tag}.captions does not exist")
                 if item.get("publicationAuthorized") is not True:
                     raise ValueError(f"{tag}.publicationAuthorized must be true")
             try:

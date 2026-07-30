@@ -307,7 +307,7 @@ def _thumbnail(item):
     return str(path)
 
 
-def dispatch_publish(item):
+def dispatch_publish(item, batch_path=None):
     platform, asset = item["channel"], _asset(item)
     if platform == "youtube":
         from upload_youtube import upload
@@ -316,6 +316,8 @@ def dispatch_publish(item):
             str(asset), item["title"], item["copy"], privacy=item["privacy"],
             thumbnail=_thumbnail(item),
             synthetic=item.get("containsSyntheticMedia", False), interactive=False,
+            approval_lane="social_batch",
+            approval_ref={"batch": str(batch_path), "item_id": item["id"]},
         )
     if platform == "instagram":
         return publish_instagram(asset, item["copy"])
@@ -379,9 +381,10 @@ def publish_batch_item(batch_path, item_id, requested_platform=None):
         write_publish_log(batch_path, data["batchId"], item, error=error)
         raise error
     try:
-        result = dispatch_publish({
-            **item, "containsSyntheticMedia": data.get("containsSyntheticMedia", False)
-        })
+        result = dispatch_publish(
+            {**item, "containsSyntheticMedia": data.get("containsSyntheticMedia", False)},
+            batch_path=batch_path,
+        )
     except Exception as error:
         write_publish_log(batch_path, data["batchId"], item, error=error)
         raise

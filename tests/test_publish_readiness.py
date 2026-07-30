@@ -32,7 +32,9 @@ def make_v2(folder, channel="youtube", status="approved", caption_mode=None):
     script = production / "vo.txt"
     script_approval = production / "script-approval.json"
     production_approval = production / "production-approval.json"
+    captions = production / "captions.srt"
     asset.write_bytes(b"approved asset")
+    captions.write_text("1\n00:00:00,000 --> 00:00:01,000\nApproved\n", encoding="utf-8")
     claims.write_text('{"verdict":"PASS","blocked":[],"checked_sections":1}', encoding="utf-8")
     brief.write_text("Bloomberg market framing with official evidence", encoding="utf-8")
     sources.write_text("Bloomberg framing receipt", encoding="utf-8")
@@ -73,6 +75,12 @@ def make_v2(folder, channel="youtube", status="approved", caption_mode=None):
         "reviewedBy": "operator",
         "reviewedAt": "2026-07-17T00:10:00Z",
     }
+    if channel == "youtube":
+        item.update({
+            "captions": captions.relative_to(ROOT).as_posix(),
+            "captionLanguage": "en",
+            "captionName": "English",
+        })
     batch = {
         "schema": "social-batch/v2",
         "batchId": "release-test",
@@ -350,6 +358,12 @@ class BatchAndPublicationTests(unittest.TestCase):
             "disclosure": lambda data, folder: data.__setitem__("containsSyntheticMedia", False),
             "publication authority": lambda data, folder: data["items"][0].__setitem__("publicationAuthorized", False),
             "asset": lambda data, folder: (Path(folder) / "asset.mp4").write_bytes(b"changed"),
+            "captions file": lambda data, folder: (Path(folder) / "captions.srt").write_text(
+                "changed", encoding="utf-8"
+            ),
+            "caption language": lambda data, folder: data["items"][0].__setitem__(
+                "captionLanguage", "fr"
+            ),
             "claims": lambda data, folder: (Path(folder) / "claims.json").write_text(
                 '{"verdict":"PASS","blocked":[],"checked_sections":2}', encoding="utf-8"
             ),
