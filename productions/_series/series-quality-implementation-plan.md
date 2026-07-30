@@ -24,14 +24,16 @@ has a current exact-hash certification.
 | 3 | Timing and session stress | Restore `series-XX-timing-PARKED` |
 | 4 | Cost and slippage stress | Renumber current Episode 3 |
 | 5 | Exit-parameter Monte Carlo | Renumber current Episode 4 |
-| 6 | Trade dropout and trade-order bootstrap | Next net-new episode |
+| 6 | Trade dropout and trade-order permutation | Next net-new episode |
 | 7 | Frozen-parameter walk-forward | After Episode 6 |
 | 8 | Walk-forward correlation | Only after a real candidate reaches WFC |
 
-The standard robustness order is parameter Monte Carlo, trade Monte Carlo, walk-forward, then
-walk-forward correlation. Options use their separate lifecycle/occurrence variants and have no
-registered WFC phase. An episode must not imply that an observed result occurred in an asset lane
-whose receipt is empty.
+The standard robustness order is exit-parameter Monte Carlo, independent trade dropout plus
+trade-order permutation, frozen-parameter walk-forward, then walk-forward correlation. The
+implementation calls the order test a bootstrap, but it uses `rng.permutation(pnl)` without
+replacement; the public lesson must call that operation a permutation. Options use their separate
+lifecycle/occurrence variants and have no registered WFC phase. An episode must not imply that an
+observed result occurred in an asset lane whose receipt is empty.
 
 ## Episode evidence contract
 
@@ -156,10 +158,16 @@ and local hooks would not protect the Linux worker or upload boundary.
 ### Episode 5
 
 - Renumber and narrow the current Monte Carlo episode to exit-parameter Monte Carlo.
-- Show the actual exit parameter names and values and one complete perturbation.
+- Show the evidenced exit-parameter types and one complete, explicitly illustrative perturbation.
+  Do not attach a named parameter value to a field casualty or survivor without candidate-level
+  evidence.
 - Separate that fully specified teaching example from the real anonymous 46-to-18 field result.
 - Define one simulation, explain the 200-run configuration without calling it an optimum, and
-  distinguish parameter perturbation from trade bootstrap/permutation and MCMC.
+  distinguish parameter perturbation from trade dropout, trade-order permutation, a
+  with-replacement bootstrap, and MCMC.
+- Resolve the title-policy conflict before package lock: internal phase codes and numbers remain
+  banned, while using a searched public method name such as “Monte Carlo backtest” requires an
+  explicit operator-ratified amendment to the current phase-label rule.
 - Rebuild claims, narration, packaging, scene identifiers, transitions, and render.
 
 ## Linux repair and render lane

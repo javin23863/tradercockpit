@@ -719,13 +719,13 @@ def hotdog(
     """Search failure-mode ideas, then apply Shane's 5x/sub-100k Hot Dog screen."""
     from googleapiclient.discovery import build
 
-    phrases = demand_queries(phrases)
+    requested_phrases = demand_queries(phrases)
     # This lane is read-only: an expired credential fails closed instead of refreshing token state.
     youtube = build("youtube", "v3", credentials=youtube_credentials(allow_refresh=False), cache_discovery=False)
     coverage: list[dict[str, Any]] = []
     errors: list[str] = []
     video_phrases: dict[str, list[str]] = {}
-    for phrase in phrases:
+    for phrase in requested_phrases:
         try:
             response = youtube.search().list(
                 part="snippet", q=f"{phrase} trading", type="video", order="viewCount",
@@ -743,6 +743,11 @@ def hotdog(
     measured = sum(item["status"] == "measured" for item in coverage)
     if not measured:
         raise SystemExit(f"hotdog: every YouTube search.list call failed; output left untouched: {errors}")
+    if measured != len(requested_phrases):
+        raise SystemExit(
+            f"hotdog: {measured}/{len(requested_phrases)} YouTube searches completed; "
+            f"output left untouched: {errors}"
+        )
 
     videos: dict[str, dict[str, Any]] = {}
     video_ids = list(video_phrases)
@@ -760,19 +765,18 @@ def hotdog(
         channels.update({item["id"]: item for item in response.get("items", [])})
 
     finds = []
-    for video_id, phrases in video_phrases.items():
+    for video_id, matched_phrases in video_phrases.items():
         video = videos.get(video_id)
         channel = channels.get(video.get("snippet", {}).get("channelId")) if video else None
         if video and channel:
-            candidate = failure_candidate(video, channel, phrases)
+            candidate = failure_candidate(video, channel, matched_phrases)
             if candidate:
                 finds.append(candidate)
     finds = rank_failure_candidates(finds)
-    complete = measured == len(FAILURE_PHRASES)
     payload = {
         "schema": "tradercockpit-failure-mode-demand/v1",
         "updatedAt": iso_now(),
-        "status": "ok" if complete else "partial",
+        "status": "ok",
         "measurement": {
             "source": "live YouTube Data API v3 list responses",
             "search": "requested phrasing plus trading, ordered by view count, first 25 results",
@@ -782,7 +786,7 @@ def hotdog(
         "queryCoverage": coverage,
         "errors": errors,
         "finds": finds,
-        "showBibleCrossReference": show_bible_cross_reference(finds, complete),
+        "showBibleCrossReference": show_bible_cross_reference(finds, True),
     }
     write_atomic(output_path, json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     return payload

@@ -129,20 +129,71 @@ def words(s: str) -> set[str]:
     return {w for w in re.findall(r"[a-z0-9']+", s.lower()) if w not in STOPWORDS}
 
 
+def demand_screen_check(proj: Path) -> tuple[bool, str]:
+    path = proj / "artifacts" / "demand-screen.json"
+    if not path.is_file():
+        return False, f"{path.name} is missing"
+    try:
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        return False, f"{path.name} is unreadable: {error}"
+    coverage = receipt.get("queryCoverage")
+    phrases = [
+        item.get("phrasing") for item in coverage
+        if isinstance(item, dict)
+    ] if isinstance(coverage, list) else []
+    complete = (
+        receipt.get("schema") == "tradercockpit-failure-mode-demand/v1"
+        and receipt.get("status") == "ok"
+        and isinstance(coverage, list)
+        and bool(coverage)
+        and len(phrases) == len(coverage) == len(set(phrases))
+        and all(
+            phrase
+            and item.get("status") == "measured"
+            and isinstance(item.get("resultsReturned"), int)
+            and item["resultsReturned"] >= 0
+            for phrase, item in zip(phrases, coverage)
+        )
+        and receipt.get("errors") == []
+    )
+    return complete, (
+        f"{len(coverage)} query(s) measured" if complete
+        else f"status={receipt.get('status')!r}, coverage={coverage!r}, errors={receipt.get('errors')!r}"
+    )
+
+
 def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[str, bool, str]]:
     title = str(pk.get("title", ""))
     thumb = pk.get("thumbnail", {}) or {}
-    elements = [str(e) for e in (thumb.get("elements") or thumb.get("copy") or [])]
+    elements = [str(e) for e in (
+        thumb["copy"] if "copy" in thumb else thumb.get("elements", [])
+    )]
     tw = words(title)
     thw = set().union(*[words(e) for e in elements]) if elements else set()
     lo, hi = r["thumb_elements"]
     wlo, whi = r["thumb_words"]
-    status = str(pk.get("STATUS") or pk.get("status") or "")
+    status = str(pk["status"] if "status" in pk else pk.get("STATUS", ""))
     first_sentence = str(
-        pk.get("first_spoken_sentence") or pk.get("candidate_first_post_ident_sentence") or ""
+        pk["candidate_first_post_ident_sentence"]
+        if "candidate_first_post_ident_sentence" in pk
+        else pk.get("first_spoken_sentence", "")
     )
+    conflicts = []
+    for current, legacy, current_value, legacy_value in (
+        ("status", "STATUS", pk.get("status"), pk.get("STATUS")),
+        ("candidate_first_post_ident_sentence", "first_spoken_sentence",
+         pk.get("candidate_first_post_ident_sentence"), pk.get("first_spoken_sentence")),
+        ("thumbnail.copy", "thumbnail.elements", thumb.get("copy"), thumb.get("elements")),
+    ):
+        if current_value is not None and legacy_value is not None and current_value != legacy_value:
+            conflicts.append(f"{current} != {legacy}")
 
     checks = [
+        ("package field aliases do not conflict",
+         not conflicts,
+         ", ".join(conflicts) or "none"),
+
         (f"(a)6 title max {r['max_title_chars']} chars",
          0 < len(title) <= r["max_title_chars"],
          f"{len(title)} chars"),
@@ -187,6 +238,11 @@ def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[s
     if proj is not None:
         vo = proj / "artifacts" / "vo.txt"
         approved = bool(re.match(r"^APPROVED(?:\s|$|[-\u2014:])", status.strip(), re.I))
+        demand_ok, demand_detail = demand_screen_check(proj)
+        checks.append((
+            "episode demand screen is complete",
+            demand_ok,
+            demand_detail))
         checks.append((
             "(b)1 package BEFORE the script",
             not (vo.is_file() and not approved),
