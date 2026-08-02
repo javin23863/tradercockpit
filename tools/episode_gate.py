@@ -86,7 +86,8 @@ CHAIN = (
     ("intro_pace",       "ep",    ["tools/intro_pace.py", "{master}"], True),
     ("cut_census",       "repo",  ["tools/cut_census.py", "{master}"], True),
     ("check_bed",        "audio", ["tools/check_bed.py"], False),
-    ("voice_consistency", "audio", ["tools/voice_consistency.py"], False),
+    ("voice_consistency", "audio", ["tools/voice_consistency.py", "{narration_dir}",
+                                      "--vo", "{art}/vo.txt"], False),
 )
 
 
@@ -268,6 +269,29 @@ def episode_meta(art: Path) -> dict:
             "gate_profile": profile}
 
 
+def declared_narration_dir(proj: Path) -> str:
+    """Return the one narration directory actually declared by the edit."""
+    edit_path = proj / "artifacts" / "edit_decisions.json"
+    try:
+        edit = json.loads(edit_path.read_text(encoding="utf-8"))
+        segments = edit["audio"]["narration"]["segments"]
+    except (OSError, json.JSONDecodeError, KeyError, TypeError) as exc:
+        raise ValueError(f"{edit_path} has no readable narration segments ({exc})") from exc
+    if not segments:
+        raise ValueError(f"{edit_path} declares no narration segments")
+    root = proj.resolve()
+    paths = []
+    for segment in segments:
+        path = (proj / str(segment.get("path", ""))).resolve()
+        if not path.is_relative_to(root) or not path.is_file():
+            raise ValueError(f"declared narration file is missing or outside the project: {path}")
+        paths.append(path)
+    parents = {path.parent for path in paths}
+    if len(parents) != 1:
+        raise ValueError(f"declared narration spans multiple directories: {sorted(map(str, parents))}")
+    return str(parents.pop())
+
+
 def run_gate(name, where, argv, proj: Path, subs: dict) -> dict:
     if where == "internal":
         if name == "source_freshness":
@@ -283,6 +307,11 @@ def run_gate(name, where, argv, proj: Path, subs: dict) -> dict:
                 "scene coverage is enforced by cut_census"
             ),
         }
+    if name == "voice_consistency":
+        try:
+            subs = {**subs, "narration_dir": declared_narration_dir(proj)}
+        except ValueError as exc:
+            return {"verdict": "BLOCK", "rc": 1, "detail": str(exc)}
     argv = [a.format(**subs) for a in argv]
     if subs.get("gate_profile", "film-motion") == "board-led-explainer":
         if name == "presentation_gate":

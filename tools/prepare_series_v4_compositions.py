@@ -393,9 +393,9 @@ def prepare_episode(
                 'default=ROOT / "hyperframes" / "assets" / "audio" / "qwen-john"',
             )
         target.write_text(text, encoding="utf-8")
-    (tools_dir / "check_figures.py").write_text(
-        CHECK_FIGURES_WRAPPER, encoding="utf-8"
-    )
+    figure_check = tools_dir / "check_figures.py"
+    if not figure_check.exists():
+        figure_check.write_text(CHECK_FIGURES_WRAPPER, encoding="utf-8")
     (tools_dir / "broll_conflicts.py").write_text(
         BROLL_CONFLICTS_WRAPPER, encoding="utf-8"
     )
