@@ -14,7 +14,8 @@ The title confronts the viewer’s category error. The thumbnail gives the concr
 - Operator occupies the left side at roughly half the frame, looking toward the evidence.
 - Operator holds a printed green equity curve that has been stamped **CANDIDATE** in red.
 - Thumbnail words occupy the right side in large warm-white type, with **TRADE** in `#FF1744`.
-- Background is `#08030a` with the TraderCockpit gauge grid and fixed logo in the bottom-right corner.
+- Background is `#08030a` with the Trader Cockpit gauge grid and fixed logo in the bottom-right corner.
+- **Trader Cockpit is the only public thumbnail brand mark.** “Quant Atlas” is an internal art-direction label and never appears as a logo, trademark, kicker, or thumbnail text.
 - Palette: black, warm white, red. Green appears only inside the backtest sheet as semantic bait.
 - Expression: controlled disbelief, not fake shock.
 
@@ -34,6 +35,6 @@ The selected opening is in `vo.txt`. Film several clean alternatives and choose 
 
 - “A green backtest is where research starts. It is not where a strategy finishes.”
 - “If your strategy began with an indicator, the chart probably wrote the idea for you.”
-- “You did not build a trading strategy. You selected a result from old prices.”
+- “You did not build a trading strategy. You selected a result from historical prices.”
 - “The most dangerous word in retail trading is ‘strategy.’ Most traders use it far too early.”
 - “Your backtest can be completely accurate and still give you no authority to risk money.”

@@ -1,0 +1,63 @@
+{
+  "schema": "tradercockpit-quant-atlas-unlimited-proof/v1",
+  "created_at": "2026-08-02T01:36:37+07:00",
+  "provider": "Higgsfield web",
+  "account_plan": "Max",
+  "paid_credit_balance_before": 3562,
+  "paid_credit_balance_after": 3562,
+  "measured_paid_credit_change": 0,
+  "style_key": {
+    "model": "Nano Banana Pro",
+    "mode": "Unlimited",
+    "resolution": "2K",
+    "aspect_ratio": "16:9",
+    "source_url": "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3GhrqPGRuyuWous5iC1Lk2b8h1O%2Fhf_20260802_012250_d0b9ca47-6790-4d4c-8fe1-69112521e2c1_min.webp&w=1920&q=85",
+    "local_path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/images/quant-atlas-style-key.webp",
+    "sha256": "350eb57dc9204caa0347a537ff7760900a7e70a98332b39e1cf60e566c538064",
+    "prompt": "Pure Quant Atlas editorial motion-graphics STYLE REFERENCE plate. No characters, no faces, no people, no objects, no scene, no letters, no numbers, no charts—an abstract style swatch only. Premium financial-education visual grammar: crisp flat two-dimensional vector geometry, fine cartographic grid lines, precise path traces, restrained topographic contours, clean modular panels, sharp analytical spacing, generous negative space, matte paper grain, subtle screen-print texture, no gradients, no glossy three-dimensional rendering. Strict palette: near-black #08030a background, warm-white #f5e8ea primary marks, signal red #ff1744, profitable green #00e676, caution amber #ff9100. High contrast, calm authority, elegant editorial infographic finish, non-photorealistic, illustrated, not a photo, no live-action, no realism. No laboratory imagery, no cinematic set, no logos, no watermark."
+  },
+  "motion_plate": {
+    "asset_id": "81e2f085-0138-4d43-ae8a-abd66ec82580",
+    "model": "Seedance 2.0",
+    "mode": "Unlimited",
+    "resolution": "1080p",
+    "aspect_ratio": "16:9",
+    "requested_duration_seconds": 10,
+    "measured_duration_seconds": 10.041667,
+    "fps": 24,
+    "audio_streams": 0,
+    "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GhrqPGRuyuWous5iC1Lk2b8h1O/hf_20260802_013637_81e2f085-0138-4d43-ae8a-abd66ec82580.mp4",
+    "local_path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/video/quant-atlas-motion.mp4",
+    "sha256": "213a5d450c797dab31b32740f2b1cbee47de58819923bf49b4dbb8635aa6c4f2",
+    "prompt": "Use the uploaded image as the exact visual style and start frame. Create one continuous 10-second, 16:9, 1080p flat two-dimensional editorial motion-graphics plate. Abstract Quant Atlas only: a near-black atlas grid of thin warm-white paths and restrained topographic contours. Begin as a dense, disorganized search space. Signal-red, caution-amber, and profitable-green vector routes explore across the grid; failed branches quietly dim; then one clear warm-white route resolves through clean modular panels. Use restrained path drawing, slow panel alignment, subtle two-dimensional parallax, and a stable orthographic composition. Preserve the uploaded palette, line weight, matte paper grain, and sharp analytical spacing. No gradients, no glossy three-dimensional rendering, no photorealism. Absolutely no characters, people, faces, hands, laboratory, rooms, cinematic sets, cameras, props, candlesticks, charts, equity curves, data labels, text, letters, numbers, logos, or watermarks. No generated audio or music. Leave broad negative space for deterministic charts, formulas, and narration overlays added locally."
+  },
+  "qa": {
+    "synthetic": true,
+    "evidentiary_use": false,
+    "frame_sample_count": 10,
+    "people": false,
+    "laboratory_imagery": false,
+    "generated_text_or_numbers": false,
+    "generated_charts_or_results": false,
+    "accepted_use": "non-evidentiary Quant Atlas motion layer behind deterministic charts and teaching overlays"
+  },
+  "playable_proof": {
+    "local_path": "productions/series-01-backtest-is-not-a-strategy/quant-atlas-episode-01-proof.mp4",
+    "sha256": "d9fd6bbe14c6175b12e50144e36e27c5336b6cefcad61c3f0c1b534cc08c1315",
+    "duration_seconds": 32.405333,
+    "video": "H.264 1920x1080 30fps",
+    "audio": "AAC 48000Hz stereo",
+    "render_preset": "HyperFrames draft review encode",
+    "composition_check": "pass: 0 errors, 0 warnings; 1 font-alias info",
+    "frame_review": "pass: 12 native frames plus two contact sheets inspected",
+    "creative_status": "awaiting operator review",
+    "blocked_after_proof": [
+      "full episode render",
+      "additional provider batch",
+      "upload",
+      "publication",
+      "subscription change",
+      "credit top-up"
+    ]
+  }
+}

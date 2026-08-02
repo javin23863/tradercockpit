@@ -33,10 +33,16 @@ measured on, which is why the fingerprint is checked on every run.
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 import re
 import sys
 from pathlib import Path
+
+try:
+    from tools.vocab_corpus import load_docs, tokenize, vtt_text
+except ModuleNotFoundError:  # direct `python tools/ai_tell_gate.py`
+    from vocab_corpus import load_docs, tokenize, vtt_text
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -70,7 +76,6 @@ REG = "market"
 
 def _dir() -> Path:
     return REGISTERS[REG]
-WORD_RE = re.compile(r"[a-z][a-z'&-]*")
 COPULA = {"is", "are", "was", "were", "be", "been"}
 
 def load_thresholds() -> dict:
@@ -158,7 +163,7 @@ def score(text: str, profile: dict, limits: dict) -> dict:
     unseen_max = limits["unseen"]
     oor_max = limits["outOfRegister"]
     uni, bi = profile["unigrams"], profile["bigrams"]
-    words = WORD_RE.findall(text.lower())
+    words = tokenize(text)
     if not words:
         return {"verdict": "BLOCK", "findings": [{"type": "empty", "detail": "no words"}]}
     copula = 100 * sum(1 for w in words if w in COPULA) / len(words)
@@ -202,16 +207,50 @@ def score(text: str, profile: dict, limits: dict) -> dict:
     }
 
 
+def calibrated_limits(sample_words: int) -> tuple[dict, int]:
+    """Derive p95 limits at the same length as the script being scored."""
+    docs = load_docs(_dir() / "transcripts")
+    g1, g2 = collections.Counter(), collections.Counter()
+    for words in docs:
+        g1.update(words)
+        g2.update(" ".join(words[i:i + 2]) for i in range(len(words) - 1))
+    stats = {"copula": [], "unseen": [], "outOfRegister": []}
+    for words in docs:
+        if len(words) < sample_words - 250:
+            continue
+        d1 = collections.Counter(words)
+        d2 = collections.Counter(" ".join(words[i:i + 2]) for i in range(len(words) - 1))
+        segment = words[:sample_words]
+        bigrams = [" ".join(segment[i:i + 2]) for i in range(len(segment) - 1)]
+        stats["copula"].append(100 * sum(word in COPULA for word in segment) / len(segment))
+        stats["unseen"].append(
+            100 * sum(g2[pair] - d2[pair] < 2 for pair in bigrams) / len(bigrams)
+        )
+        stats["outOfRegister"].append(
+            len({word for word in segment if len(word) > 3 and g1[word] - d1[word] < 1})
+        )
+    if len(stats["copula"]) < 20:
+        raise ValueError(f"only {len(stats['copula'])} corpus documents support {sample_words} words")
+    limits = {}
+    for name, values in stats.items():
+        ordered = sorted(values)
+        p95 = ordered[min(len(ordered) - 1, int(0.95 * len(ordered)))]
+        limits[name] = round(p95, 1) if name != "outOfRegister" else int(p95)
+    return limits, len(stats["copula"])
+
+
+def limits_for_words(words: int, thresholds: dict) -> tuple[dict, int | None]:
+    if words <= thresholds["sampleWords"]:
+        return thresholds["limits"], None
+    return calibrated_limits(words)
+
+
 def baseline(sample_words: int = 1450):
     """Re-derive the thresholds from the corpus, leave-one-out.
 
     Each transcript is scored against the profile MINUS its own counts, so no document
     supports itself. Without that subtraction out-of-register measures 0 by construction.
     """
-    import collections
-    sys.path.insert(0, str(ROOT / "tools"))
-    from vocab_corpus import load_docs  # noqa: E402
-
     # MUST be the same de-duplicated loader the profile uses. Baselining over raw *.vtt counted
     # each video 2-3 times, so subtracting one document still left its own copies supporting it
     # and "leave-one-out" measured nothing.
@@ -278,8 +317,6 @@ def main():
     global REG
     REG = a.register
     if a.calibrate_patterns:
-        sys.path.insert(0, str(ROOT / "tools"))
-        from vocab_corpus import vtt_text  # noqa: E402
         docs = [vtt_text(f) for f in sorted((_dir() / "transcripts").glob("*.vtt"))]
         docs = [d for d in docs if len(d.split()) >= 600]
         print(f"ESSAY_PATTERNS over {len(docs)} real '{REG}' transcripts:")
@@ -294,8 +331,14 @@ def main():
         ap.error("production is required")
     production = Path(a.production)
     limits = load_thresholds()
-    report = score(script_body(production), load_profile(), limits["limits"])
+    body = script_body(production)
+    words = len(tokenize(body))
+    effective_limits, calibrated_videos = limits_for_words(words, limits)
+    report = score(body, load_profile(), effective_limits)
     report["thresholdSource"] = {k: limits[k] for k in ("videos", "corpus", "sampleWords")}
+    report["thresholdSource"]["effectiveLimits"] = effective_limits
+    if calibrated_videos is not None:
+        report["thresholdSource"]["lengthMatchedDocuments"] = calibrated_videos
     build = production / "build"
     build.mkdir(exist_ok=True)
     (build / "ai-tell-gate.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
@@ -303,7 +346,7 @@ def main():
         print(json.dumps(report, indent=2))
     else:
         m = report["metrics"]
-        lim = limits["limits"]
+        lim = effective_limits
         print(f"ai_tell_gate: {report['verdict']} -- {m['words']} words, "
               f"copula {m['copulaPct']}% (max {lim['copula']}), "
               f"unseen bigrams {m['unseenBigramPct']}% (max {lim['unseen']}), "

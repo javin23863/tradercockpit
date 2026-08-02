@@ -31,10 +31,14 @@ INSTRUMENT_ALIASES = {
     "NASDAQ:NVDA": ["nvidia", "nvda"],
     "AMEX:XLK": ["xlk"],
     "CBOE:VIX": ["vix", "volatility index"],
-    "TVC:UKOIL": ["brent"],
+    "BRENT": ["brent"],
     "TVC:US10Y": ["10-year", "ten-year", "10 year"],
     "TVC:GOLD": ["gold"],
     "TVC:DXY": ["dollar index", "dxy"],
+}
+INSTRUMENT_SUBJECTS = {
+    "TVC:UKOIL": "BRENT",
+    "NYMEX:BB1!": "BRENT",
 }
 DEFAULT_GAP_S = 0.45
 GODSEYE_USES = {"geography", "observed-layer", "attributable-replay"}
@@ -46,6 +50,11 @@ CAPTURE_RECEIPT_REQUIRED_AT = datetime.fromisoformat("2026-07-20T00:00:00+07:00"
 
 def _norm(value):
     return re.sub(r"\s+", " ", str(value or "")).strip()
+
+
+def _instrument_subject(symbol):
+    symbol = _norm(symbol)
+    return INSTRUMENT_SUBJECTS.get(symbol, symbol)
 
 
 def _capture_time(value):
@@ -176,11 +185,25 @@ def _matched(price, pool):
 def load_chart_plans(root):
     """Every chart-plan*.json, merged by `out`. A day's charts are split across files
     (chart-plan-cash.json, chart-plan-vix.json); reading only chart-plan.json silently
-    skipped the VIX chart from both level binding and the spoken/visible check."""
+    skipped the VIX chart from both level binding and the spoken/visible check. Weekly
+    plans wrap the list in {"charts": [...]} and identify captures by `path`."""
     charts, errors = {}, []
     for path in sorted(Path(root).glob("chart-plan*.json")):
-        for chart in json.loads(path.read_text(encoding="utf-8")):
-            out, symbol = _norm(chart.get("out")), _norm(chart.get("symbol"))
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        entries = payload.get("charts") if isinstance(payload, dict) else payload
+        if not isinstance(entries, list):
+            errors.append(f"{path.name}: chart plan must be a list or contain a charts list")
+            continue
+        for chart in entries:
+            if not isinstance(chart, dict):
+                errors.append(f"{path.name}: every chart plan entry must be an object")
+                continue
+            out = _norm(chart.get("out")) or Path(_norm(chart.get("path"))).stem
+            symbol = _norm(chart.get("symbol"))
+            if not out:
+                errors.append(f"{path.name}: chart plan entry is missing out/path")
+                continue
+            chart = {**chart, "out": out}
             if out in charts and charts[out].get("symbol") != symbol:
                 errors.append(f"{out}: chart plans disagree on symbol "
                               f"({charts[out].get('symbol')} vs {symbol})")
@@ -295,7 +318,16 @@ def check_spoken_visible(production):
                                   "spoken instruments cannot be derived"})
         return {"status": "BLOCK", "beats": 0, "blocked": blocked}
 
-    symbol_of = {out: _norm(chart.get("symbol")) for out, chart in charts.items()}
+    symbol_of = {out: _instrument_subject(chart.get("symbol")) for out, chart in charts.items()}
+    capture_receipt = root / "chart-capture-receipts.json"
+    if capture_receipt.is_file():
+        data = json.loads(capture_receipt.read_text(encoding="utf-8"))
+        if data.get("schema") == CAPTURE_RECEIPT_SCHEMA:
+            for entry in data.get("captures", []):
+                stem = Path(_norm(entry.get("path"))).stem
+                symbol = _instrument_subject(entry.get("symbol"))
+                if stem and symbol:
+                    symbol_of.setdefault(stem, symbol)
     section_symbols = {}
     for out, sections in beat_chart_sections(scene).items():
         for section in sections:
@@ -315,7 +347,7 @@ def check_spoken_visible(production):
             if quote and quote in narration:
                 source = str((claims.get(receipt.get("claim")) or {}).get("source", ""))
                 if RECEIPT_SOURCE_RE.search(source) and "#" in source:
-                    spoken.add(source.split("#", 1)[1])
+                    spoken.add(_instrument_subject(source.split("#", 1)[1]))
         lowered = narration.lower()
         for symbol, names in INSTRUMENT_ALIASES.items():
             if any(re.search(rf"(?<![\w&]){re.escape(name)}(?![\w&])", lowered) for name in names):
@@ -565,6 +597,14 @@ def selftest():
         # news beats are exempt: a wire story may name companies it does not chart
         write_scene([{"id": "09-01", "section": "09", "narration": "Nvidia stayed heavy all session.",
                       "visual": {"path": "visuals/01-ap.mp4", "kind": "news"}}])
+        assert check_spoken_visible(production)["status"] == "PASS"
+        # Browser-captured charts bind through the capture receipt even when no automated
+        # chart plan exists.
+        (production / "chart-plan.json").unlink()
+        receipt["captures"][0].update({"path": "visuals/03-spx.mp4", "symbol": "SP:SPX"})
+        (production / "chart-capture-receipts.json").write_text(json.dumps(receipt), encoding="utf-8")
+        write_scene([{"id": "09-01", "section": "09", "narration": "The S&P held its low.",
+                      "visual": {"path": "visuals/03-spx.mp4", "kind": "tradingview"}}])
         assert check_spoken_visible(production)["status"] == "PASS"
     print("EDITORIAL ORDERING SELFTEST PASS")
 

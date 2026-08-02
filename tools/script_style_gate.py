@@ -111,7 +111,7 @@ def parse_voiceover(path: Path) -> list[str]:
     sections: list[str] = []
     current: list[str] = []
     for line in text.splitlines():
-        if line.startswith("## "):
+        if line.startswith("## ") or re.match(r"^===\s+SLOT\b", line):
             if current:
                 sections.append(" ".join(current).strip())
             current = []

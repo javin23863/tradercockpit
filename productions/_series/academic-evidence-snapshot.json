@@ -1,0 +1,257 @@
+{
+  "schema": "series-academic-evidence-snapshot/v1",
+  "captured_date": "2026-07-30",
+  "authority_order": [
+    "exact run artifacts and implementation at the stamped Futures commit",
+    "authoritative Markdown cited by the vault graph",
+    "academic literature identified in each episode claims file"
+  ],
+  "graphs": {
+    "futures_code_graph": {
+      "path": "C:\\Users\\MSI\\.graphify\\futures\\graphify-out\\graph.json",
+      "sha256": "25b814ebf1c75e689686291b19a8eef7088da8082e2d4349444f3102599cc477",
+      "source_commit": "7e72e90bd486da9a584549d184c6a230ed0276fb",
+      "nodes": 17687,
+      "links": 33912,
+      "communities": 1235,
+      "hyperedges": 30
+    },
+    "ops_vault_graph": {
+      "path": "C:\\Users\\MSI\\Desktop\\Obsidian Vault From VPS\\tradercockpit\\tradercockpit\\graphify-out\\graph.json",
+      "sha256": "e523bd5de2ba07eb5fd4f7f82f21a1c6945aefe5366666b7b655de1f6a877792",
+      "revision": "6a0dac58f952cea05a5abc0e8e3364f905baa8a254080ee1f51cbec58ccfa927",
+      "source_commit": "7e72e90bd486da9a584549d184c6a230ed0276fb",
+      "nodes": 3496,
+      "links": 5032,
+      "purpose": "LLM navigation; source notes remain authoritative"
+    },
+    "rebuild_receipt": {
+      "path": "C:\\Users\\MSI\\Documents\\Manager\\vault\\2026-07-29-code-graph-rebuild-receipt.md",
+      "sha256": "b11b89b0a6bacfa1c14f7af1b1d7dd9c429477b70903aa66d1ef6f6bedffe20c"
+    }
+  },
+  "run_artifacts": {
+    "phase01_intake": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase01_intake.json",
+      "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d"
+    },
+    "golden_cross_phase01_intake": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260715T094910-d0d18d9a\\phases\\phase01_intake.json",
+      "sha256": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b"
+    },
+    "phase02_oos": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase02_oos.json",
+      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0"
+    },
+    "phase03_parked": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase03_timing.json",
+      "sha256": "bfbb0196138521f2cf87a840b9fc83bffe8f073a3c0a0c953bc4e2c27e62621e"
+    },
+    "phase04_cost": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase04_cost.json",
+      "sha256": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be"
+    },
+    "phase06_mc_param": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase06_mc_param.json",
+      "sha256": "c24bceb78d8804855990bbe87a78174f1148882724ede54c3507ce075c36ebef"
+    }
+  },
+  "funnel": {
+    "phase01_intake": {
+      "entering": 1335,
+      "surviving": 184,
+      "dropped": 1151,
+      "window": {
+        "end": "2018-02-25",
+        "start": "2010-06-06"
+      },
+      "gate_census": [
+        {
+          "gate": "ret_dd",
+          "evaluated_count": 1335,
+          "kill_count": 1122,
+          "failed_with_numeric_actual_count": 1083,
+          "failed_with_null_actual_count": 39,
+          "median_failed_actual": -0.200675,
+          "op": ">",
+          "threshold": 1.0,
+          "near_miss_lt_10pct_count": 20
+        },
+        {
+          "gate": "pf",
+          "evaluated_count": 1335,
+          "kill_count": 1065,
+          "failed_with_numeric_actual_count": 1029,
+          "failed_with_null_actual_count": 36,
+          "median_failed_actual": 0.986207,
+          "op": ">",
+          "threshold": 1.05,
+          "near_miss_lt_10pct_count": 856
+        },
+        {
+          "gate": "trades_per_month",
+          "evaluated_count": 1335,
+          "kill_count": 150,
+          "failed_with_numeric_actual_count": 150,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": 0.420795,
+          "op": ">",
+          "threshold": 2,
+          "near_miss_lt_10pct_count": 11
+        },
+        {
+          "gate": "trades_per_month_max",
+          "evaluated_count": 1335,
+          "kill_count": 0,
+          "failed_with_numeric_actual_count": 0,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": null,
+          "op": "<",
+          "threshold": 300,
+          "near_miss_lt_10pct_count": 0
+        }
+      ]
+    },
+    "phase02_oos": {
+      "entering": 184,
+      "surviving": 154,
+      "dropped": 30,
+      "window": {
+        "end": "2019-09-21",
+        "start": "2018-02-25"
+      },
+      "gate_census": [
+        {
+          "gate": "net",
+          "evaluated_count": 184,
+          "kill_count": 30,
+          "failed_with_numeric_actual_count": 30,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": -2875.6000000000004,
+          "op": ">",
+          "threshold": 0,
+          "near_miss_lt_10pct_count": 0
+        },
+        {
+          "gate": "pf",
+          "evaluated_count": 184,
+          "kill_count": 30,
+          "failed_with_numeric_actual_count": 30,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": 0.951422,
+          "op": ">",
+          "threshold": 1.0,
+          "near_miss_lt_10pct_count": 20
+        }
+      ]
+    },
+    "phase03_parked": {
+      "entering": 154,
+      "surviving": 53,
+      "dropped": 101,
+      "window": {
+        "end": "2019-09-21",
+        "start": "2018-02-25"
+      },
+      "gate_census": [
+        {
+          "gate": "pf_session_half_1",
+          "evaluated_count": 154,
+          "kill_count": 66,
+          "failed_with_numeric_actual_count": 66,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": 0.918595,
+          "op": ">",
+          "threshold": 1.0,
+          "near_miss_lt_10pct_count": 41
+        },
+        {
+          "gate": "pf_entry_delay_1bar",
+          "evaluated_count": 154,
+          "kill_count": 41,
+          "failed_with_numeric_actual_count": 41,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": 0.947041,
+          "op": ">",
+          "threshold": 1.0,
+          "near_miss_lt_10pct_count": 32
+        },
+        {
+          "gate": "pf_session_half_2",
+          "evaluated_count": 154,
+          "kill_count": 23,
+          "failed_with_numeric_actual_count": 23,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": 0.93802,
+          "op": ">",
+          "threshold": 1.0,
+          "near_miss_lt_10pct_count": 14
+        }
+      ]
+    },
+    "phase04_cost": {
+      "entering": 53,
+      "surviving": 46,
+      "dropped": 7,
+      "window": {
+        "end": "2019-09-21",
+        "start": "2018-02-25"
+      },
+      "gate_census": [
+        {
+          "gate": "net_slippage_3x",
+          "evaluated_count": 53,
+          "kill_count": 7,
+          "failed_with_numeric_actual_count": 7,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": -843.6,
+          "op": ">",
+          "threshold": 0,
+          "near_miss_lt_10pct_count": 0
+        },
+        {
+          "gate": "pf_slippage_2x",
+          "evaluated_count": 53,
+          "kill_count": 2,
+          "failed_with_numeric_actual_count": 2,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": 0.977518,
+          "op": ">",
+          "threshold": 1.0,
+          "near_miss_lt_10pct_count": 2
+        }
+      ]
+    },
+    "phase06_mc_param": {
+      "entering": 46,
+      "surviving": 18,
+      "dropped": 28,
+      "window": {
+        "end": "2019-09-21",
+        "start": "2018-02-25"
+      },
+      "gate_census": [
+        {
+          "gate": "ret_dd_p95_frac_of_phase02",
+          "evaluated_count": 46,
+          "kill_count": 28,
+          "failed_with_numeric_actual_count": 28,
+          "failed_with_null_actual_count": 0,
+          "median_failed_actual": 0.37191850000000004,
+          "op": ">=",
+          "threshold": 0.5,
+          "near_miss_lt_10pct_count": 8
+        }
+      ]
+    }
+  },
+  "interpretation_receipt": {
+    "finding": "The high phase01 near-miss count is concentrated around profit factor 1.0; it is break-even noise in this population, not evidence that the thresholds rejected a near-winner.",
+    "source": "C:\\Users\\MSI\\repos\\futures\\docs\\vault\\SESSION-HANDOFF-2026-07-29-gate-margins-and-merge-wave.md",
+    "limitations": "This is a finding about the recorded candidate population and declared gates. It is not a universal claim about every generator."
+  },
+  "implementation_boundary": {
+    "gate_margin_recording_repair": "Proven on origin/fix/gate-margins but not present on the stamped main commit. The videos may use the re-derived census, but must not claim the recording repair is deployed on main.",
+    "run_provenance": "The rb-20260725T133803-b44bd92c artifacts declare validated=false and wiring_proof=true; they support measured run facts, not future-performance claims."
+  }
+}

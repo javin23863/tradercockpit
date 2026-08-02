@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">PASS/FAIL RESULTS UNDER TWO SLIPPAGE ASSUMPTIONS</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">EACH DOT IS ONE OF THE SAME 53 STRATEGIES · GREEN PASSED THAT SPECIFIC BAR</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="540.0" y="315.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="30" font-weight="750" text-anchor="middle">2× SLIPPAGE ASSUMPTION</text>
+<text x="1380.0" y="315.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="30" font-weight="750" text-anchor="middle">3× SLIPPAGE ASSUMPTION</text>
+<text x="540.0" y="358.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">profit factor &gt; 1.0</text>
+<text x="1380.0" y="358.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">net dollars &gt; 0</text>
+<circle cx="260" cy="430" r="21" fill="#00e676"/>
+<circle cx="1100" cy="430" r="21" fill="#00e676"/>
+<line x1="285.0" y1="430.0" x2="1075.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="330" cy="430" r="21" fill="#00e676"/>
+<circle cx="1170" cy="430" r="21" fill="#00e676"/>
+<line x1="355.0" y1="430.0" x2="1145.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="400" cy="430" r="21" fill="#00e676"/>
+<circle cx="1240" cy="430" r="21" fill="#00e676"/>
+<line x1="425.0" y1="430.0" x2="1215.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="470" cy="430" r="21" fill="#00e676"/>
+<circle cx="1310" cy="430" r="21" fill="#00e676"/>
+<line x1="495.0" y1="430.0" x2="1285.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="540" cy="430" r="21" fill="#00e676"/>
+<circle cx="1380" cy="430" r="21" fill="#00e676"/>
+<line x1="565.0" y1="430.0" x2="1355.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="610" cy="430" r="21" fill="#00e676"/>
+<circle cx="1450" cy="430" r="21" fill="#00e676"/>
+<line x1="635.0" y1="430.0" x2="1425.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="680" cy="430" r="21" fill="#00e676"/>
+<circle cx="1520" cy="430" r="21" fill="#00e676"/>
+<line x1="705.0" y1="430.0" x2="1495.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="750" cy="430" r="21" fill="#00e676"/>
+<circle cx="1590" cy="430" r="21" fill="#00e676"/>
+<line x1="775.0" y1="430.0" x2="1565.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="820" cy="430" r="21" fill="#00e676"/>
+<circle cx="1660" cy="430" r="21" fill="#00e676"/>
+<line x1="845.0" y1="430.0" x2="1635.0" y2="430.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="260" cy="508" r="21" fill="#00e676"/>
+<circle cx="1100" cy="508" r="21" fill="#00e676"/>
+<line x1="285.0" y1="508.0" x2="1075.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="330" cy="508" r="21" fill="#00e676"/>
+<circle cx="1170" cy="508" r="21" fill="#00e676"/>
+<line x1="355.0" y1="508.0" x2="1145.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="400" cy="508" r="21" fill="#00e676"/>
+<circle cx="1240" cy="508" r="21" fill="#00e676"/>
+<line x1="425.0" y1="508.0" x2="1215.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="470" cy="508" r="21" fill="#00e676"/>
+<circle cx="1310" cy="508" r="21" fill="#00e676"/>
+<line x1="495.0" y1="508.0" x2="1285.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="540" cy="508" r="21" fill="#00e676"/>
+<circle cx="1380" cy="508" r="21" fill="#00e676"/>
+<line x1="565.0" y1="508.0" x2="1355.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="610" cy="508" r="21" fill="#00e676"/>
+<circle cx="1450" cy="508" r="21" fill="#00e676"/>
+<line x1="635.0" y1="508.0" x2="1425.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="680" cy="508" r="21" fill="#00e676"/>
+<circle cx="1520" cy="508" r="21" fill="#00e676"/>
+<line x1="705.0" y1="508.0" x2="1495.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="750" cy="508" r="21" fill="#00e676"/>
+<circle cx="1590" cy="508" r="21" fill="#00e676"/>
+<line x1="775.0" y1="508.0" x2="1565.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="820" cy="508" r="21" fill="#00e676"/>
+<circle cx="1660" cy="508" r="21" fill="#00e676"/>
+<line x1="845.0" y1="508.0" x2="1635.0" y2="508.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="260" cy="586" r="21" fill="#00e676"/>
+<circle cx="1100" cy="586" r="21" fill="#00e676"/>
+<line x1="285.0" y1="586.0" x2="1075.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="330" cy="586" r="21" fill="#00e676"/>
+<circle cx="1170" cy="586" r="21" fill="#00e676"/>
+<line x1="355.0" y1="586.0" x2="1145.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="400" cy="586" r="21" fill="#00e676"/>
+<circle cx="1240" cy="586" r="21" fill="#00e676"/>
+<line x1="425.0" y1="586.0" x2="1215.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="470" cy="586" r="21" fill="#00e676"/>
+<circle cx="1310" cy="586" r="21" fill="#00e676"/>
+<line x1="495.0" y1="586.0" x2="1285.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="540" cy="586" r="21" fill="#00e676"/>
+<circle cx="1380" cy="586" r="21" fill="#00e676"/>
+<line x1="565.0" y1="586.0" x2="1355.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="610" cy="586" r="21" fill="#00e676"/>
+<circle cx="1450" cy="586" r="21" fill="#00e676"/>
+<line x1="635.0" y1="586.0" x2="1425.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="680" cy="586" r="21" fill="#00e676"/>
+<circle cx="1520" cy="586" r="21" fill="#00e676"/>
+<line x1="705.0" y1="586.0" x2="1495.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="750" cy="586" r="21" fill="#00e676"/>
+<circle cx="1590" cy="586" r="21" fill="#00e676"/>
+<line x1="775.0" y1="586.0" x2="1565.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="820" cy="586" r="21" fill="#00e676"/>
+<circle cx="1660" cy="586" r="21" fill="#00e676"/>
+<line x1="845.0" y1="586.0" x2="1635.0" y2="586.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="260" cy="664" r="21" fill="#00e676"/>
+<circle cx="1100" cy="664" r="21" fill="#00e676"/>
+<line x1="285.0" y1="664.0" x2="1075.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="330" cy="664" r="21" fill="#00e676"/>
+<circle cx="1170" cy="664" r="21" fill="#00e676"/>
+<line x1="355.0" y1="664.0" x2="1145.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="400" cy="664" r="21" fill="#00e676"/>
+<circle cx="1240" cy="664" r="21" fill="#00e676"/>
+<line x1="425.0" y1="664.0" x2="1215.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="470" cy="664" r="21" fill="#00e676"/>
+<circle cx="1310" cy="664" r="21" fill="#00e676"/>
+<line x1="495.0" y1="664.0" x2="1285.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="540" cy="664" r="21" fill="#00e676"/>
+<circle cx="1380" cy="664" r="21" fill="#00e676"/>
+<line x1="565.0" y1="664.0" x2="1355.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="610" cy="664" r="21" fill="#00e676"/>
+<circle cx="1450" cy="664" r="21" fill="#00e676"/>
+<line x1="635.0" y1="664.0" x2="1425.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="680" cy="664" r="21" fill="#00e676"/>
+<circle cx="1520" cy="664" r="21" fill="#00e676"/>
+<line x1="705.0" y1="664.0" x2="1495.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="750" cy="664" r="21" fill="#00e676"/>
+<circle cx="1590" cy="664" r="21" fill="#00e676"/>
+<line x1="775.0" y1="664.0" x2="1565.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="820" cy="664" r="21" fill="#00e676"/>
+<circle cx="1660" cy="664" r="21" fill="#00e676"/>
+<line x1="845.0" y1="664.0" x2="1635.0" y2="664.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="260" cy="742" r="21" fill="#00e676"/>
+<circle cx="1100" cy="742" r="21" fill="#00e676"/>
+<line x1="285.0" y1="742.0" x2="1075.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="330" cy="742" r="21" fill="#00e676"/>
+<circle cx="1170" cy="742" r="21" fill="#00e676"/>
+<line x1="355.0" y1="742.0" x2="1145.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="400" cy="742" r="21" fill="#00e676"/>
+<circle cx="1240" cy="742" r="21" fill="#00e676"/>
+<line x1="425.0" y1="742.0" x2="1215.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="470" cy="742" r="21" fill="#00e676"/>
+<circle cx="1310" cy="742" r="21" fill="#00e676"/>
+<line x1="495.0" y1="742.0" x2="1285.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="540" cy="742" r="21" fill="#00e676"/>
+<circle cx="1380" cy="742" r="21" fill="#00e676"/>
+<line x1="565.0" y1="742.0" x2="1355.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="610" cy="742" r="21" fill="#00e676"/>
+<circle cx="1450" cy="742" r="21" fill="#00e676"/>
+<line x1="635.0" y1="742.0" x2="1425.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="680" cy="742" r="21" fill="#00e676"/>
+<circle cx="1520" cy="742" r="21" fill="#00e676"/>
+<line x1="705.0" y1="742.0" x2="1495.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="750" cy="742" r="21" fill="#00e676"/>
+<circle cx="1590" cy="742" r="21" fill="#00e676"/>
+<line x1="775.0" y1="742.0" x2="1565.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="820" cy="742" r="21" fill="#00e676"/>
+<circle cx="1660" cy="742" r="21" fill="#00e676"/>
+<line x1="845.0" y1="742.0" x2="1635.0" y2="742.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="260" cy="820" r="21" fill="#00e676"/>
+<circle cx="1100" cy="820" r="21" fill="#00e676"/>
+<line x1="285.0" y1="820.0" x2="1075.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="330" cy="820" r="21" fill="#00e676"/>
+<circle cx="1170" cy="820" r="21" fill="#ff1744"/>
+<line x1="355.0" y1="820.0" x2="1145.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="400" cy="820" r="21" fill="#00e676"/>
+<circle cx="1240" cy="820" r="21" fill="#ff1744"/>
+<line x1="425.0" y1="820.0" x2="1215.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="470" cy="820" r="21" fill="#00e676"/>
+<circle cx="1310" cy="820" r="21" fill="#ff1744"/>
+<line x1="495.0" y1="820.0" x2="1285.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="540" cy="820" r="21" fill="#00e676"/>
+<circle cx="1380" cy="820" r="21" fill="#ff1744"/>
+<line x1="565.0" y1="820.0" x2="1355.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="610" cy="820" r="21" fill="#00e676"/>
+<circle cx="1450" cy="820" r="21" fill="#ff1744"/>
+<line x1="635.0" y1="820.0" x2="1425.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="680" cy="820" r="21" fill="#ff1744"/>
+<circle cx="1520" cy="820" r="21" fill="#ff1744"/>
+<line x1="705.0" y1="820.0" x2="1495.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<circle cx="750" cy="820" r="21" fill="#ff1744"/>
+<circle cx="1590" cy="820" r="21" fill="#ff1744"/>
+<line x1="775.0" y1="820.0" x2="1565.0" y2="820.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="540.0" y="905.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="29" font-weight="700" text-anchor="middle">2 failed · 51 passed</text>
+<text x="1380.0" y="905.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="29" font-weight="700" text-anchor="middle">7 failed · 46 passed</text>
+<text x="960.0" y="955.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="middle">On one fixed net-trade ledger, PF &gt; 1 and net &gt; 0 have the same sign; the stress level changed.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RECORDED RUN · SAME 53 STRATEGIES UNDER EACH COST ASSUMPTION</text>
+</svg>

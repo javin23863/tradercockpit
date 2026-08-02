@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">EXECUTION COST NEEDS A BENCHMARK</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">COMMISSION IS EXPLICIT · IMPLEMENTATION SHORTFALL IS MEASURED FROM A DECLARED REFERENCE</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="960.0" y="320.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="30" font-weight="700" text-anchor="middle">decision / arrival benchmark</text>
+<line x1="270.0" y1="450.0" x2="1650.0" y2="450.0" stroke="#c89aa3" stroke-width="5"/>
+<line x1="570.0" y1="390.0" x2="570.0" y2="510.0" stroke="#f5e8ea" stroke-width="5"/>
+<line x1="1110.0" y1="390.0" x2="1110.0" y2="510.0" stroke="#ff9100" stroke-width="5"/>
+<text x="570.0" y="370.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">REFERENCE PRICE</text>
+<text x="1110.0" y="370.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">EXECUTION PRICE</text>
+<path d="M590 540 C760 650 920 650 1090 540" fill="none" stroke="#ff1744" stroke-width="5"/>
+<text x="840.0" y="690.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="29" font-weight="650" text-anchor="middle">price shortfall against the declared benchmark</text>
+<text x="420.0" y="820.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="700" text-anchor="middle">commission</text>
+<text x="960.0" y="820.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">spread / impact / price movement while waiting</text>
+<text x="1500.0" y="820.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="700" text-anchor="middle">missed or partial execution</text>
+<text x="960.0" y="885.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="31" font-weight="700" text-anchor="middle">Name the benchmark and inclusions before calling any number “slippage.”</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">TEACHING DIAGRAM · DEFINE THE PRICE BENCHMARK BEFORE THE COST</text>
+</svg>

@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "project_id": "series-01-backtest-is-not-a-strategy",
+  "timestamp": "2026-08-02T15:01:14.1423104+07:00",
+  "state": "operator_approved_for_full_v5_render",
+  "operator_approval": {
+    "decision": "approved",
+    "timestamp": "2026-08-02T15:14:44.8625380+07:00",
+    "scope": "The exact semantic proof is approved as the visual and motion basis for the full v5 render."
+  },
+  "operator_rejected_master": {
+    "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/renders/ep01-marcus-full-master-v4.mp4",
+    "sha256": "0d546f537e95370928bb02c614cd5c36297e0d02c61ceda14adf13ce74d21be6",
+    "reasons": [
+      "The top-right internal production-route label was visible.",
+      "The persistent top-left episode label overlapped scene text and never cleared.",
+      "Decorative pan and zoom drift moved otherwise static scenes."
+    ]
+  },
+  "source_correction": {
+    "path": "tools/build_scenes.py",
+    "sha256": "a33a3c4785e0728fa44bd345d4dfc16894daf350a7b03140a35958d8dd893f76",
+    "changes": [
+      "Removed episode and route badges from every academic scene.",
+      "Removed scene-slot, artwork-focus, field-grid translation, and context-video camera transforms.",
+      "Retained only concept-reveal animations and unchanged narration."
+    ]
+  },
+  "semantic_proof": {
+    "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/renders/ep01-overlay-camera-removal-proof-v1.mp4",
+    "sha256": "5ca120ed20559ab90d13272cb88a7b0dd47ef8601dc28ceb5f17581267cce3d2",
+    "duration_seconds": 65.002667,
+    "video": "H.264 1920x1080 30fps",
+    "audio": "AAC 48kHz stereo",
+    "coverage": "Full scenes 01 and 02 plus the first 10.03 seconds of scene 03 from the regenerated production compositions."
+  },
+  "verification": {
+    "builder_self_check": "PASS",
+    "full_decode": "PASS",
+    "hyperframes_check": {
+      "result": "PASS",
+      "errors": 0,
+      "warnings": 0,
+      "layout_motion_samples": 403,
+      "contrast": "25/25"
+    },
+    "generated_index_sha256": "a37e189053c698e937e8abbc0995bbe4a66fb8cf2165e75409ddc4afbc62cd10"
+  },
+  "boundaries": {
+    "script_changed": false,
+    "narration_changed": false,
+    "full_master_rendered": false,
+    "provider_spend_usd": 0,
+    "uploaded": false,
+    "published": false
+  },
+  "next_action": "Render and verify the full v5 master from the approved corrected composition."
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">SAMPLE SIZE CHANGES UNCERTAINTY</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">THE SAME 50% OBSERVED WIN RATE CAN SUPPORT VERY DIFFERENT INTERVALS</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="250.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="31" font-weight="700" text-anchor="end">n = 12</text>
+<line x1="330.0" y1="470.0" x2="1580.0" y2="470.0" stroke="#3a0d1a" stroke-width="3"/>
+<line x1="647.5" y1="470.0" x2="1262.5" y2="470.0" stroke="#ff1744" stroke-width="14"/>
+<line x1="647.5" y1="442.0" x2="647.5" y2="498.0" stroke="#f5e8ea" stroke-width="4"/>
+<line x1="1262.5" y1="442.0" x2="1262.5" y2="498.0" stroke="#f5e8ea" stroke-width="4"/>
+<circle cx="955.0" cy="470" r="14" fill="#ff9100"/>
+<text x="647.5" y="534.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">25.4%</text>
+<text x="1262.5" y="534.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">74.6%</text>
+<text x="250.0" y="740.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="31" font-weight="700" text-anchor="end">n = 100</text>
+<line x1="330.0" y1="730.0" x2="1580.0" y2="730.0" stroke="#3a0d1a" stroke-width="3"/>
+<line x1="835.0" y1="730.0" x2="1075.0" y2="730.0" stroke="#f5e8ea" stroke-width="14"/>
+<line x1="835.0" y1="702.0" x2="835.0" y2="758.0" stroke="#f5e8ea" stroke-width="4"/>
+<line x1="1075.0" y1="702.0" x2="1075.0" y2="758.0" stroke="#f5e8ea" stroke-width="4"/>
+<circle cx="955.0" cy="730" r="14" fill="#ff9100"/>
+<text x="835.0" y="794.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">40.4%</text>
+<text x="1075.0" y="794.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">59.6%</text>
+<text x="330.0" y="330.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="middle">0%</text>
+<text x="955.0" y="330.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="700" text-anchor="middle">50% observed win rate</text>
+<text x="1580.0" y="330.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="middle">100%</text>
+<text x="960.0" y="900.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="26" font-weight="700" text-anchor="middle">Illustrative 95% Wilson intervals under an independent Bernoulli model.</text>
+<text x="960.0" y="940.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">Real P&amp;L also depends on payoff size, tails, and serial dependence.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">DERIVED EXAMPLE · UNCERTAINTY DEPENDS ON SAMPLE SIZE AND THE QUESTION</text>
+</svg>

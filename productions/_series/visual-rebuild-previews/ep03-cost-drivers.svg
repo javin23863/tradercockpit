@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">EXECUTION COST IS CONDITIONAL</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">THE SAME TRADE CAN FACE DIFFERENT COSTS UNDER DIFFERENT CONDITIONS</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<line x1="960.0" y1="575.0" x2="320.0" y2="390.0" stroke="#3a0d1a" stroke-width="3"/>
+<circle cx="320" cy="390" r="82" fill="#131b29" stroke="#f5e8ea" stroke-width="2"/>
+<text x="320.0" y="398.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="700" text-anchor="middle">ORDER SIZE</text>
+<line x1="960.0" y1="575.0" x2="760.0" y2="315.0" stroke="#3a0d1a" stroke-width="3"/>
+<circle cx="760" cy="315" r="82" fill="#131b29" stroke="#f5e8ea" stroke-width="2"/>
+<text x="760.0" y="323.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="700" text-anchor="middle">URGENCY</text>
+<line x1="960.0" y1="575.0" x2="1210.0" y2="315.0" stroke="#3a0d1a" stroke-width="3"/>
+<circle cx="1210" cy="315" r="82" fill="#131b29" stroke="#f5e8ea" stroke-width="2"/>
+<text x="1210.0" y="323.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="700" text-anchor="middle">BOOK DEPTH</text>
+<line x1="960.0" y1="575.0" x2="1570.0" y2="420.0" stroke="#3a0d1a" stroke-width="3"/>
+<circle cx="1570" cy="420" r="82" fill="#131b29" stroke="#f5e8ea" stroke-width="2"/>
+<text x="1570.0" y="428.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="700" text-anchor="middle">VOLATILITY</text>
+<line x1="960.0" y1="575.0" x2="1420.0" y2="760.0" stroke="#3a0d1a" stroke-width="3"/>
+<circle cx="1420" cy="760" r="82" fill="#131b29" stroke="#f5e8ea" stroke-width="2"/>
+<text x="1420.0" y="768.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="700" text-anchor="middle">TIME / VENUE</text>
+<line x1="960.0" y1="575.0" x2="780.0" y2="800.0" stroke="#3a0d1a" stroke-width="3"/>
+<circle cx="780" cy="800" r="82" fill="#131b29" stroke="#f5e8ea" stroke-width="2"/>
+<text x="780.0" y="808.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="700" text-anchor="middle">ORDER TYPE</text>
+<line x1="960.0" y1="575.0" x2="330.0" y2="700.0" stroke="#3a0d1a" stroke-width="3"/>
+<circle cx="330" cy="700" r="82" fill="#131b29" stroke="#f5e8ea" stroke-width="2"/>
+<text x="330.0" y="708.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="700" text-anchor="middle">INSTRUMENT</text>
+<circle cx="960" cy="575" r="150" fill="#f5e8ea" opacity=".72"/>
+<text x="960.0" y="560.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="31" font-weight="750" text-anchor="middle">EXECUTION</text>
+<text x="960.0" y="605.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="44" font-weight="800" text-anchor="middle">COST</text>
+<text x="960.0" y="900.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="middle">A multiplier is meaningful only relative to a declared baseline and uncertainty set.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">TEACHING DIAGRAM · COST CHANGES WITH HOW AND WHERE AN ORDER TRADES</text>
+</svg>

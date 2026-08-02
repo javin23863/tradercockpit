@@ -1,0 +1,108 @@
+{
+  "schema": "tradercockpit.quant-atlas-marcus-provider-native-sample/v1",
+  "generated_at": "2026-08-02T03:29:30.632572Z",
+  "project_id": "series-01-backtest-is-not-a-strategy",
+  "status": "awaiting_operator_listening_review",
+  "operator_corrections": [
+    "The 1.9 times locally conformed ending sounded unnaturally fast and is rejected.",
+    "Use historical prices, not old prices."
+  ],
+  "script": {
+    "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/artifacts/script.json",
+    "sha256": "0215ad676904262863fe3fc7bc063be5a7d98065ae4b0b9701f411b97d917753",
+    "scene_id": "scene-01",
+    "words": 71,
+    "characters": 406,
+    "text": "TradingView can give you a beautiful green backtest in a few clicks. That green line answers one question: what would these rules have done on these historical prices, under the costs written into the test? It does not tell you what happens tomorrow. It does not tell you whether you quietly changed the rules until they matched the past. And it does not turn an indicator into a complete trading strategy."
+  },
+  "rejected_proof": {
+    "path": "productions/series-01-backtest-is-not-a-strategy/quant-atlas-episode-01-proof-marcus-cadence-v2.mp4",
+    "sha256": "4d506bb3aaca24bf473ab718d38504ee9ae2dc3e7d2ad612d8dce67059fa93b7",
+    "audio_path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/scene-01-marcus-cadence-mastered.wav",
+    "audio_sha256": "af3de7561e7badb45e3aece1ee1939db7964c66723cdc6bacb6aa08362c18d91",
+    "operator_verdict": "rejected_unnaturally_fast",
+    "applied_tempo_factor": 1.9
+  },
+  "provider": {
+    "name": "Higgsfield",
+    "plan": "max",
+    "job_type": "qwen_audio_tts",
+    "model": "Qwen Audio 3.0 TTS Flash",
+    "job_id": "10ee08f1-7dc5-46be-b99c-f57369ccb73b",
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GhrqPGRuyuWous5iC1Lk2b8h1O/hf_20260802_032930_10ee08f1-7dc5-46be-b99c-f57369ccb73b.wav",
+    "voice": "Marcus",
+    "voice_id": "6f98d3dd-324f-4845-8c28-c1d1647a06cd",
+    "voice_type": "preset",
+    "instruction": "Calm American male educator. Keep one natural steady pace from first word to last. No slow ending. Read exactly. No hype.",
+    "settings": {
+      "format": "wav",
+      "sample_rate_hz": 24000,
+      "language": "en",
+      "seed": 0,
+      "speech_rate": 1,
+      "pitch_rate": 1,
+      "volume": 50
+    }
+  },
+  "assets": {
+    "raw": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/scene-01-marcus-historical-provider-native.wav",
+      "sha256": "97b566de0136194c60f29508e27f6db442e6fa4876c1e4f26373ac7df8b45da9",
+      "duration_seconds": 25.12,
+      "codec": "pcm_s16le",
+      "sample_rate_hz": 24000,
+      "channels": 1
+    },
+    "mastered": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/scene-01-marcus-historical-provider-native-mastered.wav",
+      "sha256": "2b87ffc09ef0206335efbd843fd626afbc361d59ba6ad618bdfb658c1a485575",
+      "duration_seconds": 25.12,
+      "codec": "pcm_s24le",
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "processing": "70 Hz high-pass and two-pass EBU R128 normalization to -16 LUFS and -1.5 dBTP; no tempo or pitch transform"
+    },
+    "transcript": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/asr/scene-01-marcus-historical-provider-native-mastered_transcript.json",
+      "sha256": "7688c673c6b2dd14b812ad3f59bc800e7de74389347f5115fdbb7129c33f1cd1",
+      "model": "faster-whisper small",
+      "device": "cpu"
+    }
+  },
+  "cadence_gate": {
+    "schema": "tradercockpit.narration-cadence-gate/v2",
+    "tool": "tools/conform_series_narration.py",
+    "scope": "Timing outliers and tempo-transform provenance only; naturalness and prosody are not machine-certified.",
+    "rejected_v2_regression": {
+      "transcript": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/asr/scene-01-marcus-cadence-mastered_transcript.json",
+      "tempo_factor": 1.9,
+      "timing_pass": true,
+      "transform_pass": false,
+      "pass": false,
+      "exit_code": 1
+    },
+    "new_sample": {
+      "tempo_factor": 1.0,
+      "median_words_per_second": 3.226,
+      "timing_pass": true,
+      "transform_pass": true,
+      "pass": true,
+      "human_listening_review": "required"
+    }
+  },
+  "credits": {
+    "balance_before": 3561.76,
+    "balance_after": 3561.58,
+    "included_credits_used": 0.18,
+    "cash_spend_usd": 0,
+    "top_up": false,
+    "batch_generation": false
+  },
+  "blocked_until_operator_approval": [
+    "compose_new_proof_video",
+    "batch_episode_narration",
+    "full_episode_render",
+    "upload",
+    "publication"
+  ]
+}

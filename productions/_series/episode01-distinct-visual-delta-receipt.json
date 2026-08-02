@@ -1,0 +1,50 @@
+{
+  "schema": "tradercockpit-series-visual-delta/v1",
+  "created_at": "2026-08-02T12:31:34+07:00",
+  "episode": "01",
+  "reason": "Pre-compose review found three repeated primary visuals across scenes with different teaching roles.",
+  "scope": "Replace only scenes 07, 10, and 11 with deterministic variants derived from the already approved evidence.",
+  "generator": {
+    "path": "tools/build_series_math_visuals.py",
+    "sha256": "55cc554cb53a2d2a1eb6a33df7accb463120c9614b2707fc2fca56170d7dd14c",
+    "self_check": "PASS"
+  },
+  "source_receipts": [
+    {
+      "path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase01_intake.json",
+      "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d"
+    },
+    {
+      "path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T094910-d0d18d9a/phases/phase01_intake.json",
+      "sha256": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b"
+    },
+    {
+      "path": "productions/_series/visual-rebuild-previews/receipt.json",
+      "sha256": "582db27d7be9533dd6e881c53f60c8918d7f62c73feb402f9971f3ba6e94896d"
+    }
+  ],
+  "outputs": [
+    {
+      "scene_id": "scene-07",
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/math/ep01-win-rate-payoff.svg",
+      "sha256": "7224324f9f6452f371ffd2d153a6718d0b7a6dfd420848fd3a564b6c6ecb934b",
+      "teaching_role": "Win rate held beside average payoff and final arithmetic."
+    },
+    {
+      "scene_id": "scene-10",
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/math/ep01-threshold-motion.svg",
+      "sha256": "1a9adf9ba843c2611f39430333c938d03267ff813be6b0b484153d37b0d23ad1",
+      "teaching_role": "Fixed measurements compared against 1.05 and 1.00 admission rules."
+    },
+    {
+      "scene_id": "scene-11",
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/math/ep01-survivor-status.svg",
+      "sha256": "4574500f15d925de12f4fc9a0fbca601812243b2b69821a661a4641e7bfac424",
+      "teaching_role": "184 survivors remain candidates while the next robustness questions are shown."
+    }
+  ],
+  "new_claims": false,
+  "generated_media": false,
+  "cash_cost_usd": 0,
+  "publication_authorized": false
+}

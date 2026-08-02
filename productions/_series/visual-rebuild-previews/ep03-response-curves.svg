@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">NET RESULT UNDER 2× AND 3× SLIPPAGE ASSUMPTIONS</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">NET RESULT AT 2× AND 3× FOR 3 ACTUAL STRATEGIES</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<line x1="250.0" y1="682.1" x2="1680.0" y2="682.1" stroke="#ff9100" stroke-width="3" stroke-dasharray="12 9"/>
+<line x1="560.0" y1="732.2" x2="1370.0" y2="800.0" stroke="#ff1744" stroke-width="6"/>
+<circle cx="560" cy="732.2" r="13" fill="#ff1744"/>
+<circle cx="1370" cy="800.0" r="13" fill="#ff1744"/>
+<text x="532.0" y="741.2" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="650" text-anchor="end">3093  $-2,551</text>
+<text x="1398.0" y="809.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="650" text-anchor="start">$-6,011  PF 0.93</text>
+<line x1="560.0" y1="566.3" x2="1370.0" y2="581.2" stroke="#f5e8ea" stroke-width="6"/>
+<circle cx="560" cy="566.3" r="13" fill="#f5e8ea"/>
+<circle cx="1370" cy="581.2" r="13" fill="#f5e8ea"/>
+<text x="532.0" y="575.3" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="650" text-anchor="end">2313  $5,908</text>
+<text x="1398.0" y="590.2" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="650" text-anchor="start">$5,148  PF 1.27</text>
+<line x1="560.0" y1="370.0" x2="1370.0" y2="406.1" stroke="#00e676" stroke-width="6"/>
+<circle cx="560" cy="370.0" r="13" fill="#00e676"/>
+<circle cx="1370" cy="406.1" r="13" fill="#00e676"/>
+<text x="532.0" y="379.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="650" text-anchor="end">1573  $15,917</text>
+<text x="1398.0" y="415.1" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="650" text-anchor="start">$14,077  PF 1.37</text>
+<text x="560.0" y="330.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="36" font-weight="750" text-anchor="middle">2×</text>
+<text x="1370.0" y="330.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="36" font-weight="750" text-anchor="middle">3×</text>
+<text x="280.0" y="666.1" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="start">$0 NET</text>
+<text x="960.0" y="900.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="middle">Worst · median · best at 3× shown. The full field is retained privately.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RECORDED RUN · THREE EXAMPLES FROM THE FULL 53-STRATEGY FIELD</text>
+</svg>

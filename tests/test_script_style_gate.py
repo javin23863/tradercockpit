@@ -1,4 +1,7 @@
-from tools.script_style_gate import audit_sections, audit_text
+from pathlib import Path
+from unittest.mock import patch
+
+from tools.script_style_gate import audit_sections, audit_text, parse_voiceover
 from tools.social_batch import validate
 
 
@@ -251,6 +254,15 @@ def test_arbitrary_copy_uses_blank_line_paragraphs():
         "CPI lands before the open and the reaction matters more than the print itself does."
     )
     assert _finding(result, "missing concrete noun")["sections"] == [2]
+
+
+def test_parse_voiceover_splits_openmontage_slots():
+    text = (
+        "# title\n\n=== SLOT scene-one -> scene-one.wav ===\n\n# receipt: one\nFirst section.\n\n"
+        "=== SLOT scene-two -> scene-two.wav ===\n\n# receipt: two\nSecond section.\n"
+    )
+    with patch.object(Path, "read_text", return_value=text):
+        assert parse_voiceover(Path("vo.txt")) == ["First section.", "Second section."]
 
 
 def test_social_batch_blocks_missing_disclaimer_and_accepts_present_disclaimer():

@@ -1,0 +1,389 @@
+{
+  "schema": "academic-visual-coverage/v1",
+  "created_at": "2026-07-29",
+  "status": "candidate_not_assembled",
+  "rule": "Route each sentence to the clearest original explanatory form: TraderCockpit-drawn deterministic mathematics for claims, draw-on or chalkboard motion for unfolding concepts, cards for definitions and comparisons, and trader-at-desk or real chart footage for human workflow. Supplied screenshots are reference-only and never appear verbatim. Generated atmosphere may bridge scenes but may never replace an available explanation or evidence asset.",
+  "geometry_vocabulary": {
+    "search_multiplicity": {
+      "test": "selection bias from trying many candidates",
+      "geometry": "full candidate field with the selected maximum highlighted only after every comparison is visible",
+      "required_encodings": ["candidate count", "selection moment", "pre-specified versus selected-after-comparison"],
+      "forbidden_substitutes": ["single winner equity curve", "generic trophy or target"],
+      "assets": ["ep01-intake-funnel.svg", "ep02-selected-maximum.svg"]
+    },
+    "holdout_sequencing": {
+      "test": "untouched later data and walk-forward evaluation",
+      "geometry": "chronological blocks with a frozen-rule boundary and moving train/test windows",
+      "required_encodings": ["development dates", "holdout dates", "boundary state", "used-once relabel"],
+      "forbidden_substitutes": ["laboratory chamber", "unordered before-and-after cards"],
+      "assets": ["ep01-holdout-boundary.svg", "ep02-ordered-holdout.svg", "ep02-walk-forward.svg"]
+    },
+    "population_distribution": {
+      "test": "cross-sectional outcome dispersion",
+      "geometry": "all candidates as ordered marks, bars, or scatter points",
+      "required_encodings": ["population size", "positive and non-positive counts", "distribution or gate"],
+      "forbidden_substitutes": ["one representative result", "decorative dashboard"],
+      "assets": ["ep02-oos-field-distribution.svg", "ep04-field-scatter.svg"]
+    },
+    "threshold_fragility": {
+      "test": "near-miss density around a declared gate",
+      "geometry": "measured points stay fixed while the threshold moves",
+      "required_encodings": ["gate value", "near-miss band", "fixed measurements"],
+      "forbidden_substitutes": ["moving the data points", "red warning icon without a distribution"],
+      "assets": ["ep01-profit-factor-near-misses.svg"]
+    },
+    "concentration_stress": {
+      "test": "dependence on a small number of contributors",
+      "geometry": "ranked contribution blocks removed one at a time",
+      "required_encodings": ["largest contributor", "remaining result", "removal order"],
+      "forbidden_substitutes": ["pie chart without removal stress", "generic diversification photo"],
+      "assets": ["ep02-concentration-stress.svg"]
+    },
+    "cost_sensitivity": {
+      "test": "response to explicit transaction-cost assumptions",
+      "geometry": "same candidate field traced through declared cost levels and response curves",
+      "required_encodings": ["cost units", "stress multiplier", "candidate slope", "failure count"],
+      "forbidden_substitutes": ["pressure rig", "darkened chart", "unlabeled money animation"],
+      "assets": ["ep03-field-transitions.svg", "ep03-response-curves.svg", "ep03-fixed-ledger-formula.svg"]
+    },
+    "parameter_neighborhood": {
+      "test": "local stability around selected parameters",
+      "geometry": "neighborhood heatmap or contour showing plateau versus isolated spike",
+      "required_encodings": ["selected cell", "adjacent settings", "stable plateau or collapse", "illustrative label when not run-derived"],
+      "forbidden_substitutes": ["abstract glowing lattice", "single green cell", "physics metaphor"],
+      "assets": ["ep04-response-geometry.svg"]
+    },
+    "monte_carlo_paths": {
+      "test": "path uncertainty under the declared perturbation mechanism",
+      "geometry": "stored equity paths with terminal P&L color and neutral pointwise quantile bands",
+      "required_encodings": ["zero P&L line", "green profitable endings", "red losing or flat endings", "stored-path count", "simulation count", "pointwise-band limitation"],
+      "forbidden_substitutes": ["red-only fan", "generic probability cloud", "invented losing paths"],
+      "assets": ["ep04-fan-chart.svg"]
+    },
+    "tail_resolution": {
+      "test": "Monte Carlo run-count error and lower-tail rank resolution",
+      "geometry": "inverse-square-root error curve plus ordered outcome dots",
+      "required_encodings": ["run count", "tail probability", "rank convention", "standard error"],
+      "forbidden_substitutes": ["200 as a magic threshold", "roulette wheel"],
+      "assets": ["ep04-run-count-error.svg", "ep04-p05-rank.svg", "ep04-tail-resolution.svg"]
+    },
+    "reproducibility": {
+      "test": "deterministic rerun under the same declared inputs",
+      "geometry": "seed-to-rerun-to-hash-to-environment chain",
+      "required_encodings": ["input derivation", "rerun", "output comparison", "software environment"],
+      "forbidden_substitutes": ["repeat arrow without compared values", "checkmark without a receipt"],
+      "assets": ["ep04-reproducibility-check.svg"]
+    }
+  },
+  "visual_receipt": "productions/_series/visual-rebuild-previews/receipt.json",
+  "episodes": {
+    "01": {
+      "script": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/artifacts/vo.academic-rebuild.txt",
+      "ontology": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/artifacts/claims.academic-rebuild.json",
+      "asset_root": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/math",
+      "slots": {
+        "scene-01": {
+          "receipts": ["E01-C01"],
+          "assets": ["ep01-backtest-vs-strategy.svg"],
+          "treatment": "Put the historical result on the left and the still-unanswered questions on the right. Never leave the definition of a backtest on a black screen."
+        },
+        "scene-02": {
+          "receipts": ["E01-C02"],
+          "assets": ["ep01-backtest-vs-strategy.svg", "ep01-intake-funnel.svg"],
+          "treatment": "Animate a visible search history of tried versions before revealing the survivor count; do not jump straight to a single winner curve."
+        },
+        "scene-03": {
+          "receipts": ["E01-C03", "E01-C03B"],
+          "assets": ["ep01-backtest-vs-strategy.svg"],
+          "treatment": "Build the strategy checklist line by line: entry, exit, size, loss rule, costs, stop rule, and a reason that can fail."
+        },
+        "scene-04": {
+          "receipts": ["E01-C04", "E01-C04B"],
+          "assets": ["ep01-golden-arithmetic.svg"],
+          "treatment": "Place the winning-dollar and losing-dollar piles on screen, write the division, and move the ratio across the break-even line at one."
+        },
+        "scene-05": {
+          "receipts": ["E01-C05", "E01-C05B"],
+          "assets": ["ep01-drawdown-path.svg"],
+          "treatment": "Trace the running peak, the later trough, and the deepest peak-to-trough drop while the definition is spoken."
+        },
+        "scene-06": {
+          "receipts": ["E01-C06", "E01-C06B", "E01-C06C"],
+          "assets": ["ep01-golden-arithmetic.svg", "ep01-drawdown-path.svg"],
+          "treatment": "Reveal each Golden Cross input from the separate historical test, then calculate profit factor and return-to-drawdown in view."
+        },
+        "scene-07": {
+          "receipts": ["E01-C07", "E01-C07B"],
+          "assets": ["ep01-golden-arithmetic.svg"],
+          "treatment": "Hold win rate beside average win, average loss, costs, and final arithmetic so no single percentage becomes the verdict."
+        },
+        "scene-08": {
+          "receipts": ["E01-C08", "E01-C08B", "E01-C08C"],
+          "assets": ["ep01-intake-funnel.svg"],
+          "treatment": "Count 1,335 entering and 184 surviving, then show overlapping gate failures with an explicit overlap label."
+        },
+        "scene-09": {
+          "receipts": ["E01-C09", "E01-C09B", "E01-C09C"],
+          "assets": ["ep01-profit-factor-near-misses.svg"],
+          "treatment": "Plot the failed profit factors around one, shade the declared ten-percent band, and keep the population-specific limitation visible."
+        },
+        "scene-10": {
+          "receipts": ["E01-C10", "E01-C10B"],
+          "assets": ["ep01-profit-factor-near-misses.svg"],
+          "treatment": "Move the threshold toward one while leaving every measured point fixed, making clear that a lower rule changes admission rather than performance."
+        },
+        "scene-11": {
+          "receipts": ["E01-C11", "E01-C11B", "E01-C11C"],
+          "assets": ["ep01-intake-funnel.svg", "ep01-holdout-boundary.svg"],
+          "treatment": "Carry the same 184 markers into the next screen instead of turning them into winner badges."
+        },
+        "scene-12": {
+          "receipts": ["E01-C12", "E01-C12B"],
+          "assets": ["ep01-holdout-boundary.svg"],
+          "treatment": "Reveal earlier development prices, the frozen-rule boundary, and later untouched prices in chronological order; visibly relabel the holdout as used once it informs a revision."
+        },
+        "scene-13": {
+          "receipts": ["E01-C13", "E01-C13B", "E01-C13C"],
+          "assets": ["ep01-backtest-vs-strategy.svg", "ep01-intake-funnel.svg", "ep01-holdout-boundary.svg"],
+          "treatment": "Close on the complete written process and the 184 candidates moving forward, not on an isolated green equity curve."
+        }
+      }
+    },
+    "02": {
+      "script": "OpenMontage/projects/series-02-out-of-sample/artifacts/vo.academic-rebuild.txt",
+      "ontology": "OpenMontage/projects/series-02-out-of-sample/artifacts/claims.academic-rebuild.json",
+      "asset_root": "OpenMontage/projects/series-02-out-of-sample/hyperframes/assets/math",
+      "slots": {
+        "scene-hook": {
+          "receipts": ["E02-C01"],
+          "assets": ["ep02-selected-maximum.svg", "ep02-ordered-holdout.svg"],
+          "treatment": "Animate many tried rules collapsing into one selected maximum, then move the untouched period into view."
+        },
+        "scene-windows": {
+          "receipts": ["E02-C02", "E02-C02B", "E02-C03"],
+          "assets": ["ep02-ordered-holdout.svg", "ep02-selected-maximum.svg"],
+          "treatment": "Reveal development, warm-up, frozen-rule boundary, and holdout in order; show the search-count warning beside the development block."
+        },
+        "scene-terminal": {
+          "receipts": ["E02-C04"],
+          "assets": ["ep02-ordered-holdout.svg"],
+          "treatment": "Use a point-in-time membership strip with delisted names remaining in their historical dates; do not use a generic terminal screen."
+        },
+        "scene-gate": {
+          "receipts": ["E02-C05", "E02-C05B"],
+          "assets": ["ep02-oos-field-distribution.svg"],
+          "treatment": "Count 184 entering, 154 positive-net, and 30 non-positive-net marks from the run-derived field."
+        },
+        "scene-funnel": {
+          "receipts": ["E02-C06", "E02-C06B"],
+          "assets": ["ep02-oos-field-distribution.svg"],
+          "treatment": "Keep the whole distribution visible while mean, median, and percentile ranks are introduced."
+        },
+        "scene-distribution": {
+          "receipts": ["E02-C07"],
+          "assets": ["ep02-selected-maximum.svg"],
+          "treatment": "Contrast a pre-specified result with the maximum selected after comparing 184 candidates."
+        },
+        "scene-twins": {
+          "receipts": ["E02-C08"],
+          "assets": ["ep02-oos-field-distribution.svg", "ep02-sample-uncertainty.svg"],
+          "treatment": "Hold out-of-sample status constant while data quality, execution, dependence, regime coverage, and search count appear as separate unresolved dimensions."
+        },
+        "scene-relief": {
+          "receipts": ["E02-C09"],
+          "assets": ["ep02-ordered-holdout.svg"],
+          "treatment": "Show the holdout changing into validation data the moment its result feeds a revision, followed by a new untouched block."
+        },
+        "scene-406": {
+          "receipts": ["E02-C10", "E02-C10B"],
+          "assets": ["ep02-sample-uncertainty.svg"],
+          "treatment": "Animate interval width shrinking continuously with sample size; do not draw a magical threshold at 100 trades."
+        },
+        "scene-treasure": {
+          "receipts": ["E02-C11"],
+          "assets": ["ep02-concentration-stress.svg"],
+          "treatment": "Remove the largest contributors one at a time and show how much of the reported result remains."
+        },
+        "scene-limits": {
+          "receipts": ["E02-C12", "E02-C12B"],
+          "assets": ["ep02-walk-forward.svg", "ep02-sample-uncertainty.svg"],
+          "treatment": "Advance rolling train/test windows through time, then expose the dependence caveat rather than calling the folds independent."
+        },
+        "scene-diy": {
+          "receipts": ["E02-C13", "E02-C13B"],
+          "assets": ["ep02-ordered-holdout.svg", "ep02-sample-uncertainty.svg"],
+          "treatment": "Build a plain-language test-plan checklist beside the locked timeline: dates, universe, costs, warm-up, search count, failures, distribution, and uncertainty."
+        },
+        "scene-close": {
+          "receipts": ["E02-C14"],
+          "assets": ["ep02-selected-maximum.svg", "ep02-walk-forward.svg"],
+          "treatment": "End on the untouched-data boundary, not a winner card."
+        }
+      }
+    },
+    "03": {
+      "script": "OpenMontage/projects/series-03-slippage/artifacts/vo.academic-rebuild.txt",
+      "ontology": "OpenMontage/projects/series-03-slippage/artifacts/claims.academic-rebuild.json",
+      "asset_root": "OpenMontage/projects/series-03-slippage/hyperframes/assets/math",
+      "slots": {
+        "scene-hook": {
+          "receipts": ["E03-C01"],
+          "assets": ["ep03-field-transitions.svg"],
+          "treatment": "Move every candidate from no-cost paper result to the cost-stressed field; never represent slippage with atmospheric darkness alone."
+        },
+        "scene-stack": {
+          "receipts": ["E03-C02", "E03-C02B"],
+          "assets": ["ep03-cost-anatomy.svg", "ep03-cost-drivers.svg"],
+          "treatment": "Separate commission, spread, market impact, and market movement before the fill as named cost components with units."
+        },
+        "scene-formula": {
+          "receipts": ["E03-C03"],
+          "assets": ["ep03-fixed-ledger-formula.svg"],
+          "treatment": "Write the fixed-ledger re-pricing equation on screen and label what was not re-simulated."
+        },
+        "scene-numbers": {
+          "receipts": ["E03-C04", "E03-C04B"],
+          "assets": ["ep03-response-curves.svg", "ep03-field-transitions.svg"],
+          "treatment": "Plot the actual 1x, 2x, and 3x stress outcomes and count failures at each level."
+        },
+        "scene-elegant": {
+          "receipts": ["E03-C05"],
+          "assets": ["ep03-field-transitions.svg"],
+          "treatment": "Show why net-profit and profit-factor signs coincide on the same fixed trade ledger."
+        },
+        "scene-stress": {
+          "receipts": ["E03-C06"],
+          "assets": ["ep03-response-curves.svg"],
+          "treatment": "Keep every candidate response curve visible so slope and dispersion replace a single pass/fail card."
+        },
+        "scene-bars": {
+          "receipts": ["E03-C07", "E03-C07B"],
+          "assets": ["ep03-fixed-ledger-formula.svg"],
+          "treatment": "Animate the linear fixed-ledger deduction, then explicitly bracket the model conditions where linearity stops being credible."
+        },
+        "scene-cliff": {
+          "receipts": ["E03-C08"],
+          "assets": ["ep03-response-curves.svg"],
+          "treatment": "Use cliff as a descriptive shape only when the plotted response changes sharply; do not imply a universal theorem."
+        },
+        "scene-casualty": {
+          "receipts": ["E03-C09"],
+          "assets": ["ep03-order-type-tradeoff.svg"],
+          "treatment": "Place market-order execution risk and limit-order non-fill/adverse-selection risk on the same trade-off diagram."
+        },
+        "scene-survivor": {
+          "receipts": ["E03-C10", "E03-C10B"],
+          "assets": ["ep03-field-transitions.svg"],
+          "treatment": "Keep 2x and 3x as labeled scenario choices from this run, never as universal realistic-cost constants."
+        },
+        "scene-count": {
+          "receipts": ["E03-C11"],
+          "assets": ["ep03-fixed-ledger-formula.svg"],
+          "treatment": "Show per-side, round-trip, per-contract, and per-order units before multiplying cost by trade count."
+        },
+        "scene-classes": {
+          "receipts": ["E03-C12"],
+          "assets": ["ep03-cost-drivers.svg"],
+          "treatment": "Change spread, depth, volatility, size, order type, and urgency independently; avoid a one-size-fits-all asset-class badge."
+        },
+        "scene-scar": {
+          "receipts": ["E03-C13", "E03-C13B"],
+          "assets": ["ep03-field-transitions.svg", "ep03-response-curves.svg"],
+          "treatment": "Separate a wiring proof from external calibration and live-execution validation."
+        },
+        "scene-diy": {
+          "receipts": ["E03-C14", "E03-C14B"],
+          "assets": ["ep03-cost-anatomy.svg", "ep03-fixed-ledger-formula.svg"],
+          "treatment": "Build the cost-definition checklist from fill benchmarks, units, tested assumptions, and limitations."
+        },
+        "scene-close": {
+          "receipts": ["E03-C15"],
+          "assets": ["ep03-response-curves.svg", "ep03-order-type-tradeoff.svg"],
+          "treatment": "Close on measured sensitivity to cost assumptions, not on the word slippage floating over black."
+        }
+      }
+    },
+    "04": {
+      "script": "OpenMontage/projects/series-04-mc-param/artifacts/vo.academic-rebuild.txt",
+      "ontology": "OpenMontage/projects/series-04-mc-param/artifacts/claims.academic-rebuild.json",
+      "asset_root": "OpenMontage/projects/series-04-mc-param/hyperframes/assets/math",
+      "slots": {
+        "scene-hook": {
+          "receipts": ["E04-C01"],
+          "assets": ["ep04-response-geometry.svg"],
+          "treatment": "Start with a response surface and identify stable plateaus versus narrow peaks."
+        },
+        "scene-luck": {
+          "receipts": ["E04-C02"],
+          "assets": ["ep04-response-geometry.svg", "ep04-field-scatter.svg"],
+          "treatment": "Contrast one lucky point with the neighborhood and the full candidate field."
+        },
+        "scene-mc": {
+          "receipts": ["E04-C03", "E04-C03B"],
+          "assets": ["ep04-run-count-error.svg", "ep04-tail-resolution.svg"],
+          "treatment": "Define one Monte Carlo run and distinguish this parameter experiment from bootstrap resampling and Markov-chain Monte Carlo."
+        },
+        "scene-what": {
+          "receipts": ["E04-C04", "E04-C04B"],
+          "assets": ["ep04-perturbation-mechanism.svg"],
+          "treatment": "Animate the exact selection probability and uniform plus-or-minus-thirty-percent multiplier while entry logic remains fixed."
+        },
+        "scene-surface": {
+          "receipts": ["E04-C05"],
+          "assets": ["ep04-response-geometry.svg"],
+          "treatment": "Use the surface as a geometric explanation and label it illustrative unless its points come from stored run output."
+        },
+        "scene-p05": {
+          "receipts": ["E04-C06", "E04-C06B"],
+          "assets": ["ep04-p05-rank.svg"],
+          "treatment": "Sort 200 values, mark the fifth-percentile rank convention, and show why nearby tail order statistics matter."
+        },
+        "scene-misnamed": {
+          "receipts": ["E04-C07"],
+          "assets": ["ep04-p05-rank.svg", "ep04-field-scatter.svg"],
+          "treatment": "Display the implementation's misnamed field beside its actual lower-tail meaning; do not silently repeat the label."
+        },
+        "scene-field": {
+          "receipts": ["E04-C08"],
+          "assets": ["ep04-field-scatter.svg"],
+          "treatment": "Plot all 46 entering candidates and the actual 18 pass/28 fail split."
+        },
+        "scene-fan": {
+          "receipts": ["E04-C09", "E04-C09B"],
+          "assets": ["ep04-fan-chart.svg"],
+          "treatment": "Draw the 100 stored display paths with green profitable endings, red losing or flat endings, an explicit zero line, and neutral pointwise percentile bands. Never invent a losing path to balance the palette; keep the simultaneous-band limitation visible."
+        },
+        "scene-casualty": {
+          "receipts": ["E04-C10"],
+          "assets": ["ep04-field-scatter.svg", "ep04-response-geometry.svg"],
+          "treatment": "Locate failures in the field and describe geometry without pretending a two-dimensional projection proves the cause."
+        },
+        "scene-survivor": {
+          "receipts": ["E04-C11", "E04-C11B"],
+          "assets": ["ep04-fan-chart.svg", "ep04-field-scatter.svg"],
+          "treatment": "Separate passing this exact perturbation gate from universal robustness."
+        },
+        "scene-determinism": {
+          "receipts": ["E04-C12", "E04-C12B"],
+          "assets": ["ep04-reproducibility-check.svg"],
+          "treatment": "Show seed derivation, repeat calculation, file-hash comparison, and software environment as distinct reproducibility checks."
+        },
+        "scene-diy": {
+          "receipts": ["E04-C13"],
+          "assets": ["ep04-perturbation-mechanism.svg", "ep04-reproducibility-check.svg"],
+          "treatment": "Build the random-change recipe and reproducibility checklist before showing any result."
+        },
+        "scene-limits": {
+          "receipts": ["E04-C14", "E04-C14B"],
+          "assets": ["ep04-run-count-error.svg", "ep04-tail-resolution.svg"],
+          "treatment": "Plot the inverse-square-root error law and tail-event standard errors; never draw 200 as a maximum."
+        },
+        "scene-close": {
+          "receipts": ["E04-C15"],
+          "assets": ["ep04-response-geometry.svg", "ep04-reproducibility-check.svg"],
+          "treatment": "Close on neighborhood stability plus a reproducible test record, not a simulation-count slogan."
+        }
+      }
+    }
+  }
+}

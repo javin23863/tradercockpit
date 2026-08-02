@@ -1,0 +1,49 @@
+{
+  "schema": "tradercockpit-series-master-receipt/v1",
+  "generated_at": "2026-08-02T14:34:23.8666947+07:00",
+  "episode": 1,
+  "title": "A Backtest Is Not a Strategy, in Plain English",
+  "master": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/renders/ep01-marcus-full-master-v4.mp4",
+  "sha256": "0d546f537e95370928bb02c614cd5c36297e0d02c61ceda14adf13ce74d21be6",
+  "duration_seconds": 461.376,
+  "file_size_bytes": 237547313,
+  "video": {
+    "codec": "h264",
+    "resolution": "1920x1080",
+    "fps": 30,
+    "full_decode": "pass"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "voice": "Higgsfield Qwen Audio 3.0 TTS Flash / Marcus / rate 1.0",
+    "music": "none",
+    "integrated_lufs": -16.3,
+    "true_peak_dbtp": -4.2,
+    "loudness_range_lu": 2.7
+  },
+  "transcript": {
+    "similarity_to_approved_vo": 0.985662,
+    "scenes_with_speech": 13,
+    "scene_count": 13,
+    "spoken_end_seconds": 460.64,
+    "historical_prices_present": true,
+    "old_prices_present": false
+  },
+  "quality": {
+    "presentation_gate": "pass",
+    "longest_dead_span_seconds": 0.481,
+    "cut_census": "pass",
+    "visual_refreshes_per_minute": 114.57,
+    "static_picture_percent": 4.4,
+    "encoded_contact_sheet_review": "pass",
+    "consolidated_gate": "blocked",
+    "consolidated_summary": "12 pass, 5 approved waivers, 1 blocked",
+    "blocker": "intro_pace cannot run because its pinned Episode 2 calibration fixture is missing"
+  },
+  "cost_usd_after_asset_approval": 0,
+  "operator_creative_approval_of_exact_master": false,
+  "publish_authorized": false,
+  "published": false
+}

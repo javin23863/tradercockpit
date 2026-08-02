@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">BASELINE PERFORMANCE AND LOWER-TAIL RETENTION</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">BASELINE STRENGTH VERSUS LOWER-TAIL RETENTION</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<line x1="220.0" y1="531.6" x2="1650.0" y2="531.6" stroke="#ff9100" stroke-width="4" stroke-dasharray="12 9"/>
+<text x="1650.0" y="515.6" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="700" text-anchor="end">0.50 gate</text>
+<circle cx="863.0" cy="388.7" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="1047.1" cy="330.0" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="443.8" cy="572.2" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="475.1" cy="385.9" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="815.2" cy="499.5" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="393.1" cy="522.9" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="651.4" cy="787.6" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="566.1" cy="410.8" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="503.4" cy="827.0" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="489.1" cy="473.8" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="530.1" cy="823.6" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="894.1" cy="544.7" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="357.2" cy="667.4" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="875.1" cy="832.3" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="385.0" cy="620.4" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="397.2" cy="370.1" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="783.2" cy="522.6" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="1497.9" cy="473.4" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="506.4" cy="910.7" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="661.8" cy="468.3" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="946.0" cy="415.1" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="687.1" cy="551.3" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="682.6" cy="681.3" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="1014.2" cy="399.9" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="429.8" cy="795.4" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="409.1" cy="512.9" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="694.7" cy="564.8" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="794.0" cy="547.0" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="595.2" cy="795.2" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="798.4" cy="599.6" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="589.4" cy="456.7" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="1354.5" cy="855.0" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="475.5" cy="578.5" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="1003.3" cy="562.8" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="507.8" cy="534.3" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="1650.0" cy="536.6" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="796.1" cy="551.0" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="839.2" cy="645.2" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="509.4" cy="414.7" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="779.9" cy="702.8" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="608.5" cy="606.4" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="903.6" cy="513.9" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="1292.5" cy="714.0" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="771.6" cy="571.8" r="12" fill="#ff1744" opacity=".82"/>
+<circle cx="943.2" cy="427.3" r="12" fill="#00e676" opacity=".82"/>
+<circle cx="881.4" cy="616.2" r="12" fill="#ff1744" opacity=".82"/>
+<text x="250.0" y="310.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="29" font-weight="700" text-anchor="start">46 strategies</text>
+<text x="250.0" y="352.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="26" font-weight="500" text-anchor="start">18 passed · 28 failed</text>
+<text x="1700.0" y="310.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="end">x: baseline return ÷ drawdown</text>
+<text x="1700.0" y="352.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="end">y: 5th-percentile result ÷ baseline</text>
+<text x="960.0" y="950.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="27" font-weight="500" text-anchor="middle">A strong baseline did not guarantee a stable lower-tail result.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RECORDED RUN · ALL 46 STRATEGIES SHOWN</text>
+</svg>

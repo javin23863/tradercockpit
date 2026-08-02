@@ -26,18 +26,33 @@ The publishing calendar is Monday–Friday daily market news, Saturday weekly re
 `.agents/skills/weekly-market-recap/SKILL.md`, and no Sunday post. Sunday is the analytics and
 process-improvement review.
 
-# teaching series lane (on-camera playlist)
+# teaching series lane — Into the Laboratory
 
-A third content lane is at concept stage: a separate YouTube playlist, operator on camera, teaching
-retail traders what they are doing wrong. Read `handoffs/SERIES-LANE-HANDOFF-2026-07-24.md` before
-any work on it, and use `.agents/skills/series-script/SKILL.md` for episode scripting. It is NOT
-the Show (the Show needs monetization the channel does not have and stays parked) and NOT the daily
-news video. Nothing in this lane is ratified — no episode is approved, scheduled, or started.
+`Into the Laboratory` is an active five-episode YouTube teaching series, separate from the daily
+news lane and the parked Show. Use `.agents/skills/series-script/SKILL.md`. Do not route it through
+the retired 2026-07-24 concept-stage handoff.
 
-# zero-cost generative media
+Before production, reconcile the current operator direction and exact live production artifacts
+against these existing vault notes; do not create a replacement plan:
 
-- Use the project skill `.agents/skills/tradercockpit-free-media/SKILL.md` for every request to create, edit, generate, repurpose, or package social media assets, alongside any more specific production skill.
-- External provider spend is fixed at `$0`. Reject MuAPI, credits, subscriptions, paid model APIs, hosted generation, hosted MCP gateways, and paid fallbacks. Do not offer to configure them.
+- `GTM/Social-Media-Library/Into the Laboratory — Production Standard.md`
+- `GTM/Videos/Into the Laboratory — Series Map.md`
+- `GTM/Videos/Into the Laboratory — Series Production Plan.md`
+
+Current operator messages outrank older vault prose, graphs, skills, handoffs, and generated status.
+The graph is retrieval only. When those surfaces conflict, stop production and update the existing
+authority before using it. Automated GREEN is technical evidence; the operator is the final
+creative approval.
+
+# media provider routing
+
+- Ordinary daily/weekly social work uses `.agents/skills/tradercockpit-free-media/SKILL.md`.
+- `Into the Laboratory` and other teaching-series work **must not use `tradercockpit-free-media`**.
+  Follow the series skill and current operator-selected provider route instead.
+- The current series route is quality-first Higgsfield Max with the exact approved provider,
+  model, voice, treatment, and credit scope. Do not substitute local/free media to save credits.
+- A provider selection does not authorize a new subscription, credit top-up, or metered API charge;
+  those purchases require separate explicit approval.
 - Codex image generation is allowed under the operator's existing Codex access. Offline still generation uses only `Open-Generative-AI/` with `stable-diffusion.cpp` and DreamShaper 8.
 - Video work may read the installed `openmontage` skill for its pipeline contract, but must execute only in this repository's `OpenMontage/` checkout. Never use another repository's engine, venv, models, or credentials.
 - Generated media is creative material, never a factual chart, news screenshot, geospatial observation, product proof, or evidence. Preserve source/model/seed/license provenance and existing synthetic-disclosure gates.

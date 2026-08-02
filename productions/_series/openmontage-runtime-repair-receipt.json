@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "created_at": "2026-07-30T06:25:50.0780667+07:00",
+  "scope": "OpenMontage project-local composition runtime for the four Into the Laboratory academic explainers",
+  "status": "passed",
+  "external_cost_usd": 0,
+  "source": {
+    "ffmpeg_build": "Gyan FFmpeg 8.1.2 release essentials, linked by ffmpeg.org for Windows",
+    "download_url": "https://github.com/GyanD/codexffmpeg/releases/download/8.1.2/ffmpeg-8.1.2-essentials_build.zip",
+    "archive_sha256": "db580001caa24ac104c8cb856cd113a87b0a443f7bdf47d8c12b1d740584a2ec",
+    "hyperframes_npm_package": "hyperframes@0.7.82"
+  },
+  "installed": {
+    "ffmpeg": {
+      "path": "OpenMontage/.tools/ffmpeg/bin/ffmpeg.exe",
+      "version": "8.1.2-essentials_build-www.gyan.dev",
+      "sha256": "1326dde4c84ff1f96fe6b8916c5bed29e163e9b5dccf995f6f3db069d143ec5e"
+    },
+    "ffprobe": {
+      "path": "OpenMontage/.tools/ffmpeg/bin/ffprobe.exe",
+      "version": "8.1.2-essentials_build-www.gyan.dev",
+      "sha256": "b49ccc7c6547b141ad5a2f6ec69cc04323d7133d7704d70b331b904c63eecb07"
+    },
+    "hyperframes": {
+      "path": "OpenMontage/.tools/hyperframes/node_modules/hyperframes/package.json",
+      "version": "0.7.82",
+      "package_json_sha256": "a5f7800d749868b1d62bcce6746ad409e99ceb8bf19a0089b5c2cb866cd7c534"
+    },
+    "node": {
+      "version": "24.15.0"
+    }
+  },
+  "verification": {
+    "direct_runtime_probe": {
+      "ffmpeg": true,
+      "remotion": false,
+      "hyperframes": true
+    },
+    "provider_menu_summary": {
+      "ffmpeg": true,
+      "remotion": false,
+      "hyperframes": true
+    },
+    "hyperframes_doctor": {
+      "success": true,
+      "exit_code": 0,
+      "runtime_available": true,
+      "node_major": 24,
+      "ffmpeg_available": true,
+      "npx_available": true,
+      "npm_package_version": "0.7.82",
+      "blocking_reasons": []
+    },
+    "tests": {
+      "command": "OpenMontage/.venv/Scripts/python.exe -B -m pytest tests/tools/test_base_tool_dependencies.py tests/tools/test_hyperframes_compose.py -q --basetemp .pytest_cache/runtime-repair -k \"project_local_ffmpeg or npm_resolve_prefers_project_local_install or runtime_check_succeeds_when_npm_resolves or runtime_check_fails_when_npm_package_unresolvable or video_compose_render_engines_follow_hyperframes_runtime_check\"",
+      "result": "5 passed, 44 deselected"
+    }
+  },
+  "guards": {
+    "runtime_selected": "hyperframes",
+    "composition_mode": "atelier",
+    "full_render_started": false,
+    "remotion_unavailable_is_not_a_runtime_swap": true,
+    "publication_authorized": false
+  }
+}

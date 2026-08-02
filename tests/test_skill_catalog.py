@@ -12,6 +12,27 @@ import skill_catalog  # noqa: E402
 
 
 class SkillCatalogTests(unittest.TestCase):
+    def test_teaching_series_bypasses_free_media_and_stale_authority(self):
+        root = Path(__file__).resolve().parents[1]
+        agents = (root / "AGENTS.md").read_text(encoding="utf-8")
+        free_media = (
+            root / ".agents" / "skills" / "tradercockpit-free-media" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+        series = (
+            root / ".claude" / "skills" / "series-script" / "SKILL.md"
+        ).read_text(encoding="utf-8")
+
+        agents = " ".join(agents.split())
+        free_media = " ".join(free_media.lower().split())
+        series = " ".join(series.lower().split())
+
+        self.assertIn("must not use `tradercockpit-free-media`", agents)
+        self.assertIn("does not govern the teaching series", free_media)
+        self.assertIn("current operator direction", series)
+        self.assertIn("graph is discovery only", series)
+        self.assertIn("higgsfield max", series)
+        self.assertIn("do not substitute local/free media", series)
+
     def test_project_skill_description_overrides_stale_user_level_copy(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

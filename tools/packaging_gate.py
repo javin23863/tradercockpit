@@ -52,6 +52,17 @@ PHASE_LABELS = ("out-of-sample", "out of sample", "in-sample", "intake", "cost s
                 "timing", "session stress", "monte carlo", "walk-forward", "walk forward",
                 "governance", "mc param", "mc trade", "final oos", "oos retest", "perturbation")
 
+# (a)1's carve-out, AMENDED 2026-07-30. These are the method names a beginner actually types into
+# search, so they may lead a title -- but only alongside a concrete result. The rest of
+# PHASE_LABELS stay syllabus language whatever else the title says.
+PUBLIC_METHODS = ("monte carlo", "walk-forward", "walk forward", "out-of-sample",
+                  "out of sample", "in-sample", "in sample")
+
+# An internal phase code never qualifies for the carve-out, with or without a number attached:
+# `phase06_mc_param`, "Phase 6". The amendment is a search-intent exception, not permission to
+# title an episode with its pipeline label.
+INTERNAL_CODE = re.compile(r"phase[\s_-]*\d", re.I)
+
 STOPWORDS = {"a", "an", "the", "and", "or", "but", "of", "to", "in", "on", "at", "for", "with",
              "is", "was", "it", "its", "this", "that", "my", "i", "you", "your", "me", "we",
              "he", "she", "they", "them", "from", "by", "as", "so", "then", "than", "next",
@@ -90,10 +101,14 @@ def rules(text: str) -> dict:
     # named strategy. Detected from the document, so the gate follows the standard rather than a
     # constant here -- revert the amendment and this check tightens again by itself.
     out["belief_allowed"] = bool(re.search(r"famous beginner belief", text, re.I))
+    # AMENDED 2026-07-30: a searched public method name may lead a title when that same title
+    # states a concrete, receipt-backed result. Detected from the document like the 07-28 belief
+    # amendment, so reverting the amendment tightens (a)1 back by itself.
+    out["method_needs_result"] = bool(re.search(r"[Ss]earched public method names?", text))
     out["phase_labels_banned"] = bool(re.search(r"Phase labels are the syllabus, NOT titles", text))
     out["package_before_script"] = bool(re.search(r"Package BEFORE the script", text, re.I))
 
-    optional = {"belief_allowed"}
+    optional = {"belief_allowed", "method_needs_result"}
     missing = [k for k, v in out.items()
                if k not in optional and (v is None or v is False)]
     if missing:
@@ -125,6 +140,16 @@ def words(s: str) -> set[str]:
     return {w for w in re.findall(r"[a-z0-9']+", s.lower()) if w not in STOPWORDS}
 
 
+def has_result(title: str) -> bool:
+    """(a)'s 2026-07-30 carve-out wants a concrete result alongside the method name.
+
+    The checkable half is that a number is present at all, and that it is not merely the digits
+    of an internal phase code. Whether the number is receipt-backed is (a)4's earned-claim gate
+    and the claims gates -- not something a string check can have.
+    """
+    return bool(re.search(r"\d", INTERNAL_CODE.sub(" ", title)))
+
+
 def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[str, bool, str]]:
     title = str(pk.get("title", ""))
     thumb = pk.get("thumbnail", {}) or {}
@@ -135,23 +160,39 @@ def audit(pk: dict, proj: Path | None, r: dict, vocab: set[str]) -> list[tuple[s
     wlo, whi = r["thumb_words"]
     status = str(pk.get("STATUS", ""))
 
+    # AMENDED 2026-07-30. A searched public method name may lead the title when the title also
+    # states a concrete result -- that is what makes it a search-intent exception rather than a
+    # bare topic label ("Monte Carlo explained"). An internal phase code is never exempt.
+    internal = INTERNAL_CODE.search(title)
+    label_hits = [p for p in PHASE_LABELS if p in title.lower()]
+    method_hits = [p for p in PUBLIC_METHODS if p in title.lower()]
+    method_exempt = (r["method_needs_result"] and bool(method_hits)
+                     and has_result(title) and not internal)
+    strategy_hits = sorted(v for v in vocab if v in title.lower())
+    belief = r["belief_allowed"] and bool(pk.get("beginner_belief"))
+
     checks = [
         (f"(a)6 title max {r['max_title_chars']} chars",
          0 < len(title) <= r["max_title_chars"],
          f"{len(title)} chars"),
 
-        ("(a) FORMULA — left side is a strategy or a belief",
-         any(v in title.lower() for v in vocab) or
-         (r["belief_allowed"] and bool(pk.get("beginner_belief"))),
-         ("strategy: " + ", ".join(sorted(v for v in vocab if v in title.lower())))
-         if any(v in title.lower() for v in vocab) else
-         (f"belief: {pk['beginner_belief']!r}" if (r["belief_allowed"] and pk.get("beginner_belief"))
-          else "NONE — name a beginner strategy in the title, or (amended 2026-07-28) declare the "
-               "beginner belief this title debunks in a `beginner_belief` field")),
+        ("(a) FORMULA — strategy, belief, or searched method + result",
+         bool(strategy_hits) or belief or method_exempt,
+         ("strategy: " + ", ".join(strategy_hits)) if strategy_hits else
+         (f"belief: {pk['beginner_belief']!r}" if belief else
+          ("searched method + result: " + ", ".join(method_hits)) if method_exempt else
+          "NONE — name a beginner strategy in the title, or (amended 2026-07-28) declare the "
+          "beginner belief this title debunks in a `beginner_belief` field, or (amended "
+          "2026-07-30) lead with a searched public method name AND a concrete result")),
 
         ("(a)1 title is not a phase label",
-         not any(p in title.lower() for p in PHASE_LABELS),
-         "hits: " + (", ".join(p for p in PHASE_LABELS if p in title.lower()) or "none")),
+         not label_hits and not internal if not method_exempt else not internal,
+         (f"internal phase code: {internal.group(0)!r} — never exempt, (a)1 stands") if internal
+         else ("searched method + result, exempt 2026-07-30: " + ", ".join(method_hits))
+         if method_exempt
+         else ("bare topic label: " + ", ".join(method_hits) + " — the 2026-07-30 carve-out "
+               "needs a concrete result in the same title") if method_hits
+         else "hits: " + (", ".join(label_hits) or "none")),
 
         ("(a)3 title and thumbnail share zero words",
          not (tw & thw),
@@ -199,6 +240,30 @@ GOOD_FIXTURE = {   # ep01, quoted by the standard itself at (a) and (b)2
     "first_spoken_sentence": "I optimised the golden cross, and that was the mistake.",
     "thumbnail": {"elements": ["$78,420 → −$9,229", "SAME STRATEGY"]},
 }
+# ep05, operator-approved 2026-07-30. The amendment exists so that this can pass; before it was
+# implemented here the gate BLOCKED this title on (a)1 and (a) FORMULA. A ruling that only the
+# document knows about is prose, and prose does not gate.
+METHOD_FIXTURE = {
+    "STATUS": "APPROVED",
+    "title": "Monte Carlo Backtest: We Moved the Exits. 28 of 46 Failed.",
+    "first_spoken_sentence": "We moved the exits on 46 strategies, and 28 of them failed.",
+    "thumbnail": {"elements": ["200 EACH", "18 LEFT"]},
+}
+# Same method name, no result. This is the "Monte Carlo explained" shape the amendment still bans,
+# and it is what stops the carve-out from being read as "phase labels are fine now".
+BARE_TOPIC_FIXTURE = {
+    "STATUS": "APPROVED",
+    "title": "Monte Carlo Backtest Explained",
+    "first_spoken_sentence": "Monte carlo backtest, explained.",
+    "thumbnail": {"elements": ["200 EACH", "18 LEFT"]},
+}
+# A number does not launder an internal phase code -- the exception is search intent, not digits.
+PHASE_CODE_FIXTURE = {
+    "STATUS": "APPROVED",
+    "title": "Phase 6: We Moved the Exits. 28 of 46 Failed.",
+    "first_spoken_sentence": "We moved the exits on 46 strategies, and 28 of them failed.",
+    "thumbnail": {"elements": ["200 EACH", "18 LEFT"]},
+}
 
 
 def run(pk: dict, proj: Path | None, label: str) -> int:
@@ -223,19 +288,34 @@ def demo() -> int:
     print("packaging_gate --demo — the gate must be able to say otherwise\n")
     r = rules(standard_text())
     vocab = strategy_vocab()
-    bad = [n for n, ok, _ in audit(BAD_FIXTURE, None, r, vocab) if not ok]
-    good = [n for n, ok, _ in audit(GOOD_FIXTURE, None, r, vocab) if not ok]
-    print(f"  known-BAD fixture  -> {len(bad)} failure(s): {', '.join(bad) or 'NONE'}")
-    print(f"  known-GOOD fixture -> {len(good)} failure(s): {', '.join(good) or 'NONE'}")
-    print("\n  (the good fixture is ep01, quoted by the standard itself at (a) and (b)2)")
-    if not bad:
-        print("\nBLOCK: the gate PASSED a fixture that violates every rule in (a). Void.")
+
+    def fails(fx: dict) -> list[str]:
+        return [n for n, ok, _ in audit(fx, None, r, vocab) if not ok]
+
+    # (fixture, must_fail, why it is in here)
+    cases = (
+        (BAD_FIXTURE, True, "known-BAD — violates (a) wholesale"),
+        (GOOD_FIXTURE, False, "ep01 — the standard's own reference at (a) and (b)2"),
+        (METHOD_FIXTURE, False, "ep05 — operator-approved under the 2026-07-30 amendment"),
+        (BARE_TOPIC_FIXTURE, True, "same method name, NO result — still a bare topic label"),
+        (PHASE_CODE_FIXTURE, True, "internal phase code + a result — still banned"),
+    )
+    verdicts = []
+    for fx, must_fail, why in cases:
+        f = fails(fx)
+        agreed = bool(f) == must_fail
+        verdicts.append(agreed)
+        print(f"  {'ok  ' if agreed else 'VOID'}  {'must FAIL' if must_fail else 'must PASS'}  "
+              f"{fx['title'][:52]!r}\n        {why}\n        -> {len(f)} failure(s): "
+              f"{', '.join(f) or 'NONE'}")
+
+    if not all(verdicts):
+        print("\nBLOCK: the gate disagreed with a fixture whose verdict is already settled. "
+              "A gate that cannot separate these is not measuring the rule.")
         return 1
-    if good:
-        print("\nBLOCK: the gate FAILED ep01, which the standard cites as the reference. "
-              "The gate is measuring the wrong thing.")
-        return 1
-    print("\n  Gate trusted: it rejects the bad packaging and accepts the standard's own example.")
+    print("\n  Gate trusted: it rejects bad packaging, accepts the standard's own example, and "
+          "\n  separates the 2026-07-30 method-name carve-out from a bare topic label and a "
+          "phase code.")
     return 0
 
 

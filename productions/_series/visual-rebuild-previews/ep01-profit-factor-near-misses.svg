@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">THE LARGE “NEAR-MISS” COUNT WAS BREAKEVEN NOISE</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">FAILED PROFIT FACTOR VALUES · NULL MEASUREMENTS EXCLUDED</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<rect x="190.0" y="810.7" width="59.2" height="44.3" fill="#f5e8ea" opacity=".84"/>
+<rect x="254.2" y="853.3" width="59.2" height="1.7" fill="#f5e8ea" opacity=".84"/>
+<rect x="318.3" y="849.9" width="59.2" height="5.1" fill="#f5e8ea" opacity=".84"/>
+<rect x="382.5" y="851.6" width="59.2" height="3.4" fill="#f5e8ea" opacity=".84"/>
+<rect x="446.7" y="853.3" width="59.2" height="1.7" fill="#f5e8ea" opacity=".84"/>
+<rect x="510.8" y="846.5" width="59.2" height="8.5" fill="#f5e8ea" opacity=".84"/>
+<rect x="575.0" y="841.4" width="59.2" height="13.6" fill="#f5e8ea" opacity=".84"/>
+<rect x="639.2" y="848.2" width="59.2" height="6.8" fill="#f5e8ea" opacity=".84"/>
+<rect x="703.3" y="851.6" width="59.2" height="3.4" fill="#f5e8ea" opacity=".84"/>
+<rect x="767.5" y="844.8" width="59.2" height="10.2" fill="#f5e8ea" opacity=".84"/>
+<rect x="831.7" y="848.2" width="59.2" height="6.8" fill="#f5e8ea" opacity=".84"/>
+<rect x="895.8" y="848.2" width="59.2" height="6.8" fill="#f5e8ea" opacity=".84"/>
+<rect x="960.0" y="843.1" width="59.2" height="11.9" fill="#f5e8ea" opacity=".84"/>
+<rect x="1024.2" y="839.7" width="59.2" height="15.3" fill="#f5e8ea" opacity=".84"/>
+<rect x="1088.3" y="817.5" width="59.2" height="37.5" fill="#f5e8ea" opacity=".84"/>
+<rect x="1152.5" y="820.9" width="59.2" height="34.1" fill="#f5e8ea" opacity=".84"/>
+<rect x="1216.7" y="790.2" width="59.2" height="64.8" fill="#f5e8ea" opacity=".84"/>
+<rect x="1280.8" y="725.4" width="59.2" height="129.6" fill="#ff9100" opacity=".84"/>
+<rect x="1345.0" y="512.3" width="59.2" height="342.7" fill="#ff9100" opacity=".84"/>
+<rect x="1409.2" y="335.0" width="59.2" height="520.0" fill="#ff9100" opacity=".84"/>
+<rect x="1473.3" y="577.1" width="59.2" height="277.9" fill="#ff9100" opacity=".84"/>
+<rect x="1537.5" y="693.0" width="59.2" height="162.0" fill="#ff9100" opacity=".84"/>
+<rect x="1601.7" y="809.0" width="59.2" height="46.0" fill="#ff9100" opacity=".84"/>
+<rect x="1665.8" y="855.0" width="59.2" height="0.0" fill="#ff9100" opacity=".84"/>
+<line x1="190.0" y1="855.0" x2="1730.0" y2="855.0" stroke="#c89aa3" stroke-width="3"/>
+<rect x="1296.9" y="320" width="336.9" height="535.0" fill="#ff9100" opacity=".10"/>
+<line x1="1633.8" y1="300.0" x2="1633.8" y2="855.0" stroke="#ff1744" stroke-width="4" stroke-dasharray="12 9"/>
+<text x="1633.8" y="895.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="700" text-anchor="middle">1.05 rule</text>
+<text x="230.0" y="310.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="31" font-weight="750" text-anchor="start">856 of 1,065 profit-factor failures fell in 0.945–1.05</text>
+<text x="230.0" y="355.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">That band is clustered around break-even—not around a large positive margin.</text>
+<text x="960.0" y="935.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="27" font-weight="750" text-anchor="middle">“Within 10% of the rule” does not mean “within 10% of a durable trading edge.”</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RECORDED RUN · DECLARED 10% BAND · NULL VALUES EXCLUDED</text>
+</svg>

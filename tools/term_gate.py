@@ -23,7 +23,9 @@ ALIASES = {
 }
 DEFINITIONAL = re.compile(
     r"(?:is called|are called|that's|that is|which means|which is|is when|means\b|"
-    r"\bcall (?:it|this|that)\b|\bis the\b|\bis a\b|\bare the\b)", re.I)
+    r"\bha(?:s|ve) a name\b|\bwhen I say\b|\bcomes down to\b|"
+    r"\bcall (?:it|this|that)\b|\bis the\b|\bis a\b|\bare the\b|"
+    r"[—:]\s+(?:the|a|an)\b)", re.I)
 
 
 def episode_terms(syllabus: Path, episode: str) -> list[str]:
@@ -85,6 +87,18 @@ def demo() -> int:
         ("in-sample", True),
         ("profit factor", False),
     ]
+    named = check(
+        "Moving a setting has a name: perturbation. "
+        "A grid edge — the highest or lowest setting tested — is a search boundary.",
+        ["perturbation", "grid edge"],
+    )
+    assert all(present and defined for _, present, defined in named), named
+    explained = check(
+        "When I say the parameters are frozen, it comes down to every number being saved. "
+        "Those first bars have a name of their own: warmup bars.",
+        ["frozen parameters", "warmup bars"],
+    )
+    assert all(present and defined for _, present, defined in explained), explained
     print("term_gate self-check ok")
     return 0
 

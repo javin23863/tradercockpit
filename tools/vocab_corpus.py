@@ -61,6 +61,12 @@ SOURCES = [
 TAG_RE = re.compile(r"<[^>]+>")
 CUE_RE = re.compile(r"^\d\d:\d\d:\d\d[.,]\d+\s+-->")
 WORD_RE = re.compile(r"[a-z][a-z'&-]*")
+PUNCTUATION = str.maketrans({"’": "'", "‘": "'", "‑": "-", "–": " ", "—": " "})
+
+
+def tokenize(text: str) -> list[str]:
+    """Tokenize speech without turning typographic punctuation into fake words."""
+    return WORD_RE.findall(text.translate(PUNCTUATION).lower())
 
 
 def fetch(target: str, limit: int, out_dir: Path) -> int:
@@ -112,7 +118,7 @@ def load_docs(raw: Path) -> list[list[str]]:
     docs = []
     for variants in by_id.values():
         pick = min(variants, key=lambda p: (".en.vtt" not in p.name, len(p.name)))
-        words = WORD_RE.findall(vtt_text(pick).lower())
+        words = tokenize(vtt_text(pick))
         if len(words) > 200:
             docs.append(words)
     return docs
@@ -167,6 +173,7 @@ def selftest():
         assert len(docs) == 2, f"3 caption variants of vid1 must collapse to 1 doc, got {docs and len(docs)}"
         assert "s&p" in docs[0], "HTML entities must be unescaped before tokenising"
         assert "amp" not in docs[0], "&amp; leaked into the token stream"
+        assert tokenize("you’re long‑only—really") == ["you're", "long-only", "really"]
         data = profile(docs)
         assert data["documents"] == 2, data["documents"]
         # count >= 2 retention: a bigram said 80 times survives, a one-off does not.

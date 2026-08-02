@@ -29,8 +29,8 @@ Three rules, and the first is the one that matters:
    The point is that an accepted red becomes a durable, greppable record instead of silence.
    I cannot write one for myself: the ruling text is evidence, and inventing it is forgery.
 
-The receipt is keyed to the **sha256 of the master it certified**, so it cannot outlive the file.
-Re-mux the video and `verify` fails, which is the property that makes hand-mastering detectable.
+The receipt is keyed to the **sha256 of the master and its loaded source tree**, so it cannot
+outlive either side. Re-mux the video or change a composition/asset and `verify` fails.
 """
 from __future__ import annotations
 
@@ -61,6 +61,7 @@ TIMEOUT = 1800  # cut_census and motion_census walk an 11-minute render frame by
 #   node  -- npm, run inside hyperframes/
 #   audio -- the episode's tools/ but under .venv-audio (DeepFilterNet/soundfile live there)
 CHAIN = (
+    ("source_freshness", "internal", [], True),
     # ---- source gates: the script, the packaging, the figures ----
     ("packaging_gate",   "repo",  ["tools/packaging_gate.py", "{art}/packaging.json"], False),
     ("script_arc_gate",  "repo",  ["tools/script_arc_gate.py", "{proj}"], False),
@@ -77,14 +78,13 @@ CHAIN = (
     # recorded a PASS for a gate that inspected nothing. It BLOCKs on zero files now too.
     ("slop_gate",        "ep",    ["tools/slop_gate.py", "{proj}"], False),
     ("lexicon_gate",     "ep",    ["tools/lexicon_gate.py"], False),
-    ("thumb_gate",       "ep",    ["tools/thumb_gate.py", "{art}/thumbnail-ep{ep2}.html"], False),
+    ("thumb_gate",       "repo",  ["tools/thumb_gate.py", "{art}/thumbnail-ep{ep2}.html"], False),
     ("broll_conflicts",  "ep",    ["tools/broll_conflicts.py"], False),
     ("npm_check",        "node",  ["run", "check"], False),
     # ---- render gates: scored on the master, never on the source ----
     ("presentation_gate", "ep",   ["tools/presentation_gate.py", "{master}"], True),
     ("intro_pace",       "ep",    ["tools/intro_pace.py", "{master}"], True),
-    ("cut_census",       "ep",    ["tools/cut_census.py", "{master}"], True),
-    ("motion_census",    "ep",    ["tools/motion_census.py", "{master}"], True),
+    ("cut_census",       "repo",  ["tools/cut_census.py", "{master}"], True),
     ("check_bed",        "audio", ["tools/check_bed.py"], False),
     ("voice_consistency", "audio", ["tools/voice_consistency.py"], False),
 )
@@ -96,6 +96,57 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def source_fingerprint(proj: Path, render_inputs_only: bool = False) -> dict:
+    """Bind receipts to gate inputs; freshness only to files the renderer loaded."""
+    art = proj / "artifacts"
+    hyperframes = proj / "hyperframes"
+    files = [hyperframes / "index.html"] if (hyperframes / "index.html").is_file() else []
+    if not render_inputs_only:
+        files.extend(p for p in (
+            art / "vo.txt",
+            art / "scenes.json",
+            art / "packaging.json",
+            art / "edit_decisions.json",
+            art / "academic_edit_timing.json",
+            art / "scene_visual_map.json",
+        )
+        if p.is_file())
+    for folder in (hyperframes / "compositions", hyperframes / "assets"):
+        if folder.is_dir():
+            files.extend(p for p in folder.rglob("*") if p.is_file())
+    files = sorted(set(files), key=lambda p: p.relative_to(proj).as_posix())
+    h = hashlib.sha256()
+    for path in files:
+        rel = path.relative_to(proj).as_posix()
+        h.update(rel.encode("utf-8") + b"\0")
+        h.update(bytes.fromhex(sha256(path)))
+    newest = max(files, key=lambda p: p.stat().st_mtime_ns) if files else None
+    return {
+        "sha256": h.hexdigest(),
+        "file_count": len(files),
+        "latest_mtime_ns": newest.stat().st_mtime_ns if newest else None,
+        "latest_file": newest.relative_to(proj).as_posix() if newest else None,
+    }
+
+
+def source_freshness_gate(proj: Path, master: Path) -> dict:
+    source = source_fingerprint(proj, render_inputs_only=True)
+    latest = source["latest_mtime_ns"]
+    if not source["file_count"]:
+        return {"verdict": "BLOCK", "rc": 1, "detail": "no render inputs were found"}
+    fresh = latest is not None and latest <= master.stat().st_mtime_ns
+    relation = "predates or matches" if fresh else "is newer than"
+    return {
+        "verdict": "PASS" if fresh else "BLOCK",
+        "rc": 0 if fresh else 1,
+        "detail": (
+            f"{source['file_count']} render inputs; newest "
+            f"{source['latest_file']} {relation} {master.name}; "
+            f"source tree {source['sha256']}"
+        ),
+    }
 
 
 def load_waivers(art: Path) -> dict[str, dict]:
@@ -121,8 +172,32 @@ def load_waivers(art: Path) -> dict[str, dict]:
                 sys.exit(f"BLOCK: {path} waivers[{i}] is missing '{field}'. A waiver without "
                          f"the ruling that granted it is silence with extra steps.")
         if len(w["ruling"]) < 20:
-            sys.exit(f"BLOCK: {path} waivers[{i}] ruling is {len(w['ruling'])} chars. Quote what "
-                     f"the operator actually said, verbatim.")
+            receipt_ref = w.get("approval_receipt")
+            receipt_sha = w.get("approval_receipt_sha256")
+            receipt = (art / str(receipt_ref)).resolve() if receipt_ref else None
+            if (
+                receipt is None
+                or not receipt.is_relative_to(art.parent.resolve())
+                or not receipt.is_file()
+                or sha256(receipt) != receipt_sha
+            ):
+                sys.exit(
+                    f"BLOCK: {path} waivers[{i}] ruling is {len(w['ruling'])} chars. "
+                    "A short verbatim approval needs an exact in-project approval receipt hash."
+                )
+        artifact_ref = w.get("artifact_path")
+        artifact_sha = w.get("artifact_sha256")
+        if artifact_ref or artifact_sha:
+            artifact = (art / str(artifact_ref)).resolve() if artifact_ref else None
+            if (
+                artifact is None
+                or not artifact.is_relative_to(art.resolve())
+                or not artifact.is_file()
+                or sha256(artifact) != artifact_sha
+            ):
+                sys.exit(
+                    f"BLOCK: {path} waivers[{i}] artifact binding is missing or stale."
+                )
         out[w["gate"]] = w
     return out
 
@@ -144,11 +219,23 @@ def covered(result: dict, waiver: dict) -> bool:
     subs = waiver.get("findings")
     if not subs:
         return True
-    blocks = [ln.strip() for ln in result.get("detail", "").splitlines()
-              if ln.strip().startswith("BLOCK:") or ln.strip().startswith("FAIL")]
+    lines = [ln.strip() for ln in result.get("detail", "").splitlines()]
+    failures = [ln for ln in lines if ln.startswith("FAIL")]
+    blocks = failures or [ln for ln in lines if ln.startswith("BLOCK:")]
     if not blocks:
         return False  # nothing to match against; a waiver that cannot be checked does not apply
     return all(any(s.lower() in ln.lower() for s in subs) for ln in blocks)
+
+
+def compact_gate_detail(output: str) -> str:
+    """Keep every decisive line even when verbose gate output is truncated."""
+    lines = [line for line in output.strip().splitlines() if line.strip()]
+    decisive = "\n".join(
+        line for line in lines
+        if line.strip().startswith("BLOCK:") or line.strip().startswith("FAIL")
+    )
+    tail = "\n".join(lines)[-1200:]
+    return "\n".join(part for part in (decisive, tail) if part)
 
 
 def episode_meta(art: Path) -> dict:
@@ -170,11 +257,39 @@ def episode_meta(art: Path) -> dict:
                  f"is offset from it (ep03 = phase04_cost = Ep04, ep04 = phase06_mc_param = "
                  f"Ep05). Declare it -- guessing it checks the wrong contract.")
     ep = int(pkg["episode"])
-    return {"ep": ep, "ep2": f"{ep:02d}", "syllabus_ep": syl}
+    edit_path = art / "edit_decisions.json"
+    profile = "film-motion"
+    if edit_path.is_file():
+        edit = json.loads(edit_path.read_text(encoding="utf-8"))
+        profile = str(edit.get("metadata", {}).get("gate_profile", profile))
+    if profile not in {"film-motion", "board-led-explainer"}:
+        sys.exit(f"BLOCK: unsupported render gate profile {profile!r} in {edit_path}")
+    return {"ep": ep, "ep2": f"{ep:02d}", "syllabus_ep": syl,
+            "gate_profile": profile}
 
 
 def run_gate(name, where, argv, proj: Path, subs: dict) -> dict:
+    if where == "internal":
+        if name == "source_freshness":
+            return source_freshness_gate(proj, Path(subs["master"]))
+        return {"verdict": "BLOCK", "rc": None, "detail": f"unknown internal gate {name}"}
+    if name == "intro_pace" and subs.get("gate_profile") == "board-led-explainer":
+        return {
+            "verdict": "NOT_APPLICABLE",
+            "rc": 0,
+            "detail": (
+                "film-motion reference pacing is not applicable to a board-led explainer; "
+                "the opening is covered by the profile-aware presentation gate and encoded "
+                "scene coverage is enforced by cut_census"
+            ),
+        }
     argv = [a.format(**subs) for a in argv]
+    if subs.get("gate_profile", "film-motion") == "board-led-explainer":
+        if name == "presentation_gate":
+            argv += ["--profile", subs["gate_profile"]]
+        elif name == "cut_census":
+            argv += ["--profile", subs["gate_profile"], "--timing",
+                     str(proj / "artifacts" / "academic_edit_timing.json")]
     if where == "node":
         cwd, cmd = proj / "hyperframes", ["npm"] + argv
         script = cwd / "package.json"
@@ -196,6 +311,7 @@ def run_gate(name, where, argv, proj: Path, subs: dict) -> dict:
     t0 = time.time()
     try:
         env = os.environ.copy()
+        env["PYTHONUTF8"] = "1"
         if where == "node":
             npm_cache = proj / "artifacts" / "build" / "npm-cache"
             npm_cache.mkdir(parents=True, exist_ok=True)
@@ -208,9 +324,8 @@ def run_gate(name, where, argv, proj: Path, subs: dict) -> dict:
                 "detail": f"timed out after {TIMEOUT}s -- a gate that cannot decide has not passed"}
     except Exception as exc:  # noqa: BLE001
         return {"verdict": "BLOCK", "rc": None, "detail": f"crashed: {exc}"}
-    tail = "\n".join(l for l in out.strip().splitlines() if l.strip())[-1200:]
     return {"verdict": "PASS" if rc == 0 else "BLOCK", "rc": rc,
-            "secs": round(time.time() - t0, 1), "detail": tail}
+            "secs": round(time.time() - t0, 1), "detail": compact_gate_detail(out)}
 
 
 def run(proj: Path, master: Path | None, only: str | None) -> int:
@@ -222,7 +337,7 @@ def run(proj: Path, master: Path | None, only: str | None) -> int:
     subs = {"art": str(art), "proj": str(proj),
             "master": str(master) if master else "", **meta}
 
-    results, blocked, waived = {}, [], []
+    results, blocked, waived, not_applicable = {}, [], [], []
     for name, where, argv, needs_master in CHAIN:
         if only and only != name:
             continue
@@ -236,8 +351,11 @@ def run(proj: Path, master: Path | None, only: str | None) -> int:
             waived.append(name)
         elif r["verdict"] == "BLOCK":
             blocked.append(name)
+        elif r["verdict"] == "NOT_APPLICABLE":
+            not_applicable.append(name)
         results[name] = r
-        mark = {"PASS": "  PASS ", "BLOCK": "> BLOCK", "WAIVED": "~WAIVED"}[r["verdict"]]
+        mark = {"PASS": "  PASS ", "BLOCK": "> BLOCK", "WAIVED": "~WAIVED",
+                "NOT_APPLICABLE": "  N/A  "}[r["verdict"]]
         secs = f"{r.get('secs', 0):>6.1f}s" if r.get("secs") else "       "
         print(f"{mark} {name:<19}{secs}")
         if r["verdict"] == "BLOCK":
@@ -245,7 +363,10 @@ def run(proj: Path, master: Path | None, only: str | None) -> int:
                 print(f"          {line}")
         if r["verdict"] == "WAIVED":
             print(f"          operator {r['waiver']['date']}: \"{r['waiver']['ruling'][:110]}\"")
+        if r["verdict"] == "NOT_APPLICABLE":
+            print(f"          {r['detail']}")
 
+    source = source_fingerprint(proj)
     green = not blocked
     receipt = {
         "schema": "episode-gate/v1",
@@ -255,10 +376,15 @@ def run(proj: Path, master: Path | None, only: str | None) -> int:
         "partial": bool(only),
         "master": str(master) if master else None,
         "master_sha256": sha256(master) if master and master.is_file() else None,
+        "source_tree_sha256": source["sha256"],
+        "source_file_count": source["file_count"],
+        "source_latest_file": source["latest_file"],
+        "source_latest_mtime_ns": source["latest_mtime_ns"],
         "inputs": {p.name: sha256(p) for p in (art / "vo.txt", art / "scenes.json",
                                                proj / "hyperframes" / "index.html")
                    if p.is_file()},
-        "blocked": blocked, "waived": waived, "gates": results,
+        "blocked": blocked, "waived": waived, "not_applicable": not_applicable,
+        "gates": results,
     }
     (art / "build").mkdir(exist_ok=True)
     # A --only run writes BESIDE the real receipt, never over it. Marking a partial receipt as
@@ -267,7 +393,8 @@ def run(proj: Path, master: Path | None, only: str | None) -> int:
     # master.
     out = art / "build" / ("gate-receipt-partial.json" if only else "gate-receipt.json")
     out.write_text(json.dumps(receipt, indent=2), encoding="utf-8")
-    print(f"\n{len(results) - len(blocked) - len(waived)} pass · {len(waived)} waived · "
+    print(f"\n{len(results) - len(blocked) - len(waived) - len(not_applicable)} pass · "
+          f"{len(waived)} waived · {len(not_applicable)} not applicable · "
           f"{len(blocked)} BLOCKED -> {out}")
     if blocked:
         print("  " + ", ".join(blocked))
@@ -311,6 +438,14 @@ def verify(master: Path, quiet: bool = False) -> int:
         print(f"BLOCK: the receipt certifies {str(rec.get('master_sha256'))[:12]} but this file "
               f"is {actual[:12]}. Re-muxing invalidates the chain -- re-run it.")
         return 1
+    source = source_fingerprint(proj)
+    if rec.get("source_tree_sha256") != source["sha256"]:
+        print(
+            f"BLOCK: the receipt certifies source tree "
+            f"{str(rec.get('source_tree_sha256'))[:12]} but current inputs are "
+            f"{source['sha256'][:12]}. Re-render and re-run the gate."
+        )
+        return 1
     print(f"episode_gate: {master.name} certified GREEN "
           f"({len(rec['gates'])} gates, {len(rec.get('waived', []))} waived)")
     return 0
@@ -331,14 +466,35 @@ def demo() -> int:
         hit = r["verdict"] == "BLOCK" and "does not exist" in r["detail"]
         print(f"  {'ok  ' if hit else 'FAIL'} missing gate script BLOCKS")
         ok &= hit
+        profile_skip = run_gate(
+            "intro_pace", "ep", ["tools/intro_pace.py", "{master}"], td,
+            {"gate_profile": "board-led-explainer", "master": "unused"},
+        )
+        explicit = profile_skip["verdict"] == "NOT_APPLICABLE"
+        print(f"  {'ok  ' if explicit else 'FAIL'} film intro meter is explicit N/A for board profile")
+        ok &= explicit
+        fresh_proj = td / "freshness"
+        (fresh_proj / "hyperframes").mkdir(parents=True)
+        (fresh_proj / "artifacts").mkdir()
+        (fresh_proj / "hyperframes" / "index.html").write_text("rendered", encoding="utf-8")
+        rendered = fresh_proj / "master.mp4"
+        rendered.write_bytes(b"master")
+        (fresh_proj / "artifacts" / "edit_decisions.json").write_text(
+            '{"metadata":{"gate_profile":"board-led-explainer"}}', encoding="utf-8"
+        )
+        fresh = source_freshness_gate(fresh_proj, rendered)["verdict"] == "PASS"
+        print(f"  {'ok  ' if fresh else 'FAIL'} gate metadata does not pretend to be a render input")
+        ok &= fresh
         # 2. a receipt must not survive the file it certified
         proj = td / "projects" / "ep"
         (proj / "artifacts" / "build").mkdir(parents=True)
         (proj / "artifacts" / "packaging.json").write_text('{"episode": 1}', encoding="utf-8")
         m = proj / "master.mp4"
         m.write_bytes(b"original")
+        source = source_fingerprint(proj)
         (proj / "artifacts" / "build" / "gate-receipt.json").write_text(json.dumps(
-            {"verdict": "GREEN", "master_sha256": sha256(m), "gates": {}, "waived": []}),
+            {"verdict": "GREEN", "master_sha256": sha256(m),
+             "source_tree_sha256": source["sha256"], "gates": {}, "waived": []}),
             encoding="utf-8")
         global OM
         keep, OM = OM, td

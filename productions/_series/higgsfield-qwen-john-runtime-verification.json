@@ -1,0 +1,47 @@
+{
+  "schema": "tradercockpit.higgsfield-qwen-john-runtime-verification/v1",
+  "recorded_at": "2026-07-30T00:42:46Z",
+  "status": "verified_sample_only_batch_requires_explicit_payload_approval",
+  "account": {
+    "plan": "max",
+    "paid_credits_before": 3600,
+    "paid_credits_after": 3599.91,
+    "paid_credit_delta": -0.09
+  },
+  "model": {
+    "display_name": "Qwen Audio 3.0 TTS Flash",
+    "job_type": "qwen_audio_tts",
+    "voice": "John",
+    "voice_id": "6b528d43-c056-4a2f-9d82-1591a7ba13b0",
+    "voice_type": "preset",
+    "format": "wav",
+    "sample_rate_hz": 24000,
+    "language": "en",
+    "seed": 0,
+    "speech_rate": 1,
+    "pitch_rate": 1,
+    "volume": 50
+  },
+  "job": {
+    "id": "e3f0215f-cac1-4b1e-9496-b0c7c3116dd6",
+    "status": "completed",
+    "local_file": "OpenMontage/projects/series-04-mc-param/artifacts/voice-auditions/ep04-qwen-audio-3-john-runtime-check.wav",
+    "sha256": "0c9ac077934b9dea0649f90742eb116f41a5bdf6a48d0f23bef39a591392ee1c",
+    "bytes": 556844,
+    "codec": "pcm_s16le",
+    "duration_seconds": 11.6,
+    "channels": 1
+  },
+  "comparison_boundary": {
+    "approved_clean_sample_sha256": "6d4fa9e01a2183a973829c166f6c0119a7030b28bf9275a0a2e59aa5aca1dfe7",
+    "approved_sample_duration_seconds": 14.456,
+    "note": "The current official Qwen Audio 3.0 take is the same John preset but is not byte- or duration-identical to the earlier Qwen sample whose exact model version was unknown."
+  },
+  "batch": {
+    "planned_sections": 56,
+    "estimated_credits": 5.04,
+    "status": "not_started",
+    "blocker": "Sending the full unpublished four-episode scripts to Higgsfield requires explicit operator approval of that disclosure and 56-job batch."
+  },
+  "full_render_started": false
+}

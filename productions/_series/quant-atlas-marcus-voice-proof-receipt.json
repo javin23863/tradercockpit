@@ -1,0 +1,103 @@
+{
+  "schema": "tradercockpit-quant-atlas-marcus-voice-proof/v1",
+  "created_at": "2026-08-02T09:58:20.6376909+07:00",
+  "status": "completed_awaiting_operator_listening_review",
+  "scope": {
+    "episode": 1,
+    "scene": "scene-01",
+    "comparison_rule": "Same approved Quant Atlas visuals and exact narration text; narrator is the only creative variable.",
+    "full_episode_render_authorized": false,
+    "additional_provider_batch_authorized": false,
+    "upload_or_publication_authorized": false
+  },
+  "narration": {
+    "provider": "Higgsfield",
+    "model": "Qwen Audio 3.0 TTS Flash",
+    "voice": "Marcus",
+    "voice_id": "6f98d3dd-324f-4845-8c28-c1d1647a06cd",
+    "voice_type": "preset",
+    "voice_preview_url": "https://cdn.higgsfield.ai/audio_voice/cd7a989c-89ba-43c8-bc02-44a8c429825f.wav",
+    "operator_preview_approved": true,
+    "job_id": "987be232-13a9-40ce-9622-7f7dd604dd5b",
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GhrqPGRuyuWous5iC1Lk2b8h1O/hf_20260802_025202_987be232-13a9-40ce-9622-7f7dd604dd5b.wav",
+    "instruction": "Calm, measured American male educator. Read exactly; preserve every word and limitation. No hype or sarcasm.",
+    "language": "en",
+    "pitch_rate": 1.0,
+    "speech_rate": 1.0,
+    "sample_rate_hz": 24000,
+    "seed": 0,
+    "volume": 50,
+    "format": "wav",
+    "text_characters": 399,
+    "text_words": 71,
+    "scene_text_sha256": "b2d36816be28f2420fd5602ddde16c38d64dd6e2e2e6ae9ea1656a0a25761ecb",
+    "source_script": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/artifacts/script.json",
+      "sha256": "1030483e5772e7c36bc56ca8fbfbf6e4bb0255d3859665c675cb92011115f372"
+    },
+    "raw_wav": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/scene-01-marcus-raw.wav",
+      "sha256": "317d8a206035dc918c753277fbf5e89ce6f26e640ed2b0dd714617dea440626a",
+      "bytes": 1236524,
+      "duration_seconds": 25.76,
+      "sample_rate_hz": 24000,
+      "channels": 1,
+      "codec": "pcm_s16le"
+    },
+    "mastered_wav": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/scene-01-marcus-mastered.wav",
+      "sha256": "c30b21e80877ede0a8a02168c9d1918a655418b9ebe1edfdf8182d48484b564d",
+      "bytes": 3709542,
+      "duration_seconds": 25.76,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "pcm_bits": 24,
+      "measured_integrated_lufs": -16.65,
+      "measured_true_peak_dbtp": -1.49,
+      "measured_loudness_range_lu": 2.4
+    }
+  },
+  "audition_accounting": {
+    "account_plan": "Max",
+    "included_credit_balance_before": 3562.12,
+    "included_credit_balance_after": 3561.76,
+    "total_included_credits_used": 0.36,
+    "accepted_marcus_generation_credits": 0.18,
+    "rejected_onyx_generation_credits": 0.18,
+    "rejected_onyx_job_id": "8c4393d5-c05f-4b08-95d8-0ee569185f7f",
+    "cash_cost_usd": 0.0,
+    "subscription_change": false,
+    "credit_top_up": false
+  },
+  "transcript_verification": {
+    "engine": "faster-whisper small",
+    "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/asr/scene-01-marcus-mastered_transcript.json",
+    "sha256": "21b0f2b00a558b3aa7717d09833a2723d56077f3665352dc9022cf3bd9ba64aa",
+    "result": "All approved sentences and concepts were present. ASR varied on compound spacing and rendered changed/matched as change/match; operator listening remains the creative authority."
+  },
+  "playable_proof": {
+    "path": "productions/series-01-backtest-is-not-a-strategy/quant-atlas-episode-01-proof-marcus.mp4",
+    "sha256": "3e5271bd37853246864e6255ad18f6ded8a181a9a45f5ca7cbea59cb34c93033",
+    "bytes": 2574964,
+    "duration_seconds": 32.405,
+    "video": "H.264 1920x1080 30fps, 972 frames",
+    "audio": "AAC 48000Hz stereo",
+    "measured_integrated_lufs": -16.51,
+    "measured_true_peak_dbtp": -4.46,
+    "decode_check": "pass",
+    "composition_check": "retained baseline pass: 0 errors, 0 warnings; 1 font-alias info",
+    "assembly": "The approved baseline H.264 video stream was copied without re-encoding; only the AAC narration track was replaced.",
+    "visual_stream_verification": "pass: 972/972 decoded video frames are identical to the original Qwen/John comparison proof",
+    "decoded_video_framemd5_sha256": "102c92f3f46565d7cd61d5bedd676492424cafb2998433a724c479dfb55fda13",
+    "visual_review": "pass: the retained baseline video stream had already passed two contact sheets and 12 native-frame inspection",
+    "creative_status": "awaiting operator listening review"
+  },
+  "blocked_after_proof": [
+    "full episode render",
+    "additional provider batch",
+    "upload",
+    "publication",
+    "subscription change",
+    "credit top-up"
+  ]
+}

@@ -1,0 +1,851 @@
+{
+  "schema": "tradercockpit.mixed-media-asset-review/v1",
+  "recorded_at": "2026-07-30",
+  "status": "candidate_asset_review",
+  "coverage": {
+    "episodes": 4,
+    "scene_slots": 56,
+    "mode_counts": {
+      "REAL CHART": 1,
+      "ANIMATED MATH": 41,
+      "CHALKBOARD DRAW-ON": 9,
+      "TRADER CONTEXT": 2,
+      "CARD": 3
+    }
+  },
+  "policy": {
+    "full_render_started": false,
+    "generated_math": false,
+    "supplied_reference_pixels_used": false,
+    "trader_context_is_synthetic_non_evidence": true,
+    "real_chart_is_context_not_performance_evidence": true
+  },
+  "inputs": {
+    "coverage": {
+      "path": "productions/_series/academic-visual-coverage.json",
+      "sha256": "d214207f6648c7dfe7776cbd8ba84ae19bf39556d531e9a115c08e21e286bdf6"
+    },
+    "chalkboards": {
+      "strategy-checklist.png": {
+        "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/strategy-checklist.png",
+        "sha256": "90a99ff11ce7771ecfa7e980920f122b6a4e748500f84877fcb12d2bab8d93bd"
+      },
+      "profit-factor-arithmetic.png": {
+        "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/profit-factor-arithmetic.png",
+        "sha256": "418e0f8000772cf5a82d453ba4928853d76ee0485f82b8d6711b332532497145"
+      },
+      "test-plan-checklist.png": {
+        "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/test-plan-checklist.png",
+        "sha256": "ecfcef9207e97d473314a5c9d616209ed52fc9a236d4aa3f3eb704c49e0cf783"
+      },
+      "transaction-cost-stack.png": {
+        "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/transaction-cost-stack.png",
+        "sha256": "bd54260cbc3a05e0ddba72543f0d471db62e8c26b198333b78afcbb150992a7a"
+      },
+      "trade-cost-units.png": {
+        "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/trade-cost-units.png",
+        "sha256": "c5496b9d0e27eedbea5b0e5e80085fda4c7bc91dc95c7ed36be273e3a82decdb"
+      },
+      "simulation-error.png": {
+        "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/simulation-error.png",
+        "sha256": "a954738f188f80ee16d6bdb8aaf8f51b5324d066140a23984241456379276e38"
+      }
+    }
+  },
+  "filmstrips": {
+    "01": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/original-ep01-mixed-media-filmstrip.jpg",
+      "sha256": "ea6e4cc9a037d0e1d8d298ed667d7fa0a60a42dc9a760f503d97bfea51eb8290",
+      "scene_count": 13,
+      "width": 1992,
+      "height": 1908
+    },
+    "02": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/original-ep02-mixed-media-filmstrip.jpg",
+      "sha256": "9562d2a7395c9abe9bc53470762746f91e5d6a194aceb1c923ddf01f88bb0459",
+      "scene_count": 13,
+      "width": 1992,
+      "height": 1908
+    },
+    "03": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/original-ep03-mixed-media-filmstrip.jpg",
+      "sha256": "5e54fc4f80309b2ac52af388c244ccdc9d03b31e691c48e13d557c4d279efd39",
+      "scene_count": 15,
+      "width": 1992,
+      "height": 1908
+    },
+    "04": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/original-ep04-mixed-media-filmstrip.jpg",
+      "sha256": "311cf3bc8d6fabaef26ad51a8cbe017a95b678685b4cab48ad27a972024f4305",
+      "scene_count": 15,
+      "width": 1992,
+      "height": 1908
+    }
+  },
+  "scenes": [
+    {
+      "episode": "01",
+      "slot": "scene-01",
+      "mode": "REAL CHART",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/images/tradingview-es1-1h.png",
+      "source_sha256": "a6a236c3fbd231c1f8693b6e669c8ae77724c3b7849b667a946b3123746d247c",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-01.jpg",
+      "review_frame_sha256": "51c587aa7628e9c65a3568d4054323ac8feb9e47e05d5f116a2c422f93c23682",
+      "receipts": [
+        "E01-C01"
+      ],
+      "treatment": "Put the historical result on the left and the still-unanswered questions on the right. Never leave the definition of a backtest on a black screen."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-02",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-backtest-vs-strategy.png",
+      "source_sha256": "a9ed290cc39f68ff2cf57e626d8c1af813567ac4ae864a5e766ef904d63c088f",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-02.jpg",
+      "review_frame_sha256": "61e65c36c40c0dc07780f353d78c366904be1bbe16b56b10fe901b5eddfe8b65",
+      "receipts": [
+        "E01-C02"
+      ],
+      "treatment": "Animate a visible search history of tried versions before revealing the survivor count; do not jump straight to a single winner curve."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-03",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/strategy-checklist.png",
+      "source_sha256": "90a99ff11ce7771ecfa7e980920f122b6a4e748500f84877fcb12d2bab8d93bd",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-03.jpg",
+      "review_frame_sha256": "6c631f66e5afaa86cf58d19954a94bf8f0d0ca5705e516bd4c30c653af99af24",
+      "receipts": [
+        "E01-C03",
+        "E01-C03B"
+      ],
+      "treatment": "Build the strategy checklist line by line: entry, exit, size, loss rule, costs, stop rule, and a reason that can fail."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-04",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/profit-factor-arithmetic.png",
+      "source_sha256": "418e0f8000772cf5a82d453ba4928853d76ee0485f82b8d6711b332532497145",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-04.jpg",
+      "review_frame_sha256": "84b050b8d8131401e2fbd617b11393787b1e19342c0059413a9a16738cc3ce74",
+      "receipts": [
+        "E01-C04",
+        "E01-C04B"
+      ],
+      "treatment": "Place the winning-dollar and losing-dollar piles on screen, write the division, and move the ratio across the break-even line at one."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-05",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-drawdown-path.png",
+      "source_sha256": "e45286ddad09eebbd7f3214cd1a051809701870f8f5526769ce9d4206d477c76",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-05.jpg",
+      "review_frame_sha256": "b7c13a2124e9915a41ec8d45ab21a2c8b84055ad9dff7949103c146fb5bcb0d9",
+      "receipts": [
+        "E01-C05",
+        "E01-C05B"
+      ],
+      "treatment": "Trace the running peak, the later trough, and the deepest peak-to-trough drop while the definition is spoken."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-06",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-golden-arithmetic.png",
+      "source_sha256": "b1c53df0c4556d29afa877db9ae4e0ade9f5aa6fd03a2fc3f05ccd34d11cd63c",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-06.jpg",
+      "review_frame_sha256": "51b963f0c79a68a76e9ede3d0b29a5c62d57dcc537408c3d0198dfea516f6c48",
+      "receipts": [
+        "E01-C06",
+        "E01-C06B",
+        "E01-C06C"
+      ],
+      "treatment": "Reveal each Golden Cross input from the separate historical test, then calculate profit factor and return-to-drawdown in view."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-07",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-golden-arithmetic.png",
+      "source_sha256": "b1c53df0c4556d29afa877db9ae4e0ade9f5aa6fd03a2fc3f05ccd34d11cd63c",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-07.jpg",
+      "review_frame_sha256": "7199083244c60a278a796eab158e39d74de2cb959c49406bc3a342de5959d050",
+      "receipts": [
+        "E01-C07",
+        "E01-C07B"
+      ],
+      "treatment": "Hold win rate beside average win, average loss, costs, and final arithmetic so no single percentage becomes the verdict."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-08",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-intake-funnel.png",
+      "source_sha256": "4e6ab26d7bda59ef4fc59b2fa21140b77f5f74a2248101e59331401b125da5d0",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-08.jpg",
+      "review_frame_sha256": "d5eaa058784907f4edfa6d1f171bf004f952dd4b4885034b3125b169f816c733",
+      "receipts": [
+        "E01-C08",
+        "E01-C08B",
+        "E01-C08C"
+      ],
+      "treatment": "Count 1,335 entering and 184 surviving, then show overlapping gate failures with an explicit overlap label."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-09",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-profit-factor-near-misses.png",
+      "source_sha256": "b2ab1ebff6100d5e71727b1cd8b83dd5708928c6d2edd9ebe397a8d6a9c86903",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-09.jpg",
+      "review_frame_sha256": "b4d32f1482420193f82adbee299aa1309babacba6297a925c556d98dd589d338",
+      "receipts": [
+        "E01-C09",
+        "E01-C09B",
+        "E01-C09C"
+      ],
+      "treatment": "Plot the failed profit factors around one, shade the declared ten-percent band, and keep the population-specific limitation visible."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-10",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-profit-factor-near-misses.png",
+      "source_sha256": "b2ab1ebff6100d5e71727b1cd8b83dd5708928c6d2edd9ebe397a8d6a9c86903",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-10.jpg",
+      "review_frame_sha256": "6b57cc0d5e1fa44a00c66927ff3997c17586ff555bf3fa095b72a5377a985fc3",
+      "receipts": [
+        "E01-C10",
+        "E01-C10B"
+      ],
+      "treatment": "Move the threshold toward one while leaving every measured point fixed, making clear that a lower rule changes admission rather than performance."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-11",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-intake-funnel.png",
+      "source_sha256": "4e6ab26d7bda59ef4fc59b2fa21140b77f5f74a2248101e59331401b125da5d0",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-11.jpg",
+      "review_frame_sha256": "0128c048e2170e824a3ab57c450cdb71050030f4788d47838a0cab21114214d3",
+      "receipts": [
+        "E01-C11",
+        "E01-C11B",
+        "E01-C11C"
+      ],
+      "treatment": "Carry the same 184 markers into the next screen instead of turning them into winner badges."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-12",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep01-holdout-boundary.png",
+      "source_sha256": "6b4c8693770376e545a6f284011527844b82154d26b3c1496cb3b622d1c06830",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-12.jpg",
+      "review_frame_sha256": "1b08e1577705e64117a5dbb903d17abd1b318337ef3d29822e7c9efa2e583114",
+      "receipts": [
+        "E01-C12",
+        "E01-C12B"
+      ],
+      "treatment": "Reveal earlier development prices, the frozen-rule boundary, and later untouched prices in chronological order; visibly relabel the holdout as used once it informs a revision."
+    },
+    {
+      "episode": "01",
+      "slot": "scene-13",
+      "mode": "TRADER CONTEXT",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/support-media-review/trader-desk-monitors.png",
+      "source_sha256": "afdb48a51922c57dfdd1f5420931859147f9683da69db5aee116f3764411cc0c",
+      "review_frame": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/academic-mixed-media/scene-13.jpg",
+      "review_frame_sha256": "74ab503d6ab61a372dcc2dadab54a356f0dcd884e02c1509fbd5e7be0d2d3bb4",
+      "receipts": [
+        "E01-C13",
+        "E01-C13B",
+        "E01-C13C"
+      ],
+      "treatment": "Close on the complete written process and the 184 candidates moving forward, not on an isolated green equity curve."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-hook",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-selected-maximum.png",
+      "source_sha256": "2fc46801ab7d3e207240503f6ccee72e08078d5c87b9c25726fa32d744abd506",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-hook.jpg",
+      "review_frame_sha256": "ea3ace1a1bcd689114aa009bcaf68af29449cbbd6803da9bf8ed0091b50b7699",
+      "receipts": [
+        "E02-C01"
+      ],
+      "treatment": "Animate many tried rules collapsing into one selected maximum, then move the untouched period into view."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-windows",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-ordered-holdout.png",
+      "source_sha256": "6b4c8693770376e545a6f284011527844b82154d26b3c1496cb3b622d1c06830",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-windows.jpg",
+      "review_frame_sha256": "80fe2b18614109b1a9ecc9097b91bb4ab6f35526ba426f85a898907774742640",
+      "receipts": [
+        "E02-C02",
+        "E02-C02B",
+        "E02-C03"
+      ],
+      "treatment": "Reveal development, warm-up, frozen-rule boundary, and holdout in order; show the search-count warning beside the development block."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-terminal",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-ordered-holdout.png",
+      "source_sha256": "6b4c8693770376e545a6f284011527844b82154d26b3c1496cb3b622d1c06830",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-terminal.jpg",
+      "review_frame_sha256": "4da1fecf25d7f0e292c5a749df539262c9f4cc2fd15bded2ba28ecd7303a344d",
+      "receipts": [
+        "E02-C04"
+      ],
+      "treatment": "Use a point-in-time membership strip with delisted names remaining in their historical dates; do not use a generic terminal screen."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-gate",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-oos-field-distribution.png",
+      "source_sha256": "f46410ca2474dd37f4ef6db026860325478d361322082cbd499886ed087672f6",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-gate.jpg",
+      "review_frame_sha256": "30a02a30d701a8ac260c54353b810e8602d11549e1608245e81ff6d21a48661b",
+      "receipts": [
+        "E02-C05",
+        "E02-C05B"
+      ],
+      "treatment": "Count 184 entering, 154 positive-net, and 30 non-positive-net marks from the run-derived field."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-funnel",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-oos-field-distribution.png",
+      "source_sha256": "f46410ca2474dd37f4ef6db026860325478d361322082cbd499886ed087672f6",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-funnel.jpg",
+      "review_frame_sha256": "6706d2b9f15c71c7c4d927b4c03e512bc5e6215e1c21bafa8434e29a71ca56b9",
+      "receipts": [
+        "E02-C06",
+        "E02-C06B"
+      ],
+      "treatment": "Keep the whole distribution visible while mean, median, and percentile ranks are introduced."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-distribution",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-selected-maximum.png",
+      "source_sha256": "2fc46801ab7d3e207240503f6ccee72e08078d5c87b9c25726fa32d744abd506",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-distribution.jpg",
+      "review_frame_sha256": "da7c7c291e8938af226dd632466fd458f848170c41ef5f137d06944f885aff85",
+      "receipts": [
+        "E02-C07"
+      ],
+      "treatment": "Contrast a pre-specified result with the maximum selected after comparing 184 candidates."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-twins",
+      "mode": "CARD",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-sample-uncertainty.png",
+      "source_sha256": "054a1644c6914e27508008070220b4cba9ad73cd6f13d2caa0f62917b66d8c90",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-twins.jpg",
+      "review_frame_sha256": "9ca4136eae50b50efdf45f7c7dce2f15b6ced067294f40a3656fcdaaa687b7d2",
+      "receipts": [
+        "E02-C08"
+      ],
+      "treatment": "Hold out-of-sample status constant while data quality, execution, dependence, regime coverage, and search count appear as separate unresolved dimensions."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-relief",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-ordered-holdout.png",
+      "source_sha256": "6b4c8693770376e545a6f284011527844b82154d26b3c1496cb3b622d1c06830",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-relief.jpg",
+      "review_frame_sha256": "d5afd213f58a30872a0b740379a7ef812a648a2f433757e60e1d2f68c29c1cdc",
+      "receipts": [
+        "E02-C09"
+      ],
+      "treatment": "Show the holdout changing into validation data the moment its result feeds a revision, followed by a new untouched block."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-406",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/simulation-error.png",
+      "source_sha256": "a954738f188f80ee16d6bdb8aaf8f51b5324d066140a23984241456379276e38",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-406.jpg",
+      "review_frame_sha256": "c2ae0d391099896dcb596200b9a70a999d772258211735f81b29daa65560a1a6",
+      "receipts": [
+        "E02-C10",
+        "E02-C10B"
+      ],
+      "treatment": "Animate interval width shrinking continuously with sample size; do not draw a magical threshold at 100 trades."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-treasure",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-concentration-stress.png",
+      "source_sha256": "7605c0f8e83e3468a37dfa7d1f345c4ccd2487605985b722a05cea690cbf87f2",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-treasure.jpg",
+      "review_frame_sha256": "4411edef15cef00bf34d3a6b2536afabb531b67a1c0771d5f16342c94dfc7439",
+      "receipts": [
+        "E02-C11"
+      ],
+      "treatment": "Remove the largest contributors one at a time and show how much of the reported result remains."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-limits",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-walk-forward.png",
+      "source_sha256": "6322812e91cb87b9a9a567aba04786b2bd37eaddbf8a53c7ac065d8972ca7dc0",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-limits.jpg",
+      "review_frame_sha256": "90f6a83436c94f84e06640948218c1c0549f9de2782e77a346de2cef562df190",
+      "receipts": [
+        "E02-C12",
+        "E02-C12B"
+      ],
+      "treatment": "Advance rolling train/test windows through time, then expose the dependence caveat rather than calling the folds independent."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-diy",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/test-plan-checklist.png",
+      "source_sha256": "ecfcef9207e97d473314a5c9d616209ed52fc9a236d4aa3f3eb704c49e0cf783",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-diy.jpg",
+      "review_frame_sha256": "c89540afeb48a0ecb5cad29bc048f4fd4515f9377e6c39df0c202cf92b4d4455",
+      "receipts": [
+        "E02-C13",
+        "E02-C13B"
+      ],
+      "treatment": "Build a plain-language test-plan checklist beside the locked timeline: dates, universe, costs, warm-up, search count, failures, distribution, and uncertainty."
+    },
+    {
+      "episode": "02",
+      "slot": "scene-close",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep02-selected-maximum.png",
+      "source_sha256": "2fc46801ab7d3e207240503f6ccee72e08078d5c87b9c25726fa32d744abd506",
+      "review_frame": "OpenMontage/projects/series-02-out-of-sample/snapshots/academic-mixed-media/scene-close.jpg",
+      "review_frame_sha256": "44d892e8f3a778834d7a1156a768194293f3d91cf62a24e171be7fcfa872a641",
+      "receipts": [
+        "E02-C14"
+      ],
+      "treatment": "End on the untouched-data boundary, not a winner card."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-hook",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-field-transitions.png",
+      "source_sha256": "7f8b34bb70b3e541103e6f33e5e24f161fdb79aa7ef1e207d5cc9f54ae30202b",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-hook.jpg",
+      "review_frame_sha256": "0c4330a159b26b142305281361d4482572aacaf4c54a0c310743b4c1046754eb",
+      "receipts": [
+        "E03-C01"
+      ],
+      "treatment": "Move every candidate from no-cost paper result to the cost-stressed field; never represent slippage with atmospheric darkness alone."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-stack",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/transaction-cost-stack.png",
+      "source_sha256": "bd54260cbc3a05e0ddba72543f0d471db62e8c26b198333b78afcbb150992a7a",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-stack.jpg",
+      "review_frame_sha256": "52455324539a9f6694c6612a0fe6feba06d36f7a810e7980a0beadcfa3ff4a6a",
+      "receipts": [
+        "E03-C02",
+        "E03-C02B"
+      ],
+      "treatment": "Separate commission, spread, market impact, and market movement before the fill as named cost components with units."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-formula",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/transaction-cost-stack.png",
+      "source_sha256": "bd54260cbc3a05e0ddba72543f0d471db62e8c26b198333b78afcbb150992a7a",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-formula.jpg",
+      "review_frame_sha256": "bc3d7a03c7fb48883741395b5c44e44837872d02828e8f0bce32cb5c8b9d90cb",
+      "receipts": [
+        "E03-C03"
+      ],
+      "treatment": "Write the fixed-ledger re-pricing equation on screen and label what was not re-simulated."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-numbers",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-response-curves.png",
+      "source_sha256": "545a9b0a0dbcb5a2b6d57ef8c0e4755c6cd0c5b192d5030682e8218f5e7c2735",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-numbers.jpg",
+      "review_frame_sha256": "8975a3fe7e43ef3c504b315f3e5c0b1e38aa53c706a466ecb537bf4cbd3fc37b",
+      "receipts": [
+        "E03-C04",
+        "E03-C04B"
+      ],
+      "treatment": "Plot the actual 1x, 2x, and 3x stress outcomes and count failures at each level."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-elegant",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-field-transitions.png",
+      "source_sha256": "7f8b34bb70b3e541103e6f33e5e24f161fdb79aa7ef1e207d5cc9f54ae30202b",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-elegant.jpg",
+      "review_frame_sha256": "bcc5ab637561d126fd6c3af8033b04c67fcb82ea8acf8b3840f6e34a86f5ba15",
+      "receipts": [
+        "E03-C05"
+      ],
+      "treatment": "Show why net-profit and profit-factor signs coincide on the same fixed trade ledger."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-stress",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-response-curves.png",
+      "source_sha256": "545a9b0a0dbcb5a2b6d57ef8c0e4755c6cd0c5b192d5030682e8218f5e7c2735",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-stress.jpg",
+      "review_frame_sha256": "06f1cdecc99a5f280075105941e87881a24e9f60d11899116e25cd834559cdca",
+      "receipts": [
+        "E03-C06"
+      ],
+      "treatment": "Keep every candidate response curve visible so slope and dispersion replace a single pass/fail card."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-bars",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-fixed-ledger-formula.png",
+      "source_sha256": "be42aa6f4e6b7842c79ae51aa3e88030b7b71751a077e8f8a4d2d8787b0a90bf",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-bars.jpg",
+      "review_frame_sha256": "2bb880cd239c23a7682e15108899fa9a171b76167335f9286e6d11efbcea4cce",
+      "receipts": [
+        "E03-C07",
+        "E03-C07B"
+      ],
+      "treatment": "Animate the linear fixed-ledger deduction, then explicitly bracket the model conditions where linearity stops being credible."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-cliff",
+      "mode": "CARD",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-response-curves.png",
+      "source_sha256": "545a9b0a0dbcb5a2b6d57ef8c0e4755c6cd0c5b192d5030682e8218f5e7c2735",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-cliff.jpg",
+      "review_frame_sha256": "986ae32781d49aad8b97169b8c1de65a504dcd9065937ae28bbfe55bb816982e",
+      "receipts": [
+        "E03-C08"
+      ],
+      "treatment": "Use cliff as a descriptive shape only when the plotted response changes sharply; do not imply a universal theorem."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-casualty",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-order-type-tradeoff.png",
+      "source_sha256": "6a3cf04425207594be4bd6644fb402a7c17a36ffa6f22f49ada4d664cfcbfe9b",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-casualty.jpg",
+      "review_frame_sha256": "5cca1478ee8e59b6159c1a3b5a6e03504418fafac379633e4723dd34983571a9",
+      "receipts": [
+        "E03-C09"
+      ],
+      "treatment": "Place market-order execution risk and limit-order non-fill/adverse-selection risk on the same trade-off diagram."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-survivor",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-field-transitions.png",
+      "source_sha256": "7f8b34bb70b3e541103e6f33e5e24f161fdb79aa7ef1e207d5cc9f54ae30202b",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-survivor.jpg",
+      "review_frame_sha256": "135a662d53920dca7ed93d3d5affb1693b77cde24f51244c3dc9ec777cf611fd",
+      "receipts": [
+        "E03-C10",
+        "E03-C10B"
+      ],
+      "treatment": "Keep 2x and 3x as labeled scenario choices from this run, never as universal realistic-cost constants."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-count",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/trade-cost-units.png",
+      "source_sha256": "c5496b9d0e27eedbea5b0e5e80085fda4c7bc91dc95c7ed36be273e3a82decdb",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-count.jpg",
+      "review_frame_sha256": "ad4e40fe13bed829ec4ddb5055cfb9efa2ab91990f31c55d8f0bbd43e311cf02",
+      "receipts": [
+        "E03-C11"
+      ],
+      "treatment": "Show per-side, round-trip, per-contract, and per-order units before multiplying cost by trade count."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-classes",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-cost-drivers.png",
+      "source_sha256": "9253e4e976f97c0209e82f2c92275055e863cdb21c92535fda92183ac771d679",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-classes.jpg",
+      "review_frame_sha256": "0609e32bf029e185c09f60f8bfe9551680f97af24c5affe71e77c3f204e643a1",
+      "receipts": [
+        "E03-C12"
+      ],
+      "treatment": "Change spread, depth, volatility, size, order type, and urgency independently; avoid a one-size-fits-all asset-class badge."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-scar",
+      "mode": "TRADER CONTEXT",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/support-media-review/trader-desk-monitors.png",
+      "source_sha256": "afdb48a51922c57dfdd1f5420931859147f9683da69db5aee116f3764411cc0c",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-scar.jpg",
+      "review_frame_sha256": "6788fa685f6431cee9c24ae05759ad4721d2dc9d2d76889da8420388a8edd55d",
+      "receipts": [
+        "E03-C13",
+        "E03-C13B"
+      ],
+      "treatment": "Separate a wiring proof from external calibration and live-execution validation."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-diy",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-cost-anatomy.png",
+      "source_sha256": "a11889c5519427e4170c5cdb99eb9a2105da3ff91779e1a41c288b23e6e184f9",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-diy.jpg",
+      "review_frame_sha256": "5f4d2dda9da85cea12cffe82c64c2122da6f6a30a76eb017a49da916aaa1ffd5",
+      "receipts": [
+        "E03-C14",
+        "E03-C14B"
+      ],
+      "treatment": "Build the cost-definition checklist from fill benchmarks, units, tested assumptions, and limitations."
+    },
+    {
+      "episode": "03",
+      "slot": "scene-close",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep03-response-curves.png",
+      "source_sha256": "545a9b0a0dbcb5a2b6d57ef8c0e4755c6cd0c5b192d5030682e8218f5e7c2735",
+      "review_frame": "OpenMontage/projects/series-03-slippage/snapshots/academic-mixed-media/scene-close.jpg",
+      "review_frame_sha256": "0b76435e351eef7bd37016137616c6555d1d6a79108da8ce085c3587d545405b",
+      "receipts": [
+        "E03-C15"
+      ],
+      "treatment": "Close on measured sensitivity to cost assumptions, not on the word slippage floating over black."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-hook",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-response-geometry.png",
+      "source_sha256": "4c89ecda4bb1daca2510df0e0d12919e98a16ceec46b57079841a7161578c17f",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-hook.jpg",
+      "review_frame_sha256": "c13068215b0ecd41f51b668545b4e5a6b90699c7428373a55ce41913b82afa2d",
+      "receipts": [
+        "E04-C01"
+      ],
+      "treatment": "Start with a response surface and identify stable plateaus versus narrow peaks."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-luck",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-response-geometry.png",
+      "source_sha256": "4c89ecda4bb1daca2510df0e0d12919e98a16ceec46b57079841a7161578c17f",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-luck.jpg",
+      "review_frame_sha256": "71c0946149a0cbf9a94a8a79c9a44ad22bc80290be1225f62009d635233030ff",
+      "receipts": [
+        "E04-C02"
+      ],
+      "treatment": "Contrast one lucky point with the neighborhood and the full candidate field."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-mc",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/simulation-error.png",
+      "source_sha256": "a954738f188f80ee16d6bdb8aaf8f51b5324d066140a23984241456379276e38",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-mc.jpg",
+      "review_frame_sha256": "0c8434ff4ddc47aef8d6b00cb463d02239628791e9b34fa4663cdff6d7120093",
+      "receipts": [
+        "E04-C03",
+        "E04-C03B"
+      ],
+      "treatment": "Define one Monte Carlo run and distinguish this parameter experiment from bootstrap resampling and Markov-chain Monte Carlo."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-what",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-perturbation-mechanism.png",
+      "source_sha256": "362586c8f131bf3f3a48ceffc59087fbb21e014c076e9a72ab60d323ff066d80",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-what.jpg",
+      "review_frame_sha256": "a8d25cdd4280a9a9d5952db48c8553a454fac7619b12caa1d8e79d9fb7c45441",
+      "receipts": [
+        "E04-C04",
+        "E04-C04B"
+      ],
+      "treatment": "Animate the exact selection probability and uniform plus-or-minus-thirty-percent multiplier while entry logic remains fixed."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-surface",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-response-geometry.png",
+      "source_sha256": "4c89ecda4bb1daca2510df0e0d12919e98a16ceec46b57079841a7161578c17f",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-surface.jpg",
+      "review_frame_sha256": "f86032504a3b5f1bf8d9d34b6b521d4a9fc6842dd4a7a9340e96aa0d78189a35",
+      "receipts": [
+        "E04-C05"
+      ],
+      "treatment": "Use the surface as a geometric explanation and label it illustrative unless its points come from stored run output."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-p05",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-p05-rank.png",
+      "source_sha256": "f66e7024ace6e52bdbb892de7687fa93831dc9bf9a8f912ef868bc3ac704f9e3",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-p05.jpg",
+      "review_frame_sha256": "36b26723d46c7224fc32990cdb570bf618288f7be548f8919a8ec3a2050e36b0",
+      "receipts": [
+        "E04-C06",
+        "E04-C06B"
+      ],
+      "treatment": "Sort 200 values, mark the fifth-percentile rank convention, and show why nearby tail order statistics matter."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-misnamed",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-p05-rank.png",
+      "source_sha256": "f66e7024ace6e52bdbb892de7687fa93831dc9bf9a8f912ef868bc3ac704f9e3",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-misnamed.jpg",
+      "review_frame_sha256": "e1a5c3015fad82ba8ed0d1ebd73e8c6cb8a0fdcf95070b45dba528cec8b400c0",
+      "receipts": [
+        "E04-C07"
+      ],
+      "treatment": "Display the implementation's misnamed field beside its actual lower-tail meaning; do not silently repeat the label."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-field",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-field-scatter.png",
+      "source_sha256": "4f0366d3107a467cddc2384359468a3c9ea402093c5b98b1f6541b5d3e03800a",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-field.jpg",
+      "review_frame_sha256": "764386c6a84e253a1fd507f298af90204a5d2c1c24af94ca3040045bb66e6096",
+      "receipts": [
+        "E04-C08"
+      ],
+      "treatment": "Plot all 46 entering candidates and the actual 18 pass/28 fail split."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-fan",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-fan-chart.png",
+      "source_sha256": "6d3caa1164dac622efe13472407bb90863021fc1be26bed81082e93feee501c5",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-fan.jpg",
+      "review_frame_sha256": "c217be15d06c9d03933c1a8cf3b8466df211360050b36d86e7e9e189b41e052f",
+      "receipts": [
+        "E04-C09",
+        "E04-C09B"
+      ],
+      "treatment": "Draw the 100 stored display paths with green profitable endings, red losing or flat endings, an explicit zero line, and neutral pointwise percentile bands. Never invent a losing path to balance the palette; keep the simultaneous-band limitation visible."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-casualty",
+      "mode": "CARD",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-field-scatter.png",
+      "source_sha256": "4f0366d3107a467cddc2384359468a3c9ea402093c5b98b1f6541b5d3e03800a",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-casualty.jpg",
+      "review_frame_sha256": "2e2a67a5d3227c3702eec37b75c4bcb40439fb00b7229804b9afe05d1e5d7352",
+      "receipts": [
+        "E04-C10"
+      ],
+      "treatment": "Locate failures in the field and describe geometry without pretending a two-dimensional projection proves the cause."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-survivor",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-fan-chart.png",
+      "source_sha256": "6d3caa1164dac622efe13472407bb90863021fc1be26bed81082e93feee501c5",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-survivor.jpg",
+      "review_frame_sha256": "6c3dcf9df32c5a5026ef0824c105869960b7d38c774a9a6f56d321a3a940d0f4",
+      "receipts": [
+        "E04-C11",
+        "E04-C11B"
+      ],
+      "treatment": "Separate passing this exact perturbation gate from universal robustness."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-determinism",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-reproducibility-check.png",
+      "source_sha256": "ab32b060118062e34875674f73f7abc822bf17ba4a8ab9c9298d74eae9dc9ad3",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-determinism.jpg",
+      "review_frame_sha256": "cce0431928b0fab667c8a028adf0953eefc9ccf03d0485ac6fc2028360d46e5a",
+      "receipts": [
+        "E04-C12",
+        "E04-C12B"
+      ],
+      "treatment": "Show seed derivation, repeat calculation, file-hash comparison, and software environment as distinct reproducibility checks."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-diy",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-perturbation-mechanism.png",
+      "source_sha256": "362586c8f131bf3f3a48ceffc59087fbb21e014c076e9a72ab60d323ff066d80",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-diy.jpg",
+      "review_frame_sha256": "f40f0b9b5b57ab00afc25edb185a7e624cb5fc4d1c0527ad83a1d81a0b5385ca",
+      "receipts": [
+        "E04-C13"
+      ],
+      "treatment": "Build the random-change recipe and reproducibility checklist before showing any result."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-limits",
+      "mode": "CHALKBOARD DRAW-ON",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/chalkboard-review/simulation-error.png",
+      "source_sha256": "a954738f188f80ee16d6bdb8aaf8f51b5324d066140a23984241456379276e38",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-limits.jpg",
+      "review_frame_sha256": "07dd9e4db728298fc79967f41d6f3969fcffd550d2b4f017c10fb51858795a34",
+      "receipts": [
+        "E04-C14",
+        "E04-C14B"
+      ],
+      "treatment": "Plot the inverse-square-root error law and tail-event standard errors; never draw 200 as a maximum."
+    },
+    {
+      "episode": "04",
+      "slot": "scene-close",
+      "mode": "ANIMATED MATH",
+      "source": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/math-asset-review/ep04-response-geometry.png",
+      "source_sha256": "4c89ecda4bb1daca2510df0e0d12919e98a16ceec46b57079841a7161578c17f",
+      "review_frame": "OpenMontage/projects/series-04-mc-param/snapshots/academic-mixed-media/scene-close.jpg",
+      "review_frame_sha256": "a41a6079cfc6095229b39e8c2ef042c60e64d46e6f6897ad7b97df0698ea24f6",
+      "receipts": [
+        "E04-C15"
+      ],
+      "treatment": "Close on neighborhood stability plus a reproducible test record, not a simulation-count slogan."
+    }
+  ]
+}

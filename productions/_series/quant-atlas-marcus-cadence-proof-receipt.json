@@ -1,0 +1,105 @@
+{
+  "schema": "tradercockpit-quant-atlas-marcus-cadence-proof/v1",
+  "created_at": "2026-08-02T10:11:40.2926765+07:00",
+  "status": "completed_awaiting_operator_listening_review",
+  "scope": {
+    "episode": 1,
+    "scene": "scene-01",
+    "operator_feedback": "Keep the voice speed consistent; the final 25 to 30 seconds slowed dramatically.",
+    "comparison_rule": "Same exact script, Marcus source performance, and approved visual stream; only the objectively defective closing-sentence cadence is corrected.",
+    "full_episode_render_authorized": false,
+    "additional_provider_generation_authorized": false,
+    "upload_or_publication_authorized": false
+  },
+  "source_proof": {
+    "path": "productions/series-01-backtest-is-not-a-strategy/quant-atlas-episode-01-proof-marcus.mp4",
+    "sha256": "3e5271bd37853246864e6255ad18f6ded8a181a9a45f5ca7cbea59cb34c93033",
+    "receipt_path": "productions/_series/quant-atlas-marcus-voice-proof-receipt.json",
+    "receipt_sha256": "edbfb663382a3e7687cd043820f0bcd9e83773707ee0b8f411cb27e10cc5a232",
+    "creative_status": "rejected_for_closing_sentence_speed_collapse"
+  },
+  "cadence_correction": {
+    "provider": "Higgsfield",
+    "model": "Qwen Audio 3.0 TTS Flash",
+    "voice": "Marcus",
+    "voice_id": "6f98d3dd-324f-4845-8c28-c1d1647a06cd",
+    "provider_clean_source_preserved": true,
+    "split_seconds": 18.44,
+    "processing": "FFmpeg rubberband pitch-preserving local conform on the final sentence only, tempo 1.9 and pitch 1.0; then 70 Hz high-pass and two-pass EBU R128 mastering.",
+    "new_provider_generation_calls": 0,
+    "included_credits_used_this_revision": 0.0,
+    "cash_cost_usd": 0.0,
+    "subscription_change": false,
+    "credit_top_up": false,
+    "mastered_wav": {
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/scene-01-marcus-cadence-mastered.wav",
+      "sha256": "af3de7561e7badb45e3aece1ee1939db7964c66723cdc6bacb6aa08362c18d91",
+      "bytes": 3210240,
+      "duration_seconds": 22.292625,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "pcm_bits": 24
+    }
+  },
+  "cadence_gate": {
+    "command": "py tools/conform_series_narration.py --check-transcript <transcript.json>",
+    "thresholds": {
+      "minimum_median_ratio": 0.7,
+      "maximum_median_ratio": 1.4,
+      "minimum_segment_words": 4
+    },
+    "original": {
+      "median_words_per_second": 3.829,
+      "closing_sentence_words": 12,
+      "closing_sentence_duration_seconds": 6.92,
+      "closing_sentence_words_per_second": 1.734,
+      "closing_sentence_median_ratio": 0.453,
+      "result": "fail"
+    },
+    "corrected": {
+      "median_words_per_second": 3.838,
+      "closing_sentence_words": 12,
+      "closing_sentence_duration_seconds": 3.58,
+      "closing_sentence_words_per_second": 3.352,
+      "closing_sentence_median_ratio": 0.873,
+      "segments_checked": 6,
+      "violations": 0,
+      "result": "pass"
+    },
+    "transcript": {
+      "engine": "faster-whisper small",
+      "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/audio/asr/scene-01-marcus-cadence-mastered_transcript.json",
+      "sha256": "d5475c4c5a2b09ccd5f883c272916cd4013ae2176dc77f67e938c955b9976208",
+      "content_result": "All approved sentences and concepts remain present; ASR compound spacing and inflection variants remain non-authoritative."
+    }
+  },
+  "playable_proof": {
+    "path": "productions/series-01-backtest-is-not-a-strategy/quant-atlas-episode-01-proof-marcus-cadence-v2.mp4",
+    "sha256": "4d506bb3aaca24bf473ab718d38504ee9ae2dc3e7d2ad612d8dce67059fa93b7",
+    "bytes": 2497053,
+    "duration_seconds": 32.405,
+    "video": "H.264 1920x1080 30fps, 972 frames",
+    "audio": "AAC 48000Hz stereo",
+    "measured_integrated_lufs": -16.41,
+    "measured_true_peak_dbtp": -4.45,
+    "decode_check": "pass",
+    "assembly": "The approved baseline H.264 stream was copied without re-encoding; only the corrected AAC narration track was supplied.",
+    "decoded_video_sha256": "4697df86ccd6341daf36d0f52ead8b8d2907c6be17e9ac565e7d7434afabdfaa",
+    "visual_stream_verification": "pass: the decoded video hash and all 972 frames match the approved baseline",
+    "creative_status": "awaiting operator listening review"
+  },
+  "thumbnail_brand_authority": {
+    "public_brand_mark": "Trader Cockpit",
+    "quant_atlas_public_thumbnail_use": "forbidden",
+    "quant_atlas_scope": "internal art-direction shorthand only",
+    "updated_brief": "productions/series-01-backtest-is-not-a-strategy/thumbnail-brief.md"
+  },
+  "blocked_after_proof": [
+    "full episode render",
+    "additional provider batch",
+    "upload",
+    "publication",
+    "subscription change",
+    "credit top-up"
+  ]
+}

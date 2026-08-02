@@ -1,0 +1,59 @@
+{
+  "description": "Fail-closed Into the Laboratory production hooks.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -B \"$(git rev-parse --show-toplevel)/.codex/hooks/series_guard.py\" hook",
+            "commandWindows": "$repoRoot=(git rev-parse --show-toplevel).Trim(); $python=\"$repoRoot\\OpenMontage\\.venv\\Scripts\\python.exe\"; if (!(Test-Path -LiteralPath $python)) { $python='C:\\Users\\MSI\\Documents\\tradercockpit\\OpenMontage\\.venv\\Scripts\\python.exe' }; & $python -B \"$repoRoot\\.codex\\hooks\\series_guard.py\" hook",
+            "timeout": 10,
+            "statusMessage": "Loading teaching-series guard"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -B \"$(git rev-parse --show-toplevel)/.codex/hooks/series_guard.py\" hook",
+            "commandWindows": "$repoRoot=(git rev-parse --show-toplevel).Trim(); $python=\"$repoRoot\\OpenMontage\\.venv\\Scripts\\python.exe\"; if (!(Test-Path -LiteralPath $python)) { $python='C:\\Users\\MSI\\Documents\\tradercockpit\\OpenMontage\\.venv\\Scripts\\python.exe' }; & $python -B \"$repoRoot\\.codex\\hooks\\series_guard.py\" hook",
+            "timeout": 10,
+            "statusMessage": "Checking teaching-series route"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -B \"$(git rev-parse --show-toplevel)/.codex/hooks/series_guard.py\" hook",
+            "commandWindows": "$repoRoot=(git rev-parse --show-toplevel).Trim(); $python=\"$repoRoot\\OpenMontage\\.venv\\Scripts\\python.exe\"; if (!(Test-Path -LiteralPath $python)) { $python='C:\\Users\\MSI\\Documents\\tradercockpit\\OpenMontage\\.venv\\Scripts\\python.exe' }; & $python -B \"$repoRoot\\.codex\\hooks\\series_guard.py\" hook",
+            "timeout": 10,
+            "statusMessage": "Loading teaching-series guard"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -B \"$(git rev-parse --show-toplevel)/.codex/hooks/series_guard.py\" hook",
+            "commandWindows": "$repoRoot=(git rev-parse --show-toplevel).Trim(); $python=\"$repoRoot\\OpenMontage\\.venv\\Scripts\\python.exe\"; if (!(Test-Path -LiteralPath $python)) { $python='C:\\Users\\MSI\\Documents\\tradercockpit\\OpenMontage\\.venv\\Scripts\\python.exe' }; & $python -B \"$repoRoot\\.codex\\hooks\\series_guard.py\" hook",
+            "timeout": 120,
+            "statusMessage": "Enforcing series render preflight"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "tradercockpit.quant-atlas-marcus-historical-proof-approval/v1",
+  "recorded_at": "2026-08-02T04:16:29.9241874Z",
+  "project_id": "series-01-backtest-is-not-a-strategy",
+  "operator_message": "appoved",
+  "interpreted_as": "approved",
+  "approved_proof": {
+    "path": "productions/series-01-backtest-is-not-a-strategy/quant-atlas-episode-01-proof-marcus-historical.mp4",
+    "sha256": "f68a5d325b8556363a27eaef576d3e27b4ab75dc6ee68bf4d375b62b1a8494bf",
+    "receipt": "productions/_series/quant-atlas-marcus-historical-proof-receipt.json",
+    "receipt_sha256": "95e0821d712150c799382af6391f3214496bc60f60cb8fbe1a72d32d70007a8e"
+  },
+  "approved_direction": {
+    "voice": "Higgsfield Qwen Audio 3.0 TTS Flash preset Marcus",
+    "speech_rate": 1,
+    "pitch_rate": 1,
+    "local_tempo_transform": false,
+    "wording": "historical prices",
+    "visual_treatment": "approved Quant Atlas faceless explainer",
+    "music": "none"
+  },
+  "authorized_next_action": "Generate the remaining Episode 1 Marcus narration assets for exact-asset review.",
+  "not_approved_by_this_receipt": [
+    "unseen narration assets",
+    "full episode render",
+    "upload",
+    "publication",
+    "subscription purchase",
+    "credit top-up"
+  ]
+}

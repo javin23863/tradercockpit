@@ -1,0 +1,31 @@
+{
+  "schema": "tradercockpit-series-figure-correction/v1",
+  "created_at": "2026-08-02T13:10:00+07:00",
+  "episode": "01",
+  "scene_id": "scene-05",
+  "finding": "The visual displayed a 14178-dollar drawdown re-derived from rounded daily returns while the authoritative recorded metric and approved narration state about 13866 dollars.",
+  "resolution": "Display the recorded max_dd metric and explicitly label the plotted path as reconstructed from rounded daily returns.",
+  "source": {
+    "path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T094910-d0d18d9a/phases/phase01_intake.json",
+    "sha256": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b",
+    "field": "candidates.concept_library-0-2.metrics.max_dd",
+    "value": 13865.9
+  },
+  "generator": {
+    "path": "tools/build_series_math_visuals.py",
+    "sha256": "55cc554cb53a2d2a1eb6a33df7accb463120c9614b2707fc2fca56170d7dd14c",
+    "self_check": "PASS"
+  },
+  "output": {
+    "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/assets/math/ep01-drawdown-path.svg",
+    "sha256": "3b752e8b628c2320a702ed3de0f7e9be2b32776937d11320fda00af2b686a3c8"
+  },
+  "visual_rebuild_receipt": {
+    "path": "productions/_series/visual-rebuild-previews/receipt.json",
+    "sha256": "582db27d7be9533dd6e881c53f60c8918d7f62c73feb402f9971f3ba6e94896d"
+  },
+  "narration_changed": false,
+  "new_claims": false,
+  "cash_cost_usd": 0,
+  "publication_authorized": false
+}

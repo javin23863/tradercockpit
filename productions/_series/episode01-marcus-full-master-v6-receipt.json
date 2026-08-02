@@ -1,0 +1,73 @@
+{
+  "schema": "tradercockpit-series-master-receipt/v1",
+  "generated_at": "2026-08-02T16:09:54.4062168+07:00",
+  "episode": 1,
+  "title": "A Backtest Is Not a Strategy, in Plain English",
+  "master": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/renders/ep01-marcus-full-master-v6.mp4",
+  "sha256": "4ec23641ed9680a65fdb699d9b9ba339e4be45e4a0c6be387ac257f3d29fc257",
+  "duration_seconds": 461.376,
+  "file_size_bytes": 34354750,
+  "video": {
+    "codec": "h264",
+    "resolution": "1920x1080",
+    "fps": 30,
+    "full_decode": "pass"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "stream_sha256": "c22d6a222059817ff450fb7875654dd71cda6d7f4e7ca6c7bfc2950614429e03",
+    "voice": "Higgsfield Qwen Audio 3.0 TTS Flash / Marcus / provider-native rate 1.0",
+    "music": "none",
+    "integrated_lufs": -16.3,
+    "true_peak_dbtp": -4.2,
+    "loudness_range_lu": 2.6
+  },
+  "transcript": {
+    "basis": "The v6 AAC stream is byte-identical to the v4 stream used for the recorded ASR review.",
+    "similarity_to_approved_vo": 0.985662,
+    "scenes_with_speech": 13,
+    "scene_count": 13,
+    "spoken_end_seconds": 460.64,
+    "historical_prices_present": true,
+    "old_prices_present": false
+  },
+  "quality": {
+    "gate_profile": "board-led-explainer",
+    "presentation_gate": "pass",
+    "first_non_black_frame_seconds": 0.2,
+    "longest_black_and_silent_span_seconds": 0.167,
+    "longest_intentional_static_hold_seconds": 47.167,
+    "board_coverage_gate": "pass",
+    "declared_boards": 13,
+    "minimum_lit_area_percent": 6.05,
+    "minimum_adjacent_board_change_percent": 8.76,
+    "encoded_planned_duration_delta_seconds": 0.026,
+    "encoded_contact_sheet_review": "pass",
+    "consolidated_gate": "green",
+    "consolidated_summary": "12 pass, 5 approved waivers, 1 film meter not applicable, 0 blocked",
+    "gate_receipt_sha256": "75b8e5074de3f888e78ae6f7d8c8e9f0f4efacbc4de62eb7cb95c304c3f5f291"
+  },
+  "cost_usd_after_asset_approval": 0,
+  "operator_creative_approval_of_exact_master": true,
+  "publish_authorized": true,
+  "operator_approval": {
+    "received_at": "2026-08-02",
+    "instruction": "We have episode one. Upload it to private.",
+    "scope": "Upload this exact SHA-256 master to the expected Trader Cockpit YouTube channel with privacyStatus=private only.",
+    "does_not_authorize": [
+      "public or unlisted visibility",
+      "playlist creation or mutation",
+      "public release metadata",
+      "promotion"
+    ]
+  },
+  "uploaded_private": true,
+  "youtube_video_id": "mui-5aLJ_oE",
+  "youtube_url": "https://youtu.be/mui-5aLJ_oE",
+  "youtube_readback_privacy": "private",
+  "youtube_processing_status": "succeeded",
+  "cleanup_receipt": "productions/_series/episode01-youtube-private-upload-and-cleanup-receipt.json",
+  "published": false
+}

@@ -1,32 +1,52 @@
-# Teaching Series Packaging Spec
+# Into the Laboratory — release package
 
-Status: working E1 draft; operator ratification required before filming
+Status: **PREPARED 2026-07-29; AWAITING HUMAN RELEASE APPROVAL.**
 
-## Series identity
+The four masters, thumbnails, descriptions, tags, captions, and end-screen chain are locked.
+No YouTube playlist, upload, schedule, channel section, or public surface has been changed.
 
-- Working name: **You Are the Market**
-- Known ident: a three-second red gauge sweep resolving to `YOU ARE THE MARKET`
-- Ident voice: none; the operator's live hook starts immediately after it
-- External media cost: $0
+## Playlist
 
-## Fixed package system
+Title: **Into the Laboratory**
 
-- Title grammar: confront the viewer's familiar object, then reveal its narrower status.
-- Thumbnail: operator on the left, one evidence object, three words on the right.
-- Palette: TraderCockpit red/black with green only for semantic market data.
-- Hook: visual action + on-screen confirmation + a different spoken line inside the first post-ident seconds.
-- Close: one action the viewer can take and one open loop into the next process stage.
+Description:
 
-## E1 instance
+> Into the Laboratory follows trading ideas through the tests that separate a green backtest
+> from a strategy worth investigating further: intake, out-of-sample testing, cost stress, and
+> parameter Monte Carlo. Each episode shows what one stage measures, what happened in a real
+> run, and what that stage still cannot prove.
+>
+> Research tooling, not financial advice. No performance is promised or implied.
 
-- Title: **You Don’t Have a Trading Strategy — You Have a Backtest**
-- Thumbnail: **DON’T TRADE THIS**
-- Visual promise: the operator physically reclassifies a green backtest as a candidate.
+## Release order and end-screen chain
 
-## Boundaries
+| # | Title | Certified master | Gate | Platform end screen |
+|---|---|---|---|---|
+| 1 | TradingView Gave Me a Green Backtest. It Wasn't Proof. | `ep01-v3-final.mp4` | 17 pass | Episode 02 + Subscribe |
+| 2 | Your Backtest Passed. The Hard Part Comes Next. | `ep02-v43-final.mp4` | 16 pass, 1 scoped waiver | Episode 03 + Subscribe |
+| 3 | Doubling My Trading Costs Did Nothing. Tripling Killed 7. | `ep03-v9-final.mp4` | 16 pass, 1 scoped waiver | Episode 04 + Subscribe |
+| 4 | I Tested My Best Setting 200 Ways. More Than Half Failed. | `ep04-v8-final.mp4` | 17 pass | Playlist + Subscribe |
 
-- No alpha, win-rate, urgency, or performance promise.
-- No callouts or competitor faces.
-- No product pitch.
-- Real performance charts require real episode evidence; designed props stay visibly illustrative.
-- The operator speaks on camera. Voice cloning remains parked.
+Episode 04 does not point to a parked episode. The playlist is the continuation target.
+
+## Fixed YouTube settings
+
+- Category: Education
+- Language: English
+- Made for kids: No
+- Synthetic-content disclosure: Yes — cloned narration and generated visual support
+- Auto-dubbing: On, followed by review before any dubbed track is public
+- Captions: upload the episode-local `assets/subtitles.srt`
+- Channel section: add the playlist after the playlist exists
+
+## Human release gate
+
+Still requires a new, explicit decision on:
+
+1. batch release date and time (the four-at-once ruling is already fixed);
+2. visibility for each upload;
+3. approval of the exact four title/thumbnail/description/tag packages and end-screen chain;
+4. authority to create the playlist and upload.
+
+No separate trailer was produced: the four requested episodes are complete, and a trailer was
+not needed to make the playlist coherent. Add one only if launch data shows the playlist needs it.

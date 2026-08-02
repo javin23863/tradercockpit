@@ -1,13 +1,88 @@
 # SESSION HANDOFF — 2026-07-29 · gate enforcement, and the openings
 
-> **STATUS 2026-07-29.** The reason ep03 and ep04 got mastered with a red gate is fixed at the
-> mechanism, not the instance. Four gates were found measuring something other than their stated
-> subject and all four are fixed. Episode work is **mid-flight**: ep03 re-rendering, ep04 and
-> ep02 renders still owed. **Nothing is published and nothing is certified.**
+> **SUPERSEDING STATUS 2026-07-29 16:54 Asia/Bangkok.** The four video masters are finished and
+> hash-certified by the shared fail-closed episode chain. Nothing was uploaded, scheduled, or
+> published. This status supersedes the mid-flight commands below; the diagnosis remains as the
+> historical record.
 >
 > Live SoT for the slate remains
 > `handoffs/SESSION-HANDOFF-2026-07-28d-slate-correction-and-vault-gates.md` — this wave's full
 > technical detail is **§14** of that file. This document is the runbook for resuming.
+
+| episode | certified master | duration | gate result | SHA-256 |
+|---|---|---:|---|---|
+| ep01 | `OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/renders/ep01-v3-final.mp4` | 941.100s | 17 pass · 0 waived · 0 blocked | `0a85830f7f53f439920cc3e1ecfe1a052f2bdd573fd5684f8cef9ba10971943f` |
+| ep02 | `OpenMontage/projects/series-02-out-of-sample/hyperframes/renders/ep02-v43-final.mp4` | 826.6s | 16 pass · 1 existing script-style waiver · 0 blocked | `961714d17aff7bccc843eddae0d97ba2b70f0abcea37db38825a717447e81ad7` |
+| ep03 | `OpenMontage/projects/series-03-slippage/hyperframes/renders/ep03-v9-final.mp4` | 696.5s | 16 pass · 1 existing presentation waiver · 0 blocked | `88a6dd92d7f9943cd56ecfea93a0a1be1aa133dfbd2a164fd1b6b28899c71db1` |
+| ep04 | `OpenMontage/projects/series-04-mc-param/hyperframes/renders/ep04-v8-final.mp4` | 682.1s | 17 pass · 0 waived · 0 blocked | `1d36afdfc9ddd287943a7607e27a81448ab0cbf77a0fde1908154d21fcdf6c4a` |
+
+Ep01's final receipt is
+`OpenMontage/projects/series-01-backtest-is-not-a-strategy/artifacts/build/gate-receipt.json`.
+The repaired rendered pacing result is 107 scene changes (6.82/min), 4.50s longest actual hold,
+and 3.40s longest presentation freeze. Human review pulled frames from the actual final MP4:
+frame 0 is the lit laboratory blackboard; the new profit-factor, drawdown, trade-count, and intake
+graphics are readable; the green/red reveal sweeps are brief; and the bounded end card remains
+visible through 940.5s.
+
+Video production is complete. The operator ratified the teaching-profile `ai_tell_gate`
+calibration on 2026-07-29 with the exact reply **"approved"**, after being shown the 83/91
+human-teaching false-block result, the independent 84% market-transcript block result, and the
+partly circular control limitation. This is a gate-change ratification, not a video waiver.
+
+**RELEASE-PREP STATUS 2026-07-29 17:28 Asia/Bangkok.** The exact four upload packages are now
+assembled and cross-validated. No publication authority was exercised.
+
+- Current captions: ep01 348 cues, ep02 340, ep03 293, ep04 286. Ep01/03/04 were rebuilt from
+  their current word timings through OpenMontage's registered `subtitle_gen`; ep02 was retained
+  only after v41 and v43 decoded to identical PCM MD5
+  `d1ce35f2c10505c94aa01e21ca553ab1`. Every SRT is sequential, non-overlapping, within its
+  certified master, and covers the final spoken line.
+- `project.json` identity drift is repaired: ep03 and ep04 no longer identify themselves as
+  ep02, and every project title matches its locked `packaging.json`.
+- Ep03 and ep04 chapter timestamps were re-derived from the current `index.html` scene starts.
+  Ep01 now has current description, tags, and 13 chapters for the 15:41 cut.
+- Current per-episode sheets:
+  `artifacts/publish-ep01.md`, `publish-ep02.md`, `publish-ep03.md`, and `publish-ep04.md`.
+  Each references the certified master hash, current description/tags, current SRT hash, gate
+  result, and disclosure settings.
+- Series package: `productions/_series/packaging-spec.md`.
+  Chain is ep01 → ep02 → ep03 → ep04 → playlist, with Subscribe beside every target. Ep04 does
+  not point at a parked episode. Playlist title and description are prepared; the platform
+  playlist and channel section do not exist yet.
+- `artifacts/publish_log.json` exists for all four with `status: pending_review` and
+  `platform_mutated: false`.
+- The temporary release validator passed all four packages and was then removed: 12 tags per
+  episode; 13/13/15/15 chapter starts exactly match their primary scene starts; every publish
+  log validates against `publish_log.schema.json`; the CTA chain and human gate are explicit.
+
+The next boundary is the **hybrid publish human gate**. It still needs the operator to review
+the exact four title/thumbnail/description/tag packages and end-screen chain, choose the batch
+release date/time and visibility, and explicitly authorize playlist creation/upload. The
+standing pre-release `social-surface-audit` and §(f) kill/roll recalibration remain open; they
+were not invented from missing thresholds. No separate trailer was made because four complete
+episodes already define the playlist and no current artifact supplied a trailer requirement.
+
+**PRIVATE REVIEW UPLOAD STATUS 2026-07-29 18:15 Asia/Bangkok.** The operator explicitly
+authorized private YouTube uploads so the masters could be reviewed on YouTube. The uploader
+re-verified every exact master against its hash-bound episode receipt, targeted the expected
+TraderCockpit channel, and YouTube read-back returned `privacyStatus: private` for all four:
+
+| episode | YouTube ID | private review URL |
+|---|---|---|
+| ep01 | `pbftXeplDPg` | `https://youtu.be/pbftXeplDPg` |
+| ep02 | `brfNtg_rkNE` | `https://youtu.be/brfNtg_rkNE` |
+| ep03 | `RqHwD3ePtPA` | `https://youtu.be/RqHwD3ePtPA` |
+| ep04 | `h75geeRyJXs` | `https://youtu.be/h75geeRyJXs` |
+
+- Ep01 and ep02 have their previously approved custom thumbnails set.
+- The operator rejected ep03 `SAME TRADES / BIGGER BILL` and ep04
+  `SAME IDEA / WRONG NUMBER` as vague AI-slop packaging that did not name the real robustness
+  phase. They were replaced locally with `SLIPPAGE / STRESS TEST` and
+  `MONTE CARLO / ROBUSTNESS`. Both pass `packaging_gate.py`, `thumb_gate.py`, and the 150px
+  visual read. They are **not set on YouTube** pending operator review.
+- `artifacts/publish_log.json` and `checkpoint_publish.json` now carry the private IDs/read-back
+  while remaining `awaiting_human`. Video approval, revised-thumbnail approval, captions,
+  playlist/end screens, scheduling, and public visibility are still separate boundaries.
 
 Commits (branch `main`, repo `Documents/tradercockpit`):
 

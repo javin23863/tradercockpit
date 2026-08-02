@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">MARKET AND LIMIT ORDERS TRADE DIFFERENT RISKS</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">PRICE CONTROL · EXECUTION PROBABILITY · OPPORTUNITY COST</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<rect x="190.0" y="330.0" width="720.0" height="500.0" rx="16" fill="#0d121b" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="550.0" y="410.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="750" text-anchor="middle">MARKET ORDER</text>
+<text x="550.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="26" font-weight="650" text-anchor="middle">prioritizes immediate execution</text>
+<text x="285.0" y="585.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">• accepts available price</text>
+<text x="285.0" y="655.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">• can cross spread</text>
+<text x="285.0" y="725.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">• price can move while it waits</text>
+<rect x="1010.0" y="330.0" width="720.0" height="500.0" rx="16" fill="#0d121b" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="1370.0" y="410.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="750" text-anchor="middle">LIMIT ORDER</text>
+<text x="1370.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="26" font-weight="650" text-anchor="middle">controls worst acceptable price</text>
+<text x="1105.0" y="585.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">• may not fill</text>
+<text x="1105.0" y="655.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">• may fill partly</text>
+<text x="1105.0" y="725.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">• can face adverse selection</text>
+<text x="960.0" y="900.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="700" text-anchor="middle">Order type exchanges price risk and execution risk; neither removes cost.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">TEACHING DIAGRAM · EXECUTION PRICE AND FILL RISK TRADE OFF</text>
+</svg>

@@ -1,0 +1,103 @@
+{
+  "schema": "series-math-visuals/v2",
+  "run_id": "rb-20260725T133803-b44bd92c",
+  "sources": {
+    "phase01_intake": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase01_intake.json",
+      "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d"
+    },
+    "golden_cross_phase01_intake": {
+      "run_id": "rb-20260715T094910-d0d18d9a",
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260715T094910-d0d18d9a\\phases\\phase01_intake.json",
+      "sha256": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b"
+    },
+    "phase02_oos": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase02_oos.json",
+      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0"
+    },
+    "phase03_parked": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase03_timing.json",
+      "sha256": "bfbb0196138521f2cf87a840b9fc83bffe8f073a3c0a0c953bc4e2c27e62621e"
+    },
+    "phase04_cost": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase04_cost.json",
+      "sha256": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be"
+    },
+    "phase06_mc_param": {
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase06_mc_param.json",
+      "sha256": "c24bceb78d8804855990bbe87a78174f1148882724ede54c3507ce075c36ebef"
+    }
+  },
+  "outputs": {
+    "ep01-backtest-vs-strategy.svg": "4296e39f954ce80274af44c9a3536178fd3d29bfb3c7c544bb0f4037d9c2f6f6",
+    "ep01-golden-arithmetic.svg": "dec2aa75d015a46d1e4b769eab87432967f18db342b0e7cb42636becb6b3913a",
+    "ep01-win-rate-payoff.svg": "7224324f9f6452f371ffd2d153a6718d0b7a6dfd420848fd3a564b6c6ecb934b",
+    "ep01-drawdown-path.svg": "3b752e8b628c2320a702ed3de0f7e9be2b32776937d11320fda00af2b686a3c8",
+    "ep01-intake-funnel.svg": "f7943128d8455ba0a35625d27647b927fbee7dc4ba56adeb4f8ae8c22f8f18fd",
+    "ep01-profit-factor-near-misses.svg": "9183af8da879f102b147c95bb9f1ac8e732d875a1b96f6a5ff1a274de3bc0c67",
+    "ep01-threshold-motion.svg": "1a9adf9ba843c2611f39430333c938d03267ff813be6b0b484153d37b0d23ad1",
+    "ep01-survivor-status.svg": "4574500f15d925de12f4fc9a0fbca601812243b2b69821a661a4641e7bfac424",
+    "ep01-holdout-boundary.svg": "4ed64680892ef7176870da34c39e5c8321be17bcf658ee7d7b267b2fb62c8a85",
+    "ep02-ordered-holdout.svg": "4ed64680892ef7176870da34c39e5c8321be17bcf658ee7d7b267b2fb62c8a85",
+    "ep02-oos-field-distribution.svg": "4ce5ea4f6786d4e1aed87e762e8e055e6423a0df1a0ff4b163c2db5c0e0763b5",
+    "ep02-concentration-stress.svg": "f472d98213945b079ea63cb7dfed38ca17e3134895ec375190ac3b321485809f",
+    "ep02-selected-maximum.svg": "01a3ba0b69efadf4e0c2bae44eb949589fbf6901e499cdd800a5d3379dd103f7",
+    "ep02-walk-forward.svg": "1fd36a919ac72ba7bdc609b5b0193ea8d957a6aa3cb23b1af23bf497948297a6",
+    "ep02-sample-uncertainty.svg": "c0c32b3625ecfd8ad96d256f77a80bc0b93e82f3dc83dadd5456c42b50476e45",
+    "ep03-cost-anatomy.svg": "eb4d44f5129fae486c81be8de1fe09d62a96a5ecc10fcabf833593639f09710a",
+    "ep03-field-transitions.svg": "d61f2af56b41f6159582d094ef4855506f5107bf30c3440770ec4339456a1c9b",
+    "ep03-response-curves.svg": "6fd2de14a77029e71121862a5b172dab6f474c1356f7146482c7248887313524",
+    "ep03-fixed-ledger-formula.svg": "dc9df2f76cfbedf0becd3f94db34b7d21ac7fb8867218a1c459bee2229179a03",
+    "ep03-order-type-tradeoff.svg": "8bd4c3643f0f35272d16bf48814a6479976ae3d7bc9853f567497b4fa94c3273",
+    "ep03-cost-drivers.svg": "d9b408664090296da7f6c255428e3f35a2cbc37ba98fd78ac62941fefba9f68f",
+    "ep04-run-count-error.svg": "1fec88e15a1fbb5a4e76320f81469ea23f427f3ab2e50b1244820b09fb220655",
+    "ep04-field-scatter.svg": "13ab2dbdbf4c4c82f3fd2eb762ce4414200ea34cc5a962e8e2fe7537b810ff11",
+    "ep04-fan-chart.svg": "aae92839e914e521b7796e9a01f4f9c3408dac56245fd78163345984618c4f47",
+    "ep04-response-geometry.svg": "7017ba25216811a3e4b6af3f60b478ff55d3362af5df19db93779da9c6ee2978",
+    "ep04-perturbation-mechanism.svg": "1b708e0f737710a55162436a44a48fcee34d93b3d6300ba3b36b4ba7487277af",
+    "ep04-p05-rank.svg": "7f4d2df906ecd41af229feb17b18de6176f5b95497a5fa9025a20f8618560289",
+    "ep04-tail-resolution.svg": "4d115afcb04154aa07a3b71d48e83937d40fd1203733a61b58c758078c57beb9",
+    "ep04-reproducibility-check.svg": "07d53a982a12f7c1b14f45ce5df46c229d7a4ec1c088a1f188dc16b6da14281f"
+  },
+  "labels": {
+    "run_data": [
+      "ep01-golden-arithmetic.svg",
+      "ep01-win-rate-payoff.svg",
+      "ep01-drawdown-path.svg",
+      "ep01-intake-funnel.svg",
+      "ep01-profit-factor-near-misses.svg",
+      "ep01-threshold-motion.svg",
+      "ep01-survivor-status.svg",
+      "ep01-holdout-boundary.svg",
+      "ep02-ordered-holdout.svg",
+      "ep02-oos-field-distribution.svg",
+      "ep02-concentration-stress.svg",
+      "ep02-selected-maximum.svg",
+      "ep03-field-transitions.svg",
+      "ep03-response-curves.svg",
+      "ep04-field-scatter.svg",
+      "ep04-fan-chart.svg"
+    ],
+    "derived_or_method": [
+      "ep01-backtest-vs-strategy.svg",
+      "ep02-walk-forward.svg",
+      "ep02-sample-uncertainty.svg",
+      "ep03-cost-anatomy.svg",
+      "ep03-order-type-tradeoff.svg",
+      "ep03-cost-drivers.svg",
+      "ep04-run-count-error.svg",
+      "ep04-p05-rank.svg",
+      "ep04-tail-resolution.svg"
+    ],
+    "implementation_receipt": [
+      "ep03-fixed-ledger-formula.svg",
+      "ep04-perturbation-mechanism.svg",
+      "ep04-reproducibility-check.svg"
+    ],
+    "illustrative": [
+      "ep01-backtest-vs-strategy.svg",
+      "ep04-response-geometry.svg"
+    ]
+  },
+  "evidence_snapshot_sha256": "2429514c3e59908697b5f7377197c909f1ef7920622ca6958f457bb7f1f9dc2a"
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "tradercockpit-series-private-upload-cleanup/v1",
+  "recorded_at": "2026-08-02T16:28:32.9416452+07:00",
+  "episode": 1,
+  "operator_instruction": "We have episode one. Upload it to private.",
+  "source": {
+    "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/hyperframes/renders/ep01-marcus-full-master-v6.mp4",
+    "sha256": "4ec23641ed9680a65fdb699d9b9ba339e4be45e4a0c6be387ac257f3d29fc257",
+    "certification": "GREEN: 18 gates, 5 operator-approved waivers",
+    "retained_after_cleanup": true
+  },
+  "youtube": {
+    "channel_id": "UCBc6RR49Qk5vtDQaw8BjH3A",
+    "channel_title": "Tradercockpit",
+    "video_id": "mui-5aLJ_oE",
+    "url": "https://youtu.be/mui-5aLJ_oE",
+    "title": "TradingView Gave Me a Green Backtest. It Wasn't Proof.",
+    "description": "Into the Laboratory - Episode 1. Private review upload.",
+    "category_id": "27",
+    "privacy_status": "private",
+    "upload_status": "processed",
+    "processing_status": "succeeded",
+    "duration": "PT7M42S",
+    "definition": "hd",
+    "has_custom_thumbnail": true,
+    "synthetic_media_disclosure_requested": true,
+    "made_for_kids": false,
+    "playlist_mutated": false,
+    "public_release_authorized": false
+  },
+  "cleanup": {
+    "project_root": "OpenMontage/projects/series-01-backtest-is-not-a-strategy",
+    "removed_target_count": 15,
+    "removed_estimated_gib": 4.331,
+    "remaining_project_gib": 1.453,
+    "free_space_after_gib": 74.61,
+    "removed_classes": [
+      "rejected and byte-duplicate v1-v5 masters",
+      "npm render cache",
+      "audio cleanup and music-bed intermediates",
+      "regenerable clips, thumbnails, waveform cache, and scratch",
+      "dated pre-rebuild duplicate"
+    ],
+    "retained_classes": [
+      "certified v6 master",
+      "source compositions and scripts",
+      "generated source media and narration assets",
+      "thumbnail",
+      "gates and receipts"
+    ],
+    "deletion_recovery": "Removed files bypassed the Recycle Bin. Rejected renders and caches are regenerable from retained source; the v5 bytes are preserved by the byte-identical retained v6 master."
+  }
+}

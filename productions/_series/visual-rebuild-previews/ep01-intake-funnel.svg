@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">THE FIRST SCREEN REMOVED 1,151 OF 1,335 STRATEGIES</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">PROFITABILITY · RETURN VERSUS DRAWDOWN · MINIMUM ACTIVITY</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<polygon points="230,350 1690,350 1320,815 600,815" fill="#f5e8ea" opacity=".22" stroke="#f5e8ea" stroke-width="4"/>
+<text x="960.0" y="430.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="48" font-weight="850" text-anchor="middle">1,335 STRATEGIES ENTERED</text>
+<text x="960.0" y="760.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="43" font-weight="850" text-anchor="middle">184 SURVIVED THE FIRST SCREEN</text>
+<text x="960.0" y="855.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="29" font-weight="750" text-anchor="middle">1,151 failed at least one rule</text>
+<text x="350.0" y="535.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="43" font-weight="850" text-anchor="middle">1,065</text>
+<text x="350.0" y="580.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">profit-factor failures</text>
+<text x="960.0" y="535.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="43" font-weight="850" text-anchor="middle">1,122</text>
+<text x="960.0" y="580.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">return/drawdown failures</text>
+<text x="1570.0" y="535.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="43" font-weight="850" text-anchor="middle">150</text>
+<text x="1570.0" y="580.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">too few trades per month</text>
+<text x="960.0" y="935.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="middle">Gate counts overlap: one strategy can fail more than one rule.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RECORDED RUN · FAILURE COUNTS OVERLAP</text>
+</svg>

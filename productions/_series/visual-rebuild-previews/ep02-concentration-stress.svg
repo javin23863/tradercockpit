@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">CONCENTRATION STRESS: REMOVE THE 10 BEST DAYS</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">A WATERFALL ANSWERS A NARROW QUESTION—WHERE DID THIS SAMPLE&#x27;S PROFIT COME FROM?</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<line x1="220.0" y1="665.0" x2="1700.0" y2="665.0" stroke="#c89aa3" stroke-width="3"/>
+<rect x="355" y="450.6" width="210" height="214.4" rx="12" fill="#f5e8ea" opacity=".85"/>
+<text x="460.0" y="780.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">TOTAL</text>
+<text x="460.0" y="830.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="38" font-weight="750" text-anchor="middle">$21,054</text>
+<rect x="855" y="355.0" width="210" height="310.0" rx="12" fill="#ff9100" opacity=".85"/>
+<text x="960.0" y="780.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">10 BEST DAYS</text>
+<text x="960.0" y="830.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="38" font-weight="750" text-anchor="middle">$30,436</text>
+<rect x="1355" y="665.0" width="210" height="95.6" rx="12" fill="#ff1744" opacity=".85"/>
+<text x="1460.0" y="780.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">REMAINDER</text>
+<text x="1460.0" y="830.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="38" font-weight="750" text-anchor="middle">$-9,382</text>
+<text x="185.0" y="300.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="700" text-anchor="start">Candidate 3357</text>
+<text x="185.0" y="342.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="start">406 daily observations</text>
+<text x="1720.0" y="315.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="26" font-weight="650" text-anchor="end">If the remainder is negative, profit was concentrated.</text>
+<text x="1720.0" y="353.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="end">That does not prove the other days were noise.</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RECORDED RUN · TEN-DAY REMOVAL CALCULATED FROM DAILY RESULTS</text>
+</svg>

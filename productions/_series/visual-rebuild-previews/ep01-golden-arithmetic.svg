@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">THE GREEN LINE DID NOT SURVIVE THE ARITHMETIC</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">ALL WINNING DOLLARS VERSUS ALL LOSING DOLLARS UNDER THE RECORDED COST MODEL</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="680.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<line x1="225.0" y1="780.0" x2="1695.0" y2="780.0" stroke="#c89aa3" stroke-width="3"/>
+<rect x="375" y="411.2" width="250" height="368.8" rx="16" fill="#00e676" opacity=".84"/>
+<text x="500.0" y="835.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">GROSS WINS</text>
+<text x="500.0" y="885.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="38" font-weight="800" text-anchor="middle">$104,548</text>
+<rect x="835" y="390.0" width="250" height="390.0" rx="16" fill="#ff1744" opacity=".84"/>
+<text x="960.0" y="835.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">GROSS LOSSES</text>
+<text x="960.0" y="885.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="38" font-weight="800" text-anchor="middle">$110,562</text>
+<text x="1450.0" y="430.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">PROFIT FACTOR</text>
+<text x="1450.0" y="500.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="850" text-anchor="middle">0.946</text>
+<text x="1450.0" y="555.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="middle">wins ÷ losses</text>
+<text x="1450.0" y="665.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="700" text-anchor="middle">NET</text>
+<text x="1450.0" y="735.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="54" font-weight="850" text-anchor="middle">−$6,014</text>
+<text x="250.0" y="305.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="27" font-weight="700" text-anchor="start">Golden Cross · separate historical test</text>
+<text x="250.0" y="347.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="start">733 closed trades · 2003-07-06 → 2013-06-08</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RECORDED HISTORICAL TEST · VALUES ROUNDED FOR DISPLAY</text>
+</svg>

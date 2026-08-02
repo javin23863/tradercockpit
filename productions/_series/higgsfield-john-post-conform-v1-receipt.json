@@ -1,0 +1,55 @@
+{
+  "schema": "tradercockpit.higgsfield-john-post-conform/v1",
+  "generated_at": "2026-07-31T06:01:37.630911+00:00",
+  "provider": "Higgsfield",
+  "voice": "John",
+  "external_credits_used": 0,
+  "processing": "FFmpeg rubberband conform, then 70 Hz high-pass and two-pass EBU R128 normalization",
+  "entries": [
+    {
+      "project_id": "series-v4-e03-timing-session",
+      "scene_id": "scene-05",
+      "tempo": 0.97,
+      "pitch_semitones": 0.0,
+      "provider_clean_path": "OpenMontage\\projects\\series-v4-e03-timing-session\\assets\\audio\\narration\\provider-clean\\scene-05.wav",
+      "provider_clean_sha256": "01654938829fc6f10034fc3e7b2b142a3561d8be0c91262ae3b29c95547bd9e5",
+      "final_path": "OpenMontage\\projects\\series-v4-e03-timing-session\\assets\\audio\\narration\\scene-05.wav",
+      "final_sha256": "628335ab98bdb7f1045430c4dd7c36bf99bdb9cc730cddea09947452d9ba522c",
+      "duration_seconds": 128.577313,
+      "bytes": 18515236,
+      "codec": "pcm_s24le",
+      "sample_rate_hz": 48000,
+      "channels": 1
+    },
+    {
+      "project_id": "series-04-mc-param",
+      "scene_id": "scene-hook",
+      "tempo": 1.0,
+      "pitch_semitones": -0.5,
+      "provider_clean_path": "OpenMontage\\projects\\series-04-mc-param\\assets\\audio\\narration\\provider-clean\\scene-hook.wav",
+      "provider_clean_sha256": "94fa8bc8a82919b1c28aafa52bc66356cf264bc69a9ce26195eb3f885bc523f8",
+      "final_path": "OpenMontage\\projects\\series-04-mc-param\\assets\\audio\\narration\\scene-hook.wav",
+      "final_sha256": "6818cc16582907a71c4eecc59e0133f6d9d2cc831409340f98e3161816ba085c",
+      "duration_seconds": 61.84,
+      "bytes": 8905062,
+      "codec": "pcm_s24le",
+      "sample_rate_hz": 48000,
+      "channels": 1
+    },
+    {
+      "project_id": "series-04-mc-param",
+      "scene_id": "scene-close",
+      "tempo": 1.0,
+      "pitch_semitones": -1.0,
+      "provider_clean_path": "OpenMontage\\projects\\series-04-mc-param\\assets\\audio\\narration\\provider-clean\\scene-close.wav",
+      "provider_clean_sha256": "ca5bdc366a0f5ecbff1d089ed9e82851bc5888714c9ffb0fde19fae17ba515cb",
+      "final_path": "OpenMontage\\projects\\series-04-mc-param\\assets\\audio\\narration\\scene-close.wav",
+      "final_sha256": "af322ceddcf11c6a5183ee76ed9cd99ee2640b22393d9f733ce89828398ef0f2",
+      "duration_seconds": 57.44,
+      "bytes": 8271462,
+      "codec": "pcm_s24le",
+      "sample_rate_hz": 48000,
+      "channels": 1
+    }
+  ]
+}

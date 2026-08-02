@@ -1,0 +1,90 @@
+{
+  "schema": "tradercockpit.quant-atlas-marcus-historical-proof/v1",
+  "generated_at": "2026-08-02T03:59:52.8674415Z",
+  "project_id": "series-01-backtest-is-not-a-strategy",
+  "status": "awaiting_operator_video_review",
+  "scope": "one Episode 1 short proof only",
+  "operator_approval": {
+    "approved_asset": "exact provider-native Marcus Scene 01 mastered WAV",
+    "approval_message": "approved",
+    "source_receipt": "productions/_series/quant-atlas-marcus-historical-provider-native-sample-receipt.json",
+    "source_receipt_sha256": "f8ff63a23362cf545358520d4b2707e68a760239dfacaf13941a1280a47abe46",
+    "audio_sha256": "2b87ffc09ef0206335efbd843fd626afbc361d59ba6ad618bdfb658c1a485575",
+    "tempo_factor": 1.0,
+    "pitch_factor": 1.0
+  },
+  "corrections": [
+    "Use historical prices in narration and on-screen wording.",
+    "Preserve the provider-native voice speed with no tempo or pitch transform.",
+    "Keep the approved Quant Atlas explainer treatment.",
+    "Keep the ending verdict clear of the question column."
+  ],
+  "source": {
+    "composition": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/index.html",
+    "composition_sha256": "14af0a0bf23c2f5a769a03b6ef082fbc04e2ba7c083b888a2b5154e4006252f3",
+    "script": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/artifacts/script.json",
+    "script_sha256": "0215ad676904262863fe3fc7bc063be5a7d98065ae4b0b9701f411b97d917753",
+    "chart": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/.scratch/quant-atlas-proof/assets/images/tradingview-es1-1h.png",
+    "chart_sha256": "a6a236c3fbd231c1f8693b6e669c8ae77724c3b7849b667a946b3123746d247c"
+  },
+  "render": {
+    "engine": "HyperFrames",
+    "version": "0.7.82",
+    "quality": "high",
+    "strict": true,
+    "runtime_swap": false,
+    "path": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/renders/episode-01-marcus-historical-proof.mp4",
+    "delivery_path": "productions/series-01-backtest-is-not-a-strategy/quant-atlas-episode-01-proof-marcus-historical.mp4",
+    "sha256": "f68a5d325b8556363a27eaef576d3e27b4ab75dc6ee68bf4d375b62b1a8494bf",
+    "bytes": 5297826,
+    "duration_seconds": 32.4,
+    "resolution": "1920x1080",
+    "fps": 30,
+    "frames": 972,
+    "video_codec": "h264 High",
+    "audio_codec": "aac LC 48 kHz stereo"
+  },
+  "gates": {
+    "hyperframes_check": {
+      "pass": true,
+      "lint_errors": 0,
+      "runtime_errors": 0,
+      "layout_errors": 0,
+      "contrast_passed": 57,
+      "contrast_checked": 57
+    },
+    "full_decode": "pass",
+    "audio": {
+      "integrated_lufs": -13.5,
+      "true_peak_dbtp": -1.3,
+      "loudness_range_lu": 3.8,
+      "cadence_pass": true,
+      "tempo_factor": 1.0,
+      "required_phrase_asr_confirmed": "historical prices",
+      "transcript": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/artifacts/proof-review/episode-01-marcus-historical-proof_transcript.json",
+      "transcript_sha256": "b22edf73084a1503a6d7dae0cb417f458ddff4af201d47ddb3949bf90e896836"
+    },
+    "visual_review": {
+      "pass": true,
+      "native_frames_reviewed": 12,
+      "contact_sheet_frames": 16,
+      "directory": "OpenMontage/projects/series-01-backtest-is-not-a-strategy/snapshots/quant-atlas-marcus-historical-proof-review",
+      "historical_prices_visible": true,
+      "clipped_or_covered_text": false,
+      "missing_assets": false
+    }
+  },
+  "cost": {
+    "additional_provider_credits_used": 0,
+    "cash_spend_usd": 0,
+    "top_up": false
+  },
+  "not_authorized_or_performed": [
+    "new provider generation",
+    "batch narration",
+    "full episode render",
+    "upload",
+    "publication"
+  ],
+  "next_action": "Operator reviews this exact proof video."
+}
