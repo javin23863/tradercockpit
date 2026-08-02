@@ -2,6 +2,7 @@
 
 **Date:** 2026-08-02
 **Status:** Proposed normative contract for Claude Code review
+**Amended:** 2026-08-02 — R1/R2 from the Claude review (REVISE): lockbox and trial-family authorities bound, interval sample size bound to the independent unit
 **Related plan:** [Implementation plan](edgeful-concept-behavior-atlas-plan-2026-08-02.md)
 **Evidence basis:** [Edgeful conditional market-statistics report](edgeful-conditional-market-statistics-2026-08-02.md)
 
@@ -322,6 +323,8 @@ upper = min(1, center + half)
 
 When `n = 0`, rate and interval MUST be `null` and evidence state MUST be `insufficient_evidence`.
 
+`n` in this interval MUST be the independent resolved count — `independent_n` restricted to resolved outcomes — or a declared adjusted effective sample size. It MUST NOT be `raw_event_n` when raw events exceed independent units; an interval computed on dependent rows overstates precision.
+
 The interval is descriptive uncertainty, not protection against selection bias, dependence, regime drift, or data leakage.
 
 ### 11.2 Baseline and lift
@@ -359,6 +362,8 @@ The report MUST expose:
 - whether the current query was selected after viewing its outcomes.
 
 An exploratory maximum MUST NOT inherit an unadjusted confidence claim.
+
+In the current Futures implementation target, the trial-family ledger and look-charging MUST bind to the existing governance machinery — `packages/esq/governance/family_multi_test.py` (`alpha_family` registry, `register_family_look`, burned-window refusal) — and validation partitions MUST respect `packages/esq/governance/data_ceiling.py` (data wall 2026-01-01, holdout ceiling 2025-12-31, grant receipts). Implementing a parallel trial ledger or partition authority is prohibited; Phase 0 verifies these bindings rather than re-inventing them.
 
 ## 12. Report contract
 
@@ -581,7 +586,7 @@ Claude Code MUST identify current authoritative implementations before replacing
 - exact discovery/holdout dates;
 - interval-width, stability, calibration, and demotion thresholds.
 
-The implementation task MUST stop rather than guess any of these.
+The implementation task MUST stop rather than guess any of these. For the current Futures target, the trial-family and partition items are expected to resolve to `packages/esq/governance/family_multi_test.py` and `packages/esq/governance/data_ceiling.py` (section 11.4); Phase 0 confirms those paths are still authoritative rather than treating this expectation as license to skip the audit. All discovery/holdout dates MUST fall inside the target repository's data ceiling — holdout ceiling 2025-12-31.
 
 ## 21. Claude Code review contract
 

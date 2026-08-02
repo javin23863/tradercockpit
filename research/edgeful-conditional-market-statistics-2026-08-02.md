@@ -1,6 +1,7 @@
 # Edgeful's underlying concept: conditional market statistics for a concept library
 
 **Date:** 2026-08-02
+**Amended:** 2026-08-02 — R1 from the Claude review (REVISE): example artifact dates brought inside the Futures data ceiling
 **Scope:** Public Edgeful videos, first-party Edgeful documentation, primary statistical references, and the governed research surfaces already present in this repository. This is not a review of Edgeful as software and does not inspect or modify Futures or Register.
 **Method:** A bounded sample of report demonstrations was checked against what was visible on screen and said in the accompanying captions. Product claims that could not be reconstructed from public row-level data are labeled as claims or inferences, not independently validated results.
 
@@ -293,7 +294,7 @@ One concept and one report family should prove the end-to-end contract before ge
   "concept_id": "initial_balance_60m",
   "concept_version": "sha256:<spec-hash>",
   "question": "After an upside first break known by 11:00 ET, does the opposite boundary break by session close?",
-  "as_of": "2026-08-01T11:00:00-04:00",
+  "as_of": "2025-12-30T11:00:00-05:00",
   "eligibility": {
     "instrument": "NQ",
     "contract_rule": "<versioned-rule>",
@@ -304,7 +305,7 @@ One concept and one report family should prove the end-to-end contract before ge
   "cohort": {
     "filters": {"first_break_direction": "up", "elapsed_bucket": "<=11:00"},
     "start": "2021-01-01",
-    "end": "2026-07-31",
+    "end": "2025-12-31",
     "n_sessions": 0,
     "n_events_raw": 0,
     "n_independent": null,
@@ -348,6 +349,8 @@ One concept and one report family should prove the end-to-end contract before ge
   }
 }
 ```
+
+In the Futures implementation target, every validation window in an artifact like this must respect the standing data ceiling (`packages/esq/governance/data_ceiling.py`; holdout ceiling 2025-12-31) — the example dates above are chosen inside it deliberately.
 
 `null` means unknown or not measured; it must never be silently converted to zero. Continuous reports should replace binary success/failure with declared units and distribution quantiles. A promoted probability must be `decision_time_safe`, based on a frozen family, and carry holdout or forward evidence; otherwise it remains descriptive.
 

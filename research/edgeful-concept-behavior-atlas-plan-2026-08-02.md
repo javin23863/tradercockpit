@@ -5,6 +5,7 @@
 **Origin:** TraderCockpit research task
 **Implementation target:** A separately scoped Futures task after current authority, branch, worktree, data, and concept-registry state are reverified
 **Primary reviewer:** Claude Code, followed by the operator
+**Amended:** 2026-08-02 — R3/R4/R5 from the Claude review (REVISE): rehomed to a dedicated branch off `ops/main`, futures-vault backlink added to Phase 0, board card `validation.concept-behavior-atlas` named as the card-first gate
 
 ## Review packet
 
@@ -106,10 +107,12 @@ Tasks:
 - Identify existing storage capable of retaining dated event rows and hashes.
 - Record which requested fields already exist and which are missing.
 - Produce a delta-only file plan. Do not redesign working machinery.
+- Vault-link this packet from the Futures engineering vault (`repos\futures\docs\vault\`) so the futures plan chain can see it; until that link exists this packet is invisible to the plan of record.
 
 Acceptance:
 
 - Exact source paths and current commits are cited.
+- Board card `validation.concept-behavior-atlas` is Active and referenced; no feature code before that (card-first standing rule).
 - The candidate concept has unambiguous point-in-time semantics.
 - Data/session/roll authority is named, not guessed.
 - No dependency or new module is proposed where an existing implementation suffices.
@@ -136,7 +139,7 @@ Declare:
 - primary outcome, horizon, censoring, and `outcome_available_at` rule;
 - independent observation unit;
 - allowed context dimensions and bucket edges;
-- discovery, calibration, holdout, and forward periods;
+- discovery, calibration, holdout, and forward periods — all inside the target repository's data ceiling (holdout ceiling 2025-12-31; `packages/esq/governance/data_ceiling.py` is the authority);
 - baseline cohort;
 - maximum trial family;
 - evidence-state promotion rules.
@@ -309,7 +312,7 @@ For the future implementation task:
 - Do not mix TraderCockpit, Register, unrelated cleanup, or remote deployment.
 - Return the exact branch, commit, tests, artifacts, blockers, and next action to Manager.
 
-For this research task, the intended commit contains only this plan, the normative specification, the research report, and the nine screenshot evidence files.
+For this research task, the intended commit contains only this plan, the normative specification, the research report, the nine screenshot evidence files, and the evidence manifest README.
 
 ## Claude Code review checklist
 
