@@ -18,7 +18,7 @@
   "repository": {
     "worktree": "C:/tmp/tradercockpit-e01-rebuild",
     "branch": "codex/series-e01-rebuild",
-    "head": "4b3b8ab8c9e2e79de932e78874192308f4d729f1"
+    "head": "975d04d0d0701a754a2dd798d5423435dc5db3ce"
   },
   "candidate": {
     "package": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-01",
