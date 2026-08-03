@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">THE FIRST SCREEN IS A DECISION PIPELINE</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">COMPLETE RULES → HISTORICAL REPLAY → DECLARED GATE → NEXT TEST</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="265.0" width="1700.0" height="560.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="150.0" y="330.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="800" text-anchor="start">ONE CANDIDATE / ONE COMPLETE RULE SET</text>
+<rect x="105.0" y="420.0" width="230.0" height="150.0" rx="16" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="220.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="middle">OBSERVE</text>
+<text x="220.0" y="525.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="21" font-weight="500" text-anchor="middle">question</text>
+<line x1="338.0" y1="495.0" x2="432.0" y2="495.0" stroke="#ff9100" stroke-width="4"/>
+<rect x="435.0" y="420.0" width="230.0" height="150.0" rx="16" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="550.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="middle">SPECIFY</text>
+<text x="550.0" y="525.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="21" font-weight="500" text-anchor="middle">entry · exit · fill</text>
+<line x1="668.0" y1="495.0" x2="762.0" y2="495.0" stroke="#ff9100" stroke-width="4"/>
+<rect x="765.0" y="420.0" width="230.0" height="150.0" rx="16" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="880.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="middle">REPLAY</text>
+<text x="880.0" y="525.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="21" font-weight="500" text-anchor="middle">old prices</text>
+<line x1="998.0" y1="495.0" x2="1092.0" y2="495.0" stroke="#ff9100" stroke-width="4"/>
+<rect x="1095.0" y="420.0" width="230.0" height="150.0" rx="16" fill="#0a0407" fill-opacity="1" stroke="#ff9100"/>
+<text x="1210.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="middle">GATE</text>
+<text x="1210.0" y="525.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="21" font-weight="500" text-anchor="middle">metric + threshold</text>
+<line x1="1328.0" y1="495.0" x2="1422.0" y2="495.0" stroke="#ff9100" stroke-width="4"/>
+<rect x="1425.0" y="420.0" width="230.0" height="150.0" rx="16" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="1540.0" y="480.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="middle">NEXT TEST</text>
+<text x="1540.0" y="525.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="21" font-weight="500" text-anchor="middle">only survivors</text>
+<text x="210.0" y="680.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="start">data source</text>
+<text x="410.0" y="680.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="start">REAL</text>
+<text x="750.0" y="680.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="start">wiring proof</text>
+<text x="930.0" y="680.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="start">TRUE</text>
+<text x="1260.0" y="680.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="start">validated</text>
+<text x="1430.0" y="680.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="start">FALSE</text>
+<text x="960.0" y="775.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="30" font-weight="700" text-anchor="middle">pipeline evidence ≠ live-performance proof</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">METHOD DIAGRAM · FLAGS PRESERVED FROM THE RECORDED RUNS</text>
+</svg>

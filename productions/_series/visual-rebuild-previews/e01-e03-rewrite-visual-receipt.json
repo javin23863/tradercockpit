@@ -1,0 +1,47 @@
+{
+  "schema": "series-e01-e03-rewrite-visuals/v1",
+  "generated_from": "productions/_series/e01-e03-live-receipts-2026-08-03.json",
+  "manifest_sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d",
+  "sources": {
+    "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T094910-d0d18d9a/phases/phase01_intake.json": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b",
+    "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T154557-12660559/phases/phase01_intake.json": "a1b432051d490df3f6fcb3ad87b7213722c0f5aa5c5f6cbb121da65dc13961ce",
+    "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase01_intake.json": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d",
+    "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase02_oos.json": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0",
+    "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase03_timing.json": "bfbb0196138521f2cf87a840b9fc83bffe8f073a3c0a0c953bc4e2c27e62621e",
+    "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260714T113408-b5d06cc6\\phases\\phase01_intake.json": "59e2257a5bb6b13c6cce2a4f5b22702b396d06e79651b3fb09be341e1eb7bcc1",
+    "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260714T113408-b5d06cc6\\phases\\phase02_oos.json": "640532043b74c60c7ec30a5e14973c3ae6860f6b0a6540e2025b41bf93f2069e",
+    "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase04_cost.json": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be"
+  },
+  "outputs": {
+    "e01-pipeline-map.svg": "e7cf8f9db7a69c70e8ba989f930fefed4a9c373e4a8d4a9a4aa11887c4285e8d",
+    "e01-run-lanes.svg": "2007f2f3b47dcb50d9885c47cb01d12b8fcb79e36f203e742f1b9633c1c1082a",
+    "e01-dow-gate-census.svg": "689e3fa1efac3bb20037230b9aea844250e6c0bfe293292f90ec653949ee4e4f",
+    "e01-candidate-ledger.svg": "05163868f0669849d1d45e138c4bff1b92597422ef4e47ab161802af421c0bdd",
+    "e02-spy-boundary.svg": "042c65c6ed1169a5de3c3305b9f892afb8e995035d2fc68db4da48aba422201c",
+    "e02-spy-candidate-row.svg": "18f9654240ff1dcce25bf9f6cdf3064e86fd3791c9c9e6fa43b8875067b51b81",
+    "e02-dow-oos-bridge.svg": "d9322ed3de353eb6457f98ab84e227689128285e9a8dedb32287dbb3fafa8ac9",
+    "e03-three-view-funnel.svg": "bab16bc4efe6fd7fb181f4bce495ee3db49f3dd4520a37536135424b614251cf",
+    "e03-veto-vs-pass.svg": "84898c15142dd36e25ed6988a5c45e686dbfccd907fad7da27670241bd8c4d12",
+    "e03-profit-factor.svg": "d3c060e1eaec84cfd137c8d15b70de4e7dfd6bae9a7c9e768d46238f53dd128f",
+    "e03-cost-handoff.svg": "2bd9979c1d9e722f47d9f5d5bbaa994d6211039d7ca3b0257144bafe1f14d585"
+  },
+  "labels": {
+    "run_data": [
+      "e01-run-lanes.svg",
+      "e01-dow-gate-census.svg",
+      "e01-candidate-ledger.svg",
+      "e02-spy-boundary.svg",
+      "e02-spy-candidate-row.svg",
+      "e02-dow-oos-bridge.svg",
+      "e03-three-view-funnel.svg",
+      "e03-veto-vs-pass.svg",
+      "e03-cost-handoff.svg"
+    ],
+    "derived_or_method": [
+      "e01-pipeline-map.svg",
+      "e03-profit-factor.svg"
+    ],
+    "illustrative": []
+  },
+  "quality_boundary": "All factual numbers are drawn from the tracked manifest; no generative media or generic card component is used."
+}

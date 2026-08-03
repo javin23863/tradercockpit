@@ -1,0 +1,44 @@
+{
+  "schema": "into-the-laboratory/e01-e03-rewrite-visual-map/v1",
+  "visual_receipt": "productions/_series/visual-rebuild-previews/e01-e03-rewrite-visual-receipt.json",
+  "episodes": {
+    "01": {
+      "scene-01": "e01-pipeline-map.svg",
+      "scene-02": "e01-pipeline-map.svg",
+      "scene-03": "e01-pipeline-map.svg",
+      "scene-04": "e01-run-lanes.svg",
+      "scene-05": "e01-dow-gate-census.svg",
+      "scene-06": "e01-candidate-ledger.svg",
+      "scene-07": "e01-run-lanes.svg",
+      "scene-08": "e01-pipeline-map.svg",
+      "scene-09": "e01-candidate-ledger.svg",
+      "scene-10": "e01-pipeline-map.svg"
+    },
+    "02": {
+      "scene-01": "e02-spy-boundary.svg",
+      "scene-02": "e02-spy-boundary.svg",
+      "scene-03": "e02-spy-boundary.svg",
+      "scene-04": "e02-spy-boundary.svg",
+      "scene-05": "e02-spy-candidate-row.svg",
+      "scene-06": "e02-spy-boundary.svg",
+      "scene-07": "e02-dow-oos-bridge.svg",
+      "scene-08": "e02-dow-oos-bridge.svg",
+      "scene-09": "e02-dow-oos-bridge.svg",
+      "scene-10": "e02-spy-boundary.svg"
+    },
+    "03": {
+      "scene-01": "e03-three-view-funnel.svg",
+      "scene-02": "e03-three-view-funnel.svg",
+      "scene-03": "e03-three-view-funnel.svg",
+      "scene-04": "e03-three-view-funnel.svg",
+      "scene-05": "e03-veto-vs-pass.svg",
+      "scene-06": "e03-veto-vs-pass.svg",
+      "scene-07": "e03-profit-factor.svg",
+      "scene-08": "e03-profit-factor.svg",
+      "scene-09": "e03-cost-handoff.svg",
+      "scene-10": "e03-three-view-funnel.svg"
+    }
+  },
+  "composition_rule": "Repeated assets represent stateful draw-on phases of the same deterministic composition; no scene may replace its factual geometry with a generic text card.",
+  "creative_boundary": "No generative media, market screenshot, trend line, or illustrative candidate number is used for a factual claim."
+}

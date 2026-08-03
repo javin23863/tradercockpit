@@ -1,0 +1,190 @@
+{
+  "schema": "into-the-laboratory/e01-e03-live-receipts/v1",
+  "captured_utc": "2026-08-03T00:00:00Z",
+  "purpose": "Source manifest for the Episode 1-3 rewrite candidate. Values are copied from the current recorded run artifacts; no backtest was rerun in this task.",
+  "provenance_rule": "data_source=real, validated=false, wiring_proof=true is preserved exactly where the source receipt reports it. This is pipeline evidence, not live-trading validation or a performance promise.",
+  "episodes": {
+    "01": {
+      "title_candidate": "The First Screen Rejected 5,206 Candidates. One Run Continued.",
+      "aggregate": {
+        "entering": 5390,
+        "surviving": 184,
+        "rejected": 5206,
+        "calculation": "1335 + 2004 + 2051 = 5390; 184 + 0 + 0 = 184; 5390 - 184 = 5206"
+      },
+      "runs": [
+        {
+          "label": "Dow futures",
+          "run_id": "rb-20260725T133803-b44bd92c",
+          "phase": "phase01_intake",
+          "window": {"start": "2010-06-06", "end": "2018-02-25"},
+          "entering": 1335,
+          "surviving": 184,
+          "dropped": 1151,
+          "source_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase01_intake.json",
+          "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d",
+          "provenance": {"data_source": "real", "validated": false, "wiring_proof": true}
+        },
+        {
+          "label": "S&P 500 futures",
+          "run_id": "rb-20260715T094910-d0d18d9a",
+          "phase": "phase01_intake",
+          "window": {"start": "2003-07-06", "end": "2013-06-08"},
+          "entering": 2004,
+          "surviving": 0,
+          "dropped": 2004,
+          "source_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T094910-d0d18d9a/phases/phase01_intake.json",
+          "sha256": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b",
+          "provenance": {"data_source": "real", "validated": false, "wiring_proof": true}
+        },
+        {
+          "label": "EURUSD",
+          "run_id": "rb-20260715T154557-12660559",
+          "phase": "phase01_intake",
+          "window": {"start": "2022-01-02", "end": "2023-09-06"},
+          "entering": 2051,
+          "surviving": 0,
+          "dropped": 2051,
+          "source_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T154557-12660559/phases/phase01_intake.json",
+          "sha256": "a1b432051d490df3f6fcb3ad87b7213722c0f5aa5c5f6cbb121da65dc13961ce",
+          "provenance": {"data_source": "real", "validated": false, "wiring_proof": true}
+        }
+      ],
+      "dow_gate_census": {
+        "entering": 1335,
+        "surviving": 184,
+        "dropped": 1151,
+        "failed_return_to_drawdown": 1122,
+        "failed_profit_factor": 1065,
+        "failed_activity": 150,
+        "overlap_warning": "The three failure counts overlap; they are not additive."
+      },
+      "dow_candidate_examples": {
+        "is_survivor": {
+          "candidate_id": "formula-2851293728-1566",
+          "net": 16727.8,
+          "profit_factor": 1.28037,
+          "return_to_drawdown": 4.932417,
+          "trades": 553,
+          "wins": 210,
+          "losses": 343
+        }
+      }
+    },
+    "02": {
+      "title_candidate": "The SPY RSI2 Test Rejected Five Candidates Before the Holdout",
+      "stock_branch": {
+        "instrument": "SPY",
+        "timeframe": "D1",
+        "strategy_identity": "Connors RSI2",
+        "run_id": "rb-20260714T113408-b5d06cc6",
+        "program_id": "libcycle-spy-d1-lib1-w96ddd6-r0a8de8-c41e7ad",
+        "phase01_window": {"start": "1996-07-12", "end": "2011-05-26"},
+        "phase01_entering": 5,
+        "phase01_surviving": 0,
+        "phase01_dropped": 5,
+        "phase02_window": null,
+        "phase02_entering": 0,
+        "phase02_surviving": 0,
+        "phase02_note": "skip empty: no adoptable candidates (reference-only funnel)",
+        "phase01_source_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260714T113408-b5d06cc6/phases/phase01_intake.json",
+        "phase01_sha256": "59e2257a5bb6b13c6cce2a4f5b22702b396d06e79651b3fb09be341e1eb7bcc1",
+        "phase02_source_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260714T113408-b5d06cc6/phases/phase02_oos.json",
+        "phase02_sha256": "640532043b74c60c7ec30a5e14973c3ae6860f6b0a6540e2025b41bf93f2069e",
+        "provenance": {"data_source": "real", "validated": false, "wiring_proof": true},
+        "candidate_example": {
+          "candidate_id": "concept-2422788506-0",
+          "profit_factor": 0.806004,
+          "profit_factor_threshold": 1.3,
+          "return_to_drawdown": -0.420205,
+          "return_to_drawdown_threshold": 4,
+          "trades_per_month": 0.392308,
+          "trades_per_month_threshold": 2
+        }
+      },
+      "dow_oos_branch": {
+        "run_id": "rb-20260725T133803-b44bd92c",
+        "phase": "phase02_oos",
+        "window": {"start": "2018-02-25", "end": "2019-09-21"},
+        "entering": 184,
+        "surviving": 154,
+        "dropped": 30,
+        "source_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase02_oos.json",
+        "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0",
+        "candidate_example": {
+          "candidate_id": "formula-2851293728-1566",
+          "is_net": 16727.8,
+          "is_profit_factor": 1.28037,
+          "oos_net": -4897.4,
+          "oos_profit_factor": 0.813381,
+          "oos_return_to_drawdown": -0.563866,
+          "oos_wins": 29,
+          "oos_losses": 72
+        },
+        "provenance": {"data_source": "real", "validated": false, "wiring_proof": true}
+      }
+    },
+    "03": {
+      "title_candidate": "The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.",
+      "run_id": "rb-20260725T133803-b44bd92c",
+      "phase": "phase03_timing",
+      "window": {"start": "2018-02-25", "end": "2019-09-21"},
+      "instrument": "YM continuous/back-adjusted hourly",
+      "venue": "CME Globex",
+      "clock_route": "UTC source translated to America/New_York wall clock",
+      "entering": 154,
+      "surviving": 53,
+      "dropped": 101,
+      "gate_failures": {
+        "pf_entry_delay_1bar": 66,
+        "pf_session_half_1": 41,
+        "pf_session_half_2": 23,
+        "overlap_warning": "The three failure counts overlap; they are not additive."
+      },
+      "source_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase03_timing.json",
+      "sha256": "bfbb0196138521f2cf87a840b9fc83bffe8f073a3c0a0c953bc4e2c27e62621e",
+      "provenance": {"data_source": "real", "validated": false, "wiring_proof": true},
+      "candidate_examples": {
+        "failed_session_half_1": {
+          "candidate_id": "formula-2309285457-3105",
+          "pf_entry_delay_1bar": 1.123246,
+          "pf_session_half_1": 0.986603,
+          "pf_session_half_2": 1.494639,
+          "threshold": 1.0,
+          "result": "fails the session-half-1 gate"
+        },
+        "passes_all_three": {
+          "candidate_id": "formula-2309285457-3088",
+          "pf_entry_delay_1bar": 1.08018,
+          "pf_session_half_1": 1.156412,
+          "pf_session_half_2": 1.151833,
+          "threshold": 1.0,
+          "result": "passes all three recorded gates"
+        }
+      },
+      "next_phase": {
+        "phase": "phase04_cost",
+        "entering": 53,
+        "surviving": 46,
+        "dropped": 7,
+        "source_sha256": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be"
+      }
+    },
+    "shared_e04_authority": {
+      "authority_sha256": "0794615b139ab34cc1be355fedd548b4c9e8ac963a9aca62779223414fd7ab55",
+      "scope": "Common YM ledger, clock, venue, cost, and phase-continuity facts used only where Episode 3 explicitly bridges to Episode 4."
+    }
+  },
+  "rewrite_boundary": {
+    "allowed": [
+      "rewrite candidate scripts, scene plans, claims, and deterministic SVG source assets",
+      "run read-only package and claim gates against the isolated candidate"
+    ],
+    "not_done": [
+      "no external Futures files were edited",
+      "no narration was generated",
+      "no master was rendered",
+      "no upload, publication, or operator approval was performed"
+    ]
+  }
+}

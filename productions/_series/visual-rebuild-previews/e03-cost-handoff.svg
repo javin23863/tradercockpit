@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">THE 53 ARE A HANDOFF, NOT A FINISH LINE</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">PHASE03 NARROWS THE POPULATION; PHASE04 TESTS THE SAME LEDGER UNDER COST STRESS</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="690.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="160.0" y="315.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="26" font-weight="800" text-anchor="start">PHASE03 OUTPUT</text>
+<line x1="290.0" y1="490.0" x2="1560.0" y2="490.0" stroke="#ff9100" stroke-width="8"/>
+<text x="290.0" y="440.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="54" font-weight="850" text-anchor="middle">154</text>
+<text x="870.0" y="440.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="54" font-weight="850" text-anchor="middle">53</text>
+<text x="1560.0" y="440.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="38" font-weight="850" text-anchor="middle">PHASE04</text>
+<text x="290.0" y="560.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="500" text-anchor="middle">OOS</text>
+<text x="870.0" y="560.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="800" text-anchor="middle">PASS ALL THREE</text>
+<text x="1560.0" y="560.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="24" font-weight="800" text-anchor="middle">COST STRESS</text>
+<text x="460.0" y="725.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="32" font-weight="800" text-anchor="middle">53 ENTER</text>
+<text x="960.0" y="725.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="32" font-weight="800" text-anchor="middle">7 FAIL NET AT 3×</text>
+<text x="1460.0" y="725.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="32" font-weight="800" text-anchor="middle">46 PASS BOTH</text>
+<text x="960.0" y="850.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="30" font-weight="850" text-anchor="middle">a survivor is the next question, never the final answer</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RUN DATA · PHASE04 BRIDGE · 53→46 WITH 7 NET-PROFIT FAILURES AT 3×</text>
+</svg>

@@ -1,0 +1,75 @@
+# EPISODE 03 — REWRITE CANDIDATE
+# Title: The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.
+# Thumbnail: THREE VIEWS / ONE VETO
+# Evidence boundary: the recorded Dow phase03 timing/session stress plus the exact phase04 bridge.
+# No narration, asset generation, render, upload, or publication is authorized by this candidate.
+#
+# ARC — Production Standard §(c)3
+#   status quo       scene-01
+#   call             scene-02
+#   mentor           scene-03
+#   trials           scene-04
+#   crisis           scene-05
+#   treasure         scene-06
+#   return           scene-09
+#   new status quo   scene-10
+
+=== SLOT scene-01 -> pending.wav ===
+
+## One total can hide three weak views
+# receipt: E03-RW-C01
+The Dow test kept 53 candidates, and 101 failed at least one of the next checks. The same 154 candidates faced a one-bar-later entry view and two session views. The useful question is whether the result stayed above the rule when the fill and the trading-hour split were made explicit. A profitable total can contain one weak group that disappears when the ledger is separated. This phase makes that hidden dependency measurable. It turns a vague concern—“maybe the clock matters”—into three declared transformations that can be repeated on the same candidate population.
+
+=== SLOT scene-02 -> pending.wav ===
+
+## The recorded YM test
+# receipt: E03-RW-C02
+This is the same Dow branch that entered the out-of-sample phase with 184 candidates and carried 154 forward. The phase record names YM continuous, back-adjusted hourly data from 2018-02-25 to 2019-09-21. The companion authority routes the source timestamps from UTC into America/New_York wall time on CME Globex. That clock route matters because a session split is meaningless without a declared clock. A continuous, back-adjusted series also describes the historical instrument used by the phase; it is not a statement that every live contract would have the same fill. The data source is marked real, the wiring proof is true, and the validated flag is false.
+
+=== SLOT scene-03 -> pending.wav ===
+
+## Three checks, stated exactly
+# receipt: E03-RW-C03
+First, the entry is scored one bar later in the same direction. Latency is the delay between a signal and the fill used to score it. This one-bar view asks how much of the result depended on the original fill arriving immediately. If price moves against the signal during that extra bar, the ledger records the damage; if it moves in the trade's favor, the delayed view records that too. Second, the original trades are split at the median entry hour into session half 1 and session half 2. A split sample is a population divided into declared groups for separate measurement. That asks whether one part of the trading day carried the total. These are three recorded profit-factor gates: one delayed-entry view and two session views. Each view has a transformation, a metric, and a threshold of 1.0.
+
+=== SLOT scene-04 -> pending.wav ===
+
+## 154 becomes 101 and 53
+# receipt: E03-RW-C04
+The phase starts with 154 candidates. One hundred one fail at least one gate, and 53 pass all three. The gate census records 66 failures on the one-bar delay, 41 on session half 1, and 23 on session half 2. Those failure counts overlap, so adding them would overstate the number of candidates that failed. A candidate that fails two views is still one failed candidate in the headline total. The all-gates rule is deliberately strict: a candidate must clear the delayed fill and both session halves to continue. The only safe totals are the recorded 154 entering, 101 failing at least one, and 53 clearing all three.
+
+=== SLOT scene-05 -> pending.wav ===
+
+## A real candidate fails one slice
+# receipt: E03-RW-C05
+Candidate formula-2309285457-3105 passes the one-bar delay at profit factor 1.123246. It passes session half 2 at 1.494639. It fails session half 1 at 0.986603, below the 1.0 threshold. This is a recorded candidate row. One weak session slice is enough for this all-gates rule to stop the candidate even when the other two views are above 1. The large 1.494639 in one slice does not cancel the 0.986603 in the other. The row is useful precisely because it is uncomfortable: a single blended total could have hidden the veto, while the three-view ledger names the weak part.
+
+=== SLOT scene-06 -> pending.wav ===
+
+## A real candidate clears all three
+# receipt: E03-RW-C06
+Candidate formula-2309285457-3088 records profit factor 1.080180 on the one-bar delay, 1.156412 on session half 1, and 1.151833 on session half 2. All three are above the 1.0 threshold. That makes this candidate a recorded survivor of this phase. The margins are visible rather than rounded into a vague pass, and a different candidate can have a different pattern. It does not turn the row into a forecast, and it does not erase the 101 candidates that failed another view. It simply answers the declared question for this version and these historical ledgers.
+
+=== SLOT scene-07 -> pending.wav ===
+
+## Profit factor is a comparison, not a verdict
+# receipt: E03-RW-C07
+Profit factor is gross winning dollars divided by gross losing dollars on the same ledger. A value above 1 means the winning dollars are larger for that view. A value below 1 means the losing dollars are larger. The phase uses 1.0 as the gate. For the failed row, 0.986603 means the losing dollars are slightly larger in session half 1, even though the other views are above 1. For the passing row, each displayed ratio is above 1. That single comparison is useful because it is easy to audit, but it still needs the candidate count, the exact transformation, the trade ledger, and the validation boundary beside it. A value of 1.15 is not a guarantee; it is a ratio produced by one specified historical view.
+
+=== SLOT scene-08 -> pending.wav ===
+
+## What this phase can and cannot say
+# receipt: E03-RW-C08
+This phase can say how the 154 recorded candidates responded to a one-bar entry delay and two session splits. It can show which rows cleared the recorded profit-factor checks. It can show that the surviving population is smaller than the OOS population. It cannot say that the surviving rows will earn money live. The source is real and the wiring is exercised, but validated is still false. A regime is a recurring market condition such as a trend, range, or volatility state. This phase does not identify a regime cause; it identifies sensitivity in the recorded historical test. To make a causal claim, we would need a different design and evidence beyond this phase record. Precision about the limit belongs in the result.
+
+=== SLOT scene-09 -> pending.wav ===
+
+## The 53 move into cost stress
+# receipt: E03-RW-C09
+The 53 survivors do not become a final list. They become the next input. In the following cost phase, the same pipeline carries 53 forward, tests the fixed ledger under higher slippage assumptions, and records 7 net-profit failures at three times while 46 clear both stated checks. Slippage is the difference between the reference price and the fill price assumed by the ledger. That later phase also records two profit-factor failures at two times. The handoff is the point: every phase narrows the population and makes the remaining claim more specific. A survivor is a candidate for the next challenge, never permission to skip the challenge. The phase03 result earns a narrower question; it does not earn a conclusion about live trading.
+
+=== SLOT scene-10 -> pending.wav ===
+
+## The fill-and-session worksheet
+# receipt: E03-RW-C10
+For a timing or execution stress test, write the original population, the exact transformed view, the threshold, the failure count, and whether failures overlap. Keep one failed row and one passing row with their candidate identifiers. Then write the validation status and the next phase. If the clock is used, declare the clock. If the fill is moved, state by how many bars. If a session is split, state the boundary and the rule for assigning a trade. A good result is a relationship that another run can challenge. Keep the 154-to-53 result beside the worksheet. That is how the pipeline turns a vague timing worry into a reproducible research step.

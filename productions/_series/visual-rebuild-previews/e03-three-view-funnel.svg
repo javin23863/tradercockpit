@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">ONE POPULATION / THREE EXPLICIT VIEWS</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">DELAYED ENTRY + SESSION HALF 1 + SESSION HALF 2</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="690.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="160.0" y="315.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="start">154 CANDIDATES ENTER</text>
+<line x1="300.0" y1="485.0" x2="1620.0" y2="485.0" stroke="#3a0d1a" stroke-width="10"/>
+<text x="300.0" y="440.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="start">ONE BAR LATER</text>
+<text x="760.0" y="440.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="start">SESSION HALF 1</text>
+<text x="1220.0" y="440.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="500" text-anchor="start">SESSION HALF 2</text>
+<line x1="390.0" y1="485.0" x2="390.0" y2="700.0" stroke="#ff1744" stroke-width="14"/>
+<text x="390.0" y="745.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="850" text-anchor="middle">66 FAIL</text>
+<text x="390.0" y="790.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="middle">DELAY</text>
+<line x1="850.0" y1="485.0" x2="850.0" y2="700.0" stroke="#ff1744" stroke-width="14"/>
+<text x="850.0" y="745.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="850" text-anchor="middle">41 FAIL</text>
+<text x="850.0" y="790.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="middle">HALF 1</text>
+<line x1="1310.0" y1="485.0" x2="1310.0" y2="700.0" stroke="#ff1744" stroke-width="14"/>
+<text x="1310.0" y="745.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="850" text-anchor="middle">23 FAIL</text>
+<text x="1310.0" y="790.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="500" text-anchor="middle">HALF 2</text>
+<rect x="1450.0" y="330.0" width="240.0" height="185.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#00e676"/>
+<text x="1570.0" y="405.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="850" text-anchor="middle">53</text>
+<text x="1570.0" y="460.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="23" font-weight="800" text-anchor="middle">PASS ALL</text>
+<text x="960.0" y="865.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="27" font-weight="850" text-anchor="middle">101 FAIL AT LEAST ONE · FAILURE COUNTS OVERLAP · 53 CLEAR ALL THREE</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RUN DATA · DOW PHASE03 · 154→53 · 66/41/23 FAILURE CENSUS</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#08030a"/>
+<text x="110.0" y="115.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="58" font-weight="750" text-anchor="start">THREE REAL RUNS / ONE NARROW SURVIVOR LANE</text>
+<text x="110.0" y="165.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="25" font-weight="500" text-anchor="start">THE COUNTS ARE AGGREGATED FOR THE LESSON; WINDOWS AND RUN IDENTITIES STAY SEPARATE</text>
+<line x1="110.0" y1="198.0" x2="1810.0" y2="198.0" stroke="#3a0d1a" stroke-width="2"/>
+<rect x="110.0" y="245.0" width="1700.0" height="690.0" rx="18" fill="#0a0407" fill-opacity="1" stroke="#3a0d1a"/>
+<text x="160.0" y="315.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="700" text-anchor="start">ENTERING</text>
+<text x="1450.0" y="315.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="22" font-weight="700" text-anchor="middle">CARRIED FORWARD</text>
+<text x="160.0" y="362.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="start">DOW FUTURES</text>
+<text x="160.0" y="424.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">2010-06-06 → 2018-02-25</text>
+<rect x="520.0" y="348.0" width="700.0" height="74.0" rx="10" fill="#3a0d1a" fill-opacity="1" stroke="#3a0d1a"/>
+<rect x="520.0" y="348.0" width="455.6" height="74.0" rx="10" fill="#ff9100" fill-opacity="0.82" stroke="#ff9100"/>
+<text x="1245.0" y="400.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="800" text-anchor="start">1,335</text>
+<line x1="1420.0" y1="385.0" x2="1650.0" y2="385.0" stroke="#3a0d1a" stroke-width="12"/>
+<line x1="1420.0" y1="385.0" x2="1451.7" y2="385.0" stroke="#00e676" stroke-width="12"/>
+<text x="1700.0" y="400.0" fill="#00e676" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="800" text-anchor="start">184</text>
+<text x="160.0" y="532.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="start">S&amp;P 500 FUTURES</text>
+<text x="160.0" y="594.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">2003-07-06 → 2013-06-08</text>
+<rect x="520.0" y="518.0" width="700.0" height="74.0" rx="10" fill="#3a0d1a" fill-opacity="1" stroke="#3a0d1a"/>
+<rect x="520.0" y="518.0" width="684.0" height="74.0" rx="10" fill="#ff9100" fill-opacity="0.82" stroke="#ff9100"/>
+<text x="1245.0" y="570.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="800" text-anchor="start">2,004</text>
+<line x1="1420.0" y1="555.0" x2="1650.0" y2="555.0" stroke="#3a0d1a" stroke-width="12"/>
+<line x1="1420.0" y1="555.0" x2="1420.0" y2="555.0" stroke="#ff1744" stroke-width="12"/>
+<text x="1700.0" y="570.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="800" text-anchor="start">0</text>
+<text x="160.0" y="702.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="28" font-weight="800" text-anchor="start">EURUSD</text>
+<text x="160.0" y="764.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">2022-01-02 → 2023-09-06</text>
+<rect x="520.0" y="688.0" width="700.0" height="74.0" rx="10" fill="#3a0d1a" fill-opacity="1" stroke="#3a0d1a"/>
+<rect x="520.0" y="688.0" width="700.0" height="74.0" rx="10" fill="#ff9100" fill-opacity="0.82" stroke="#ff9100"/>
+<text x="1245.0" y="740.0" fill="#ff9100" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="800" text-anchor="start">2,051</text>
+<line x1="1420.0" y1="725.0" x2="1650.0" y2="725.0" stroke="#3a0d1a" stroke-width="12"/>
+<line x1="1420.0" y1="725.0" x2="1420.0" y2="725.0" stroke="#ff1744" stroke-width="12"/>
+<text x="1700.0" y="740.0" fill="#ff1744" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="800" text-anchor="start">0</text>
+<text x="960.0" y="875.0" fill="#f5e8ea" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="34" font-weight="800" text-anchor="middle">5,390 entering across three run-specific libraries</text>
+<text x="960.0" y="915.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="26" font-weight="500" text-anchor="middle">184 forward · 0 S&amp;P futures · 0 EURUSD</text>
+<line x1="110.0" y1="1002.0" x2="1810.0" y2="1002.0" stroke="#3a0d1a" stroke-width="2"/>
+<text x="110.0" y="1040.0" fill="#c89aa3" font-family="Cascadia Mono,Cascadia Code,Consolas,monospace" font-size="20" font-weight="500" text-anchor="start">RUN DATA · DOW 1,335→184 · S&amp;P 500 FUTURES 2,004→0 · EURUSD 2,051→0</text>
+</svg>
