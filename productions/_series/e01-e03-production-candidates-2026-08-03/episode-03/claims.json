@@ -1,0 +1,92 @@
+{
+  "schema": "teaching-claims/v1",
+  "script_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
+  "sources": {
+    "E03_DOW_P2": {
+      "citation": "Recorded Dow phase02 out-of-sample receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase02_oos.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase02 out-of-sample used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0"
+    },
+    "E03_DOW_P3": {
+      "citation": "Recorded Dow phase03 timing receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase03_timing.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase03 timing used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "bfbb0196138521f2cf87a840b9fc83bffe8f073a3c0a0c953bc4e2c27e62621e"
+    },
+    "E03_DOW_P4": {
+      "citation": "Recorded Dow phase04 cost handoff receipt",
+      "locator": "hash-only: external phase04_cost.json (artifact remains in Futures scope)",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase04 cost handoff used by this episode.",
+      "limitations": "The phase04 cost handoff is referenced by its recorded SHA-256 only; the artifact remains in the Futures scope and was not copied into TraderCockpit. The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be"
+    }
+  },
+  "claims": {
+    "E03-RW-C01": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C02": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P2",
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C03": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C04": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C05": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C06": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C07": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C08": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3"
+      ]
+    },
+    "E03-RW-C09": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3",
+        "E03_DOW_P4"
+      ]
+    },
+    "E03-RW-C10": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E03_DOW_P3",
+        "E03_DOW_P4"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "tradercockpit-series-package/v1",
+  "STATUS": "CANDIDATE — OPERATOR SCRIPT AND SEMANTIC VISUAL APPROVAL REQUIRED",
+  "status": "candidate_pending_operator_approval",
+  "episode": 3,
+  "syllabus_episode": "03",
+  "revision": "e01-e03-production-start-2026-08-03",
+  "title": "The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.",
+  "beginner_belief": "If a backtest passes one view, it is ready for the next cost and session checks.",
+  "prewriting": {
+    "proven idea": "The recorded Dow phase carries 154 candidates into three views; 101 fail at least one and 53 pass all three.",
+    "common goal": "Teach a beginner how delayed fills and session splits can veto a candidate without turning a pass into a trading promise.",
+    "deeper problem": "One blended total can hide a weak session or fill view, and overlapping failure counts cannot be added into the headline total.",
+    "package first": "THREE VIEWS / ONE VETO; the title leads with 53 kept and 101 failed at least one check.",
+    "audience avatar": "A beginner who sees a profitable total but needs to understand why the same candidates must survive separate transformations.",
+    "research the gaps": "Verified the phase03 receipt, exact veto and pass rows, the phase04 cost handoff, real-data and wiring flags, and validated=false."
+  },
+  "thumbnail": {
+    "status": "candidate",
+    "elements": [
+      "THREE VIEWS",
+      "ONE VETO"
+    ],
+    "visual_promise": "Evidence-bound mechanism, not a generic card."
+  },
+  "candidate_first_post_ident_sentence": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks.",
+  "first_spoken_sentence": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks.",
+  "evidence": {
+    "manifest": "../../e01-e03-live-receipts-2026-08-03.json",
+    "boundary": "Recorded Dow phase03 timing/session stress and the exact phase04 handoff; real data and wiring proof are preserved, validated remains false.",
+    "validation_status": false
+  },
+  "production": {
+    "anchor_medium": "narration_led_deterministic_graphics",
+    "render_runtime": "hyperframes",
+    "render_runtime_alternative": "remotion",
+    "composition_mode": "atelier",
+    "music": "none",
+    "full_render_started": false
+  },
+  "script": {
+    "status": "candidate_pending_script_human_gate",
+    "sha256": "b982c0d2729ff790abc174aaf969729beb101b8e5f0926275bfb681a05b20134",
+    "vo_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
+    "word_count": 1140,
+    "estimated_duration_seconds": 432.5,
+    "duration_basis_wpm": 160.0
+  },
+  "approval": {
+    "package_approved": false,
+    "complete_script_approved": false,
+    "thumbnail_approved": false,
+    "narration_approved": false,
+    "master_approved": false,
+    "historical_approvals_authoritative": false
+  }
+}

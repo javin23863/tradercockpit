@@ -1,0 +1,318 @@
+{
+  "version": "1.0",
+  "title": "The SPY RSI2 Test Rejected Five Candidates Before the Holdout",
+  "total_duration_seconds": 450.875,
+  "voice_performance": {
+    "performance_intent": "A calm lab walkthrough for a beginner; exact results are stated without turning them into a promise.",
+    "pacing_profile": "technical",
+    "energy_curve": "Immediate recorded result, definitions, measured comparison, explicit limitation, worksheet close.",
+    "pause_policy": "Brief pauses after counts and thresholds; longer pause before the boundary statement.",
+    "sample_section_id": "scene-01",
+    "provider_notes": {
+      "voice": "pending operator approval",
+      "rate": "provider-native only after exact-script approval"
+    }
+  },
+  "sections": [
+    {
+      "id": "scene-01",
+      "label": "The stock branch stops before the holdout",
+      "text": "The SPY RSI2 test rejected all five candidate versions before the holdout. That is the real opening result. The earlier version of this lesson described a pass that the current stock run does not contain. We are correcting the story before we teach the definition. A holdout can judge only a candidate that the first screen adopted. The useful question is where the evidence stops and what a later test would require.",
+      "start_seconds": 0.0,
+      "end_seconds": 27.5,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The SPY RSI2 test rejected all five candidate versions before the holdout. That is the real opening result. The earlier version of this lesson described a pass that the current stock run does not contain. We are correcting the story before we teach the definition. A holdout can judge only a candidate that the first screen adopted. The useful question is where the evidence stops and what a later test would require."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the SPY branch ending at zero before the holdout opens.",
+          "timestamp_seconds": 0.0
+        }
+      ],
+      "source_ref": "E02-RW-C01"
+    },
+    {
+      "id": "scene-02",
+      "label": "What a holdout is for",
+      "text": "A holdout is a later block of prices that did not help choose the version being judged. The development block is the in-sample block; in-sample means the prices used to screen and select a version. Out-of-sample means a later price block reserved for judging that frozen version. Overfitting means fitting the rule to the development answers instead of a repeatable effect. Curve-fitting is the same danger described through parameter choices. Imagine choosing a setting after looking at the first block, freezing it, and then opening the later block only once for evaluation. That sequence protects the question. A segmented backtest is a backtest whose time blocks have separate jobs. A walk-forward design moves those jobs through time; that method belongs to Episode 07. The holdout can be a single later block or part of a declared rolling design, but its job stays the same: judge a version after the building decisions are finished. If we change the RSI threshold after seeing the holdout, the holdout has become part of development. The name on the folder does not protect the test; the sequence of decisions does.",
+      "start_seconds": 27.5,
+      "end_seconds": 97.375,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "What",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "A holdout is a later block of prices that did not help choose the version being judged. The development block is the in-sample block; in-sample means the prices used to screen and select a version. Out-of-sample means a later price block reserved for judging that frozen version. Overfitting means fitting the rule to the development answers instead of a repeatable effect. Curve-fitting is the same danger described through parameter choices. Imagine choosing a setting after looking at the first block, freezing it, and then opening the later block only once for evaluation. That sequence protects the question. A segmented backtest is a backtest whose time blocks have separate jobs. A walk-forward design moves those jobs through time; that method belongs to Episode 07. The holdout can be a single later block or part of a declared rolling design, but its job stays the same: judge a version after the building decisions are finished. If we change the RSI threshold after seeing the holdout, the holdout has become part of development. The name on the folder does not protect the test; the sequence of decisions does."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the SPY branch ending at zero before the holdout opens.",
+          "timestamp_seconds": 27.5
+        }
+      ],
+      "source_ref": "E02-RW-C02"
+    },
+    {
+      "id": "scene-03",
+      "label": "The SPY rule in plain English",
+      "text": "The saved subject is a daily SPY Connors RSI2 rule. The close must be above its 200-day simple moving average, and the 2-day RSI must be below 5. The entry is recorded at the close. The exit is a later close above the 5-day simple moving average. The first 200 daily bars are warm-up for the long moving average. Warm-up is not a trade result; it is the history needed before the indicator has a full window. The entry timing matters too: a signal known at the close is not automatically a fill at the close in a live market. The rule choices tell us what was tested. They do not tell us whether the rule will survive the screen, cover costs, or execute at those prices in a live account.",
+      "start_seconds": 97.375,
+      "end_seconds": 147.0,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The saved subject is a daily SPY Connors RSI2 rule. The close must be above its 200-day simple moving average, and the 2-day RSI must be below 5. The entry is recorded at the close. The exit is a later close above the 5-day simple moving average. The first 200 daily bars are warm-up for the long moving average. Warm-up is not a trade result; it is the history needed before the indicator has a full window. The entry timing matters too: a signal known at the close is not automatically a fill at the close in a live market. The rule choices tell us what was tested. They do not tell us whether the rule will survive the screen, cover costs, or execute at those prices in a live account."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the SPY branch ending at zero before the holdout opens.",
+          "timestamp_seconds": 97.375
+        }
+      ],
+      "source_ref": "E02-RW-C03"
+    },
+    {
+      "id": "scene-04",
+      "label": "The exact stock run",
+      "text": "The current SPY run covers a development window from 1996 to 2011. Five candidates enter the first screen, and all five are dropped. The phase record identifies the SPY daily program and preserves its run identifier. It marks the data source real and the wiring proof true, while the validated flag remains false. That combination is honest: the pipeline reached a real data branch and produced a reproducible decision, but the run does not certify live execution or future performance. The candidate population is also part of the context. Five entering versions is a small recorded branch, not a full survey of every possible RSI setting. The empty later phase is part of the result, not a missing scene to fill with made-up returns.",
+      "start_seconds": 147.0,
+      "end_seconds": 194.0,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The current SPY run covers a development window from 1996 to 2011. Five candidates enter the first screen, and all five are dropped. The phase record identifies the SPY daily program and preserves its run identifier. It marks the data source real and the wiring proof true, while the validated flag remains false. That combination is honest: the pipeline reached a real data branch and produced a reproducible decision, but the run does not certify live execution or future performance. The candidate population is also part of the context. Five entering versions is a small recorded branch, not a full survey of every possible RSI setting. The empty later phase is part of the result, not a missing scene to fill with made-up returns."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the SPY branch ending at zero before the holdout opens.",
+          "timestamp_seconds": 147.0
+        }
+      ],
+      "source_ref": "E02-RW-C04"
+    },
+    {
+      "id": "scene-05",
+      "label": "One recorded row shows why it stopped",
+      "text": "One of the five recorded candidate rows has profit factor about 0.806 against a threshold of 1.3. Its return-to-drawdown is negative 0.420 against a threshold of 4. Its activity is about 0.392 trades per month against a threshold of 2. The visual preserves the exact six-decimal values beside those spoken approximations. Profit factor is the ratio of gross winning dollars to gross losing dollars. Return-to-drawdown relates net result to the worst measured fall. Activity prevents a tiny number of trades from looking like a complete answer. That row fails all three displayed checks. The important teaching move is to show the actual threshold beside the actual value. A number such as 0.806 has no meaning by itself; the gate turns it into a decision. I am showing one row as an example, and the five-candidate field remains the full context.",
+      "start_seconds": 194.0,
+      "end_seconds": 247.0,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "One",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "One of the five recorded candidate rows has profit factor about 0.806 against a threshold of 1.3. Its return-to-drawdown is negative 0.420 against a threshold of 4. Its activity is about 0.392 trades per month against a threshold of 2. The visual preserves the exact six-decimal values beside those spoken approximations. Profit factor is the ratio of gross winning dollars to gross losing dollars. Return-to-drawdown relates net result to the worst measured fall. Activity prevents a tiny number of trades from looking like a complete answer. That row fails all three displayed checks. The important teaching move is to show the actual threshold beside the actual value. A number such as 0.806 has no meaning by itself; the gate turns it into a decision. I am showing one row as an example, and the five-candidate field remains the full context."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Put one recorded SPY row beside its three actual thresholds.",
+          "timestamp_seconds": 194.0
+        }
+      ],
+      "source_ref": "E02-RW-C05"
+    },
+    {
+      "id": "scene-06",
+      "label": "Zero adopted means zero holdout",
+      "text": "The next phase has zero candidates entering, zero surviving, and no historical window. Its note says the phase was skipped because there were no adoptable candidates. The current SPY branch stopped before unseen-price testing began. A missing holdout result marks the evidence boundary. To reach a holdout later, the process would need a new adopted version, a declared later window, and a rule that is frozen before that window is opened. Starting a new development run would be a new experiment; it would not retroactively turn this empty phase into a hidden pass or failure.",
+      "start_seconds": 247.0,
+      "end_seconds": 283.125,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "Zero",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The next phase has zero candidates entering, zero surviving, and no historical window. Its note says the phase was skipped because there were no adoptable candidates. The current SPY branch stopped before unseen-price testing began. A missing holdout result marks the evidence boundary. To reach a holdout later, the process would need a new adopted version, a declared later window, and a rule that is frozen before that window is opened. Starting a new development run would be a new experiment; it would not retroactively turn this empty phase into a hidden pass or failure."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the SPY branch ending at zero before the holdout opens.",
+          "timestamp_seconds": 247.0
+        }
+      ],
+      "source_ref": "E02-RW-C06"
+    },
+    {
+      "id": "scene-07",
+      "label": "The Dow branch is a separate holdout example",
+      "text": "Now separate the stock branch from the futures branch. In the recorded Dow run, 184 candidates enter the out-of-sample phase and 154 survive. Thirty are dropped. This is where a holdout decision actually exists in the current pipeline. The two branches teach the same rule about evidence in opposite ways: SPY has no adopted candidate to retest, while the Dow lane has a real retained population to judge. The Dow count belongs to its own branch and supplies a contrast that makes the boundary visible. They must not be added together or presented as one stock-and-futures experiment.",
+      "start_seconds": 283.125,
+      "end_seconds": 320.0,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "Now separate the stock branch from the futures branch. In the recorded Dow run, 184 candidates enter the out-of-sample phase and 154 survive. Thirty are dropped. This is where a holdout decision actually exists in the current pipeline. The two branches teach the same rule about evidence in opposite ways: SPY has no adopted candidate to retest, while the Dow lane has a real retained population to judge. The Dow count belongs to its own branch and supplies a contrast that makes the boundary visible. They must not be added together or presented as one stock-and-futures experiment."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Keep the SPY stop and Dow continuation as separate branches.",
+          "timestamp_seconds": 283.125
+        }
+      ],
+      "source_ref": "E02-RW-C07"
+    },
+    {
+      "id": "scene-08",
+      "label": "One futures candidate changes status",
+      "text": "One Dow candidate had in-sample net profit of $16,727.80 and profit factor about 1.280. On the later block, the same candidate recorded a net loss of $4,897.40, profit factor about 0.813, and 29 wins against 72 losses. The rule did not become better because the first block liked it. The later prices supplied a different answer. That is what the holdout is allowed to do. The change is useful because it demonstrates selection pressure with a real candidate row instead of a made-up $101 example. It also shows why the later block must be opened after the candidate is frozen: otherwise a researcher could keep changing the rule until this row no longer looked like a surprise.",
+      "start_seconds": 320.0,
+      "end_seconds": 364.375,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "One",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "One Dow candidate had in-sample net profit of $16,727.80 and profit factor about 1.280. On the later block, the same candidate recorded a net loss of $4,897.40, profit factor about 0.813, and 29 wins against 72 losses. The rule did not become better because the first block liked it. The later prices supplied a different answer. That is what the holdout is allowed to do. The change is useful because it demonstrates selection pressure with a real candidate row instead of a made-up $101 example. It also shows why the later block must be opened after the candidate is frozen: otherwise a researcher could keep changing the rule until this row no longer looked like a surprise."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Keep the SPY stop and Dow continuation as separate branches.",
+          "timestamp_seconds": 320.0
+        }
+      ],
+      "source_ref": "E02-RW-C08"
+    },
+    {
+      "id": "scene-09",
+      "label": "The holdout is not a tuning bench",
+      "text": "If a candidate fails the holdout, keep that result attached to that version. Do not move the threshold, change the exit, or call the same prices a fresh test. A new rule is a new candidate, and a new candidate needs a new development and holdout story. Looking at a holdout repeatedly while adjusting the version makes that block part of the building process. A distribution is the full set of recorded results. The median is the middle value after those results are ordered. A percentile is a stated rank within that distribution. Those descriptions belong beside the row count because a later analysis can summarize many candidates without replacing their identities. The current SPY evidence also leaves execution details and live validation outside its boundary. A careful lesson states exactly where the record ends, then defines what the next honest test would need.",
+      "start_seconds": 364.375,
+      "end_seconds": 418.875,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "If a candidate fails the holdout, keep that result attached to that version. Do not move the threshold, change the exit, or call the same prices a fresh test. A new rule is a new candidate, and a new candidate needs a new development and holdout story. Looking at a holdout repeatedly while adjusting the version makes that block part of the building process. A distribution is the full set of recorded results. The median is the middle value after those results are ordered. A percentile is a stated rank within that distribution. Those descriptions belong beside the row count because a later analysis can summarize many candidates without replacing their identities. The current SPY evidence also leaves execution details and live validation outside its boundary. A careful lesson states exactly where the record ends, then defines what the next honest test would need."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Keep the SPY stop and Dow continuation as separate branches.",
+          "timestamp_seconds": 364.375
+        }
+      ],
+      "source_ref": "E02-RW-C09"
+    },
+    {
+      "id": "scene-10",
+      "label": "The two-branch worksheet",
+      "text": "Write the instrument, timeframe, rule version, development window, holdout window, entering count, surviving count, and validation status. If the first screen leaves zero, write “holdout not reached.” If candidates continue, freeze them before opening the later block. Then keep one candidate row that changed status and explain why. Record whether a phase was skipped and why. The question is whether those prices were still capable of surprising the version you selected. Keep the 5-to-0 SPY result beside the worksheet when the holdout never opened.",
+      "start_seconds": 418.875,
+      "end_seconds": 450.875,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "Write the instrument, timeframe, rule version, development window, holdout window, entering count, surviving count, and validation status. If the first screen leaves zero, write “holdout not reached.” If candidates continue, freeze them before opening the later block. Then keep one candidate row that changed status and explain why. Record whether a phase was skipped and why. The question is whether those prices were still capable of surprising the version you selected. Keep the 5-to-0 SPY result beside the worksheet when the holdout never opened."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the SPY branch ending at zero before the holdout opens.",
+          "timestamp_seconds": 418.875
+        }
+      ],
+      "source_ref": "E02-RW-C10"
+    }
+  ],
+  "metadata": {
+    "episode": 2,
+    "syllabus_episode": "02",
+    "package_revision": "e01-e03-production-start-2026-08-03",
+    "duration_basis_wpm": 160.0,
+    "word_count": 1189,
+    "vo_sha256": "63f0a9869427719bb612388bb295e372d7b2d393f161fa4782d1a14f418852eb",
+    "evidence_authority": "../../e01-e03-live-receipts-2026-08-03.json",
+    "status": "candidate_pending_operator_script_and_visual_approval"
+  }
+}

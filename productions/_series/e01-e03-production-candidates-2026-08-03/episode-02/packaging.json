@@ -1,0 +1,57 @@
+{
+  "schema": "tradercockpit-series-package/v1",
+  "STATUS": "CANDIDATE — OPERATOR SCRIPT AND SEMANTIC VISUAL APPROVAL REQUIRED",
+  "status": "candidate_pending_operator_approval",
+  "episode": 2,
+  "syllabus_episode": "02",
+  "revision": "e01-e03-production-start-2026-08-03",
+  "title": "The SPY RSI2 Test Rejected Five Candidates Before the Holdout",
+  "beginner_belief": "If a test has a later holdout block, the holdout result is the main result.",
+  "prewriting": {
+    "proven idea": "The recorded SPY branch rejects all five candidates before a holdout opens.",
+    "common goal": "Teach a beginner that a holdout judges a frozen candidate and cannot exist when the first screen adopts nothing.",
+    "deeper problem": "The earlier lesson implied a stock pass that the current run does not contain, and a separately labelled Dow branch can be mistaken for SPY evidence.",
+    "package first": "5 TESTED / 0 ADVANCE; the title makes the missing holdout part of the result.",
+    "audience avatar": "A beginner who has heard in-sample and out-of-sample but needs the decision order and boundary in plain English.",
+    "research the gaps": "Verified the SPY phase records, thresholds, real-data and wiring flags, absent holdout, and separate Dow out-of-sample branch."
+  },
+  "thumbnail": {
+    "status": "candidate",
+    "elements": [
+      "5 TESTED",
+      "0 ADVANCE"
+    ],
+    "visual_promise": "Evidence-bound mechanism, not a generic card."
+  },
+  "candidate_first_post_ident_sentence": "The SPY RSI2 test rejected all five candidate versions before the holdout.",
+  "first_spoken_sentence": "The SPY RSI2 test rejected all five candidate versions before the holdout.",
+  "evidence": {
+    "manifest": "../../e01-e03-live-receipts-2026-08-03.json",
+    "boundary": "Recorded SPY D1 branch plus a separately labelled Dow out-of-sample branch; no SPY holdout was reached.",
+    "validation_status": false
+  },
+  "production": {
+    "anchor_medium": "narration_led_deterministic_graphics",
+    "render_runtime": "hyperframes",
+    "render_runtime_alternative": "remotion",
+    "composition_mode": "atelier",
+    "music": "none",
+    "full_render_started": false
+  },
+  "script": {
+    "status": "candidate_pending_script_human_gate",
+    "sha256": "03656cfaea42b47c3b03817a48d5bfda199558632bf400eab43b3cbe0e3f4062",
+    "vo_sha256": "63f0a9869427719bb612388bb295e372d7b2d393f161fa4782d1a14f418852eb",
+    "word_count": 1189,
+    "estimated_duration_seconds": 450.875,
+    "duration_basis_wpm": 160.0
+  },
+  "approval": {
+    "package_approved": false,
+    "complete_script_approved": false,
+    "thumbnail_approved": false,
+    "narration_approved": false,
+    "master_approved": false,
+    "historical_approvals_authoritative": false
+  }
+}

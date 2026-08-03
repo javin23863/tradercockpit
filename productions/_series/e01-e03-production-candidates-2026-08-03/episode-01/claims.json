@@ -1,0 +1,106 @@
+{
+  "schema": "teaching-claims/v1",
+  "script_sha256": "e73be28b9bf8f4758985a39cd9cc745e070d7d960a4d35bf89753dab99368d0b",
+  "sources": {
+    "E01_DOW_P1": {
+      "citation": "Recorded Dow futures receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase01_intake.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow futures used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d"
+    },
+    "E01_ES_P1": {
+      "citation": "Recorded S&P 500 futures receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T094910-d0d18d9a/phases/phase01_intake.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for S&P 500 futures used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b"
+    },
+    "E01_EURUSD_P1": {
+      "citation": "Recorded EURUSD receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T154557-12660559/phases/phase01_intake.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for EURUSD used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "a1b432051d490df3f6fcb3ad87b7213722c0f5aa5c5f6cbb121da65dc13961ce"
+    },
+    "E01_DOW_P2": {
+      "citation": "Recorded Dow phase02 out-of-sample receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase02_oos.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase02 out-of-sample used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0"
+    }
+  },
+  "claims": {
+    "E01-RW-C01": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1",
+        "E01_ES_P1",
+        "E01_EURUSD_P1"
+      ]
+    },
+    "E01-RW-C02": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1",
+        "E01_ES_P1",
+        "E01_EURUSD_P1"
+      ]
+    },
+    "E01-RW-C03": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1"
+      ]
+    },
+    "E01-RW-C04": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1",
+        "E01_ES_P1",
+        "E01_EURUSD_P1"
+      ]
+    },
+    "E01-RW-C05": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1"
+      ]
+    },
+    "E01-RW-C06": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1"
+      ]
+    },
+    "E01-RW-C07": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_ES_P1",
+        "E01_EURUSD_P1"
+      ]
+    },
+    "E01-RW-C08": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1"
+      ]
+    },
+    "E01-RW-C09": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1",
+        "E01_DOW_P2"
+      ]
+    },
+    "E01-RW-C10": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E01_DOW_P1",
+        "E01_ES_P1",
+        "E01_EURUSD_P1"
+      ]
+    }
+  }
+}

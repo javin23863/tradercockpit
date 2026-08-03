@@ -1,0 +1,318 @@
+{
+  "version": "1.0",
+  "title": "The First Screen Rejected 5,206 Candidates. One Run Continued.",
+  "total_duration_seconds": 513.5,
+  "voice_performance": {
+    "performance_intent": "A calm lab walkthrough for a beginner; exact results are stated without turning them into a promise.",
+    "pacing_profile": "technical",
+    "energy_curve": "Immediate recorded result, definitions, measured comparison, explicit limitation, worksheet close.",
+    "pause_policy": "Brief pauses after counts and thresholds; longer pause before the boundary statement.",
+    "sample_section_id": "scene-01",
+    "provider_notes": {
+      "voice": "pending operator approval",
+      "rate": "provider-native only after exact-script approval"
+    }
+  },
+  "sections": [
+    {
+      "id": "scene-01",
+      "label": "The first screen starts with a real count",
+      "text": "The first screen rejected 5,206 candidates, and one run continued. This recorded first screen started with 5,390 candidate versions and carried 184 forward. A real research run can begin with thousands of candidate versions and end with a small list—or an empty list. That is the first fact we need before asking whether anything deserves a holdout test. A backtest output is a measurement of one rule set over one historical window. The rule still has to earn a place in the next phase before anyone discusses a broker account. The pipeline is allowed to say no before the story gets exciting, and the quality of the lesson depends on keeping that no visible.",
+      "start_seconds": 0.0,
+      "end_seconds": 43.25,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The first screen rejected 5,206 candidates, and one run continued. This recorded first screen started with 5,390 candidate versions and carried 184 forward. A real research run can begin with thousands of candidate versions and end with a small list—or an empty list. That is the first fact we need before asking whether anything deserves a holdout test. A backtest output is a measurement of one rule set over one historical window. The rule still has to earn a place in the next phase before anyone discusses a broker account. The pipeline is allowed to say no before the story gets exciting, and the quality of the lesson depends on keeping that no visible."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
+          "timestamp_seconds": 0.0
+        }
+      ],
+      "source_ref": "E01-RW-C01"
+    },
+    {
+      "id": "scene-02",
+      "label": "Follow the actual first screen",
+      "text": "This episode follows the first recorded screen in three separate runs: Dow futures, S&P 500 futures, and EURUSD. In plain English, the pipeline takes a candidate, replays its complete rules over a defined development window, measures the result, and decides whether that version can enter the next phase. The next phases are not decorative names. A survivor can face a later price block, a fill or session stress, and a cost stress before anyone should discuss live use. The records call the data source real and the wiring proof true. They also leave the validated flag false. So this is evidence that the pipeline ran and made a decision, not a promise that a strategy is ready for live money. We will keep those two statements separate all the way through.",
+      "start_seconds": 43.25,
+      "end_seconds": 92.875,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "Follow",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "This episode follows the first recorded screen in three separate runs: Dow futures, S&P 500 futures, and EURUSD. In plain English, the pipeline takes a candidate, replays its complete rules over a defined development window, measures the result, and decides whether that version can enter the next phase. The next phases are not decorative names. A survivor can face a later price block, a fill or session stress, and a cost stress before anyone should discuss live use. The records call the data source real and the wiring proof true. They also leave the validated flag false. So this is evidence that the pipeline ran and made a decision, not a promise that a strategy is ready for live money. We will keep those two statements separate all the way through."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
+          "timestamp_seconds": 43.25
+        }
+      ],
+      "source_ref": "E01-RW-C02"
+    },
+    {
+      "id": "scene-03",
+      "label": "What enters the screen",
+      "text": "A candidate is one complete set of trading rules. It has a market, a timeframe, an entry, a fill convention, an exit, position size, risk limits, costs, and a historical window. Commission is the fee charged for a trade. Slippage is the difference between the reference price and the fill price used by the model. Even a small change creates a different candidate. Buying at the close and buying at the next open are different tests. A different stop or a different session is another version. The development block is in-sample; in-sample means the prices used to build and screen the candidate. The first screen replays those choices on those development prices. A candidate advances only when it clears the measurements and thresholds written for that run. If a detail is missing, the result cannot quietly become a stronger claim. That definition also explains why a library count matters: five hundred candidate rows do not mean five hundred independent discoveries. They mean five hundred complete versions were allowed to ask the first question.",
+      "start_seconds": 92.875,
+      "end_seconds": 158.25,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "What",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "A candidate is one complete set of trading rules. It has a market, a timeframe, an entry, a fill convention, an exit, position size, risk limits, costs, and a historical window. Commission is the fee charged for a trade. Slippage is the difference between the reference price and the fill price used by the model. Even a small change creates a different candidate. Buying at the close and buying at the next open are different tests. A different stop or a different session is another version. The development block is in-sample; in-sample means the prices used to build and screen the candidate. The first screen replays those choices on those development prices. A candidate advances only when it clears the measurements and thresholds written for that run. If a detail is missing, the result cannot quietly become a stronger claim. That definition also explains why a library count matters: five hundred candidate rows do not mean five hundred independent discoveries. They mean five hundred complete versions were allowed to ask the first question."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
+          "timestamp_seconds": 92.875
+        }
+      ],
+      "source_ref": "E01-RW-C03"
+    },
+    {
+      "id": "scene-04",
+      "label": "Three real lanes, not one blended sample",
+      "text": "The Dow run entered 1,335 candidates and carried 184 forward. Its recorded development window runs from 2010-06-06 to 2018-02-25. The S&P 500 futures run entered 2,004 and carried 0 forward, over its own recorded window. The EURUSD run entered 2,051 and carried 0 forward, again over a separate window. Together that is 5,390 candidates entering and 184 continuing. The arithmetic is real, but it is an aggregate across three run-specific libraries. The dates and run identifiers stay attached to each row because the same count over a different window would be a different experiment. Those are three run-specific results, not one universal verdict about every futures, stock, or foreign-exchange strategy.",
+      "start_seconds": 158.25,
+      "end_seconds": 200.0,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "Three",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The Dow run entered 1,335 candidates and carried 184 forward. Its recorded development window runs from 2010-06-06 to 2018-02-25. The S&P 500 futures run entered 2,004 and carried 0 forward, over its own recorded window. The EURUSD run entered 2,051 and carried 0 forward, again over a separate window. Together that is 5,390 candidates entering and 184 continuing. The arithmetic is real, but it is an aggregate across three run-specific libraries. The dates and run identifiers stay attached to each row because the same count over a different window would be a different experiment. Those are three run-specific results, not one universal verdict about every futures, stock, or foreign-exchange strategy."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Keep Dow, S&P 500 futures, and EURUSD counts in separate lanes while showing the aggregate.",
+          "timestamp_seconds": 158.25
+        }
+      ],
+      "source_ref": "E01-RW-C04"
+    },
+    {
+      "id": "scene-05",
+      "label": "The Dow gate has more than one way to fail",
+      "text": "In the Dow run, 1,151 candidates were dropped. The saved gate census records 1,122 return-to-drawdown failures, 1,065 profit-factor failures, and 150 activity failures. Return-to-drawdown is the net result divided by the measured drawdown; it compares the money made with the depth of the fall that came before it. Profit factor is gross winning dollars divided by gross losing dollars. Gross wins are every winning trade's dollars added together, and gross losses are every losing trade's dollars added together. Max drawdown is the largest fall from a running high to a later low. How often the strategy won is the number of winning trades divided by all trades. Trades per month is completed trades divided by the months in the test. Activity asks whether there were enough trades to make the result informative. Those counts overlap, so they do not add up to 1,151. One candidate can fail because the money was too small for the drawdown, because the winning dollars did not beat the losing dollars, because there were too few trades, or because more than one of those things went wrong. The threshold is part of the run too. A gate is not a universal law about every market; it is the declared line this candidate set had to cross.",
+      "start_seconds": 200.0,
+      "end_seconds": 279.625,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "In the Dow run, 1,151 candidates were dropped. The saved gate census records 1,122 return-to-drawdown failures, 1,065 profit-factor failures, and 150 activity failures. Return-to-drawdown is the net result divided by the measured drawdown; it compares the money made with the depth of the fall that came before it. Profit factor is gross winning dollars divided by gross losing dollars. Gross wins are every winning trade's dollars added together, and gross losses are every losing trade's dollars added together. Max drawdown is the largest fall from a running high to a later low. How often the strategy won is the number of winning trades divided by all trades. Trades per month is completed trades divided by the months in the test. Activity asks whether there were enough trades to make the result informative. Those counts overlap, so they do not add up to 1,151. One candidate can fail because the money was too small for the drawdown, because the winning dollars did not beat the losing dollars, because there were too few trades, or because more than one of those things went wrong. The threshold is part of the run too. A gate is not a universal law about every market; it is the declared line this candidate set had to cross."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show overlapping Dow failure modes without summing them into a false total.",
+          "timestamp_seconds": 200.0
+        }
+      ],
+      "source_ref": "E01-RW-C05"
+    },
+    {
+      "id": "scene-06",
+      "label": "One survivor is still only one survivor",
+      "text": "One recorded Dow candidate entered the screen with net profit of $16,727.80, profit factor about 1.280, return-to-drawdown about 4.932, and 553 trades. The visual preserves the exact six-decimal ratios; speech uses the rounded values so the comparison is easier to follow. It cleared that run's configured first-screen gates. Profit factor above 1 tells us that its gross winning dollars exceeded its gross losing dollars on that ledger. Return-to-drawdown tells us how much net result was earned relative to the measured drawdown. Those are useful measurements, and the 553 trades give the row more history than a handful of lucky entries. They still describe one candidate on one development window. The row does not tell us how the strategy was selected from the full library, whether its fills would be available live, or how it behaves on the next phase. It is still not a finish line. A candidate can look acceptable on the development window and still fail when the pipeline moves to prices that did not choose it.",
+      "start_seconds": 279.625,
+      "end_seconds": 343.5,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "One",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "One recorded Dow candidate entered the screen with net profit of $16,727.80, profit factor about 1.280, return-to-drawdown about 4.932, and 553 trades. The visual preserves the exact six-decimal ratios; speech uses the rounded values so the comparison is easier to follow. It cleared that run's configured first-screen gates. Profit factor above 1 tells us that its gross winning dollars exceeded its gross losing dollars on that ledger. Return-to-drawdown tells us how much net result was earned relative to the measured drawdown. Those are useful measurements, and the 553 trades give the row more history than a handful of lucky entries. They still describe one candidate on one development window. The row does not tell us how the strategy was selected from the full library, whether its fills would be available live, or how it behaves on the next phase. It is still not a finish line. A candidate can look acceptable on the development window and still fail when the pipeline moves to prices that did not choose it."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Hold one recorded candidate beside its next-phase result.",
+          "timestamp_seconds": 279.625
+        }
+      ],
+      "source_ref": "E01-RW-C06"
+    },
+    {
+      "id": "scene-07",
+      "label": "The two zero lanes are part of the result",
+      "text": "The S&P 500 futures lane ended with 2,004 candidates rejected at the first screen. The EURUSD lane ended with 2,051 rejected. Across all three lanes, 5,206 candidate versions stopped there. That does not prove that S&P futures or Forex cannot be traded. It does not prove that every rejected rule is useless in every other window. It says these exact candidate sets failed the rules and thresholds recorded for these runs. A zero is information when the run is preserved instead of hidden. It also tells the next researcher where not to spend the same search effort without a new reason.",
+      "start_seconds": 343.5,
+      "end_seconds": 381.875,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The S&P 500 futures lane ended with 2,004 candidates rejected at the first screen. The EURUSD lane ended with 2,051 rejected. Across all three lanes, 5,206 candidate versions stopped there. That does not prove that S&P futures or Forex cannot be traded. It does not prove that every rejected rule is useless in every other window. It says these exact candidate sets failed the rules and thresholds recorded for these runs. A zero is information when the run is preserved instead of hidden. It also tells the next researcher where not to spend the same search effort without a new reason."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Keep Dow, S&P 500 futures, and EURUSD counts in separate lanes while showing the aggregate.",
+          "timestamp_seconds": 343.5
+        }
+      ],
+      "source_ref": "E01-RW-C07"
+    },
+    {
+      "id": "scene-08",
+      "label": "Search changes the burden of proof",
+      "text": "When a pipeline searches many candidate versions, one attractive result is easier to find by chance. Pre-registration is the written plan for the rule set, data window, cost assumptions, measurements, and rejection line, saved before looking at the result. Keep every version, including the ones that fail. If a threshold changes after the output is visible, that is a new research decision and needs a new version. The count of candidates is part of the evidence because it tells the next test how much selection happened before the headline number. It also tells a beginner why the best row needs humility: the row was chosen after a large field was inspected, while the rejected rows cannot be replaced by silence.",
+      "start_seconds": 381.875,
+      "end_seconds": 427.375,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "Search",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "When a pipeline searches many candidate versions, one attractive result is easier to find by chance. Pre-registration is the written plan for the rule set, data window, cost assumptions, measurements, and rejection line, saved before looking at the result. Keep every version, including the ones that fail. If a threshold changes after the output is visible, that is a new research decision and needs a new version. The count of candidates is part of the evidence because it tells the next test how much selection happened before the headline number. It also tells a beginner why the best row needs humility: the row was chosen after a large field was inspected, while the rejected rows cannot be replaced by silence."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
+          "timestamp_seconds": 381.875
+        }
+      ],
+      "source_ref": "E01-RW-C08"
+    },
+    {
+      "id": "scene-09",
+      "label": "184 is a queue, not a trophy",
+      "text": "The 184 Dow survivors are a queue for the next test. In the recorded Dow out-of-sample branch, those 184 became 154. One actual candidate moved from in-sample net profit of $16,727.80 and profit factor about 1.280 to out-of-sample net loss of $4,897.40 and profit factor about 0.813. That is a large change in status without changing the name of the candidate. The development prices helped select it. The later prices supplied a different answer. My read is that the word survivor needs to stay small: it means “passed the previous gate.” It does not mean “won the market.” The pipeline is showing a real status change.",
+      "start_seconds": 427.375,
+      "end_seconds": 467.625,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "184",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "The 184 Dow survivors are a queue for the next test. In the recorded Dow out-of-sample branch, those 184 became 154. One actual candidate moved from in-sample net profit of $16,727.80 and profit factor about 1.280 to out-of-sample net loss of $4,897.40 and profit factor about 0.813. That is a large change in status without changing the name of the candidate. The development prices helped select it. The later prices supplied a different answer. My read is that the word survivor needs to stay small: it means “passed the previous gate.” It does not mean “won the market.” The pipeline is showing a real status change."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Hold one recorded candidate beside its next-phase result.",
+          "timestamp_seconds": 427.375
+        }
+      ],
+      "source_ref": "E01-RW-C09"
+    },
+    {
+      "id": "scene-10",
+      "label": "The first-screen worksheet",
+      "text": "For the next run, write down five things: the exact source run, the historical window, the number entering, the measurements that can reject a candidate, and the number moving forward. Then write the validation status beside the result. Keep one failed row and one advancing row so the funnel can be audited later. If the answer is zero, keep it. If the answer is 184, send those candidates to the next phase. Do not replace a failed row with a prettier example. The lesson is simple: 5,390 candidates entered, 184 continued, and the next test still has work to do. The pipeline records what it rejected, preserves the search size, states what is still unvalidated, and makes the next test harder.",
+      "start_seconds": 467.625,
+      "end_seconds": 513.5,
+      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "precise and controlled",
+        "emphasis_words": [
+          "The",
+          "recorded",
+          "validated"
+        ],
+        "pause_before_seconds": 0.0,
+        "pause_after_seconds": 0.45,
+        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
+        "provider_text": "For the next run, write down five things: the exact source run, the historical window, the number entering, the measurements that can reject a candidate, and the number moving forward. Then write the validation status beside the result. Keep one failed row and one advancing row so the funnel can be audited later. If the answer is zero, keep it. If the answer is 184, send those candidates to the next phase. Do not replace a failed row with a prettier example. The lesson is simple: 5,390 candidates entered, 184 continued, and the next test still has work to do. The pipeline records what it rejected, preserves the search size, states what is still unvalidated, and makes the next test harder."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
+          "timestamp_seconds": 467.625
+        }
+      ],
+      "source_ref": "E01-RW-C10"
+    }
+  ],
+  "metadata": {
+    "episode": 1,
+    "syllabus_episode": "01",
+    "package_revision": "e01-e03-production-start-2026-08-03",
+    "duration_basis_wpm": 160.0,
+    "word_count": 1356,
+    "vo_sha256": "e73be28b9bf8f4758985a39cd9cc745e070d7d960a4d35bf89753dab99368d0b",
+    "evidence_authority": "../../e01-e03-live-receipts-2026-08-03.json",
+    "status": "candidate_pending_operator_script_and_visual_approval"
+  }
+}

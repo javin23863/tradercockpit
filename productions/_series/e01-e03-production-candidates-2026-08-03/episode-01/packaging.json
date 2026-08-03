@@ -1,0 +1,57 @@
+{
+  "schema": "tradercockpit-series-package/v1",
+  "STATUS": "CANDIDATE — OPERATOR SCRIPT AND SEMANTIC VISUAL APPROVAL REQUIRED",
+  "status": "candidate_pending_operator_approval",
+  "episode": 1,
+  "syllabus_episode": "01",
+  "revision": "e01-e03-production-start-2026-08-03",
+  "title": "The First Screen Rejected 5,206 Candidates. One Run Continued.",
+  "beginner_belief": "If one strategy survives an initial screen, it is ready for live money.",
+  "prewriting": {
+    "proven idea": "The recorded first screen starts with 5,390 candidates and carries 184 forward.",
+    "common goal": "Teach a beginner to read a screening result without confusing a survivor with a live-ready strategy.",
+    "deeper problem": "A blended headline can hide three separate runs and the selection burden created by searching thousands of candidates.",
+    "package first": "THREE LANES / 184 FORWARD; the title leads with 5,206 rejected and one run continuing.",
+    "audience avatar": "A beginner who knows a backtest is historical but needs to see why counts, thresholds, and validation status matter.",
+    "research the gaps": "Verified the 2026-08-03 receipt manifest and visual map, preserving run boundaries, overlapping failure counts, and validated=false."
+  },
+  "thumbnail": {
+    "status": "candidate",
+    "elements": [
+      "THREE LANES",
+      "184 FORWARD"
+    ],
+    "visual_promise": "Evidence-bound mechanism, not a generic card."
+  },
+  "candidate_first_post_ident_sentence": "The first screen rejected 5,206 candidates, and one run continued.",
+  "first_spoken_sentence": "The first screen rejected 5,206 candidates, and one run continued.",
+  "evidence": {
+    "manifest": "../../e01-e03-live-receipts-2026-08-03.json",
+    "boundary": "Recorded Dow futures, S&P 500 futures, and EURUSD intake runs; evidence is real and wiring is exercised, while validated remains false.",
+    "validation_status": false
+  },
+  "production": {
+    "anchor_medium": "narration_led_deterministic_graphics",
+    "render_runtime": "hyperframes",
+    "render_runtime_alternative": "remotion",
+    "composition_mode": "atelier",
+    "music": "none",
+    "full_render_started": false
+  },
+  "script": {
+    "status": "candidate_pending_script_human_gate",
+    "sha256": "345072ae6bd42fe95481a25ec476c6773a833f158a240aa1c0306bc8389bf577",
+    "vo_sha256": "e73be28b9bf8f4758985a39cd9cc745e070d7d960a4d35bf89753dab99368d0b",
+    "word_count": 1356,
+    "estimated_duration_seconds": 513.5,
+    "duration_basis_wpm": 160.0
+  },
+  "approval": {
+    "package_approved": false,
+    "complete_script_approved": false,
+    "thumbnail_approved": false,
+    "narration_approved": false,
+    "master_approved": false,
+    "historical_approvals_authoritative": false
+  }
+}

@@ -99,7 +99,11 @@ def declared_arc(vo: str) -> dict[str, str]:
 
 
 def audit(ep: Path, stages: list[str], steps: list[str]) -> list[tuple[str, bool, str]]:
-    vo_p, pk_p = ep / "artifacts" / "vo.txt", ep / "artifacts" / "packaging.json"
+    # Accept both the original HyperFrames project layout and the durable episode package.
+    # ponytail: keep one gate for both layouts; remove the fallback only when the old
+    # project contract is retired everywhere.
+    vo_p = ep / "artifacts" / "vo.txt" if (ep / "artifacts" / "vo.txt").is_file() else ep / "vo.txt"
+    pk_p = ep / "artifacts" / "packaging.json" if (ep / "artifacts" / "packaging.json").is_file() else ep / "packaging.json"
     if not vo_p.is_file():
         die(f"no script at {vo_p}")
     vo = vo_p.read_text(encoding="utf-8")

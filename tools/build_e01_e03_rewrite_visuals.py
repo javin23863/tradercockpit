@@ -278,16 +278,24 @@ def _e03_rows(manifest: dict) -> str:
     fail = examples["failed_session_half_1"]
     passed = examples["passes_all_three"]
     body = [_rect(110, 245, 1700, 690), _t(160, 320, "RECORDED CANDIDATE ROWS", 28, GOLD, weight=800),
-            _t(160, 375, "same three columns · same 1.0 threshold", 22, MUTED)]
+            _t(160, 375, "same three checks · exact receipt values shown", 22, MUTED),
+            _rect(150, 430, 320, 310, PANEL, RED, 16), _rect(150, 760, 320, 125, PANEL, GREEN, 16),
+            _t(310, 485, "VETO ROW", 24, RED, "middle", 850),
+            _t(310, 545, fail["candidate_id"], 18, TEXT, "middle", 700),
+            _t(310, 820, "PASS ROW", 24, GREEN, "middle", 850),
+            _t(310, 865, passed["candidate_id"], 18, TEXT, "middle", 700)]
     labels = [("DELAY 1 BAR", "pf_entry_delay_1bar"), ("SESSION HALF 1", "pf_session_half_1"), ("SESSION HALF 2", "pf_session_half_2")]
     for index, (label, key) in enumerate(labels):
-        x = 390 + index * 440
-        body += [_line(x, 455, x, 790, GRID, 3), _t(x, 500, label, 23, MUTED, "middle", 700),
-                 _t(x, 585, f'{fail[key]:.6f}', 36, RED if key == "pf_session_half_1" else GREEN, "middle", 850),
-                 _t(x, 650, f'{passed[key]:.6f}', 36, GREEN, "middle", 850),
-                 _line(x - 100, 700, x + 100, 700, GOLD, 3), _t(x, 750, "threshold 1.000000", 20, TEXT, "middle")]
-    body += [_t(160, 585, fail["candidate_id"], 20, RED, weight=800), _t(160, 650, passed["candidate_id"], 20, GREEN, weight=800),
-             _t(960, 875, "RED ROW = VETO · GREEN ROW = PASS ALL THREE", 30, GOLD, "middle", 850)]
+        x = 650 + index * 360
+        fail_color = RED if key == "pf_session_half_1" else GREEN
+        body += [_line(x, 445, x, 890, GRID, 3), _t(x, 500, label, 22, MUTED, "middle", 700),
+                 _t(x, 610, f'{fail[key]:.6f}', 34, fail_color, "middle", 850),
+                 _t(x, 665, "veto row", 19, RED if fail_color == RED else MUTED, "middle", 700),
+                 _t(x, 805, f'{passed[key]:.6f}', 34, GREEN, "middle", 850),
+                 _t(x, 860, "pass row", 19, GREEN, "middle", 700),
+                 _line(x - 88, 708, x + 88, 708, GOLD, 3),
+                 _t(x, 740, "threshold 1.000000", 18, TEXT, "middle")]
+    body += [_t(1110, 930, "ONE WEAK VIEW VETOES THE CANDIDATE · COUNTS STAY BOUND TO THE RECEIPT", 24, GOLD, "middle", 850)]
     return _svg(
         "THE NUMBERS ARE RECORDED ROWS, NOT ILLUSTRATIONS",
         "ONE SESSION-HALF VETO CAN STOP A CANDIDATE THAT PASSES THE OTHER TWO VIEWS",

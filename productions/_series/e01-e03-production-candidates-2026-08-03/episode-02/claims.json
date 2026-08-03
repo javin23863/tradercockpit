@@ -1,0 +1,94 @@
+{
+  "schema": "teaching-claims/v1",
+  "script_sha256": "63f0a9869427719bb612388bb295e372d7b2d393f161fa4782d1a14f418852eb",
+  "sources": {
+    "E02_SPY_P1": {
+      "citation": "Recorded SPY phase01 intake receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260714T113408-b5d06cc6/phases/phase01_intake.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for SPY phase01 intake used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "59e2257a5bb6b13c6cce2a4f5b22702b396d06e79651b3fb09be341e1eb7bcc1"
+    },
+    "E02_SPY_P2": {
+      "citation": "Recorded SPY phase02 holdout boundary receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260714T113408-b5d06cc6/phases/phase02_oos.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for SPY phase02 holdout boundary used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "640532043b74c60c7ec30a5e14973c3ae6860f6b0a6540e2025b41bf93f2069e"
+    },
+    "E02_DOW_P2": {
+      "citation": "Recorded Dow phase02 out-of-sample receipt",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase02_oos.json",
+      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase02 out-of-sample used by this episode.",
+      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
+      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0"
+    }
+  },
+  "claims": {
+    "E02-RW-C01": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1",
+        "E02_SPY_P2"
+      ]
+    },
+    "E02-RW-C02": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1"
+      ]
+    },
+    "E02-RW-C03": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1"
+      ]
+    },
+    "E02-RW-C04": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1",
+        "E02_SPY_P2"
+      ]
+    },
+    "E02-RW-C05": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1"
+      ]
+    },
+    "E02-RW-C06": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P2"
+      ]
+    },
+    "E02-RW-C07": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1",
+        "E02_DOW_P2"
+      ]
+    },
+    "E02-RW-C08": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_DOW_P2"
+      ]
+    },
+    "E02-RW-C09": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1",
+        "E02_SPY_P2"
+      ]
+    },
+    "E02-RW-C10": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "E02_SPY_P1",
+        "E02_SPY_P2"
+      ]
+    }
+  }
+}

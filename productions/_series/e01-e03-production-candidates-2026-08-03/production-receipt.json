@@ -1,0 +1,48 @@
+{
+  "schema": "into-the-laboratory/e01-e03-production-candidates/v1",
+  "source_manifest_sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d",
+  "visual_map_sha256": "50b1e81db17fc9e9fd8eebb6d1a6fcc3bae6e07675e759d37cf8487ff7ef6418",
+  "episodes": [
+    {
+      "episode": "01",
+      "path": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-01",
+      "script_sha256": "345072ae6bd42fe95481a25ec476c6773a833f158a240aa1c0306bc8389bf577",
+      "claims_sha256": "8a8056000ee0c73d7e7b7c7201d7119593ca18de4b320c12d4f3050d991f4abc",
+      "packaging_sha256": "63295bd5b603b6a953ede18a5cb91c2a1459780285e3fd6b92d2707e68fbd86e",
+      "scene_plan_sha256": "c3253cf43a7402b458acc48a6a47eeb9a589674ee7bf7b52691458bb4af4aed8",
+      "vo_sha256": "e73be28b9bf8f4758985a39cd9cc745e070d7d960a4d35bf89753dab99368d0b",
+      "duration_seconds": 513.5,
+      "word_count": 1356
+    },
+    {
+      "episode": "02",
+      "path": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-02",
+      "script_sha256": "03656cfaea42b47c3b03817a48d5bfda199558632bf400eab43b3cbe0e3f4062",
+      "claims_sha256": "3968981d8e228cab01ec10451b94a95f99395674b35f71b096fdffa5a53cc626",
+      "packaging_sha256": "b90475363a14692332df69eb00e4409620e8b491abcad93bdb9a17b4b3c4f3bf",
+      "scene_plan_sha256": "bf870b616bd40391865133907798747d5b90f48293d30386b983ad433797f71b",
+      "vo_sha256": "63f0a9869427719bb612388bb295e372d7b2d393f161fa4782d1a14f418852eb",
+      "duration_seconds": 450.875,
+      "word_count": 1189
+    },
+    {
+      "episode": "03",
+      "path": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-03",
+      "script_sha256": "b982c0d2729ff790abc174aaf969729beb101b8e5f0926275bfb681a05b20134",
+      "claims_sha256": "53d67c94fb1f9afc582fae1a88f2fbb3b04491ef6680834327aaaec6aec91f7b",
+      "packaging_sha256": "a2b024ca2b95093d70bbe831e6a59c0e14931bf97a6c48e7b406328ed8023922",
+      "scene_plan_sha256": "0134969b6c8a8502549294bce969a4b5cae936c16ea22260d457eddc597d60b4",
+      "vo_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
+      "duration_seconds": 432.5,
+      "word_count": 1140
+    }
+  ],
+  "status": "candidate_pending_operator_script_and_semantic_visual_approval",
+  "not_done": [
+    "no narration",
+    "no provider generation",
+    "no master render",
+    "no upload",
+    "no publication"
+  ]
+}

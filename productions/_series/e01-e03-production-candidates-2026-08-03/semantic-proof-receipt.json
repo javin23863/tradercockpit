@@ -1,0 +1,107 @@
+{
+  "schema": "into-the-laboratory/semantic-proof-receipt/v1",
+  "generated_at": "2026-08-03T13:54:00Z",
+  "branch": "codex/series-e01-e03-production",
+  "base_revision": "31231e5bcb343e8450387e7071f1e287dd696ff0",
+  "proof_status": "candidate_pending_operator_script_and_semantic_visual_approval",
+  "proof_scope": {
+    "runtime": "HyperFrames",
+    "runtime_version": "0.7.90",
+    "composition_mode": "atelier",
+    "canvas": "1920x1080",
+    "duration_seconds": 12,
+    "beats_per_episode": 3,
+    "narration_started": false,
+    "full_render_started": false,
+    "provider_generation_started": false,
+    "upload_started": false,
+    "publication_started": false
+  },
+  "composition_gate": {
+    "command": "npx hyperframes check --json --strict --at-transitions --timeout=10000 .",
+    "result": "PASS",
+    "shared_samples": [0.667, 2, 3.333, 3.82, 3.91, 4, 4.225, 4.45, 4.667, 6, 6.135, 7.333, 7.82, 7.91, 8, 8.225, 8.45, 8.667, 10, 10.225, 11.333, 12],
+    "transition_samples": [3.82, 3.91, 4, 4.225, 4.45, 6.135, 7.82, 7.91, 8, 8.225, 8.45, 10.225, 12],
+    "episodes": {
+      "01": {
+        "project": "OpenMontage/projects/series-e01-e03-production-ep01/hyperframes",
+        "source_html_sha256": "8c98fedaa527bf7ccd7d288ab9cb8f327eef0806de084d0658b484010916f39e",
+        "lint": "PASS",
+        "runtime": "PASS",
+        "layout": "PASS",
+        "motion": "PASS",
+        "contrast": {"checked": 55, "passed": 55},
+        "contact_sheet_sha256": "024243c6504e3d87b8b7d1ddb7eb710107678a96155e208a23adc8ed0cc9a94c"
+      },
+      "02": {
+        "project": "OpenMontage/projects/series-e01-e03-production-ep02/hyperframes",
+        "source_html_sha256": "eb9b65d2fba0938039aa1a628eae9cb20cdc29217eeb53168c121450eb59d01b",
+        "lint": "PASS",
+        "runtime": "PASS",
+        "layout": "PASS",
+        "motion": "PASS",
+        "contrast": {"checked": 53, "passed": 53},
+        "contact_sheet_sha256": "c17606804d774590a306276d2039b76c1ad5780f6ad3c20e67cf58dd57fd2b5a"
+      },
+      "03": {
+        "project": "OpenMontage/projects/series-e01-e03-production-ep03/hyperframes",
+        "source_html_sha256": "416186653ec06567c2d845ce15e5777a0aa2620a1bf4a33beb86af444d467ddc",
+        "lint": "PASS",
+        "runtime": "PASS",
+        "layout": "PASS",
+        "motion": "PASS",
+        "contrast": {"checked": 73, "passed": 73},
+        "contact_sheet_sha256": "964638539f95fa554f6b5133c651c247b8cbc6936117d01f2532ed064d35cd23"
+      }
+    }
+  },
+  "raster_review": {
+    "command": "npx hyperframes snapshot --at 0.667,4,6.135,8.225,11.9 --no-end -o snapshots-final .",
+    "times_seconds": [0.667, 4, 6.135, 8.225, 11.9],
+    "result": "PASS_VISUALLY_READABLE",
+    "notes": [
+      "Episode 01 keeps the three intake lanes separate and preserves 5,390 entering, 5,206 stopped, and 184 forward.",
+      "Episode 02 keeps the SPY 5-to-0 stop separate from the Dow branch and keeps 0 ADVANCE inside the safe layout.",
+      "Episode 03 reserves separate VETO and PASS lanes and keeps the exact comparison rows readable without line-through-text collisions."
+    ],
+    "runtime_limitation": "The exact root endpoint at 12.0 seconds is blank in this HyperFrames proof contract; the final human-review frame is intentionally sampled at 11.9 seconds and the endpoint is not claimed as a visible teaching frame."
+  },
+  "impeccable": {
+    "detector_result": [],
+    "source_html": [
+      "productions/_series/e01-e03-production-source-2026-08-03/episode-01/index.html",
+      "productions/_series/e01-e03-production-source-2026-08-03/episode-02/index.html",
+      "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html"
+    ],
+    "font": "IBM Plex Sans",
+    "font_hashes": {
+      "ibm-plex-sans-400.ttf": "6dbe082463cf749ffd07124b573e88c323b7b18afc934d4aa539a3e0f2fe100",
+      "ibm-plex-sans-700.ttf": "e129a20e8ff7c907ffd07124b573e88c323b7b18afc934d4aa539a3e0f2fe100"
+    }
+  },
+  "script_gate_summary": {
+    "claims": "PASS for E01, E02, E03",
+    "packaging": "PASS for E01, E02, E03",
+    "arc_and_pre_writing": "PASS for E01, E02, E03",
+    "style": "PASS with non-blocking editorial warnings for ornamental grouping/slogan repetition",
+    "ai_writing": "PASS for E01, E02, E03; HUMAN_ONLY classification and detector score 2",
+    "teaching_register_ai_tell": {
+      "verdict": "BLOCK",
+      "corpus": {"documents": 91, "words": 576007, "unseen_bigram_limit_pct": 46.2},
+      "episodes": {
+        "01": {"words": 1317, "unseen_bigram_pct": 55.9, "copula_pct": 4.56, "out_of_register_words": 28},
+        "02": {"words": 1168, "unseen_bigram_pct": 60.1, "copula_pct": 4.2, "out_of_register_words": 26},
+        "03": {"words": 1094, "unseen_bigram_pct": 62.7, "copula_pct": 4.48, "out_of_register_words": 26}
+      },
+      "finding": "unseen_bigrams",
+      "operator_waiver": false
+    },
+    "syllabus_term_gate": "NOT CLAIMED — the isolated OpenMontage checkout has no current syllabus fixture"
+  },
+  "source_receipts": {
+    "live_manifest_sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d",
+    "visual_map_sha256": "50b1e81db17fc9e9fd8eebb6d1a6fcc3bae6e07675e759d37cf8487ff7ef6418",
+    "production_package_receipt_sha256": "9435f1a5651c650e285c97ba9dba77c369c81b86224c5fce7fd33db24e53fca4"
+  },
+  "next_gate": "Operator reviews the three scripts and contact sheets. If approved, resolve or explicitly address the teaching-register AI-tell block before narration and full rendering."
+}

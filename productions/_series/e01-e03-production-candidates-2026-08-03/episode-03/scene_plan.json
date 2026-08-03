@@ -1,0 +1,252 @@
+{
+  "schema": "openmontage/scene-plan/v1",
+  "episode": "03",
+  "title": "The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.",
+  "script_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
+  "composition_mode": "atelier",
+  "render_runtime": "hyperframes",
+  "semantic_rule": "Every section is bound to a purpose-built deterministic composition and a receipt claim; no generic card may replace the mechanism.",
+  "scenes": [
+    {
+      "id": "scene-01",
+      "section_id": "scene-01",
+      "start_seconds": 0.0,
+      "end_seconds": 35.0,
+      "asset": "e03-three-view-funnel.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
+      "spoken_text": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks. The same 154 candidates faced a one-bar-later entry view and two session views. The useful question is whether the result stayed above the rule when the fill and the trading-hour split were made explicit. A profitable total can contain one weak group that disappears when the ledger is separated. This phase makes that hidden dependency measurable. It turns a vague concern—“maybe the clock matters”—into three declared transformations that can be repeated on the same candidate population.",
+      "claim_refs": [
+        "E03-RW-C01"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-01-cue-01",
+          "start_seconds": 0.0,
+          "duration_seconds": 8.0,
+          "asset": "e03-three-view-funnel.svg",
+          "spoken_span": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks.",
+          "visual_action": "Show the same 154 candidates facing three declared transformations."
+        }
+      ]
+    },
+    {
+      "id": "scene-02",
+      "section_id": "scene-02",
+      "start_seconds": 35.0,
+      "end_seconds": 74.875,
+      "asset": "e03-three-view-funnel.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
+      "spoken_text": "This is the same Dow branch that entered the out-of-sample phase with 184 candidates and carried 154 forward. The phase record names YM continuous, back-adjusted hourly data from 2018-02-25 to 2019-09-21. The companion authority routes the source timestamps from UTC into America/New_York wall time on CME Globex. That clock route matters because a session split is meaningless without a declared clock. A continuous, back-adjusted series also describes the historical instrument used by the phase; it is not a statement that every live contract would have the same fill. The data source is marked real, the wiring proof is true, and the validated flag is false.",
+      "claim_refs": [
+        "E03-RW-C02"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-02-cue-01",
+          "start_seconds": 35.0,
+          "duration_seconds": 8.0,
+          "asset": "e03-three-view-funnel.svg",
+          "spoken_span": "This is the same Dow branch that entered the out-of-sample phase with 184 candidates and carried 154 forward.",
+          "visual_action": "Show the same 154 candidates facing three declared transformations."
+        }
+      ]
+    },
+    {
+      "id": "scene-03",
+      "section_id": "scene-03",
+      "start_seconds": 74.875,
+      "end_seconds": 127.5,
+      "asset": "e03-three-view-funnel.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
+      "spoken_text": "First, the entry is scored one bar later in the same direction. Latency is the delay between a signal and the fill used to score it. This one-bar view asks how much of the result depended on the original fill arriving immediately. If price moves against the signal during that extra bar, the ledger records the damage; if it moves in the trade's favor, the delayed view records that too. Second, the original trades are split at the median entry hour into session half 1 and session half 2. A split sample is a population divided into declared groups for separate measurement. That asks whether one part of the trading day carried the total. These are three recorded profit-factor gates: one delayed-entry view and two session views. Each view has a transformation, a metric, and a threshold of 1.0.",
+      "claim_refs": [
+        "E03-RW-C03"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-03-cue-01",
+          "start_seconds": 74.875,
+          "duration_seconds": 8.0,
+          "asset": "e03-three-view-funnel.svg",
+          "spoken_span": "First, the entry is scored one bar later in the same direction.",
+          "visual_action": "Show the same 154 candidates facing three declared transformations."
+        }
+      ]
+    },
+    {
+      "id": "scene-04",
+      "section_id": "scene-04",
+      "start_seconds": 127.5,
+      "end_seconds": 168.5,
+      "asset": "e03-three-view-funnel.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
+      "spoken_text": "The phase starts with 154 candidates. One hundred one fail at least one gate, and 53 pass all three. The gate census records 66 failures on the one-bar delay, 41 on session half 1, and 23 on session half 2. Those failure counts overlap, so adding them would overstate the number of candidates that failed. A candidate that fails two views is still one failed candidate in the headline total. The all-gates rule is deliberately strict: a candidate must clear the delayed fill and both session halves to continue. The only safe totals are the recorded 154 entering, 101 failing at least one, and 53 clearing all three.",
+      "claim_refs": [
+        "E03-RW-C04"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-04-cue-01",
+          "start_seconds": 127.5,
+          "duration_seconds": 8.0,
+          "asset": "e03-three-view-funnel.svg",
+          "spoken_span": "The phase starts with 154 candidates.",
+          "visual_action": "Show the same 154 candidates facing three declared transformations."
+        }
+      ]
+    },
+    {
+      "id": "scene-05",
+      "section_id": "scene-05",
+      "start_seconds": 168.5,
+      "end_seconds": 209.125,
+      "asset": "e03-veto-vs-pass.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Compare one recorded veto row and one recorded pass row in reserved lanes.",
+      "spoken_text": "Candidate formula-2309285457-3105 passes the one-bar delay at profit factor about 1.123. It passes session half 2 at about 1.495. It fails session half 1 at about 0.987, below the 1.0 threshold. The visual preserves all six decimal places. This is a recorded candidate row. One weak session slice is enough for this all-gates rule to stop the candidate even when the other two views are above 1. The large 1.495 in one slice does not cancel the 0.987 in the other. The row is useful precisely because it is uncomfortable: a single blended total could have hidden the veto, while the three-view ledger names the weak part.",
+      "claim_refs": [
+        "E03-RW-C05"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-05-cue-01",
+          "start_seconds": 168.5,
+          "duration_seconds": 8.0,
+          "asset": "e03-veto-vs-pass.svg",
+          "spoken_span": "Candidate formula-2309285457-3105 passes the one-bar delay at profit factor about 1.123.",
+          "visual_action": "Compare one recorded veto row and one recorded pass row in reserved lanes."
+        }
+      ]
+    },
+    {
+      "id": "scene-06",
+      "section_id": "scene-06",
+      "start_seconds": 209.125,
+      "end_seconds": 247.125,
+      "asset": "e03-veto-vs-pass.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Compare one recorded veto row and one recorded pass row in reserved lanes.",
+      "spoken_text": "Candidate formula-2309285457-3088 records profit factor about 1.080 on the one-bar delay, 1.156 on session half 1, and 1.152 on session half 2. All three are above the 1.0 threshold. The visual carries all six decimal places. That makes this candidate a recorded survivor of this phase. The margins are visible rather than rounded into a vague pass, and a different candidate can have a different pattern. It does not turn the row into a forecast, and it does not erase the 101 candidates that failed another view. It simply answers the declared question for this version and these historical ledgers.",
+      "claim_refs": [
+        "E03-RW-C06"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-06-cue-01",
+          "start_seconds": 209.125,
+          "duration_seconds": 8.0,
+          "asset": "e03-veto-vs-pass.svg",
+          "spoken_span": "Candidate formula-2309285457-3088 records profit factor about 1.080 on the one-bar delay, 1.156 on session half 1, and 1.152 on session half 2.",
+          "visual_action": "Compare one recorded veto row and one recorded pass row in reserved lanes."
+        }
+      ]
+    },
+    {
+      "id": "scene-07",
+      "section_id": "scene-07",
+      "start_seconds": 247.125,
+      "end_seconds": 297.5,
+      "asset": "e03-profit-factor.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Define profit factor as a comparison of gross winning and losing dollars.",
+      "spoken_text": "Profit factor is gross winning dollars divided by gross losing dollars on the same ledger. A value above 1 means the winning dollars are larger for that view. A value below 1 means the losing dollars are larger. The phase uses 1.0 as the gate. For the failed row, about 0.987 means the losing dollars are slightly larger in session half 1, even though the other views are above 1. The exact recorded value is 0.986603. For the passing row, each displayed ratio is above 1. My read is that this is a comparison, not a verdict. It still needs the candidate count, the exact transformation, the trade ledger, and the validation boundary beside it. A value of 1.15 is not a guarantee; it is a ratio produced by one specified historical view.",
+      "claim_refs": [
+        "E03-RW-C07"
+      ],
+      "evidence_class": "method_or_run_data",
+      "cues": [
+        {
+          "id": "scene-07-cue-01",
+          "start_seconds": 247.125,
+          "duration_seconds": 8.0,
+          "asset": "e03-profit-factor.svg",
+          "spoken_span": "Profit factor is gross winning dollars divided by gross losing dollars on the same ledger.",
+          "visual_action": "Define profit factor as a comparison of gross winning and losing dollars."
+        }
+      ]
+    },
+    {
+      "id": "scene-08",
+      "section_id": "scene-08",
+      "start_seconds": 297.5,
+      "end_seconds": 344.125,
+      "asset": "e03-profit-factor.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Define profit factor as a comparison of gross winning and losing dollars.",
+      "spoken_text": "This phase can say how the 154 recorded candidates responded to a one-bar entry delay and two session splits. It can show which rows cleared the recorded profit-factor checks. It can show that the surviving population is smaller than the OOS population. It cannot say that the surviving rows will earn money live. The source is real and the wiring is exercised, but validated is still false. A regime is a recurring market condition such as a trend, range, or volatility state. This phase does not identify a regime cause; it identifies sensitivity in the recorded historical test. To make a causal claim, we would need a different design and evidence beyond this phase record. Precision about the limit belongs in the result.",
+      "claim_refs": [
+        "E03-RW-C08"
+      ],
+      "evidence_class": "method_or_run_data",
+      "cues": [
+        {
+          "id": "scene-08-cue-01",
+          "start_seconds": 297.5,
+          "duration_seconds": 8.0,
+          "asset": "e03-profit-factor.svg",
+          "spoken_span": "This phase can say how the 154 recorded candidates responded to a one-bar entry delay and two session splits.",
+          "visual_action": "Define profit factor as a comparison of gross winning and losing dollars."
+        }
+      ]
+    },
+    {
+      "id": "scene-09",
+      "section_id": "scene-09",
+      "start_seconds": 344.125,
+      "end_seconds": 390.375,
+      "asset": "e03-cost-handoff.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Show 53 as the next phase input, not as a final trading conclusion.",
+      "spoken_text": "The 53 survivors do not become a final list. They become the next input. In the following cost phase, the same pipeline carries 53 forward, tests the fixed ledger under higher slippage assumptions, and records 7 net-profit failures at three times while 46 clear both stated checks. Slippage is the difference between the reference price and the fill price assumed by the ledger. That later phase also records two profit-factor failures at two times. The handoff is the point: every phase narrows the population and makes the remaining claim more specific. A survivor is a candidate for the next challenge, never permission to skip the challenge. The phase03 result earns a narrower question; it does not earn a conclusion about live trading.",
+      "claim_refs": [
+        "E03-RW-C09"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-09-cue-01",
+          "start_seconds": 344.125,
+          "duration_seconds": 8.0,
+          "asset": "e03-cost-handoff.svg",
+          "spoken_span": "The 53 survivors do not become a final list.",
+          "visual_action": "Show 53 as the next phase input, not as a final trading conclusion."
+        }
+      ]
+    },
+    {
+      "id": "scene-10",
+      "section_id": "scene-10",
+      "start_seconds": 390.375,
+      "end_seconds": 432.5,
+      "asset": "e03-three-view-funnel.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
+      "spoken_text": "For a timing or execution stress test, write the original population, the exact transformed view, the threshold, the failure count, and whether failures overlap. Keep one failed row and one passing row with their candidate identifiers. Then write the validation status and the next phase. If the clock is used, declare the clock. If the fill is moved, state by how many bars. If a session is split, state the boundary and the rule for assigning a trade. A good result is a relationship that another run can challenge. Keep the 154-to-53 result beside the worksheet. That is how the pipeline turns a vague timing worry into a reproducible research step.",
+      "claim_refs": [
+        "E03-RW-C10"
+      ],
+      "evidence_class": "run_data",
+      "cues": [
+        {
+          "id": "scene-10-cue-01",
+          "start_seconds": 390.375,
+          "duration_seconds": 8.0,
+          "asset": "e03-three-view-funnel.svg",
+          "spoken_span": "For a timing or execution stress test, write the original population, the exact transformed view, the threshold, the failure count, and whether failures overlap.",
+          "visual_action": "Show the same 154 candidates facing three declared transformations."
+        }
+      ]
+    }
+  ],
+  "proof_scope": "The semantic proof renders the hook, central mechanism, and boundary only; it is not a master or approval."
+}
