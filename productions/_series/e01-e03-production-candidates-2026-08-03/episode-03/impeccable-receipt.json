@@ -23,12 +23,22 @@
       {
         "bytes": 1518,
         "path": "e03-rebuild-receipt.json",
-        "sha256": "76195B675AFAE059219AFC0788E5B377604AB68E4BF4B3420D8E64489E08E899"
+        "sha256": "807F7711B84E20D6153310846348A4BE296F8C8772523D6D23FB049FAF25212D"
       },
       {
         "bytes": 2546,
         "path": "edit_decisions.json",
         "sha256": "05DD6E8951A9819F5BD0DAE415A2012398169DBB8B2A2999374F4EA9292FC1F7"
+      },
+      {
+        "bytes": 3699,
+        "path": "first-shot-repair-receipt.json",
+        "sha256": "B847DD46D77EE3D70CE9AD0B2481AD6292465389607CCA08D5A3AF5C4ABECFB8"
+      },
+      {
+        "bytes": 5324,
+        "path": "full-master-candidate-receipt.json",
+        "sha256": "B73BB62821A6CDBD7ACD1D63C910514D3E88BF1E9538B4CDBECCA5AFBAB34C20"
       },
       {
         "bytes": 3188,
@@ -56,9 +66,9 @@
         "sha256": "B4829EE5DF001877BF6904702D32582BD9AE1FF4F0EAFF19CB216E4905B47046"
       },
       {
-        "bytes": 3691,
+        "bytes": 3811,
         "path": "semantic-proof-receipt.json",
-        "sha256": "C172A076006E5627C1C92FA65EA4AEDC5023C8BEE44683AF47A2B272CA425B93"
+        "sha256": "7EB5B0292F8449DBF48D0911BE7783543D82C746F518904B0D8A78B1117D4949"
       },
       {
         "bytes": 13206,
@@ -86,7 +96,7 @@
         "sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1"
       }
     ],
-    "manifest_sha256": "CA74390EE72AF56AA2A99CDF7E07A547BB1038C59B9C8037658F239FAD4C3185",
+    "manifest_sha256": "D7E58375097FF9167904395A74DA04C7408FD45FEACA5FF72CCD88F0C94D6C56",
     "path": "C:\\tmp\\tradercockpit-e03-rebuild\\productions\\_series\\e01-e03-production-candidates-2026-08-03\\episode-03"
   }
 }

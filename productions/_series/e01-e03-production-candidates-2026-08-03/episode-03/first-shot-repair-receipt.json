@@ -1,0 +1,68 @@
+{
+  "schema": "into-the-laboratory/e03-first-shot-repair/v1",
+  "episode": 3,
+  "status": "PASS",
+  "gate": "first-shot-and-native-proof",
+  "finding": {
+    "description": "The preserved source first-shot capture was a full-size background-only raster while the thumbnail was populated.",
+    "before_artifact": "build/e03-source-first-shot-before-repair.png",
+    "before_sha256": "BF846838105D3887EB52E966CF2092A88D3719068E9D10DAFD8B7B3FACDD0218",
+    "before_bytes": 4258,
+    "before_dimensions": "1280x720",
+    "before_non_background_pixels": 0
+  },
+  "repair": {
+    "source_route": "tools/build_e03_timing_session_rebuild.py",
+    "builder_sha256": "B3692BF7DEBF0029325A9045F587D9AB062C744D19DE293A7F51DC10FBC3BC8F",
+    "source_html": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+    "source_html_sha256": "CA45A115178FC4EF956169A963475AAFFD6F7B8A3CE901AED1C52DFA919DFA16",
+    "changes": [
+      "Render the paused GSAP timeline at progress zero so the first state is applied before a player seek.",
+      "Emit the first state with an explicit opacity-one inline style so raw source capture has the same opening subject as the thumbnail.",
+      "Author the source root at 1920x1080, capture that native full canvas after settle, and downscale the complete frame to the 1280x720 receipt without cropping."
+    ],
+    "capture_runtime": {
+      "browser": "Google Chrome headless",
+      "viewport": "1920x1080",
+      "virtual_time_budget_ms": 3000,
+      "settle": "page load, local fonts, and compositor settle before screenshot",
+      "source": "file:///C:/tmp/tradercockpit-e03-rebuild/productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "capture_scale": "native 1920x1080 source capture; full-canvas Lanczos downscale to 1280x720 for the receipt"
+    }
+  },
+  "after_artifact": {
+    "path": "build/e03-source-first-shot.png",
+    "sha256": "2534D06AE8E4032CC26AA46A5AA965E537254EC03D880A08189B09BDD4C0ED64",
+    "bytes": 136869,
+    "dimensions": "1280x720",
+    "non_background_pixels": 124562,
+    "non_background_bbox": [52, 42, 1199, 637],
+    "manual_visual_result": "Full-canvas opening is populated and matches the thumbnail's subject, layout, and primary colors; no crop or relabel was used. This file is a full-frame downscale of the native 1920x1080 capture."
+  },
+  "native_source_capture": {
+    "path": "build/e03-source-first-shot-1920.png",
+    "sha256": "2A15D5F411F2282BCB2A25B226FCF94E60651B1EA15F341B09EBC3451EF1E452",
+    "bytes": 87543,
+    "dimensions": "1920x1080",
+    "non_background_pixels": 188539,
+    "manual_visual_result": "Loaded page at the intended opening scene and 3-second settle state is visibly populated across the full native canvas."
+  },
+  "native_proof": {
+    "path": "OpenMontage/projects/series-e03-timing-session-rebuild/hyperframes/renders/e03-semantic-proof-repaired-native-v2.mp4",
+    "sha256": "3CEED1360E3E1278C9B60CC268158DD357C05825BFC8190E349F920359585740",
+    "dimensions": "1280x720",
+    "duration_seconds": 30.0,
+    "fps": "30/1",
+    "audio_streams": 0,
+    "render_runtime": "HyperFrames 0.7.90",
+    "inspection_method": "see-video",
+    "inspection_directory": "build/see-video-proof-repaired-v2",
+    "inspected_beats": [
+      "frame_01: populated opening with 41, 66, 23 and 101/53",
+      "frame_04: overlap arithmetic with 41 + 66 + 23 - 24 - 5 = 101",
+      "frame_06: exact veto row 3105 with session-half-1 PF 0.986603",
+      "frame_08: close ends at 53 and names cost stress only as the next question"
+    ]
+  },
+  "source_claim_boundary": "Deterministic source receipts own the claims; generated media is visual material only."
+}

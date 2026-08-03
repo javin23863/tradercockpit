@@ -777,29 +777,54 @@ def visual_states(facts: dict) -> dict[str, str]:
     }
 
 
-def css(asset_prefix: str = "") -> str:
-    return """
+def css(asset_prefix: str = "", width: int = 1280, height: int = 720) -> str:
+    styles = """
 @font-face{font-family:plex;font-style:normal;font-weight:400;src:url('assets/fonts/ibm-plex-sans-400.ttf') format('truetype');font-display:block}
 @font-face{font-family:plex;font-style:normal;font-weight:700;src:url('assets/fonts/ibm-plex-sans-700.ttf') format('truetype');font-display:block}
 *{box-sizing:border-box}html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#0b1012;color:#edf4ee;font-family:plex,Arial,sans-serif}#root{position:absolute;inset:0;width:1280px;height:720px;overflow:hidden;background:#0b1012}svg{display:block;width:1280px;height:720px;background:#0b1012}text{font-family:plex,Arial,sans-serif;letter-spacing:.018em}.state{opacity:0}.eyebrow{font-size:18px;font-weight:700;fill:#a4c7bd;letter-spacing:.12em}.hero{font-size:78px;font-weight:700;fill:#edf4ee;letter-spacing:.02em}.hero-small{font-size:42px;font-weight:700;fill:#edf4ee;letter-spacing:.025em}.accent{fill:#ff5c67}.subhead{font-size:23px;font-weight:400;fill:#afbeb8}.body{font-size:24px;font-weight:400;fill:#d5e0d9}.label{font-size:18px;font-weight:700;fill:#a4c7bd;letter-spacing:.08em}.equation{font-size:30px;font-weight:700;fill:#f4c95d}.fail{fill:#ff5c67;font-size:28px;font-weight:700}.pass{fill:#5bdd94;font-size:28px;font-weight:700}.veto-text{fill:#ff5c67;font-size:20px;font-weight:700;letter-spacing:.08em}.veto-small{fill:#ffb0b3;font-size:12px;font-weight:700;letter-spacing:.08em}.track{stroke:#293739;stroke-width:12;stroke-linecap:round}.failure-line{stroke:#ff5c67;stroke-width:12;stroke-linecap:round}.gold-line{stroke:#f4c95d;stroke-width:4;stroke-linecap:round}.hairline{stroke:#293739;stroke-width:2}.gold-fill{fill:#f4c95d}.failure-fill{fill:#ff5c67}.gold-dot{fill:#f4c95d}.veto-ring{fill:#26181b;stroke:#ff5c67;stroke-width:4}.cohort-track{fill:#182427}.cohort-fill{fill:#5bdd94}.half-one{fill:#5bdd94}.half-two{fill:#68a5ff}.median-line{stroke:#f4c95d;stroke-width:4;stroke-dasharray:8 8}.curve{fill:none;stroke:#68a5ff;stroke-width:8;stroke-linecap:round}.row-card{fill:#26181b;stroke:#ff5c67;stroke-width:2}.pass-card{fill:#122a21;stroke:#5bdd94;stroke-width:2}.big-number{font-size:110px;font-weight:700;fill:#edf4ee}.operator{font-size:88px;font-weight:400;fill:#f4c95d}.step{font-size:28px;font-weight:700;fill:#f4c95d}.set-one{fill:#ff5c67;fill-opacity:.18;stroke:#ff5c67;stroke-width:3}.set-two{fill:#68a5ff;fill-opacity:.18;stroke:#68a5ff;stroke-width:3}.set-three{fill:#5bdd94;fill-opacity:.18;stroke:#5bdd94;stroke-width:3}.set-number{font-size:34px;font-weight:700;fill:#edf4ee}.overlap-number{font-size:22px;font-weight:700;fill:#f4c95d}
-""".strip().replace("assets/fonts/", f"{asset_prefix}assets/fonts/")
+""".strip()
+    return (
+        styles
+        .replace("width:1280px;height:720px", f"width:{width}px;height:{height}px")
+        .replace("assets/fonts/", f"{asset_prefix}assets/fonts/")
+    )
 
 
 def html_document(facts: dict, timeline: list[tuple[str, float]], duration: float, proof: bool) -> str:
+    canvas_width, canvas_height = (1280, 720) if proof else (1920, 1080)
     states = visual_states(facts)
     selected = [state for state, _ in timeline]
+    first_state = timeline[0][0]
     groups = "".join(states[state] for state in selected)
+    # Keep the opening state visible for raw source/runtime captures.  The
+    # thumbnail has the same opening group at opacity 1, while a paused GSAP
+    # timeline otherwise leaves every `.state` at the CSS fallback opacity 0
+    # until a player seeks it.  This is a source-level scale/readiness fix for
+    # the first-shot contract, not a crop or a relabelled proof image.
+    opening_marker = f'<g id="state-{first_state}" class="state"'
+    groups = groups.replace(
+        opening_marker,
+        f'<g id="state-{first_state}" class="state" style="opacity:1"',
+        1,
+    )
     timeline_js = json.dumps(timeline, separators=(",", ":"))
     fade_js = "".join(
         f'tl.to("#state-{state}",{{opacity:1,duration:.24}}, {start:.3f});'
         f'tl.to("#state-{previous}",{{opacity:0,duration:.24}}, {start:.3f});'
         for (previous, _), (state, start) in zip(timeline, timeline[1:])
     )
-    first_state = timeline[0][0]
     script = (
         "window.__timelines=window.__timelines||{};"
         "const tl=gsap.timeline({paused:true,defaults:{ease:'none'}});"
         f'tl.set("#state-{first_state}",{{opacity:1}},0);{fade_js}'
+        # A paused GSAP timeline does not apply a zero-time `set` until it is
+        # rendered.  Raw first-shot capture happens before HyperFrames seeks
+        # the timeline, so without this explicit zero-progress render the
+        # source composition is a correctly-sized black canvas while the
+        # thumbnail (which hard-codes opacity) looks healthy.  Keep the
+        # runtime handshake in the shared source rather than repairing a
+        # derived screenshot or cropping the evidence.
+        "tl.progress(0);"
         f'window.__timelines["e03-timing-session"] = tl;'
         f'window.__e03Timeline = {timeline_js};'
     )
@@ -811,9 +836,10 @@ def html_document(facts: dict, timeline: list[tuple[str, float]], duration: floa
         '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         f"<title>{html.escape(label)}</title></head><body>"
         f'<script src="{asset_prefix}assets/gsap.min.js"></script>'
-        f'<div id="root" data-composition-id="e03-timing-session" data-start="0" data-width="1280" '
-        f'data-height="720" data-fps="30" data-duration="{duration:.3f}">'
-        f"<style>{css(asset_prefix)}</style>"
+        f'<div id="root" data-composition-id="e03-timing-session" data-start="0" '
+        f'data-width="{canvas_width}" data-height="{canvas_height}" data-fps="30" '
+        f'data-duration="{duration:.3f}">'
+        f"<style>{css(asset_prefix, canvas_width, canvas_height)}</style>"
         f'<svg id="e03-timing-session-track" class="clip" data-start="0" '
         f'data-duration="{duration:.3f}" data-track-index="0" viewBox="0 0 1280 720" '
         f'role="img" aria-label="{html.escape(label)}">'

@@ -8,47 +8,47 @@
       "3105 visibly vetoes on session half 1 at 0.986603",
       "close ends at 154 minus 101 equals 53 and names cost stress only as next question"
     ],
-    "directory": "C:\\tmp\\tradercockpit-e03-rebuild\\build\\see-video-proof",
+    "directory": "C:\\tmp\\tradercockpit-e03-rebuild\\productions\\_series\\e01-e03-production-candidates-2026-08-03\\episode-03\\build\\see-video-proof-repaired-v2",
     "frames": {
       "frame_01.png": {
-        "bytes": 199169,
-        "sha256": "6009B846A30CD89AC504FA2F17CD66F0F21CDA9C752356FC6DA23FE39ADBC284"
+        "bytes": 198244,
+        "sha256": "17D28492D735429833FA94DC63D432F8EBE673E2E7558E546DD6EF293EF04111"
       },
       "frame_02.png": {
-        "bytes": 199174,
-        "sha256": "EA43619C9F364CF3A1DFA7A1D0EAB830A03C2028CBFC3D80F8B2F78A33C82D1F"
+        "bytes": 198195,
+        "sha256": "87DAADF1B0A7C680ABDED85019F6A6A66EDB3816E006425C5272E28FA2FBAE86"
       },
       "frame_03.png": {
-        "bytes": 183796,
-        "sha256": "DE9566D5100C26BE742943B37BBD867E824BB4480188DBB10E9E08E8F6E49127"
+        "bytes": 166426,
+        "sha256": "CA9ADC5BD68F302B117073D931CF0F9C9C47A446977E2BB97456360DC29053A5"
       },
       "frame_04.png": {
-        "bytes": 245477,
-        "sha256": "B88D9EAE8EE5ED4E15C38BB48F8EA3AF823B65AC229DE02E646C48CCC37346CD"
+        "bytes": 220161,
+        "sha256": "AD8B7EB469E6DEA593B80D966A5237530DAF0D05A1BC97315C048BB45C48C70D"
       },
       "frame_05.png": {
-        "bytes": 231232,
-        "sha256": "7E86E2E44884C33B1E89CA84E2E2B9202095309A7D5A78181954C29E50FD7563"
+        "bytes": 211863,
+        "sha256": "057EA4366AB6222DA58D2F84D2DBE6BA871C1B21A92D5324E655F96F59979A32"
       },
       "frame_06.png": {
-        "bytes": 222402,
-        "sha256": "39185C80C7960A29309C7A22D48A9A0FBF222F721BC286757791A0E387044A81"
+        "bytes": 195207,
+        "sha256": "CFBB621A65C634867B14178564CC4BE145181B3F3B147067270EE4A03D6E1280"
       },
       "frame_07.png": {
-        "bytes": 162690,
-        "sha256": "6C798F9FDB1653C20437973BB046E688BD318A1A22E395F37C96FD3C947E28CA"
+        "bytes": 152739,
+        "sha256": "17D30FD18D86634600535C49019C3138FEF97C75927C277228CF76050F413964"
       },
       "frame_08.png": {
-        "bytes": 150771,
-        "sha256": "57882C38A904BF2F2B4ABD352BC1CF0D574069D9529C8D752B88B19684E9E021"
+        "bytes": 141665,
+        "sha256": "F10E48C7475301EDF8BE12D7BCA5498503601034A1F868AC43E0A43FB3E36D78"
       },
       "montage_001.png": {
-        "bytes": 88203,
-        "sha256": "6495423607D7B3818A8A1496A6208643FB4E38CEEE4DF606189D2D9427CD4AF1"
+        "bytes": 85100,
+        "sha256": "82B671C7A5A8E3955FF858C60DB6C8ACD716C4CF44D5DBC8CDE5C312602C7C5C"
       },
       "montage_002.png": {
-        "bytes": 35276,
-        "sha256": "A3E47DE9C9293E6A34C4AA725F1223D6E61C38380593E7EF16A24EA85069C647"
+        "bytes": 34636,
+        "sha256": "DF003A0FF9FCDC1F434677A086C6C586F5880B3C45C4F12C32E8AEA892BDBCFC"
       }
     },
     "method": "see-video"
@@ -57,7 +57,7 @@
   "narrated": false,
   "operator_approval": false,
   "proof": {
-    "bytes": 1183823,
+    "bytes": 1393279,
     "composition": "hyperframes/proofs/semantic-proof.html",
     "media": {
       "audio_streams": 0,
@@ -69,9 +69,9 @@
       "video_streams": 1,
       "width": 1280
     },
-    "path": "C:\\tmp\\tradercockpit-e03-rebuild\\OpenMontage\\projects\\series-e03-timing-session-rebuild\\renders\\e03-semantic-proof.mp4",
+    "path": "C:\\tmp\\tradercockpit-e03-rebuild\\OpenMontage\\projects\\series-e03-timing-session-rebuild\\hyperframes\\renders\\e03-semantic-proof-repaired-native-v2.mp4",
     "project": "C:\\tmp\\tradercockpit-e03-rebuild\\OpenMontage\\projects\\series-e03-timing-session-rebuild",
-    "sha256": "C264F86656A11DBEFABDE0117DD8DBC649128629471CFE84916B9383A2A7E247"
+    "sha256": "3CEED1360E3E1278C9B60CC268158DD357C05825BFC8190E349F920359585740"
   },
   "render_contract": {
     "audio": "none",
@@ -86,7 +86,7 @@
     "derived_receipt_sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731",
     "gsap_sha256": "96C01B81F44A3290E2B4532F55E2C9534B2ADC43273A19F3756B2CB41F0FD0B6",
     "phase03_source_sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
-    "source_html_sha256": "E5B745E3AD05651367145E4211A7065886DD5612E7899D10C35D50FD9177900C",
+    "source_html_sha256": "CA45A115178FC4EF956169A963475AAFFD6F7B8A3CE901AED1C52DFA919DFA16",
     "thumbnail_html_sha256": "BA348CB74AF0330BACEFE108DF6576B9B3EF671CEE802E26B51FF2C9363CA62A",
     "visual_map_sha256": "2DA779E5F06E1FF4FE9B3CBF6D0B1AA34781CE92AD9154FF2BE8FD422C4E70D4",
     "vo_sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1"

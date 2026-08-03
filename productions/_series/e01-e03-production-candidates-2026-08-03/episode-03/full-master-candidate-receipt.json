@@ -1,0 +1,112 @@
+{
+  "schema": "into-the-laboratory/e03-master-candidate/v1",
+  "generated_at": "2026-08-04T02:25:16.6268154+07:00",
+  "episode": 3,
+  "title": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+  "candidate_status": "VISUAL_PASS_SILENT_ONLY",
+  "release_status": "BLOCKED",
+  "source": {
+    "phase_path": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase03_timing.json",
+    "phase_sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+    "source_html": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+    "source_html_sha256": "CA45A115178FC4EF956169A963475AAFFD6F7B8A3CE901AED1C52DFA919DFA16",
+    "source_root": "1920x1080",
+    "facts": {
+      "entering_candidates": 154,
+      "one_bar_delay_failures": 41,
+      "session_half_1_failures": 66,
+      "session_half_2_failures": 23,
+      "unique_fail_any": 101,
+      "pass_all": 53,
+      "episode_boundary": "154 -> 53; next question is cost stress only"
+    }
+  },
+  "script": {
+    "path": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-03/script.json",
+    "sha256": "B4829EE5DF001877BF6904702D32582BD9AE1FF4F0EAFF19CB216E4905B47046",
+    "vo_path": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-03/vo.txt",
+    "vo_sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1"
+  },
+  "master": {
+    "path": "OpenMontage/projects/series-e03-timing-session-rebuild/hyperframes/renders/e03-silent-1080p-master.mp4",
+    "sha256": "15C3217B97B6FAF7252ABFB2AC183FCEA5233DCA5684259E9DF4392A24D0EC77",
+    "file_size_bytes": 15977887,
+    "duration_seconds": 591.7,
+    "video": {
+      "codec": "h264",
+      "resolution": "1920x1080",
+      "fps": 30,
+      "frames": 17751,
+      "full_decode": "pass"
+    },
+    "audio": {
+      "audio_streams": 0,
+      "status": "not yet narrated or mixed"
+    },
+    "render": {
+      "engine": "HyperFrames 0.7.90",
+      "command": "npx --yes hyperframes render . --output renders/e03-silent-1080p-master.mp4 --fps 30 --quality high --resolution landscape --sdr --browser-timeout 120 --protocol-timeout 300000 --player-ready-timeout 60000",
+      "artifact_validation": "pass",
+      "gpu_path": "NVIDIA browser GPU"
+    }
+  },
+  "playable_qa": {
+    "method": "see-video",
+    "inspection_directory": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-03/build/see-video-silent-master",
+    "checked_frames": {
+      "frame_01": {
+        "sha256": "F1267182F3E389E619960798D2DA63863F88BA0D309D1A9120D65866F77153C5",
+        "result": "populated native 1920x1080 opening"
+      },
+      "frame_04": {
+        "sha256": "66D0985D25D863750A1B067AA1617BBB17A5F2BBDC407C82BCC8BB3C68FF2BF4",
+        "result": "populated three-failure-set view with 41, 66, 23"
+      },
+      "frame_06": {
+        "sha256": "A99F63C78463278D763956A9ADEE9173FF8B7FF0E82358CD24C88350AB8EF8BF",
+        "result": "populated profit-factor diagnostic"
+      },
+      "frame_08": {
+        "sha256": "C0845D66340351CFA1B9F17E60DE4A53D37E99863E823AD9DEF233424C18B305",
+        "result": "populated repeatable-worksheet close"
+      }
+    },
+    "boundary_check": "the master ends at 53 and does not reveal later payoff counts"
+  },
+  "first_shot_gate": {
+    "receipt": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-03/first-shot-repair-receipt.json",
+    "status": "pass",
+    "native_source_capture": "build/e03-source-first-shot-1920.png",
+    "receipt_capture": "build/e03-source-first-shot.png",
+    "native_proof": "OpenMontage/projects/series-e03-timing-session-rebuild/hyperframes/renders/e03-semantic-proof-repaired-native-v2.mp4"
+  },
+  "deterministic_gates": {
+    "phase03_truth_tests": "pass: 6 passed",
+    "syllabus_gate": "pass",
+    "ai_tell_gate": "pass",
+    "thumbnail_gate": "pass",
+    "impeccable": "pass: literal []",
+    "hyperframes_lint": "pass: findings []",
+    "hyperframes_check": "pass: ok true; no errors or warnings; 30 informational content-overlap notices"
+  },
+  "voice_authority": {
+    "receipt": "C:/Users/MSI/Documents/tradercockpit/OpenMontage/projects/_series-v4-shared/review-board/voice-route-approval-e1-e5-v7.json",
+    "receipt_sha256": "6F0FACA1923064BDEE7FC1C419C624E2662193B0E9AC173F28D8048DFEEA4668",
+    "approved_route": "Higgsfield / Qwen Audio 3.0 TTS Flash / John / clean",
+    "credit_boundary": "existing Higgsfield subscription credits only; no new subscription, top-up, or metered purchase",
+    "provider_call": "none made",
+    "exact_script_binding": {
+      "status": "blocked",
+      "authority_episode_03_script_sha256": "572FF07818F559E9AC962EDD0358E723CDB9921E44E42D8C7A0B76A546F8E892",
+      "current_candidate_script_sha256": "B4829EE5DF001877BF6904702D32582BD9AE1FF4F0EAFF19CB216E4905B47046",
+      "reason": "The live route receipt does not bind the current rebuilt E03 script hash. No voice preflight, generation, or provider call was made."
+    }
+  },
+  "not_done": [
+    "exact-current-script Higgsfield John narration",
+    "narration/audio/music mix",
+    "release-quality master gate",
+    "upload, publish, schedule, or promotion"
+  ],
+  "generated_media_boundary": "Generated media is visual material; deterministic source receipts own the factual claims."
+}

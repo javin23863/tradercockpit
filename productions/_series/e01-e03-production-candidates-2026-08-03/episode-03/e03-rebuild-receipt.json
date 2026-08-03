@@ -24,7 +24,7 @@
     "spoken_sentences": 62,
     "unmapped": []
   },
-  "source_html_sha256": "E5B745E3AD05651367145E4211A7065886DD5612E7899D10C35D50FD9177900C",
+  "source_html_sha256": "CA45A115178FC4EF956169A963475AAFFD6F7B8A3CE901AED1C52DFA919DFA16",
   "source_route": "tools/build_e03_timing_session_rebuild.py",
   "status": "candidate_pending_operator_script_visual_thumbnail_and_proof_approval",
   "thumbnail_html_sha256": "BA348CB74AF0330BACEFE108DF6576B9B3EF671CEE802E26B51FF2C9363CA62A",
