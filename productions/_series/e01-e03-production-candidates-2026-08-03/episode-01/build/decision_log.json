@@ -1,0 +1,150 @@
+{
+  "version": "1.0",
+  "project_id": "series-e01-local-final-20260804",
+  "decisions": [
+    {
+      "decision_id": "e01-local-final-preauth-20260804",
+      "stage": "local-final-preflight",
+      "category": "approval_policy",
+      "subject": "Operator authorization for local final production",
+      "options_considered": [
+        {
+          "option_id": "operator_full_run_local",
+          "label": "Full local final production",
+          "score": 1.0,
+          "reason": "The current operator direction authorizes Episode 01 to advance from the candidate into local final production, including approved narration, deterministic compose, master render, gates, and playable QA."
+        },
+        {
+          "option_id": "candidate_only",
+          "label": "Remain at candidate review",
+          "score": 0.0,
+          "reason": "Superseded by the current operator direction for local production.",
+          "rejected_because": "The operator explicitly began local final production."
+        }
+      ],
+      "selected": "operator_full_run_local",
+      "reason": "Preauthorization is local-only. Upload, publication, scheduling, merge, deploy, live-profile mutation, account creation, provider substitution, credit purchase, and top-up remain outside scope. Separate executable exact-script and provider gates remain binding.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "e01-render-runtime-20260804",
+      "stage": "local-final-preflight",
+      "category": "render_runtime_selection",
+      "subject": "Episode 01 deterministic composition runtime",
+      "options_considered": [
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 1.0,
+          "reason": "The hash-bound candidate composition is HTML/GSAP-native and its approved semantic proof already uses the repository-local HyperFrames route."
+        },
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 0.0,
+          "reason": "Not available in the live OpenMontage registry preflight.",
+          "rejected_because": "runtime not available on this machine"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg-only composition",
+          "score": 0.0,
+          "reason": "Available for post-processing but not the authored HTML/GSAP scene runtime.",
+          "rejected_because": "would change the candidate's composition path"
+        }
+      ],
+      "selected": "hyperframes",
+      "reason": "Preserve the candidate's bespoke deterministic composition and its existing HyperFrames proof path.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "e01-composition-mode-20260804",
+      "stage": "local-final-preflight",
+      "category": "composition_mode",
+      "subject": "Episode 01 composition authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Bespoke atelier",
+          "score": 1.0,
+          "reason": "The lesson's population sieve, physical run lanes, overlap census, zero-result lanes, and 184-survivor boundary are authored as a one-off teaching mechanism."
+        },
+        {
+          "option_id": "templated",
+          "label": "Templated scene stack",
+          "score": 0.0,
+          "reason": "Would reintroduce the repeated dashboard/card treatment explicitly rejected by the series visual contract.",
+          "rejected_because": "not faithful to the candidate's mechanism-specific visual argument"
+        }
+      ],
+      "selected": "atelier",
+      "reason": "Keep the candidate's mechanism-specific beginner lesson and deterministic visual relationships intact.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "e01-voice-route-20260804",
+      "stage": "local-final-preflight",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider/model/voice/treatment",
+      "options_considered": [
+        {
+          "option_id": "higgsfield_qwen_audio_30_tts_flash_john_clean",
+          "label": "Higgsfield Qwen Audio 3.0 TTS Flash / John / clean",
+          "score": 1.0,
+          "reason": "Current approved series route in OpenMontage/projects/_series-v4-shared/review-board/voice-route-approval-e1-e5-v7.json, SHA-256 6f0faca1923064bdee7fc1c419c624e2662193b0e9ac173f28d8048dfeea4668."
+        },
+        {
+          "option_id": "elevenlabs",
+          "label": "ElevenLabs",
+          "score": 0.0,
+          "reason": "TTS capability is configured, but it is not the current approved series route.",
+          "rejected_because": "provider substitution is prohibited"
+        },
+        {
+          "option_id": "legacy_marcus_assets",
+          "label": "Legacy Marcus narration assets",
+          "score": 0.0,
+          "reason": "Existing Marcus assets bind to superseded E01 scripts and must not be reused for this rebuilt E01.",
+          "rejected_because": "exact current E01 script hash does not match"
+        }
+      ],
+      "selected": "higgsfield_qwen_audio_30_tts_flash_john_clean",
+      "reason": "Use only the current approved Higgsfield route if the exact current E01 script approval and provider execution gates both pass. Do not reuse old audio or substitute a configured provider.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "e01-music-route-20260804",
+      "stage": "local-final-preflight",
+      "category": "music_source",
+      "subject": "Episode 01 music treatment",
+      "options_considered": [
+        {
+          "option_id": "none",
+          "label": "No music",
+          "score": 1.0,
+          "reason": "The current E01 package pins a narration-led deterministic teaching treatment with no music; evidence-synchronized sound must not compete with the arithmetic."
+        },
+        {
+          "option_id": "generated_music",
+          "label": "Generated music bed",
+          "score": 0.0,
+          "reason": "No approved music treatment is bound to this candidate.",
+          "rejected_because": "would change the approved audio treatment"
+        }
+      ],
+      "selected": "none",
+      "reason": "Preserve the candidate's no-music treatment.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    }
+  ]
+}
