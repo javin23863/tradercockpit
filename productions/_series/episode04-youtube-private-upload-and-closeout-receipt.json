@@ -1,0 +1,49 @@
+{
+  "schema": "tradercockpit-series-private-upload-closeout/v1",
+  "recorded_at": "2026-08-03T22:57:23+07:00",
+  "episode": 4,
+  "operator_instruction": "upload to private then close out",
+  "source": {
+    "path": "OpenMontage/projects/series-v4-e04-futures-cost/hyperframes/renders/episode-04-full-master-v1.mp4",
+    "sha256": "153d7bff754c8a1b46df91dcda98d32811b7f52f1433e7f2292ad6039866aea1",
+    "retained_after_closeout": true
+  },
+  "youtube": {
+    "channel_id": "UCBc6RR49Qk5vtDQaw8BjH3A",
+    "channel_title": "Tradercockpit",
+    "video_id": "xisx9ePIPc4",
+    "url": "https://youtu.be/xisx9ePIPc4",
+    "title": "We Tripled Assumed Slippage. 7 of 53 Strategies Failed the Net-Profit Check.",
+    "privacy_status": "private",
+    "upload_status": "processed",
+    "processing_status": "succeeded",
+    "definition": "hd",
+    "has_custom_thumbnail": true,
+    "synthetic_media_disclosure_requested": true,
+    "made_for_kids": false,
+    "playlist_mutated": false,
+    "public_release_authorized": false
+  },
+  "closeout": {
+    "project_root": "OpenMontage/projects/series-v4-e04-futures-cost",
+    "project_size_before_gib": 1.734,
+    "project_size_after_gib": 1.461,
+    "project_npm_cache_before_mib": 991.74,
+    "project_npm_cache_after_mib": 712.08,
+    "system_npm_cache_reclaimed_mib": 845,
+    "free_space_after_gib": 72.72,
+    "retained_classes": [
+      "certified full master v1",
+      "operator-approved proof v5 and render provenance",
+      "source compositions, scripts, evidence and narration assets",
+      "thumbnail and YouTube-native caption sidecar",
+      "gates, reviews, decisions and receipts"
+    ],
+    "cleanup_scope": "Safely reclaimable npm package caches only; production provenance was retained.",
+    "deletion_recovery": "Removed npm cache content is regenerable by npm; no source, approved media, receipt or platform object was deleted."
+  },
+  "caption_sidecar_attached": false,
+  "caption_scope_ceiling": "The retained OAuth token does not include youtube.force-ssl, which current YouTube captions.insert requires. The sidecar remains ready for a separately authorized Studio or OAuth-scope action.",
+  "published": false,
+  "next_action": "None for Episode 04 until the operator separately authorizes caption attachment, unlisted/public visibility, playlist mutation or promotion."
+}
