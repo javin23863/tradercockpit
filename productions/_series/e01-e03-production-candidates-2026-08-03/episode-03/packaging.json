@@ -1,57 +1,64 @@
 {
-  "schema": "tradercockpit-series-package/v1",
-  "STATUS": "CANDIDATE — OPERATOR SCRIPT AND SEMANTIC VISUAL APPROVAL REQUIRED",
-  "status": "candidate_pending_operator_approval",
-  "episode": 3,
-  "syllabus_episode": "03",
-  "revision": "e01-e03-production-start-2026-08-03",
-  "title": "The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.",
-  "beginner_belief": "If a backtest passes one view, it is ready for the next cost and session checks.",
-  "prewriting": {
-    "proven idea": "The recorded Dow phase carries 154 candidates into three views; 101 fail at least one and 53 pass all three.",
-    "common goal": "Teach a beginner how delayed fills and session splits can veto a candidate without turning a pass into a trading promise.",
-    "deeper problem": "One blended total can hide a weak session or fill view, and overlapping failure counts cannot be added into the headline total.",
-    "package first": "THREE VIEWS / ONE VETO; the title leads with 53 kept and 101 failed at least one check.",
-    "audience avatar": "A beginner who sees a profitable total but needs to understand why the same candidates must survive separate transformations.",
-    "research the gaps": "Verified the phase03 receipt, exact veto and pass rows, the phase04 cost handoff, real-data and wiring flags, and validated=false."
+  "STATUS": "CANDIDATE \u2014 OPERATOR SCRIPT, VISUAL, THUMBNAIL, AND PROOF APPROVAL REQUIRED",
+  "approval": {
+    "complete_script_approved": false,
+    "historical_approvals_authoritative": false,
+    "master_approved": false,
+    "narration_approved": false,
+    "package_approved": false,
+    "semantic_proof_approved": false,
+    "thumbnail_approved": false
   },
+  "beginner_belief": "If a backtest passes one view, it is ready for the next cost and session checks.",
+  "candidate_first_post_ident_sentence": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+  "episode": 3,
+  "evidence": {
+    "boundary": "E03 ends at 53 phase03 survivors; cost stress is named only as the next question; validated remains false.",
+    "derived_receipt": "phase03-derived-receipt.json",
+    "phase03_source": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase03_timing.json",
+    "phase03_source_sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+    "real_data": true,
+    "validation_status": false,
+    "wiring_proof": true
+  },
+  "first_spoken_sentence": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+  "prewriting": {
+    "audience avatar": "A beginner who sees a profitable total but needs to understand why the same candidate must clear each fill and session view.",
+    "common goal": "Teach a beginner how a delayed fill and session split can veto a candidate without turning a pass into a promise.",
+    "deeper problem": "Three failure counts overlap, so adding 41, 66, and 23 would inflate the unique-failure result.",
+    "package first": "THREE VIEWS / ONE VETO; the title leads with 53 kept and 101 failed at least one view.",
+    "proven idea": "The pinned Dow phase03 JSON carries 154 candidates into three views; 101 fail at least one and 53 pass all three.",
+    "research the gaps": "Recomputed the exact phase03 JSON hash, candidate gate sets, union geometry, exact veto/pass rows, and real/wiring/validated boundary."
+  },
+  "production": {
+    "anchor_medium": "narration_led_deterministic_graphics",
+    "composition_mode": "atelier",
+    "full_render_started": false,
+    "music": "none",
+    "render_runtime": "hyperframes",
+    "render_runtime_version": "0.7.90",
+    "semantic_proof_only": true
+  },
+  "revision": "e03-timing-session-rebuild-2026-08-03",
+  "schema": "tradercockpit-series-package/v1",
+  "script": {
+    "duration_basis_wpm": 170,
+    "estimated_duration_seconds": 591.697,
+    "sha256": "B4829EE5DF001877BF6904702D32582BD9AE1FF4F0EAFF19CB216E4905B47046",
+    "status": "candidate_pending_script_human_gate",
+    "vo_sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1",
+    "word_count": 1615
+  },
+  "status": "candidate_pending_operator_approval",
+  "syllabus_episode": "03",
   "thumbnail": {
-    "status": "candidate",
     "elements": [
       "THREE VIEWS",
       "ONE VETO"
     ],
-    "visual_promise": "Evidence-bound mechanism, not a generic card."
+    "html": "thumbnail-ep03.html",
+    "status": "candidate; 1280x720 rendered and 150px squint emitted",
+    "visual_promise": "Aligned fill/session strips plus one visibly weak view; no later-phase result."
   },
-  "candidate_first_post_ident_sentence": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks.",
-  "first_spoken_sentence": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks.",
-  "evidence": {
-    "manifest": "../../e01-e03-live-receipts-2026-08-03.json",
-    "boundary": "Recorded Dow phase03 timing/session stress and the exact phase04 handoff; real data and wiring proof are preserved, validated remains false.",
-    "validation_status": false
-  },
-  "production": {
-    "anchor_medium": "narration_led_deterministic_graphics",
-    "render_runtime": "hyperframes",
-    "render_runtime_alternative": "remotion",
-    "composition_mode": "atelier",
-    "music": "none",
-    "full_render_started": false
-  },
-  "script": {
-    "status": "candidate_pending_script_human_gate",
-    "sha256": "b982c0d2729ff790abc174aaf969729beb101b8e5f0926275bfb681a05b20134",
-    "vo_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
-    "word_count": 1140,
-    "estimated_duration_seconds": 432.5,
-    "duration_basis_wpm": 160.0
-  },
-  "approval": {
-    "package_approved": false,
-    "complete_script_approved": false,
-    "thumbnail_approved": false,
-    "narration_approved": false,
-    "master_approved": false,
-    "historical_approvals_authoritative": false
-  }
+  "title": "154 Entered. 101 Failed. 53 Cleared Every Check."
 }

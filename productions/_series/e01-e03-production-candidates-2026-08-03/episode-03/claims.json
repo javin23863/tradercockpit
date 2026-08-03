@@ -1,92 +1,435 @@
 {
-  "schema": "teaching-claims/v1",
-  "script_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
-  "sources": {
-    "E03_DOW_P2": {
-      "citation": "Recorded Dow phase02 out-of-sample receipt",
-      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase02_oos.json",
-      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase02 out-of-sample used by this episode.",
-      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
-      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0"
+  "claims": {
+    "E03-C01": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
     },
-    "E03_DOW_P3": {
-      "citation": "Recorded Dow phase03 timing receipt",
-      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase03_timing.json",
-      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase03 timing used by this episode.",
-      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
-      "sha256": "bfbb0196138521f2cf87a840b9fc83bffe8f073a3c0a0c953bc4e2c27e62621e"
+    "E03-C02": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
     },
-    "E03_DOW_P4": {
-      "citation": "Recorded Dow phase04 cost handoff receipt",
-      "locator": "hash-only: external phase04_cost.json (artifact remains in Futures scope)",
-      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase04 cost handoff used by this episode.",
-      "limitations": "The phase04 cost handoff is referenced by its recorded SHA-256 only; the artifact remains in the Futures scope and was not copied into TraderCockpit. The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
-      "sha256": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be"
+    "E03-C03": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_UNION"
+      ]
+    },
+    "E03-C04": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C05": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C06": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C07": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C08": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C09": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C10": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C11": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C12": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C13": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C14": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C15": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C16": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C17": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C18": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C19": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C20": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C21": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C22": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C23": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C24": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PHASE03_METHOD"
+      ]
+    },
+    "E03-C25": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C26": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C27": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C28": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C29": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_UNION"
+      ]
+    },
+    "E03-C30": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_UNION"
+      ]
+    },
+    "E03-C31": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_UNION"
+      ]
+    },
+    "E03-C32": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_UNION"
+      ]
+    },
+    "E03-C33": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_UNION"
+      ]
+    },
+    "E03-C34": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3105"
+      ]
+    },
+    "E03-C35": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3105"
+      ]
+    },
+    "E03-C36": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3105"
+      ]
+    },
+    "E03-C37": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3105"
+      ]
+    },
+    "E03-C38": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PROFIT_FACTOR"
+      ]
+    },
+    "E03-C39": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PROFIT_FACTOR"
+      ]
+    },
+    "E03-C40": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PROFIT_FACTOR"
+      ]
+    },
+    "E03-C41": {
+      "kind": "academic",
+      "source_ids": [
+        "S_PROFIT_FACTOR"
+      ]
+    },
+    "E03-C42": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3088"
+      ]
+    },
+    "E03-C43": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3088"
+      ]
+    },
+    "E03-C44": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3088"
+      ]
+    },
+    "E03-C45": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_ROW_3088"
+      ]
+    },
+    "E03-C46": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C47": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C48": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_COUNTS"
+      ]
+    },
+    "E03-C49": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C50": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_SOURCE"
+      ]
+    },
+    "E03-C51": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C52": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C53": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_SOURCE"
+      ]
+    },
+    "E03-C54": {
+      "kind": "delivery",
+      "source_ids": [],
+      "why_non_claim": "Reproduction instruction or lesson boundary; it introduces no new empirical number."
+    },
+    "E03-C55": {
+      "kind": "delivery",
+      "source_ids": [],
+      "why_non_claim": "Reproduction instruction or lesson boundary; it introduces no new empirical number."
+    },
+    "E03-C56": {
+      "kind": "delivery",
+      "source_ids": [],
+      "why_non_claim": "Reproduction instruction or lesson boundary; it introduces no new empirical number."
+    },
+    "E03-C57": {
+      "kind": "delivery",
+      "source_ids": [],
+      "why_non_claim": "Reproduction instruction or lesson boundary; it introduces no new empirical number."
+    },
+    "E03-C58": {
+      "kind": "delivery",
+      "source_ids": [],
+      "why_non_claim": "Reproduction instruction or lesson boundary; it introduces no new empirical number."
+    },
+    "E03-C59": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C60": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C61": {
+      "kind": "run_receipt",
+      "source_ids": [
+        "S_PHASE03_BOUNDARY"
+      ]
+    },
+    "E03-C62": {
+      "kind": "delivery",
+      "source_ids": [],
+      "why_non_claim": "Reproduction instruction or lesson boundary; it introduces no new empirical number."
     }
   },
-  "claims": {
-    "E03-RW-C01": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3"
-      ]
+  "receipt_binding": {
+    "derived_receipt_sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731",
+    "phase03_source_sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+    "source_route": "tools/build_e03_timing_session_rebuild.py"
+  },
+  "schema": "teaching-claims/v1",
+  "script_sha256": "7e3b988f34cdf63f9e3f06f8dc77a38d926a03abb1c6fd87fe5dfe9caf35fab1",
+  "sources": {
+    "S_PHASE03_BOUNDARY": {
+      "citation": "Pinned phase03 provenance and validation flags",
+      "limitations": "Real-data and wiring evidence do not clear later cost, parameter, sequence, or governance questions.",
+      "locator": "C:\\tmp\\tradercockpit-e03-rebuild\\productions\\_series\\e03-timing-session-rebuild-2026-08-03\\phase03-derived-receipt.json#/provenance and /run",
+      "sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731",
+      "supports": "The recorded run's real-data provenance, wiring proof, and validated=false boundary."
     },
-    "E03-RW-C02": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P2",
-        "E03_DOW_P3"
-      ]
+    "S_PHASE03_COUNTS": {
+      "citation": "Derived phase03 candidate gate sets",
+      "limitations": "Counts describe this run and these three thresholds only; they do not validate a strategy.",
+      "locator": "C:\\tmp\\tradercockpit-e03-rebuild\\productions\\_series\\e03-timing-session-rebuild-2026-08-03\\phase03-derived-receipt.json#/derived/failure_counts and /derived/surviving",
+      "sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731",
+      "supports": "154 entering, 41 one-bar failures, 66 session-half-1 failures, 23 session-half-2 failures, 101 unique failures, and 53 survivors."
     },
-    "E03-RW-C03": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3"
-      ]
+    "S_PHASE03_METHOD": {
+      "citation": "Phase03 timing/session implementation and docstring",
+      "limitations": "The proxy does not estimate every broker's latency or execution quality.",
+      "locator": "C:\\Users\\MSI\\repos\\futures\\packages\\esq\\robustness_pipeline\\phases\\phase03_timing.py#module-docstring;#_delayed_replay_twice;#_split_session_halves;#_measure_timing",
+      "sha256": "27D6FB40A35CB48C0C83D5527BD8821A2BB46AD59DEFDA8A1500D0B18F9053EF",
+      "supports": "The one-bar same-direction delay, median-hour intraday split, and the distinction between fill stress and session splitting."
     },
-    "E03-RW-C04": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3"
-      ]
+    "S_PHASE03_SOURCE": {
+      "citation": "Pinned phase03 timing JSON private receipt",
+      "limitations": "This is a candidate-grade recorded run, not a live-execution or future-performance certificate.",
+      "locator": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase03_timing.json#sha256=BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+      "sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+      "supports": "The exact phase source identity, run identity, and hash binding used by E03."
     },
-    "E03-RW-C05": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3"
-      ]
+    "S_PHASE03_UNION": {
+      "citation": "Derived phase03 overlap and union geometry",
+      "limitations": "The union is a count of candidate IDs, not a sum of trades or dollars.",
+      "locator": "C:\\tmp\\tradercockpit-e03-rebuild\\productions\\_series\\e03-timing-session-rebuild-2026-08-03\\phase03-derived-receipt.json#/derived/pairwise_intersections and /derived/arithmetic",
+      "sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731",
+      "supports": "Failure-set overlap and the inclusion-exclusion arithmetic that produces 101 unique failures."
     },
-    "E03-RW-C06": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3"
-      ]
+    "S_PROFIT_FACTOR": {
+      "citation": "Robustness metric implementation",
+      "limitations": "PF alone does not encode drawdown, account size, path, or cost assumptions.",
+      "locator": "C:\\Users\\MSI\\repos\\futures\\packages\\esq\\robustness_pipeline\\metrics.py#compute_metrics:82-126",
+      "sha256": "47C33E61EFAF802FD535E4F998B7E2E5E61D0AA654AB00F518DC0E3901549BA6",
+      "supports": "PF is gross winning dollars divided by gross losing dollars and is returned as one metric per ledger."
     },
-    "E03-RW-C07": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3"
-      ]
+    "S_ROW_3088": {
+      "citation": "Pinned phase03 passing candidate row",
+      "limitations": "A phase03 pass is candidate-grade and does not imply validation or live readiness.",
+      "locator": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase03_timing.json#/candidates/formula-2309285457-3088/detail",
+      "sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+      "supports": "The three exact PF values for the candidate that passes all phase03 views."
     },
-    "E03-RW-C08": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3"
-      ]
-    },
-    "E03-RW-C09": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3",
-        "E03_DOW_P4"
-      ]
-    },
-    "E03-RW-C10": {
-      "kind": "run_receipt",
-      "source_ids": [
-        "E03_DOW_P3",
-        "E03_DOW_P4"
-      ]
+    "S_ROW_3105": {
+      "citation": "Pinned phase03 veto candidate row",
+      "limitations": "One candidate row illustrates the gate; it is not a population estimate.",
+      "locator": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase03_timing.json#/candidates/formula-2309285457-3105/detail",
+      "sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+      "supports": "The three exact PF values for the candidate that fails session half 1."
     }
   }
 }

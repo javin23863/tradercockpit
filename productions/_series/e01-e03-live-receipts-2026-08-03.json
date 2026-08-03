@@ -125,7 +125,7 @@
       }
     },
     "03": {
-      "title_candidate": "The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.",
+      "title_candidate": "154 Entered. 101 Failed. 53 Cleared Every Check.",
       "run_id": "rb-20260725T133803-b44bd92c",
       "phase": "phase03_timing",
       "window": {"start": "2018-02-25", "end": "2019-09-21"},
@@ -136,8 +136,8 @@
       "surviving": 53,
       "dropped": 101,
       "gate_failures": {
-        "pf_entry_delay_1bar": 66,
-        "pf_session_half_1": 41,
+        "pf_entry_delay_1bar": 41,
+        "pf_session_half_1": 66,
         "pf_session_half_2": 23,
         "overlap_warning": "The three failure counts overlap; they are not additive."
       },
@@ -164,10 +164,8 @@
       },
       "next_phase": {
         "phase": "phase04_cost",
-        "entering": 53,
-        "surviving": 46,
-        "dropped": 7,
-        "source_sha256": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be"
+        "source_sha256": "38408093f40b4f2b98b4cb3d0b28bf2f3fb1812ebb25d39b53420c52e5d164be",
+        "status": "next question only; no phase04 result belongs in E03"
       }
     },
     "shared_e04_authority": {

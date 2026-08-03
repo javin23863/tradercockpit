@@ -1,0 +1,956 @@
+{
+  "cues": [
+    {
+      "claim_refs": [
+        "E03-C01"
+      ],
+      "end_seconds": 3.174,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-001",
+      "purpose": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+      "sentence_id": "E03-C01",
+      "slot": "scene-01",
+      "spoken_span": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+      "start_seconds": 0.0,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "opening"
+    },
+    {
+      "claim_refs": [
+        "E03-C02"
+      ],
+      "end_seconds": 13.406,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-002",
+      "purpose": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+      "sentence_id": "E03-C02",
+      "slot": "scene-01",
+      "spoken_span": "This is one recorded test using the Dow data. The number we carry forward is 53. It is a count of candidates at one step in the process.",
+      "start_seconds": 3.174,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "opening"
+    },
+    {
+      "claim_refs": [
+        "E03-C03"
+      ],
+      "end_seconds": 28.58,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-003",
+      "purpose": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+      "sentence_id": "E03-C03",
+      "slot": "scene-01",
+      "spoken_span": "The key question is how 101 candidates failed across three checks. We cannot add the three failure counts as if every failure were different. A failure set is a list of candidate IDs, so the same ID can appear more than once.",
+      "start_seconds": 13.406,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "opening"
+    },
+    {
+      "claim_refs": [
+        "E03-C04"
+      ],
+      "end_seconds": 37.401,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-004",
+      "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+      "sentence_id": "E03-C04",
+      "slot": "scene-02",
+      "spoken_span": "The test began with 154 candidates from the Dow branch. Before any check runs, that starting list is the whole population for this lesson.",
+      "start_seconds": 28.58,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "funnel"
+    },
+    {
+      "claim_refs": [
+        "E03-C05"
+      ],
+      "end_seconds": 50.457,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-005",
+      "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+      "sentence_id": "E03-C05",
+      "slot": "scene-02",
+      "spoken_span": "The list stayed the same while the execution fill and clock changed. Each candidate faced one frozen rule under those new conditions. The comparison stays fair: the candidate changes only when the test changes the condition.",
+      "start_seconds": 37.401,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "funnel"
+    },
+    {
+      "claim_refs": [
+        "E03-C06"
+      ],
+      "end_seconds": 56.454,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-006",
+      "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+      "sentence_id": "E03-C06",
+      "slot": "scene-02",
+      "spoken_span": "This is a screen. A pass opens the next question. That leaves fewer candidates to inspect.",
+      "start_seconds": 50.457,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "funnel"
+    },
+    {
+      "claim_refs": [
+        "E03-C07"
+      ],
+      "end_seconds": 67.039,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-007",
+      "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+      "sentence_id": "E03-C07",
+      "slot": "scene-02",
+      "spoken_span": "The three checks use a later fill and two session halves. They ask the same basic question from three angles: does the result hold when the trade arrives differently?",
+      "start_seconds": 56.454,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "funnel"
+    },
+    {
+      "claim_refs": [
+        "E03-C08"
+      ],
+      "end_seconds": 79.742,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-008",
+      "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+      "sentence_id": "E03-C08",
+      "slot": "scene-03",
+      "spoken_span": "A fill is the price the trade gets when the order enters or exits. Imagine a signal at the end of a bar: the fill is the price attached to the actual entry or exit.",
+      "start_seconds": 67.039,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "fill"
+    },
+    {
+      "claim_refs": [
+        "E03-C09"
+      ],
+      "end_seconds": 91.739,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-009",
+      "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+      "sentence_id": "E03-C09",
+      "slot": "scene-03",
+      "spoken_span": "A backtest often uses the signal price as if that were the fill. That is convenient for calculation, but it can make a trade look cleaner than the path a real order takes.",
+      "start_seconds": 79.742,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "fill"
+    },
+    {
+      "claim_refs": [
+        "E03-C10"
+      ],
+      "end_seconds": 104.795,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-010",
+      "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+      "sentence_id": "E03-C10",
+      "slot": "scene-03",
+      "spoken_span": "Slippage is the gap between the price you expect and the price you get. A small gap changes the dollars won or lost on every trade, so a long run can feel that gap many times.",
+      "start_seconds": 91.739,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "fill"
+    },
+    {
+      "claim_refs": [
+        "E03-C11"
+      ],
+      "end_seconds": 116.086,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-011",
+      "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+      "sentence_id": "E03-C11",
+      "slot": "scene-03",
+      "spoken_span": "Here the test moves the entry one bar in the same direction. That gives the fill price a simple stress. Every candidate gets the same treatment, which makes the comparison repeatable.",
+      "start_seconds": 104.795,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "fill"
+    },
+    {
+      "claim_refs": [
+        "E03-C12"
+      ],
+      "end_seconds": 128.436,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-012",
+      "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+      "sentence_id": "E03-C12",
+      "slot": "scene-03",
+      "spoken_span": "The test answers one question about the fill. The test does not model every broker or every order. The controlled comparison is valuable on its own. It says nothing about a particular execution desk.",
+      "start_seconds": 116.086,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "fill"
+    },
+    {
+      "claim_refs": [
+        "E03-C13"
+      ],
+      "end_seconds": 138.668,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-013",
+      "purpose": "Two axes separate time latency from price slippage without conflating them.",
+      "sentence_id": "E03-C13",
+      "slot": "scene-04",
+      "spoken_span": "Latency is the time from the signal to the fill. If the market moves while an order is waiting, that time can change the price of the trade.",
+      "start_seconds": 128.436,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "latency"
+    },
+    {
+      "claim_refs": [
+        "E03-C14"
+      ],
+      "end_seconds": 147.489,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-014",
+      "purpose": "Two axes separate time latency from price slippage without conflating them.",
+      "sentence_id": "E03-C14",
+      "slot": "scene-04",
+      "spoken_span": "Slippage is price. Latency is time. Both can change an entry. Keeping the words separate helps us ask the right question about the test.",
+      "start_seconds": 138.668,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "latency"
+    },
+    {
+      "claim_refs": [
+        "E03-C15"
+      ],
+      "end_seconds": 159.486,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-015",
+      "purpose": "Two axes separate time latency from price slippage without conflating them.",
+      "sentence_id": "E03-C15",
+      "slot": "scene-04",
+      "spoken_span": "This one-bar move stands in for a later fill. The shift gives a repeatable stress for the recorded test. The same shift is applied across the candidate list, so the result is comparable.",
+      "start_seconds": 147.489,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "latency"
+    },
+    {
+      "claim_refs": [
+        "E03-C16"
+      ],
+      "end_seconds": 170.424,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-016",
+      "purpose": "Two axes separate time latency from price slippage without conflating them.",
+      "sentence_id": "E03-C16",
+      "slot": "scene-04",
+      "spoken_span": "A rule that needs the perfect entry has a timing weakness. This check makes that weakness visible. The weakness can be small in one trade and large across a population.",
+      "start_seconds": 159.486,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "latency"
+    },
+    {
+      "claim_refs": [
+        "E03-C17"
+      ],
+      "end_seconds": 181.362,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-017",
+      "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+      "sentence_id": "E03-C17",
+      "slot": "scene-05",
+      "spoken_span": "A split sample is a method that puts the same trades into separate groups before you measure them. The rule stays fixed; only the group used for the measurement changes.",
+      "start_seconds": 170.424,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "split"
+    },
+    {
+      "claim_refs": [
+        "E03-C18"
+      ],
+      "end_seconds": 191.241,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-018",
+      "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+      "sentence_id": "E03-C18",
+      "slot": "scene-05",
+      "spoken_span": "The middle entry hour divides this intraday run into session half 1 and session half 2. That boundary gives both groups a declared place in the day.",
+      "start_seconds": 181.362,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "split"
+    },
+    {
+      "claim_refs": [
+        "E03-C19"
+      ],
+      "end_seconds": 203.238,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-019",
+      "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+      "sentence_id": "E03-C19",
+      "slot": "scene-05",
+      "spoken_span": "A session half is one of those groups. It tells us whether the result leans on one part of the day. A strong combined result can hide a weak morning or afternoon group.",
+      "start_seconds": 191.241,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "split"
+    },
+    {
+      "claim_refs": [
+        "E03-C20"
+      ],
+      "end_seconds": 214.176,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-020",
+      "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+      "sentence_id": "E03-C20",
+      "slot": "scene-05",
+      "spoken_span": "The rule keeps a candidate when profit factor clears 1.0 after the fill move and in both session halves. One candidate must clear the fill check plus both clock checks.",
+      "start_seconds": 203.238,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "split"
+    },
+    {
+      "claim_refs": [
+        "E03-C21"
+      ],
+      "end_seconds": 225.114,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-021",
+      "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+      "sentence_id": "E03-C21",
+      "slot": "scene-06",
+      "spoken_span": "A regime is a stretch of market behavior. One rule can meet a different market in a different stretch. One stretch can trend, while another moves sideways or changes speed.",
+      "start_seconds": 214.176,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "regime"
+    },
+    {
+      "claim_refs": [
+        "E03-C22"
+      ],
+      "end_seconds": 237.111,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-022",
+      "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+      "sentence_id": "E03-C22",
+      "slot": "scene-06",
+      "spoken_span": "Price and volume can change across the trading day. Session splitting gives us a way to check that change. It asks whether the result travels with the clock instead of with the rule.",
+      "start_seconds": 225.114,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "regime"
+    },
+    {
+      "claim_refs": [
+        "E03-C23"
+      ],
+      "end_seconds": 248.049,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-023",
+      "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+      "sentence_id": "E03-C23",
+      "slot": "scene-06",
+      "spoken_span": "A result can look strong in one stretch and weak in another. This test stays inside its recorded window. This keeps the lesson tied to the evidence we actually have.",
+      "start_seconds": 237.111,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "regime"
+    },
+    {
+      "claim_refs": [
+        "E03-C24"
+      ],
+      "end_seconds": 258.281,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-024",
+      "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+      "sentence_id": "E03-C24",
+      "slot": "scene-06",
+      "spoken_span": "The split can expose a candidate whose result depends on one clock segment. It cannot explain why the segment matters, but it can show where to ask next.",
+      "start_seconds": 248.049,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "regime"
+    },
+    {
+      "claim_refs": [
+        "E03-C25"
+      ],
+      "end_seconds": 268.16,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-025",
+      "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+      "sentence_id": "E03-C25",
+      "slot": "scene-07",
+      "spoken_span": "The one-bar fill check rejects 41 candidates. Session half 1 rejects 66, and session half 2 rejects 23. These are separate counts from the same recorded run.",
+      "start_seconds": 258.281,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "strips"
+    },
+    {
+      "claim_refs": [
+        "E03-C26"
+      ],
+      "end_seconds": 275.569,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-026",
+      "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+      "sentence_id": "E03-C26",
+      "slot": "scene-07",
+      "spoken_span": "All three counts start with the same 154 candidates. Each count answers a different version of the same stress question.",
+      "start_seconds": 268.16,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "strips"
+    },
+    {
+      "claim_refs": [
+        "E03-C27"
+      ],
+      "end_seconds": 284.743,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-027",
+      "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+      "sentence_id": "E03-C27",
+      "slot": "scene-07",
+      "spoken_span": "Session half 1 produces the largest count. A single total would hide the clock segment creating the most removals. The separate strips preserve that information.",
+      "start_seconds": 275.569,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "strips"
+    },
+    {
+      "claim_refs": [
+        "E03-C28"
+      ],
+      "end_seconds": 292.505,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-028",
+      "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+      "sentence_id": "E03-C28",
+      "slot": "scene-07",
+      "spoken_span": "The rule is simple: one failed check drops a candidate. The candidate needs three passes. One impressive number cannot carry it.",
+      "start_seconds": 284.743,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "strips"
+    },
+    {
+      "claim_refs": [
+        "E03-C29"
+      ],
+      "end_seconds": 302.031,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-029",
+      "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+      "sentence_id": "E03-C29",
+      "slot": "scene-08",
+      "spoken_span": "Some candidates fail twice, so adding the three counts would count them twice. Counting a candidate twice would make the population look weaker than it is.",
+      "start_seconds": 292.505,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "union"
+    },
+    {
+      "claim_refs": [
+        "E03-C30"
+      ],
+      "end_seconds": 312.263,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-030",
+      "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+      "sentence_id": "E03-C30",
+      "slot": "scene-08",
+      "spoken_span": "The fill set shares 24 candidates with session half 1 and 5 with session half 2. Those shared IDs are the reason the headline number needs a union.",
+      "start_seconds": 302.031,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "union"
+    },
+    {
+      "claim_refs": [
+        "E03-C31"
+      ],
+      "end_seconds": 320.731,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-031",
+      "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+      "sentence_id": "E03-C31",
+      "slot": "scene-08",
+      "spoken_span": "The two session halves share zero candidates. All three sets share zero. The pairwise overlaps are the only overlaps in this recorded output.",
+      "start_seconds": 312.263,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "union"
+    },
+    {
+      "claim_refs": [
+        "E03-C32"
+      ],
+      "end_seconds": 330.257,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-032",
+      "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+      "sentence_id": "E03-C32",
+      "slot": "scene-08",
+      "spoken_span": "Start with 41 plus 66 plus 23. Take away 24 and 5. The total is 101. This is the inclusion and exclusion step in plain arithmetic.",
+      "start_seconds": 320.731,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "union"
+    },
+    {
+      "claim_refs": [
+        "E03-C33"
+      ],
+      "end_seconds": 339.783,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-033",
+      "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+      "sentence_id": "E03-C33",
+      "slot": "scene-08",
+      "spoken_span": "A union counts a candidate once when it appears in any set. It answers the practical question: how many unique candidates failed one or more checks?",
+      "start_seconds": 330.257,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "union"
+    },
+    {
+      "claim_refs": [
+        "E03-C34"
+      ],
+      "end_seconds": 346.839,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-034",
+      "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+      "sentence_id": "E03-C34",
+      "slot": "scene-09",
+      "spoken_span": "Candidate formula-2309285457-3105 has profit factor 1.123246 after shifting the fill by one bar. That first number clears the cutoff.",
+      "start_seconds": 339.783,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "veto"
+    },
+    {
+      "claim_refs": [
+        "E03-C35"
+      ],
+      "end_seconds": 356.718,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-035",
+      "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+      "sentence_id": "E03-C35",
+      "slot": "scene-09",
+      "spoken_span": "Its session half 1 value is 0.986603. That is below the 1.000000 cutoff. The difference looks small, but the rule still treats the value as a fail.",
+      "start_seconds": 346.839,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "veto"
+    },
+    {
+      "claim_refs": [
+        "E03-C36"
+      ],
+      "end_seconds": 362.715,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-036",
+      "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+      "sentence_id": "E03-C36",
+      "slot": "scene-09",
+      "spoken_span": "Its session half 2 value is 1.494639. Two strong views cannot erase the weak middle view.",
+      "start_seconds": 356.718,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "veto"
+    },
+    {
+      "claim_refs": [
+        "E03-C37"
+      ],
+      "end_seconds": 373.653,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-037",
+      "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+      "sentence_id": "E03-C37",
+      "slot": "scene-09",
+      "spoken_span": "One value below the cutoff disqualifies the candidate. Every check must clear the cutoff. This is the crisis in the run: the row looks good until the session is separated.",
+      "start_seconds": 362.715,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "veto"
+    },
+    {
+      "claim_refs": [
+        "E03-C38"
+      ],
+      "end_seconds": 383.885,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-038",
+      "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+      "sentence_id": "E03-C38",
+      "slot": "scene-10",
+      "spoken_span": "Profit factor compares the dollars won with the dollars lost in the same set of trades. The numerator is gross winning dollars; the denominator is gross losing dollars.",
+      "start_seconds": 373.653,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "profit-factor"
+    },
+    {
+      "claim_refs": [
+        "E03-C39"
+      ],
+      "end_seconds": 393.764,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-039",
+      "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+      "sentence_id": "E03-C39",
+      "slot": "scene-10",
+      "spoken_span": "Above 1 means more dollars won than lost in that set. At 1.0, the two sides are equal before the rest of the research questions are asked.",
+      "start_seconds": 383.885,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "profit-factor"
+    },
+    {
+      "claim_refs": [
+        "E03-C40"
+      ],
+      "end_seconds": 403.29,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-040",
+      "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+      "sentence_id": "E03-C40",
+      "slot": "scene-10",
+      "spoken_span": "It leaves out account size. It also leaves out drawdown and fill cost. A ratio can summarize one ledger while hiding the path that produced it.",
+      "start_seconds": 393.764,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "profit-factor"
+    },
+    {
+      "claim_refs": [
+        "E03-C41"
+      ],
+      "end_seconds": 412.464,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-041",
+      "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+      "sentence_id": "E03-C41",
+      "slot": "scene-10",
+      "spoken_span": "Profit factor is one diagnostic inside this test. The other checks still matter. A pass here means the ratio cleared its cutoff in this view.",
+      "start_seconds": 403.29,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "profit-factor"
+    },
+    {
+      "claim_refs": [
+        "E03-C42"
+      ],
+      "end_seconds": 419.167,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-042",
+      "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+      "sentence_id": "E03-C42",
+      "slot": "scene-11",
+      "spoken_span": "Candidate formula-2309285457-3088 records 1.080180 with the fill shifted one bar. The first value is above the same cutoff.",
+      "start_seconds": 412.464,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pass"
+    },
+    {
+      "claim_refs": [
+        "E03-C43"
+      ],
+      "end_seconds": 427.282,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-043",
+      "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+      "sentence_id": "E03-C43",
+      "slot": "scene-11",
+      "spoken_span": "Its session half 1 value is 1.156412, and session half 2 is 1.151833. Both clock groups stay above 1.0 in this row.",
+      "start_seconds": 419.167,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pass"
+    },
+    {
+      "claim_refs": [
+        "E03-C44"
+      ],
+      "end_seconds": 434.338,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-044",
+      "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+      "sentence_id": "E03-C44",
+      "slot": "scene-11",
+      "spoken_span": "All three values clear 1.000000, so the candidate passes this test. Each of the three values carries the pass.",
+      "start_seconds": 427.282,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pass"
+    },
+    {
+      "claim_refs": [
+        "E03-C45"
+      ],
+      "end_seconds": 444.57,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-045",
+      "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+      "sentence_id": "E03-C45",
+      "slot": "scene-11",
+      "spoken_span": "That is a recorded pass for this run. It is one result inside the research process. The next step still has its own question and its own evidence.",
+      "start_seconds": 434.338,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pass"
+    },
+    {
+      "claim_refs": [
+        "E03-C46"
+      ],
+      "end_seconds": 451.979,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-046",
+      "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+      "sentence_id": "E03-C46",
+      "slot": "scene-12",
+      "spoken_span": "When we remove the 101 candidates counted in the union, 53 remain. The union gives us the clean population count.",
+      "start_seconds": 444.57,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "survivors"
+    },
+    {
+      "claim_refs": [
+        "E03-C47"
+      ],
+      "end_seconds": 461.153,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-047",
+      "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+      "sentence_id": "E03-C47",
+      "slot": "scene-12",
+      "spoken_span": "154 candidates entered. 101 failed on one or more checks. 53 passed all three. The three numbers describe one pipeline step from start to finish.",
+      "start_seconds": 451.979,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "survivors"
+    },
+    {
+      "claim_refs": [
+        "E03-C48"
+      ],
+      "end_seconds": 467.503,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-048",
+      "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+      "sentence_id": "E03-C48",
+      "slot": "scene-12",
+      "spoken_span": "The subtraction works because each union member appears once. It prevents overlapping failures from being subtracted twice.",
+      "start_seconds": 461.153,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "survivors"
+    },
+    {
+      "claim_refs": [
+        "E03-C49"
+      ],
+      "end_seconds": 477.029,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-049",
+      "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+      "sentence_id": "E03-C49",
+      "slot": "scene-12",
+      "spoken_span": "These are survivors of one test. Later questions still matter. This shorter list is easier to study, but it is not the end of the study.",
+      "start_seconds": 467.503,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "survivors"
+    },
+    {
+      "claim_refs": [
+        "E03-C50"
+      ],
+      "end_seconds": 487.261,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-050",
+      "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+      "sentence_id": "E03-C50",
+      "slot": "scene-13",
+      "spoken_span": "The numbers come from the recorded Dow run. They are not an invented example. The candidate IDs and values come from that same run, along with the counts.",
+      "start_seconds": 477.029,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pipeline"
+    },
+    {
+      "claim_refs": [
+        "E03-C51"
+      ],
+      "end_seconds": 495.729,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-051",
+      "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+      "sentence_id": "E03-C51",
+      "slot": "scene-13",
+      "spoken_span": "The run used real market data. The pipeline connections also ran. That tells us the route executed; it leaves other research questions open.",
+      "start_seconds": 487.261,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pipeline"
+    },
+    {
+      "claim_refs": [
+        "E03-C52"
+      ],
+      "end_seconds": 503.491,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-052",
+      "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+      "sentence_id": "E03-C52",
+      "slot": "scene-13",
+      "spoken_span": "The run record marks validated as false. The word validated stays reserved for evidence that clears more than this one screen.",
+      "start_seconds": 495.729,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pipeline"
+    },
+    {
+      "claim_refs": [
+        "E03-C53"
+      ],
+      "end_seconds": 513.37,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-053",
+      "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+      "sentence_id": "E03-C53",
+      "slot": "scene-13",
+      "spoken_span": "I want the math to be repeatable. Another person can rebuild those sets and get the same count. That is the standard for a useful research step.",
+      "start_seconds": 503.491,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "pipeline"
+    },
+    {
+      "claim_refs": [
+        "E03-C54"
+      ],
+      "end_seconds": 520.426,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-054",
+      "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+      "sentence_id": "E03-C54",
+      "slot": "scene-14",
+      "spoken_span": "Start with the 154 IDs that enter the test. Keep the starting list separate from the lists that fail.",
+      "start_seconds": 513.37,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "worksheet"
+    },
+    {
+      "claim_refs": [
+        "E03-C55"
+      ],
+      "end_seconds": 529.6,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-055",
+      "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+      "sentence_id": "E03-C55",
+      "slot": "scene-14",
+      "spoken_span": "Make a set for the fill view and separate sets for the two session halves. Give every set a clear name before you count it.",
+      "start_seconds": 520.426,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "worksheet"
+    },
+    {
+      "claim_refs": [
+        "E03-C56"
+      ],
+      "end_seconds": 540.185,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-056",
+      "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+      "sentence_id": "E03-C56",
+      "slot": "scene-14",
+      "spoken_span": "Write the three profit factors for every candidate. Remove a row when a value is at or below 1.0. This is the all-three rule written as a small table.",
+      "start_seconds": 529.6,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "worksheet"
+    },
+    {
+      "claim_refs": [
+        "E03-C57"
+      ],
+      "end_seconds": 547.594,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-057",
+      "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+      "sentence_id": "E03-C57",
+      "slot": "scene-14",
+      "spoken_span": "Take the union once. Compare its size with the entering count. Then check that the remainder is the passing list.",
+      "start_seconds": 540.185,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "worksheet"
+    },
+    {
+      "claim_refs": [
+        "E03-C58"
+      ],
+      "end_seconds": 556.062,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-058",
+      "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+      "sentence_id": "E03-C58",
+      "slot": "scene-14",
+      "spoken_span": "Keep one failed row and one passing row. A row shows how the rule works. The two examples make the population count concrete.",
+      "start_seconds": 547.594,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "worksheet"
+    },
+    {
+      "claim_refs": [
+        "E03-C59"
+      ],
+      "end_seconds": 561.0,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-059",
+      "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+      "sentence_id": "E03-C59",
+      "slot": "scene-15",
+      "spoken_span": "The test ends with 53 survivors. That is the boundary of this episode.",
+      "start_seconds": 556.062,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "close"
+    },
+    {
+      "claim_refs": [
+        "E03-C60"
+      ],
+      "end_seconds": 572.291,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-060",
+      "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+      "sentence_id": "E03-C60",
+      "slot": "scene-15",
+      "spoken_span": "Cost stress is the follow-up. Raise the fill and commission assumptions and count what remains. That question belongs to the 53 that pass this test, while 154 is the starting group.",
+      "start_seconds": 561.0,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "close"
+    },
+    {
+      "claim_refs": [
+        "E03-C61"
+      ],
+      "end_seconds": 580.406,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-061",
+      "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+      "sentence_id": "E03-C61",
+      "slot": "scene-15",
+      "spoken_span": "That belongs to the next test. This episode stops before its result. We carry the question forward and wait for that answer.",
+      "start_seconds": 572.291,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "close"
+    },
+    {
+      "claim_refs": [
+        "E03-C62"
+      ],
+      "end_seconds": 591.697,
+      "evidence_class": "deterministic_run_data_or_method",
+      "id": "cue-062",
+      "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+      "sentence_id": "E03-C62",
+      "slot": "scene-15",
+      "spoken_span": "For now, the lesson is simple: the rule must survive the price it may receive and the hours that carry the result. A clean total is the beginning of that discipline.",
+      "start_seconds": 580.406,
+      "visual_path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+      "visual_state": "close"
+    }
+  ],
+  "episode": 3,
+  "rule": "Every receipt-bound spoken sentence occupies a full visual interval with a purpose-built state.",
+  "schema": "into-the-laboratory/e03-sentence-visual-map/v1",
+  "source_route": "tools/build_e03_timing_session_rebuild.py",
+  "state_purposes": {
+    "close": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+    "fill": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+    "funnel": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+    "latency": "Two axes separate time latency from price slippage without conflating them.",
+    "opening": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+    "pass": "The exact 3088 row keeps all three values above 1.000000.",
+    "pipeline": "Real-data and wiring proof are separated from the false validated flag.",
+    "profit-factor": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+    "regime": "Clock segments are shown as conditions that can carry or weaken a result.",
+    "split": "A median-hour divider creates two session halves from the same trade stream.",
+    "strips": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+    "survivors": "The union subtraction resolves into 154 minus 101 equals 53.",
+    "union": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+    "veto": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+    "worksheet": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet."
+  },
+  "title": "154 Entered. 101 Failed. 53 Cleared Every Check."
+}

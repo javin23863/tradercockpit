@@ -2,3 +2,7 @@
 # autocrlf normalization on checkout/merge changed analysis-brief.md bytes and broke the
 # approval chain (2026-07-21). No text normalization in this repo — bytes are the contract.
 * -text
+
+# Keep the pinned minified GSAP bytes intact; whitespace-only diff heuristics do not apply to
+# this vendor runtime and would otherwise flag its license header/EOF formatting.
+/productions/_series/e01-e03-production-source-2026-08-03/episode-03/assets/gsap.min.js -diff

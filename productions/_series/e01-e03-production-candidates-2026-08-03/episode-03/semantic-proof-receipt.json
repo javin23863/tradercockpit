@@ -1,0 +1,95 @@
+{
+  "episode": 3,
+  "inspection": {
+    "beats": [
+      "opening matches thumbnail opening_group",
+      "aligned failure strips show 41, 66, and 23",
+      "union geometry shows 24 and 5 overlaps and 101 unique failures",
+      "3105 visibly vetoes on session half 1 at 0.986603",
+      "close ends at 154 minus 101 equals 53 and names cost stress only as next question"
+    ],
+    "directory": "C:\\tmp\\tradercockpit-e03-rebuild\\build\\see-video-proof",
+    "frames": {
+      "frame_01.png": {
+        "bytes": 199169,
+        "sha256": "6009B846A30CD89AC504FA2F17CD66F0F21CDA9C752356FC6DA23FE39ADBC284"
+      },
+      "frame_02.png": {
+        "bytes": 199174,
+        "sha256": "EA43619C9F364CF3A1DFA7A1D0EAB830A03C2028CBFC3D80F8B2F78A33C82D1F"
+      },
+      "frame_03.png": {
+        "bytes": 183796,
+        "sha256": "DE9566D5100C26BE742943B37BBD867E824BB4480188DBB10E9E08E8F6E49127"
+      },
+      "frame_04.png": {
+        "bytes": 245477,
+        "sha256": "B88D9EAE8EE5ED4E15C38BB48F8EA3AF823B65AC229DE02E646C48CCC37346CD"
+      },
+      "frame_05.png": {
+        "bytes": 231232,
+        "sha256": "7E86E2E44884C33B1E89CA84E2E2B9202095309A7D5A78181954C29E50FD7563"
+      },
+      "frame_06.png": {
+        "bytes": 222402,
+        "sha256": "39185C80C7960A29309C7A22D48A9A0FBF222F721BC286757791A0E387044A81"
+      },
+      "frame_07.png": {
+        "bytes": 162690,
+        "sha256": "6C798F9FDB1653C20437973BB046E688BD318A1A22E395F37C96FD3C947E28CA"
+      },
+      "frame_08.png": {
+        "bytes": 150771,
+        "sha256": "57882C38A904BF2F2B4ABD352BC1CF0D574069D9529C8D752B88B19684E9E021"
+      },
+      "montage_001.png": {
+        "bytes": 88203,
+        "sha256": "6495423607D7B3818A8A1496A6208643FB4E38CEEE4DF606189D2D9427CD4AF1"
+      },
+      "montage_002.png": {
+        "bytes": 35276,
+        "sha256": "A3E47DE9C9293E6A34C4AA725F1223D6E61C38380593E7EF16A24EA85069C647"
+      }
+    },
+    "method": "see-video"
+  },
+  "master": false,
+  "narrated": false,
+  "operator_approval": false,
+  "proof": {
+    "bytes": 1183823,
+    "composition": "hyperframes/proofs/semantic-proof.html",
+    "media": {
+      "audio_streams": 0,
+      "codec": "h264",
+      "duration_seconds": 30.0,
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "fps": "30/1",
+      "height": 720,
+      "video_streams": 1,
+      "width": 1280
+    },
+    "path": "C:\\tmp\\tradercockpit-e03-rebuild\\OpenMontage\\projects\\series-e03-timing-session-rebuild\\renders\\e03-semantic-proof.mp4",
+    "project": "C:\\tmp\\tradercockpit-e03-rebuild\\OpenMontage\\projects\\series-e03-timing-session-rebuild",
+    "sha256": "C264F86656A11DBEFABDE0117DD8DBC649128629471CFE84916B9383A2A7E247"
+  },
+  "render_contract": {
+    "audio": "none",
+    "duration_seconds": 30.0,
+    "full_master_rendered": false,
+    "height": 720,
+    "provider_narration_generated": false,
+    "width": 1280
+  },
+  "schema": "into-the-laboratory/e03-timing-session-rebuild/semantic-proof-receipt/v1",
+  "source_bindings": {
+    "derived_receipt_sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731",
+    "gsap_sha256": "96C01B81F44A3290E2B4532F55E2C9534B2ADC43273A19F3756B2CB41F0FD0B6",
+    "phase03_source_sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+    "source_html_sha256": "E5B745E3AD05651367145E4211A7065886DD5612E7899D10C35D50FD9177900C",
+    "thumbnail_html_sha256": "BA348CB74AF0330BACEFE108DF6576B9B3EF671CEE802E26B51FF2C9363CA62A",
+    "visual_map_sha256": "2DA779E5F06E1FF4FE9B3CBF6D0B1AA34781CE92AD9154FF2BE8FD422C4E70D4",
+    "vo_sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1"
+  },
+  "status": "operator_review_candidate_only"
+}

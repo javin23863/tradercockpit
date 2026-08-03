@@ -47,7 +47,12 @@ def main(html_arg: str) -> int:
         ])
         if not shot.is_file():
             raise SystemExit("BLOCK: Chrome wrote no screenshot")
-        shutil.move(shot, master)
+        # Copy bytes into a newly-created destination so Chrome's restrictive screenshot
+        # ACL does not travel with the candidate artifact.  The reviewer must be able to
+        # read the actual 1280x720 raster, not only the HTML or derived squint.
+        if master.exists():
+            master.unlink()
+        shutil.copyfile(shot, master)
 
     run(["ffmpeg", "-v", "error", "-y", "-i", str(master),
          "-vf", f"scale={SQUINT_W}:-1", str(mobile)])

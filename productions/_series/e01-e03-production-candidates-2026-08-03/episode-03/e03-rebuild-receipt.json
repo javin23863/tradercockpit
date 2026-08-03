@@ -1,0 +1,35 @@
+{
+  "derived_receipt_sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731",
+  "episode": 3,
+  "full_duration_seconds": 591.697,
+  "gsap_sha256": "96C01B81F44A3290E2B4532F55E2C9534B2ADC43273A19F3756B2CB41F0FD0B6",
+  "not_done": [
+    "no narration",
+    "no provider generation",
+    "no full master render",
+    "no upload",
+    "no publication"
+  ],
+  "phase03_source_sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+  "schema": "into-the-laboratory/e03-timing-session-rebuild/v1",
+  "semantic_proof": {
+    "composition": "hyperframes/proofs/semantic-proof.html",
+    "duration_seconds": 30.0,
+    "not_master": true,
+    "not_narrated": true,
+    "project": "C:\\tmp\\tradercockpit-e03-rebuild\\OpenMontage\\projects\\series-e03-timing-session-rebuild"
+  },
+  "sentence_visual_coverage": {
+    "mapped_sentences": 62,
+    "spoken_sentences": 62,
+    "unmapped": []
+  },
+  "source_html_sha256": "E5B745E3AD05651367145E4211A7065886DD5612E7899D10C35D50FD9177900C",
+  "source_route": "tools/build_e03_timing_session_rebuild.py",
+  "status": "candidate_pending_operator_script_visual_thumbnail_and_proof_approval",
+  "thumbnail_html_sha256": "BA348CB74AF0330BACEFE108DF6576B9B3EF671CEE802E26B51FF2C9363CA62A",
+  "title": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+  "visual_map_sha256": "2DA779E5F06E1FF4FE9B3CBF6D0B1AA34781CE92AD9154FF2BE8FD422C4E70D4",
+  "vo_sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1",
+  "word_count": 1615
+}

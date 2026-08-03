@@ -1,318 +1,1327 @@
 {
-  "version": "1.0",
-  "title": "The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.",
-  "total_duration_seconds": 432.5,
-  "voice_performance": {
-    "performance_intent": "A calm lab walkthrough for a beginner; exact results are stated without turning them into a promise.",
-    "pacing_profile": "technical",
-    "energy_curve": "Immediate recorded result, definitions, measured comparison, explicit limitation, worksheet close.",
-    "pause_policy": "Brief pauses after counts and thresholds; longer pause before the boundary statement.",
-    "sample_section_id": "scene-01",
-    "provider_notes": {
-      "voice": "pending operator approval",
-      "rate": "provider-native only after exact-script approval"
-    }
+  "metadata": {
+    "duration_basis_wpm": 170,
+    "episode": 3,
+    "evidence_authority": "phase03-derived-receipt.json",
+    "package_revision": "e03-timing-session-rebuild-2026-08-03",
+    "phase03_source_sha256": "BFBB0196138521F2CF87A840B9FC83BFFE8F073A3C0A0C953BC4E2C27E62621E",
+    "status": "candidate_pending_operator_script_visual_thumbnail_and_proof_approval",
+    "syllabus_episode": "03",
+    "vo_sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1",
+    "word_count": 1615
   },
   "sections": [
     {
-      "id": "scene-01",
-      "label": "One total can hide three weak views",
-      "text": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks. The same 154 candidates faced a one-bar-later entry view and two session views. The useful question is whether the result stayed above the rule when the fill and the trading-hour split were made explicit. A profitable total can contain one weak group that disappears when the ledger is separated. This phase makes that hidden dependency measurable. It turns a vague concern—“maybe the clock matters”—into three declared transformations that can be repeated on the same candidate population.",
+      "end_seconds": 3.174,
+      "id": "E03-C01",
+      "label": "The result",
+      "slot": "scene-01",
+      "source_ref": "E03-C01",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
       "start_seconds": 0.0,
-      "end_seconds": 35.0,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "One",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks. The same 154 candidates faced a one-bar-later entry view and two session views. The useful question is whether the result stayed above the rule when the fill and the trading-hour split were made explicit. A profitable total can contain one weak group that disappears when the ledger is separated. This phase makes that hidden dependency measurable. It turns a vague concern—“maybe the clock matters”—into three declared transformations that can be repeated on the same candidate population."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Show the same 154 candidates facing three declared transformations.",
-          "timestamp_seconds": 0.0
-        }
-      ],
-      "source_ref": "E03-RW-C01"
+      "text": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+        "visibleSubjects": [
+          "opening",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-02",
-      "label": "The recorded YM test",
-      "text": "This is the same Dow branch that entered the out-of-sample phase with 184 candidates and carried 154 forward. The phase record names YM continuous, back-adjusted hourly data from 2018-02-25 to 2019-09-21. The companion authority routes the source timestamps from UTC into America/New_York wall time on CME Globex. That clock route matters because a session split is meaningless without a declared clock. A continuous, back-adjusted series also describes the historical instrument used by the phase; it is not a statement that every live contract would have the same fill. The data source is marked real, the wiring proof is true, and the validated flag is false.",
-      "start_seconds": 35.0,
-      "end_seconds": 74.875,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "The",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "This is the same Dow branch that entered the out-of-sample phase with 184 candidates and carried 154 forward. The phase record names YM continuous, back-adjusted hourly data from 2018-02-25 to 2019-09-21. The companion authority routes the source timestamps from UTC into America/New_York wall time on CME Globex. That clock route matters because a session split is meaningless without a declared clock. A continuous, back-adjusted series also describes the historical instrument used by the phase; it is not a statement that every live contract would have the same fill. The data source is marked real, the wiring proof is true, and the validated flag is false."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Show the same 154 candidates facing three declared transformations.",
-          "timestamp_seconds": 35.0
-        }
-      ],
-      "source_ref": "E03-RW-C02"
+      "end_seconds": 13.406,
+      "id": "E03-C02",
+      "label": "The result",
+      "slot": "scene-01",
+      "source_ref": "E03-C02",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 3.174,
+      "text": "This is one recorded test using the Dow data. The number we carry forward is 53. It is a count of candidates at one step in the process.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+        "visibleSubjects": [
+          "opening",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-03",
-      "label": "Three checks, stated exactly",
-      "text": "First, the entry is scored one bar later in the same direction. Latency is the delay between a signal and the fill used to score it. This one-bar view asks how much of the result depended on the original fill arriving immediately. If price moves against the signal during that extra bar, the ledger records the damage; if it moves in the trade's favor, the delayed view records that too. Second, the original trades are split at the median entry hour into session half 1 and session half 2. A split sample is a population divided into declared groups for separate measurement. That asks whether one part of the trading day carried the total. These are three recorded profit-factor gates: one delayed-entry view and two session views. Each view has a transformation, a metric, and a threshold of 1.0.",
-      "start_seconds": 74.875,
-      "end_seconds": 127.5,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "Three",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "First, the entry is scored one bar later in the same direction. Latency is the delay between a signal and the fill used to score it. This one-bar view asks how much of the result depended on the original fill arriving immediately. If price moves against the signal during that extra bar, the ledger records the damage; if it moves in the trade's favor, the delayed view records that too. Second, the original trades are split at the median entry hour into session half 1 and session half 2. A split sample is a population divided into declared groups for separate measurement. That asks whether one part of the trading day carried the total. These are three recorded profit-factor gates: one delayed-entry view and two session views. Each view has a transformation, a metric, and a threshold of 1.0."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Show the same 154 candidates facing three declared transformations.",
-          "timestamp_seconds": 74.875
-        }
-      ],
-      "source_ref": "E03-RW-C03"
+      "end_seconds": 28.58,
+      "id": "E03-C03",
+      "label": "The result",
+      "slot": "scene-01",
+      "source_ref": "E03-C03",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 13.406,
+      "text": "The key question is how 101 candidates failed across three checks. We cannot add the three failure counts as if every failure were different. A failure set is a list of candidate IDs, so the same ID can appear more than once.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+        "visibleSubjects": [
+          "opening",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-04",
-      "label": "154 becomes 101 and 53",
-      "text": "The phase starts with 154 candidates. One hundred one fail at least one gate, and 53 pass all three. The gate census records 66 failures on the one-bar delay, 41 on session half 1, and 23 on session half 2. Those failure counts overlap, so adding them would overstate the number of candidates that failed. A candidate that fails two views is still one failed candidate in the headline total. The all-gates rule is deliberately strict: a candidate must clear the delayed fill and both session halves to continue. The only safe totals are the recorded 154 entering, 101 failing at least one, and 53 clearing all three.",
-      "start_seconds": 127.5,
-      "end_seconds": 168.5,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "154",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "The phase starts with 154 candidates. One hundred one fail at least one gate, and 53 pass all three. The gate census records 66 failures on the one-bar delay, 41 on session half 1, and 23 on session half 2. Those failure counts overlap, so adding them would overstate the number of candidates that failed. A candidate that fails two views is still one failed candidate in the headline total. The all-gates rule is deliberately strict: a candidate must clear the delayed fill and both session halves to continue. The only safe totals are the recorded 154 entering, 101 failing at least one, and 53 clearing all three."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Show the same 154 candidates facing three declared transformations.",
-          "timestamp_seconds": 127.5
-        }
-      ],
-      "source_ref": "E03-RW-C04"
+      "end_seconds": 37.401,
+      "id": "E03-C04",
+      "label": "The setup",
+      "slot": "scene-02",
+      "source_ref": "E03-C04",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 28.58,
+      "text": "The test began with 154 candidates from the Dow branch. Before any check runs, that starting list is the whole population for this lesson.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+        "visibleSubjects": [
+          "funnel",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-05",
-      "label": "A real candidate fails one slice",
-      "text": "Candidate formula-2309285457-3105 passes the one-bar delay at profit factor about 1.123. It passes session half 2 at about 1.495. It fails session half 1 at about 0.987, below the 1.0 threshold. The visual preserves all six decimal places. This is a recorded candidate row. One weak session slice is enough for this all-gates rule to stop the candidate even when the other two views are above 1. The large 1.495 in one slice does not cancel the 0.987 in the other. The row is useful precisely because it is uncomfortable: a single blended total could have hidden the veto, while the three-view ledger names the weak part.",
-      "start_seconds": 168.5,
-      "end_seconds": 209.125,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "A",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "Candidate formula-2309285457-3105 passes the one-bar delay at profit factor about 1.123. It passes session half 2 at about 1.495. It fails session half 1 at about 0.987, below the 1.0 threshold. The visual preserves all six decimal places. This is a recorded candidate row. One weak session slice is enough for this all-gates rule to stop the candidate even when the other two views are above 1. The large 1.495 in one slice does not cancel the 0.987 in the other. The row is useful precisely because it is uncomfortable: a single blended total could have hidden the veto, while the three-view ledger names the weak part."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Compare one recorded veto row and one recorded pass row in reserved lanes.",
-          "timestamp_seconds": 168.5
-        }
-      ],
-      "source_ref": "E03-RW-C05"
+      "end_seconds": 50.457,
+      "id": "E03-C05",
+      "label": "The setup",
+      "slot": "scene-02",
+      "source_ref": "E03-C05",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 37.401,
+      "text": "The list stayed the same while the execution fill and clock changed. Each candidate faced one frozen rule under those new conditions. The comparison stays fair: the candidate changes only when the test changes the condition.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+        "visibleSubjects": [
+          "funnel",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-06",
-      "label": "A real candidate clears all three",
-      "text": "Candidate formula-2309285457-3088 records profit factor about 1.080 on the one-bar delay, 1.156 on session half 1, and 1.152 on session half 2. All three are above the 1.0 threshold. The visual carries all six decimal places. That makes this candidate a recorded survivor of this phase. The margins are visible rather than rounded into a vague pass, and a different candidate can have a different pattern. It does not turn the row into a forecast, and it does not erase the 101 candidates that failed another view. It simply answers the declared question for this version and these historical ledgers.",
-      "start_seconds": 209.125,
-      "end_seconds": 247.125,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "A",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "Candidate formula-2309285457-3088 records profit factor about 1.080 on the one-bar delay, 1.156 on session half 1, and 1.152 on session half 2. All three are above the 1.0 threshold. The visual carries all six decimal places. That makes this candidate a recorded survivor of this phase. The margins are visible rather than rounded into a vague pass, and a different candidate can have a different pattern. It does not turn the row into a forecast, and it does not erase the 101 candidates that failed another view. It simply answers the declared question for this version and these historical ledgers."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Compare one recorded veto row and one recorded pass row in reserved lanes.",
-          "timestamp_seconds": 209.125
-        }
-      ],
-      "source_ref": "E03-RW-C06"
+      "end_seconds": 56.454,
+      "id": "E03-C06",
+      "label": "The setup",
+      "slot": "scene-02",
+      "source_ref": "E03-C06",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 50.457,
+      "text": "This is a screen. A pass opens the next question. That leaves fewer candidates to inspect.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+        "visibleSubjects": [
+          "funnel",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-07",
-      "label": "Profit factor is a comparison, not a verdict",
-      "text": "Profit factor is gross winning dollars divided by gross losing dollars on the same ledger. A value above 1 means the winning dollars are larger for that view. A value below 1 means the losing dollars are larger. The phase uses 1.0 as the gate. For the failed row, about 0.987 means the losing dollars are slightly larger in session half 1, even though the other views are above 1. The exact recorded value is 0.986603. For the passing row, each displayed ratio is above 1. My read is that this is a comparison, not a verdict. It still needs the candidate count, the exact transformation, the trade ledger, and the validation boundary beside it. A value of 1.15 is not a guarantee; it is a ratio produced by one specified historical view.",
-      "start_seconds": 247.125,
-      "end_seconds": 297.5,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "Profit",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "Profit factor is gross winning dollars divided by gross losing dollars on the same ledger. A value above 1 means the winning dollars are larger for that view. A value below 1 means the losing dollars are larger. The phase uses 1.0 as the gate. For the failed row, about 0.987 means the losing dollars are slightly larger in session half 1, even though the other views are above 1. The exact recorded value is 0.986603. For the passing row, each displayed ratio is above 1. My read is that this is a comparison, not a verdict. It still needs the candidate count, the exact transformation, the trade ledger, and the validation boundary beside it. A value of 1.15 is not a guarantee; it is a ratio produced by one specified historical view."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Define profit factor as a comparison of gross winning and losing dollars.",
-          "timestamp_seconds": 247.125
-        }
-      ],
-      "source_ref": "E03-RW-C07"
+      "end_seconds": 67.039,
+      "id": "E03-C07",
+      "label": "The setup",
+      "slot": "scene-02",
+      "source_ref": "E03-C07",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 56.454,
+      "text": "The three checks use a later fill and two session halves. They ask the same basic question from three angles: does the result hold when the trade arrives differently?",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+        "visibleSubjects": [
+          "funnel",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-08",
-      "label": "What this phase can and cannot say",
-      "text": "This phase can say how the 154 recorded candidates responded to a one-bar entry delay and two session splits. It can show which rows cleared the recorded profit-factor checks. It can show that the surviving population is smaller than the OOS population. It cannot say that the surviving rows will earn money live. The source is real and the wiring is exercised, but validated is still false. A regime is a recurring market condition such as a trend, range, or volatility state. This phase does not identify a regime cause; it identifies sensitivity in the recorded historical test. To make a causal claim, we would need a different design and evidence beyond this phase record. Precision about the limit belongs in the result.",
-      "start_seconds": 297.5,
-      "end_seconds": 344.125,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "What",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "This phase can say how the 154 recorded candidates responded to a one-bar entry delay and two session splits. It can show which rows cleared the recorded profit-factor checks. It can show that the surviving population is smaller than the OOS population. It cannot say that the surviving rows will earn money live. The source is real and the wiring is exercised, but validated is still false. A regime is a recurring market condition such as a trend, range, or volatility state. This phase does not identify a regime cause; it identifies sensitivity in the recorded historical test. To make a causal claim, we would need a different design and evidence beyond this phase record. Precision about the limit belongs in the result."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Define profit factor as a comparison of gross winning and losing dollars.",
-          "timestamp_seconds": 297.5
-        }
-      ],
-      "source_ref": "E03-RW-C08"
+      "end_seconds": 79.742,
+      "id": "E03-C08",
+      "label": "Fill and slippage",
+      "slot": "scene-03",
+      "source_ref": "E03-C08",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 67.039,
+      "text": "A fill is the price the trade gets when the order enters or exits. Imagine a signal at the end of a bar: the fill is the price attached to the actual entry or exit.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+        "visibleSubjects": [
+          "fill",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-09",
-      "label": "The 53 move into cost stress",
-      "text": "The 53 survivors do not become a final list. They become the next input. In the following cost phase, the same pipeline carries 53 forward, tests the fixed ledger under higher slippage assumptions, and records 7 net-profit failures at three times while 46 clear both stated checks. Slippage is the difference between the reference price and the fill price assumed by the ledger. That later phase also records two profit-factor failures at two times. The handoff is the point: every phase narrows the population and makes the remaining claim more specific. A survivor is a candidate for the next challenge, never permission to skip the challenge. The phase03 result earns a narrower question; it does not earn a conclusion about live trading.",
-      "start_seconds": 344.125,
-      "end_seconds": 390.375,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "The",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "The 53 survivors do not become a final list. They become the next input. In the following cost phase, the same pipeline carries 53 forward, tests the fixed ledger under higher slippage assumptions, and records 7 net-profit failures at three times while 46 clear both stated checks. Slippage is the difference between the reference price and the fill price assumed by the ledger. That later phase also records two profit-factor failures at two times. The handoff is the point: every phase narrows the population and makes the remaining claim more specific. A survivor is a candidate for the next challenge, never permission to skip the challenge. The phase03 result earns a narrower question; it does not earn a conclusion about live trading."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Show 53 as the next phase input, not as a final trading conclusion.",
-          "timestamp_seconds": 344.125
-        }
-      ],
-      "source_ref": "E03-RW-C09"
+      "end_seconds": 91.739,
+      "id": "E03-C09",
+      "label": "Fill and slippage",
+      "slot": "scene-03",
+      "source_ref": "E03-C09",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 79.742,
+      "text": "A backtest often uses the signal price as if that were the fill. That is convenient for calculation, but it can make a trade look cleaner than the path a real order takes.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+        "visibleSubjects": [
+          "fill",
+          "E03 timing/session mechanism"
+        ]
+      }
     },
     {
-      "id": "scene-10",
-      "label": "The fill-and-session worksheet",
-      "text": "For a timing or execution stress test, write the original population, the exact transformed view, the threshold, the failure count, and whether failures overlap. Keep one failed row and one passing row with their candidate identifiers. Then write the validation status and the next phase. If the clock is used, declare the clock. If the fill is moved, state by how many bars. If a session is split, state the boundary and the rule for assigning a trade. A good result is a relationship that another run can challenge. Keep the 154-to-53 result beside the worksheet. That is how the pipeline turns a vague timing worry into a reproducible research step.",
-      "start_seconds": 390.375,
-      "end_seconds": 432.5,
-      "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
-      "delivery_cues": {
-        "pace": "measured",
-        "energy": "precise and controlled",
-        "emphasis_words": [
-          "The",
-          "recorded",
-          "validated"
-        ],
-        "pause_before_seconds": 0.0,
-        "pause_after_seconds": 0.45,
-        "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "For a timing or execution stress test, write the original population, the exact transformed view, the threshold, the failure count, and whether failures overlap. Keep one failed row and one passing row with their candidate identifiers. Then write the validation status and the next phase. If the clock is used, declare the clock. If the fill is moved, state by how many bars. If a session is split, state the boundary and the rule for assigning a trade. A good result is a relationship that another run can challenge. Keep the 154-to-53 result beside the worksheet. That is how the pipeline turns a vague timing worry into a reproducible research step."
-      },
-      "enhancement_cues": [
-        {
-          "type": "animation",
-          "description": "Purpose-built factual composition: Show the same 154 candidates facing three declared transformations.",
-          "timestamp_seconds": 390.375
-        }
-      ],
-      "source_ref": "E03-RW-C10"
+      "end_seconds": 104.795,
+      "id": "E03-C10",
+      "label": "Fill and slippage",
+      "slot": "scene-03",
+      "source_ref": "E03-C10",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 91.739,
+      "text": "Slippage is the gap between the price you expect and the price you get. A small gap changes the dollars won or lost on every trade, so a long run can feel that gap many times.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+        "visibleSubjects": [
+          "fill",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 116.086,
+      "id": "E03-C11",
+      "label": "Fill and slippage",
+      "slot": "scene-03",
+      "source_ref": "E03-C11",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 104.795,
+      "text": "Here the test moves the entry one bar in the same direction. That gives the fill price a simple stress. Every candidate gets the same treatment, which makes the comparison repeatable.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+        "visibleSubjects": [
+          "fill",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 128.436,
+      "id": "E03-C12",
+      "label": "Fill and slippage",
+      "slot": "scene-03",
+      "source_ref": "E03-C12",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 116.086,
+      "text": "The test answers one question about the fill. The test does not model every broker or every order. The controlled comparison is valuable on its own. It says nothing about a particular execution desk.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+        "visibleSubjects": [
+          "fill",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 138.668,
+      "id": "E03-C13",
+      "label": "Latency is a different question",
+      "slot": "scene-04",
+      "source_ref": "E03-C13",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 128.436,
+      "text": "Latency is the time from the signal to the fill. If the market moves while an order is waiting, that time can change the price of the trade.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Two axes separate time latency from price slippage without conflating them.",
+        "visibleSubjects": [
+          "latency",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 147.489,
+      "id": "E03-C14",
+      "label": "Latency is a different question",
+      "slot": "scene-04",
+      "source_ref": "E03-C14",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 138.668,
+      "text": "Slippage is price. Latency is time. Both can change an entry. Keeping the words separate helps us ask the right question about the test.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Two axes separate time latency from price slippage without conflating them.",
+        "visibleSubjects": [
+          "latency",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 159.486,
+      "id": "E03-C15",
+      "label": "Latency is a different question",
+      "slot": "scene-04",
+      "source_ref": "E03-C15",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 147.489,
+      "text": "This one-bar move stands in for a later fill. The shift gives a repeatable stress for the recorded test. The same shift is applied across the candidate list, so the result is comparable.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Two axes separate time latency from price slippage without conflating them.",
+        "visibleSubjects": [
+          "latency",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 170.424,
+      "id": "E03-C16",
+      "label": "Latency is a different question",
+      "slot": "scene-04",
+      "source_ref": "E03-C16",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 159.486,
+      "text": "A rule that needs the perfect entry has a timing weakness. This check makes that weakness visible. The weakness can be small in one trade and large across a population.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Two axes separate time latency from price slippage without conflating them.",
+        "visibleSubjects": [
+          "latency",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 181.362,
+      "id": "E03-C17",
+      "label": "The session split",
+      "slot": "scene-05",
+      "source_ref": "E03-C17",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 170.424,
+      "text": "A split sample is a method that puts the same trades into separate groups before you measure them. The rule stays fixed; only the group used for the measurement changes.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+        "visibleSubjects": [
+          "split",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 191.241,
+      "id": "E03-C18",
+      "label": "The session split",
+      "slot": "scene-05",
+      "source_ref": "E03-C18",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 181.362,
+      "text": "The middle entry hour divides this intraday run into session half 1 and session half 2. That boundary gives both groups a declared place in the day.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+        "visibleSubjects": [
+          "split",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 203.238,
+      "id": "E03-C19",
+      "label": "The session split",
+      "slot": "scene-05",
+      "source_ref": "E03-C19",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 191.241,
+      "text": "A session half is one of those groups. It tells us whether the result leans on one part of the day. A strong combined result can hide a weak morning or afternoon group.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+        "visibleSubjects": [
+          "split",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 214.176,
+      "id": "E03-C20",
+      "label": "The session split",
+      "slot": "scene-05",
+      "source_ref": "E03-C20",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 203.238,
+      "text": "The rule keeps a candidate when profit factor clears 1.0 after the fill move and in both session halves. One candidate must clear the fill check plus both clock checks.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A median-hour divider creates two session halves from the same trade stream.",
+        "visibleSubjects": [
+          "split",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 225.114,
+      "id": "E03-C21",
+      "label": "Why hours can matter",
+      "slot": "scene-06",
+      "source_ref": "E03-C21",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 214.176,
+      "text": "A regime is a stretch of market behavior. One rule can meet a different market in a different stretch. One stretch can trend, while another moves sideways or changes speed.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+        "visibleSubjects": [
+          "regime",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 237.111,
+      "id": "E03-C22",
+      "label": "Why hours can matter",
+      "slot": "scene-06",
+      "source_ref": "E03-C22",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 225.114,
+      "text": "Price and volume can change across the trading day. Session splitting gives us a way to check that change. It asks whether the result travels with the clock instead of with the rule.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+        "visibleSubjects": [
+          "regime",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 248.049,
+      "id": "E03-C23",
+      "label": "Why hours can matter",
+      "slot": "scene-06",
+      "source_ref": "E03-C23",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 237.111,
+      "text": "A result can look strong in one stretch and weak in another. This test stays inside its recorded window. This keeps the lesson tied to the evidence we actually have.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+        "visibleSubjects": [
+          "regime",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 258.281,
+      "id": "E03-C24",
+      "label": "Why hours can matter",
+      "slot": "scene-06",
+      "source_ref": "E03-C24",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 248.049,
+      "text": "The split can expose a candidate whose result depends on one clock segment. It cannot explain why the segment matters, but it can show where to ask next.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+        "visibleSubjects": [
+          "regime",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 268.16,
+      "id": "E03-C25",
+      "label": "Three views, one rule",
+      "slot": "scene-07",
+      "source_ref": "E03-C25",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 258.281,
+      "text": "The one-bar fill check rejects 41 candidates. Session half 1 rejects 66, and session half 2 rejects 23. These are separate counts from the same recorded run.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+        "visibleSubjects": [
+          "strips",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 275.569,
+      "id": "E03-C26",
+      "label": "Three views, one rule",
+      "slot": "scene-07",
+      "source_ref": "E03-C26",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 268.16,
+      "text": "All three counts start with the same 154 candidates. Each count answers a different version of the same stress question.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+        "visibleSubjects": [
+          "strips",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 284.743,
+      "id": "E03-C27",
+      "label": "Three views, one rule",
+      "slot": "scene-07",
+      "source_ref": "E03-C27",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 275.569,
+      "text": "Session half 1 produces the largest count. A single total would hide the clock segment creating the most removals. The separate strips preserve that information.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+        "visibleSubjects": [
+          "strips",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 292.505,
+      "id": "E03-C28",
+      "label": "Three views, one rule",
+      "slot": "scene-07",
+      "source_ref": "E03-C28",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 284.743,
+      "text": "The rule is simple: one failed check drops a candidate. The candidate needs three passes. One impressive number cannot carry it.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+        "visibleSubjects": [
+          "strips",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 302.031,
+      "id": "E03-C29",
+      "label": "Why the counts overlap",
+      "slot": "scene-08",
+      "source_ref": "E03-C29",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 292.505,
+      "text": "Some candidates fail twice, so adding the three counts would count them twice. Counting a candidate twice would make the population look weaker than it is.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+        "visibleSubjects": [
+          "union",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 312.263,
+      "id": "E03-C30",
+      "label": "Why the counts overlap",
+      "slot": "scene-08",
+      "source_ref": "E03-C30",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 302.031,
+      "text": "The fill set shares 24 candidates with session half 1 and 5 with session half 2. Those shared IDs are the reason the headline number needs a union.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+        "visibleSubjects": [
+          "union",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 320.731,
+      "id": "E03-C31",
+      "label": "Why the counts overlap",
+      "slot": "scene-08",
+      "source_ref": "E03-C31",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 312.263,
+      "text": "The two session halves share zero candidates. All three sets share zero. The pairwise overlaps are the only overlaps in this recorded output.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+        "visibleSubjects": [
+          "union",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 330.257,
+      "id": "E03-C32",
+      "label": "Why the counts overlap",
+      "slot": "scene-08",
+      "source_ref": "E03-C32",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 320.731,
+      "text": "Start with 41 plus 66 plus 23. Take away 24 and 5. The total is 101. This is the inclusion and exclusion step in plain arithmetic.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+        "visibleSubjects": [
+          "union",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 339.783,
+      "id": "E03-C33",
+      "label": "Why the counts overlap",
+      "slot": "scene-08",
+      "source_ref": "E03-C33",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 330.257,
+      "text": "A union counts a candidate once when it appears in any set. It answers the practical question: how many unique candidates failed one or more checks?",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+        "visibleSubjects": [
+          "union",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 346.839,
+      "id": "E03-C34",
+      "label": "The weak row",
+      "slot": "scene-09",
+      "source_ref": "E03-C34",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 339.783,
+      "text": "Candidate formula-2309285457-3105 has profit factor 1.123246 after shifting the fill by one bar. That first number clears the cutoff.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+        "visibleSubjects": [
+          "veto",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 356.718,
+      "id": "E03-C35",
+      "label": "The weak row",
+      "slot": "scene-09",
+      "source_ref": "E03-C35",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 346.839,
+      "text": "Its session half 1 value is 0.986603. That is below the 1.000000 cutoff. The difference looks small, but the rule still treats the value as a fail.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+        "visibleSubjects": [
+          "veto",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 362.715,
+      "id": "E03-C36",
+      "label": "The weak row",
+      "slot": "scene-09",
+      "source_ref": "E03-C36",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 356.718,
+      "text": "Its session half 2 value is 1.494639. Two strong views cannot erase the weak middle view.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+        "visibleSubjects": [
+          "veto",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 373.653,
+      "id": "E03-C37",
+      "label": "The weak row",
+      "slot": "scene-09",
+      "source_ref": "E03-C37",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 362.715,
+      "text": "One value below the cutoff disqualifies the candidate. Every check must clear the cutoff. This is the crisis in the run: the row looks good until the session is separated.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+        "visibleSubjects": [
+          "veto",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 383.885,
+      "id": "E03-C38",
+      "label": "Profit factor as one diagnostic",
+      "slot": "scene-10",
+      "source_ref": "E03-C38",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 373.653,
+      "text": "Profit factor compares the dollars won with the dollars lost in the same set of trades. The numerator is gross winning dollars; the denominator is gross losing dollars.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+        "visibleSubjects": [
+          "profit-factor",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 393.764,
+      "id": "E03-C39",
+      "label": "Profit factor as one diagnostic",
+      "slot": "scene-10",
+      "source_ref": "E03-C39",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 383.885,
+      "text": "Above 1 means more dollars won than lost in that set. At 1.0, the two sides are equal before the rest of the research questions are asked.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+        "visibleSubjects": [
+          "profit-factor",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 403.29,
+      "id": "E03-C40",
+      "label": "Profit factor as one diagnostic",
+      "slot": "scene-10",
+      "source_ref": "E03-C40",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 393.764,
+      "text": "It leaves out account size. It also leaves out drawdown and fill cost. A ratio can summarize one ledger while hiding the path that produced it.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+        "visibleSubjects": [
+          "profit-factor",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 412.464,
+      "id": "E03-C41",
+      "label": "Profit factor as one diagnostic",
+      "slot": "scene-10",
+      "source_ref": "E03-C41",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 403.29,
+      "text": "Profit factor is one diagnostic inside this test. The other checks still matter. A pass here means the ratio cleared its cutoff in this view.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+        "visibleSubjects": [
+          "profit-factor",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 419.167,
+      "id": "E03-C42",
+      "label": "The row that survives",
+      "slot": "scene-11",
+      "source_ref": "E03-C42",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 412.464,
+      "text": "Candidate formula-2309285457-3088 records 1.080180 with the fill shifted one bar. The first value is above the same cutoff.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+        "visibleSubjects": [
+          "pass",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 427.282,
+      "id": "E03-C43",
+      "label": "The row that survives",
+      "slot": "scene-11",
+      "source_ref": "E03-C43",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 419.167,
+      "text": "Its session half 1 value is 1.156412, and session half 2 is 1.151833. Both clock groups stay above 1.0 in this row.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+        "visibleSubjects": [
+          "pass",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 434.338,
+      "id": "E03-C44",
+      "label": "The row that survives",
+      "slot": "scene-11",
+      "source_ref": "E03-C44",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 427.282,
+      "text": "All three values clear 1.000000, so the candidate passes this test. Each of the three values carries the pass.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+        "visibleSubjects": [
+          "pass",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 444.57,
+      "id": "E03-C45",
+      "label": "The row that survives",
+      "slot": "scene-11",
+      "source_ref": "E03-C45",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 434.338,
+      "text": "That is a recorded pass for this run. It is one result inside the research process. The next step still has its own question and its own evidence.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The exact 3088 row keeps all three values above 1.000000.",
+        "visibleSubjects": [
+          "pass",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 451.979,
+      "id": "E03-C46",
+      "label": "From 154 to 53",
+      "slot": "scene-12",
+      "source_ref": "E03-C46",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 444.57,
+      "text": "When we remove the 101 candidates counted in the union, 53 remain. The union gives us the clean population count.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+        "visibleSubjects": [
+          "survivors",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 461.153,
+      "id": "E03-C47",
+      "label": "From 154 to 53",
+      "slot": "scene-12",
+      "source_ref": "E03-C47",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 451.979,
+      "text": "154 candidates entered. 101 failed on one or more checks. 53 passed all three. The three numbers describe one pipeline step from start to finish.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+        "visibleSubjects": [
+          "survivors",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 467.503,
+      "id": "E03-C48",
+      "label": "From 154 to 53",
+      "slot": "scene-12",
+      "source_ref": "E03-C48",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 461.153,
+      "text": "The subtraction works because each union member appears once. It prevents overlapping failures from being subtracted twice.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+        "visibleSubjects": [
+          "survivors",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 477.029,
+      "id": "E03-C49",
+      "label": "From 154 to 53",
+      "slot": "scene-12",
+      "source_ref": "E03-C49",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 467.503,
+      "text": "These are survivors of one test. Later questions still matter. This shorter list is easier to study, but it is not the end of the study.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+        "visibleSubjects": [
+          "survivors",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 487.261,
+      "id": "E03-C50",
+      "label": "What the pipeline proves",
+      "slot": "scene-13",
+      "source_ref": "E03-C50",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 477.029,
+      "text": "The numbers come from the recorded Dow run. They are not an invented example. The candidate IDs and values come from that same run, along with the counts.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+        "visibleSubjects": [
+          "pipeline",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 495.729,
+      "id": "E03-C51",
+      "label": "What the pipeline proves",
+      "slot": "scene-13",
+      "source_ref": "E03-C51",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 487.261,
+      "text": "The run used real market data. The pipeline connections also ran. That tells us the route executed; it leaves other research questions open.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+        "visibleSubjects": [
+          "pipeline",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 503.491,
+      "id": "E03-C52",
+      "label": "What the pipeline proves",
+      "slot": "scene-13",
+      "source_ref": "E03-C52",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 495.729,
+      "text": "The run record marks validated as false. The word validated stays reserved for evidence that clears more than this one screen.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+        "visibleSubjects": [
+          "pipeline",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 513.37,
+      "id": "E03-C53",
+      "label": "What the pipeline proves",
+      "slot": "scene-13",
+      "source_ref": "E03-C53",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 503.491,
+      "text": "I want the math to be repeatable. Another person can rebuild those sets and get the same count. That is the standard for a useful research step.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "Real-data and wiring proof are separated from the false validated flag.",
+        "visibleSubjects": [
+          "pipeline",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 520.426,
+      "id": "E03-C54",
+      "label": "A beginner's worksheet",
+      "slot": "scene-14",
+      "source_ref": "E03-C54",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 513.37,
+      "text": "Start with the 154 IDs that enter the test. Keep the starting list separate from the lists that fail.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+        "visibleSubjects": [
+          "worksheet",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 529.6,
+      "id": "E03-C55",
+      "label": "A beginner's worksheet",
+      "slot": "scene-14",
+      "source_ref": "E03-C55",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 520.426,
+      "text": "Make a set for the fill view and separate sets for the two session halves. Give every set a clear name before you count it.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+        "visibleSubjects": [
+          "worksheet",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 540.185,
+      "id": "E03-C56",
+      "label": "A beginner's worksheet",
+      "slot": "scene-14",
+      "source_ref": "E03-C56",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 529.6,
+      "text": "Write the three profit factors for every candidate. Remove a row when a value is at or below 1.0. This is the all-three rule written as a small table.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+        "visibleSubjects": [
+          "worksheet",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 547.594,
+      "id": "E03-C57",
+      "label": "A beginner's worksheet",
+      "slot": "scene-14",
+      "source_ref": "E03-C57",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 540.185,
+      "text": "Take the union once. Compare its size with the entering count. Then check that the remainder is the passing list.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+        "visibleSubjects": [
+          "worksheet",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 556.062,
+      "id": "E03-C58",
+      "label": "A beginner's worksheet",
+      "slot": "scene-14",
+      "source_ref": "E03-C58",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 547.594,
+      "text": "Keep one failed row and one passing row. A row shows how the rule works. The two examples make the population count concrete.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+        "visibleSubjects": [
+          "worksheet",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 561.0,
+      "id": "E03-C59",
+      "label": "The boundary",
+      "slot": "scene-15",
+      "source_ref": "E03-C59",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 556.062,
+      "text": "The test ends with 53 survivors. That is the boundary of this episode.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+        "visibleSubjects": [
+          "close",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 572.291,
+      "id": "E03-C60",
+      "label": "The boundary",
+      "slot": "scene-15",
+      "source_ref": "E03-C60",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 561.0,
+      "text": "Cost stress is the follow-up. Raise the fill and commission assumptions and count what remains. That question belongs to the 53 that pass this test, while 154 is the starting group.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+        "visibleSubjects": [
+          "close",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 580.406,
+      "id": "E03-C61",
+      "label": "The boundary",
+      "slot": "scene-15",
+      "source_ref": "E03-C61",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 572.291,
+      "text": "That belongs to the next test. This episode stops before its result. We carry the question forward and wait for that answer.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+        "visibleSubjects": [
+          "close",
+          "E03 timing/session mechanism"
+        ]
+      }
+    },
+    {
+      "end_seconds": 591.697,
+      "id": "E03-C62",
+      "label": "The boundary",
+      "slot": "scene-15",
+      "source_ref": "E03-C62",
+      "speaker_directions": "Plain beginner teaching; state the mechanism, then its boundary.",
+      "start_seconds": 580.406,
+      "text": "For now, the lesson is simple: the rule must survive the price it may receive and the hours that carry the result. A clean total is the beginning of that discipline.",
+      "visual": {
+        "evidenceUse": "recorded-run-derived",
+        "fit": "contain",
+        "kind": "deterministic-teaching-composition",
+        "path": "productions/_series/e01-e03-production-source-2026-08-03/episode-03/index.html",
+        "purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+        "visibleSubjects": [
+          "close",
+          "E03 timing/session mechanism"
+        ]
+      }
     }
   ],
-  "metadata": {
-    "episode": 3,
-    "syllabus_episode": "03",
-    "package_revision": "e01-e03-production-start-2026-08-03",
-    "duration_basis_wpm": 160.0,
-    "word_count": 1140,
-    "vo_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
-    "evidence_authority": "../../e01-e03-live-receipts-2026-08-03.json",
-    "status": "candidate_pending_operator_script_and_visual_approval"
+  "title": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+  "total_duration_seconds": 591.697,
+  "version": "1.0",
+  "voice_performance": {
+    "energy_curve": "Immediate result, mechanism, overlap crisis, exact rows, boundary close.",
+    "pacing_profile": "technical-teaching",
+    "pause_policy": "Brief pause after each count and exact PF; longer pause before the 53 boundary.",
+    "performance_intent": "Measured, curious beginner teaching; exact values are read as evidence, never as a promise.",
+    "provider_status": "not authorized before operator approval"
   }
 }

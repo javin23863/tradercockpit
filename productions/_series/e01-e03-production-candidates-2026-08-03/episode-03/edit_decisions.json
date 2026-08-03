@@ -1,0 +1,110 @@
+{
+  "audio": {
+    "music": {
+      "status": "none"
+    },
+    "narration": {
+      "segments": [],
+      "status": "not generated"
+    }
+  },
+  "cuts": [
+    {
+      "id": "scene-01",
+      "in_seconds": 0.0,
+      "out_seconds": 28.58,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-02",
+      "in_seconds": 28.58,
+      "out_seconds": 67.039,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-03",
+      "in_seconds": 67.039,
+      "out_seconds": 128.436,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-04",
+      "in_seconds": 128.436,
+      "out_seconds": 170.424,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-05",
+      "in_seconds": 170.424,
+      "out_seconds": 214.176,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-06",
+      "in_seconds": 214.176,
+      "out_seconds": 258.281,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-07",
+      "in_seconds": 258.281,
+      "out_seconds": 292.505,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-08",
+      "in_seconds": 292.505,
+      "out_seconds": 339.783,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-09",
+      "in_seconds": 339.783,
+      "out_seconds": 373.653,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-10",
+      "in_seconds": 373.653,
+      "out_seconds": 412.464,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-11",
+      "in_seconds": 412.464,
+      "out_seconds": 444.57,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-12",
+      "in_seconds": 444.57,
+      "out_seconds": 477.029,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-13",
+      "in_seconds": 477.029,
+      "out_seconds": 513.37,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-14",
+      "in_seconds": 513.37,
+      "out_seconds": 556.062,
+      "type": "deterministic-teaching-composition"
+    },
+    {
+      "id": "scene-15",
+      "in_seconds": 556.062,
+      "out_seconds": 591.697,
+      "type": "deterministic-teaching-composition"
+    }
+  ],
+  "full_render_started": false,
+  "metadata": {
+    "approval_status": "candidate",
+    "episode": 3,
+    "gate_profile": "board-led-explainer"
+  },
+  "schema": "openmontage/edit-decisions/v1"
+}

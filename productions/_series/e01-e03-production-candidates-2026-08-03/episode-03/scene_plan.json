@@ -1,252 +1,1028 @@
 {
-  "schema": "openmontage/scene-plan/v1",
-  "episode": "03",
-  "title": "The Dow Test Kept 53 Candidates. 101 Failed the Fill and Session Checks.",
-  "script_sha256": "b9f054c0b47b8cd98d3b1f3ffa2030686c63dfaabb7cd518566e4fd9fb4193b2",
   "composition_mode": "atelier",
+  "episode": "03",
+  "proof_scope": "Short semantic proof only: opening, aligned strips, overlap/union, veto row, and 53 boundary. No narration or master.",
   "render_runtime": "hyperframes",
-  "semantic_rule": "Every section is bound to a purpose-built deterministic composition and a receipt claim; no generic card may replace the mechanism.",
   "scenes": [
     {
+      "asset": "state-opening",
+      "claim_refs": [
+        "E03-C01",
+        "E03-C02",
+        "E03-C03"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-opening",
+          "claim_refs": [
+            "E03-C01"
+          ],
+          "duration_seconds": 3.174,
+          "end_seconds": 3.174,
+          "id": "E03-C01-visual",
+          "spoken_span": "154 Entered. 101 Failed. 53 Cleared Every Check.",
+          "start_seconds": 0.0,
+          "visual_action": "Aligned fill and session strips introduce the three views and the one-veto rule."
+        },
+        {
+          "asset": "state-opening",
+          "claim_refs": [
+            "E03-C02"
+          ],
+          "duration_seconds": 10.232,
+          "end_seconds": 13.406,
+          "id": "E03-C02-visual",
+          "spoken_span": "This is one recorded test using the Dow data. The number we carry forward is 53. It is a count of candidates at one step in the process.",
+          "start_seconds": 3.174,
+          "visual_action": "Aligned fill and session strips introduce the three views and the one-veto rule."
+        },
+        {
+          "asset": "state-opening",
+          "claim_refs": [
+            "E03-C03"
+          ],
+          "duration_seconds": 15.174,
+          "end_seconds": 28.58,
+          "id": "E03-C03-visual",
+          "spoken_span": "The key question is how 101 candidates failed across three checks. We cannot add the three failure counts as if every failure were different. A failure set is a list of candidate IDs, so the same ID can appear more than once.",
+          "start_seconds": 13.406,
+          "visual_action": "Aligned fill and session strips introduce the three views and the one-veto rule."
+        }
+      ],
+      "end_seconds": 28.58,
       "id": "scene-01",
       "section_id": "scene-01",
-      "start_seconds": 0.0,
-      "end_seconds": 35.0,
-      "asset": "e03-three-view-funnel.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
-      "spoken_text": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks. The same 154 candidates faced a one-bar-later entry view and two session views. The useful question is whether the result stayed above the rule when the fill and the trading-hour split were made explicit. A profitable total can contain one weak group that disappears when the ledger is separated. This phase makes that hidden dependency measurable. It turns a vague concern—“maybe the clock matters”—into three declared transformations that can be repeated on the same candidate population.",
-      "claim_refs": [
-        "E03-RW-C01"
-      ],
-      "evidence_class": "run_data",
-      "cues": [
-        {
-          "id": "scene-01-cue-01",
-          "start_seconds": 0.0,
-          "duration_seconds": 8.0,
-          "asset": "e03-three-view-funnel.svg",
-          "spoken_span": "The Dow test kept 53 candidates, and 101 failed at least one of the next checks.",
-          "visual_action": "Show the same 154 candidates facing three declared transformations."
-        }
-      ]
+      "semantic_purpose": "Aligned fill and session strips introduce the three views and the one-veto rule.",
+      "spoken_text": "154 Entered. 101 Failed. 53 Cleared Every Check. This is one recorded test using the Dow data. The number we carry forward is 53. It is a count of candidates at one step in the process. The key question is how 101 candidates failed across three checks. We cannot add the three failure counts as if every failure were different. A failure set is a list of candidate IDs, so the same ID can appear more than once.",
+      "start_seconds": 0.0
     },
     {
+      "asset": "state-funnel",
+      "claim_refs": [
+        "E03-C04",
+        "E03-C05",
+        "E03-C06",
+        "E03-C07"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-funnel",
+          "claim_refs": [
+            "E03-C04"
+          ],
+          "duration_seconds": 8.821,
+          "end_seconds": 37.401,
+          "id": "E03-C04-visual",
+          "spoken_span": "The test began with 154 candidates from the Dow branch. Before any check runs, that starting list is the whole population for this lesson.",
+          "start_seconds": 28.58,
+          "visual_action": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted."
+        },
+        {
+          "asset": "state-funnel",
+          "claim_refs": [
+            "E03-C05"
+          ],
+          "duration_seconds": 13.056,
+          "end_seconds": 50.457,
+          "id": "E03-C05-visual",
+          "spoken_span": "The list stayed the same while the execution fill and clock changed. Each candidate faced one frozen rule under those new conditions. The comparison stays fair: the candidate changes only when the test changes the condition.",
+          "start_seconds": 37.401,
+          "visual_action": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted."
+        },
+        {
+          "asset": "state-funnel",
+          "claim_refs": [
+            "E03-C06"
+          ],
+          "duration_seconds": 5.997,
+          "end_seconds": 56.454,
+          "id": "E03-C06-visual",
+          "spoken_span": "This is a screen. A pass opens the next question. That leaves fewer candidates to inspect.",
+          "start_seconds": 50.457,
+          "visual_action": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted."
+        },
+        {
+          "asset": "state-funnel",
+          "claim_refs": [
+            "E03-C07"
+          ],
+          "duration_seconds": 10.585,
+          "end_seconds": 67.039,
+          "id": "E03-C07-visual",
+          "spoken_span": "The three checks use a later fill and two session halves. They ask the same basic question from three angles: does the result hold when the trade arrives differently?",
+          "start_seconds": 56.454,
+          "visual_action": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted."
+        }
+      ],
+      "end_seconds": 67.039,
       "id": "scene-02",
       "section_id": "scene-02",
-      "start_seconds": 35.0,
-      "end_seconds": 74.875,
-      "asset": "e03-three-view-funnel.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
-      "spoken_text": "This is the same Dow branch that entered the out-of-sample phase with 184 candidates and carried 154 forward. The phase record names YM continuous, back-adjusted hourly data from 2018-02-25 to 2019-09-21. The companion authority routes the source timestamps from UTC into America/New_York wall time on CME Globex. That clock route matters because a session split is meaningless without a declared clock. A continuous, back-adjusted series also describes the historical instrument used by the phase; it is not a statement that every live contract would have the same fill. The data source is marked real, the wiring proof is true, and the validated flag is false.",
-      "claim_refs": [
-        "E03-RW-C02"
-      ],
-      "evidence_class": "run_data",
-      "cues": [
-        {
-          "id": "scene-02-cue-01",
-          "start_seconds": 35.0,
-          "duration_seconds": 8.0,
-          "asset": "e03-three-view-funnel.svg",
-          "spoken_span": "This is the same Dow branch that entered the out-of-sample phase with 184 candidates and carried 154 forward.",
-          "visual_action": "Show the same 154 candidates facing three declared transformations."
-        }
-      ]
+      "semantic_purpose": "A fixed candidate rail makes the 154-entry cohort visible before any failure set is counted.",
+      "spoken_text": "The test began with 154 candidates from the Dow branch. Before any check runs, that starting list is the whole population for this lesson. The list stayed the same while the execution fill and clock changed. Each candidate faced one frozen rule under those new conditions. The comparison stays fair: the candidate changes only when the test changes the condition. This is a screen. A pass opens the next question. That leaves fewer candidates to inspect. The three checks use a later fill and two session halves. They ask the same basic question from three angles: does the result hold when the trade arrives differently?",
+      "start_seconds": 28.58
     },
     {
+      "asset": "state-fill",
+      "claim_refs": [
+        "E03-C08",
+        "E03-C09",
+        "E03-C10",
+        "E03-C11",
+        "E03-C12"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-fill",
+          "claim_refs": [
+            "E03-C08"
+          ],
+          "duration_seconds": 12.703,
+          "end_seconds": 79.742,
+          "id": "E03-C08-visual",
+          "spoken_span": "A fill is the price the trade gets when the order enters or exits. Imagine a signal at the end of a bar: the fill is the price attached to the actual entry or exit.",
+          "start_seconds": 67.039,
+          "visual_action": "A signal-to-fill arrow makes the one-bar-later fill stress concrete."
+        },
+        {
+          "asset": "state-fill",
+          "claim_refs": [
+            "E03-C09"
+          ],
+          "duration_seconds": 11.997,
+          "end_seconds": 91.739,
+          "id": "E03-C09-visual",
+          "spoken_span": "A backtest often uses the signal price as if that were the fill. That is convenient for calculation, but it can make a trade look cleaner than the path a real order takes.",
+          "start_seconds": 79.742,
+          "visual_action": "A signal-to-fill arrow makes the one-bar-later fill stress concrete."
+        },
+        {
+          "asset": "state-fill",
+          "claim_refs": [
+            "E03-C10"
+          ],
+          "duration_seconds": 13.056,
+          "end_seconds": 104.795,
+          "id": "E03-C10-visual",
+          "spoken_span": "Slippage is the gap between the price you expect and the price you get. A small gap changes the dollars won or lost on every trade, so a long run can feel that gap many times.",
+          "start_seconds": 91.739,
+          "visual_action": "A signal-to-fill arrow makes the one-bar-later fill stress concrete."
+        },
+        {
+          "asset": "state-fill",
+          "claim_refs": [
+            "E03-C11"
+          ],
+          "duration_seconds": 11.291,
+          "end_seconds": 116.086,
+          "id": "E03-C11-visual",
+          "spoken_span": "Here the test moves the entry one bar in the same direction. That gives the fill price a simple stress. Every candidate gets the same treatment, which makes the comparison repeatable.",
+          "start_seconds": 104.795,
+          "visual_action": "A signal-to-fill arrow makes the one-bar-later fill stress concrete."
+        },
+        {
+          "asset": "state-fill",
+          "claim_refs": [
+            "E03-C12"
+          ],
+          "duration_seconds": 12.35,
+          "end_seconds": 128.436,
+          "id": "E03-C12-visual",
+          "spoken_span": "The test answers one question about the fill. The test does not model every broker or every order. The controlled comparison is valuable on its own. It says nothing about a particular execution desk.",
+          "start_seconds": 116.086,
+          "visual_action": "A signal-to-fill arrow makes the one-bar-later fill stress concrete."
+        }
+      ],
+      "end_seconds": 128.436,
       "id": "scene-03",
       "section_id": "scene-03",
-      "start_seconds": 74.875,
-      "end_seconds": 127.5,
-      "asset": "e03-three-view-funnel.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
-      "spoken_text": "First, the entry is scored one bar later in the same direction. Latency is the delay between a signal and the fill used to score it. This one-bar view asks how much of the result depended on the original fill arriving immediately. If price moves against the signal during that extra bar, the ledger records the damage; if it moves in the trade's favor, the delayed view records that too. Second, the original trades are split at the median entry hour into session half 1 and session half 2. A split sample is a population divided into declared groups for separate measurement. That asks whether one part of the trading day carried the total. These are three recorded profit-factor gates: one delayed-entry view and two session views. Each view has a transformation, a metric, and a threshold of 1.0.",
-      "claim_refs": [
-        "E03-RW-C03"
-      ],
-      "evidence_class": "run_data",
-      "cues": [
-        {
-          "id": "scene-03-cue-01",
-          "start_seconds": 74.875,
-          "duration_seconds": 8.0,
-          "asset": "e03-three-view-funnel.svg",
-          "spoken_span": "First, the entry is scored one bar later in the same direction.",
-          "visual_action": "Show the same 154 candidates facing three declared transformations."
-        }
-      ]
+      "semantic_purpose": "A signal-to-fill arrow makes the one-bar-later fill stress concrete.",
+      "spoken_text": "A fill is the price the trade gets when the order enters or exits. Imagine a signal at the end of a bar: the fill is the price attached to the actual entry or exit. A backtest often uses the signal price as if that were the fill. That is convenient for calculation, but it can make a trade look cleaner than the path a real order takes. Slippage is the gap between the price you expect and the price you get. A small gap changes the dollars won or lost on every trade, so a long run can feel that gap many times. Here the test moves the entry one bar in the same direction. That gives the fill price a simple stress. Every candidate gets the same treatment, which makes the comparison repeatable. The test answers one question about the fill. The test does not model every broker or every order. The controlled comparison is valuable on its own. It says nothing about a particular execution desk.",
+      "start_seconds": 67.039
     },
     {
+      "asset": "state-latency",
+      "claim_refs": [
+        "E03-C13",
+        "E03-C14",
+        "E03-C15",
+        "E03-C16"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-latency",
+          "claim_refs": [
+            "E03-C13"
+          ],
+          "duration_seconds": 10.232,
+          "end_seconds": 138.668,
+          "id": "E03-C13-visual",
+          "spoken_span": "Latency is the time from the signal to the fill. If the market moves while an order is waiting, that time can change the price of the trade.",
+          "start_seconds": 128.436,
+          "visual_action": "Two axes separate time latency from price slippage without conflating them."
+        },
+        {
+          "asset": "state-latency",
+          "claim_refs": [
+            "E03-C14"
+          ],
+          "duration_seconds": 8.821,
+          "end_seconds": 147.489,
+          "id": "E03-C14-visual",
+          "spoken_span": "Slippage is price. Latency is time. Both can change an entry. Keeping the words separate helps us ask the right question about the test.",
+          "start_seconds": 138.668,
+          "visual_action": "Two axes separate time latency from price slippage without conflating them."
+        },
+        {
+          "asset": "state-latency",
+          "claim_refs": [
+            "E03-C15"
+          ],
+          "duration_seconds": 11.997,
+          "end_seconds": 159.486,
+          "id": "E03-C15-visual",
+          "spoken_span": "This one-bar move stands in for a later fill. The shift gives a repeatable stress for the recorded test. The same shift is applied across the candidate list, so the result is comparable.",
+          "start_seconds": 147.489,
+          "visual_action": "Two axes separate time latency from price slippage without conflating them."
+        },
+        {
+          "asset": "state-latency",
+          "claim_refs": [
+            "E03-C16"
+          ],
+          "duration_seconds": 10.938,
+          "end_seconds": 170.424,
+          "id": "E03-C16-visual",
+          "spoken_span": "A rule that needs the perfect entry has a timing weakness. This check makes that weakness visible. The weakness can be small in one trade and large across a population.",
+          "start_seconds": 159.486,
+          "visual_action": "Two axes separate time latency from price slippage without conflating them."
+        }
+      ],
+      "end_seconds": 170.424,
       "id": "scene-04",
       "section_id": "scene-04",
-      "start_seconds": 127.5,
-      "end_seconds": 168.5,
-      "asset": "e03-three-view-funnel.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
-      "spoken_text": "The phase starts with 154 candidates. One hundred one fail at least one gate, and 53 pass all three. The gate census records 66 failures on the one-bar delay, 41 on session half 1, and 23 on session half 2. Those failure counts overlap, so adding them would overstate the number of candidates that failed. A candidate that fails two views is still one failed candidate in the headline total. The all-gates rule is deliberately strict: a candidate must clear the delayed fill and both session halves to continue. The only safe totals are the recorded 154 entering, 101 failing at least one, and 53 clearing all three.",
-      "claim_refs": [
-        "E03-RW-C04"
-      ],
-      "evidence_class": "run_data",
-      "cues": [
-        {
-          "id": "scene-04-cue-01",
-          "start_seconds": 127.5,
-          "duration_seconds": 8.0,
-          "asset": "e03-three-view-funnel.svg",
-          "spoken_span": "The phase starts with 154 candidates.",
-          "visual_action": "Show the same 154 candidates facing three declared transformations."
-        }
-      ]
+      "semantic_purpose": "Two axes separate time latency from price slippage without conflating them.",
+      "spoken_text": "Latency is the time from the signal to the fill. If the market moves while an order is waiting, that time can change the price of the trade. Slippage is price. Latency is time. Both can change an entry. Keeping the words separate helps us ask the right question about the test. This one-bar move stands in for a later fill. The shift gives a repeatable stress for the recorded test. The same shift is applied across the candidate list, so the result is comparable. A rule that needs the perfect entry has a timing weakness. This check makes that weakness visible. The weakness can be small in one trade and large across a population.",
+      "start_seconds": 128.436
     },
     {
+      "asset": "state-split",
+      "claim_refs": [
+        "E03-C17",
+        "E03-C18",
+        "E03-C19",
+        "E03-C20"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-split",
+          "claim_refs": [
+            "E03-C17"
+          ],
+          "duration_seconds": 10.938,
+          "end_seconds": 181.362,
+          "id": "E03-C17-visual",
+          "spoken_span": "A split sample is a method that puts the same trades into separate groups before you measure them. The rule stays fixed; only the group used for the measurement changes.",
+          "start_seconds": 170.424,
+          "visual_action": "A median-hour divider creates two session halves from the same trade stream."
+        },
+        {
+          "asset": "state-split",
+          "claim_refs": [
+            "E03-C18"
+          ],
+          "duration_seconds": 9.879,
+          "end_seconds": 191.241,
+          "id": "E03-C18-visual",
+          "spoken_span": "The middle entry hour divides this intraday run into session half 1 and session half 2. That boundary gives both groups a declared place in the day.",
+          "start_seconds": 181.362,
+          "visual_action": "A median-hour divider creates two session halves from the same trade stream."
+        },
+        {
+          "asset": "state-split",
+          "claim_refs": [
+            "E03-C19"
+          ],
+          "duration_seconds": 11.997,
+          "end_seconds": 203.238,
+          "id": "E03-C19-visual",
+          "spoken_span": "A session half is one of those groups. It tells us whether the result leans on one part of the day. A strong combined result can hide a weak morning or afternoon group.",
+          "start_seconds": 191.241,
+          "visual_action": "A median-hour divider creates two session halves from the same trade stream."
+        },
+        {
+          "asset": "state-split",
+          "claim_refs": [
+            "E03-C20"
+          ],
+          "duration_seconds": 10.938,
+          "end_seconds": 214.176,
+          "id": "E03-C20-visual",
+          "spoken_span": "The rule keeps a candidate when profit factor clears 1.0 after the fill move and in both session halves. One candidate must clear the fill check plus both clock checks.",
+          "start_seconds": 203.238,
+          "visual_action": "A median-hour divider creates two session halves from the same trade stream."
+        }
+      ],
+      "end_seconds": 214.176,
       "id": "scene-05",
       "section_id": "scene-05",
-      "start_seconds": 168.5,
-      "end_seconds": 209.125,
-      "asset": "e03-veto-vs-pass.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Compare one recorded veto row and one recorded pass row in reserved lanes.",
-      "spoken_text": "Candidate formula-2309285457-3105 passes the one-bar delay at profit factor about 1.123. It passes session half 2 at about 1.495. It fails session half 1 at about 0.987, below the 1.0 threshold. The visual preserves all six decimal places. This is a recorded candidate row. One weak session slice is enough for this all-gates rule to stop the candidate even when the other two views are above 1. The large 1.495 in one slice does not cancel the 0.987 in the other. The row is useful precisely because it is uncomfortable: a single blended total could have hidden the veto, while the three-view ledger names the weak part.",
-      "claim_refs": [
-        "E03-RW-C05"
-      ],
-      "evidence_class": "run_data",
-      "cues": [
-        {
-          "id": "scene-05-cue-01",
-          "start_seconds": 168.5,
-          "duration_seconds": 8.0,
-          "asset": "e03-veto-vs-pass.svg",
-          "spoken_span": "Candidate formula-2309285457-3105 passes the one-bar delay at profit factor about 1.123.",
-          "visual_action": "Compare one recorded veto row and one recorded pass row in reserved lanes."
-        }
-      ]
+      "semantic_purpose": "A median-hour divider creates two session halves from the same trade stream.",
+      "spoken_text": "A split sample is a method that puts the same trades into separate groups before you measure them. The rule stays fixed; only the group used for the measurement changes. The middle entry hour divides this intraday run into session half 1 and session half 2. That boundary gives both groups a declared place in the day. A session half is one of those groups. It tells us whether the result leans on one part of the day. A strong combined result can hide a weak morning or afternoon group. The rule keeps a candidate when profit factor clears 1.0 after the fill move and in both session halves. One candidate must clear the fill check plus both clock checks.",
+      "start_seconds": 170.424
     },
     {
+      "asset": "state-regime",
+      "claim_refs": [
+        "E03-C21",
+        "E03-C22",
+        "E03-C23",
+        "E03-C24"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-regime",
+          "claim_refs": [
+            "E03-C21"
+          ],
+          "duration_seconds": 10.938,
+          "end_seconds": 225.114,
+          "id": "E03-C21-visual",
+          "spoken_span": "A regime is a stretch of market behavior. One rule can meet a different market in a different stretch. One stretch can trend, while another moves sideways or changes speed.",
+          "start_seconds": 214.176,
+          "visual_action": "Clock segments are shown as conditions that can carry or weaken a result."
+        },
+        {
+          "asset": "state-regime",
+          "claim_refs": [
+            "E03-C22"
+          ],
+          "duration_seconds": 11.997,
+          "end_seconds": 237.111,
+          "id": "E03-C22-visual",
+          "spoken_span": "Price and volume can change across the trading day. Session splitting gives us a way to check that change. It asks whether the result travels with the clock instead of with the rule.",
+          "start_seconds": 225.114,
+          "visual_action": "Clock segments are shown as conditions that can carry or weaken a result."
+        },
+        {
+          "asset": "state-regime",
+          "claim_refs": [
+            "E03-C23"
+          ],
+          "duration_seconds": 10.938,
+          "end_seconds": 248.049,
+          "id": "E03-C23-visual",
+          "spoken_span": "A result can look strong in one stretch and weak in another. This test stays inside its recorded window. This keeps the lesson tied to the evidence we actually have.",
+          "start_seconds": 237.111,
+          "visual_action": "Clock segments are shown as conditions that can carry or weaken a result."
+        },
+        {
+          "asset": "state-regime",
+          "claim_refs": [
+            "E03-C24"
+          ],
+          "duration_seconds": 10.232,
+          "end_seconds": 258.281,
+          "id": "E03-C24-visual",
+          "spoken_span": "The split can expose a candidate whose result depends on one clock segment. It cannot explain why the segment matters, but it can show where to ask next.",
+          "start_seconds": 248.049,
+          "visual_action": "Clock segments are shown as conditions that can carry or weaken a result."
+        }
+      ],
+      "end_seconds": 258.281,
       "id": "scene-06",
       "section_id": "scene-06",
-      "start_seconds": 209.125,
-      "end_seconds": 247.125,
-      "asset": "e03-veto-vs-pass.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Compare one recorded veto row and one recorded pass row in reserved lanes.",
-      "spoken_text": "Candidate formula-2309285457-3088 records profit factor about 1.080 on the one-bar delay, 1.156 on session half 1, and 1.152 on session half 2. All three are above the 1.0 threshold. The visual carries all six decimal places. That makes this candidate a recorded survivor of this phase. The margins are visible rather than rounded into a vague pass, and a different candidate can have a different pattern. It does not turn the row into a forecast, and it does not erase the 101 candidates that failed another view. It simply answers the declared question for this version and these historical ledgers.",
-      "claim_refs": [
-        "E03-RW-C06"
-      ],
-      "evidence_class": "run_data",
-      "cues": [
-        {
-          "id": "scene-06-cue-01",
-          "start_seconds": 209.125,
-          "duration_seconds": 8.0,
-          "asset": "e03-veto-vs-pass.svg",
-          "spoken_span": "Candidate formula-2309285457-3088 records profit factor about 1.080 on the one-bar delay, 1.156 on session half 1, and 1.152 on session half 2.",
-          "visual_action": "Compare one recorded veto row and one recorded pass row in reserved lanes."
-        }
-      ]
+      "semantic_purpose": "Clock segments are shown as conditions that can carry or weaken a result.",
+      "spoken_text": "A regime is a stretch of market behavior. One rule can meet a different market in a different stretch. One stretch can trend, while another moves sideways or changes speed. Price and volume can change across the trading day. Session splitting gives us a way to check that change. It asks whether the result travels with the clock instead of with the rule. A result can look strong in one stretch and weak in another. This test stays inside its recorded window. This keeps the lesson tied to the evidence we actually have. The split can expose a candidate whose result depends on one clock segment. It cannot explain why the segment matters, but it can show where to ask next.",
+      "start_seconds": 214.176
     },
     {
+      "asset": "state-strips",
+      "claim_refs": [
+        "E03-C25",
+        "E03-C26",
+        "E03-C27",
+        "E03-C28"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-strips",
+          "claim_refs": [
+            "E03-C25"
+          ],
+          "duration_seconds": 9.879,
+          "end_seconds": 268.16,
+          "id": "E03-C25-visual",
+          "spoken_span": "The one-bar fill check rejects 41 candidates. Session half 1 rejects 66, and session half 2 rejects 23. These are separate counts from the same recorded run.",
+          "start_seconds": 258.281,
+          "visual_action": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates."
+        },
+        {
+          "asset": "state-strips",
+          "claim_refs": [
+            "E03-C26"
+          ],
+          "duration_seconds": 7.409,
+          "end_seconds": 275.569,
+          "id": "E03-C26-visual",
+          "spoken_span": "All three counts start with the same 154 candidates. Each count answers a different version of the same stress question.",
+          "start_seconds": 268.16,
+          "visual_action": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates."
+        },
+        {
+          "asset": "state-strips",
+          "claim_refs": [
+            "E03-C27"
+          ],
+          "duration_seconds": 9.174,
+          "end_seconds": 284.743,
+          "id": "E03-C27-visual",
+          "spoken_span": "Session half 1 produces the largest count. A single total would hide the clock segment creating the most removals. The separate strips preserve that information.",
+          "start_seconds": 275.569,
+          "visual_action": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates."
+        },
+        {
+          "asset": "state-strips",
+          "claim_refs": [
+            "E03-C28"
+          ],
+          "duration_seconds": 7.762,
+          "end_seconds": 292.505,
+          "id": "E03-C28-visual",
+          "spoken_span": "The rule is simple: one failed check drops a candidate. The candidate needs three passes. One impressive number cannot carry it.",
+          "start_seconds": 284.743,
+          "visual_action": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates."
+        }
+      ],
+      "end_seconds": 292.505,
       "id": "scene-07",
       "section_id": "scene-07",
-      "start_seconds": 247.125,
-      "end_seconds": 297.5,
-      "asset": "e03-profit-factor.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Define profit factor as a comparison of gross winning and losing dollars.",
-      "spoken_text": "Profit factor is gross winning dollars divided by gross losing dollars on the same ledger. A value above 1 means the winning dollars are larger for that view. A value below 1 means the losing dollars are larger. The phase uses 1.0 as the gate. For the failed row, about 0.987 means the losing dollars are slightly larger in session half 1, even though the other views are above 1. The exact recorded value is 0.986603. For the passing row, each displayed ratio is above 1. My read is that this is a comparison, not a verdict. It still needs the candidate count, the exact transformation, the trade ledger, and the validation boundary beside it. A value of 1.15 is not a guarantee; it is a ratio produced by one specified historical view.",
-      "claim_refs": [
-        "E03-RW-C07"
-      ],
-      "evidence_class": "method_or_run_data",
-      "cues": [
-        {
-          "id": "scene-07-cue-01",
-          "start_seconds": 247.125,
-          "duration_seconds": 8.0,
-          "asset": "e03-profit-factor.svg",
-          "spoken_span": "Profit factor is gross winning dollars divided by gross losing dollars on the same ledger.",
-          "visual_action": "Define profit factor as a comparison of gross winning and losing dollars."
-        }
-      ]
+      "semantic_purpose": "Three aligned strips show 41, 66, and 23 failure sets against the same 154 candidates.",
+      "spoken_text": "The one-bar fill check rejects 41 candidates. Session half 1 rejects 66, and session half 2 rejects 23. These are separate counts from the same recorded run. All three counts start with the same 154 candidates. Each count answers a different version of the same stress question. Session half 1 produces the largest count. A single total would hide the clock segment creating the most removals. The separate strips preserve that information. The rule is simple: one failed check drops a candidate. The candidate needs three passes. One impressive number cannot carry it.",
+      "start_seconds": 258.281
     },
     {
+      "asset": "state-union",
+      "claim_refs": [
+        "E03-C29",
+        "E03-C30",
+        "E03-C31",
+        "E03-C32",
+        "E03-C33"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-union",
+          "claim_refs": [
+            "E03-C29"
+          ],
+          "duration_seconds": 9.526,
+          "end_seconds": 302.031,
+          "id": "E03-C29-visual",
+          "spoken_span": "Some candidates fail twice, so adding the three counts would count them twice. Counting a candidate twice would make the population look weaker than it is.",
+          "start_seconds": 292.505,
+          "visual_action": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101."
+        },
+        {
+          "asset": "state-union",
+          "claim_refs": [
+            "E03-C30"
+          ],
+          "duration_seconds": 10.232,
+          "end_seconds": 312.263,
+          "id": "E03-C30-visual",
+          "spoken_span": "The fill set shares 24 candidates with session half 1 and 5 with session half 2. Those shared IDs are the reason the headline number needs a union.",
+          "start_seconds": 302.031,
+          "visual_action": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101."
+        },
+        {
+          "asset": "state-union",
+          "claim_refs": [
+            "E03-C31"
+          ],
+          "duration_seconds": 8.468,
+          "end_seconds": 320.731,
+          "id": "E03-C31-visual",
+          "spoken_span": "The two session halves share zero candidates. All three sets share zero. The pairwise overlaps are the only overlaps in this recorded output.",
+          "start_seconds": 312.263,
+          "visual_action": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101."
+        },
+        {
+          "asset": "state-union",
+          "claim_refs": [
+            "E03-C32"
+          ],
+          "duration_seconds": 9.526,
+          "end_seconds": 330.257,
+          "id": "E03-C32-visual",
+          "spoken_span": "Start with 41 plus 66 plus 23. Take away 24 and 5. The total is 101. This is the inclusion and exclusion step in plain arithmetic.",
+          "start_seconds": 320.731,
+          "visual_action": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101."
+        },
+        {
+          "asset": "state-union",
+          "claim_refs": [
+            "E03-C33"
+          ],
+          "duration_seconds": 9.526,
+          "end_seconds": 339.783,
+          "id": "E03-C33-visual",
+          "spoken_span": "A union counts a candidate once when it appears in any set. It answers the practical question: how many unique candidates failed one or more checks?",
+          "start_seconds": 330.257,
+          "visual_action": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101."
+        }
+      ],
+      "end_seconds": 339.783,
       "id": "scene-08",
       "section_id": "scene-08",
-      "start_seconds": 297.5,
-      "end_seconds": 344.125,
-      "asset": "e03-profit-factor.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Define profit factor as a comparison of gross winning and losing dollars.",
-      "spoken_text": "This phase can say how the 154 recorded candidates responded to a one-bar entry delay and two session splits. It can show which rows cleared the recorded profit-factor checks. It can show that the surviving population is smaller than the OOS population. It cannot say that the surviving rows will earn money live. The source is real and the wiring is exercised, but validated is still false. A regime is a recurring market condition such as a trend, range, or volatility state. This phase does not identify a regime cause; it identifies sensitivity in the recorded historical test. To make a causal claim, we would need a different design and evidence beyond this phase record. Precision about the limit belongs in the result.",
-      "claim_refs": [
-        "E03-RW-C08"
-      ],
-      "evidence_class": "method_or_run_data",
-      "cues": [
-        {
-          "id": "scene-08-cue-01",
-          "start_seconds": 297.5,
-          "duration_seconds": 8.0,
-          "asset": "e03-profit-factor.svg",
-          "spoken_span": "This phase can say how the 154 recorded candidates responded to a one-bar entry delay and two session splits.",
-          "visual_action": "Define profit factor as a comparison of gross winning and losing dollars."
-        }
-      ]
+      "semantic_purpose": "Overlapping sets and inclusion-exclusion arithmetic show why the union is 101.",
+      "spoken_text": "Some candidates fail twice, so adding the three counts would count them twice. Counting a candidate twice would make the population look weaker than it is. The fill set shares 24 candidates with session half 1 and 5 with session half 2. Those shared IDs are the reason the headline number needs a union. The two session halves share zero candidates. All three sets share zero. The pairwise overlaps are the only overlaps in this recorded output. Start with 41 plus 66 plus 23. Take away 24 and 5. The total is 101. This is the inclusion and exclusion step in plain arithmetic. A union counts a candidate once when it appears in any set. It answers the practical question: how many unique candidates failed one or more checks?",
+      "start_seconds": 292.505
     },
     {
+      "asset": "state-veto",
+      "claim_refs": [
+        "E03-C34",
+        "E03-C35",
+        "E03-C36",
+        "E03-C37"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-veto",
+          "claim_refs": [
+            "E03-C34"
+          ],
+          "duration_seconds": 7.056,
+          "end_seconds": 346.839,
+          "id": "E03-C34-visual",
+          "spoken_span": "Candidate formula-2309285457-3105 has profit factor 1.123246 after shifting the fill by one bar. That first number clears the cutoff.",
+          "start_seconds": 339.783,
+          "visual_action": "The exact 3105 row visibly turns red on session half 1 while the other views stay green."
+        },
+        {
+          "asset": "state-veto",
+          "claim_refs": [
+            "E03-C35"
+          ],
+          "duration_seconds": 9.879,
+          "end_seconds": 356.718,
+          "id": "E03-C35-visual",
+          "spoken_span": "Its session half 1 value is 0.986603. That is below the 1.000000 cutoff. The difference looks small, but the rule still treats the value as a fail.",
+          "start_seconds": 346.839,
+          "visual_action": "The exact 3105 row visibly turns red on session half 1 while the other views stay green."
+        },
+        {
+          "asset": "state-veto",
+          "claim_refs": [
+            "E03-C36"
+          ],
+          "duration_seconds": 5.997,
+          "end_seconds": 362.715,
+          "id": "E03-C36-visual",
+          "spoken_span": "Its session half 2 value is 1.494639. Two strong views cannot erase the weak middle view.",
+          "start_seconds": 356.718,
+          "visual_action": "The exact 3105 row visibly turns red on session half 1 while the other views stay green."
+        },
+        {
+          "asset": "state-veto",
+          "claim_refs": [
+            "E03-C37"
+          ],
+          "duration_seconds": 10.938,
+          "end_seconds": 373.653,
+          "id": "E03-C37-visual",
+          "spoken_span": "One value below the cutoff disqualifies the candidate. Every check must clear the cutoff. This is the crisis in the run: the row looks good until the session is separated.",
+          "start_seconds": 362.715,
+          "visual_action": "The exact 3105 row visibly turns red on session half 1 while the other views stay green."
+        }
+      ],
+      "end_seconds": 373.653,
       "id": "scene-09",
       "section_id": "scene-09",
-      "start_seconds": 344.125,
-      "end_seconds": 390.375,
-      "asset": "e03-cost-handoff.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Show 53 as the next phase input, not as a final trading conclusion.",
-      "spoken_text": "The 53 survivors do not become a final list. They become the next input. In the following cost phase, the same pipeline carries 53 forward, tests the fixed ledger under higher slippage assumptions, and records 7 net-profit failures at three times while 46 clear both stated checks. Slippage is the difference between the reference price and the fill price assumed by the ledger. That later phase also records two profit-factor failures at two times. The handoff is the point: every phase narrows the population and makes the remaining claim more specific. A survivor is a candidate for the next challenge, never permission to skip the challenge. The phase03 result earns a narrower question; it does not earn a conclusion about live trading.",
-      "claim_refs": [
-        "E03-RW-C09"
-      ],
-      "evidence_class": "run_data",
-      "cues": [
-        {
-          "id": "scene-09-cue-01",
-          "start_seconds": 344.125,
-          "duration_seconds": 8.0,
-          "asset": "e03-cost-handoff.svg",
-          "spoken_span": "The 53 survivors do not become a final list.",
-          "visual_action": "Show 53 as the next phase input, not as a final trading conclusion."
-        }
-      ]
+      "semantic_purpose": "The exact 3105 row visibly turns red on session half 1 while the other views stay green.",
+      "spoken_text": "Candidate formula-2309285457-3105 has profit factor 1.123246 after shifting the fill by one bar. That first number clears the cutoff. Its session half 1 value is 0.986603. That is below the 1.000000 cutoff. The difference looks small, but the rule still treats the value as a fail. Its session half 2 value is 1.494639. Two strong views cannot erase the weak middle view. One value below the cutoff disqualifies the candidate. Every check must clear the cutoff. This is the crisis in the run: the row looks good until the session is separated.",
+      "start_seconds": 339.783
     },
     {
-      "id": "scene-10",
-      "section_id": "scene-10",
-      "start_seconds": 390.375,
-      "end_seconds": 432.5,
-      "asset": "e03-three-view-funnel.svg",
-      "composition_mode": "atelier",
-      "semantic_purpose": "Show the same 154 candidates facing three declared transformations.",
-      "spoken_text": "For a timing or execution stress test, write the original population, the exact transformed view, the threshold, the failure count, and whether failures overlap. Keep one failed row and one passing row with their candidate identifiers. Then write the validation status and the next phase. If the clock is used, declare the clock. If the fill is moved, state by how many bars. If a session is split, state the boundary and the rule for assigning a trade. A good result is a relationship that another run can challenge. Keep the 154-to-53 result beside the worksheet. That is how the pipeline turns a vague timing worry into a reproducible research step.",
+      "asset": "state-profit-factor",
       "claim_refs": [
-        "E03-RW-C10"
+        "E03-C38",
+        "E03-C39",
+        "E03-C40",
+        "E03-C41"
       ],
-      "evidence_class": "run_data",
+      "composition_mode": "atelier",
       "cues": [
         {
-          "id": "scene-10-cue-01",
-          "start_seconds": 390.375,
-          "duration_seconds": 8.0,
-          "asset": "e03-three-view-funnel.svg",
-          "spoken_span": "For a timing or execution stress test, write the original population, the exact transformed view, the threshold, the failure count, and whether failures overlap.",
-          "visual_action": "Show the same 154 candidates facing three declared transformations."
+          "asset": "state-profit-factor",
+          "claim_refs": [
+            "E03-C38"
+          ],
+          "duration_seconds": 10.232,
+          "end_seconds": 383.885,
+          "id": "E03-C38-visual",
+          "spoken_span": "Profit factor compares the dollars won with the dollars lost in the same set of trades. The numerator is gross winning dollars; the denominator is gross losing dollars.",
+          "start_seconds": 373.653,
+          "visual_action": "Gross winning and losing dollars define PF as one diagnostic with a threshold."
+        },
+        {
+          "asset": "state-profit-factor",
+          "claim_refs": [
+            "E03-C39"
+          ],
+          "duration_seconds": 9.879,
+          "end_seconds": 393.764,
+          "id": "E03-C39-visual",
+          "spoken_span": "Above 1 means more dollars won than lost in that set. At 1.0, the two sides are equal before the rest of the research questions are asked.",
+          "start_seconds": 383.885,
+          "visual_action": "Gross winning and losing dollars define PF as one diagnostic with a threshold."
+        },
+        {
+          "asset": "state-profit-factor",
+          "claim_refs": [
+            "E03-C40"
+          ],
+          "duration_seconds": 9.526,
+          "end_seconds": 403.29,
+          "id": "E03-C40-visual",
+          "spoken_span": "It leaves out account size. It also leaves out drawdown and fill cost. A ratio can summarize one ledger while hiding the path that produced it.",
+          "start_seconds": 393.764,
+          "visual_action": "Gross winning and losing dollars define PF as one diagnostic with a threshold."
+        },
+        {
+          "asset": "state-profit-factor",
+          "claim_refs": [
+            "E03-C41"
+          ],
+          "duration_seconds": 9.174,
+          "end_seconds": 412.464,
+          "id": "E03-C41-visual",
+          "spoken_span": "Profit factor is one diagnostic inside this test. The other checks still matter. A pass here means the ratio cleared its cutoff in this view.",
+          "start_seconds": 403.29,
+          "visual_action": "Gross winning and losing dollars define PF as one diagnostic with a threshold."
         }
-      ]
+      ],
+      "end_seconds": 412.464,
+      "id": "scene-10",
+      "section_id": "scene-10",
+      "semantic_purpose": "Gross winning and losing dollars define PF as one diagnostic with a threshold.",
+      "spoken_text": "Profit factor compares the dollars won with the dollars lost in the same set of trades. The numerator is gross winning dollars; the denominator is gross losing dollars. Above 1 means more dollars won than lost in that set. At 1.0, the two sides are equal before the rest of the research questions are asked. It leaves out account size. It also leaves out drawdown and fill cost. A ratio can summarize one ledger while hiding the path that produced it. Profit factor is one diagnostic inside this test. The other checks still matter. A pass here means the ratio cleared its cutoff in this view.",
+      "start_seconds": 373.653
+    },
+    {
+      "asset": "state-pass",
+      "claim_refs": [
+        "E03-C42",
+        "E03-C43",
+        "E03-C44",
+        "E03-C45"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-pass",
+          "claim_refs": [
+            "E03-C42"
+          ],
+          "duration_seconds": 6.703,
+          "end_seconds": 419.167,
+          "id": "E03-C42-visual",
+          "spoken_span": "Candidate formula-2309285457-3088 records 1.080180 with the fill shifted one bar. The first value is above the same cutoff.",
+          "start_seconds": 412.464,
+          "visual_action": "The exact 3088 row keeps all three values above 1.000000."
+        },
+        {
+          "asset": "state-pass",
+          "claim_refs": [
+            "E03-C43"
+          ],
+          "duration_seconds": 8.115,
+          "end_seconds": 427.282,
+          "id": "E03-C43-visual",
+          "spoken_span": "Its session half 1 value is 1.156412, and session half 2 is 1.151833. Both clock groups stay above 1.0 in this row.",
+          "start_seconds": 419.167,
+          "visual_action": "The exact 3088 row keeps all three values above 1.000000."
+        },
+        {
+          "asset": "state-pass",
+          "claim_refs": [
+            "E03-C44"
+          ],
+          "duration_seconds": 7.056,
+          "end_seconds": 434.338,
+          "id": "E03-C44-visual",
+          "spoken_span": "All three values clear 1.000000, so the candidate passes this test. Each of the three values carries the pass.",
+          "start_seconds": 427.282,
+          "visual_action": "The exact 3088 row keeps all three values above 1.000000."
+        },
+        {
+          "asset": "state-pass",
+          "claim_refs": [
+            "E03-C45"
+          ],
+          "duration_seconds": 10.232,
+          "end_seconds": 444.57,
+          "id": "E03-C45-visual",
+          "spoken_span": "That is a recorded pass for this run. It is one result inside the research process. The next step still has its own question and its own evidence.",
+          "start_seconds": 434.338,
+          "visual_action": "The exact 3088 row keeps all three values above 1.000000."
+        }
+      ],
+      "end_seconds": 444.57,
+      "id": "scene-11",
+      "section_id": "scene-11",
+      "semantic_purpose": "The exact 3088 row keeps all three values above 1.000000.",
+      "spoken_text": "Candidate formula-2309285457-3088 records 1.080180 with the fill shifted one bar. The first value is above the same cutoff. Its session half 1 value is 1.156412, and session half 2 is 1.151833. Both clock groups stay above 1.0 in this row. All three values clear 1.000000, so the candidate passes this test. Each of the three values carries the pass. That is a recorded pass for this run. It is one result inside the research process. The next step still has its own question and its own evidence.",
+      "start_seconds": 412.464
+    },
+    {
+      "asset": "state-survivors",
+      "claim_refs": [
+        "E03-C46",
+        "E03-C47",
+        "E03-C48",
+        "E03-C49"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-survivors",
+          "claim_refs": [
+            "E03-C46"
+          ],
+          "duration_seconds": 7.409,
+          "end_seconds": 451.979,
+          "id": "E03-C46-visual",
+          "spoken_span": "When we remove the 101 candidates counted in the union, 53 remain. The union gives us the clean population count.",
+          "start_seconds": 444.57,
+          "visual_action": "The union subtraction resolves into 154 minus 101 equals 53."
+        },
+        {
+          "asset": "state-survivors",
+          "claim_refs": [
+            "E03-C47"
+          ],
+          "duration_seconds": 9.174,
+          "end_seconds": 461.153,
+          "id": "E03-C47-visual",
+          "spoken_span": "154 candidates entered. 101 failed on one or more checks. 53 passed all three. The three numbers describe one pipeline step from start to finish.",
+          "start_seconds": 451.979,
+          "visual_action": "The union subtraction resolves into 154 minus 101 equals 53."
+        },
+        {
+          "asset": "state-survivors",
+          "claim_refs": [
+            "E03-C48"
+          ],
+          "duration_seconds": 6.35,
+          "end_seconds": 467.503,
+          "id": "E03-C48-visual",
+          "spoken_span": "The subtraction works because each union member appears once. It prevents overlapping failures from being subtracted twice.",
+          "start_seconds": 461.153,
+          "visual_action": "The union subtraction resolves into 154 minus 101 equals 53."
+        },
+        {
+          "asset": "state-survivors",
+          "claim_refs": [
+            "E03-C49"
+          ],
+          "duration_seconds": 9.526,
+          "end_seconds": 477.029,
+          "id": "E03-C49-visual",
+          "spoken_span": "These are survivors of one test. Later questions still matter. This shorter list is easier to study, but it is not the end of the study.",
+          "start_seconds": 467.503,
+          "visual_action": "The union subtraction resolves into 154 minus 101 equals 53."
+        }
+      ],
+      "end_seconds": 477.029,
+      "id": "scene-12",
+      "section_id": "scene-12",
+      "semantic_purpose": "The union subtraction resolves into 154 minus 101 equals 53.",
+      "spoken_text": "When we remove the 101 candidates counted in the union, 53 remain. The union gives us the clean population count. 154 candidates entered. 101 failed on one or more checks. 53 passed all three. The three numbers describe one pipeline step from start to finish. The subtraction works because each union member appears once. It prevents overlapping failures from being subtracted twice. These are survivors of one test. Later questions still matter. This shorter list is easier to study, but it is not the end of the study.",
+      "start_seconds": 444.57
+    },
+    {
+      "asset": "state-pipeline",
+      "claim_refs": [
+        "E03-C50",
+        "E03-C51",
+        "E03-C52",
+        "E03-C53"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-pipeline",
+          "claim_refs": [
+            "E03-C50"
+          ],
+          "duration_seconds": 10.232,
+          "end_seconds": 487.261,
+          "id": "E03-C50-visual",
+          "spoken_span": "The numbers come from the recorded Dow run. They are not an invented example. The candidate IDs and values come from that same run, along with the counts.",
+          "start_seconds": 477.029,
+          "visual_action": "Real-data and wiring proof are separated from the false validated flag."
+        },
+        {
+          "asset": "state-pipeline",
+          "claim_refs": [
+            "E03-C51"
+          ],
+          "duration_seconds": 8.468,
+          "end_seconds": 495.729,
+          "id": "E03-C51-visual",
+          "spoken_span": "The run used real market data. The pipeline connections also ran. That tells us the route executed; it leaves other research questions open.",
+          "start_seconds": 487.261,
+          "visual_action": "Real-data and wiring proof are separated from the false validated flag."
+        },
+        {
+          "asset": "state-pipeline",
+          "claim_refs": [
+            "E03-C52"
+          ],
+          "duration_seconds": 7.762,
+          "end_seconds": 503.491,
+          "id": "E03-C52-visual",
+          "spoken_span": "The run record marks validated as false. The word validated stays reserved for evidence that clears more than this one screen.",
+          "start_seconds": 495.729,
+          "visual_action": "Real-data and wiring proof are separated from the false validated flag."
+        },
+        {
+          "asset": "state-pipeline",
+          "claim_refs": [
+            "E03-C53"
+          ],
+          "duration_seconds": 9.879,
+          "end_seconds": 513.37,
+          "id": "E03-C53-visual",
+          "spoken_span": "I want the math to be repeatable. Another person can rebuild those sets and get the same count. That is the standard for a useful research step.",
+          "start_seconds": 503.491,
+          "visual_action": "Real-data and wiring proof are separated from the false validated flag."
+        }
+      ],
+      "end_seconds": 513.37,
+      "id": "scene-13",
+      "section_id": "scene-13",
+      "semantic_purpose": "Real-data and wiring proof are separated from the false validated flag.",
+      "spoken_text": "The numbers come from the recorded Dow run. They are not an invented example. The candidate IDs and values come from that same run, along with the counts. The run used real market data. The pipeline connections also ran. That tells us the route executed; it leaves other research questions open. The run record marks validated as false. The word validated stays reserved for evidence that clears more than this one screen. I want the math to be repeatable. Another person can rebuild those sets and get the same count. That is the standard for a useful research step.",
+      "start_seconds": 477.029
+    },
+    {
+      "asset": "state-worksheet",
+      "claim_refs": [
+        "E03-C54",
+        "E03-C55",
+        "E03-C56",
+        "E03-C57",
+        "E03-C58"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-worksheet",
+          "claim_refs": [
+            "E03-C54"
+          ],
+          "duration_seconds": 7.056,
+          "end_seconds": 520.426,
+          "id": "E03-C54-visual",
+          "spoken_span": "Start with the 154 IDs that enter the test. Keep the starting list separate from the lists that fail.",
+          "start_seconds": 513.37,
+          "visual_action": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet."
+        },
+        {
+          "asset": "state-worksheet",
+          "claim_refs": [
+            "E03-C55"
+          ],
+          "duration_seconds": 9.174,
+          "end_seconds": 529.6,
+          "id": "E03-C55-visual",
+          "spoken_span": "Make a set for the fill view and separate sets for the two session halves. Give every set a clear name before you count it.",
+          "start_seconds": 520.426,
+          "visual_action": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet."
+        },
+        {
+          "asset": "state-worksheet",
+          "claim_refs": [
+            "E03-C56"
+          ],
+          "duration_seconds": 10.585,
+          "end_seconds": 540.185,
+          "id": "E03-C56-visual",
+          "spoken_span": "Write the three profit factors for every candidate. Remove a row when a value is at or below 1.0. This is the all-three rule written as a small table.",
+          "start_seconds": 529.6,
+          "visual_action": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet."
+        },
+        {
+          "asset": "state-worksheet",
+          "claim_refs": [
+            "E03-C57"
+          ],
+          "duration_seconds": 7.409,
+          "end_seconds": 547.594,
+          "id": "E03-C57-visual",
+          "spoken_span": "Take the union once. Compare its size with the entering count. Then check that the remainder is the passing list.",
+          "start_seconds": 540.185,
+          "visual_action": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet."
+        },
+        {
+          "asset": "state-worksheet",
+          "claim_refs": [
+            "E03-C58"
+          ],
+          "duration_seconds": 8.468,
+          "end_seconds": 556.062,
+          "id": "E03-C58-visual",
+          "spoken_span": "Keep one failed row and one passing row. A row shows how the rule works. The two examples make the population count concrete.",
+          "start_seconds": 547.594,
+          "visual_action": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet."
+        }
+      ],
+      "end_seconds": 556.062,
+      "id": "scene-14",
+      "section_id": "scene-14",
+      "semantic_purpose": "A beginner can reproduce the three sets, union, and veto rule as a small worksheet.",
+      "spoken_text": "Start with the 154 IDs that enter the test. Keep the starting list separate from the lists that fail. Make a set for the fill view and separate sets for the two session halves. Give every set a clear name before you count it. Write the three profit factors for every candidate. Remove a row when a value is at or below 1.0. This is the all-three rule written as a small table. Take the union once. Compare its size with the entering count. Then check that the remainder is the passing list. Keep one failed row and one passing row. A row shows how the rule works. The two examples make the population count concrete.",
+      "start_seconds": 513.37
+    },
+    {
+      "asset": "state-close",
+      "claim_refs": [
+        "E03-C59",
+        "E03-C60",
+        "E03-C61",
+        "E03-C62"
+      ],
+      "composition_mode": "atelier",
+      "cues": [
+        {
+          "asset": "state-close",
+          "claim_refs": [
+            "E03-C59"
+          ],
+          "duration_seconds": 4.938,
+          "end_seconds": 561.0,
+          "id": "E03-C59-visual",
+          "spoken_span": "The test ends with 53 survivors. That is the boundary of this episode.",
+          "start_seconds": 556.062,
+          "visual_action": "The lesson ends at 53 and names cost stress as the next question without importing later results."
+        },
+        {
+          "asset": "state-close",
+          "claim_refs": [
+            "E03-C60"
+          ],
+          "duration_seconds": 11.291,
+          "end_seconds": 572.291,
+          "id": "E03-C60-visual",
+          "spoken_span": "Cost stress is the follow-up. Raise the fill and commission assumptions and count what remains. That question belongs to the 53 that pass this test, while 154 is the starting group.",
+          "start_seconds": 561.0,
+          "visual_action": "The lesson ends at 53 and names cost stress as the next question without importing later results."
+        },
+        {
+          "asset": "state-close",
+          "claim_refs": [
+            "E03-C61"
+          ],
+          "duration_seconds": 8.115,
+          "end_seconds": 580.406,
+          "id": "E03-C61-visual",
+          "spoken_span": "That belongs to the next test. This episode stops before its result. We carry the question forward and wait for that answer.",
+          "start_seconds": 572.291,
+          "visual_action": "The lesson ends at 53 and names cost stress as the next question without importing later results."
+        },
+        {
+          "asset": "state-close",
+          "claim_refs": [
+            "E03-C62"
+          ],
+          "duration_seconds": 11.291,
+          "end_seconds": 591.697,
+          "id": "E03-C62-visual",
+          "spoken_span": "For now, the lesson is simple: the rule must survive the price it may receive and the hours that carry the result. A clean total is the beginning of that discipline.",
+          "start_seconds": 580.406,
+          "visual_action": "The lesson ends at 53 and names cost stress as the next question without importing later results."
+        }
+      ],
+      "end_seconds": 591.697,
+      "id": "scene-15",
+      "section_id": "scene-15",
+      "semantic_purpose": "The lesson ends at 53 and names cost stress as the next question without importing later results.",
+      "spoken_text": "The test ends with 53 survivors. That is the boundary of this episode. Cost stress is the follow-up. Raise the fill and commission assumptions and count what remains. That question belongs to the 53 that pass this test, while 154 is the starting group. That belongs to the next test. This episode stops before its result. We carry the question forward and wait for that answer. For now, the lesson is simple: the rule must survive the price it may receive and the hours that carry the result. A clean total is the beginning of that discipline.",
+      "start_seconds": 556.062
     }
   ],
-  "proof_scope": "The semantic proof renders the hook, central mechanism, and boundary only; it is not a master or approval."
+  "schema": "openmontage/scene-plan/v1",
+  "script_sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1",
+  "semantic_rule": "Every receipt-bound sentence is mapped to a purpose-built deterministic visual state; no generic card replaces the mechanism.",
+  "title": "154 Entered. 101 Failed. 53 Cleared Every Check."
 }

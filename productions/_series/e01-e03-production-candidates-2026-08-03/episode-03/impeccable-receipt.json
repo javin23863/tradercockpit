@@ -1,0 +1,92 @@
+{
+  "detector": {
+    "command": "node .agents/skills/impeccable/scripts/detect.mjs --json <e03-package>",
+    "path": "C:\\Users\\MSI\\Documents\\tradercockpit\\.agents\\skills\\impeccable\\scripts\\detect.mjs",
+    "sha256": "F5DFD05CA1E314ACD8ED79C6301A20A1B844F2EB6691BD63E04116A8E7EFB187"
+  },
+  "episode": 3,
+  "findings": [],
+  "schema": "into-the-laboratory/e03-timing-session-rebuild/impeccable-receipt/v1",
+  "status": "PASS",
+  "target": {
+    "files": [
+      {
+        "bytes": 41624,
+        "path": "academic_edit_timing.json",
+        "sha256": "EC89455E55913681BB09DC7746B5FD463EBF55A4930AAF9754CCA0A9E7AF1087"
+      },
+      {
+        "bytes": 12255,
+        "path": "claims.json",
+        "sha256": "C0B381C07890DFA99A7D7CCBF1B3F914CE147209AE9D19A8D421E14E5BFA0689"
+      },
+      {
+        "bytes": 1518,
+        "path": "e03-rebuild-receipt.json",
+        "sha256": "76195B675AFAE059219AFC0788E5B377604AB68E4BF4B3420D8E64489E08E899"
+      },
+      {
+        "bytes": 2546,
+        "path": "edit_decisions.json",
+        "sha256": "05DD6E8951A9819F5BD0DAE415A2012398169DBB8B2A2999374F4EA9292FC1F7"
+      },
+      {
+        "bytes": 3188,
+        "path": "packaging.json",
+        "sha256": "8B5C4B6BFDEBD5D80564577715B412433AF2F9968F8ED9F01F96E1D1E48F6A95"
+      },
+      {
+        "bytes": 10995,
+        "path": "phase03-derived-receipt.json",
+        "sha256": "A101F2ECB762938914DE72DA5735AB09270B9FB4AE064C5BF55AF8902FB92731"
+      },
+      {
+        "bytes": 50072,
+        "path": "scene_plan.json",
+        "sha256": "F3A229BFBA4BB9CC61135259E88AD13A83A0B5F877060E43005629CDF65E6B93"
+      },
+      {
+        "bytes": 43192,
+        "path": "scene_visual_map.json",
+        "sha256": "2DA779E5F06E1FF4FE9B3CBF6D0B1AA34781CE92AD9154FF2BE8FD422C4E70D4"
+      },
+      {
+        "bytes": 57148,
+        "path": "script.json",
+        "sha256": "B4829EE5DF001877BF6904702D32582BD9AE1FF4F0EAFF19CB216E4905B47046"
+      },
+      {
+        "bytes": 3691,
+        "path": "semantic-proof-receipt.json",
+        "sha256": "C172A076006E5627C1C92FA65EA4AEDC5023C8BEE44683AF47A2B272CA425B93"
+      },
+      {
+        "bytes": 13206,
+        "path": "thumbnail-ep03-mobile-zoom.png",
+        "sha256": "F07AA59E34532EDB17B103CCA6C03B162D196E786D2482B1BACB8F181EB06C9F"
+      },
+      {
+        "bytes": 8411,
+        "path": "thumbnail-ep03-mobile.png",
+        "sha256": "35AC1D1B6B34426895518546170585A4A626CEC5998D8C68FFCC1A6A751BB05F"
+      },
+      {
+        "bytes": 4567,
+        "path": "thumbnail-ep03.html",
+        "sha256": "BA348CB74AF0330BACEFE108DF6576B9B3EF671CEE802E26B51FF2C9363CA62A"
+      },
+      {
+        "bytes": 51063,
+        "path": "thumbnail-ep03.png",
+        "sha256": "FE21A620A7976CF405EEC296133A420E5BEB29896FEF1EB508B7F3044191E1E9"
+      },
+      {
+        "bytes": 11805,
+        "path": "vo.txt",
+        "sha256": "7E3B988F34CDF63F9E3F06F8DC77A38D926A03ABB1C6FD87FE5DFE9CAF35FAB1"
+      }
+    ],
+    "manifest_sha256": "CA74390EE72AF56AA2A99CDF7E07A547BB1038C59B9C8037658F239FAD4C3185",
+    "path": "C:\\tmp\\tradercockpit-e03-rebuild\\productions\\_series\\e01-e03-production-candidates-2026-08-03\\episode-03"
+  }
+}
