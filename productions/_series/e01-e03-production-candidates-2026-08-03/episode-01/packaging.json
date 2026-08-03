@@ -4,7 +4,7 @@
   "status": "candidate_pending_operator_approval",
   "episode": 1,
   "syllabus_episode": "01",
-  "revision": "e01-e03-production-start-2026-08-03",
+  "revision": "e01-rebuild-2026-08-03",
   "title": "The First Screen Rejected 5,206 Candidates. One Run Continued.",
   "beginner_belief": "If one strategy survives an initial screen, it is ready for live money.",
   "prewriting": {
@@ -16,17 +16,42 @@
     "research the gaps": "Verified the 2026-08-03 receipt manifest and visual map, preserving run boundaries, overlapping failure counts, and validated=false."
   },
   "thumbnail": {
-    "status": "candidate",
+    "status": "candidate_raster_and_squint_verified",
+    "path": "../../e01-e03-production-source-2026-08-03/episode-01/thumbnail-ep01.png",
+    "squint_path": "../../e01-e03-production-source-2026-08-03/episode-01/thumbnail-ep01-squint-150.png",
+    "first_shot_path": "../../e01-e03-production-source-2026-08-03/episode-01/first-shot.png",
+    "width": 1280,
+    "height": 720,
     "elements": [
       "THREE LANES",
       "184 FORWARD"
     ],
-    "visual_promise": "Evidence-bound mechanism, not a generic card."
+    "visual_promise": "Three physical intake lanes, proportional entrant counts, and the exact 184 Dow queue.",
+    "dimensions": {
+      "thumbnail": [
+        1280,
+        720
+      ],
+      "squint": [
+        150,
+        84
+      ],
+      "first_shot": [
+        1920,
+        1080
+      ]
+    },
+    "sha256": {
+      "thumbnail": "2431b8d7c56e362e1178bcc4c43e67c83d0c4cdd9cc75687011307c1c13df58a",
+      "squint": "7eaa06fb60ef1290e6d547fcc830847388c38798b315003330f655943e1e2543",
+      "first_shot": "6771016212c31fe36625b84a6d91b132f90e73a375cb591c930480f480102377"
+    }
   },
-  "candidate_first_post_ident_sentence": "The first screen rejected 5,206 candidates, and one run continued.",
-  "first_spoken_sentence": "The first screen rejected 5,206 candidates, and one run continued.",
+  "candidate_first_post_ident_sentence": "The first screen rejected 5,206 candidates.",
+  "first_spoken_sentence": "The first screen rejected 5,206 candidates.",
   "evidence": {
     "manifest": "../../e01-e03-live-receipts-2026-08-03.json",
+    "manifest_sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d",
     "boundary": "Recorded Dow futures, S&P 500 futures, and EURUSD intake runs; evidence is real and wiring is exercised, while validated remains false.",
     "validation_status": false
   },
@@ -36,15 +61,34 @@
     "render_runtime_alternative": "remotion",
     "composition_mode": "atelier",
     "music": "none",
-    "full_render_started": false
+    "full_render_started": false,
+    "narration_started": false,
+    "provider_generation_started": false,
+    "semantic_proof": "approved for local deterministic proof only"
+  },
+  "proof": {
+    "source": "../../e01-e03-production-source-2026-08-03/episode-01/index.html",
+    "duration_seconds": 60,
+    "status": "short_semantic_proof_verified_pending_operator_approval",
+    "master": false,
+    "artifact": "proof/e01-semantic-proof.mp4",
+    "artifact_sha256": "a26a691107965ccfbfa7fceb68e70acaef15a72922483a511a433baa895962ec",
+    "artifact_codec": "h264",
+    "artifact_resolution": "1920x1080",
+    "artifact_fps": "30/1",
+    "artifact_frames": 1800,
+    "artifact_audio": false
+  },
+  "dependencies": {
+    "manifest": "../../e01-e03-production-source-2026-08-03/episode-01/composition-dependencies.json"
   },
   "script": {
     "status": "candidate_pending_script_human_gate",
-    "sha256": "345072ae6bd42fe95481a25ec476c6773a833f158a240aa1c0306bc8389bf577",
-    "vo_sha256": "e73be28b9bf8f4758985a39cd9cc745e070d7d960a4d35bf89753dab99368d0b",
-    "word_count": 1356,
-    "estimated_duration_seconds": 513.5,
-    "duration_basis_wpm": 160.0
+    "sha256": "071fba5966b590fd84b4a79db319b5fa8d2e0b83c17533b6851c349b38662f5a",
+    "vo_sha256": "50cd078f9ee6cf6e633c0dd87767fde160188365c272496f48817a878f9c40cf",
+    "word_count": 1653,
+    "estimated_duration_seconds": 688.512,
+    "duration_basis_wpm": 145.0
   },
   "approval": {
     "package_approved": false,

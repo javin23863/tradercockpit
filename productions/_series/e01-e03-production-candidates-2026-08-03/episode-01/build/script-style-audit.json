@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS",
+  "checked_sections": 10,
+  "blocked": [],
+  "warns": [
+    {
+      "type": "ornamental group of three",
+      "count": 3,
+      "detail": "Use the natural number of items."
+    },
+    {
+      "type": "slogan repetition",
+      "count": 13,
+      "detail": "Repeated cross-section n-grams: 'development window is the in sample', 'how often the strategy won is', 'losses how often the strategy won', 'often the strategy won is its', 'strategy won is its win rate', 'the development window is the in', 'the strategy won is its win', 'return to drawdown is the', 'can reject a row', 'gross losses are the', 'on the development window', 'peak to trough fall', 'trades per month is'",
+      "ngrams": [
+        "development window is the in sample",
+        "how often the strategy won is",
+        "losses how often the strategy won",
+        "often the strategy won is its",
+        "strategy won is its win rate",
+        "the development window is the in",
+        "the strategy won is its win",
+        "return to drawdown is the",
+        "can reject a row",
+        "gross losses are the",
+        "on the development window",
+        "peak to trough fall",
+        "trades per month is"
+      ]
+    }
+  ],
+  "metrics": {
+    "words": 1728,
+    "sections": 10,
+    "sentences": 180,
+    "sentenceWordsMean": 9.58,
+    "sentenceWordsStdDev": 4.54,
+    "sectionWordsStdDev": 45.5,
+    "firstPersonEditorialMarkers": 2,
+    "correctiveContrastCount": 0,
+    "repeatedSloganNgrams": [
+      "development window is the in sample",
+      "how often the strategy won is",
+      "losses how often the strategy won",
+      "often the strategy won is its",
+      "strategy won is its win rate",
+      "the development window is the in",
+      "the strategy won is its win",
+      "return to drawdown is the",
+      "can reject a row",
+      "gross losses are the",
+      "on the development window",
+      "peak to trough fall",
+      "trades per month is"
+    ]
+  },
+  "generated_at": "2026-08-03T17:28:01Z"
+}

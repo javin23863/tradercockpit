@@ -1,0 +1,26 @@
+{
+  "schema": "into-the-laboratory/e01-e03-production-candidates/v1",
+  "source_manifest_sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d",
+  "visual_map_sha256": "affaebd294f3ae0881f3149ee41bb3fa271b717cbdbee5c2e89d98e9b98a36b2",
+  "episodes": [
+    {
+      "episode": "01",
+      "path": "productions/_series/e01-e03-production-candidates-2026-08-03/episode-01",
+      "script_sha256": "071fba5966b590fd84b4a79db319b5fa8d2e0b83c17533b6851c349b38662f5a",
+      "claims_sha256": "9a4f7b0fb0d76ae2788d81aada32385028880b5326b314769955b671ef998ba0",
+      "packaging_sha256": "3c907e2dadae842ac3fcf681eca75fc3a0f7fac41d8166ab2c09eed8543cb95f",
+      "scene_plan_sha256": "1d58809834e9a9ee1075921152e268e0eb7cdf74354d198d8a82fab47ed57017",
+      "vo_sha256": "50cd078f9ee6cf6e633c0dd87767fde160188365c272496f48817a878f9c40cf",
+      "duration_seconds": 688.512,
+      "word_count": 1653
+    }
+  ],
+  "status": "candidate_pending_operator_script_and_semantic_visual_approval",
+  "not_done": [
+    "no narration",
+    "no provider generation",
+    "no master render",
+    "no upload",
+    "no publication"
+  ]
+}

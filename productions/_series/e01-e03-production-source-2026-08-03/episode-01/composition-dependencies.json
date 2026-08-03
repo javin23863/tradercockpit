@@ -1,0 +1,25 @@
+{
+  "schema": "into-the-laboratory/e01-composition-dependencies/v1",
+  "composition": "productions/_series/e01-e03-production-source-2026-08-03/episode-01/index.html",
+  "dependencies": [
+    {
+      "path": "assets/vendor/gsap.min.js",
+      "version": "3.15.0",
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fb",
+      "source": "OpenMontage project-local vendor asset; copied into the isolated E01 source tree",
+      "license": "GSAP standard license"
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-400.ttf",
+      "sha256": "6dbe082463cf749cfa057d45c3048c90f4df031496498e5b5bdfd0b6babb9d16",
+      "source": "Existing isolated E01 source asset"
+    },
+    {
+      "path": "assets/fonts/ibm-plex-sans-700.ttf",
+      "sha256": "e129a20e8ff7c907ffd07124b573e88c323b7b18afc934d4aa539a3e0f2fe100",
+      "source": "Existing isolated E01 source asset"
+    }
+  ],
+  "network_required_at_render": false,
+  "provider_generation": false
+}

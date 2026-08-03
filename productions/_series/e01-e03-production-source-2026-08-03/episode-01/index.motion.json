@@ -1,0 +1,11 @@
+{
+  "duration": 60,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#s1-title", "bySec": 0.8 },
+    { "kind": "before", "a": "#s1-population", "b": "#s1-sieve" },
+    { "kind": "appearsBy", "selector": "#s4-dow", "bySec": 19.5 },
+    { "kind": "staysInFrame", "selector": "#s4-lanes" },
+    { "kind": "appearsBy", "selector": "#s9-unknown", "bySec": 50.5 },
+    { "kind": "staysInFrame", "selector": "#s10-sheet" }
+  ]
+}

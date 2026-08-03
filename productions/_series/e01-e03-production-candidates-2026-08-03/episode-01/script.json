@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "title": "The First Screen Rejected 5,206 Candidates. One Run Continued.",
-  "total_duration_seconds": 513.5,
+  "total_duration_seconds": 688.512,
   "voice_performance": {
     "performance_intent": "A calm lab walkthrough for a beginner; exact results are stated without turning them into a promise.",
     "pacing_profile": "technical",
@@ -16,29 +16,150 @@
   "sections": [
     {
       "id": "scene-01",
-      "label": "The first screen starts with a real count",
-      "text": "The first screen rejected 5,206 candidates, and one run continued. This recorded first screen started with 5,390 candidate versions and carried 184 forward. A real research run can begin with thousands of candidate versions and end with a small list—or an empty list. That is the first fact we need before asking whether anything deserves a holdout test. A backtest output is a measurement of one rule set over one historical window. The rule still has to earn a place in the next phase before anyone discusses a broker account. The pipeline is allowed to say no before the story gets exciting, and the quality of the lesson depends on keeping that no visible.",
+      "label": "Start with the screen, not the promise",
+      "text": "The first screen rejected 5,206 candidates. The same screen started with 5,390 candidate versions. Keep that first total visible. 184 continued. The counts come from three separate runs. The first used Dow futures. The second used S&P 500 futures. The third used EURUSD. Dow supplied all 184 survivors. The other two runs ended at zero. A backtest is a replay of old prices using a stated rule. It asks what would have happened if that rule had been followed across that history. It records one history; tomorrow remains outside this result. A large number can feel like proof. Slow down. This first screen asks a narrow question: did these rules cross the lines on their own historical windows? A pass earns the next question. My read is simple: 184 is a queue, and the next question waits on prices this screen never saw.",
       "start_seconds": 0.0,
-      "end_seconds": 43.25,
+      "end_seconds": 59.625,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
         "energy": "precise and controlled",
         "emphasis_words": [
-          "The",
+          "Start",
           "recorded",
           "validated"
         ],
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "The first screen rejected 5,206 candidates, and one run continued. This recorded first screen started with 5,390 candidate versions and carried 184 forward. A real research run can begin with thousands of candidate versions and end with a small list—or an empty list. That is the first fact we need before asking whether anything deserves a holdout test. A backtest output is a measurement of one rule set over one historical window. The rule still has to earn a place in the next phase before anyone discusses a broker account. The pipeline is allowed to say no before the story gets exciting, and the quality of the lesson depends on keeping that no visible."
+        "provider_text": "The first screen rejected 5,206 candidates. The same screen started with 5,390 candidate versions. Keep that first total visible. 184 continued. The counts come from three separate runs. The first used Dow futures. The second used S&P 500 futures. The third used EURUSD. Dow supplied all 184 survivors. The other two runs ended at zero. A backtest is a replay of old prices using a stated rule. It asks what would have happened if that rule had been followed across that history. It records one history; tomorrow remains outside this result. A large number can feel like proof. Slow down. This first screen asks a narrow question: did these rules cross the lines on their own historical windows? A pass earns the next question. My read is simple: 184 is a queue, and the next question waits on prices this screen never saw."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
-          "timestamp_seconds": 0.0
+          "description": "Drop 5,206 tokens below the intake rail.",
+          "timestamp_seconds": 0.0,
+          "duration_seconds": 2.483,
+          "spoken_span": "The first screen rejected 5,206 candidates."
+        },
+        {
+          "type": "animation",
+          "description": "Scale the 5,390-token population into the intake tray.",
+          "timestamp_seconds": 2.483,
+          "duration_seconds": 3.31,
+          "spoken_span": "The same screen started with 5,390 candidate versions."
+        },
+        {
+          "type": "animation",
+          "description": "Hold the exact 5,390 total beside the intake tray.",
+          "timestamp_seconds": 5.793,
+          "duration_seconds": 2.069,
+          "spoken_span": "Keep that first total visible."
+        },
+        {
+          "type": "animation",
+          "description": "Let 184 tokens continue along a narrow forward track.",
+          "timestamp_seconds": 7.862,
+          "duration_seconds": 0.828,
+          "spoken_span": "184 continued."
+        },
+        {
+          "type": "animation",
+          "description": "Split the tray into three labeled physical lanes: Dow, S&P 500 futures, and EURUSD.",
+          "timestamp_seconds": 8.69,
+          "duration_seconds": 2.897,
+          "spoken_span": "The counts come from three separate runs."
+        },
+        {
+          "type": "animation",
+          "description": "Highlight the Dow lane as the only lane with a survivor queue.",
+          "timestamp_seconds": 11.587,
+          "duration_seconds": 2.069,
+          "spoken_span": "The first used Dow futures."
+        },
+        {
+          "type": "animation",
+          "description": "Highlight the S&P 500 futures lane as a zero lane.",
+          "timestamp_seconds": 13.656,
+          "duration_seconds": 2.483,
+          "spoken_span": "The second used S&P 500 futures."
+        },
+        {
+          "type": "animation",
+          "description": "Highlight the EURUSD lane as a zero lane.",
+          "timestamp_seconds": 16.139,
+          "duration_seconds": 1.655,
+          "spoken_span": "The third used EURUSD."
+        },
+        {
+          "type": "animation",
+          "description": "Leave only the Dow lane with a visible survivor queue.",
+          "timestamp_seconds": 17.794,
+          "duration_seconds": 2.069,
+          "spoken_span": "Dow supplied all 184 survivors."
+        },
+        {
+          "type": "animation",
+          "description": "Terminate the other two lanes at zero.",
+          "timestamp_seconds": 19.863,
+          "duration_seconds": 2.897,
+          "spoken_span": "The other two runs ended at zero."
+        },
+        {
+          "type": "animation",
+          "description": "Animate a backtest as a rule replay over old-price marks.",
+          "timestamp_seconds": 22.76,
+          "duration_seconds": 4.966,
+          "spoken_span": "A backtest is a replay of old prices using a stated rule."
+        },
+        {
+          "type": "animation",
+          "description": "Trace the complete rule across the recorded historical strip.",
+          "timestamp_seconds": 27.726,
+          "duration_seconds": 6.207,
+          "spoken_span": "It asks what would have happened if that rule had been followed across that history."
+        },
+        {
+          "type": "animation",
+          "description": "Seal the strip as one historical record rather than a forecast.",
+          "timestamp_seconds": 33.933,
+          "duration_seconds": 3.724,
+          "spoken_span": "It records one history; tomorrow remains outside this result."
+        },
+        {
+          "type": "animation",
+          "description": "Let the victory wash recede from the survivor queue.",
+          "timestamp_seconds": 37.657,
+          "duration_seconds": 2.897,
+          "spoken_span": "A large number can feel like proof."
+        },
+        {
+          "type": "animation",
+          "description": "Hold the screen still for the narrow question.",
+          "timestamp_seconds": 40.554,
+          "duration_seconds": 0.828,
+          "spoken_span": "Slow down."
+        },
+        {
+          "type": "animation",
+          "description": "Bracket the intake lines against their historical windows.",
+          "timestamp_seconds": 41.382,
+          "duration_seconds": 7.448,
+          "spoken_span": "This first screen asks a narrow question: did these rules cross the lines on their own historical windows?"
+        },
+        {
+          "type": "animation",
+          "description": "Open a small next-question doorway after the token clears the sieve.",
+          "timestamp_seconds": 48.83,
+          "duration_seconds": 2.483,
+          "spoken_span": "A pass earns the next question."
+        },
+        {
+          "type": "animation",
+          "description": "Relabel the 184 tokens as a queue at readable scale and place a quiet question mark beyond the boundary where unseen prices begin.",
+          "timestamp_seconds": 51.313,
+          "duration_seconds": 8.312,
+          "spoken_span": "My read is simple: 184 is a queue, and the next question waits on prices this screen never saw."
         }
       ],
       "source_ref": "E01-RW-C01"
@@ -46,9 +167,9 @@
     {
       "id": "scene-02",
       "label": "Follow the actual first screen",
-      "text": "This episode follows the first recorded screen in three separate runs: Dow futures, S&P 500 futures, and EURUSD. In plain English, the pipeline takes a candidate, replays its complete rules over a defined development window, measures the result, and decides whether that version can enter the next phase. The next phases are not decorative names. A survivor can face a later price block, a fill or session stress, and a cost stress before anyone should discuss live use. The records call the data source real and the wiring proof true. They also leave the validated flag false. So this is evidence that the pipeline ran and made a decision, not a promise that a strategy is ready for live money. We will keep those two statements separate all the way through.",
-      "start_seconds": 43.25,
-      "end_seconds": 92.875,
+      "text": "Now follow one candidate through the path. First, replay the rules. Then measure the result on the development window. The development window is the in-sample window. An in-sample result uses the history that built and screened the rule. This phase replays and measures; it does not optimize a parameter after the fact. Then apply the intake thresholds. A gate is a pass/fail question. A threshold is the line a measurement must cross. A row that passes moves to the next test. It may face later prices. It may face a different fill, a session check, or added costs. Those tests belong later in the pipeline. The records say the data source is real. The wiring proof is true. That means the run reached the part of the pipeline that reads its input. The record says validated=false. The run happened. Live trading is a separate result. Keep the number beside the line it had to cross. That is how the pipeline keeps a result in its place.",
+      "start_seconds": 59.625,
+      "end_seconds": 128.766,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -61,23 +182,165 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "This episode follows the first recorded screen in three separate runs: Dow futures, S&P 500 futures, and EURUSD. In plain English, the pipeline takes a candidate, replays its complete rules over a defined development window, measures the result, and decides whether that version can enter the next phase. The next phases are not decorative names. A survivor can face a later price block, a fill or session stress, and a cost stress before anyone should discuss live use. The records call the data source real and the wiring proof true. They also leave the validated flag false. So this is evidence that the pipeline ran and made a decision, not a promise that a strategy is ready for live money. We will keep those two statements separate all the way through."
+        "provider_text": "Now follow one candidate through the path. First, replay the rules. Then measure the result on the development window. The development window is the in-sample window. An in-sample result uses the history that built and screened the rule. This phase replays and measures; it does not optimize a parameter after the fact. Then apply the intake thresholds. A gate is a pass/fail question. A threshold is the line a measurement must cross. A row that passes moves to the next test. It may face later prices. It may face a different fill, a session check, or added costs. Those tests belong later in the pipeline. The records say the data source is real. The wiring proof is true. That means the run reached the part of the pipeline that reads its input. The record says validated=false. The run happened. Live trading is a separate result. Keep the number beside the line it had to cross. That is how the pipeline keeps a result in its place."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
-          "timestamp_seconds": 43.25
+          "description": "Bring one candidate token onto a physical pipeline spine.",
+          "timestamp_seconds": 59.625,
+          "duration_seconds": 2.897,
+          "spoken_span": "Now follow one candidate through the path."
+        },
+        {
+          "type": "animation",
+          "description": "Move it through REPLAY with the full rules attached.",
+          "timestamp_seconds": 62.522,
+          "duration_seconds": 1.655,
+          "spoken_span": "First, replay the rules."
+        },
+        {
+          "type": "animation",
+          "description": "Move it into MEASURE over the development-window strip.",
+          "timestamp_seconds": 64.177,
+          "duration_seconds": 3.31,
+          "spoken_span": "Then measure the result on the development window."
+        },
+        {
+          "type": "animation",
+          "description": "Bracket the development window as the in-sample block.",
+          "timestamp_seconds": 67.487,
+          "duration_seconds": 2.897,
+          "spoken_span": "The development window is the in-sample window."
+        },
+        {
+          "type": "animation",
+          "description": "Show the historical marks used to build and screen the rule.",
+          "timestamp_seconds": 70.384,
+          "duration_seconds": 4.966,
+          "spoken_span": "An in-sample result uses the history that built and screened the rule."
+        },
+        {
+          "type": "animation",
+          "description": "Lock REPLAY and MEASURE before any parameter can change.",
+          "timestamp_seconds": 75.35,
+          "duration_seconds": 5.793,
+          "spoken_span": "This phase replays and measures; it does not optimize a parameter after the fact."
+        },
+        {
+          "type": "animation",
+          "description": "Apply the INTAKE THRESHOLDS as local lines.",
+          "timestamp_seconds": 81.143,
+          "duration_seconds": 2.069,
+          "spoken_span": "Then apply the intake thresholds."
+        },
+        {
+          "type": "animation",
+          "description": "Show GATE as a physical pass/fail opening.",
+          "timestamp_seconds": 83.212,
+          "duration_seconds": 2.483,
+          "spoken_span": "A gate is a pass/fail question."
+        },
+        {
+          "type": "animation",
+          "description": "Show THRESHOLD as the line the measurement must cross.",
+          "timestamp_seconds": 85.695,
+          "duration_seconds": 3.724,
+          "spoken_span": "A threshold is the line a measurement must cross."
+        },
+        {
+          "type": "animation",
+          "description": "Carry a passing token toward the next-test doorway.",
+          "timestamp_seconds": 89.419,
+          "duration_seconds": 3.724,
+          "spoken_span": "A row that passes moves to the next test."
+        },
+        {
+          "type": "animation",
+          "description": "Set a later-price plate beside the doorway.",
+          "timestamp_seconds": 93.143,
+          "duration_seconds": 2.069,
+          "spoken_span": "It may face later prices."
+        },
+        {
+          "type": "animation",
+          "description": "Set fill, session, and cost plates beside it.",
+          "timestamp_seconds": 95.212,
+          "duration_seconds": 4.966,
+          "spoken_span": "It may face a different fill, a session check, or added costs."
+        },
+        {
+          "type": "animation",
+          "description": "Dim those future plates before any result appears.",
+          "timestamp_seconds": 100.178,
+          "duration_seconds": 2.897,
+          "spoken_span": "Those tests belong later in the pipeline."
+        },
+        {
+          "type": "animation",
+          "description": "Stamp REAL DATA on the evidence rail.",
+          "timestamp_seconds": 103.075,
+          "duration_seconds": 3.31,
+          "spoken_span": "The records say the data source is real."
+        },
+        {
+          "type": "animation",
+          "description": "Stamp WIRING TRUE on a separate rail.",
+          "timestamp_seconds": 106.385,
+          "duration_seconds": 2.069,
+          "spoken_span": "The wiring proof is true."
+        },
+        {
+          "type": "animation",
+          "description": "Place VALIDATED FALSE beneath both stamps.",
+          "timestamp_seconds": 108.454,
+          "duration_seconds": 5.793,
+          "spoken_span": "That means the run reached the part of the pipeline that reads its input."
+        },
+        {
+          "type": "animation",
+          "description": "Settle the completed pipeline on a RESEARCH RESULT tag.",
+          "timestamp_seconds": 114.247,
+          "duration_seconds": 1.655,
+          "spoken_span": "The record says validated=false."
+        },
+        {
+          "type": "animation",
+          "description": "Keep a live-trading boundary closed beyond the tag.",
+          "timestamp_seconds": 115.902,
+          "duration_seconds": 1.241,
+          "spoken_span": "The run happened."
+        },
+        {
+          "type": "animation",
+          "description": "Join the measured number to its threshold with a bracket.",
+          "timestamp_seconds": 117.143,
+          "duration_seconds": 2.483,
+          "spoken_span": "Live trading is a separate result."
+        },
+        {
+          "type": "animation",
+          "description": "Close the spine with the promise zone empty.",
+          "timestamp_seconds": 119.626,
+          "duration_seconds": 4.138,
+          "spoken_span": "Keep the number beside the line it had to cross."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the result's boundary visible after the spine closes.",
+          "timestamp_seconds": 123.764,
+          "duration_seconds": 5.002,
+          "spoken_span": "That is how the pipeline keeps a result in its place."
         }
       ],
       "source_ref": "E01-RW-C02"
     },
     {
       "id": "scene-03",
-      "label": "What enters the screen",
-      "text": "A candidate is one complete set of trading rules. It has a market, a timeframe, an entry, a fill convention, an exit, position size, risk limits, costs, and a historical window. Commission is the fee charged for a trade. Slippage is the difference between the reference price and the fill price used by the model. Even a small change creates a different candidate. Buying at the close and buying at the next open are different tests. A different stop or a different session is another version. The development block is in-sample; in-sample means the prices used to build and screen the candidate. The first screen replays those choices on those development prices. A candidate advances only when it clears the measurements and thresholds written for that run. If a detail is missing, the result cannot quietly become a stronger claim. That definition also explains why a library count matters: five hundred candidate rows do not mean five hundred independent discoveries. They mean five hundred complete versions were allowed to ask the first question.",
-      "start_seconds": 92.875,
-      "end_seconds": 158.25,
+      "label": "What counts as a candidate",
+      "text": "Before the results, make the idea complete. A candidate is one complete set of trading rules. It names the market and timeframe. It says when to enter, how to fill, when to exit, how much to trade, what risk to accept, what costs to pay, and what history to use. Commission is a fee charged for a trade. Slippage is the gap between the reference price and the fill you actually receive. Change one detail and you have a new candidate. Start with an observation. Write the explanations that could account for it. Pick one and write a falsifiable hypothesis. A falsifiable hypothesis is one that could be proved wrong by a defined result. Here, the development window is the in-sample block. Those are the prices used to build and screen the rule. Net profit is what remains after gains, losses, and costs are combined. Gross wins are the winning trade amounts added together before costs. Gross losses are the losing trade amounts added together before costs. Maximum drawdown, or max drawdown, is the largest peak-to-trough fall in the result line. Return-to-drawdown is the recorded return placed beside that largest fall. Profit factor is gross wins divided by gross losses. How often the strategy won is its win rate. Payoff asymmetry means a smaller number of larger wins can outweigh a larger number of smaller losses. Trade count is the number of trades the rule produced. Trades per month is how often the rule acted. A library records these choices; it stores the search choices alongside the measurements. These are measurements of one window. Live performance remains a separate question.",
+      "start_seconds": 128.766,
+      "end_seconds": 240.94,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -90,13 +353,190 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "A candidate is one complete set of trading rules. It has a market, a timeframe, an entry, a fill convention, an exit, position size, risk limits, costs, and a historical window. Commission is the fee charged for a trade. Slippage is the difference between the reference price and the fill price used by the model. Even a small change creates a different candidate. Buying at the close and buying at the next open are different tests. A different stop or a different session is another version. The development block is in-sample; in-sample means the prices used to build and screen the candidate. The first screen replays those choices on those development prices. A candidate advances only when it clears the measurements and thresholds written for that run. If a detail is missing, the result cannot quietly become a stronger claim. That definition also explains why a library count matters: five hundred candidate rows do not mean five hundred independent discoveries. They mean five hundred complete versions were allowed to ask the first question."
+        "provider_text": "Before the results, make the idea complete. A candidate is one complete set of trading rules. It names the market and timeframe. It says when to enter, how to fill, when to exit, how much to trade, what risk to accept, what costs to pay, and what history to use. Commission is a fee charged for a trade. Slippage is the gap between the reference price and the fill you actually receive. Change one detail and you have a new candidate. Start with an observation. Write the explanations that could account for it. Pick one and write a falsifiable hypothesis. A falsifiable hypothesis is one that could be proved wrong by a defined result. Here, the development window is the in-sample block. Those are the prices used to build and screen the rule. Net profit is what remains after gains, losses, and costs are combined. Gross wins are the winning trade amounts added together before costs. Gross losses are the losing trade amounts added together before costs. Maximum drawdown, or max drawdown, is the largest peak-to-trough fall in the result line. Return-to-drawdown is the recorded return placed beside that largest fall. Profit factor is gross wins divided by gross losses. How often the strategy won is its win rate. Payoff asymmetry means a smaller number of larger wins can outweigh a larger number of smaller losses. Trade count is the number of trades the rule produced. Trades per month is how often the rule acted. A library records these choices; it stores the search choices alongside the measurements. These are measurements of one window. Live performance remains a separate question."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
-          "timestamp_seconds": 92.875
+          "description": "Open a complete rule specimen on a physical workbench.",
+          "timestamp_seconds": 128.766,
+          "duration_seconds": 2.897,
+          "spoken_span": "Before the results, make the idea complete."
+        },
+        {
+          "type": "animation",
+          "description": "Place the candidate specimen at the center of the bench.",
+          "timestamp_seconds": 131.663,
+          "duration_seconds": 3.724,
+          "spoken_span": "A candidate is one complete set of trading rules."
+        },
+        {
+          "type": "animation",
+          "description": "Attach the market and timeframe plates.",
+          "timestamp_seconds": 135.387,
+          "duration_seconds": 2.483,
+          "spoken_span": "It names the market and timeframe."
+        },
+        {
+          "type": "animation",
+          "description": "Attach entry, fill, exit, size, risk, cost, and window plates.",
+          "timestamp_seconds": 137.87,
+          "duration_seconds": 11.586,
+          "spoken_span": "It says when to enter, how to fill, when to exit, how much to trade, what risk to accept, what costs to pay, and what history to use."
+        },
+        {
+          "type": "animation",
+          "description": "Place a commission token beside the specimen as a fee.",
+          "timestamp_seconds": 149.456,
+          "duration_seconds": 3.31,
+          "spoken_span": "Commission is a fee charged for a trade."
+        },
+        {
+          "type": "animation",
+          "description": "Place a slippage token between reference price and fill.",
+          "timestamp_seconds": 152.766,
+          "duration_seconds": 5.793,
+          "spoken_span": "Slippage is the gap between the reference price and the fill you actually receive."
+        },
+        {
+          "type": "animation",
+          "description": "Change one detail and send a new candidate off the bench.",
+          "timestamp_seconds": 158.559,
+          "duration_seconds": 3.724,
+          "spoken_span": "Change one detail and you have a new candidate."
+        },
+        {
+          "type": "animation",
+          "description": "Place an observation beside several explanation paths.",
+          "timestamp_seconds": 162.283,
+          "duration_seconds": 1.655,
+          "spoken_span": "Start with an observation."
+        },
+        {
+          "type": "animation",
+          "description": "Fan the explanations out before choosing one.",
+          "timestamp_seconds": 163.938,
+          "duration_seconds": 3.31,
+          "spoken_span": "Write the explanations that could account for it."
+        },
+        {
+          "type": "animation",
+          "description": "Turn one explanation into a hypothesis with a break line.",
+          "timestamp_seconds": 167.248,
+          "duration_seconds": 2.897,
+          "spoken_span": "Pick one and write a falsifiable hypothesis."
+        },
+        {
+          "type": "animation",
+          "description": "Mark the hypothesis as falsifiable with a possible failure mark.",
+          "timestamp_seconds": 170.145,
+          "duration_seconds": 5.793,
+          "spoken_span": "A falsifiable hypothesis is one that could be proved wrong by a defined result."
+        },
+        {
+          "type": "animation",
+          "description": "Bracket the development window as the in-sample block.",
+          "timestamp_seconds": 175.938,
+          "duration_seconds": 3.31,
+          "spoken_span": "Here, the development window is the in-sample block."
+        },
+        {
+          "type": "animation",
+          "description": "Label it as the historical price block used to build the rule.",
+          "timestamp_seconds": 179.248,
+          "duration_seconds": 4.552,
+          "spoken_span": "Those are the prices used to build and screen the rule."
+        },
+        {
+          "type": "animation",
+          "description": "Show a net-profit balance after wins, losses, and costs.",
+          "timestamp_seconds": 183.8,
+          "duration_seconds": 4.966,
+          "spoken_span": "Net profit is what remains after gains, losses, and costs are combined."
+        },
+        {
+          "type": "animation",
+          "description": "Stack the gross winning trade amounts in one pile.",
+          "timestamp_seconds": 188.766,
+          "duration_seconds": 4.552,
+          "spoken_span": "Gross wins are the winning trade amounts added together before costs."
+        },
+        {
+          "type": "animation",
+          "description": "Stack the gross losing trade amounts in another pile.",
+          "timestamp_seconds": 193.318,
+          "duration_seconds": 4.552,
+          "spoken_span": "Gross losses are the losing trade amounts added together before costs."
+        },
+        {
+          "type": "animation",
+          "description": "Draw the maximum drawdown as a peak-to-trough fall.",
+          "timestamp_seconds": 197.87,
+          "duration_seconds": 5.793,
+          "spoken_span": "Maximum drawdown, or max drawdown, is the largest peak-to-trough fall in the result line."
+        },
+        {
+          "type": "animation",
+          "description": "Place the return-to-drawdown ratio beside that fall.",
+          "timestamp_seconds": 203.663,
+          "duration_seconds": 4.138,
+          "spoken_span": "Return-to-drawdown is the recorded return placed beside that largest fall."
+        },
+        {
+          "type": "animation",
+          "description": "Divide the gross-win pile by the gross-loss pile for profit factor.",
+          "timestamp_seconds": 207.801,
+          "duration_seconds": 3.724,
+          "spoken_span": "Profit factor is gross wins divided by gross losses."
+        },
+        {
+          "type": "animation",
+          "description": "Mark the win-rate count as how often the strategy won.",
+          "timestamp_seconds": 211.525,
+          "duration_seconds": 3.724,
+          "spoken_span": "How often the strategy won is its win rate."
+        },
+        {
+          "type": "animation",
+          "description": "Show a smaller winning pile outweighing a larger losing count.",
+          "timestamp_seconds": 215.249,
+          "duration_seconds": 7.034,
+          "spoken_span": "Payoff asymmetry means a smaller number of larger wins can outweigh a larger number of smaller losses."
+        },
+        {
+          "type": "animation",
+          "description": "Count the trades produced by the rule.",
+          "timestamp_seconds": 222.283,
+          "duration_seconds": 4.138,
+          "spoken_span": "Trade count is the number of trades the rule produced."
+        },
+        {
+          "type": "animation",
+          "description": "Set the trades-per-month ruler beside the count.",
+          "timestamp_seconds": 226.421,
+          "duration_seconds": 3.724,
+          "spoken_span": "Trades per month is how often the rule acted."
+        },
+        {
+          "type": "animation",
+          "description": "Fan out the library as distinct rule tokens.",
+          "timestamp_seconds": 230.145,
+          "duration_seconds": 5.379,
+          "spoken_span": "A library records these choices; it stores the search choices alongside the measurements."
+        },
+        {
+          "type": "animation",
+          "description": "Bracket all metrics inside the single development window.",
+          "timestamp_seconds": 235.524,
+          "duration_seconds": 2.483,
+          "spoken_span": "These are measurements of one window."
+        },
+        {
+          "type": "animation",
+          "description": "Keep live performance outside the measurement bench.",
+          "timestamp_seconds": 238.007,
+          "duration_seconds": 2.933,
+          "spoken_span": "Live performance remains a separate question."
         }
       ],
       "source_ref": "E01-RW-C03"
@@ -104,9 +544,9 @@
     {
       "id": "scene-04",
       "label": "Three real lanes, not one blended sample",
-      "text": "The Dow run entered 1,335 candidates and carried 184 forward. Its recorded development window runs from 2010-06-06 to 2018-02-25. The S&P 500 futures run entered 2,004 and carried 0 forward, over its own recorded window. The EURUSD run entered 2,051 and carried 0 forward, again over a separate window. Together that is 5,390 candidates entering and 184 continuing. The arithmetic is real, but it is an aggregate across three run-specific libraries. The dates and run identifiers stay attached to each row because the same count over a different window would be a different experiment. Those are three run-specific results, not one universal verdict about every futures, stock, or foreign-exchange strategy.",
-      "start_seconds": 158.25,
-      "end_seconds": 200.0,
+      "text": "Now keep the three runs separate. The Dow run entered 1,335 candidates and carried 184 forward. Its historical window ran from 2010-06-06 through 2018-02-25. Its recorded run identity is rb-20260725T133803-b44bd92c. The S&P 500 futures run entered 2,004 and carried zero. Its window ran from 2003-07-06 through 2013-06-08. Its recorded run identity is rb-20260715T094910-d0d18d9a. The EURUSD run entered 2,051 and carried zero. Its window ran from 2022-01-02 through 2023-09-06. Its recorded run identity is rb-20260715T154557-12660559. Add the entrants and you get 5,390. Add the survivors and you get 184. Subtract them and 5,206 stopped at intake. The three source phase files are pinned by private hashes, so the ledger can be checked without blending the runs. A market changes the experiment. A window changes the experiment. The lane lengths follow the counts, so 2,051 is longer than 2,004 and 1,335. The total is bookkeeping. Each market needs its own reading.",
+      "start_seconds": 240.94,
+      "end_seconds": 303.048,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -119,13 +559,141 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "The Dow run entered 1,335 candidates and carried 184 forward. Its recorded development window runs from 2010-06-06 to 2018-02-25. The S&P 500 futures run entered 2,004 and carried 0 forward, over its own recorded window. The EURUSD run entered 2,051 and carried 0 forward, again over a separate window. Together that is 5,390 candidates entering and 184 continuing. The arithmetic is real, but it is an aggregate across three run-specific libraries. The dates and run identifiers stay attached to each row because the same count over a different window would be a different experiment. Those are three run-specific results, not one universal verdict about every futures, stock, or foreign-exchange strategy."
+        "provider_text": "Now keep the three runs separate. The Dow run entered 1,335 candidates and carried 184 forward. Its historical window ran from 2010-06-06 through 2018-02-25. Its recorded run identity is rb-20260725T133803-b44bd92c. The S&P 500 futures run entered 2,004 and carried zero. Its window ran from 2003-07-06 through 2013-06-08. Its recorded run identity is rb-20260715T094910-d0d18d9a. The EURUSD run entered 2,051 and carried zero. Its window ran from 2022-01-02 through 2023-09-06. Its recorded run identity is rb-20260715T154557-12660559. Add the entrants and you get 5,390. Add the survivors and you get 184. Subtract them and 5,206 stopped at intake. The three source phase files are pinned by private hashes, so the ledger can be checked without blending the runs. A market changes the experiment. A window changes the experiment. The lane lengths follow the counts, so 2,051 is longer than 2,004 and 1,335. The total is bookkeeping. Each market needs its own reading."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Keep Dow, S&P 500 futures, and EURUSD counts in separate lanes while showing the aggregate.",
-          "timestamp_seconds": 158.25
+          "description": "Separate three physical run lanes before any total appears.",
+          "timestamp_seconds": 240.94,
+          "duration_seconds": 2.483,
+          "spoken_span": "Now keep the three runs separate."
+        },
+        {
+          "type": "animation",
+          "description": "Raise the Dow lane with a proportional 1,335 entrant track.",
+          "timestamp_seconds": 243.423,
+          "duration_seconds": 4.138,
+          "spoken_span": "The Dow run entered 1,335 candidates and carried 184 forward."
+        },
+        {
+          "type": "animation",
+          "description": "Add the short 184 survivor track and the Dow dates.",
+          "timestamp_seconds": 247.561,
+          "duration_seconds": 3.31,
+          "spoken_span": "Its historical window ran from 2010-06-06 through 2018-02-25."
+        },
+        {
+          "type": "animation",
+          "description": "Pin the Dow run identity to its lane.",
+          "timestamp_seconds": 250.871,
+          "duration_seconds": 2.483,
+          "spoken_span": "Its recorded run identity is rb-20260725T133803-b44bd92c."
+        },
+        {
+          "type": "animation",
+          "description": "Raise the S&P 500 futures lane with 2,004 entrants.",
+          "timestamp_seconds": 253.354,
+          "duration_seconds": 4.138,
+          "spoken_span": "The S&P 500 futures run entered 2,004 and carried zero."
+        },
+        {
+          "type": "animation",
+          "description": "Attach the S&P 500 historical dates.",
+          "timestamp_seconds": 257.492,
+          "duration_seconds": 2.897,
+          "spoken_span": "Its window ran from 2003-07-06 through 2013-06-08."
+        },
+        {
+          "type": "animation",
+          "description": "Pin the S&P 500 run identity to its lane.",
+          "timestamp_seconds": 260.389,
+          "duration_seconds": 2.483,
+          "spoken_span": "Its recorded run identity is rb-20260715T094910-d0d18d9a."
+        },
+        {
+          "type": "animation",
+          "description": "Raise the EURUSD lane with 2,051 entrants.",
+          "timestamp_seconds": 262.872,
+          "duration_seconds": 3.31,
+          "spoken_span": "The EURUSD run entered 2,051 and carried zero."
+        },
+        {
+          "type": "animation",
+          "description": "Attach the EURUSD historical dates.",
+          "timestamp_seconds": 266.182,
+          "duration_seconds": 2.897,
+          "spoken_span": "Its window ran from 2022-01-02 through 2023-09-06."
+        },
+        {
+          "type": "animation",
+          "description": "Pin the EURUSD run identity to its lane.",
+          "timestamp_seconds": 269.079,
+          "duration_seconds": 2.483,
+          "spoken_span": "Its recorded run identity is rb-20260715T154557-12660559."
+        },
+        {
+          "type": "animation",
+          "description": "Draw the 5,390 entrant ledger back to all three lane mouths.",
+          "timestamp_seconds": 271.562,
+          "duration_seconds": 2.897,
+          "spoken_span": "Add the entrants and you get 5,390."
+        },
+        {
+          "type": "animation",
+          "description": "Draw the 184 survivor queue pointing only to Dow.",
+          "timestamp_seconds": 274.459,
+          "duration_seconds": 2.897,
+          "spoken_span": "Add the survivors and you get 184."
+        },
+        {
+          "type": "animation",
+          "description": "Subtract the queue from the entrant ledger and reveal 5,206 stopped.",
+          "timestamp_seconds": 277.356,
+          "duration_seconds": 2.897,
+          "spoken_span": "Subtract them and 5,206 stopped at intake."
+        },
+        {
+          "type": "animation",
+          "description": "Pin the three private source hashes to the lane ledger.",
+          "timestamp_seconds": 280.253,
+          "duration_seconds": 8.276,
+          "spoken_span": "The three source phase files are pinned by private hashes, so the ledger can be checked without blending the runs."
+        },
+        {
+          "type": "animation",
+          "description": "Keep each market label attached to its lane as a separate experiment.",
+          "timestamp_seconds": 288.529,
+          "duration_seconds": 2.069,
+          "spoken_span": "A market changes the experiment."
+        },
+        {
+          "type": "animation",
+          "description": "Keep each historical window attached to its run.",
+          "timestamp_seconds": 290.598,
+          "duration_seconds": 2.069,
+          "spoken_span": "A window changes the experiment."
+        },
+        {
+          "type": "animation",
+          "description": "Use unequal physical lengths for 1,335, 2,004, and 2,051.",
+          "timestamp_seconds": 292.667,
+          "duration_seconds": 5.793,
+          "spoken_span": "The lane lengths follow the counts, so 2,051 is longer than 2,004 and 1,335."
+        },
+        {
+          "type": "animation",
+          "description": "Pull the lanes apart again and label the total as bookkeeping.",
+          "timestamp_seconds": 298.46,
+          "duration_seconds": 1.655,
+          "spoken_span": "The total is bookkeeping."
+        },
+        {
+          "type": "animation",
+          "description": "Keep each market on its own reading after the total resolves.",
+          "timestamp_seconds": 300.115,
+          "duration_seconds": 2.933,
+          "spoken_span": "Each market needs its own reading."
         }
       ],
       "source_ref": "E01-RW-C04"
@@ -133,9 +701,9 @@
     {
       "id": "scene-05",
       "label": "The Dow gate has more than one way to fail",
-      "text": "In the Dow run, 1,151 candidates were dropped. The saved gate census records 1,122 return-to-drawdown failures, 1,065 profit-factor failures, and 150 activity failures. Return-to-drawdown is the net result divided by the measured drawdown; it compares the money made with the depth of the fall that came before it. Profit factor is gross winning dollars divided by gross losing dollars. Gross wins are every winning trade's dollars added together, and gross losses are every losing trade's dollars added together. Max drawdown is the largest fall from a running high to a later low. How often the strategy won is the number of winning trades divided by all trades. Trades per month is completed trades divided by the months in the test. Activity asks whether there were enough trades to make the result informative. Those counts overlap, so they do not add up to 1,151. One candidate can fail because the money was too small for the drawdown, because the winning dollars did not beat the losing dollars, because there were too few trades, or because more than one of those things went wrong. The threshold is part of the run too. A gate is not a universal law about every market; it is the declared line this candidate set had to cross.",
-      "start_seconds": 200.0,
-      "end_seconds": 279.625,
+      "text": "Dow is the lane with 184. Of its 1,335 candidates, 1,151 stopped. The failure census counts 1,122 return-to-drawdown failures. It counts 1,065 profit-factor failures. It counts 150 activity failures. The same row can appear in more than one count. Return-to-drawdown is the result compared with the biggest fall from a running high to a later low. This run required a value above 1.0. Profit factor is the comparison of gross winning dollars with gross losing dollars. This run required a value above 1.05. Trades per month is the activity measure in this screen. This run required more than 2 and less than 300 trades per month. Too few trades leave a result hard to measure. Too many can turn costs into the result. Add the three failure counts and you exceed the unique drop because they overlap. A row that misses two lines remains one stopped row. The census records its overlap. The unique number comes from the population: 1,335 entered minus 184 surviving equals 1,151. The visual keeps those ribbons crossing the same population. The thresholds stay attached to this run. A gate can reject a row for any one measured reason. The gate describes this population on this window. It does not set a universal market verdict.",
+      "start_seconds": 303.048,
+      "end_seconds": 389.981,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -148,13 +716,169 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "In the Dow run, 1,151 candidates were dropped. The saved gate census records 1,122 return-to-drawdown failures, 1,065 profit-factor failures, and 150 activity failures. Return-to-drawdown is the net result divided by the measured drawdown; it compares the money made with the depth of the fall that came before it. Profit factor is gross winning dollars divided by gross losing dollars. Gross wins are every winning trade's dollars added together, and gross losses are every losing trade's dollars added together. Max drawdown is the largest fall from a running high to a later low. How often the strategy won is the number of winning trades divided by all trades. Trades per month is completed trades divided by the months in the test. Activity asks whether there were enough trades to make the result informative. Those counts overlap, so they do not add up to 1,151. One candidate can fail because the money was too small for the drawdown, because the winning dollars did not beat the losing dollars, because there were too few trades, or because more than one of those things went wrong. The threshold is part of the run too. A gate is not a universal law about every market; it is the declared line this candidate set had to cross."
+        "provider_text": "Dow is the lane with 184. Of its 1,335 candidates, 1,151 stopped. The failure census counts 1,122 return-to-drawdown failures. It counts 1,065 profit-factor failures. It counts 150 activity failures. The same row can appear in more than one count. Return-to-drawdown is the result compared with the biggest fall from a running high to a later low. This run required a value above 1.0. Profit factor is the comparison of gross winning dollars with gross losing dollars. This run required a value above 1.05. Trades per month is the activity measure in this screen. This run required more than 2 and less than 300 trades per month. Too few trades leave a result hard to measure. Too many can turn costs into the result. Add the three failure counts and you exceed the unique drop because they overlap. A row that misses two lines remains one stopped row. The census records its overlap. The unique number comes from the population: 1,335 entered minus 184 surviving equals 1,151. The visual keeps those ribbons crossing the same population. The thresholds stay attached to this run. A gate can reject a row for any one measured reason. The gate describes this population on this window. It does not set a universal market verdict."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Show overlapping Dow failure modes without summing them into a false total.",
-          "timestamp_seconds": 200.0
+          "description": "Fill the Dow population track and drop 1,151 tokens below the rail.",
+          "timestamp_seconds": 303.048,
+          "duration_seconds": 2.483,
+          "spoken_span": "Dow is the lane with 184."
+        },
+        {
+          "type": "animation",
+          "description": "Draw a return-to-drawdown ribbon proportional to 1,122.",
+          "timestamp_seconds": 305.531,
+          "duration_seconds": 2.483,
+          "spoken_span": "Of its 1,335 candidates, 1,151 stopped."
+        },
+        {
+          "type": "animation",
+          "description": "Draw a profit-factor ribbon proportional to 1,065.",
+          "timestamp_seconds": 308.014,
+          "duration_seconds": 2.897,
+          "spoken_span": "The failure census counts 1,122 return-to-drawdown failures."
+        },
+        {
+          "type": "animation",
+          "description": "Draw the shorter activity ribbon for 150.",
+          "timestamp_seconds": 310.911,
+          "duration_seconds": 2.069,
+          "spoken_span": "It counts 1,065 profit-factor failures."
+        },
+        {
+          "type": "animation",
+          "description": "Let one token touch two ribbons and another touch all three.",
+          "timestamp_seconds": 312.98,
+          "duration_seconds": 2.069,
+          "spoken_span": "It counts 150 activity failures."
+        },
+        {
+          "type": "animation",
+          "description": "Place a ratio dial beside the peak-to-trough depth.",
+          "timestamp_seconds": 315.049,
+          "duration_seconds": 4.138,
+          "spoken_span": "The same row can appear in more than one count."
+        },
+        {
+          "type": "animation",
+          "description": "Lock return-to-drawdown above 1.0.",
+          "timestamp_seconds": 319.187,
+          "duration_seconds": 7.034,
+          "spoken_span": "Return-to-drawdown is the result compared with the biggest fall from a running high to a later low."
+        },
+        {
+          "type": "animation",
+          "description": "Divide gross winning dollars by gross losing dollars.",
+          "timestamp_seconds": 326.221,
+          "duration_seconds": 2.897,
+          "spoken_span": "This run required a value above 1.0."
+        },
+        {
+          "type": "animation",
+          "description": "Lock profit factor above 1.05.",
+          "timestamp_seconds": 329.118,
+          "duration_seconds": 5.379,
+          "spoken_span": "Profit factor is the comparison of gross winning dollars with gross losing dollars."
+        },
+        {
+          "type": "animation",
+          "description": "Place the activity label beside the monthly ruler.",
+          "timestamp_seconds": 334.497,
+          "duration_seconds": 2.897,
+          "spoken_span": "This run required a value above 1.05."
+        },
+        {
+          "type": "animation",
+          "description": "Set the monthly trade ruler above 2 and below 300.",
+          "timestamp_seconds": 337.394,
+          "duration_seconds": 4.138,
+          "spoken_span": "Trades per month is the activity measure in this screen."
+        },
+        {
+          "type": "animation",
+          "description": "Show a too-few-trades warning beside a thin count.",
+          "timestamp_seconds": 341.532,
+          "duration_seconds": 5.379,
+          "spoken_span": "This run required more than 2 and less than 300 trades per month."
+        },
+        {
+          "type": "animation",
+          "description": "Show a cost warning beside a crowded count.",
+          "timestamp_seconds": 346.911,
+          "duration_seconds": 3.724,
+          "spoken_span": "Too few trades leave a result hard to measure."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the overlap visible instead of stacking the counts.",
+          "timestamp_seconds": 350.635,
+          "duration_seconds": 3.31,
+          "spoken_span": "Too many can turn costs into the result."
+        },
+        {
+          "type": "animation",
+          "description": "Mark the overlap as one census row crossing multiple ribbons.",
+          "timestamp_seconds": 353.945,
+          "duration_seconds": 5.793,
+          "spoken_span": "Add the three failure counts and you exceed the unique drop because they overlap."
+        },
+        {
+          "type": "animation",
+          "description": "Show the crossing ribbons as one shared Dow population.",
+          "timestamp_seconds": 359.738,
+          "duration_seconds": 4.138,
+          "spoken_span": "A row that misses two lines remains one stopped row."
+        },
+        {
+          "type": "animation",
+          "description": "Compute 1,335 minus 184 on a unique-population abacus.",
+          "timestamp_seconds": 363.876,
+          "duration_seconds": 2.069,
+          "spoken_span": "The census records its overlap."
+        },
+        {
+          "type": "animation",
+          "description": "Hold the 1,151 unique drop beside the crossing ribbons.",
+          "timestamp_seconds": 365.945,
+          "duration_seconds": 5.793,
+          "spoken_span": "The unique number comes from the population: 1,335 entered minus 184 surviving equals 1,151."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the failure census attached to the same Dow population.",
+          "timestamp_seconds": 371.738,
+          "duration_seconds": 3.724,
+          "spoken_span": "The visual keeps those ribbons crossing the same population."
+        },
+        {
+          "type": "animation",
+          "description": "Attach the thresholds to this run's gate.",
+          "timestamp_seconds": 375.462,
+          "duration_seconds": 2.897,
+          "spoken_span": "The thresholds stay attached to this run."
+        },
+        {
+          "type": "animation",
+          "description": "Open one pass/fail gate for each measured reason.",
+          "timestamp_seconds": 378.359,
+          "duration_seconds": 4.552,
+          "spoken_span": "A gate can reject a row for any one measured reason."
+        },
+        {
+          "type": "animation",
+          "description": "Close before any universal market rule appears.",
+          "timestamp_seconds": 382.911,
+          "duration_seconds": 3.31,
+          "spoken_span": "The gate describes this population on this window."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the Dow population attached to the final gate statement.",
+          "timestamp_seconds": 386.221,
+          "duration_seconds": 3.76,
+          "spoken_span": "It does not set a universal market verdict."
         }
       ],
       "source_ref": "E01-RW-C05"
@@ -162,9 +886,9 @@
     {
       "id": "scene-06",
       "label": "One survivor is still only one survivor",
-      "text": "One recorded Dow candidate entered the screen with net profit of $16,727.80, profit factor about 1.280, return-to-drawdown about 4.932, and 553 trades. The visual preserves the exact six-decimal ratios; speech uses the rounded values so the comparison is easier to follow. It cleared that run's configured first-screen gates. Profit factor above 1 tells us that its gross winning dollars exceeded its gross losing dollars on that ledger. Return-to-drawdown tells us how much net result was earned relative to the measured drawdown. Those are useful measurements, and the 553 trades give the row more history than a handful of lucky entries. They still describe one candidate on one development window. The row does not tell us how the strategy was selected from the full library, whether its fills would be available live, or how it behaves on the next phase. It is still not a finish line. A candidate can look acceptable on the development window and still fail when the pipeline moves to prices that did not choose it.",
-      "start_seconds": 279.625,
-      "end_seconds": 343.5,
+      "text": "Here is one row that passed. Its candidate ID is formula-2851293728-1566. Its ledger reports profit factor 1.280370 and return-to-drawdown 4.932417. It has 553 trades. 210 were wins and 343 were losses. How often the strategy won is its win rate, but the winning count alone cannot tell us whether the rule paid for its losing trades. This is payoff asymmetry in a real recorded row: fewer wins can still matter if the winning dollars are larger, while a high win rate can still lose money when losses are larger. Gross wins and gross losses are the dollar piles that profit factor compares. Net profit is the after-cost remainder, and it is one risk measurement among several. Maximum drawdown measures the biggest peak-to-trough fall; return-to-drawdown places the result beside that fall. Those measurements belong to the development window and this exact rule set. The library was searched before this row came forward. That search history matters because 184 is a selected queue with a search history. Survivor means it crossed the intake lines. It still needs harder tests. The row gives us measurements; later prices supply the next question.",
+      "start_seconds": 389.981,
+      "end_seconds": 468.225,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -177,13 +901,120 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "One recorded Dow candidate entered the screen with net profit of $16,727.80, profit factor about 1.280, return-to-drawdown about 4.932, and 553 trades. The visual preserves the exact six-decimal ratios; speech uses the rounded values so the comparison is easier to follow. It cleared that run's configured first-screen gates. Profit factor above 1 tells us that its gross winning dollars exceeded its gross losing dollars on that ledger. Return-to-drawdown tells us how much net result was earned relative to the measured drawdown. Those are useful measurements, and the 553 trades give the row more history than a handful of lucky entries. They still describe one candidate on one development window. The row does not tell us how the strategy was selected from the full library, whether its fills would be available live, or how it behaves on the next phase. It is still not a finish line. A candidate can look acceptable on the development window and still fail when the pipeline moves to prices that did not choose it."
+        "provider_text": "Here is one row that passed. Its candidate ID is formula-2851293728-1566. Its ledger reports profit factor 1.280370 and return-to-drawdown 4.932417. It has 553 trades. 210 were wins and 343 were losses. How often the strategy won is its win rate, but the winning count alone cannot tell us whether the rule paid for its losing trades. This is payoff asymmetry in a real recorded row: fewer wins can still matter if the winning dollars are larger, while a high win rate can still lose money when losses are larger. Gross wins and gross losses are the dollar piles that profit factor compares. Net profit is the after-cost remainder, and it is one risk measurement among several. Maximum drawdown measures the biggest peak-to-trough fall; return-to-drawdown places the result beside that fall. Those measurements belong to the development window and this exact rule set. The library was searched before this row came forward. That search history matters because 184 is a selected queue with a search history. Survivor means it crossed the intake lines. It still needs harder tests. The row gives us measurements; later prices supply the next question."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Hold one recorded candidate beside its next-phase result.",
-          "timestamp_seconds": 279.625
+          "description": "Pull candidate formula-2851293728-1566 from the Dow queue.",
+          "timestamp_seconds": 389.981,
+          "duration_seconds": 2.483,
+          "spoken_span": "Here is one row that passed."
+        },
+        {
+          "type": "animation",
+          "description": "Place it on a measured row with its ID attached.",
+          "timestamp_seconds": 392.464,
+          "duration_seconds": 2.069,
+          "spoken_span": "Its candidate ID is formula-2851293728-1566."
+        },
+        {
+          "type": "animation",
+          "description": "Reveal profit factor 1.280370 as a ratio mark.",
+          "timestamp_seconds": 394.533,
+          "duration_seconds": 3.724,
+          "spoken_span": "Its ledger reports profit factor 1.280370 and return-to-drawdown 4.932417."
+        },
+        {
+          "type": "animation",
+          "description": "Reveal return-to-drawdown 4.932417 beside the fall marker.",
+          "timestamp_seconds": 398.257,
+          "duration_seconds": 1.655,
+          "spoken_span": "It has 553 trades."
+        },
+        {
+          "type": "animation",
+          "description": "Count 553 trades on the row.",
+          "timestamp_seconds": 399.912,
+          "duration_seconds": 2.897,
+          "spoken_span": "210 were wins and 343 were losses."
+        },
+        {
+          "type": "animation",
+          "description": "Split the count into 210 wins and 343 losses.",
+          "timestamp_seconds": 402.809,
+          "duration_seconds": 10.345,
+          "spoken_span": "How often the strategy won is its win rate, but the winning count alone cannot tell us whether the rule paid for its losing trades."
+        },
+        {
+          "type": "animation",
+          "description": "Show the smaller winning count beside the larger losing count.",
+          "timestamp_seconds": 413.154,
+          "duration_seconds": 13.655,
+          "spoken_span": "This is payoff asymmetry in a real recorded row: fewer wins can still matter if the winning dollars are larger, while a high win rate can still lose money when losses are larger."
+        },
+        {
+          "type": "animation",
+          "description": "Show gross winning and losing piles beside profit factor.",
+          "timestamp_seconds": 426.809,
+          "duration_seconds": 5.379,
+          "spoken_span": "Gross wins and gross losses are the dollar piles that profit factor compares."
+        },
+        {
+          "type": "animation",
+          "description": "Show the after-cost net-profit balance without a promise.",
+          "timestamp_seconds": 432.188,
+          "duration_seconds": 5.793,
+          "spoken_span": "Net profit is the after-cost remainder, and it is one risk measurement among several."
+        },
+        {
+          "type": "animation",
+          "description": "Show maximum drawdown and return-to-drawdown beside the fall.",
+          "timestamp_seconds": 437.981,
+          "duration_seconds": 5.793,
+          "spoken_span": "Maximum drawdown measures the biggest peak-to-trough fall; return-to-drawdown places the result beside that fall."
+        },
+        {
+          "type": "animation",
+          "description": "Set the development-window bracket behind the row.",
+          "timestamp_seconds": 443.774,
+          "duration_seconds": 4.966,
+          "spoken_span": "Those measurements belong to the development window and this exact rule set."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the full candidate population as a quiet field.",
+          "timestamp_seconds": 448.74,
+          "duration_seconds": 3.724,
+          "spoken_span": "The library was searched before this row came forward."
+        },
+        {
+          "type": "animation",
+          "description": "Wrap a selection-history bracket around that field.",
+          "timestamp_seconds": 452.464,
+          "duration_seconds": 5.793,
+          "spoken_span": "That search history matters because 184 is a selected queue with a search history."
+        },
+        {
+          "type": "animation",
+          "description": "Let the row cross the intake lines.",
+          "timestamp_seconds": 458.257,
+          "duration_seconds": 2.897,
+          "spoken_span": "Survivor means it crossed the intake lines."
+        },
+        {
+          "type": "animation",
+          "description": "Place a harder-test door ahead of the row.",
+          "timestamp_seconds": 461.154,
+          "duration_seconds": 2.069,
+          "spoken_span": "It still needs harder tests."
+        },
+        {
+          "type": "animation",
+          "description": "Stop at the development edge with no future result.",
+          "timestamp_seconds": 463.223,
+          "duration_seconds": 5.002,
+          "spoken_span": "The row gives us measurements; later prices supply the next question."
         }
       ],
       "source_ref": "E01-RW-C06"
@@ -191,9 +1022,9 @@
     {
       "id": "scene-07",
       "label": "The two zero lanes are part of the result",
-      "text": "The S&P 500 futures lane ended with 2,004 candidates rejected at the first screen. The EURUSD lane ended with 2,051 rejected. Across all three lanes, 5,206 candidate versions stopped there. That does not prove that S&P futures or Forex cannot be traded. It does not prove that every rejected rule is useless in every other window. It says these exact candidate sets failed the rules and thresholds recorded for these runs. A zero is information when the run is preserved instead of hidden. It also tells the next researcher where not to spend the same search effort without a new reason.",
-      "start_seconds": 343.5,
-      "end_seconds": 381.875,
+      "text": "The zero lanes deserve attention. S&P 500 futures rejected 2,004 candidates at the first screen. EURUSD rejected 2,051. Together with the Dow drops, that gives 5,206 stopped versions. Zero is not a missing number here. A real run executed, preserved its input population, and recorded zero survivors. These versions missed the intake lines on these windows. Zero tells us what this search and this screen found; it does not tell us that no market possibility exists. The records still say real data, wiring true, and validated=false. Keep zero in the result. Keep the recorded outcome when the run actually found no survivors. A new reason would be needed before searching the same space again. The empty lane is evidence about the first gate. Future rules remain untested.",
+      "start_seconds": 468.225,
+      "end_seconds": 521.228,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -206,13 +1037,106 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "The S&P 500 futures lane ended with 2,004 candidates rejected at the first screen. The EURUSD lane ended with 2,051 rejected. Across all three lanes, 5,206 candidate versions stopped there. That does not prove that S&P futures or Forex cannot be traded. It does not prove that every rejected rule is useless in every other window. It says these exact candidate sets failed the rules and thresholds recorded for these runs. A zero is information when the run is preserved instead of hidden. It also tells the next researcher where not to spend the same search effort without a new reason."
+        "provider_text": "The zero lanes deserve attention. S&P 500 futures rejected 2,004 candidates at the first screen. EURUSD rejected 2,051. Together with the Dow drops, that gives 5,206 stopped versions. Zero is not a missing number here. A real run executed, preserved its input population, and recorded zero survivors. These versions missed the intake lines on these windows. Zero tells us what this search and this screen found; it does not tell us that no market possibility exists. The records still say real data, wiring true, and validated=false. Keep zero in the result. Keep the recorded outcome when the run actually found no survivors. A new reason would be needed before searching the same space again. The empty lane is evidence about the first gate. Future rules remain untested."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Keep Dow, S&P 500 futures, and EURUSD counts in separate lanes while showing the aggregate.",
-          "timestamp_seconds": 343.5
+          "description": "Place the two stopped lanes beside the Dow drop population.",
+          "timestamp_seconds": 468.225,
+          "duration_seconds": 2.069,
+          "spoken_span": "The zero lanes deserve attention."
+        },
+        {
+          "type": "animation",
+          "description": "Extend the S&P 500 futures track to 2,004.",
+          "timestamp_seconds": 470.294,
+          "duration_seconds": 4.138,
+          "spoken_span": "S&P 500 futures rejected 2,004 candidates at the first screen."
+        },
+        {
+          "type": "animation",
+          "description": "Stop every S&P token at the first gate.",
+          "timestamp_seconds": 474.432,
+          "duration_seconds": 1.241,
+          "spoken_span": "EURUSD rejected 2,051."
+        },
+        {
+          "type": "animation",
+          "description": "Extend the EURUSD track to 2,051 and stop every token.",
+          "timestamp_seconds": 475.673,
+          "duration_seconds": 4.138,
+          "spoken_span": "Together with the Dow drops, that gives 5,206 stopped versions."
+        },
+        {
+          "type": "animation",
+          "description": "Bring the lane totals together and settle on 5,206 stopped.",
+          "timestamp_seconds": 479.811,
+          "duration_seconds": 2.897,
+          "spoken_span": "Zero is not a missing number here."
+        },
+        {
+          "type": "animation",
+          "description": "Show the run-complete marker and the preserved input population.",
+          "timestamp_seconds": 482.708,
+          "duration_seconds": 4.966,
+          "spoken_span": "A real run executed, preserved its input population, and recorded zero survivors."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the market labels and windows attached to the failed sets.",
+          "timestamp_seconds": 487.674,
+          "duration_seconds": 3.724,
+          "spoken_span": "These versions missed the intake lines on these windows."
+        },
+        {
+          "type": "animation",
+          "description": "Show ZERO as a recorded outcome rather than a blank field.",
+          "timestamp_seconds": 491.398,
+          "duration_seconds": 8.276,
+          "spoken_span": "Zero tells us what this search and this screen found; it does not tell us that no market possibility exists."
+        },
+        {
+          "type": "animation",
+          "description": "Place the preserved input population beside the zero result.",
+          "timestamp_seconds": 499.674,
+          "duration_seconds": 4.138,
+          "spoken_span": "The records still say real data, wiring true, and validated=false."
+        },
+        {
+          "type": "animation",
+          "description": "Place a question mark outside the lanes for broader market possibility.",
+          "timestamp_seconds": 503.812,
+          "duration_seconds": 2.069,
+          "spoken_span": "Keep zero in the result."
+        },
+        {
+          "type": "animation",
+          "description": "Stamp REAL DATA, WIRING TRUE, and VALIDATED FALSE on the evidence rail.",
+          "timestamp_seconds": 505.881,
+          "duration_seconds": 4.552,
+          "spoken_span": "Keep the recorded outcome when the run actually found no survivors."
+        },
+        {
+          "type": "animation",
+          "description": "Hold the zero lanes in place as the result of this first gate.",
+          "timestamp_seconds": 510.433,
+          "duration_seconds": 4.966,
+          "spoken_span": "A new reason would be needed before searching the same space again."
+        },
+        {
+          "type": "animation",
+          "description": "Draw a new-reason arrow away from the same search space.",
+          "timestamp_seconds": 515.399,
+          "duration_seconds": 3.724,
+          "spoken_span": "The empty lane is evidence about the first gate."
+        },
+        {
+          "type": "animation",
+          "description": "Keep future rules outside the evidence carried by the empty lane.",
+          "timestamp_seconds": 519.123,
+          "duration_seconds": 2.105,
+          "spoken_span": "Future rules remain untested."
         }
       ],
       "source_ref": "E01-RW-C07"
@@ -220,9 +1144,9 @@
     {
       "id": "scene-08",
       "label": "Search changes the burden of proof",
-      "text": "When a pipeline searches many candidate versions, one attractive result is easier to find by chance. Pre-registration is the written plan for the rule set, data window, cost assumptions, measurements, and rejection line, saved before looking at the result. Keep every version, including the ones that fail. If a threshold changes after the output is visible, that is a new research decision and needs a new version. The count of candidates is part of the evidence because it tells the next test how much selection happened before the headline number. It also tells a beginner why the best row needs humility: the row was chosen after a large field was inspected, while the rejected rows cannot be replaced by silence.",
-      "start_seconds": 381.875,
-      "end_seconds": 427.375,
+      "text": "Now the selection problem. When you try many versions, chance has more ways to show you an attractive row. The library count tells how many versions were inspected before 184 survived. That denominator belongs beside the survivor, even when the survivor's measurements look clean. Before reading the result, write the hypothesis. Write the complete rule set. Write the data window and costs. Write the measurements and rejection line. Pre-registration is a plan written before reviewing the result, with later changes made visible. That plan is called pre-registration. If a threshold changes after the result appears, give the changed rule a new version. Keep the rejected rows. They show the alternatives tried and the line that stopped them. A survivor carries its search history. Search does not make a row false; it tells us how much selection happened before the row arrived. The first screen answers one narrow question about these versions and windows.",
+      "start_seconds": 521.228,
+      "end_seconds": 584.99,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -235,13 +1159,120 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "When a pipeline searches many candidate versions, one attractive result is easier to find by chance. Pre-registration is the written plan for the rule set, data window, cost assumptions, measurements, and rejection line, saved before looking at the result. Keep every version, including the ones that fail. If a threshold changes after the output is visible, that is a new research decision and needs a new version. The count of candidates is part of the evidence because it tells the next test how much selection happened before the headline number. It also tells a beginner why the best row needs humility: the row was chosen after a large field was inspected, while the rejected rows cannot be replaced by silence."
+        "provider_text": "Now the selection problem. When you try many versions, chance has more ways to show you an attractive row. The library count tells how many versions were inspected before 184 survived. That denominator belongs beside the survivor, even when the survivor's measurements look clean. Before reading the result, write the hypothesis. Write the complete rule set. Write the data window and costs. Write the measurements and rejection line. Pre-registration is a plan written before reviewing the result, with later changes made visible. That plan is called pre-registration. If a threshold changes after the result appears, give the changed rule a new version. Keep the rejected rows. They show the alternatives tried and the line that stopped them. A survivor carries its search history. Search does not make a row false; it tells us how much selection happened before the row arrived. The first screen answers one narrow question about these versions and windows."
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
-          "timestamp_seconds": 381.875
+          "description": "Fan many rule tokens into a branching search field.",
+          "timestamp_seconds": 521.228,
+          "duration_seconds": 1.655,
+          "spoken_span": "Now the selection problem."
+        },
+        {
+          "type": "animation",
+          "description": "Place a chance marker beside one attractive row.",
+          "timestamp_seconds": 522.883,
+          "duration_seconds": 6.207,
+          "spoken_span": "When you try many versions, chance has more ways to show you an attractive row."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the 5,390 population count visible as the denominator.",
+          "timestamp_seconds": 529.09,
+          "duration_seconds": 4.966,
+          "spoken_span": "The library count tells how many versions were inspected before 184 survived."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the denominator beside the attractive row.",
+          "timestamp_seconds": 534.056,
+          "duration_seconds": 5.379,
+          "spoken_span": "That denominator belongs beside the survivor, even when the survivor's measurements look clean."
+        },
+        {
+          "type": "animation",
+          "description": "Draw a plan sheet with the hypothesis.",
+          "timestamp_seconds": 539.435,
+          "duration_seconds": 2.897,
+          "spoken_span": "Before reading the result, write the hypothesis."
+        },
+        {
+          "type": "animation",
+          "description": "Add the complete rule set to the plan.",
+          "timestamp_seconds": 542.332,
+          "duration_seconds": 2.069,
+          "spoken_span": "Write the complete rule set."
+        },
+        {
+          "type": "animation",
+          "description": "Add the window and costs before the result.",
+          "timestamp_seconds": 544.401,
+          "duration_seconds": 2.483,
+          "spoken_span": "Write the data window and costs."
+        },
+        {
+          "type": "animation",
+          "description": "Add the measurements and rejection line.",
+          "timestamp_seconds": 546.884,
+          "duration_seconds": 2.483,
+          "spoken_span": "Write the measurements and rejection line."
+        },
+        {
+          "type": "animation",
+          "description": "Stamp the plan before the search opens.",
+          "timestamp_seconds": 549.367,
+          "duration_seconds": 5.793,
+          "spoken_span": "Pre-registration is a plan written before reviewing the result, with later changes made visible."
+        },
+        {
+          "type": "animation",
+          "description": "Fork a new version tab if a threshold changes.",
+          "timestamp_seconds": 555.16,
+          "duration_seconds": 2.069,
+          "spoken_span": "That plan is called pre-registration."
+        },
+        {
+          "type": "animation",
+          "description": "Keep rejected tokens in an archive beside the queue.",
+          "timestamp_seconds": 557.229,
+          "duration_seconds": 6.207,
+          "spoken_span": "If a threshold changes after the result appears, give the changed rule a new version."
+        },
+        {
+          "type": "animation",
+          "description": "Mark the archive as alternatives tried and gates crossed.",
+          "timestamp_seconds": 563.436,
+          "duration_seconds": 1.655,
+          "spoken_span": "Keep the rejected rows."
+        },
+        {
+          "type": "animation",
+          "description": "Wrap a selection-history band around the attractive row.",
+          "timestamp_seconds": 565.091,
+          "duration_seconds": 4.552,
+          "spoken_span": "They show the alternatives tried and the line that stopped them."
+        },
+        {
+          "type": "animation",
+          "description": "Show the search history as context, not a verdict.",
+          "timestamp_seconds": 569.643,
+          "duration_seconds": 2.483,
+          "spoken_span": "A survivor carries its search history."
+        },
+        {
+          "type": "animation",
+          "description": "Leave the later-price question outside the development bracket.",
+          "timestamp_seconds": 572.126,
+          "duration_seconds": 7.448,
+          "spoken_span": "Search does not make a row false; it tells us how much selection happened before the row arrived."
+        },
+        {
+          "type": "animation",
+          "description": "Close the search field before the next price block opens.",
+          "timestamp_seconds": 579.574,
+          "duration_seconds": 5.416,
+          "spoken_span": "The first screen answers one narrow question about these versions and windows."
         }
       ],
       "source_ref": "E01-RW-C08"
@@ -249,9 +1280,9 @@
     {
       "id": "scene-09",
       "label": "184 is a queue, not a trophy",
-      "text": "The 184 Dow survivors are a queue for the next test. In the recorded Dow out-of-sample branch, those 184 became 154. One actual candidate moved from in-sample net profit of $16,727.80 and profit factor about 1.280 to out-of-sample net loss of $4,897.40 and profit factor about 0.813. That is a large change in status without changing the name of the candidate. The development prices helped select it. The later prices supplied a different answer. My read is that the word survivor needs to stay small: it means “passed the previous gate.” It does not mean “won the market.” The pipeline is showing a real status change.",
-      "start_seconds": 427.375,
-      "end_seconds": 467.625,
+      "text": "At the boundary, the 184 Dow survivors have one honest description. They are queued for the next test. They passed the previous gate on the development window. Prices after that window have not judged them. The later price block must be fixed before anyone reads its result. That later block is a new test with a separate readout. If rows fail, the first screen still answered its question. If rows continue, live trading remains a separate decision. Survivor means passed the previous gate. Validated=false remains the recorded status. We stop before a later survivor count or payoff. I want to leave you with one question: what happens on prices the pipeline never used to choose these rows?",
+      "start_seconds": 584.99,
+      "end_seconds": 633.855,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -264,13 +1295,92 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "The 184 Dow survivors are a queue for the next test. In the recorded Dow out-of-sample branch, those 184 became 154. One actual candidate moved from in-sample net profit of $16,727.80 and profit factor about 1.280 to out-of-sample net loss of $4,897.40 and profit factor about 0.813. That is a large change in status without changing the name of the candidate. The development prices helped select it. The later prices supplied a different answer. My read is that the word survivor needs to stay small: it means “passed the previous gate.” It does not mean “won the market.” The pipeline is showing a real status change."
+        "provider_text": "At the boundary, the 184 Dow survivors have one honest description. They are queued for the next test. They passed the previous gate on the development window. Prices after that window have not judged them. The later price block must be fixed before anyone reads its result. That later block is a new test with a separate readout. If rows fail, the first screen still answered its question. If rows continue, live trading remains a separate decision. Survivor means passed the previous gate. Validated=false remains the recorded status. We stop before a later survivor count or payoff. I want to leave you with one question: what happens on prices the pipeline never used to choose these rows?"
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Hold one recorded candidate beside its next-phase result.",
-          "timestamp_seconds": 427.375
+          "description": "Gather exactly 184 Dow tokens into a physical queue.",
+          "timestamp_seconds": 584.99,
+          "duration_seconds": 4.552,
+          "spoken_span": "At the boundary, the 184 Dow survivors have one honest description."
+        },
+        {
+          "type": "animation",
+          "description": "Place the queue at the next-test gate.",
+          "timestamp_seconds": 589.542,
+          "duration_seconds": 2.897,
+          "spoken_span": "They are queued for the next test."
+        },
+        {
+          "type": "animation",
+          "description": "Label it PASSED PREVIOUS GATE.",
+          "timestamp_seconds": 592.439,
+          "duration_seconds": 3.724,
+          "spoken_span": "They passed the previous gate on the development window."
+        },
+        {
+          "type": "animation",
+          "description": "Draw the development-window bracket behind the queue.",
+          "timestamp_seconds": 596.163,
+          "duration_seconds": 3.31,
+          "spoken_span": "Prices after that window have not judged them."
+        },
+        {
+          "type": "animation",
+          "description": "Place a sealed later-price block beyond the edge.",
+          "timestamp_seconds": 599.473,
+          "duration_seconds": 4.966,
+          "spoken_span": "The later price block must be fixed before anyone reads its result."
+        },
+        {
+          "type": "animation",
+          "description": "Pin the fixed later window before any readout.",
+          "timestamp_seconds": 604.439,
+          "duration_seconds": 4.552,
+          "spoken_span": "That later block is a new test with a separate readout."
+        },
+        {
+          "type": "animation",
+          "description": "Mark the later block as a new test, not a second look.",
+          "timestamp_seconds": 608.991,
+          "duration_seconds": 4.138,
+          "spoken_span": "If rows fail, the first screen still answered its question."
+        },
+        {
+          "type": "animation",
+          "description": "Ghost a fail path and a continue path beyond the boundary.",
+          "timestamp_seconds": 613.129,
+          "duration_seconds": 3.724,
+          "spoken_span": "If rows continue, live trading remains a separate decision."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the word SURVIVOR small beside the queue.",
+          "timestamp_seconds": 616.853,
+          "duration_seconds": 2.483,
+          "spoken_span": "Survivor means passed the previous gate."
+        },
+        {
+          "type": "animation",
+          "description": "Leave VALIDATED FALSE on the evidence rail.",
+          "timestamp_seconds": 619.336,
+          "duration_seconds": 2.069,
+          "spoken_span": "Validated=false remains the recorded status."
+        },
+        {
+          "type": "animation",
+          "description": "Remove any later count or payoff.",
+          "timestamp_seconds": 621.405,
+          "duration_seconds": 3.724,
+          "spoken_span": "We stop before a later survivor count or payoff."
+        },
+        {
+          "type": "animation",
+          "description": "Hold the queue and sealed block on the question about unseen prices.",
+          "timestamp_seconds": 625.129,
+          "duration_seconds": 8.726,
+          "spoken_span": "I want to leave you with one question: what happens on prices the pipeline never used to choose these rows?"
         }
       ],
       "source_ref": "E01-RW-C09"
@@ -278,9 +1388,9 @@
     {
       "id": "scene-10",
       "label": "The first-screen worksheet",
-      "text": "For the next run, write down five things: the exact source run, the historical window, the number entering, the measurements that can reject a candidate, and the number moving forward. Then write the validation status beside the result. Keep one failed row and one advancing row so the funnel can be audited later. If the answer is zero, keep it. If the answer is 184, send those candidates to the next phase. Do not replace a failed row with a prettier example. The lesson is simple: 5,390 candidates entered, 184 continued, and the next test still has work to do. The pipeline records what it rejected, preserves the search size, states what is still unvalidated, and makes the next test harder.",
-      "start_seconds": 467.625,
-      "end_seconds": 513.5,
+      "text": "Before the next run, write a five-line worksheet. First, write the exact source run and its identity. Next, write the historical window and phase. Then write entering and surviving counts. Add every measurement that can reject a row and the threshold it must cross. Put data-source, wiring, and validation status beside the result. Keep one failed row and one advancing row. Keep the source hash in the private evidence record. Keep the rule and the cost assumptions with the window. If the answer is zero, keep zero. If the answer is 184, move the rows forward as a queue. Do not turn a queue into a promise. The ledger remains 5,390 entered, 184 continued, and 5,206 stopped. The next useful question waits beyond the screen: what happens when prices are new?",
+      "start_seconds": 633.855,
+      "end_seconds": 688.512,
       "speaker_directions": "Measured beginner teaching; land the recorded number, then name its boundary.",
       "delivery_cues": {
         "pace": "measured",
@@ -293,13 +1403,106 @@
         "pause_before_seconds": 0.0,
         "pause_after_seconds": 0.45,
         "delivery_note": "Read rounded spoken ratios as approximations; the exact receipt value belongs on the visual.",
-        "provider_text": "For the next run, write down five things: the exact source run, the historical window, the number entering, the measurements that can reject a candidate, and the number moving forward. Then write the validation status beside the result. Keep one failed row and one advancing row so the funnel can be audited later. If the answer is zero, keep it. If the answer is 184, send those candidates to the next phase. Do not replace a failed row with a prettier example. The lesson is simple: 5,390 candidates entered, 184 continued, and the next test still has work to do. The pipeline records what it rejected, preserves the search size, states what is still unvalidated, and makes the next test harder."
+        "provider_text": "Before the next run, write a five-line worksheet. First, write the exact source run and its identity. Next, write the historical window and phase. Then write entering and surviving counts. Add every measurement that can reject a row and the threshold it must cross. Put data-source, wiring, and validation status beside the result. Keep one failed row and one advancing row. Keep the source hash in the private evidence record. Keep the rule and the cost assumptions with the window. If the answer is zero, keep zero. If the answer is 184, move the rows forward as a queue. Do not turn a queue into a promise. The ledger remains 5,390 entered, 184 continued, and 5,206 stopped. The next useful question waits beyond the screen: what happens when prices are new?"
       },
       "enhancement_cues": [
         {
           "type": "animation",
-          "description": "Purpose-built factual composition: Show the complete rule set moving through replay, a declared gate, and a next test.",
-          "timestamp_seconds": 467.625
+          "description": "Lay out a five-line worksheet for the next run.",
+          "timestamp_seconds": 633.855,
+          "duration_seconds": 3.31,
+          "spoken_span": "Before the next run, write a five-line worksheet."
+        },
+        {
+          "type": "animation",
+          "description": "Fill the source-run field with an identity tab.",
+          "timestamp_seconds": 637.165,
+          "duration_seconds": 3.724,
+          "spoken_span": "First, write the exact source run and its identity."
+        },
+        {
+          "type": "animation",
+          "description": "Add the private hash pin to that tab.",
+          "timestamp_seconds": 640.889,
+          "duration_seconds": 2.897,
+          "spoken_span": "Next, write the historical window and phase."
+        },
+        {
+          "type": "animation",
+          "description": "Fill the window field with its phase and dates.",
+          "timestamp_seconds": 643.786,
+          "duration_seconds": 2.483,
+          "spoken_span": "Then write entering and surviving counts."
+        },
+        {
+          "type": "animation",
+          "description": "Fill the count field with entering and surviving populations.",
+          "timestamp_seconds": 646.269,
+          "duration_seconds": 5.793,
+          "spoken_span": "Add every measurement that can reject a row and the threshold it must cross."
+        },
+        {
+          "type": "animation",
+          "description": "Fill the gate field with each measurement and threshold.",
+          "timestamp_seconds": 652.062,
+          "duration_seconds": 3.724,
+          "spoken_span": "Put data-source, wiring, and validation status beside the result."
+        },
+        {
+          "type": "animation",
+          "description": "Fill the status field with real data, wiring true, and validated false.",
+          "timestamp_seconds": 655.786,
+          "duration_seconds": 3.31,
+          "spoken_span": "Keep one failed row and one advancing row."
+        },
+        {
+          "type": "animation",
+          "description": "Place one failed row and one advancing row beside the worksheet.",
+          "timestamp_seconds": 659.096,
+          "duration_seconds": 3.724,
+          "spoken_span": "Keep the source hash in the private evidence record."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the source hash on the private evidence edge.",
+          "timestamp_seconds": 662.82,
+          "duration_seconds": 4.138,
+          "spoken_span": "Keep the rule and the cost assumptions with the window."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the rule and cost assumptions beside the window.",
+          "timestamp_seconds": 666.958,
+          "duration_seconds": 2.897,
+          "spoken_span": "If the answer is zero, keep zero."
+        },
+        {
+          "type": "animation",
+          "description": "Keep zero as a filled answer on the stopped lane tabs.",
+          "timestamp_seconds": 669.855,
+          "duration_seconds": 4.966,
+          "spoken_span": "If the answer is 184, move the rows forward as a queue."
+        },
+        {
+          "type": "animation",
+          "description": "Send 184 forward as a queue without changing its label.",
+          "timestamp_seconds": 674.821,
+          "duration_seconds": 3.31,
+          "spoken_span": "Do not turn a queue into a promise."
+        },
+        {
+          "type": "animation",
+          "description": "Keep the queue outside any promise boundary.",
+          "timestamp_seconds": 678.131,
+          "duration_seconds": 4.138,
+          "spoken_span": "The ledger remains 5,390 entered, 184 continued, and 5,206 stopped."
+        },
+        {
+          "type": "animation",
+          "description": "Reassemble 5,390 entered, 184 continued, and 5,206 stopped as the ledger.",
+          "timestamp_seconds": 682.269,
+          "duration_seconds": 6.243,
+          "spoken_span": "The next useful question waits beyond the screen: what happens when prices are new?"
         }
       ],
       "source_ref": "E01-RW-C10"
@@ -308,11 +1511,12 @@
   "metadata": {
     "episode": 1,
     "syllabus_episode": "01",
-    "package_revision": "e01-e03-production-start-2026-08-03",
-    "duration_basis_wpm": 160.0,
-    "word_count": 1356,
-    "vo_sha256": "e73be28b9bf8f4758985a39cd9cc745e070d7d960a4d35bf89753dab99368d0b",
+    "package_revision": "e01-rebuild-2026-08-03",
+    "duration_basis_wpm": 145.0,
+    "word_count": 1653,
+    "vo_sha256": "50cd078f9ee6cf6e633c0dd87767fde160188365c272496f48817a878f9c40cf",
     "evidence_authority": "../../e01-e03-live-receipts-2026-08-03.json",
+    "evidence_authority_sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d",
     "status": "candidate_pending_operator_script_and_visual_approval"
   }
 }

@@ -1,0 +1,27 @@
+{
+  "verdict": "PASS",
+  "blocked": [],
+  "warns": [
+    {
+      "type": "low-ttr",
+      "count": 1,
+      "detail": "AI-writing pattern",
+      "examples": [
+        "Vocabulary diversity 30.3% (511 unique / 1685 tokens)"
+      ],
+      "suggestion": "Text reuses a narrow word set. Vary nouns and verbs deliberately, or check if the topic genuinely warrants the repetition."
+    }
+  ],
+  "metrics": {
+    "words": 1653,
+    "detectorScore": 1,
+    "detectorLabel": "Minimal AI signals",
+    "classification": "HUMAN_ONLY",
+    "unscored": false
+  },
+  "detector": {
+    "vendor": "conorbronsdon/avoid-ai-writing",
+    "version": "3.16.0"
+  },
+  "generated_at": "2026-08-03T17:28:03Z"
+}

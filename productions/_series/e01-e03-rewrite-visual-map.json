@@ -3,16 +3,16 @@
   "visual_receipt": "productions/_series/visual-rebuild-previews/e01-e03-rewrite-visual-receipt.json",
   "episodes": {
     "01": {
-      "scene-01": "e01-pipeline-map.svg",
-      "scene-02": "e01-pipeline-map.svg",
-      "scene-03": "e01-pipeline-map.svg",
-      "scene-04": "e01-run-lanes.svg",
-      "scene-05": "e01-dow-gate-census.svg",
-      "scene-06": "e01-candidate-ledger.svg",
-      "scene-07": "e01-run-lanes.svg",
-      "scene-08": "e01-pipeline-map.svg",
-      "scene-09": "e01-candidate-ledger.svg",
-      "scene-10": "e01-pipeline-map.svg"
+      "scene-01": "e01-population-sieve",
+      "scene-02": "e01-pipeline-spine",
+      "scene-03": "e01-candidate-anatomy",
+      "scene-04": "e01-three-lanes",
+      "scene-05": "e01-overlap-census",
+      "scene-06": "e01-survivor-row",
+      "scene-07": "e01-zero-lanes",
+      "scene-08": "e01-selection-burden",
+      "scene-09": "e01-unseen-price-boundary",
+      "scene-10": "e01-worksheet-close"
     },
     "02": {
       "scene-01": "e02-spy-boundary.svg",

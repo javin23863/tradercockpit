@@ -1,0 +1,37 @@
+{
+  "schema": "into-the-laboratory/e01-method-claim-receipts/v1",
+  "captured_utc": "2026-08-03T00:00:00Z",
+  "purpose": "Private claim-specific background receipts for the E01 beginner lesson. These references support definitions and methodological framing; the run manifest and stamped phase files support the empirical numbers.",
+  "receipts": {
+    "E01_METHOD_RULE_SPEC": {
+      "citation": "Into the Laboratory Production Standard, Episode 01 teaching contract",
+      "locator": "C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/GTM/Social-Media-Library/Into the Laboratory — Production Standard.md:450-454",
+      "supports": "The intake lesson order: observation, competing explanations, falsifiable hypothesis, complete candidate rules, and pre-registered measurements and rejection; ontology receipts remain private while public teaching stays plain.",
+      "limitations": "This is the operator's series doctrine, not an empirical result and not a claim about market performance."
+    },
+    "E01_METHOD_METRICS": {
+      "citation": "Goldberg and Mahmoud, Drawdown: From Practice to Theory and Back Again (2014), plus the series diagnostic boundary",
+      "locator": "https://arxiv.org/abs/1404.7493; C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/GTM/Social-Media-Library/Into the Laboratory — Production Standard.md:586-592",
+      "supports": "Maximum drawdown as a peak-to-trough risk measure and the warning that profit factor is one diagnostic rather than a verdict; the episode uses the recorded ratios only as development-window measurements.",
+      "limitations": "The paper discusses drawdown risk generally; it does not validate the Futures run, its thresholds, or the candidate example."
+    },
+    "E01_METHOD_SELECTION": {
+      "citation": "White, A Reality Check for Data Snooping, Econometrica 68(5), 1097-1126 (2000)",
+      "locator": "https://doi.org/10.1111/1468-0262.00152 :: abstract and article scope",
+      "supports": "The selection-burden explanation: reusing a data set for inference or model selection creates a data-snooping problem, so the size of the searched candidate field belongs beside an attractive result.",
+      "limitations": "This is methodological background; it does not establish that any particular E01 survivor is overfit."
+    },
+    "E01_METHOD_PREREGISTRATION": {
+      "citation": "Open Science Framework, OSF Dictionary: Preregistrations",
+      "locator": "https://help.osf.io/article/339-osf-dictionary :: Preregistrations definition",
+      "supports": "The plain-English explanation that a preregistration is a study plan submitted before reviewing the data, with changes time-stamped and made transparent.",
+      "limitations": "The receipt describes research transparency practice; it does not prove that this historical E01 run was preregistered."
+    },
+    "E01_METHOD_BOUNDARY": {
+      "citation": "Into the Laboratory Production Standard, claim and provenance boundary",
+      "locator": "C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/GTM/Social-Media-Library/Into the Laboratory — Production Standard.md:586-592",
+      "supports": "The distinction between a recorded diagnostic and a live-performance promise, and the rule that provenance belongs in a sidecar rather than burned into lesson graphics.",
+      "limitations": "This is a presentation boundary; it does not alter or extend the source run's validated flag."
+    }
+  }
+}

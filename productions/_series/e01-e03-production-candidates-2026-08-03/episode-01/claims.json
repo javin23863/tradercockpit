@@ -1,34 +1,76 @@
 {
   "schema": "teaching-claims/v1",
-  "script_sha256": "e73be28b9bf8f4758985a39cd9cc745e070d7d960a4d35bf89753dab99368d0b",
+  "script_sha256": "50cd078f9ee6cf6e633c0dd87767fde160188365c272496f48817a878f9c40cf",
   "sources": {
     "E01_DOW_P1": {
       "citation": "Recorded Dow futures receipt",
-      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase01_intake.json",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase01_intake.json :: $.run_id, $.phase_key, $.window, $.entering, $.surviving, $.dropped, $.provenance",
       "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow futures used by this episode.",
       "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
       "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d"
     },
     "E01_ES_P1": {
       "citation": "Recorded S&P 500 futures receipt",
-      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T094910-d0d18d9a/phases/phase01_intake.json",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T094910-d0d18d9a/phases/phase01_intake.json :: $.run_id, $.phase_key, $.window, $.entering, $.surviving, $.dropped, $.provenance",
       "supports": "Exact recorded counts, identifiers, metrics, and scope for S&P 500 futures used by this episode.",
       "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
       "sha256": "3e3658cc23c9d6e88d9e8a0f15db68612fb83fb7132fb5901d25a71902b8915b"
     },
     "E01_EURUSD_P1": {
       "citation": "Recorded EURUSD receipt",
-      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T154557-12660559/phases/phase01_intake.json",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260715T154557-12660559/phases/phase01_intake.json :: $.run_id, $.phase_key, $.window, $.entering, $.surviving, $.dropped, $.provenance",
       "supports": "Exact recorded counts, identifiers, metrics, and scope for EURUSD used by this episode.",
       "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
       "sha256": "a1b432051d490df3f6fcb3ad87b7213722c0f5aa5c5f6cbb121da65dc13961ce"
     },
-    "E01_DOW_P2": {
-      "citation": "Recorded Dow phase02 out-of-sample receipt",
-      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase02_oos.json",
-      "supports": "Exact recorded counts, identifiers, metrics, and scope for Dow phase02 out-of-sample used by this episode.",
-      "limitations": "The source reports pipeline evidence with validated=false; it is not a live-execution or future-performance certificate.",
-      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0"
+    "E01_DOW_GATE_CENSUS": {
+      "citation": "Recorded E01 Dow phase01 gate census",
+      "locator": "C:\\tmp\\tradercockpit-e01-rebuild\\productions\\_series\\e01-e03-live-receipts-2026-08-03.json :: $.episodes.01.dow_gate_census",
+      "supports": "The three recorded Dow failure counts, the 1,151 unique dropped total, and the explicit overlap warning.",
+      "limitations": "The census is attached to the 2026-08-03 manifest and the stamped phase artifact; it is not a universal gate-rate claim.",
+      "sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d"
+    },
+    "E01_DOW_CANDIDATE": {
+      "citation": "Recorded Dow phase01 candidate ledger",
+      "locator": "C:/Users/MSI/repos/futures/runtime/validation/robustness/rb-20260725T133803-b44bd92c/phases/phase01_intake.json :: $.candidates[\"formula-2851293728-1566\"].metrics, $.candidates[\"formula-2851293728-1566\"].gates",
+      "supports": "The exact candidate identifier, profit-factor and return-to-drawdown measurements, trade counts, and recorded gate state.",
+      "limitations": "The row is one selected development-window candidate; it does not support a future-performance or live-execution claim.",
+      "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d"
+    },
+    "E01_METHOD_RULE_SPEC": {
+      "citation": "Into the Laboratory Production Standard, Episode 01 teaching contract",
+      "locator": "C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/GTM/Social-Media-Library/Into the Laboratory — Production Standard.md:450-454",
+      "supports": "The intake lesson order: observation, competing explanations, falsifiable hypothesis, complete candidate rules, and pre-registered measurements and rejection; ontology receipts remain private while public teaching stays plain.",
+      "limitations": "This is the operator's series doctrine, not an empirical result and not a claim about market performance.",
+      "sha256": "b851e50b907fb774bcce2b975db8adc6a621ffd64853c36706fe4efd2d149bfb"
+    },
+    "E01_METHOD_METRICS": {
+      "citation": "Goldberg and Mahmoud, Drawdown: From Practice to Theory and Back Again (2014), plus the series diagnostic boundary",
+      "locator": "https://arxiv.org/abs/1404.7493; C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/GTM/Social-Media-Library/Into the Laboratory — Production Standard.md:586-592",
+      "supports": "Maximum drawdown as a peak-to-trough risk measure and the warning that profit factor is one diagnostic rather than a verdict; the episode uses the recorded ratios only as development-window measurements.",
+      "limitations": "The paper discusses drawdown risk generally; it does not validate the Futures run, its thresholds, or the candidate example.",
+      "sha256": "b851e50b907fb774bcce2b975db8adc6a621ffd64853c36706fe4efd2d149bfb"
+    },
+    "E01_METHOD_SELECTION": {
+      "citation": "White, A Reality Check for Data Snooping, Econometrica 68(5), 1097-1126 (2000)",
+      "locator": "https://doi.org/10.1111/1468-0262.00152 :: abstract and article scope",
+      "supports": "The selection-burden explanation: reusing a data set for inference or model selection creates a data-snooping problem, so the size of the searched candidate field belongs beside an attractive result.",
+      "limitations": "This is methodological background; it does not establish that any particular E01 survivor is overfit.",
+      "sha256": "b851e50b907fb774bcce2b975db8adc6a621ffd64853c36706fe4efd2d149bfb"
+    },
+    "E01_METHOD_PREREGISTRATION": {
+      "citation": "Open Science Framework, OSF Dictionary: Preregistrations",
+      "locator": "https://help.osf.io/article/339-osf-dictionary :: Preregistrations definition",
+      "supports": "The plain-English explanation that a preregistration is a study plan submitted before reviewing the data, with changes time-stamped and made transparent.",
+      "limitations": "The receipt describes research transparency practice; it does not prove that this historical E01 run was preregistered.",
+      "sha256": "b851e50b907fb774bcce2b975db8adc6a621ffd64853c36706fe4efd2d149bfb"
+    },
+    "E01_METHOD_BOUNDARY": {
+      "citation": "Into the Laboratory Production Standard, claim and provenance boundary",
+      "locator": "C:/Users/MSI/Desktop/Obsidian Vault From VPS/tradercockpit/tradercockpit/GTM/Social-Media-Library/Into the Laboratory — Production Standard.md:586-592",
+      "supports": "The distinction between a recorded diagnostic and a live-performance promise, and the rule that provenance belongs in a sidecar rather than burned into lesson graphics.",
+      "limitations": "This is a presentation boundary; it does not alter or extend the source run's validated flag.",
+      "sha256": "b851e50b907fb774bcce2b975db8adc6a621ffd64853c36706fe4efd2d149bfb"
     }
   },
   "claims": {
@@ -38,7 +80,8 @@
         "E01_DOW_P1",
         "E01_ES_P1",
         "E01_EURUSD_P1"
-      ]
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C01"
     },
     "E01-RW-C02": {
       "kind": "run_receipt",
@@ -46,13 +89,16 @@
         "E01_DOW_P1",
         "E01_ES_P1",
         "E01_EURUSD_P1"
-      ]
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C02"
     },
     "E01-RW-C03": {
       "kind": "run_receipt",
       "source_ids": [
-        "E01_DOW_P1"
-      ]
+        "E01_DOW_P1",
+        "E01_METHOD_RULE_SPEC"
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C03"
     },
     "E01-RW-C04": {
       "kind": "run_receipt",
@@ -60,39 +106,51 @@
         "E01_DOW_P1",
         "E01_ES_P1",
         "E01_EURUSD_P1"
-      ]
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C04"
     },
     "E01-RW-C05": {
       "kind": "run_receipt",
       "source_ids": [
-        "E01_DOW_P1"
-      ]
+        "E01_DOW_P1",
+        "E01_DOW_GATE_CENSUS",
+        "E01_METHOD_METRICS"
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C05"
     },
     "E01-RW-C06": {
       "kind": "run_receipt",
       "source_ids": [
-        "E01_DOW_P1"
-      ]
+        "E01_DOW_P1",
+        "E01_DOW_CANDIDATE",
+        "E01_METHOD_METRICS"
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C06"
     },
     "E01-RW-C07": {
       "kind": "run_receipt",
       "source_ids": [
         "E01_ES_P1",
         "E01_EURUSD_P1"
-      ]
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C07"
     },
     "E01-RW-C08": {
       "kind": "run_receipt",
       "source_ids": [
-        "E01_DOW_P1"
-      ]
+        "E01_DOW_P1",
+        "E01_METHOD_SELECTION",
+        "E01_METHOD_PREREGISTRATION"
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C08"
     },
     "E01-RW-C09": {
       "kind": "run_receipt",
       "source_ids": [
         "E01_DOW_P1",
-        "E01_DOW_P2"
-      ]
+        "E01_METHOD_BOUNDARY"
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C09"
     },
     "E01-RW-C10": {
       "kind": "run_receipt",
@@ -100,7 +158,8 @@
         "E01_DOW_P1",
         "E01_ES_P1",
         "E01_EURUSD_P1"
-      ]
+      ],
+      "claim_specific_receipt": "E01 private receipt for E01-RW-C10"
     }
   }
 }
