@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img">
+<rect width="1920" height="1080" fill="#080b12"/>
+<style>
+@font-face{font-family:'Bahnschrift';src:local('Bahnschrift');font-weight:100 900}
+@font-face{font-family:'Consolas';src:local('Consolas');font-weight:100 900}
+.kicker{font:700 24px 'Bahnschrift',sans-serif;letter-spacing:.14em;fill:#7ed7d2}
+.title{font:800 66px 'Bahnschrift',sans-serif;fill:#f5f1e8}
+.body{font:500 30px 'Bahnschrift',sans-serif;fill:#d8d8d1}
+.small{font:600 22px 'Bahnschrift',sans-serif;fill:#a6adb8;letter-spacing:.04em}
+.mono{font:700 34px 'Consolas',monospace;fill:#f5f1e8}
+.mono-sm{font:700 25px 'Consolas',monospace;fill:#f5f1e8}
+.accent{fill:#f0ba55}.cyan{fill:#7ed7d2}.muted{fill:#89929e}.ink{fill:#080b12}
+.line{stroke:#33404e;stroke-width:3}.accent-line{stroke:#f0ba55;stroke-width:6}
+.cyan-line{stroke:#7ed7d2;stroke-width:6}.seal{stroke:#d27ca7;stroke-width:7}
+</style>
+<text x="92" y="96" class="kicker" text-anchor="start">E02 / SCENE-07</text>
+<text x="92" y="190" class="title" text-anchor="start">SPY does not reach the holdout</text>
+<line x1="92" y1="228" x2="1828" y2="228" class="line"/>
+<text x="150" y="330" class="kicker" text-anchor="start">SPY / LATER-PRICE CHAMBER</text>
+<rect x="200" y="410" width="1450" height="220" rx="28" fill="#111a24" stroke="#d27ca7" stroke-width="6"/>
+<rect x="895" y="355" width="60" height="330" rx="22" fill="#d27ca7"/>
+<text x="520" y="535" class="mono" text-anchor="start">0 entering</text>
+<text x="1190" y="535" class="mono" text-anchor="start">0 surviving</text>
+<text x="960" y="760" class="body" text-anchor="middle">no historical window</text>
+<text x="960" y="835" class="small" text-anchor="middle">skipped: no adoptable candidates</text>
+<text x="960" y="950" class="kicker" text-anchor="middle">holdout not reached</text>
+</svg>

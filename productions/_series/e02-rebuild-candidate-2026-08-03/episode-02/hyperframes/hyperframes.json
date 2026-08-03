@@ -1,0 +1,6 @@
+{
+  "schema": "hyperframes/project/v1",
+  "composition_id": "e02-semantic-proof-candidate",
+  "runtime": "hyperframes",
+  "candidate_only": true
+}

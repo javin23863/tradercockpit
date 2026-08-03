@@ -1,0 +1,169 @@
+{
+  "schema": "into-the-laboratory/visual-semantic-receipt/v1",
+  "method": "literal marker checks against emitted deterministic SVG bytes",
+  "verified": true,
+  "scenes": {
+    "scene-01": {
+      "asset": "hyperframes/assets/scene-01.svg",
+      "required_markers": [
+        "SPY / D1 / CONNORS RSI2",
+        "LATER-PRICE",
+        "DOW / FUTURES",
+        "holdout not reached"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-02": {
+      "asset": "hyperframes/assets/scene-02.svg",
+      "required_markers": [
+        "CHOOSE",
+        "FREEZE",
+        "OPEN",
+        "later block"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-03": {
+      "asset": "hyperframes/assets/scene-03.svg",
+      "required_markers": [
+        "IN-SAMPLE / BUILD",
+        "OUT-OF-SAMPLE / JUDGE",
+        "SEALED",
+        "walk-forward"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-04": {
+      "asset": "hyperframes/assets/scene-04.svg",
+      "required_markers": [
+        "SPY / D1 / CONNORS RSI2",
+        "warmup bars",
+        "200-day regime window",
+        "2-day RSI input",
+        "short moving-average exit leg"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-05": {
+      "asset": "hyperframes/assets/scene-05.svg",
+      "required_markers": [
+        "0.806004",
+        "1.3",
+        "-0.420205",
+        "0.392308",
+        "TRADES / MONTH",
+        "unitless ratio",
+        "FALSE"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-06": {
+      "asset": "hyperframes/assets/scene-06.svg",
+      "required_markers": [
+        "FIVE RECORDED VERSIONS",
+        "real input / wiring proof / unvalidated"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-07": {
+      "asset": "hyperframes/assets/scene-07.svg",
+      "required_markers": [
+        "0 entering",
+        "0 surviving",
+        "no historical window",
+        "holdout not reached"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-08": {
+      "asset": "hyperframes/assets/scene-08.svg",
+      "required_markers": [
+        "DOW / FUTURES",
+        "5  →  0",
+        "184  →  154",
+        "different lane"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-09": {
+      "asset": "hyperframes/assets/scene-09.svg",
+      "required_markers": [
+        "+$16,727.80",
+        "-$4,897.40",
+        "PF 0.813381",
+        "29 wins  /  72 losses",
+        "0.81324"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-10": {
+      "asset": "hyperframes/assets/scene-10.svg",
+      "required_markers": [
+        "SIMPLE SIGNAL",
+        "CURVE-FIT NOISE"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-11": {
+      "asset": "hyperframes/assets/scene-11.svg",
+      "required_markers": [
+        "ORDERED OUTCOMES",
+        "median",
+        "percentile",
+        "distribution = location + spread + shape"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-12": {
+      "asset": "hyperframes/assets/scene-12.svg",
+      "required_markers": [
+        "SEGMENTED BACKTEST",
+        "WALK-FORWARD",
+        "fixed jobs  ≠  moving origin"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-13": {
+      "asset": "hyperframes/assets/scene-13.svg",
+      "required_markers": [
+        "SPY / D1 / RSI2",
+        "5 / 0 / 5",
+        "DOW / futures",
+        "184 / 154 / 30",
+        "freeze → hash → locate → describe"
+      ],
+      "missing_markers": [],
+      "verified": true
+    },
+    "scene-14": {
+      "asset": "hyperframes/assets/scene-14.svg",
+      "required_markers": [
+        "SPY / D1",
+        "5  →  0",
+        "holdout not reached",
+        "+$16,727.80",
+        "-$4,897.40",
+        "PF 0.813381",
+        "29 wins  /  72 losses",
+        "FILL TIMING",
+        "TRADING HOURS",
+        "signal close  →  fill?",
+        "which hours count?"
+      ],
+      "missing_markers": [],
+      "verified": true
+    }
+  }
+}

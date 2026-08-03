@@ -1,0 +1,249 @@
+{
+  "version": "1.0",
+  "concept_options": [
+    {
+      "id": "sealed-chamber",
+      "title": "Freeze the selection before the chamber",
+      "hook": "Five SPY candidates stop before later prices open.",
+      "narrative_structure": "tutorial",
+      "visual_approach": "Open evidence rails, a physical seal, and sentence-bound probes that trace the decision mechanism.",
+      "suggested_playbook": "quant-atlas-v2-atelier",
+      "target_audience": "A curious beginner who can read a number but does not yet know why a later block has to be sealed.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 613.5,
+      "key_points": [
+        "SPY 5 to 0",
+        "Dow 184 to 154",
+        "operator inequalities"
+      ],
+      "core_message": "Freeze before the later look.",
+      "cta": "Ask about fill timing and trading hours.",
+      "tone": "forensic beginner lesson",
+      "why_this_works": "It turns the evidence boundary into a physical mechanism and keeps SPY and Dow as separate lanes."
+    },
+    {
+      "id": "same-row-track",
+      "title": "One Dow identity, two price windows",
+      "hook": "The candidate stays the same while the measured result changes.",
+      "narrative_structure": "comparison",
+      "visual_approach": "A moving candidate marker crosses two chronological rails.",
+      "suggested_playbook": "quant-atlas-v2-atelier",
+      "target_audience": "A curious beginner who can read a number but does not yet know why a later block has to be sealed.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 613.5,
+      "key_points": [
+        "Dow net change",
+        "PF change",
+        "wins and losses"
+      ],
+      "core_message": "Same row does not mean same evidence status.",
+      "cta": "Ask what execution fields remain open.",
+      "tone": "measured and investigative",
+      "why_this_works": "It gives the Dow contrast a single visible identity without allowing it to stand in for SPY."
+    },
+    {
+      "id": "inequality-ruler",
+      "title": "Read the gate as an operator",
+      "hook": "A number needs an operator, a threshold, and a unit.",
+      "narrative_structure": "data_narrative",
+      "visual_approach": "Three rails compare actual values to thresholds one row at a time.",
+      "suggested_playbook": "quant-atlas-v2-atelier",
+      "target_audience": "A curious beginner who can read a number but does not yet know why a later block has to be sealed.",
+      "target_platform": "youtube",
+      "target_duration_seconds": 613.5,
+      "key_points": [
+        "PF inequality",
+        "return/drawdown inequality",
+        "trades/month inequality"
+      ],
+      "core_message": "Do not turn an unlabelled number into a verdict.",
+      "cta": "Ask whether the data and execution are fully specified.",
+      "tone": "plain and exact",
+      "why_this_works": "It makes the worked operators visible and prevents the lesson from collapsing into verdict colors."
+    }
+  ],
+  "selected_concept": {
+    "concept_id": "sealed-chamber",
+    "rationale": "The operator direction requires SPY 5→0 and a sealed later-price chamber, while the separate Dow lane must remain visible without becoming the SPY result.",
+    "modifications": [
+      "Replace the repeated bordered stage shell with an open canvas.",
+      "Replace paired rounded cards in scenes 08 and 14 with rails and a branching question path.",
+      "Bind a real motion probe and mechanism transformation to every sentence cue in the final timeline."
+    ]
+  },
+  "production_plan": {
+    "pipeline": "hybrid",
+    "playbook": "quant-atlas-v2-atelier",
+    "stages": [
+      {
+        "stage": "idea",
+        "tools": [
+          {
+            "tool_name": "series-script",
+            "role": "live lesson authority",
+            "provider": "TraderCockpit",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Reconcile the live series authority and E02 scope before generation."
+      },
+      {
+        "stage": "script",
+        "tools": [
+          {
+            "tool_name": "build_e02_rebuild.py",
+            "role": "source-bound script and claim package",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Regenerate the full 14-scene script from the pinned source packet and facts receipts."
+      },
+      {
+        "stage": "scene_plan",
+        "tools": [
+          {
+            "tool_name": "HyperFrames",
+            "role": "bespoke sentence-bound composition",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Use scene-specific rails, probes, seals, and branch paths; no stock card stack."
+      },
+      {
+        "stage": "assets",
+        "tools": [
+          {
+            "tool_name": "build_e02_rebuild.py",
+            "role": "deterministic evidence diagrams",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Generate original SVG evidence surfaces; no generated factual media."
+      },
+      {
+        "stage": "edit",
+        "tools": [
+          {
+            "tool_name": "HyperFrames",
+            "role": "HTML/CSS/GSAP timeline",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Align 14 scene cuts and measured narration to the final timeline."
+      },
+      {
+        "stage": "compose",
+        "tools": [
+          {
+            "tool_name": "HyperFrames CLI",
+            "role": "1920x1080 master render",
+            "provider": "local",
+            "available": true,
+            "estimated_cost_usd": 0
+          }
+        ],
+        "approach": "Lint, validate, render high quality at 30 fps, then probe and inspect the playable result."
+      }
+    ],
+    "quality_tradeoffs": [
+      {
+        "tradeoff": "No music bed",
+        "recommendation": "Keep narration-first treatment",
+        "quality_impact": "Preserves evidence clarity and the current series audio route."
+      }
+    ],
+    "alternative_paths": [
+      {
+        "description": "Candidate semantic proof only",
+        "total_cost_usd": 0,
+        "quality_level": "standard",
+        "what_changes": "No narration or full master."
+      }
+    ],
+    "delivery_promise": {
+      "promise_type": "data_explainer",
+      "motion_required": true,
+      "source_required": false,
+      "tone_mode": "educational",
+      "quality_floor": "broadcast",
+      "approved_fallback": null
+    },
+    "renderer_family": "animation-first",
+    "render_runtime": "hyperframes",
+    "composition_mode": "atelier",
+    "art_direction": "Open near-black canvas, paper-white evidence, amber untouched state, cyan measurement path, magenta seal; rails and mechanical probes replace rounded cards.",
+    "taste_profile": {
+      "design_read": "A forensic lab lesson where evidence status changes physically on the canvas.",
+      "visual_variance": 8,
+      "motion_intensity": 6,
+      "information_density": 5,
+      "palette_discipline": "near-black, paper-white, amber, cyan, restrained magenta seal",
+      "layout_variation": "rails, branching paths, ordered strips, and indicator windows; no persistent dashboard shell",
+      "reference_strategy": "Native frames are reviewed at 150px squint and in a playable montage.",
+      "anti_patterns": [
+        "repeated rounded stage shell",
+        "paired card stack",
+        "decorative opacity drift",
+        "provenance furniture in lesson graphics"
+      ],
+      "quality_gates": [
+        "sentence-bound visual coverage",
+        "literal Impeccable []",
+        "native HyperFrames lint/validate",
+        "playable see-video review"
+      ]
+    },
+    "music_source": {
+      "source_type": "none",
+      "mood_direction": "No music; narration and evidence-synchronized motion carry the lesson.",
+      "estimated_cost_usd": 0
+    },
+    "voice_selection": {
+      "provider": "Higgsfield Qwen Audio 3.0 TTS Flash",
+      "voice_id": "6b528d43-c056-4a2f-9d82-1591a7ba13b0",
+      "rationale": "Exact live E1-E5 route approval selects Higgsfield Qwen Audio 3.0 TTS Flash / John / clean under the existing subscription.",
+      "estimated_cost_usd": 0,
+      "delivery_style": "Calm, measured educator speaking to one trader. Read exactly; preserve every word, number, and limitation. No hype or sarcasm.",
+      "pacing_policy": "Speech rate 1.0, pitch rate 1.0, no local tempo transform.",
+      "sample_approval_required": false
+    },
+    "decision_log_ref": "decision_log.json"
+  },
+  "cost_estimate": {
+    "total_estimated_usd": 0,
+    "line_items": [
+      {
+        "tool": "Higgsfield Max",
+        "operation": "John narration under existing entitlement",
+        "quantity": 14,
+        "estimated_usd": 0,
+        "notes": "Exact route approval is hash-bound; no top-up or new subscription authorized."
+      },
+      {
+        "tool": "HyperFrames",
+        "operation": "local composition and master render",
+        "quantity": 1,
+        "estimated_usd": 0,
+        "notes": "Repository-local execution."
+      }
+    ],
+    "budget_verdict": "no_budget_set"
+  },
+  "approval": {
+    "status": "approved",
+    "user_notes": "Local full production authorized; upload, publish, schedule, merge, deploy, accounts, top-up, and provider substitution remain out of scope."
+  },
+  "metadata": {
+    "operator_authorization": "Begin. Produce the three episodes.",
+    "exact_hash_publication_approval": false
+  }
+}

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=1920,height=1080"><title>E02 semantic proof candidate</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Bahnschrift';src:local('Bahnschrift');font-weight:100 900}
+html,body{margin:0;background:#080b12;overflow:hidden}#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:#080b12;font-family:'Bahnschrift',sans-serif}.clip{position:absolute;inset:0;width:1920px;height:1080px;opacity:1}.clip-inner{position:absolute;inset:0;width:1920px;height:1080px;opacity:0}.clip img{display:block;width:1920px;height:1080px}.proof-probe{position:absolute;width:26px;height:26px;border:5px solid #f0ba55;border-radius:50%;transform:translate(-50%,-50%);opacity:0;box-shadow:0 0 0 10px rgba(240,186,85,.12)}.proof-line{position:absolute;height:6px;width:520px;background:#7ed7d2;transform-origin:left center;opacity:0;box-shadow:0 0 18px rgba(126,215,210,.35)}
+</style></head><body><div id="root" data-composition-id="e02-semantic-proof-candidate" data-start="0" data-width="1920" data-height="1080" data-duration="20">
+<section id="proof-beat-01" class="clip" data-start="0" data-duration="5" data-track-index="1"><div id="proof-beat-01-inner" class="clip-inner"><img src="assets/scene-01.svg" alt="Five SPY candidates stop before a sealed later-price chamber"><div id="proof-probe-01" class="proof-probe" style="left:270px;top:470px"></div><div id="proof-line-01" class="proof-line" style="left:270px;top:470px"></div></div></section>
+<section id="proof-beat-02" class="clip" data-start="5" data-duration="5" data-track-index="2"><div id="proof-beat-02-inner" class="clip-inner"><img src="assets/scene-05.svg" alt="Three SPY inequality gates with actual values and thresholds"><div id="proof-probe-02" class="proof-probe" style="left:620px;top:410px"></div><div id="proof-line-02" class="proof-line" style="left:620px;top:410px"></div></div></section>
+<section id="proof-beat-03" class="clip" data-start="10" data-duration="5" data-track-index="3"><div id="proof-beat-03-inner" class="clip-inner"><img src="assets/scene-08.svg" alt="SPY stops at zero while a separate Dow lane moves from 184 to 154"><div id="proof-probe-03" class="proof-probe" style="left:320px;top:455px"></div><div id="proof-line-03" class="proof-line" style="left:320px;top:455px"></div></div></section>
+<section id="proof-beat-04" class="clip" data-start="15" data-duration="5" data-track-index="4"><div id="proof-beat-04-inner" class="clip-inner"><img src="assets/scene-14.svg" alt="Two unopened execution questions: fill timing and trading hours"><div id="proof-probe-04" class="proof-probe" style="left:960px;top:650px"></div><div id="proof-line-04" class="proof-line" style="left:960px;top:650px"></div></div></section>
+</div><script>
+window.__timelines=window.__timelines||{};const tl=gsap.timeline({paused:true});
+const proofBeat=(inner,probe,line,start,points)=>{tl.set(inner,{opacity:1},start);tl.fromTo(probe,{opacity:0,scale:.6},{opacity:1,scale:1,duration:.25},start+.15);tl.fromTo(line,{opacity:0,scaleX:0},{opacity:.8,scaleX:1,duration:.55,ease:'power2.out'},start+.2);points.forEach((point,index)=>{tl.to(probe,{left:point[0],top:point[1],duration:.72,ease:'power2.inOut'},start+.7+index*.8);tl.to(line,{rotation:index%2?2:-2,duration:.25},start+.7+index*.8);});tl.to(inner,{opacity:0,duration:.22},start+4.78);};
+proofBeat('#proof-beat-01-inner','#proof-probe-01','#proof-line-01',0,[[650,470],[930,470],[1500,470]]);
+proofBeat('#proof-beat-02-inner','#proof-probe-02','#proof-line-02',5,[[990,410],[990,590],[1370,760]]);
+proofBeat('#proof-beat-03-inner','#proof-probe-03','#proof-line-03',10,[[960,455],[1600,455],[320,755],[960,755]]);
+proofBeat('#proof-beat-04-inner','#proof-probe-04','#proof-line-04',15,[[360,650],[960,650],[1560,650]]);
+window.__timelines['e02-semantic-proof-candidate']=tl;
+</script></body></html>

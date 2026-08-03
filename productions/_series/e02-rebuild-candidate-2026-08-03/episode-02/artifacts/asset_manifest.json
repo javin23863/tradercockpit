@@ -1,0 +1,111 @@
+{
+  "schema": "openmontage/animation/asset-manifest/v1",
+  "layer3_skills_read": [
+    "hyperframes-core",
+    "hyperframes-cli",
+    "hyperframes-gsap-adapter"
+  ],
+  "assets": [
+    {
+      "id": "scene-01",
+      "path": "hyperframes/assets/scene-01.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-02",
+      "path": "hyperframes/assets/scene-02.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-03",
+      "path": "hyperframes/assets/scene-03.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-04",
+      "path": "hyperframes/assets/scene-04.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-05",
+      "path": "hyperframes/assets/scene-05.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-06",
+      "path": "hyperframes/assets/scene-06.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-07",
+      "path": "hyperframes/assets/scene-07.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-08",
+      "path": "hyperframes/assets/scene-08.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-09",
+      "path": "hyperframes/assets/scene-09.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-10",
+      "path": "hyperframes/assets/scene-10.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-11",
+      "path": "hyperframes/assets/scene-11.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-12",
+      "path": "hyperframes/assets/scene-12.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-13",
+      "path": "hyperframes/assets/scene-13.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "scene-14",
+      "path": "hyperframes/assets/scene-14.svg",
+      "kind": "deterministic_evidence_diagram",
+      "generated": false
+    },
+    {
+      "id": "thumbnail-ep02",
+      "path": "artifacts/thumbnail-ep02.html",
+      "kind": "thumbnail_source",
+      "generated": false
+    }
+  ],
+  "visual_semantic_receipt": "visual_semantic_receipt.json",
+  "blocked_assets": [
+    {
+      "kind": "narration",
+      "reason": "operator approval not yet granted"
+    },
+    {
+      "kind": "provider_media",
+      "reason": "not authorized at candidate stage"
+    }
+  ]
+}

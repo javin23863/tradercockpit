@@ -1,0 +1,238 @@
+{
+  "version": "1.0",
+  "cuts": [
+    {
+      "id": "scene-01",
+      "source": "hyperframes/compositions/scene-01.html",
+      "in_seconds": 0.0,
+      "out_seconds": 41.85,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "intake tokens travel to a sealed door, then the separate futures branch unfolds"
+    },
+    {
+      "id": "scene-02",
+      "source": "hyperframes/compositions/scene-02.html",
+      "in_seconds": 41.85,
+      "out_seconds": 84.5,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out"
+    },
+    {
+      "id": "scene-03",
+      "source": "hyperframes/compositions/scene-03.html",
+      "in_seconds": 84.5,
+      "out_seconds": 152.75,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "the build chamber hands a frozen rule across a drawn seal to the judge chamber"
+    },
+    {
+      "id": "scene-04",
+      "source": "hyperframes/compositions/scene-04.html",
+      "in_seconds": 152.75,
+      "out_seconds": 191.4,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "warmup history sweeps into the indicator rail before the signal and exit rails light"
+    },
+    {
+      "id": "scene-05",
+      "source": "hyperframes/compositions/scene-05.html",
+      "in_seconds": 191.4,
+      "out_seconds": 238.05,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "the operator probe visits actual, operator, threshold, and FALSE for each row"
+    },
+    {
+      "id": "scene-06",
+      "source": "hyperframes/compositions/scene-06.html",
+      "in_seconds": 238.05,
+      "out_seconds": 279.1,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "five candidates traverse the intake rail while a single magnifier follows one row"
+    },
+    {
+      "id": "scene-07",
+      "source": "hyperframes/compositions/scene-07.html",
+      "in_seconds": 279.1,
+      "out_seconds": 310.95,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "empty entering and surviving gauges stay empty while the later-price door locks"
+    },
+    {
+      "id": "scene-08",
+      "source": "hyperframes/compositions/scene-08.html",
+      "in_seconds": 310.95,
+      "out_seconds": 339.2,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "the stock lane stops at its seal while a separate Dow lane continues across its rail"
+    },
+    {
+      "id": "scene-09",
+      "source": "hyperframes/compositions/scene-09.html",
+      "in_seconds": 339.2,
+      "out_seconds": 372.25,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "one candidate identity is carried across two price-window rails as its metrics flip"
+    },
+    {
+      "id": "scene-10",
+      "source": "hyperframes/compositions/scene-10.html",
+      "in_seconds": 372.25,
+      "out_seconds": 421.3,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "a smooth signal path and a noisy curve path are traced by different probes"
+    },
+    {
+      "id": "scene-11",
+      "source": "hyperframes/compositions/scene-11.html",
+      "in_seconds": 421.3,
+      "out_seconds": 466.35,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "ordered outcomes receive a median marker and a percentile marker in sequence"
+    },
+    {
+      "id": "scene-12",
+      "source": "hyperframes/compositions/scene-12.html",
+      "in_seconds": 466.35,
+      "out_seconds": 511.4,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "fixed build/test blocks hold while the walk-forward origin advances independently"
+    },
+    {
+      "id": "scene-13",
+      "source": "hyperframes/compositions/scene-13.html",
+      "in_seconds": 511.4,
+      "out_seconds": 553.65,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "worksheet fields are filled from instrument to windows to counts, then hash-bound"
+    },
+    {
+      "id": "scene-14",
+      "source": "hyperframes/compositions/scene-14.html",
+      "in_seconds": 553.65,
+      "out_seconds": 613.5,
+      "speed": 1.0,
+      "layer": "primary",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "transition_duration": 0.0,
+      "reason": "one evidence rail branches into two unopened execution questions without panel cards"
+    }
+  ],
+  "overlays": [],
+  "audio": {
+    "narration": {
+      "segments": []
+    },
+    "sfx": []
+  },
+  "subtitles": {
+    "enabled": false,
+    "style": "sentence",
+    "position": "bottom-center",
+    "max_words_per_line": 10
+  },
+  "renderer_family": "animation-first",
+  "render_runtime": "hyperframes",
+  "composition_mode": "atelier",
+  "bespoke": {
+    "entry": "hyperframes/index.html",
+    "composition_id": "main",
+    "art_direction": "artifacts/art-direction.md"
+  },
+  "slideshow_risk_score": {
+    "average": 0.0,
+    "verdict": "strong",
+    "dimensions": {
+      "repetition": 0,
+      "decorative_visuals": 0,
+      "weak_motion": 0,
+      "weak_shot_intent": 0,
+      "typography_overreliance": 0,
+      "unsupported_cinematic_claims": 0
+    },
+    "render_runtime": "hyperframes"
+  },
+  "metadata": {
+    "gate_profile": "board-led-explainer",
+    "title": "RSI2: Five In, Zero Through. The Later Prices Stayed Locked.",
+    "target_duration_seconds": 613.5,
+    "aspect_ratio": "16:9",
+    "compose_target": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "contain"
+    },
+    "motion_delivery_contract": "Every sentence cue moves a mechanism probe or state marker; no decorative drift counts as coverage.",
+    "visual_direction_resolution": "open canvas; no repeated shell; scenes 08 and 14 are rails/branch",
+    "voice_route": "Higgsfield Qwen Audio 3.0 TTS Flash / John / clean",
+    "voice_route_approval": {
+      "path": "OpenMontage/projects/_series-v4-shared/review-board/voice-route-approval-e1-e5-v7.json",
+      "sha256": "6f0faca1923064bdee7fc1c419c624e2662193b0e9ac173f28d8048dfeea4668",
+      "provider": "Higgsfield",
+      "model": "Qwen Audio 3.0 TTS Flash",
+      "job_type": "qwen_audio_tts",
+      "voice": "John",
+      "treatment": "clean",
+      "voice_id": "6b528d43-c056-4a2f-9d82-1591a7ba13b0",
+      "existing_subscription_credits": true,
+      "new_subscription_or_top_up_authorized": false
+    },
+    "music": "none",
+    "provider_calls": false,
+    "external_provider_spend_usd": 0,
+    "narration_generated": false,
+    "public_upload_authorized": false
+  }
+}

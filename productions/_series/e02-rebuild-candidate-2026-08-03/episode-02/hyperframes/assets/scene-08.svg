@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img">
+<rect width="1920" height="1080" fill="#080b12"/>
+<style>
+@font-face{font-family:'Bahnschrift';src:local('Bahnschrift');font-weight:100 900}
+@font-face{font-family:'Consolas';src:local('Consolas');font-weight:100 900}
+.kicker{font:700 24px 'Bahnschrift',sans-serif;letter-spacing:.14em;fill:#7ed7d2}
+.title{font:800 66px 'Bahnschrift',sans-serif;fill:#f5f1e8}
+.body{font:500 30px 'Bahnschrift',sans-serif;fill:#d8d8d1}
+.small{font:600 22px 'Bahnschrift',sans-serif;fill:#a6adb8;letter-spacing:.04em}
+.mono{font:700 34px 'Consolas',monospace;fill:#f5f1e8}
+.mono-sm{font:700 25px 'Consolas',monospace;fill:#f5f1e8}
+.accent{fill:#f0ba55}.cyan{fill:#7ed7d2}.muted{fill:#89929e}.ink{fill:#080b12}
+.line{stroke:#33404e;stroke-width:3}.accent-line{stroke:#f0ba55;stroke-width:6}
+.cyan-line{stroke:#7ed7d2;stroke-width:6}.seal{stroke:#d27ca7;stroke-width:7}
+</style>
+<text x="92" y="96" class="kicker" text-anchor="start">E02 / SCENE-08</text>
+<text x="92" y="190" class="title" text-anchor="start">The Dow lane is separate</text>
+<line x1="92" y1="228" x2="1828" y2="228" class="line"/>
+<line x1="170" y1="455" x2="1750" y2="455" class="accent-line"/>
+<line x1="170" y1="755" x2="1750" y2="755" class="cyan-line"/>
+<circle cx="360" cy="455" r="28" fill="#f5f1e8"/>
+<circle cx="880" cy="455" r="28" fill="#d27ca7"/>
+<circle cx="360" cy="755" r="28" fill="#f5f1e8"/>
+<circle cx="880" cy="755" r="28" fill="#7ed7d2"/>
+<line x1="1010" y1="350" x2="1010" y2="860" class="line" stroke-dasharray="14 18"/>
+<text x="170" y="360" class="kicker" text-anchor="start">SPY / STOCK / D1</text>
+<text x="170" y="660" class="kicker" text-anchor="start">DOW / FUTURES</text>
+<text x="250" y="535" class="mono" text-anchor="start">5  →  0</text>
+<text x="750" y="535" class="body" text-anchor="start">holdout not reached</text>
+<text x="250" y="835" class="mono" text-anchor="start">184  →  154</text>
+<text x="850" y="835" class="body" text-anchor="start">30 dropped in later block</text>
+<text x="1390" y="435" class="small" text-anchor="middle">different lane</text>
+<text x="1390" y="735" class="small" text-anchor="middle">different lane</text>
+<text x="1190" y="930" class="small" text-anchor="middle">stock stops here  /  futures continues</text>
+</svg>

@@ -1,0 +1,1931 @@
+{
+  "schema": "into-the-laboratory/sentence-bound-timing/v1",
+  "wpm": 150,
+  "total_words": 1511,
+  "total_duration_seconds": 613.5,
+  "sentence_bound_visual_required": true,
+  "coverage": {
+    "spoken_sentences": 155,
+    "visual_cues": 155,
+    "uncovered_sentences": []
+  },
+  "sections": [
+    {
+      "section_id": "scene-01",
+      "start_seconds": 0.0,
+      "end_seconds": 41.85,
+      "asset": "hyperframes/assets/scene-01.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "sealed-door funnel",
+      "spoken_text": "The SPY RSI2 screen stopped five candidates before the later prices opened. We have a daily window from 1996-07-12 through 2011-05-26. Five versions enter, and all fail. The next phase has zero. There is no holdout return for SPY, and no later result. That can look like a dead end, but it is the result. We can look at the data and see what stopped the list. Then we will look at the Dow futures on its own. Keep the two paths separate. SPY stops at intake. The Dow reaches the later test. You can look at the data and see the result.",
+      "claim_refs": [
+        "C01"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-01-sentence-01",
+          "start_seconds": 0.0,
+          "end_seconds": 4.876,
+          "duration_seconds": 4.876,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "The SPY RSI2 screen stopped five candidates before the later prices opened.",
+          "visual_action": "Place the SPY RSI2 label above five intake tokens and a closed later-price door.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-02",
+          "start_seconds": 4.876,
+          "end_seconds": 8.533,
+          "duration_seconds": 3.657,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "We have a daily window from 1996-07-12 through 2011-05-26.",
+          "visual_action": "Stretch the daily intake rail across the 1996-07-12 to 2011-05-26 window.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-03",
+          "start_seconds": 8.533,
+          "end_seconds": 10.97,
+          "duration_seconds": 2.438,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "Five versions enter, and all fail.",
+          "visual_action": "Show five candidate tokens enter and then move all five into the dropped gutter.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-04",
+          "start_seconds": 10.97,
+          "end_seconds": 13.002,
+          "duration_seconds": 2.032,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "The next phase has zero.",
+          "visual_action": "Set the next-phase counter to zero and keep its chamber blank.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-05",
+          "start_seconds": 13.002,
+          "end_seconds": 17.471,
+          "duration_seconds": 4.469,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "There is no holdout return for SPY, and no later result.",
+          "visual_action": "Print holdout return: none under the SPY lane and keep the later result blank.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-06",
+          "start_seconds": 17.471,
+          "end_seconds": 22.347,
+          "duration_seconds": 4.876,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "That can look like a dead end, but it is the result.",
+          "visual_action": "Keep the sealed door and stopped lane visible as the result, not a dead end.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-07",
+          "start_seconds": 22.347,
+          "end_seconds": 27.223,
+          "duration_seconds": 4.876,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "We can look at the data and see what stopped the list.",
+          "visual_action": "Underline the five-to-zero path as the recorded intake outcome.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-08",
+          "start_seconds": 27.223,
+          "end_seconds": 31.692,
+          "duration_seconds": 4.469,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "Then we will look at the Dow futures on its own.",
+          "visual_action": "Split the canvas into a stock lane and a separate Dow lane.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-09",
+          "start_seconds": 31.692,
+          "end_seconds": 33.724,
+          "duration_seconds": 2.032,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "Keep the two paths separate.",
+          "visual_action": "Keep the two lane labels spatially separate.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-10",
+          "start_seconds": 33.724,
+          "end_seconds": 35.349,
+          "duration_seconds": 1.625,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "SPY stops at intake.",
+          "visual_action": "Seal SPY at intake.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-11",
+          "start_seconds": 35.349,
+          "end_seconds": 37.787,
+          "duration_seconds": 2.438,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "The Dow reaches the later test.",
+          "visual_action": "Open only the Dow branch toward later prices.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-01-sentence-12",
+          "start_seconds": 37.787,
+          "end_seconds": 41.85,
+          "duration_seconds": 4.063,
+          "asset": "hyperframes/assets/scene-01.svg",
+          "spoken_span": "You can look at the data and see the result.",
+          "visual_action": "End with a neutral data marker and no SPY later return.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-02",
+      "start_seconds": 41.85,
+      "end_seconds": 84.5,
+      "asset": "hyperframes/assets/scene-02.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "freeze-and-open sequence",
+      "spoken_text": "You know how a later test can go wrong. You look at the result, and then make a change. You look again. Freeze the version before you open that door. Out-of-sample means the later prices did not help you choose it. A holdout is the later part kept shut while you choose. Pick first, write it down, and open the door once. If you use the result to make another choice, those prices now join the choice. Now the question changes. SPY has five rows, and none go forward. The Dow has a later group. Choose the version first, then look at the later prices.",
+      "claim_refs": [
+        "C02"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-02-sentence-01",
+          "start_seconds": 41.85,
+          "end_seconds": 45.506,
+          "duration_seconds": 3.656,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "You know how a later test can go wrong.",
+          "visual_action": "Place a later-test door and a candidate token before it.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-02",
+          "start_seconds": 45.506,
+          "end_seconds": 49.568,
+          "duration_seconds": 4.062,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "You look at the result, and then make a change.",
+          "visual_action": "Animate a look arrow, an RSI-threshold change, and a second look arrow.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-03",
+          "start_seconds": 49.568,
+          "end_seconds": 50.786,
+          "duration_seconds": 1.219,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "You look again.",
+          "visual_action": "Show the second look as a separate arrow after the setting changes.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-04",
+          "start_seconds": 50.786,
+          "end_seconds": 54.036,
+          "duration_seconds": 3.25,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "Freeze the version before you open that door.",
+          "visual_action": "Slide the chosen version into the freezer before the later-price door.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-05",
+          "start_seconds": 54.036,
+          "end_seconds": 58.504,
+          "duration_seconds": 4.468,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "Out-of-sample means the later prices did not help you choose it.",
+          "visual_action": "Label the later block out-of-sample and draw a heavy seal across its entrance.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-06",
+          "start_seconds": 58.504,
+          "end_seconds": 62.972,
+          "duration_seconds": 4.468,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "A holdout is the later part kept shut while you choose.",
+          "visual_action": "Turn the sealed door into a holdout chamber with no visible result yet.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-07",
+          "start_seconds": 62.972,
+          "end_seconds": 67.034,
+          "duration_seconds": 4.062,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "Pick first, write it down, and open the door once.",
+          "visual_action": "Show choose, write, and open once as a one-way sequence.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-08",
+          "start_seconds": 67.034,
+          "end_seconds": 73.127,
+          "duration_seconds": 6.093,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "If you use the result to make another choice, those prices now join the choice.",
+          "visual_action": "Block the re-entry arrow after the result is used for another choice.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-09",
+          "start_seconds": 73.127,
+          "end_seconds": 74.751,
+          "duration_seconds": 1.625,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "Now the question changes.",
+          "visual_action": "Split the question card after the second look.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-10",
+          "start_seconds": 74.751,
+          "end_seconds": 78.001,
+          "duration_seconds": 3.25,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "SPY has five rows, and none go forward.",
+          "visual_action": "Keep the SPY five-to-zero rail below the locked chamber.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-11",
+          "start_seconds": 78.001,
+          "end_seconds": 80.438,
+          "duration_seconds": 2.437,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "The Dow has a later group.",
+          "visual_action": "Keep the Dow later group on its own track.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-02-sentence-12",
+          "start_seconds": 80.438,
+          "end_seconds": 84.5,
+          "duration_seconds": 4.062,
+          "asset": "hyperframes/assets/scene-02.svg",
+          "spoken_span": "Choose the version first, then look at the later prices.",
+          "visual_action": "End with choose first, then one look at later prices.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-03",
+      "start_seconds": 84.5,
+      "end_seconds": 152.75,
+      "asset": "hyperframes/assets/scene-03.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "two-chamber vocabulary map",
+      "spoken_text": "Let us slow down and name these words. You know, in-sample is the part we use to choose. Out-of-sample is the part we save for later. The first part gives us a way to build the rule, and the second part lets us see what happens with new prices. Overfitting is when the rule follows the old path too closely. Curve-fitting is the same problem when we move the settings. If you try enough settings, you will find something that looks good, but that does not mean it will work again. Frozen parameters are the numbers we leave alone. A segmented backtest has fixed blocks with separate jobs. Walk-forward moves the start and does it again. In this run, we have one first part and one later part. That gives us context; this run has no walk-forward result. Warmup bars are the history an indicator needs before we use its value. We keep them outside the trade-result count. That is a method rule; it adds no new SPY result.",
+      "claim_refs": [
+        "C03"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-03-sentence-01",
+          "start_seconds": 84.5,
+          "end_seconds": 87.731,
+          "duration_seconds": 3.231,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "Let us slow down and name these words.",
+          "visual_action": "Open a vocabulary rail with the method words in plain English.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-02",
+          "start_seconds": 87.731,
+          "end_seconds": 91.769,
+          "duration_seconds": 4.038,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "You know, in-sample is the part we use to choose.",
+          "visual_action": "Build the in-sample chamber for the history used to choose.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-03",
+          "start_seconds": 91.769,
+          "end_seconds": 95.0,
+          "duration_seconds": 3.231,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "Out-of-sample is the part we save for later.",
+          "visual_action": "Build the later out-of-sample chamber and keep it hidden.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-04",
+          "start_seconds": 95.0,
+          "end_seconds": 104.288,
+          "duration_seconds": 9.288,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "The first part gives us a way to build the rule, and the second part lets us see what happens with new prices.",
+          "visual_action": "Draw the first path as the build history and the second as a new-price path.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-05",
+          "start_seconds": 104.288,
+          "end_seconds": 108.731,
+          "duration_seconds": 4.442,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "Overfitting is when the rule follows the old path too closely.",
+          "visual_action": "Place the overfitting label beside the old path and settings panel.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-06",
+          "start_seconds": 108.731,
+          "end_seconds": 112.769,
+          "duration_seconds": 4.038,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "Curve-fitting is the same problem when we move the settings.",
+          "visual_action": "Place the curve-fitting label beside knobs that move after the result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-07",
+          "start_seconds": 112.769,
+          "end_seconds": 121.25,
+          "duration_seconds": 8.481,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "If you try enough settings, you will find something that looks good, but that does not mean it will work again.",
+          "visual_action": "Show many settings producing one lucky-looking row, then keep the chosen values visible.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-08",
+          "start_seconds": 121.25,
+          "end_seconds": 124.481,
+          "duration_seconds": 3.231,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "Frozen parameters are the numbers we leave alone.",
+          "visual_action": "Turn the parameter knobs into a frozen row of saved values.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-09",
+          "start_seconds": 124.481,
+          "end_seconds": 128.115,
+          "duration_seconds": 3.635,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "A segmented backtest has fixed blocks with separate jobs.",
+          "visual_action": "Split the timeline into fixed blocks and label each block with its job.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-10",
+          "start_seconds": 128.115,
+          "end_seconds": 131.346,
+          "duration_seconds": 3.231,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "Walk-forward moves the start and does it again.",
+          "visual_action": "Roll the start forward to name a walk-forward sequence.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-11",
+          "start_seconds": 131.346,
+          "end_seconds": 136.192,
+          "duration_seconds": 4.846,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "In this run, we have one first part and one later part.",
+          "visual_action": "Show the single E02 intake window and later block.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-12",
+          "start_seconds": 136.192,
+          "end_seconds": 140.231,
+          "duration_seconds": 4.038,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "That gives us context; this run has no walk-forward result.",
+          "visual_action": "Label the display as walk-forward context and leave its result field empty.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-13",
+          "start_seconds": 140.231,
+          "end_seconds": 145.481,
+          "duration_seconds": 5.25,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "Warmup bars are the history an indicator needs before we use its value.",
+          "visual_action": "Shade the warmup segment before the first full indicator window.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-14",
+          "start_seconds": 145.481,
+          "end_seconds": 148.308,
+          "duration_seconds": 2.827,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "We keep them outside the trade-result count.",
+          "visual_action": "Keep warmup bars outside the trade-result count.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-03-sentence-15",
+          "start_seconds": 148.308,
+          "end_seconds": 152.75,
+          "duration_seconds": 4.442,
+          "asset": "hyperframes/assets/scene-03.svg",
+          "spoken_span": "That is a method rule; it adds no new SPY result.",
+          "visual_action": "Return to the guardrail around both chambers and leave SPY without a new result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-04",
+      "start_seconds": 152.75,
+      "end_seconds": 191.4,
+      "asset": "hyperframes/assets/scene-04.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "indicator window rails",
+      "spoken_text": "Now look at the SPY file. You can see a daily Connors RSI2 run. We have a 200-day window and a 2-day RSI in the saved settings. The ledger says the exit uses a close above a short moving average. D1 means daily bars. The lineage has the 200-day window too. We use warmup bars to give the indicator its history before a signal counts. That setup is not a trade result. The test tells us what entered the list and what passed the gates. Keep the run ID and the window with the result.",
+      "claim_refs": [
+        "C04"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-04-sentence-01",
+          "start_seconds": 152.75,
+          "end_seconds": 155.191,
+          "duration_seconds": 2.441,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "Now look at the SPY file.",
+          "visual_action": "Set the SPY file label on a single daily timeline.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-02",
+          "start_seconds": 155.191,
+          "end_seconds": 158.446,
+          "duration_seconds": 3.255,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "You can see a daily Connors RSI2 run.",
+          "visual_action": "Place the Connors RSI2 identity on the mechanism rail.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-03",
+          "start_seconds": 158.446,
+          "end_seconds": 163.735,
+          "duration_seconds": 5.289,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "We have a 200-day window and a 2-day RSI in the saved settings.",
+          "visual_action": "Draw the long 200-day window and the shorter 2-day RSI input from the saved settings.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-04",
+          "start_seconds": 163.735,
+          "end_seconds": 169.024,
+          "duration_seconds": 5.289,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "The ledger says the exit uses a close above a short moving average.",
+          "visual_action": "Show the short moving-average exit leg on the mechanism rail.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-05",
+          "start_seconds": 169.024,
+          "end_seconds": 170.651,
+          "duration_seconds": 1.627,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "D1 means daily bars.",
+          "visual_action": "Label D1 as daily bars on the timeline.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-06",
+          "start_seconds": 170.651,
+          "end_seconds": 173.499,
+          "duration_seconds": 2.848,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "The lineage has the 200-day window too.",
+          "visual_action": "Pin the 200-day lineage value to the setup rail.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-07",
+          "start_seconds": 173.499,
+          "end_seconds": 179.195,
+          "duration_seconds": 5.696,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "We use warmup bars to give the indicator its history before a signal counts.",
+          "visual_action": "Hatch the setup span as warmup bars outside the trade count.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-08",
+          "start_seconds": 179.195,
+          "end_seconds": 182.043,
+          "duration_seconds": 2.848,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "That setup is not a trade result.",
+          "visual_action": "Mark the setup as mechanism context, not a trade result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-09",
+          "start_seconds": 182.043,
+          "end_seconds": 187.332,
+          "duration_seconds": 5.289,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "The test tells us what entered the list and what passed the gates.",
+          "visual_action": "Trace the gate path from the settings to the test result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-04-sentence-10",
+          "start_seconds": 187.332,
+          "end_seconds": 191.4,
+          "duration_seconds": 4.068,
+          "asset": "hyperframes/assets/scene-04.svg",
+          "spoken_span": "Keep the run ID and the window with the result.",
+          "visual_action": "Pin run identity and the window on the outer margin.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-05",
+      "start_seconds": 191.4,
+      "end_seconds": 238.05,
+      "asset": "hyperframes/assets/scene-05.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "inequality ruler",
+      "spoken_text": "Here is the row, and here is the arithmetic. Profit factor is 0.806004. The target is more than 1.3. Return over drawdown is -0.420205. The target is more than 4. Trades per month is 0.392308. The target is more than 2 trades per month. Write each check down: 0.806004 > 1.3 is false. -0.420205 > 4 is false. 0.392308 trades per month > 2 trades per month is false. Profit factor is a unitless ratio: gross winning dollars divided by gross losing dollars. Return over drawdown is a unitless ratio: net result divided by the largest measured drawdown. Trades per month is a rate, with units of trades per month.",
+      "claim_refs": [
+        "C05"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-05-sentence-01",
+          "start_seconds": 191.4,
+          "end_seconds": 195.051,
+          "duration_seconds": 3.651,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Here is the row, and here is the arithmetic.",
+          "visual_action": "Put three labeled metrics on rulers: PF and return-to-drawdown are unitless ratios; trades per month is a rate.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-02",
+          "start_seconds": 195.051,
+          "end_seconds": 197.079,
+          "duration_seconds": 2.028,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Profit factor is 0.806004.",
+          "visual_action": "Place 0.806004 to the left of the 1.3 mark and draw the greater-than operator.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-03",
+          "start_seconds": 197.079,
+          "end_seconds": 199.919,
+          "duration_seconds": 2.84,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "The target is more than 1.3.",
+          "visual_action": "Highlight the PF rule as actual greater than 1.3.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-04",
+          "start_seconds": 199.919,
+          "end_seconds": 202.353,
+          "duration_seconds": 2.434,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Return over drawdown is -0.420205.",
+          "visual_action": "Place -0.420205 to the left of the 4 mark and retain the negative sign.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-05",
+          "start_seconds": 202.353,
+          "end_seconds": 204.787,
+          "duration_seconds": 2.434,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "The target is more than 4.",
+          "visual_action": "Highlight the return-over-drawdown rule as actual greater than 4.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-06",
+          "start_seconds": 204.787,
+          "end_seconds": 207.22,
+          "duration_seconds": 2.434,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Trades per month is 0.392308.",
+          "visual_action": "Place 0.392308 trades per month beside the 2 trades-per-month mark.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-07",
+          "start_seconds": 207.22,
+          "end_seconds": 210.871,
+          "duration_seconds": 3.651,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "The target is more than 2 trades per month.",
+          "visual_action": "Print the unit twice so the rate is not confused with a count.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-08",
+          "start_seconds": 210.871,
+          "end_seconds": 214.928,
+          "duration_seconds": 4.057,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Write each check down: 0.806004 > 1.3 is false.",
+          "visual_action": "Write 0.806004 greater than 1.3 and mark the comparison false.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-09",
+          "start_seconds": 214.928,
+          "end_seconds": 216.956,
+          "duration_seconds": 2.028,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "-0.420205 > 4 is false.",
+          "visual_action": "Write -0.420205 greater than 4 and mark the comparison false.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-10",
+          "start_seconds": 216.956,
+          "end_seconds": 221.418,
+          "duration_seconds": 4.462,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "0.392308 trades per month > 2 trades per month is false.",
+          "visual_action": "Write the rate comparison and mark it false without converting units.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-11",
+          "start_seconds": 221.418,
+          "end_seconds": 227.097,
+          "duration_seconds": 5.679,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Profit factor is a unitless ratio: gross winning dollars divided by gross losing dollars.",
+          "visual_action": "Put the profit-factor formula below the ruler: gross wins divided by gross losses.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-12",
+          "start_seconds": 227.097,
+          "end_seconds": 233.182,
+          "duration_seconds": 6.085,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Return over drawdown is a unitless ratio: net result divided by the largest measured drawdown.",
+          "visual_action": "Put the return-over-drawdown formula below the ruler and label it a unitless ratio.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-05-sentence-13",
+          "start_seconds": 233.182,
+          "end_seconds": 238.05,
+          "duration_seconds": 4.868,
+          "asset": "hyperframes/assets/scene-05.svg",
+          "spoken_span": "Trades per month is a rate, with units of trades per month.",
+          "visual_action": "Label trades per month as a rate with trades per month as its unit.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-06",
+      "start_seconds": 238.05,
+      "end_seconds": 279.1,
+      "asset": "hyperframes/assets/scene-06.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "candidate field with one magnifier",
+      "spoken_text": "That row explains the early stop. Five versions enter the first screen, and five fail. I am showing one row so you can follow the arithmetic. The full RSI2 setting space is larger than this list. Each threshold sits next to its result. The data source is real, and the wiring proof is true. Validation is still open. A real data connection and a recorded choice do not make a strategy pass. They only show that the pipeline reached this gate. A pass would move the row to the next part; it would not tell us what happens in the market.",
+      "claim_refs": [
+        "C06"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-06-sentence-01",
+          "start_seconds": 238.05,
+          "end_seconds": 240.489,
+          "duration_seconds": 2.439,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "That row explains the early stop.",
+          "visual_action": "Highlight the first-screen stop on the row track.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-02",
+          "start_seconds": 240.489,
+          "end_seconds": 244.147,
+          "duration_seconds": 3.658,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "Five versions enter the first screen, and five fail.",
+          "visual_action": "Show five equal candidate tokens entering and failing the bounded field.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-03",
+          "start_seconds": 244.147,
+          "end_seconds": 248.617,
+          "duration_seconds": 4.471,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "I am showing one row so you can follow the arithmetic.",
+          "visual_action": "Magnify one row while the five-token population label stays visible.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-04",
+          "start_seconds": 248.617,
+          "end_seconds": 252.682,
+          "duration_seconds": 4.064,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "The full RSI2 setting space is larger than this list.",
+          "visual_action": "Keep the larger RSI2 setting space as a bracket outside the row.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-05",
+          "start_seconds": 252.682,
+          "end_seconds": 255.527,
+          "duration_seconds": 2.845,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "Each threshold sits next to its result.",
+          "visual_action": "Show each threshold beside its result on the recorded row.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-06",
+          "start_seconds": 255.527,
+          "end_seconds": 259.998,
+          "duration_seconds": 4.471,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "The data source is real, and the wiring proof is true.",
+          "visual_action": "Reveal real-data and wiring-proof status on the fact rail.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-07",
+          "start_seconds": 259.998,
+          "end_seconds": 261.623,
+          "duration_seconds": 1.626,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "Validation is still open.",
+          "visual_action": "Keep the validation boundary visibly open.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-08",
+          "start_seconds": 261.623,
+          "end_seconds": 267.313,
+          "duration_seconds": 5.69,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "A real data connection and a recorded choice do not make a strategy pass.",
+          "visual_action": "Place the real-data connection beside an empty pass badge.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-09",
+          "start_seconds": 267.313,
+          "end_seconds": 270.971,
+          "duration_seconds": 3.658,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "They only show that the pipeline reached this gate.",
+          "visual_action": "Trace the pipeline reaching this gate.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-06-sentence-10",
+          "start_seconds": 270.971,
+          "end_seconds": 279.1,
+          "duration_seconds": 8.129,
+          "asset": "hyperframes/assets/scene-06.svg",
+          "spoken_span": "A pass would move the row to the next part; it would not tell us what happens in the market.",
+          "visual_action": "Keep a pass-to-next-stage arrow separate from any market-performance claim.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-07",
+      "start_seconds": 279.1,
+      "end_seconds": 310.95,
+      "asset": "hyperframes/assets/scene-07.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "SPY locked chamber",
+      "spoken_text": "Right now, we are looking at the next part. You can see zero in and zero out. That is what we have. The later prices did not open for SPY, so the holdout is not reached. There is no return to read. A future test needs a version, a later window, and frozen settings. You write that down before you open the door. The door stays shut. You do not turn an empty phase into a performance number.",
+      "claim_refs": [
+        "C07"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-07-sentence-01",
+          "start_seconds": 279.1,
+          "end_seconds": 282.775,
+          "duration_seconds": 3.675,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "Right now, we are looking at the next part.",
+          "visual_action": "Open the next SPY phase as an empty paper chamber.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-02",
+          "start_seconds": 282.775,
+          "end_seconds": 286.042,
+          "duration_seconds": 3.267,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "You can see zero in and zero out.",
+          "visual_action": "Set both the entering and surviving counters to zero.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-03",
+          "start_seconds": 286.042,
+          "end_seconds": 288.083,
+          "duration_seconds": 2.042,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "That is what we have.",
+          "visual_action": "Keep the empty phase visible as the recorded result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-04",
+          "start_seconds": 288.083,
+          "end_seconds": 293.8,
+          "duration_seconds": 5.717,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "The later prices did not open for SPY, so the holdout is not reached.",
+          "visual_action": "Replace the later-window label with no historical window.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-05",
+          "start_seconds": 293.8,
+          "end_seconds": 296.25,
+          "duration_seconds": 2.45,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "There is no return to read.",
+          "visual_action": "Place the skipped-phase note beside the empty entrance and keep the SPY return field blank.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-06",
+          "start_seconds": 296.25,
+          "end_seconds": 301.15,
+          "duration_seconds": 4.9,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "A future test needs a version, a later window, and frozen settings.",
+          "visual_action": "Draw a future-test checklist for a version, later dates, and frozen settings.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-07",
+          "start_seconds": 301.15,
+          "end_seconds": 304.825,
+          "duration_seconds": 3.675,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "You write that down before you open the door.",
+          "visual_action": "Write the checklist before the unopened door.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-08",
+          "start_seconds": 304.825,
+          "end_seconds": 306.458,
+          "duration_seconds": 1.633,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "The door stays shut.",
+          "visual_action": "Close the SPY later-price chamber with a visible bar.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-07-sentence-09",
+          "start_seconds": 306.458,
+          "end_seconds": 310.95,
+          "duration_seconds": 4.492,
+          "asset": "hyperframes/assets/scene-07.svg",
+          "spoken_span": "You do not turn an empty phase into a performance number.",
+          "visual_action": "Leave the empty phase as no performance number.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-08",
+      "start_seconds": 310.95,
+      "end_seconds": 339.2,
+      "asset": "hyperframes/assets/scene-08.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "parallel branch lanes",
+      "spoken_text": "Now change lanes to Dow futures. You can see 184 candidates enter the later test. 154 continue, and 30 drop. This is the lane that reaches later prices. SPY stopped before this part. Out-of-sample tells us the job of the later block; it does not promise a result. Look at the two counts. The first tells you who came in, and the second tells you who made it through.",
+      "claim_refs": [
+        "C08"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-08-sentence-01",
+          "start_seconds": 310.95,
+          "end_seconds": 313.407,
+          "duration_seconds": 2.457,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "Now change lanes to Dow futures.",
+          "visual_action": "Add a separate Dow futures lane beneath the stopped SPY lane.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-08-sentence-02",
+          "start_seconds": 313.407,
+          "end_seconds": 317.091,
+          "duration_seconds": 3.685,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "You can see 184 candidates enter the later test.",
+          "visual_action": "Place 184 tokens at the Dow later-price entrance.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-08-sentence-03",
+          "start_seconds": 317.091,
+          "end_seconds": 319.138,
+          "duration_seconds": 2.047,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "154 continue, and 30 drop.",
+          "visual_action": "Let 154 tokens cross the later boundary and send 30 into a side gutter.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-08-sentence-04",
+          "start_seconds": 319.138,
+          "end_seconds": 322.414,
+          "duration_seconds": 3.275,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "This is the lane that reaches later prices.",
+          "visual_action": "Keep the Dow door open toward later prices.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-08-sentence-05",
+          "start_seconds": 322.414,
+          "end_seconds": 324.461,
+          "duration_seconds": 2.047,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "SPY stopped before this part.",
+          "visual_action": "Keep the SPY door closed at its earlier boundary.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-08-sentence-06",
+          "start_seconds": 324.461,
+          "end_seconds": 330.602,
+          "duration_seconds": 6.141,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "Out-of-sample tells us the job of the later block; it does not promise a result.",
+          "visual_action": "Label out-of-sample as the job description.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-08-sentence-07",
+          "start_seconds": 330.602,
+          "end_seconds": 332.649,
+          "duration_seconds": 2.047,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "Look at the two counts.",
+          "visual_action": "Show the entering and surviving counts side by side.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-08-sentence-08",
+          "start_seconds": 332.649,
+          "end_seconds": 339.2,
+          "duration_seconds": 6.551,
+          "asset": "hyperframes/assets/scene-08.svg",
+          "spoken_span": "The first tells you who came in, and the second tells you who made it through.",
+          "visual_action": "Label the first count as who came in and the second as who made it through.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-09",
+      "start_seconds": 339.2,
+      "end_seconds": 372.25,
+      "asset": "hyperframes/assets/scene-09.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "same-row before-and-after track",
+      "spoken_text": "Keep one Dow candidate in view. In the first window, it made +$16,727.80; the profit factor was 1.28037. In the later window, it made -$4,897.40; the profit factor was 0.813381. Same candidate has 29 wins and 72 losses. The old brief gives 0.81324. The pinned row gives 0.813381, and that is the number we keep. Same candidate, two windows. Keep SPY out. One row from 184. The other 183 need their own results.",
+      "claim_refs": [
+        "C09"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-09-sentence-01",
+          "start_seconds": 339.2,
+          "end_seconds": 341.648,
+          "duration_seconds": 2.448,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "Keep one Dow candidate in view.",
+          "visual_action": "Place one Dow candidate identity at the center of a two-window track.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-02",
+          "start_seconds": 341.648,
+          "end_seconds": 347.769,
+          "duration_seconds": 6.12,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "In the first window, it made +$16,727.80; the profit factor was 1.28037.",
+          "visual_action": "Write +$16,727.80 and PF 1.28037 in the in-sample chamber.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-03",
+          "start_seconds": 347.769,
+          "end_seconds": 353.889,
+          "duration_seconds": 6.12,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "In the later window, it made -$4,897.40; the profit factor was 0.813381.",
+          "visual_action": "Write -$4,897.40 and PF 0.813381 in the later chamber while keeping the identity fixed.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-04",
+          "start_seconds": 353.889,
+          "end_seconds": 357.153,
+          "duration_seconds": 3.264,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "Same candidate has 29 wins and 72 losses.",
+          "visual_action": "Add 29 wins and 72 losses beneath the later result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-05",
+          "start_seconds": 357.153,
+          "end_seconds": 359.601,
+          "duration_seconds": 2.448,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "The old brief gives 0.81324.",
+          "visual_action": "Annotate the old brief's 0.81324 as absent from the pinned row.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-06",
+          "start_seconds": 359.601,
+          "end_seconds": 364.906,
+          "duration_seconds": 5.304,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "The pinned row gives 0.813381, and that is the number we keep.",
+          "visual_action": "Highlight 0.813381 as the pinned value.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-07",
+          "start_seconds": 364.906,
+          "end_seconds": 366.538,
+          "duration_seconds": 1.632,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "Same candidate, two windows.",
+          "visual_action": "Keep the candidate identity fixed while the window label changes.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-08",
+          "start_seconds": 366.538,
+          "end_seconds": 367.762,
+          "duration_seconds": 1.224,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "Keep SPY out.",
+          "visual_action": "Move the SPY lane outside the track as a separate instrument.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-09",
+          "start_seconds": 367.762,
+          "end_seconds": 369.394,
+          "duration_seconds": 1.632,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "One row from 184.",
+          "visual_action": "Keep the one-row example inside the 184-row population bracket.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-09-sentence-10",
+          "start_seconds": 369.394,
+          "end_seconds": 372.25,
+          "duration_seconds": 2.856,
+          "asset": "hyperframes/assets/scene-09.svg",
+          "spoken_span": "The other 183 need their own results.",
+          "visual_action": "Show the remaining 183 rows as needing their own results.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-10",
+      "start_seconds": 372.25,
+      "end_seconds": 421.3,
+      "asset": "hyperframes/assets/scene-10.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "signal-and-noise curve",
+      "spoken_text": "Why does this matter? You know, the problem starts when the development history feels too familiar. You look at the old prices, try many rules, and keep the one that looks good. Then you start to learn the path instead of testing the idea. Curve-fitting can mean moving one threshold, one exit, or one window after you see the result. White's data-snooping paper warns that a result can show up by chance when the same data chooses and judges the rule. Trading-rule research gives us the same warning. The simple answer is to choose the plan first. Freeze the settings. Open the later block once. Record what happened. SPY shows the first stop. Dow shows why the later step matters.",
+      "claim_refs": [
+        "C10"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-10-sentence-01",
+          "start_seconds": 372.25,
+          "end_seconds": 373.871,
+          "duration_seconds": 1.621,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Why does this matter?",
+          "visual_action": "Open a question mark over the later-test chamber.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-02",
+          "start_seconds": 373.871,
+          "end_seconds": 378.736,
+          "duration_seconds": 4.864,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "You know, the problem starts when the development history feels too familiar.",
+          "visual_action": "Draw the development history becoming familiar.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-03",
+          "start_seconds": 378.736,
+          "end_seconds": 385.222,
+          "duration_seconds": 6.486,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "You look at the old prices, try many rules, and keep the one that looks good.",
+          "visual_action": "Show many rules competing for one attractive old-price path.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-04",
+          "start_seconds": 385.222,
+          "end_seconds": 390.086,
+          "duration_seconds": 4.864,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Then you start to learn the path instead of testing the idea.",
+          "visual_action": "Move a threshold, exit, and window after the result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-05",
+          "start_seconds": 390.086,
+          "end_seconds": 396.572,
+          "duration_seconds": 6.486,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Curve-fitting can mean moving one threshold, one exit, or one window after you see the result.",
+          "visual_action": "Label the changed threshold, exit, and window as curve-fitting.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-06",
+          "start_seconds": 396.572,
+          "end_seconds": 405.49,
+          "duration_seconds": 8.918,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "White's data-snooping paper warns that a result can show up by chance when the same data chooses and judges the rule.",
+          "visual_action": "Place White's data-snooping reference beside the repeated-look warning.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-07",
+          "start_seconds": 405.49,
+          "end_seconds": 408.328,
+          "duration_seconds": 2.838,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Trading-rule research gives us the same warning.",
+          "visual_action": "Lay out choose, freeze, open, and record as a one-way sequence.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-08",
+          "start_seconds": 408.328,
+          "end_seconds": 411.976,
+          "duration_seconds": 3.648,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "The simple answer is to choose the plan first.",
+          "visual_action": "Highlight choose as the first step.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-09",
+          "start_seconds": 411.976,
+          "end_seconds": 413.193,
+          "duration_seconds": 1.216,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Freeze the settings.",
+          "visual_action": "Seal the selected parameters at freeze.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-10",
+          "start_seconds": 413.193,
+          "end_seconds": 415.219,
+          "duration_seconds": 2.027,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Open the later block once.",
+          "visual_action": "Open the later block once.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-11",
+          "start_seconds": 415.219,
+          "end_seconds": 416.436,
+          "duration_seconds": 1.216,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Record what happened.",
+          "visual_action": "Record the observed result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-12",
+          "start_seconds": 416.436,
+          "end_seconds": 418.462,
+          "duration_seconds": 2.027,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "SPY shows the first stop.",
+          "visual_action": "Place the SPY stop at the first boundary.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-10-sentence-13",
+          "start_seconds": 418.462,
+          "end_seconds": 421.3,
+          "duration_seconds": 2.838,
+          "asset": "hyperframes/assets/scene-10.svg",
+          "spoken_span": "Dow shows why the later step matters.",
+          "visual_action": "Place the Dow changed row at the later boundary.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-11",
+      "start_seconds": 421.3,
+      "end_seconds": 466.35,
+      "asset": "hyperframes/assets/scene-11.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "ordered outcome strip",
+      "spoken_text": "Now look at the group along with the one candidate. A distribution is the group of results. It has a center, a spread, and a shape. The median is the middle result after you sort the group. A percentile is a place in that order. The 50th percentile is the median. These words do not add a result here. To use a median, you need the group, the units, and the calculation. To use a percentile, you need a rank rule. SPY has five rows and no later group, so it has no SPY percentile here. Dow has 184 in and 154 through. A report can add up that group later.",
+      "claim_refs": [
+        "C11"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-11-sentence-01",
+          "start_seconds": 421.3,
+          "end_seconds": 425.359,
+          "duration_seconds": 4.059,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "Now look at the group along with the one candidate.",
+          "visual_action": "Place the individual candidate beside the full group field.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-02",
+          "start_seconds": 425.359,
+          "end_seconds": 428.2,
+          "duration_seconds": 2.841,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "A distribution is the group of results.",
+          "visual_action": "Spread recorded outcome dots across a horizontal number line.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-03",
+          "start_seconds": 428.2,
+          "end_seconds": 431.852,
+          "duration_seconds": 3.653,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "It has a center, a spread, and a shape.",
+          "visual_action": "Label the field with center, spread, and shape.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-04",
+          "start_seconds": 431.852,
+          "end_seconds": 436.317,
+          "duration_seconds": 4.464,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "The median is the middle result after you sort the group.",
+          "visual_action": "Draw a center line for the ordered middle value.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-05",
+          "start_seconds": 436.317,
+          "end_seconds": 439.564,
+          "duration_seconds": 3.247,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "A percentile is a place in that order.",
+          "visual_action": "Place a percentile marker at its rank in the ordered group.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-06",
+          "start_seconds": 439.564,
+          "end_seconds": 441.999,
+          "duration_seconds": 2.435,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "The 50th percentile is the median.",
+          "visual_action": "Slide the 50th-percentile marker onto the median line.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-07",
+          "start_seconds": 441.999,
+          "end_seconds": 445.245,
+          "duration_seconds": 3.247,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "These words do not add a result here.",
+          "visual_action": "Keep the definition card separate from any new result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-08",
+          "start_seconds": 445.245,
+          "end_seconds": 450.522,
+          "duration_seconds": 5.276,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "To use a median, you need the group, the units, and the calculation.",
+          "visual_action": "List population, units, and calculation beneath the median marker.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-09",
+          "start_seconds": 450.522,
+          "end_seconds": 454.174,
+          "duration_seconds": 3.653,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "To use a percentile, you need a rank rule.",
+          "visual_action": "List the rank rule beneath the percentile marker.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-10",
+          "start_seconds": 454.174,
+          "end_seconds": 460.262,
+          "duration_seconds": 6.088,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "SPY has five rows and no later group, so it has no SPY percentile here.",
+          "visual_action": "Keep the five SPY rows beside an empty later group and no percentile.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-11",
+          "start_seconds": 460.262,
+          "end_seconds": 463.103,
+          "duration_seconds": 2.841,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "Dow has 184 in and 154 through.",
+          "visual_action": "Keep the 184-row Dow population in its separate bracket.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-11-sentence-12",
+          "start_seconds": 463.103,
+          "end_seconds": 466.35,
+          "duration_seconds": 3.247,
+          "asset": "hyperframes/assets/scene-11.svg",
+          "spoken_span": "A report can add up that group later.",
+          "visual_action": "End with a pinned-report placeholder for the group.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-12",
+      "start_seconds": 466.35,
+      "end_seconds": 511.4,
+      "asset": "hyperframes/assets/scene-12.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "fixed blocks versus rolling windows",
+      "spoken_text": "Segmentation and walk-forward sound alike, so keep them apart. You know, one version uses fixed blocks, and each block has a job; a segmented backtest does that. Walk-forward moves the start and does it again through time. Choose the design from the question, the history, and the update rule. Research on data over time says order matters, and conditions can change. In this run, we have one SPY intake and no later phase. We have one Dow later block. That is the full set of blocks here. It does not make the run walk-forward. A rolling test needs dates and a rule for when to update or leave the settings alone.",
+      "claim_refs": [
+        "C12"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-12-sentence-01",
+          "start_seconds": 466.35,
+          "end_seconds": 470.003,
+          "duration_seconds": 3.653,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "Segmentation and walk-forward sound alike, so keep them apart.",
+          "visual_action": "Split the screen between segmentation and walk-forward.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-02",
+          "start_seconds": 470.003,
+          "end_seconds": 477.308,
+          "duration_seconds": 7.305,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "You know, one version uses fixed blocks, and each block has a job; a segmented backtest does that.",
+          "visual_action": "Build fixed blocks with separate choose and judge jobs.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-03",
+          "start_seconds": 477.308,
+          "end_seconds": 481.367,
+          "duration_seconds": 4.059,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "Walk-forward moves the start and does it again through time.",
+          "visual_action": "Roll a second origin forward to create the walk-forward sequence.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-04",
+          "start_seconds": 481.367,
+          "end_seconds": 486.237,
+          "duration_seconds": 4.87,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "Choose the design from the question, the history, and the update rule.",
+          "visual_action": "Place question, history, and update-rule cards above the design.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-05",
+          "start_seconds": 486.237,
+          "end_seconds": 491.107,
+          "duration_seconds": 4.87,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "Research on data over time says order matters, and conditions can change.",
+          "visual_action": "Add a time-order thread and changing-condition markers.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-06",
+          "start_seconds": 491.107,
+          "end_seconds": 495.977,
+          "duration_seconds": 4.87,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "In this run, we have one SPY intake and no later phase.",
+          "visual_action": "Mark SPY as one intake plus an empty later phase.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-07",
+          "start_seconds": 495.977,
+          "end_seconds": 498.413,
+          "duration_seconds": 2.435,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "We have one Dow later block.",
+          "visual_action": "Mark Dow as one later block.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-08",
+          "start_seconds": 498.413,
+          "end_seconds": 501.659,
+          "duration_seconds": 3.247,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "That is the full set of blocks here.",
+          "visual_action": "Label both fixed blocks with their actual jobs.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-09",
+          "start_seconds": 501.659,
+          "end_seconds": 504.5,
+          "duration_seconds": 2.841,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "It does not make the run walk-forward.",
+          "visual_action": "Keep the walk-forward result field empty.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-12-sentence-10",
+          "start_seconds": 504.5,
+          "end_seconds": 511.4,
+          "duration_seconds": 6.9,
+          "asset": "hyperframes/assets/scene-12.svg",
+          "spoken_span": "A rolling test needs dates and a rule for when to update or leave the settings alone.",
+          "visual_action": "Show dates, start, update, and freeze-or-refit as a rolling-test checklist.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-13",
+      "start_seconds": 511.4,
+      "end_seconds": 553.65,
+      "asset": "hyperframes/assets/scene-13.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "worksheet path",
+      "spoken_text": "Here is the worksheet. Write down the instrument, the timeframe, and the rule; then write the first window, the later window, the counts, and the validation. Put the units next to each comparison. For SPY, write five in, zero survive, zero forward, and holdout not reached. For Dow, write 184 in, 154 survive, and 30 drop; one candidate changes from positive net profit to negative. Freeze first. Save the source hash and the row location. Name the later window before you call it out-of-sample. Pin the group before you use a median or percentile. That turns a chart into a question you can repeat.",
+      "claim_refs": [
+        "C13"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-13-sentence-01",
+          "start_seconds": 511.4,
+          "end_seconds": 513.025,
+          "duration_seconds": 1.625,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "Here is the worksheet.",
+          "visual_action": "Open a worksheet with instrument, timeframe, and strategy fields.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-02",
+          "start_seconds": 513.025,
+          "end_seconds": 521.963,
+          "duration_seconds": 8.938,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "Write down the instrument, the timeframe, and the rule; then write the first window, the later window, the counts, and the validation.",
+          "visual_action": "Add first-window, later-window, count, and validation fields.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-03",
+          "start_seconds": 521.963,
+          "end_seconds": 524.806,
+          "duration_seconds": 2.844,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "Put the units next to each comparison.",
+          "visual_action": "Add units beside every comparison field.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-04",
+          "start_seconds": 524.806,
+          "end_seconds": 530.088,
+          "duration_seconds": 5.281,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "For SPY, write five in, zero survive, zero forward, and holdout not reached.",
+          "visual_action": "Write the SPY five, zero, zero, and holdout-not-reached boundary.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-05",
+          "start_seconds": 530.088,
+          "end_seconds": 537.806,
+          "duration_seconds": 7.719,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "For Dow, write 184 in, 154 survive, and 30 drop; one candidate changes from positive net profit to negative.",
+          "visual_action": "Write the Dow 184, 154, 30, and candidate-flip row.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-06",
+          "start_seconds": 537.806,
+          "end_seconds": 538.619,
+          "duration_seconds": 0.812,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "Freeze first.",
+          "visual_action": "Stamp the worksheet freeze-first marker.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-07",
+          "start_seconds": 538.619,
+          "end_seconds": 541.869,
+          "duration_seconds": 3.25,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "Save the source hash and the row location.",
+          "visual_action": "Add the exact source hash and row location.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-08",
+          "start_seconds": 541.869,
+          "end_seconds": 545.525,
+          "duration_seconds": 3.656,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "Name the later window before you call it out-of-sample.",
+          "visual_action": "Name the later window before the out-of-sample label.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-09",
+          "start_seconds": 545.525,
+          "end_seconds": 549.588,
+          "duration_seconds": 4.062,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "Pin the group before you use a median or percentile.",
+          "visual_action": "Pin the group before the median or percentile label.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-13-sentence-10",
+          "start_seconds": 549.588,
+          "end_seconds": 553.65,
+          "duration_seconds": 4.062,
+          "asset": "hyperframes/assets/scene-13.svg",
+          "spoken_span": "That turns a chart into a question you can repeat.",
+          "visual_action": "Close the worksheet with a repeatable question arrow.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    },
+    {
+      "section_id": "scene-14",
+      "start_seconds": 553.65,
+      "end_seconds": 613.5,
+      "asset": "hyperframes/assets/scene-14.svg",
+      "composition_mode": "atelier",
+      "semantic_purpose": "two unanswered execution dials",
+      "spoken_text": "Let's take a look at the result. For SPY, the first screen is the stop; its holdout never opens. The Dow reaches later prices. One row shows +$16,727.80 in the first window, with a profit factor of 1.28037. The same row shows -$4,897.40 in the later window, with a profit factor of 0.813381. It has 29 wins and 72 losses. The old brief gives 0.81324; the pinned row gives 0.813381, so that is the number we keep. Keep SPY out of this comparison. The recorded windows give us a result, and the next trade remains unknown. If the survivor changes when the fill moves or trading hours change, then the result depends on an execution assumption the current receipts do not establish. Before opening another chamber, would you ask whether the survivors depend on fill timing or trading hours?",
+      "claim_refs": [
+        "C14"
+      ],
+      "sentence_cues": [
+        {
+          "id": "scene-14-sentence-01",
+          "start_seconds": 553.65,
+          "end_seconds": 556.885,
+          "duration_seconds": 3.235,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "Let's take a look at the result.",
+          "visual_action": "Return the SPY rail to its intake boundary and keep the later window blank.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-02",
+          "start_seconds": 556.885,
+          "end_seconds": 561.738,
+          "duration_seconds": 4.853,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "For SPY, the first screen is the stop; its holdout never opens.",
+          "visual_action": "Keep the SPY intake boundary visibly closed.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-03",
+          "start_seconds": 561.738,
+          "end_seconds": 563.76,
+          "duration_seconds": 2.022,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "The Dow reaches later prices.",
+          "visual_action": "Open only the separate Dow lane toward later prices.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-04",
+          "start_seconds": 563.76,
+          "end_seconds": 570.634,
+          "duration_seconds": 6.875,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "One row shows +$16,727.80 in the first window, with a profit factor of 1.28037.",
+          "visual_action": "Show +$16,727.80 and PF 1.28037 on the first-window side of the Dow row.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-05",
+          "start_seconds": 570.634,
+          "end_seconds": 577.914,
+          "duration_seconds": 7.279,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "The same row shows -$4,897.40 in the later window, with a profit factor of 0.813381.",
+          "visual_action": "Show -$4,897.40 and PF 0.813381 on the later-window side of the same row.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-06",
+          "start_seconds": 577.914,
+          "end_seconds": 580.744,
+          "duration_seconds": 2.831,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "It has 29 wins and 72 losses.",
+          "visual_action": "Place 29 wins and 72 losses beneath the later result.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-07",
+          "start_seconds": 580.744,
+          "end_seconds": 588.428,
+          "duration_seconds": 7.683,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "The old brief gives 0.81324; the pinned row gives 0.813381, so that is the number we keep.",
+          "visual_action": "Annotate the brief's 0.81324 beside the pinned 0.813381 row value.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-08",
+          "start_seconds": 588.428,
+          "end_seconds": 590.854,
+          "duration_seconds": 2.426,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "Keep SPY out of this comparison.",
+          "visual_action": "Keep SPY outside the Dow comparison.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-09",
+          "start_seconds": 590.854,
+          "end_seconds": 596.111,
+          "duration_seconds": 5.257,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "The recorded windows give us a result, and the next trade remains unknown.",
+          "visual_action": "Open two labeled execution-question chambers.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-10",
+          "start_seconds": 596.111,
+          "end_seconds": 606.625,
+          "duration_seconds": 10.514,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "If the survivor changes when the fill moves or trading hours change, then the result depends on an execution assumption the current receipts do not establish.",
+          "visual_action": "Draw unfinished branches toward fill timing and trading hours without opening them.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        },
+        {
+          "id": "scene-14-sentence-11",
+          "start_seconds": 606.625,
+          "end_seconds": 613.5,
+          "duration_seconds": 6.875,
+          "asset": "hyperframes/assets/scene-14.svg",
+          "spoken_span": "Before opening another chamber, would you ask whether the survivors depend on fill timing or trading hours?",
+          "visual_action": "End on the question mark beside both unopened chambers.",
+          "sentence_bound": true,
+          "evidence_mode": "deterministic source-derived graphic"
+        }
+      ]
+    }
+  ],
+  "facts_digest": {
+    "spy_entering": 5,
+    "spy_later_entering": 0,
+    "dow_oos_entering": 184
+  },
+  "timing_source": "script WPM estimate pending narration",
+  "motion_contract": {
+    "scene_count": 14,
+    "sentence_bound_transformations": 155,
+    "mechanism_motion": true,
+    "repeated_stage_shell": "removed",
+    "paired_card_scenes": {
+      "scene-08": "resolved as two open rails",
+      "scene-14": "resolved as one branching question rail"
+    }
+  }
+}

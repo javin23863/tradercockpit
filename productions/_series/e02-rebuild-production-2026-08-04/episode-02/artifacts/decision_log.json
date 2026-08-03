@@ -1,0 +1,202 @@
+{
+  "version": "1.0",
+  "project_id": "series-e02-rebuild-20260804",
+  "decisions": [
+    {
+      "decision_id": "e02-approval-policy-full-local",
+      "stage": "idea",
+      "category": "approval_policy",
+      "subject": "E02 local production authorization",
+      "options_considered": [
+        {
+          "option_id": "candidate_only",
+          "label": "Candidate proof only",
+          "score": 0.2,
+          "reason": "This was the prior stop state.",
+          "rejected_because": "Superseded by the current operator authorization for local production."
+        },
+        {
+          "option_id": "full_local_production",
+          "label": "Full local narration and master",
+          "score": 1.0,
+          "reason": "The operator explicitly said: Begin. Produce the three episodes. This authorizes local narration, audio treatment, deterministic composition, master render, and QA only."
+        }
+      ],
+      "selected": "full_local_production",
+      "reason": "Proceed locally through final playable QA; public and remote mutations remain blocked.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 1.0
+    },
+    {
+      "decision_id": "e02-pipeline-hybrid",
+      "stage": "idea",
+      "category": "pipeline_selection",
+      "subject": "OpenMontage pipeline",
+      "options_considered": [
+        {
+          "option_id": "hybrid",
+          "label": "Hybrid",
+          "score": 1.0,
+          "reason": "Matches the live series route: narration-led graphics with HyperFrames composition."
+        },
+        {
+          "option_id": "animation",
+          "label": "Animation-only",
+          "score": 0.7,
+          "reason": "Could carry deterministic diagrams but does not match the live project route.",
+          "rejected_because": "Current series authority pins hybrid."
+        }
+      ],
+      "selected": "hybrid",
+      "reason": "Carry the live series pipeline contract forward.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.99
+    },
+    {
+      "decision_id": "e02-render-runtime-hyperframes",
+      "stage": "scene_plan",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 0.0,
+          "reason": "The canonical checkout reports Remotion unavailable on this machine.",
+          "rejected_because": "Runtime unavailable; no install or route substitution authorized."
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 1.0,
+          "reason": "Canonical checkout supports the HTML/CSS/GSAP composition and is available for the series route."
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg only",
+          "score": 0.35,
+          "reason": "Useful for final audio normalization but not for the authored motion composition.",
+          "rejected_because": "Would discard scene-specific HTML/GSAP motion."
+        }
+      ],
+      "selected": "hyperframes",
+      "reason": "Preserves bespoke scene motion and the selected runtime without a silent downgrade.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.98
+    },
+    {
+      "decision_id": "e02-composition-atelier",
+      "stage": "scene_plan",
+      "category": "composition_mode",
+      "subject": "Visual composition mode",
+      "options_considered": [
+        {
+          "option_id": "templated",
+          "label": "Templated cards",
+          "score": 0.1,
+          "reason": "Fast but repeats the blocked card-stack treatment.",
+          "rejected_because": "Explicit no-card-stack and no-repeated-hero direction."
+        },
+        {
+          "option_id": "atelier",
+          "label": "Bespoke atelier scenes",
+          "score": 1.0,
+          "reason": "Each scene has a different mechanism surface and a sentence-bound motion probe."
+        }
+      ],
+      "selected": "atelier",
+      "reason": "Use open rails, seals, paths, ordered strips, and branch motion as the lesson grammar.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.99
+    },
+    {
+      "decision_id": "e02-voice-john-higgsfield",
+      "stage": "assets",
+      "category": "voice_selection",
+      "subject": "Narration route",
+      "options_considered": [
+        {
+          "option_id": "higgsfield-john",
+          "label": "Higgsfield John / clean",
+          "score": 1.0,
+          "reason": "The exact live E1-E5 route approval selects Higgsfield Qwen Audio 3.0 TTS Flash / John / clean under the existing subscription; OpenMontage/projects/_series-v4-shared/review-board/voice-route-approval-e1-e5-v7.json SHA-256 6f0faca1923064bdee7fc1c419c624e2662193b0e9ac173f28d8048dfeea4668."
+        },
+        {
+          "option_id": "elevenlabs",
+          "label": "ElevenLabs",
+          "score": 0.0,
+          "reason": "Available in the generic registry but not the current series route.",
+          "rejected_because": "Provider substitution is not authorized."
+        },
+        {
+          "option_id": "local-tts",
+          "label": "Local TTS",
+          "score": 0.0,
+          "reason": "Would change the selected voice treatment.",
+          "rejected_because": "Current series route is quality-first Higgsfield Max."
+        }
+      ],
+      "selected": "higgsfield-john",
+      "reason": "Use only the exact current John/clean route under existing entitlement; no top-up, account action, or provider substitution.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.97
+    },
+    {
+      "decision_id": "e02-music-none",
+      "stage": "assets",
+      "category": "music_source",
+      "subject": "Music treatment",
+      "options_considered": [
+        {
+          "option_id": "none",
+          "label": "No music",
+          "score": 1.0,
+          "reason": "Keeps exact evidence and narration intelligible and matches the live series route."
+        },
+        {
+          "option_id": "generated-bed",
+          "label": "Generated music bed",
+          "score": 0.2,
+          "reason": "Could add texture but would compete with the lesson and introduce another provider decision.",
+          "rejected_because": "Not needed for this evidence-first episode."
+        }
+      ],
+      "selected": "none",
+      "reason": "Narration plus restrained mechanism motion carries the treatment; no music asset is introduced.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.95
+    },
+    {
+      "decision_id": "e02-visual-shell-repair",
+      "stage": "scene_plan",
+      "category": "visual_accuracy_check",
+      "subject": "Repeated shell and paired-card repair",
+      "options_considered": [
+        {
+          "option_id": "retain-shell-cards",
+          "label": "Retain bordered cards",
+          "score": 0.0,
+          "reason": "The proof review identified this as slide-deck risk.",
+          "rejected_because": "Conflicts with the no-card-stack/repeated-hero block."
+        },
+        {
+          "option_id": "open-rails-and-branch",
+          "label": "Open rails and branch path",
+          "score": 1.0,
+          "reason": "Scenes 08 and 14 now express lane separation and unanswered execution questions as moving rails."
+        }
+      ],
+      "selected": "open-rails-and-branch",
+      "reason": "Remove the repeated rounded shell from all scene SVGs and replace the two paired-card scenes with mechanism motion.",
+      "user_visible": true,
+      "user_approved": true,
+      "confidence": 0.99
+    }
+  ]
+}

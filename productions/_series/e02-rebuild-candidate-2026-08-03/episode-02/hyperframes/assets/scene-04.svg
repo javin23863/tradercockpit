@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img">
+<rect width="1920" height="1080" fill="#080b12"/>
+<style>
+@font-face{font-family:'Bahnschrift';src:local('Bahnschrift');font-weight:100 900}
+@font-face{font-family:'Consolas';src:local('Consolas');font-weight:100 900}
+.kicker{font:700 24px 'Bahnschrift',sans-serif;letter-spacing:.14em;fill:#7ed7d2}
+.title{font:800 66px 'Bahnschrift',sans-serif;fill:#f5f1e8}
+.body{font:500 30px 'Bahnschrift',sans-serif;fill:#d8d8d1}
+.small{font:600 22px 'Bahnschrift',sans-serif;fill:#a6adb8;letter-spacing:.04em}
+.mono{font:700 34px 'Consolas',monospace;fill:#f5f1e8}
+.mono-sm{font:700 25px 'Consolas',monospace;fill:#f5f1e8}
+.accent{fill:#f0ba55}.cyan{fill:#7ed7d2}.muted{fill:#89929e}.ink{fill:#080b12}
+.line{stroke:#33404e;stroke-width:3}.accent-line{stroke:#f0ba55;stroke-width:6}
+.cyan-line{stroke:#7ed7d2;stroke-width:6}.seal{stroke:#d27ca7;stroke-width:7}
+</style>
+<text x="92" y="96" class="kicker" text-anchor="start">E02 / SCENE-04</text>
+<text x="92" y="190" class="title" text-anchor="start">The SPY mechanism and its warmup</text>
+<line x1="92" y1="228" x2="1828" y2="228" class="line"/>
+<text x="150" y="320" class="kicker" text-anchor="start">SPY / D1 / CONNORS RSI2</text>
+<line x1="170" y1="460" x2="1750" y2="460" class="line"/>
+<line x1="170" y1="660" x2="1750" y2="660" class="line"/>
+<rect x="170" y="410" width="480" height="105" fill="#25202b"/>
+<text x="200" y="475" class="mono-sm" text-anchor="start">warmup bars</text>
+<rect x="650" y="410" width="1080" height="105" fill="#111a24"/>
+<text x="760" y="475" class="mono-sm" text-anchor="start">200-day regime window</text>
+<rect x="170" y="610" width="80" height="105" fill="#25202b"/>
+<text x="330" y="675" class="mono-sm" text-anchor="start">2-day RSI input</text>
+<rect x="250" y="610" width="880" height="105" fill="#121e23"/>
+<line x1="1130" y1="610" x2="1730" y2="610" class="cyan-line"/>
+<text x="1210" y="675" class="small" text-anchor="start">short moving-average exit leg</text>
+<text x="170" y="850" class="body" text-anchor="start">context first  →  signal  →  measured result</text>
+<text x="170" y="925" class="small" text-anchor="start">warmup is history, not performance</text>
+</svg>

@@ -1,0 +1,69 @@
+{
+  "version": "1.0",
+  "STATUS": "LOCAL PRODUCTION AUTHORIZED — exact-hash/publication approval remains separate",
+  "episode": 2,
+  "syllabus_episode": "02",
+  "title": "RSI2: Five In, Zero Through. The Later Prices Stayed Locked.",
+  "beginner_belief": "If the first screen looks good, the later test is just a formality.",
+  "first_spoken_sentence": "The SPY RSI2 screen stopped five candidates before the later prices opened.",
+  "prewriting": {
+    "proven idea": "The real SPY branch stops before the holdout while the separate Dow branch reaches later prices.",
+    "common goal": "Help a beginner tell a true out-of-sample question from a renamed in-sample result.",
+    "deeper problem": "Earlier scripts narrated a later test that the SPY branch never reached.",
+    "package first": "Title and thumbnail are fixed before narration; the thumbnail shows 5 to 0 and a separate 184 to 154 lane.",
+    "audience avatar": "A beginner who needs operators, units, and a visual sequence more than jargon.",
+    "research the gaps": "Academic sources cover holdout design, data snooping, time-series evaluation, distributions, medians, and percentiles."
+  },
+  "thumbnail": {
+    "source": "artifacts/thumbnail-ep02.html",
+    "elements": [
+      "5→0",
+      "SEALED",
+      "184→154"
+    ],
+    "dimensions": "1280x720",
+    "squint_proof": "artifacts/thumbnail-ep02-mobile-zoom.png",
+    "matching_first_shot": "hyperframes/assets/scene-01.svg"
+  },
+  "script": {
+    "sha256": "b704d2c3f7fd4c92928d2466880b5ba9bfbeac95ef39b04764f897e7d7817050",
+    "vo_sha256": "2b2e240db16662102adc2c349a32adae1b8b9bdd95b41fd83227b8058c906ba2",
+    "word_count": 1509,
+    "estimated_duration_seconds": 613.5
+  },
+  "voice_route": {
+    "provider": "Higgsfield",
+    "model": "Qwen Audio 3.0 TTS Flash",
+    "job_type": "qwen_audio_tts",
+    "voice": "John",
+    "treatment": "clean",
+    "approval_path": "OpenMontage/projects/_series-v4-shared/review-board/voice-route-approval-e1-e5-v7.json",
+    "approval_sha256": "6f0faca1923064bdee7fc1c419c624e2662193b0e9ac173f28d8048dfeea4668",
+    "provider_calls": false
+  },
+  "approval": {
+    "narrator_decision_inherited": true,
+    "complete_script_approved": true,
+    "operator_exact_hash_approval": false,
+    "local_production_authorized": true
+  },
+  "candidate_only": false,
+  "source_facts_receipt": "facts_receipt.json",
+  "provider_receipt": null,
+  "visual_direction_resolution": {
+    "scene_count": 14,
+    "sentence_bound_transformations": 155,
+    "mechanism_motion": true,
+    "repeated_stage_shell": "removed",
+    "paired_card_scenes": {
+      "scene-08": "resolved as two open rails",
+      "scene-14": "resolved as one branching question rail"
+    }
+  },
+  "scope_boundary": "No Episode 01 intake or Episode 03 timing/session result; E02 ends with fill timing and trading hours questions.",
+  "operator_authorization": {
+    "message": "Begin. Produce the three episodes.",
+    "local_only": true,
+    "remote_mutations": false
+  }
+}

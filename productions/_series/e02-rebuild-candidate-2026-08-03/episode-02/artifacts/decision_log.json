@@ -1,0 +1,15 @@
+{
+  "schema": "openmontage/decision-log/v1",
+  "decisions": [
+    {
+      "category": "render_runtime_selection",
+      "options_considered": [
+        "remotion",
+        "hyperframes"
+      ],
+      "selected": "hyperframes",
+      "reason": "The E02 proof is HTML/SVG motion-graphics-native, with sentence-bound diagram states and no narration asset; use the repo's HyperFrames checkout for lint/validate/proof inspection.",
+      "approval_scope": "candidate semantic proof only; no full master"
+    }
+  ]
+}

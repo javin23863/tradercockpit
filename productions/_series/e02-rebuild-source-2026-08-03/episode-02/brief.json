@@ -1,0 +1,31 @@
+{
+  "schema": "into-the-laboratory/e02-rebuild-source/v1",
+  "episode": 2,
+  "syllabus_episode": "02",
+  "title": "RSI2: Five In, Zero Through. The Later Prices Stayed Locked.",
+  "first_spoken_sentence": "The SPY RSI2 screen stopped five candidates before the later prices opened.",
+  "audience": "A curious beginner who can read a number but does not yet know why a later block has to be sealed.",
+  "delivery_promise": "Teach the evidence boundary in the real SPY and Dow receipts, with inequalities, units, and a practical freeze-before-retest worksheet.",
+  "target_wpm": 150,
+  "render_runtime": "hyperframes",
+  "renderer_family": "explainer-data",
+  "audio_architecture": "single_narrator",
+  "provider_route": {
+    "mode": "deterministic semantic proof only",
+    "provider_calls": false,
+    "narration": "pending operator approval",
+    "note": "No TTS, image, video, account, credit, or provider action is authorized at candidate stage."
+  },
+  "visual_thesis": {
+    "primary_mechanism": "freeze selection, seal the later-price chamber, and let the separate Dow lane cross it",
+    "evidence_surface": "deterministic bars, gates, operators, units, and branch state",
+    "context_surface": "small atlas marks only; no generated media is used as evidence",
+    "anti_pattern": "no repeated black-and-gold dashboard cards; no provenance labels inside lesson graphics",
+    "first_shot": "SPY candidates stop at a sealed vertical door while the thumbnail's three-element idea is visible immediately"
+  },
+  "scope_boundaries": [
+    "SPY is a stock D1 intake branch and does not receive a holdout result in this receipt.",
+    "Dow is a separate futures branch and supplies the worked out-of-sample contrast.",
+    "The lesson ends with fill timing and trading-hours questions; it does not disclose the later timing census."
+  ]
+}

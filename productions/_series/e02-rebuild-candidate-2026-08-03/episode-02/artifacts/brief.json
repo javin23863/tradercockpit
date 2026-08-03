@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "title": "RSI2: Five In, Zero Through. The Later Prices Stayed Locked.",
+  "hook": "The SPY RSI2 screen stopped five candidates before the later prices opened.",
+  "key_points": [
+    "SPY D1 Connors RSI2 records five intake entries and zero later-phase entries; its holdout is not reached.",
+    "The SPY gate is taught as 0.806004 > 1.3, -0.420205 > 4, and 0.392308 trades/month > 2, each false with units shown.",
+    "The separate Dow lane changes from 184 to 154 and carries one candidate from positive in-sample net/PF to negative later-block net/PF.",
+    "The lesson ends by asking whether the survivors depend on fill timing or trading hours."
+  ],
+  "core_message": "A later price block can judge a frozen version only once; SPY never reaches that chamber here, while the separate Dow lane shows why a candidate's measured result can change.",
+  "cta": "Ask whether the remaining survivors depend on fill timing or trading hours.",
+  "tone": "Plain-spoken, forensic, calm, and concrete beginner teaching.",
+  "style": "Quant Atlas v2 atelier: open evidence rails, deterministic diagrams, and purposeful mechanism motion.",
+  "target_audience": "A curious beginner who can read a number but does not yet know why a later block has to be sealed.",
+  "target_platform": "youtube",
+  "target_duration_seconds": 613.5,
+  "reference_material": [
+    "sources/vo.txt",
+    "sources/academic_receipts.json",
+    "artifacts/facts_receipt.json"
+  ],
+  "angle_options": [
+    {
+      "name": "The sealed chamber",
+      "description": "Freeze the selection before later prices and show SPY stopping before the chamber."
+    },
+    {
+      "name": "The same Dow row",
+      "description": "Carry one candidate across the separate Dow price window and compare its measured fields."
+    },
+    {
+      "name": "The operator's ruler",
+      "description": "Teach every SPY gate as actual value, operator, threshold, and unit."
+    }
+  ],
+  "selected_angle": "The sealed chamber with a separate Dow comparison lane",
+  "metadata": {
+    "episode": 2,
+    "sentence_bound_visuals": true,
+    "visual_direction_resolution": "open canvas; no repeated rounded stage shell; no paired card stack in scenes 08 or 14"
+  }
+}

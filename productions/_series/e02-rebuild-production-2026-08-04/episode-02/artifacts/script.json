@@ -1,0 +1,2703 @@
+{
+  "version": "1.0",
+  "title": "RSI2: Five In, Zero Through. The Later Prices Stayed Locked.",
+  "total_duration_seconds": 613.5,
+  "voice_performance": {
+    "performance_intent": "A calm lab walkthrough for one beginner; exact results are stated without turning them into a promise.",
+    "pacing_profile": "technical",
+    "energy_curve": "Open with the stopped SPY lane, slow down for the operator inequalities, then separate the Dow contrast and close on unanswered execution questions.",
+    "pause_policy": "Pause after every exact number and at every evidence-boundary change.",
+    "sample_section_id": "scene-05",
+    "provider_notes": {
+      "route": "Higgsfield Qwen Audio 3.0 TTS Flash / John / clean",
+      "route_approval_path": "OpenMontage/projects/_series-v4-shared/review-board/voice-route-approval-e1-e5-v7.json",
+      "route_approval_sha256": "6f0faca1923064bdee7fc1c419c624e2662193b0e9ac173f28d8048dfeea4668",
+      "instruction": "Calm, measured educator speaking to one trader. Read exactly; preserve every word, number, and limitation. No hype or sarcasm.",
+      "processing": "70 Hz high-pass; two-pass EBU R128 normalization to -16 LUFS and -1.5 dBTP; 48 kHz mono 24-bit PCM; no tempo transform."
+    }
+  },
+  "sections": [
+    {
+      "id": "scene-01",
+      "label": "The stock branch stops before the chamber",
+      "text": "The SPY RSI2 screen stopped five candidates before the later prices opened. We have a daily window from 1996-07-12 through 2011-05-26. Five versions enter, and all fail. The next phase has zero. There is no holdout return for SPY, and no later result. That can look like a dead end, but it is the result. We can look at the data and see what stopped the list. Then we will look at the Dow futures on its own. Keep the two paths separate. SPY stops at intake. The Dow reaches the later test. You can look at the data and see the result.",
+      "start_seconds": 0.0,
+      "end_seconds": 41.85,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "direct cold open",
+        "pause_after_seconds": 0.45,
+        "provider_text": "The SPY RSI2 screen stopped five candidates before the later prices opened. We have a daily window from 1996-07-12 through 2011-05-26. Five versions enter, and all fail. The next phase has zero. There is no holdout return for SPY, and no later result. That can look like a dead end, but it is the result. We can look at the data and see what stopped the list. Then we will look at the Dow futures on its own. Keep the two paths separate. SPY stops at intake. The Dow reaches the later test. You can look at the data and see the result."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-01 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 0.0
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-01 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 2.438
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-01 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 4.876
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-02 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 4.876
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-02 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 6.7045
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-02 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 8.533
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-03 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 8.533
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-03 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 9.7515
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-03 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 10.97
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-04 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 10.97
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-04 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 11.986
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-04 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 13.002
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-05 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 13.002
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-05 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 15.2365
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-05 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 17.471
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-06 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 17.471
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-06 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 19.909
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-06 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 22.347
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-07 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 22.347
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-07 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 24.785
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-07 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 27.223
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-08 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 27.223
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-08 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 29.4575
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-08 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 31.692
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-09 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 31.692
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-09 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 32.708
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-09 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 33.724
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-10 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 33.724
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-10 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 34.5365
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-10 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 35.349
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-11 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 35.349
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-11 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 36.568
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-11 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 37.787
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-12 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 37.787
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-12 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 39.8185
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-01-sentence-12 using intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 41.85
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after intake tokens travel to a sealed door, then the separate futures branch unfolds",
+          "timestamp_seconds": 41.85
+        }
+      ],
+      "source_ref": "C01",
+      "claim_refs": [
+        "C01"
+      ]
+    },
+    {
+      "id": "scene-02",
+      "label": "Freeze before the later block",
+      "text": "You know how a later test can go wrong. You look at the result, and then make a change. You look again. Freeze the version before you open that door. Out-of-sample means the later prices did not help you choose it. A holdout is the later part kept shut while you choose. Pick first, write it down, and open the door once. If you use the result to make another choice, those prices now join the choice. Now the question changes. SPY has five rows, and none go forward. The Dow has a later group. Choose the version first, then look at the later prices.",
+      "start_seconds": 41.85,
+      "end_seconds": 84.5,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "cautionary and deliberate",
+        "pause_after_seconds": 0.45,
+        "provider_text": "You know how a later test can go wrong. You look at the result, and then make a change. You look again. Freeze the version before you open that door. Out-of-sample means the later prices did not help you choose it. A holdout is the later part kept shut while you choose. Pick first, write it down, and open the door once. If you use the result to make another choice, those prices now join the choice. Now the question changes. SPY has five rows, and none go forward. The Dow has a later group. Choose the version first, then look at the later prices."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-01 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 41.85
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-01 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 43.678
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-01 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 45.506
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-02 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 45.506
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-02 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 47.537
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-02 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 49.568
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-03 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 49.568
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-03 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 50.177
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-03 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 50.786
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-04 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 50.786
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-04 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 52.411
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-04 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 54.036
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-05 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 54.036
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-05 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 56.27
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-05 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 58.504
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-06 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 58.504
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-06 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 60.738
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-06 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 62.972
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-07 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 62.972
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-07 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 65.003
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-07 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 67.034
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-08 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 67.034
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-08 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 70.0805
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-08 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 73.127
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-09 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 73.127
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-09 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 73.939
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-09 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 74.751
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-10 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 74.751
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-10 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 76.376
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-10 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 78.001
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-11 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 78.001
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-11 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 79.2195
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-11 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 80.438
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-12 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 80.438
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-12 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 82.469
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-02-sentence-12 using choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 84.5
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+          "timestamp_seconds": 84.5
+        }
+      ],
+      "source_ref": "C02",
+      "claim_refs": [
+        "C02"
+      ]
+    },
+    {
+      "id": "scene-03",
+      "label": "The vocabulary of a sealed test",
+      "text": "Let us slow down and name these words. You know, in-sample is the part we use to choose. Out-of-sample is the part we save for later. The first part gives us a way to build the rule, and the second part lets us see what happens with new prices. Overfitting is when the rule follows the old path too closely. Curve-fitting is the same problem when we move the settings. If you try enough settings, you will find something that looks good, but that does not mean it will work again. Frozen parameters are the numbers we leave alone. A segmented backtest has fixed blocks with separate jobs. Walk-forward moves the start and does it again. In this run, we have one first part and one later part. That gives us context; this run has no walk-forward result. Warmup bars are the history an indicator needs before we use its value. We keep them outside the trade-result count. That is a method rule; it adds no new SPY result.",
+      "start_seconds": 84.5,
+      "end_seconds": 152.75,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "slow vocabulary lesson",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Let us slow down and name these words. You know, in-sample is the part we use to choose. Out-of-sample is the part we save for later. The first part gives us a way to build the rule, and the second part lets us see what happens with new prices. Overfitting is when the rule follows the old path too closely. Curve-fitting is the same problem when we move the settings. If you try enough settings, you will find something that looks good, but that does not mean it will work again. Frozen parameters are the numbers we leave alone. A segmented backtest has fixed blocks with separate jobs. Walk-forward moves the start and does it again. In this run, we have one first part and one later part. That gives us context; this run has no walk-forward result. Warmup bars are the history an indicator needs before we use its value. We keep them outside the trade-result count. That is a method rule; it adds no new SPY result."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-01 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 84.5
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-01 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 86.1155
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-01 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 87.731
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-02 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 87.731
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-02 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 89.75
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-02 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 91.769
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-03 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 91.769
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-03 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 93.3845
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-03 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 95.0
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-04 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 95.0
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-04 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 99.644
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-04 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 104.288
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-05 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 104.288
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-05 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 106.5095
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-05 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 108.731
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-06 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 108.731
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-06 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 110.75
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-06 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 112.769
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-07 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 112.769
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-07 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 117.0095
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-07 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 121.25
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-08 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 121.25
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-08 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 122.8655
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-08 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 124.481
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-09 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 124.481
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-09 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 126.298
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-09 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 128.115
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-10 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 128.115
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-10 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 129.7305
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-10 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 131.346
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-11 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 131.346
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-11 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 133.769
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-11 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 136.192
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-12 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 136.192
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-12 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 138.2115
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-12 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 140.231
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-13 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 140.231
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-13 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 142.856
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-13 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 145.481
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-14 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 145.481
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-14 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 146.8945
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-14 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 148.308
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-15 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 148.308
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-15 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 150.529
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-03-sentence-15 using the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 152.75
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+          "timestamp_seconds": 152.75
+        }
+      ],
+      "source_ref": "C03",
+      "claim_refs": [
+        "C03"
+      ]
+    },
+    {
+      "id": "scene-04",
+      "label": "The SPY mechanism and its warmup",
+      "text": "Now look at the SPY file. You can see a daily Connors RSI2 run. We have a 200-day window and a 2-day RSI in the saved settings. The ledger says the exit uses a close above a short moving average. D1 means daily bars. The lineage has the 200-day window too. We use warmup bars to give the indicator its history before a signal counts. That setup is not a trade result. The test tells us what entered the list and what passed the gates. Keep the run ID and the window with the result.",
+      "start_seconds": 152.75,
+      "end_seconds": 191.4,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "observational mechanism walk",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Now look at the SPY file. You can see a daily Connors RSI2 run. We have a 200-day window and a 2-day RSI in the saved settings. The ledger says the exit uses a close above a short moving average. D1 means daily bars. The lineage has the 200-day window too. We use warmup bars to give the indicator its history before a signal counts. That setup is not a trade result. The test tells us what entered the list and what passed the gates. Keep the run ID and the window with the result."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-01 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 152.75
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-01 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 153.9705
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-01 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 155.191
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-02 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 155.191
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-02 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 156.8185
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-02 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 158.446
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-03 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 158.446
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-03 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 161.0905
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-03 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 163.735
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-04 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 163.735
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-04 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 166.3795
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-04 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 169.024
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-05 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 169.024
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-05 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 169.8375
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-05 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 170.651
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-06 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 170.651
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-06 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 172.075
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-06 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 173.499
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-07 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 173.499
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-07 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 176.347
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-07 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 179.195
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-08 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 179.195
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-08 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 180.619
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-08 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 182.043
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-09 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 182.043
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-09 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 184.6875
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-09 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 187.332
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-10 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 187.332
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-10 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 189.366
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-04-sentence-10 using warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 191.4
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after warmup history sweeps into the indicator rail before the signal and exit rails light",
+          "timestamp_seconds": 191.4
+        }
+      ],
+      "source_ref": "C04",
+      "claim_refs": [
+        "C04"
+      ]
+    },
+    {
+      "id": "scene-05",
+      "label": "Read the gate as inequalities",
+      "text": "Here is the row, and here is the arithmetic. Profit factor is 0.806004. The target is more than 1.3. Return over drawdown is -0.420205. The target is more than 4. Trades per month is 0.392308. The target is more than 2 trades per month. Write each check down: 0.806004 > 1.3 is false. -0.420205 > 4 is false. 0.392308 trades per month > 2 trades per month is false. Profit factor is a unitless ratio: gross winning dollars divided by gross losing dollars. Return over drawdown is a unitless ratio: net result divided by the largest measured drawdown. Trades per month is a rate, with units of trades per month.",
+      "start_seconds": 191.4,
+      "end_seconds": 238.05,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "slow analytical arithmetic",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Here is the row, and here is the arithmetic. Profit factor is 0.806004. The target is more than 1.3. Return over drawdown is -0.420205. The target is more than 4. Trades per month is 0.392308. The target is more than 2 trades per month. Write each check down: 0.806004 > 1.3 is false. -0.420205 > 4 is false. 0.392308 trades per month > 2 trades per month is false. Profit factor is a unitless ratio: gross winning dollars divided by gross losing dollars. Return over drawdown is a unitless ratio: net result divided by the largest measured drawdown. Trades per month is a rate, with units of trades per month."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-01 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 191.4
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-01 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 193.2255
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-01 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 195.051
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-02 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 195.051
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-02 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 196.065
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-02 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 197.079
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-03 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 197.079
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-03 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 198.499
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-03 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 199.919
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-04 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 199.919
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-04 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 201.136
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-04 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 202.353
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-05 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 202.353
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-05 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 203.57
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-05 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 204.787
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-06 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 204.787
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-06 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 206.0035
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-06 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 207.22
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-07 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 207.22
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-07 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 209.0455
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-07 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 210.871
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-08 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 210.871
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-08 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 212.8995
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-08 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 214.928
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-09 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 214.928
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-09 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 215.942
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-09 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 216.956
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-10 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 216.956
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-10 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 219.187
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-10 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 221.418
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-11 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 221.418
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-11 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 224.2575
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-11 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 227.097
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-12 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 227.097
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-12 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 230.1395
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-12 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 233.182
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-13 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 233.182
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-13 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 235.616
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-05-sentence-13 using the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 238.05
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after the operator probe visits actual, operator, threshold, and FALSE for each row",
+          "timestamp_seconds": 238.05
+        }
+      ],
+      "source_ref": "C05",
+      "claim_refs": [
+        "C05"
+      ]
+    },
+    {
+      "id": "scene-06",
+      "label": "Five rows stay five rows",
+      "text": "That row explains the early stop. Five versions enter the first screen, and five fail. I am showing one row so you can follow the arithmetic. The full RSI2 setting space is larger than this list. Each threshold sits next to its result. The data source is real, and the wiring proof is true. Validation is still open. A real data connection and a recorded choice do not make a strategy pass. They only show that the pipeline reached this gate. A pass would move the row to the next part; it would not tell us what happens in the market.",
+      "start_seconds": 238.05,
+      "end_seconds": 279.1,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "focused intake review",
+        "pause_after_seconds": 0.45,
+        "provider_text": "That row explains the early stop. Five versions enter the first screen, and five fail. I am showing one row so you can follow the arithmetic. The full RSI2 setting space is larger than this list. Each threshold sits next to its result. The data source is real, and the wiring proof is true. Validation is still open. A real data connection and a recorded choice do not make a strategy pass. They only show that the pipeline reached this gate. A pass would move the row to the next part; it would not tell us what happens in the market."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-01 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 238.05
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-01 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 239.2695
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-01 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 240.489
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-02 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 240.489
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-02 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 242.318
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-02 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 244.147
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-03 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 244.147
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-03 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 246.382
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-03 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 248.617
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-04 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 248.617
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-04 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 250.6495
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-04 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 252.682
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-05 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 252.682
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-05 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 254.1045
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-05 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 255.527
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-06 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 255.527
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-06 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 257.7625
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-06 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 259.998
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-07 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 259.998
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-07 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 260.8105
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-07 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 261.623
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-08 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 261.623
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-08 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 264.468
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-08 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 267.313
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-09 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 267.313
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-09 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 269.142
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-09 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 270.971
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-10 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 270.971
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-10 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 275.0355
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-06-sentence-10 using five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 279.1
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after five candidates traverse the intake rail while a single magnifier follows one row",
+          "timestamp_seconds": 279.1
+        }
+      ],
+      "source_ref": "C06",
+      "claim_refs": [
+        "C06"
+      ]
+    },
+    {
+      "id": "scene-07",
+      "label": "SPY does not reach the holdout",
+      "text": "Right now, we are looking at the next part. You can see zero in and zero out. That is what we have. The later prices did not open for SPY, so the holdout is not reached. There is no return to read. A future test needs a version, a later window, and frozen settings. You write that down before you open the door. The door stays shut. You do not turn an empty phase into a performance number.",
+      "start_seconds": 279.1,
+      "end_seconds": 310.95,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "quiet boundary stop",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Right now, we are looking at the next part. You can see zero in and zero out. That is what we have. The later prices did not open for SPY, so the holdout is not reached. There is no return to read. A future test needs a version, a later window, and frozen settings. You write that down before you open the door. The door stays shut. You do not turn an empty phase into a performance number."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-01 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 279.1
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-01 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 280.9375
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-01 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 282.775
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-02 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 282.775
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-02 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 284.4085
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-02 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 286.042
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-03 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 286.042
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-03 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 287.0625
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-03 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 288.083
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-04 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 288.083
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-04 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 290.9415
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-04 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 293.8
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-05 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 293.8
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-05 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 295.025
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-05 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 296.25
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-06 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 296.25
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-06 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 298.7
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-06 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 301.15
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-07 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 301.15
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-07 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 302.9875
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-07 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 304.825
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-08 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 304.825
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-08 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 305.6415
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-08 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 306.458
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-09 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 306.458
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-09 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 308.704
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-07-sentence-09 using empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 310.95
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after empty entering and surviving gauges stay empty while the later-price door locks",
+          "timestamp_seconds": 310.95
+        }
+      ],
+      "source_ref": "C07",
+      "claim_refs": [
+        "C07"
+      ]
+    },
+    {
+      "id": "scene-08",
+      "label": "The Dow lane is separate",
+      "text": "Now change lanes to Dow futures. You can see 184 candidates enter the later test. 154 continue, and 30 drop. This is the lane that reaches later prices. SPY stopped before this part. Out-of-sample tells us the job of the later block; it does not promise a result. Look at the two counts. The first tells you who came in, and the second tells you who made it through.",
+      "start_seconds": 310.95,
+      "end_seconds": 339.2,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "separate-lane contrast",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Now change lanes to Dow futures. You can see 184 candidates enter the later test. 154 continue, and 30 drop. This is the lane that reaches later prices. SPY stopped before this part. Out-of-sample tells us the job of the later block; it does not promise a result. Look at the two counts. The first tells you who came in, and the second tells you who made it through."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-01 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 310.95
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-01 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 312.1785
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-01 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 313.407
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-02 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 313.407
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-02 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 315.249
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-02 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 317.091
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-03 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 317.091
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-03 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 318.1145
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-03 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 319.138
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-04 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 319.138
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-04 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 320.776
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-04 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 322.414
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-05 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 322.414
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-05 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 323.4375
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-05 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 324.461
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-06 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 324.461
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-06 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 327.5315
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-06 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 330.602
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-07 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 330.602
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-07 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 331.6255
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-07 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 332.649
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-08 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 332.649
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-08 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 335.9245
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-08-sentence-08 using the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 339.2
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after the stock lane stops at its seal while a separate Dow lane continues across its rail",
+          "timestamp_seconds": 339.2
+        }
+      ],
+      "source_ref": "C08",
+      "claim_refs": [
+        "C08"
+      ]
+    },
+    {
+      "id": "scene-09",
+      "label": "One Dow row changes on later prices",
+      "text": "Keep one Dow candidate in view. In the first window, it made +$16,727.80; the profit factor was 1.28037. In the later window, it made -$4,897.40; the profit factor was 0.813381. Same candidate has 29 wins and 72 losses. The old brief gives 0.81324. The pinned row gives 0.813381, and that is the number we keep. Same candidate, two windows. Keep SPY out. One row from 184. The other 183 need their own results.",
+      "start_seconds": 339.2,
+      "end_seconds": 372.25,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "grave measured reversal",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Keep one Dow candidate in view. In the first window, it made +$16,727.80; the profit factor was 1.28037. In the later window, it made -$4,897.40; the profit factor was 0.813381. Same candidate has 29 wins and 72 losses. The old brief gives 0.81324. The pinned row gives 0.813381, and that is the number we keep. Same candidate, two windows. Keep SPY out. One row from 184. The other 183 need their own results."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-01 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 339.2
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-01 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 340.424
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-01 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 341.648
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-02 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 341.648
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-02 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 344.7085
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-02 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 347.769
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-03 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 347.769
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-03 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 350.829
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-03 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 353.889
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-04 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 353.889
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-04 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 355.521
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-04 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 357.153
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-05 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 357.153
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-05 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 358.377
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-05 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 359.601
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-06 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 359.601
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-06 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 362.2535
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-06 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 364.906
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-07 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 364.906
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-07 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 365.722
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-07 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 366.538
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-08 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 366.538
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-08 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 367.15
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-08 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 367.762
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-09 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 367.762
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-09 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 368.578
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-09 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 369.394
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-10 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 369.394
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-10 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 370.822
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-09-sentence-10 using one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 372.25
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after one candidate identity is carried across two price-window rails as its metrics flip",
+          "timestamp_seconds": 372.25
+        }
+      ],
+      "source_ref": "C09",
+      "claim_refs": [
+        "C09"
+      ]
+    },
+    {
+      "id": "scene-10",
+      "label": "Why selection pressure matters",
+      "text": "Why does this matter? You know, the problem starts when the development history feels too familiar. You look at the old prices, try many rules, and keep the one that looks good. Then you start to learn the path instead of testing the idea. Curve-fitting can mean moving one threshold, one exit, or one window after you see the result. White's data-snooping paper warns that a result can show up by chance when the same data chooses and judges the rule. Trading-rule research gives us the same warning. The simple answer is to choose the plan first. Freeze the settings. Open the later block once. Record what happened. SPY shows the first stop. Dow shows why the later step matters.",
+      "start_seconds": 372.25,
+      "end_seconds": 421.3,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "curious methodological pressure",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Why does this matter? You know, the problem starts when the development history feels too familiar. You look at the old prices, try many rules, and keep the one that looks good. Then you start to learn the path instead of testing the idea. Curve-fitting can mean moving one threshold, one exit, or one window after you see the result. White's data-snooping paper warns that a result can show up by chance when the same data chooses and judges the rule. Trading-rule research gives us the same warning. The simple answer is to choose the plan first. Freeze the settings. Open the later block once. Record what happened. SPY shows the first stop. Dow shows why the later step matters."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-01 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 372.25
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-01 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 373.0605
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-01 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 373.871
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-02 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 373.871
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-02 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 376.3035
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-02 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 378.736
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-03 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 378.736
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-03 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 381.979
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-03 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 385.222
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-04 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 385.222
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-04 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 387.654
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-04 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 390.086
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-05 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 390.086
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-05 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 393.329
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-05 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 396.572
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-06 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 396.572
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-06 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 401.031
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-06 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 405.49
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-07 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 405.49
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-07 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 406.909
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-07 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 408.328
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-08 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 408.328
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-08 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 410.152
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-08 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 411.976
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-09 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 411.976
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-09 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 412.5845
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-09 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 413.193
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-10 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 413.193
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-10 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 414.206
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-10 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 415.219
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-11 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 415.219
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-11 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 415.8275
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-11 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 416.436
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-12 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 416.436
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-12 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 417.449
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-12 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 418.462
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-13 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 418.462
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-13 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 419.881
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-10-sentence-13 using a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 421.3
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after a smooth signal path and a noisy curve path are traced by different probes",
+          "timestamp_seconds": 421.3
+        }
+      ],
+      "source_ref": "C10",
+      "claim_refs": [
+        "C10"
+      ]
+    },
+    {
+      "id": "scene-11",
+      "label": "A field is more than one number",
+      "text": "Now look at the group along with the one candidate. A distribution is the group of results. It has a center, a spread, and a shape. The median is the middle result after you sort the group. A percentile is a place in that order. The 50th percentile is the median. These words do not add a result here. To use a median, you need the group, the units, and the calculation. To use a percentile, you need a rank rule. SPY has five rows and no later group, so it has no SPY percentile here. Dow has 184 in and 154 through. A report can add up that group later.",
+      "start_seconds": 421.3,
+      "end_seconds": 466.35,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "patient statistical definition",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Now look at the group along with the one candidate. A distribution is the group of results. It has a center, a spread, and a shape. The median is the middle result after you sort the group. A percentile is a place in that order. The 50th percentile is the median. These words do not add a result here. To use a median, you need the group, the units, and the calculation. To use a percentile, you need a rank rule. SPY has five rows and no later group, so it has no SPY percentile here. Dow has 184 in and 154 through. A report can add up that group later."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-01 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 421.3
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-01 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 423.3295
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-01 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 425.359
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-02 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 425.359
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-02 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 426.7795
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-02 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 428.2
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-03 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 428.2
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-03 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 430.026
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-03 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 431.852
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-04 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 431.852
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-04 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 434.0845
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-04 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 436.317
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-05 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 436.317
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-05 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 437.9405
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-05 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 439.564
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-06 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 439.564
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-06 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 440.7815
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-06 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 441.999
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-07 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 441.999
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-07 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 443.622
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-07 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 445.245
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-08 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 445.245
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-08 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 447.8835
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-08 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 450.522
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-09 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 450.522
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-09 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 452.348
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-09 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 454.174
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-10 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 454.174
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-10 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 457.218
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-10 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 460.262
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-11 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 460.262
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-11 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 461.6825
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-11 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 463.103
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-12 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 463.103
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-12 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 464.7265
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-11-sentence-12 using ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 466.35
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after ordered outcomes receive a median marker and a percentile marker in sequence",
+          "timestamp_seconds": 466.35
+        }
+      ],
+      "source_ref": "C11",
+      "claim_refs": [
+        "C11"
+      ]
+    },
+    {
+      "id": "scene-12",
+      "label": "Fixed blocks are not walk-forward",
+      "text": "Segmentation and walk-forward sound alike, so keep them apart. You know, one version uses fixed blocks, and each block has a job; a segmented backtest does that. Walk-forward moves the start and does it again through time. Choose the design from the question, the history, and the update rule. Research on data over time says order matters, and conditions can change. In this run, we have one SPY intake and no later phase. We have one Dow later block. That is the full set of blocks here. It does not make the run walk-forward. A rolling test needs dates and a rule for when to update or leave the settings alone.",
+      "start_seconds": 466.35,
+      "end_seconds": 511.4,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "comparative clarification",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Segmentation and walk-forward sound alike, so keep them apart. You know, one version uses fixed blocks, and each block has a job; a segmented backtest does that. Walk-forward moves the start and does it again through time. Choose the design from the question, the history, and the update rule. Research on data over time says order matters, and conditions can change. In this run, we have one SPY intake and no later phase. We have one Dow later block. That is the full set of blocks here. It does not make the run walk-forward. A rolling test needs dates and a rule for when to update or leave the settings alone."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-01 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 466.35
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-01 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 468.1765
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-01 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 470.003
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-02 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 470.003
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-02 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 473.6555
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-02 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 477.308
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-03 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 477.308
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-03 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 479.3375
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-03 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 481.367
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-04 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 481.367
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-04 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 483.802
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-04 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 486.237
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-05 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 486.237
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-05 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 488.672
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-05 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 491.107
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-06 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 491.107
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-06 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 493.542
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-06 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 495.977
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-07 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 495.977
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-07 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 497.195
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-07 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 498.413
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-08 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 498.413
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-08 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 500.036
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-08 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 501.659
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-09 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 501.659
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-09 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 503.0795
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-09 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 504.5
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-10 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 504.5
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-10 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 507.95
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-12-sentence-10 using fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 511.4
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after fixed build/test blocks hold while the walk-forward origin advances independently",
+          "timestamp_seconds": 511.4
+        }
+      ],
+      "source_ref": "C12",
+      "claim_refs": [
+        "C12"
+      ]
+    },
+    {
+      "id": "scene-13",
+      "label": "The reproducible worksheet",
+      "text": "Here is the worksheet. Write down the instrument, the timeframe, and the rule; then write the first window, the later window, the counts, and the validation. Put the units next to each comparison. For SPY, write five in, zero survive, zero forward, and holdout not reached. For Dow, write 184 in, 154 survive, and 30 drop; one candidate changes from positive net profit to negative. Freeze first. Save the source hash and the row location. Name the later window before you call it out-of-sample. Pin the group before you use a median or percentile. That turns a chart into a question you can repeat.",
+      "start_seconds": 511.4,
+      "end_seconds": 553.65,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "practical worksheet instruction",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Here is the worksheet. Write down the instrument, the timeframe, and the rule; then write the first window, the later window, the counts, and the validation. Put the units next to each comparison. For SPY, write five in, zero survive, zero forward, and holdout not reached. For Dow, write 184 in, 154 survive, and 30 drop; one candidate changes from positive net profit to negative. Freeze first. Save the source hash and the row location. Name the later window before you call it out-of-sample. Pin the group before you use a median or percentile. That turns a chart into a question you can repeat."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-01 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 511.4
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-01 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 512.2125
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-01 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 513.025
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-02 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 513.025
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-02 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 517.494
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-02 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 521.963
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-03 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 521.963
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-03 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 523.3845
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-03 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 524.806
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-04 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 524.806
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-04 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 527.447
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-04 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 530.088
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-05 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 530.088
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-05 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 533.947
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-05 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 537.806
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-06 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 537.806
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-06 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 538.2125
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-06 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 538.619
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-07 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 538.619
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-07 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 540.244
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-07 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 541.869
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-08 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 541.869
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-08 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 543.697
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-08 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 545.525
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-09 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 545.525
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-09 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 547.5565
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-09 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 549.588
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-10 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 549.588
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-10 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 551.619
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-13-sentence-10 using worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 553.65
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after worksheet fields are filled from instrument to windows to counts, then hash-bound",
+          "timestamp_seconds": 553.65
+        }
+      ],
+      "source_ref": "C13",
+      "claim_refs": [
+        "C13"
+      ]
+    },
+    {
+      "id": "scene-14",
+      "label": "The next question is execution",
+      "text": "Let's take a look at the result. For SPY, the first screen is the stop; its holdout never opens. The Dow reaches later prices. One row shows +$16,727.80 in the first window, with a profit factor of 1.28037. The same row shows -$4,897.40 in the later window, with a profit factor of 0.813381. It has 29 wins and 72 losses. The old brief gives 0.81324; the pinned row gives 0.813381, so that is the number we keep. Keep SPY out of this comparison. The recorded windows give us a result, and the next trade remains unknown. If the survivor changes when the fill moves or trading hours change, then the result depends on an execution assumption the current receipts do not establish. Before opening another chamber, would you ask whether the survivors depend on fill timing or trading hours?",
+      "start_seconds": 553.65,
+      "end_seconds": 613.5,
+      "speaker_directions": "Calm, precise beginner teaching; pause after exact numbers and before the boundary.",
+      "delivery_cues": {
+        "pace": "measured",
+        "energy": "open unanswered question",
+        "pause_after_seconds": 0.45,
+        "provider_text": "Let's take a look at the result. For SPY, the first screen is the stop; its holdout never opens. The Dow reaches later prices. One row shows +$16,727.80 in the first window, with a profit factor of 1.28037. The same row shows -$4,897.40 in the later window, with a profit factor of 0.813381. It has 29 wins and 72 losses. The old brief gives 0.81324; the pinned row gives 0.813381, so that is the number we keep. Keep SPY out of this comparison. The recorded windows give us a result, and the next trade remains unknown. If the survivor changes when the fill moves or trading hours change, then the result depends on an execution assumption the current receipts do not establish. Before opening another chamber, would you ask whether the survivors depend on fill timing or trading hours?"
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-01 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 553.65
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-01 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 555.2675
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-01 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 556.885
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-02 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 556.885
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-02 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 559.3115
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-02 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 561.738
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-03 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 561.738
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-03 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 562.749
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-03 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 563.76
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-04 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 563.76
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-04 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 567.197
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-04 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 570.634
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-05 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 570.634
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-05 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 574.274
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-05 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 577.914
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-06 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 577.914
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-06 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 579.329
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-06 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 580.744
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-07 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 580.744
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-07 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 584.586
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-07 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 588.428
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-08 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 588.428
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-08 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 589.641
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-08 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 590.854
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-09 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 590.854
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-09 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 593.4825
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-09 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 596.111
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-10 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 596.111
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-10 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 601.368
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-10 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 606.625
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-11 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 606.625
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-11 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 610.0625
+        },
+        {
+          "type": "animation",
+          "description": "sentence-bound mechanism transformation scene-14-sentence-11 using one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 613.5
+        },
+        {
+          "type": "animation",
+          "description": "section-end mechanism state holds after one evidence rail branches into two unopened execution questions without panel cards",
+          "timestamp_seconds": 613.5
+        }
+      ],
+      "source_ref": "C14",
+      "claim_refs": [
+        "C14"
+      ]
+    }
+  ],
+  "metadata": {
+    "episode": 2,
+    "source_packet": "productions/_series/e02-rebuild-source-2026-08-03/episode-02",
+    "scope": "SPY 5 to 0 / holdout not reached; separate Dow 184 to 154 and candidate result change",
+    "vo_sha256": "2b2e240db16662102adc2c349a32adae1b8b9bdd95b41fd83227b8058c906ba2",
+    "word_count": 1509
+  }
+}

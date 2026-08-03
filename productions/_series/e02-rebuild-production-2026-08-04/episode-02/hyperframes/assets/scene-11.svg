@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img">
+<rect width="1920" height="1080" fill="#080b12"/>
+<style>
+@font-face{font-family:'Bahnschrift';src:local('Bahnschrift');font-weight:100 900}
+@font-face{font-family:'Consolas';src:local('Consolas');font-weight:100 900}
+.kicker{font:700 24px 'Bahnschrift',sans-serif;letter-spacing:.14em;fill:#7ed7d2}
+.title{font:800 66px 'Bahnschrift',sans-serif;fill:#f5f1e8}
+.body{font:500 30px 'Bahnschrift',sans-serif;fill:#d8d8d1}
+.small{font:600 22px 'Bahnschrift',sans-serif;fill:#a6adb8;letter-spacing:.04em}
+.mono{font:700 34px 'Consolas',monospace;fill:#f5f1e8}
+.mono-sm{font:700 25px 'Consolas',monospace;fill:#f5f1e8}
+.accent{fill:#f0ba55}.cyan{fill:#7ed7d2}.muted{fill:#89929e}.ink{fill:#080b12}
+.line{stroke:#33404e;stroke-width:3}.accent-line{stroke:#f0ba55;stroke-width:6}
+.cyan-line{stroke:#7ed7d2;stroke-width:6}.seal{stroke:#d27ca7;stroke-width:7}
+</style>
+<text x="92" y="96" class="kicker" text-anchor="start">E02 / SCENE-11</text>
+<text x="92" y="190" class="title" text-anchor="start">A field is more than one number</text>
+<line x1="92" y1="228" x2="1828" y2="228" class="line"/>
+<text x="145" y="325" class="kicker" text-anchor="start">ORDERED OUTCOMES</text>
+<line x1="190" y1="570" x2="1730" y2="570" class="line"/>
+<g fill="#7ed7d2"><circle cx="250" cy="570" r="12"/><circle cx="375" cy="533" r="12"/><circle cx="500" cy="496" r="12"/><circle cx="625" cy="459" r="12"/><circle cx="750" cy="542" r="12"/><circle cx="875" cy="505" r="12"/><circle cx="1000" cy="468" r="12"/><circle cx="1125" cy="551" r="12"/><circle cx="1250" cy="514" r="12"/><circle cx="1375" cy="477" r="12"/><circle cx="1500" cy="560" r="12"/><circle cx="1625" cy="523" r="12"/></g>
+<line x1="885" y1="415" x2="885" y2="700" class="accent-line"/>
+<line x1="1220" y1="455" x2="1220" y2="700" class="seal"/>
+<text x="885" y="380" class="small" text-anchor="middle">median</text>
+<text x="1220" y="420" class="small" text-anchor="middle">percentile</text>
+<text x="960" y="820" class="mono-sm" text-anchor="middle">distribution = location + spread + shape</text>
+<text x="960" y="905" class="small" text-anchor="middle">summary only after the population and units are pinned</text>
+</svg>

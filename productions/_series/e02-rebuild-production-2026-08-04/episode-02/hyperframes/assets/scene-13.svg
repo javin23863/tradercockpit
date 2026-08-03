@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img">
+<rect width="1920" height="1080" fill="#080b12"/>
+<style>
+@font-face{font-family:'Bahnschrift';src:local('Bahnschrift');font-weight:100 900}
+@font-face{font-family:'Consolas';src:local('Consolas');font-weight:100 900}
+.kicker{font:700 24px 'Bahnschrift',sans-serif;letter-spacing:.14em;fill:#7ed7d2}
+.title{font:800 66px 'Bahnschrift',sans-serif;fill:#f5f1e8}
+.body{font:500 30px 'Bahnschrift',sans-serif;fill:#d8d8d1}
+.small{font:600 22px 'Bahnschrift',sans-serif;fill:#a6adb8;letter-spacing:.04em}
+.mono{font:700 34px 'Consolas',monospace;fill:#f5f1e8}
+.mono-sm{font:700 25px 'Consolas',monospace;fill:#f5f1e8}
+.accent{fill:#f0ba55}.cyan{fill:#7ed7d2}.muted{fill:#89929e}.ink{fill:#080b12}
+.line{stroke:#33404e;stroke-width:3}.accent-line{stroke:#f0ba55;stroke-width:6}
+.cyan-line{stroke:#7ed7d2;stroke-width:6}.seal{stroke:#d27ca7;stroke-width:7}
+</style>
+<text x="92" y="96" class="kicker" text-anchor="start">E02 / SCENE-13</text>
+<text x="92" y="190" class="title" text-anchor="start">The reproducible worksheet</text>
+<line x1="92" y1="228" x2="1828" y2="228" class="line"/>
+<rect x="150" y="300" width="1620" height="560" rx="18" fill="#111a24" stroke="#33404e" stroke-width="3"/>
+<text x="205" y="370" class="small" text-anchor="start">INSTRUMENT</text>
+<text x="720" y="370" class="small" text-anchor="start">WINDOWS</text>
+<text x="1260" y="370" class="small" text-anchor="start">COUNTS</text>
+<line x1="205" y1="395" x2="1715" y2="395" class="line"/>
+<text x="205" y="470" class="mono-sm" text-anchor="start">SPY / D1 / RSI2</text>
+<text x="720" y="470" class="mono-sm" text-anchor="start">1996 → 2011 / later: none</text>
+<text x="1260" y="470" class="mono-sm" text-anchor="start">5 / 0 / 5</text>
+<line x1="205" y1="520" x2="1715" y2="520" class="line"/>
+<text x="205" y="595" class="mono-sm" text-anchor="start">DOW / futures</text>
+<text x="720" y="595" class="mono-sm" text-anchor="start">2018 → 2019 / later block</text>
+<text x="1260" y="595" class="mono-sm" text-anchor="start">184 / 154 / 30</text>
+<line x1="205" y1="645" x2="1715" y2="645" class="line"/>
+<text x="205" y="725" class="small" text-anchor="start">gate</text>
+<text x="720" y="725" class="mono-sm" text-anchor="start">actual  &gt;  threshold</text>
+<text x="1260" y="725" class="mono-sm" text-anchor="start">units + row locator</text>
+<text x="960" y="955" class="kicker" text-anchor="middle">freeze → hash → locate → describe</text>
+</svg>

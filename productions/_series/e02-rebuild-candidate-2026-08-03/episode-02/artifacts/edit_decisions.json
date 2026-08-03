@@ -1,0 +1,51 @@
+{
+  "schema": "openmontage/animation/edit-decisions/v1",
+  "metadata": {
+    "gate_profile": "board-led-explainer",
+    "candidate_only": true
+  },
+  "render_runtime": "hyperframes",
+  "cuts": [
+    {
+      "id": "proof-beat-01",
+      "source": "hyperframes/index.html",
+      "in_seconds": 0,
+      "out_seconds": 5,
+      "type": "svg_diagram"
+    },
+    {
+      "id": "proof-beat-02",
+      "source": "hyperframes/index.html",
+      "in_seconds": 5,
+      "out_seconds": 10,
+      "type": "svg_diagram"
+    },
+    {
+      "id": "proof-beat-03",
+      "source": "hyperframes/index.html",
+      "in_seconds": 10,
+      "out_seconds": 15,
+      "type": "svg_diagram"
+    },
+    {
+      "id": "proof-beat-04",
+      "source": "hyperframes/index.html",
+      "in_seconds": 15,
+      "out_seconds": 20,
+      "type": "svg_diagram"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "status": "not generated",
+      "segments": []
+    },
+    "music": {
+      "status": "not requested"
+    }
+  },
+  "human_review": {
+    "required_before_narration": true,
+    "required_before_master": true
+  }
+}

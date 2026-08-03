@@ -1,0 +1,70 @@
+# Into the Laboratory — Episode 2 operator-review candidate
+# Source of truth for the generator. Do not hand-edit generated artifacts.
+#
+# ARC
+#   status quo  scene-01
+#   call         scene-02
+#   mentor       scene-03
+#   trials       scene-04
+#   crisis       scene-09
+#   treasure     scene-13
+#   return       scene-14
+#   new status quo  scene-14
+#
+# The later-price chamber is sealed until a candidate survives selection.
+
+=== SLOT scene-01 -> pending.wav ===
+# receipt: C01
+The SPY RSI2 screen stopped five candidates before the later prices opened. We have a daily window from 1996-07-12 through 2011-05-26. Five versions enter, and all fail. The next phase has zero. There is no holdout return for SPY, and no later result. That can look like a dead end, but it is the result. We can look at the data and see what stopped the list. Then we will look at the Dow futures on its own. Keep the two paths separate. SPY stops at intake. The Dow reaches the later test. You can look at the data and see the result.
+
+=== SLOT scene-02 -> pending.wav ===
+# receipt: C02
+You know how a later test can go wrong. You look at the result, and then make a change. You look again. Freeze the version before you open that door. Out-of-sample means the later prices did not help you choose it. A holdout is the later part kept shut while you choose. Pick first, write it down, and open the door once. If you use the result to make another choice, those prices now join the choice. Now the question changes. SPY has five rows, and none go forward. The Dow has a later group. Choose the version first, then look at the later prices.
+
+=== SLOT scene-03 -> pending.wav ===
+# receipt: C03
+Let us slow down and name these words. You know, in-sample is the part we use to choose. Out-of-sample is the part we save for later. The first part gives us a way to build the rule, and the second part lets us see what happens with new prices. Overfitting is when the rule follows the old path too closely. Curve-fitting is the same problem when we move the settings. If you try enough settings, you will find something that looks good, but that does not mean it will work again. Frozen parameters are the numbers we leave alone. A segmented backtest has fixed blocks with separate jobs. Walk-forward moves the start and does it again. In this run, we have one first part and one later part. That gives us context; this run has no walk-forward result. Warmup bars are the history an indicator needs before we use its value. We keep them outside the trade-result count. That is a method rule; it adds no new SPY result.
+
+=== SLOT scene-04 -> pending.wav ===
+# receipt: C04
+Now look at the SPY file. You can see a daily Connors RSI2 run. We have a 200-day window and a 2-day RSI in the saved settings. The ledger says the exit uses a close above a short moving average. D1 means daily bars. The lineage has the 200-day window too. We use warmup bars to give the indicator its history before a signal counts. That setup is not a trade result. The test tells us what entered the list and what passed the gates. Keep the run ID and the window with the result.
+
+=== SLOT scene-05 -> pending.wav ===
+# receipt: C05
+Here is the row, and here is the arithmetic. Profit factor is 0.806004. The target is more than 1.3. Return over drawdown is -0.420205. The target is more than 4. Trades per month is 0.392308. The target is more than 2 trades per month. Write each check down: 0.806004 > 1.3 is false. -0.420205 > 4 is false. 0.392308 trades per month > 2 trades per month is false. Profit factor is a unitless ratio: gross winning dollars divided by gross losing dollars. Return over drawdown is a unitless ratio: net result divided by the largest measured drawdown. Trades per month is a rate, with units of trades per month.
+
+=== SLOT scene-06 -> pending.wav ===
+# receipt: C06
+That row explains the early stop. Five versions enter the first screen, and five fail. I am showing one row so you can follow the arithmetic. The full RSI2 setting space is larger than this list. Each threshold sits next to its result. The data source is real, and the wiring proof is true. Validation is still open. A real data connection and a recorded choice do not make a strategy pass. They only show that the pipeline reached this gate. A pass would move the row to the next part; it would not tell us what happens in the market.
+
+=== SLOT scene-07 -> pending.wav ===
+# receipt: C07
+Right now, we are looking at the next part. You can see zero in and zero out. That is what we have. The later prices did not open for SPY, so the holdout is not reached. There is no return to read. A future test needs a version, a later window, and frozen settings. You write that down before you open the door. The door stays shut. You do not turn an empty phase into a performance number.
+
+=== SLOT scene-08 -> pending.wav ===
+# receipt: C08
+Now change lanes to Dow futures. You can see 184 candidates enter the later test. 154 continue, and 30 drop. This is the lane that reaches later prices. SPY stopped before this part. Out-of-sample tells us the job of the later block; it does not promise a result. Look at the two counts. The first tells you who came in, and the second tells you who made it through.
+
+=== SLOT scene-09 -> pending.wav ===
+# receipt: C09
+Keep one Dow candidate in view. In the first window, it made +$16,727.80; the profit factor was 1.28037. In the later window, it made -$4,897.40; the profit factor was 0.813381. Same candidate has 29 wins and 72 losses. The old brief gives 0.81324. The pinned row gives 0.813381, and that is the number we keep. Same candidate, two windows. Keep SPY out. One row from 184. The other 183 need their own results.
+
+=== SLOT scene-10 -> pending.wav ===
+# receipt: C10
+Why does this matter? You know, the problem starts when the development history feels too familiar. You look at the old prices, try many rules, and keep the one that looks good. Then you start to learn the path instead of testing the idea. Curve-fitting can mean moving one threshold, one exit, or one window after you see the result. White's data-snooping paper warns that a result can show up by chance when the same data chooses and judges the rule. Trading-rule research gives us the same warning. The simple answer is to choose the plan first. Freeze the settings. Open the later block once. Record what happened. SPY shows the first stop. Dow shows why the later step matters.
+
+=== SLOT scene-11 -> pending.wav ===
+# receipt: C11
+Now look at the group along with the one candidate. A distribution is the group of results. It has a center, a spread, and a shape. The median is the middle result after you sort the group. A percentile is a place in that order. The 50th percentile is the median. These words do not add a result here. To use a median, you need the group, the units, and the calculation. To use a percentile, you need a rank rule. SPY has five rows and no later group, so it has no SPY percentile here. Dow has 184 in and 154 through. A report can add up that group later.
+
+=== SLOT scene-12 -> pending.wav ===
+# receipt: C12
+Segmentation and walk-forward sound alike, so keep them apart. You know, one version uses fixed blocks, and each block has a job; a segmented backtest does that. Walk-forward moves the start and does it again through time. Choose the design from the question, the history, and the update rule. Research on data over time says order matters, and conditions can change. In this run, we have one SPY intake and no later phase. We have one Dow later block. That is the full set of blocks here. It does not make the run walk-forward. A rolling test needs dates and a rule for when to update or leave the settings alone.
+
+=== SLOT scene-13 -> pending.wav ===
+# receipt: C13
+Here is the worksheet. Write down the instrument, the timeframe, and the rule; then write the first window, the later window, the counts, and the validation. Put the units next to each comparison. For SPY, write five in, zero survive, zero forward, and holdout not reached. For Dow, write 184 in, 154 survive, and 30 drop; one candidate changes from positive net profit to negative. Freeze first. Save the source hash and the row location. Name the later window before you call it out-of-sample. Pin the group before you use a median or percentile. That turns a chart into a question you can repeat.
+
+=== SLOT scene-14 -> pending.wav ===
+# receipt: C14
+Let's take a look at the result. For SPY, the first screen is the stop; its holdout never opens. The Dow reaches later prices. One row shows +$16,727.80 in the first window, with a profit factor of 1.28037. The same row shows -$4,897.40 in the later window, with a profit factor of 0.813381. It has 29 wins and 72 losses. The old brief gives 0.81324; the pinned row gives 0.813381, so that is the number we keep. Keep SPY out of this comparison. The recorded windows give us a result, and the next trade remains unknown. If the survivor changes when the fill moves or trading hours change, then the result depends on an execution assumption the current receipts do not establish. Before opening another chamber, would you ask whether the survivors depend on fill timing or trading hours?

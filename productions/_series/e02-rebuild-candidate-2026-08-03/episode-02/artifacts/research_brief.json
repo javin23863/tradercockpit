@@ -1,0 +1,88 @@
+{
+  "schema": "openmontage/animation/research-brief/v1",
+  "topic": "Teach the evidence boundary in the real SPY and Dow receipts, with inequalities, units, and a practical freeze-before-retest worksheet.",
+  "audience": "A curious beginner who can read a number but does not yet know why a later block has to be sealed.",
+  "research_summary": "A beginner lesson is clearest when the evidence boundary is a physical chamber: the SPY branch stops before later prices, while the separate Dow branch carries one candidate through and changes its measured result.",
+  "data_points": [
+    {
+      "id": "SPY_5_TO_0",
+      "claim": "SPY D1: five enter, zero survive, later phase empty",
+      "source": "RUN_SPY_PHASE01/RUN_SPY_PHASE02",
+      "visual_potential": "high"
+    },
+    {
+      "id": "SPY_INEQUALITIES",
+      "claim": "0.806004 > 1.3, -0.420205 > 4, and 0.392308 trades/month > 2 are all false",
+      "source": "RUN_SPY_PHASE01",
+      "visual_potential": "high"
+    },
+    {
+      "id": "DOW_184_TO_154",
+      "claim": "Dow later phase: 184 enter, 154 survive, 30 drop",
+      "source": "RUN_DOW_PHASE02",
+      "visual_potential": "high"
+    },
+    {
+      "id": "DOW_ROW_FLIP",
+      "claim": "The same Dow candidate moves from +$16,727.80/PF 1.28037 to -$4,897.40/PF 0.813381",
+      "source": "RUN_DOW_PHASE01/RUN_DOW_PHASE02",
+      "visual_potential": "high"
+    }
+  ],
+  "academic_sources": [
+    "ACADEMIC_ISLR_TEST",
+    "ACADEMIC_WHITE_SNOOP",
+    "ACADEMIC_SULLIVAN_BOOTSTRAP",
+    "ACADEMIC_TASHMAN_OOS",
+    "ACADEMIC_BERGMEIR_CV",
+    "ACADEMIC_NIST_DISTRIBUTION",
+    "ACADEMIC_NIST_PERCENTILE",
+    "ACADEMIC_METRIC_ONTOLOGY"
+  ],
+  "angles_discovered": [
+    {
+      "id": "sealed-chamber",
+      "angle": "Selection is a door; a holdout is the later chamber that must stay shut until the candidate is frozen.",
+      "animation_fit": "progressive diagram",
+      "grounded_in": [
+        "SPY_5_TO_0",
+        "SPY_INEQUALITIES"
+      ]
+    },
+    {
+      "id": "same-row-change",
+      "angle": "Keep one Dow candidate fixed while the price window changes around it.",
+      "animation_fit": "before/after track",
+      "grounded_in": [
+        "DOW_ROW_FLIP"
+      ]
+    },
+    {
+      "id": "operator-ruler",
+      "angle": "Teach each gate as actual value > threshold with units, not as a green or red card.",
+      "animation_fit": "kinetic inequality ruler",
+      "grounded_in": [
+        "SPY_INEQUALITIES"
+      ]
+    }
+  ],
+  "technique_references": [
+    {
+      "technique": "progressive diagram build",
+      "source": "HyperFrames core deterministic composition contract",
+      "mode": "motion_graphics",
+      "complexity": "moderate"
+    },
+    {
+      "technique": "ordered dot strip with median and percentile markers",
+      "source": "https://itl.nist.gov/div898/handbook/prc/section2/prc262.htm",
+      "mode": "motion_graphics",
+      "complexity": "simple"
+    }
+  ],
+  "limitations": [
+    "No claim here says that either receipt is live-trading validation.",
+    "No SPY holdout return is available because the phase is empty.",
+    "No timing-hours census is shown; the episode ends by asking that question."
+  ]
+}

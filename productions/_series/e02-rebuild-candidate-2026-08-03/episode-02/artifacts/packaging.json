@@ -1,0 +1,39 @@
+{
+  "schema": "into-the-laboratory/packaging/v2",
+  "STATUS": "CANDIDATE — operator review required; no narration or master authorized",
+  "episode": 2,
+  "syllabus_episode": "02",
+  "title": "RSI2: Five In, Zero Through. The Later Prices Stayed Locked.",
+  "beginner_belief": "If the first screen looks good, the later test is just a formality.",
+  "first_spoken_sentence": "The SPY RSI2 screen stopped five candidates before the later prices opened.",
+  "thumbnail": {
+    "source": "thumbnail-ep02.html",
+    "elements": [
+      "5→0",
+      "SEALED",
+      "184→154"
+    ],
+    "dimensions": "1280x720",
+    "squint_proof": "thumbnail-ep02-mobile-zoom.png",
+    "matching_first_shot": "hyperframes/assets/scene-01.svg"
+  },
+  "script": {
+    "sha256": "10a1b892e02652cdf9e91edbaad21d89cdd3ca18430be9934c24e22d4b49fc09",
+    "vo_sha256": "2b2e240db16662102adc2c349a32adae1b8b9bdd95b41fd83227b8058c906ba2"
+  },
+  "approval": {
+    "narrator_decision_inherited": false,
+    "complete_script_approved": false,
+    "operator_exact_hash_approval": false
+  },
+  "prewriting": {
+    "proven idea": "The real SPY branch stops before the holdout while the separate Dow branch reaches later prices.",
+    "common goal": "Help a beginner tell a true out-of-sample question from a renamed in-sample result.",
+    "deeper problem": "Earlier scripts narrated a later test that the SPY branch never reached.",
+    "package first": "Title and thumbnail are fixed before narration; the thumbnail shows 5 to 0 and a separate 184 to 154 lane.",
+    "audience avatar": "A beginner who needs operators, units, and a visual sequence more than jargon.",
+    "research the gaps": "Academic sources cover holdout design, data snooping, time-series evaluation, distributions, medians, and percentiles."
+  },
+  "source_facts_receipt": "facts_receipt.json",
+  "candidate_boundary": "No narration, provider generation, full master, upload, or publication."
+}

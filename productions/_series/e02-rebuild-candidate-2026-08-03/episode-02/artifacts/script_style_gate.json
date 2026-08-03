@@ -1,0 +1,59 @@
+{
+  "verdict": "PASS",
+  "checked_sections": 14,
+  "blocked": [],
+  "warns": [
+    {
+      "type": "corrective contrast",
+      "count": 1,
+      "detail": "Confirm that the single correction earns its place.",
+      "limit": 1
+    },
+    {
+      "type": "ornamental group of three",
+      "count": 6,
+      "detail": "Use the natural number of items."
+    },
+    {
+      "type": "automatic summary ending",
+      "count": 1,
+      "detail": "no number, level, or dated catalyst in the final two sentences"
+    },
+    {
+      "type": "slogan repetition",
+      "count": 8,
+      "detail": "Repeated cross-section n-grams: 'a fixed block replay with separate', 'a segmented backtest is a fixed', 'backtest is a fixed block replay', 'block replay with separate jobs walk', 'fixed block replay with separate jobs', 'is a fixed block replay with', 'replay with separate jobs walk forward', 'segmented backtest is a fixed block'",
+      "ngrams": [
+        "a fixed block replay with separate",
+        "a segmented backtest is a fixed",
+        "backtest is a fixed block replay",
+        "block replay with separate jobs walk",
+        "fixed block replay with separate jobs",
+        "is a fixed block replay with",
+        "replay with separate jobs walk forward",
+        "segmented backtest is a fixed block"
+      ]
+    }
+  ],
+  "metrics": {
+    "words": 1190,
+    "sections": 14,
+    "sentences": 156,
+    "sentenceWordsMean": 7.57,
+    "sentenceWordsStdDev": 3.96,
+    "sectionWordsStdDev": 17.92,
+    "firstPersonEditorialMarkers": 1,
+    "correctiveContrastCount": 1,
+    "repeatedSloganNgrams": [
+      "a fixed block replay with separate",
+      "a segmented backtest is a fixed",
+      "backtest is a fixed block replay",
+      "block replay with separate jobs walk",
+      "fixed block replay with separate jobs",
+      "is a fixed block replay with",
+      "replay with separate jobs walk forward",
+      "segmented backtest is a fixed block"
+    ]
+  },
+  "generated_at": "2026-08-03T16:33:40Z"
+}

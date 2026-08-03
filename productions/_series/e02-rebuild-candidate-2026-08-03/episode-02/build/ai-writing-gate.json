@@ -1,0 +1,36 @@
+{
+  "verdict": "PASS",
+  "blocked": [],
+  "warns": [
+    {
+      "type": "lets-construction",
+      "count": 1,
+      "detail": "AI-writing pattern",
+      "examples": [
+        "Let's take a look"
+      ],
+      "suggestion": null
+    },
+    {
+      "type": "low-ttr",
+      "count": 1,
+      "detail": "AI-writing pattern",
+      "examples": [
+        "Vocabulary diversity 27.9% (422 unique / 1511 tokens)"
+      ],
+      "suggestion": "Text reuses a narrow word set. Vary nouns and verbs deliberately, or check if the topic genuinely warrants the repetition."
+    }
+  ],
+  "metrics": {
+    "words": 1488,
+    "detectorScore": 1,
+    "detectorLabel": "Minimal AI signals",
+    "classification": "HUMAN_ONLY",
+    "unscored": false
+  },
+  "detector": {
+    "vendor": "conorbronsdon/avoid-ai-writing",
+    "version": "3.16.0"
+  },
+  "generated_at": "2026-08-03T18:16:08Z"
+}

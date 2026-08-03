@@ -1,0 +1,63 @@
+{
+  "schema": "into-the-laboratory/e02-academic-receipts/v1",
+  "retrieved_utc": "2026-08-03T00:00:00Z",
+  "sources": {
+    "ACADEMIC_ISLR_TEST": {
+      "citation": "James, Witten, Hastie, and Tibshirani, An Introduction to Statistical Learning, 7th printing, Chapter 2 and Chapter 5",
+      "locator": "Chapter 2 discussion of training error versus test error; Chapter 5 discussion of held-out observations and cross-validation",
+      "url": "https://www.statlearning.com/s/ISLRSeventhPrinting.pdf",
+      "supports": "A test observation was not used in training; training error can underestimate test error; held-out data is used to assess generalization.",
+      "limitations": "General statistical-learning text, not a claim that the TraderCockpit run is statistically validated or live-tradable."
+    },
+    "ACADEMIC_WHITE_SNOOP": {
+      "citation": "Halbert White, A Reality Check for Data Snooping, Econometrica 68(5), 1097-1126 (2000)",
+      "locator": "Abstract and data-snooping definition; DOI 10.1111/1468-0262.00152",
+      "url": "https://doi.org/10.1111/1468-0262.00152",
+      "supports": "Reusing data for model selection or inference can make a satisfactory result appear by chance rather than by a repeatable effect.",
+      "limitations": "Supports the methodological warning; it does not evaluate the SPY or Dow receipt."
+    },
+    "ACADEMIC_SULLIVAN_BOOTSTRAP": {
+      "citation": "Sullivan, Timmermann, and White, Data-Snooping, Technical Trading Rule Performance, and the Bootstrap, Journal of Finance 54(5), 1647-1691 (1999)",
+      "locator": "Article title, data-snooping and technical-rule performance study; DOI 10.1111/0022-1082.00163",
+      "url": "https://doi.org/10.1111/0022-1082.00163",
+      "supports": "Technical trading-rule results need data-snooping controls when many rules are examined.",
+      "limitations": "Methodological context only; it does not turn a small recorded candidate population into a broad statistical conclusion."
+    },
+    "ACADEMIC_TASHMAN_OOS": {
+      "citation": "Len Tashman, Out-of-sample tests of forecasting accuracy: an analysis and review, International Journal of Forecasting 16(4), 437-450 (2000)",
+      "locator": "Abstract and sections on fit/test splits, fixed versus rolling origins, single versus multiple test periods; DOI 10.1016/S0169-2070(00)00065-0",
+      "url": "https://doi.org/10.1016/S0169-2070(00)00065-0",
+      "supports": "Out-of-sample evaluation has explicit split, origin, window, and test-period design choices; rolling-origin evaluation creates multiple time-ordered test periods.",
+      "limitations": "Forecasting-evaluation review; this episode uses its design vocabulary without claiming a walk-forward run occurred here."
+    },
+    "ACADEMIC_BERGMEIR_CV": {
+      "citation": "Bergmeir, Hyndman, and Koo, A Note on the Validity of Cross-Validation for Evaluating Autoregressive Time Series Prediction, Computational Statistics and Data Analysis 120, 70-83 (2018)",
+      "locator": "Abstract and discussion of serial correlation, non-stationarity, and out-of-sample evaluation; DOI 10.1016/j.csda.2017.11.003",
+      "url": "https://doi.org/10.1016/j.csda.2017.11.003",
+      "supports": "Time-series evaluation cannot blindly borrow independent-data assumptions; the temporal structure of the evaluation design matters.",
+      "limitations": "Autoregressive forecasting paper; it is context for the design question, not a result about this trading engine."
+    },
+    "ACADEMIC_NIST_DISTRIBUTION": {
+      "citation": "NIST/SEMATECH e-Handbook of Statistical Methods, Distribution (Location, Spread and Shape)",
+      "locator": "Section 3.1.3.1, distribution characterized by location, spread, and shape",
+      "url": "https://www.itl.nist.gov/div898/handbook/ppc/section1/ppc131.htm",
+      "supports": "A distribution describes the scattering of measured outputs around a central value and includes location, spread, and shape.",
+      "limitations": "Statistical definition; the episode does not compute a new Dow or SPY distribution."
+    },
+    "ACADEMIC_NIST_PERCENTILE": {
+      "citation": "NIST/SEMATECH e-Handbook of Statistical Methods, Percentiles",
+      "locator": "Section 7.2.6.2, order statistics and percentile definition; 50th percentile is the median",
+      "url": "https://itl.nist.gov/div898/handbook/prc/section2/prc262.htm",
+      "supports": "Percentiles locate values in an ordered set; the 50th percentile is the median.",
+      "limitations": "Definition only; no percentile is claimed for the small E02 receipt unless a future run computes one."
+    },
+    "ACADEMIC_METRIC_ONTOLOGY": {
+      "citation": "QuantConnect, Backtest Statistics; QuantConnect, Warm Up Periods",
+      "locator": "Backtest Statistics: profitFactor and profitToMaxDrawdownRatio fields; Warm Up Periods: no trades during warm-up and bar-count warm-up",
+      "url": "https://www.quantconnect.com/docs/v2/cloud-platform/api-reference/backtest-management/read-backtest/backtest-statistics",
+      "warmup_url": "https://www.quantconnect.com/docs/v2/writing-algorithms/historical-data/warm-up-periods",
+      "supports": "The official methodology documentation defines profit factor as total profit divided by total loss, profit-to-maximum-drawdown as total profit/loss divided by maximum closed-trade drawdown, and warm-up as historical data used to prepare indicators before trading. In E02, the source field label trades_per_month is taught as a rate with the displayed unit trades per month.",
+      "limitations": "This is an official methodology and metric-ontology receipt, not a peer-reviewed evaluation of the TraderCockpit engine. It defines the teaching vocabulary; the E02 values and the recorded 200/2 lineage inputs remain bound to the private run receipts."
+    }
+  }
+}

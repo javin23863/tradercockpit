@@ -1,0 +1,38 @@
+{
+  "schema": "into-the-laboratory/e02-production-source-receipt/v1",
+  "candidate_only": false,
+  "generated_by": "tools/build_e02_rebuild.py --full-run",
+  "source_vo_sha256": "835f7f7f38942994e6222d45f890cdd61da0ff20c767e5d81af6fbd77dfe869a",
+  "generated_vo_sha256": "2b2e240db16662102adc2c349a32adae1b8b9bdd95b41fd83227b8058c906ba2",
+  "script_sha256": "b704d2c3f7fd4c92928d2466880b5ba9bfbeac95ef39b04764f897e7d7817050",
+  "facts_receipt_sha256": "a00c8bc8a872afd172c1000e277a837053783f3a57c0fa9eafc5a449002e8b62",
+  "sentence_coverage": {
+    "spoken_sentences": 155,
+    "visual_cues": 155,
+    "uncovered_sentences": []
+  },
+  "visual_direction_resolution": {
+    "scene_count": 14,
+    "sentence_bound_transformations": 155,
+    "mechanism_motion": true,
+    "repeated_stage_shell": "removed",
+    "paired_card_scenes": {
+      "scene-08": "resolved as two open rails",
+      "scene-14": "resolved as one branching question rail"
+    }
+  },
+  "provider_route": "Higgsfield Qwen Audio 3.0 TTS Flash / John / clean under existing subscription; no top-up; no substitution",
+  "provider_route_approval": {
+    "path": "OpenMontage/projects/_series-v4-shared/review-board/voice-route-approval-e1-e5-v7.json",
+    "sha256": "6f0faca1923064bdee7fc1c419c624e2662193b0e9ac173f28d8048dfeea4668",
+    "provider": "Higgsfield",
+    "model": "Qwen Audio 3.0 TTS Flash",
+    "job_type": "qwen_audio_tts",
+    "voice": "John",
+    "treatment": "clean",
+    "voice_id": "6b528d43-c056-4a2f-9d82-1591a7ba13b0",
+    "existing_subscription_credits": true,
+    "new_subscription_or_top_up_authorized": false
+  },
+  "operator_authorization": "Begin. Produce the three episodes."
+}

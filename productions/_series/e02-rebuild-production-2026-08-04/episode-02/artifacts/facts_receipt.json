@@ -1,0 +1,191 @@
+{
+  "schema": "into-the-laboratory/e02-facts-receipt/v1",
+  "generated_from": "tools/build_e02_rebuild.py",
+  "source_manifest": "C:\\tmp\\tradercockpit-e02-rebuild\\productions\\_series\\e01-e03-live-receipts-2026-08-03.json",
+  "sources": {
+    "RUN_SPY_PHASE01": {
+      "source_id": "RUN_SPY_PHASE01",
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260714T113408-b5d06cc6\\phases\\phase01_intake.json",
+      "sha256": "59e2257a5bb6b13c6cce2a4f5b22702b396d06e79651b3fb09be341e1eb7bcc1",
+      "phase": "phase01_intake",
+      "pointers": {
+        "entering": "/entering",
+        "surviving": "/surviving",
+        "dropped": "/dropped",
+        "candidate": "/candidates/concept-2422788506-0",
+        "pf_actual": "/candidates/concept-2422788506-0/gates/pf/actual",
+        "pf_threshold": "/candidates/concept-2422788506-0/gates/pf/threshold",
+        "ret_dd_actual": "/candidates/concept-2422788506-0/gates/ret_dd/actual",
+        "ret_dd_threshold": "/candidates/concept-2422788506-0/gates/ret_dd/threshold",
+        "trades_month_actual": "/candidates/concept-2422788506-0/gates/trades_per_month/actual",
+        "trades_month_threshold": "/candidates/concept-2422788506-0/gates/trades_per_month/threshold"
+      },
+      "read_only": true
+    },
+    "RUN_SPY_PHASE02": {
+      "source_id": "RUN_SPY_PHASE02",
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260714T113408-b5d06cc6\\phases\\phase02_oos.json",
+      "sha256": "640532043b74c60c7ec30a5e14973c3ae6860f6b0a6540e2025b41bf93f2069e",
+      "phase": "phase02_oos",
+      "pointers": {
+        "entering": "/entering",
+        "surviving": "/surviving",
+        "dropped": "/dropped",
+        "window": "/window",
+        "skip_note": "/notes"
+      },
+      "read_only": true
+    },
+    "RUN_DOW_PHASE01": {
+      "source_id": "RUN_DOW_PHASE01",
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase01_intake.json",
+      "sha256": "19899535054e5b9dd7b6be6275b3017110b79de2f1079ea7ac5850afb48f235d",
+      "phase": "phase01_intake",
+      "pointers": {
+        "entering": "/entering",
+        "surviving": "/surviving",
+        "candidate": "/candidates/formula-2851293728-1566",
+        "is_net": "/candidates/formula-2851293728-1566/metrics/net",
+        "is_pf": "/candidates/formula-2851293728-1566/metrics/pf"
+      },
+      "read_only": true
+    },
+    "RUN_DOW_PHASE02": {
+      "source_id": "RUN_DOW_PHASE02",
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\validation\\robustness\\rb-20260725T133803-b44bd92c\\phases\\phase02_oos.json",
+      "sha256": "21d1c7c563acaecb869ab3d49e05a3fed2516c33a3d611e7d330c219f8605dd0",
+      "phase": "phase02_oos",
+      "pointers": {
+        "entering": "/entering",
+        "surviving": "/surviving",
+        "dropped": "/dropped",
+        "candidate": "/candidates/formula-2851293728-1566",
+        "oos_net": "/candidates/formula-2851293728-1566/metrics/net",
+        "oos_pf": "/candidates/formula-2851293728-1566/metrics/pf",
+        "oos_ret_dd": "/candidates/formula-2851293728-1566/metrics/ret_dd",
+        "oos_wins": "/candidates/formula-2851293728-1566/metrics/wins",
+        "oos_losses": "/candidates/formula-2851293728-1566/metrics/losses"
+      },
+      "read_only": true
+    },
+    "RUN_SPY_LEDGER": {
+      "source_id": "RUN_SPY_LEDGER",
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\cache\\vast_results_rsi2_019f6029\\boxk-rsi2\\spy-d1-lib1\\ledger\\spy-d1-lib1.jsonl",
+      "sha256": "fba810bfac8e1703521e37344ea1535e785fc3afe93f15a9a4da08d68b26c545",
+      "phase": "lineage",
+      "pointers": {
+        "candidate": "line 1: /lineage/generation_params",
+        "concept_id": "line 1: /lineage/generation_params/concept_id",
+        "long_window": "line 1: /lineage/generation_params/params/n",
+        "rsi_window": "line 1: /lineage/generation_params/params/rn",
+        "exit_rule_assumption": "line 1: /lineage/explanation/assumptions/0"
+      },
+      "read_only": true
+    },
+    "RUN_SPY_MANIFEST": {
+      "source_id": "RUN_SPY_MANIFEST",
+      "path": "C:\\Users\\MSI\\repos\\futures\\runtime\\cache\\vast_results_rsi2_019f6029\\boxk-rsi2\\spy-d1-lib1\\robustness\\rb-20260714T113408-b5d06cc6\\run_manifest.json",
+      "sha256": "fa3d87216305d471153632d447146455f8744ebe3823761ff121f63e11b3cdfb",
+      "phase": "run_manifest",
+      "pointers": {
+        "candidate": "/candidates_provenance/0",
+        "candidate_id": "/candidates_provenance/0/id",
+        "program_id": "/program_id"
+      },
+      "read_only": true
+    },
+    "RUN_LIVE_MANIFEST": {
+      "source_id": "RUN_LIVE_MANIFEST",
+      "path": "C:\\tmp\\tradercockpit-e02-rebuild\\productions\\_series\\e01-e03-live-receipts-2026-08-03.json",
+      "sha256": "9c9f02b86d17b41b74c0ec9e794fd28d78d667cd33b649840aa08b9556f6bd5d",
+      "phase": "series-manifest",
+      "pointers": {
+        "spy_branch": "/episodes/02/stock_branch",
+        "dow_branch": "/episodes/02/dow_oos_branch"
+      },
+      "read_only": true
+    }
+  },
+  "spy": {
+    "instrument": "SPY",
+    "timeframe": "D1",
+    "strategy_identity": "Connors RSI2",
+    "program_id": "libcycle-spy-d1-lib1-w96ddd6-r0a8de8-c41e7ad",
+    "run_id": "rb-20260714T113408-b5d06cc6",
+    "window": {
+      "end": "2011-05-26",
+      "start": "1996-07-12"
+    },
+    "entering": 5,
+    "surviving": 0,
+    "dropped": 5,
+    "later_entering": 0,
+    "later_surviving": 0,
+    "later_window": null,
+    "holdout_status": "not reached",
+    "candidate_id": "concept-2422788506-0",
+    "candidate": {
+      "pf": 0.806004,
+      "pf_threshold": 1.3,
+      "ret_dd": -0.420205,
+      "ret_dd_threshold": 4,
+      "trades_per_month": 0.392308,
+      "trades_per_month_threshold": 2
+    },
+    "lineage": {
+      "concept_id": "con-rsi2-oversold-reversion",
+      "long_window": 200,
+      "rsi_window": 2
+    },
+    "provenance": {
+      "data_source": "real",
+      "validated": false,
+      "wiring_proof": true
+    }
+  },
+  "dow": {
+    "instrument": "Dow futures",
+    "timeframe": "recorded futures phase",
+    "run_id": "rb-20260725T133803-b44bd92c",
+    "window": {
+      "end": "2019-09-21",
+      "start": "2018-02-25"
+    },
+    "intake_entering": 1335,
+    "intake_surviving": 184,
+    "candidate_entering_oos": 184,
+    "oos_entering": 184,
+    "oos_surviving": 154,
+    "oos_dropped": 30,
+    "candidate_id": "formula-2851293728-1566",
+    "candidate": {
+      "is_net": 16727.8,
+      "is_pf": 1.28037,
+      "oos_net": -4897.4,
+      "oos_pf": 0.813381,
+      "oos_ret_dd": -0.563866,
+      "oos_wins": 29,
+      "oos_losses": 72
+    },
+    "provenance": {
+      "data_source": "real",
+      "validated": false,
+      "wiring_proof": true
+    }
+  },
+  "assignment_discrepancies": [
+    {
+      "field": "dow.candidate.oos_pf",
+      "assignment_requested": 0.81324,
+      "hash_bound_source": 0.813381,
+      "decision": "use_hash_bound_source",
+      "reason": "The pinned phase02_oos JSON reports metrics.pf=0.813381; 0.81324 is not present in the pinned row."
+    }
+  ],
+  "verification": {
+    "external_files_read": true,
+    "all_pinned_hashes_match": true,
+    "external_files_modified": false,
+    "rerun_backtest": false
+  }
+}

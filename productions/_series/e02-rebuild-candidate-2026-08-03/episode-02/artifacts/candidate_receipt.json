@@ -1,0 +1,24 @@
+{
+  "schema": "into-the-laboratory/e02-candidate-receipt/v1",
+  "candidate_only": true,
+  "generated_by": "tools/build_e02_rebuild.py",
+  "source_vo_sha256": "835f7f7f38942994e6222d45f890cdd61da0ff20c767e5d81af6fbd77dfe869a",
+  "generated_vo_sha256": "2b2e240db16662102adc2c349a32adae1b8b9bdd95b41fd83227b8058c906ba2",
+  "facts_receipt_sha256": "a00c8bc8a872afd172c1000e277a837053783f3a57c0fa9eafc5a449002e8b62",
+  "script_sha256": "10a1b892e02652cdf9e91edbaad21d89cdd3ca18430be9934c24e22d4b49fc09",
+  "sentence_coverage": {
+    "spoken_sentences": 155,
+    "visual_cues": 155,
+    "uncovered_sentences": []
+  },
+  "visual_semantic_receipt": {
+    "path": "visual_semantic_receipt.json",
+    "verified": true
+  },
+  "proof": {
+    "html": "../hyperframes/index.html",
+    "duration_seconds": 20,
+    "narration": false,
+    "master": false
+  }
+}

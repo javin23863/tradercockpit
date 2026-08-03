@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" role="img">
+<rect width="1920" height="1080" fill="#080b12"/>
+<style>
+@font-face{font-family:'Bahnschrift';src:local('Bahnschrift');font-weight:100 900}
+@font-face{font-family:'Consolas';src:local('Consolas');font-weight:100 900}
+.kicker{font:700 24px 'Bahnschrift',sans-serif;letter-spacing:.14em;fill:#7ed7d2}
+.title{font:800 66px 'Bahnschrift',sans-serif;fill:#f5f1e8}
+.body{font:500 30px 'Bahnschrift',sans-serif;fill:#d8d8d1}
+.small{font:600 22px 'Bahnschrift',sans-serif;fill:#a6adb8;letter-spacing:.04em}
+.mono{font:700 34px 'Consolas',monospace;fill:#f5f1e8}
+.mono-sm{font:700 25px 'Consolas',monospace;fill:#f5f1e8}
+.accent{fill:#f0ba55}.cyan{fill:#7ed7d2}.muted{fill:#89929e}.ink{fill:#080b12}
+.line{stroke:#33404e;stroke-width:3}.accent-line{stroke:#f0ba55;stroke-width:6}
+.cyan-line{stroke:#7ed7d2;stroke-width:6}.seal{stroke:#d27ca7;stroke-width:7}
+</style>
+<text x="92" y="96" class="kicker" text-anchor="start">E02 / SCENE-14</text>
+<text x="92" y="190" class="title" text-anchor="start">The next question is execution</text>
+<line x1="92" y1="228" x2="1828" y2="228" class="line"/>
+<text x="150" y="330" class="kicker" text-anchor="start">UNOPENED EXECUTION QUESTIONS</text>
+<text x="150" y="380" class="mono-sm" text-anchor="start">SPY / D1   5  →  0   holdout not reached</text>
+<text x="150" y="415" class="small" text-anchor="start">DOW / FUTURES   +$16,727.80 / PF 1.28037  →  -$4,897.40 / PF 0.813381</text>
+<text x="150" y="445" class="small" text-anchor="start">29 wins  /  72 losses   |   same row, later window</text>
+<line x1="960" y1="540" x2="960" y2="780" class="line"/>
+<path d="M960 650 C760 650 600 650 360 650" fill="none" stroke="#f0ba55" stroke-width="7"/>
+<path d="M960 650 C1160 650 1320 650 1560 650" fill="none" stroke="#7ed7d2" stroke-width="7"/>
+<circle cx="960" cy="650" r="26" fill="#f5f1e8"/>
+<circle cx="360" cy="650" r="26" fill="none" stroke="#f0ba55" stroke-width="7"/>
+<circle cx="1560" cy="650" r="26" fill="none" stroke="#7ed7d2" stroke-width="7"/>
+<text x="360" y="565" class="mono" text-anchor="middle">FILL TIMING</text>
+<text x="1560" y="565" class="mono" text-anchor="middle">TRADING HOURS</text>
+<text x="360" y="735" class="body" text-anchor="middle">signal close  →  fill?</text>
+<text x="1560" y="735" class="body" text-anchor="middle">which hours count?</text>
+<text x="960" y="955" class="kicker" text-anchor="middle">the next chamber is a question, not an answer</text>
+</svg>

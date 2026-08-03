@@ -1,0 +1,51 @@
+{
+  "verdict": "PASS",
+  "checked_sections": 14,
+  "blocked": [],
+  "warns": [
+    {
+      "type": "ornamental group of three",
+      "count": 5,
+      "detail": "Use the natural number of items."
+    },
+    {
+      "type": "automatic summary ending",
+      "count": 1,
+      "detail": "no number, level, or dated catalyst in the final two sentences"
+    },
+    {
+      "type": "slogan repetition",
+      "count": 7,
+      "detail": "Repeated cross-section n-grams: 'blocks with separate jobs walk forward', 'fixed blocks with separate jobs walk', 'jobs walk forward moves the start', 'out of sample means the later', 'separate jobs walk forward moves the', 'with separate jobs walk forward moves', 'no spy holdout return'",
+      "ngrams": [
+        "blocks with separate jobs walk forward",
+        "fixed blocks with separate jobs walk",
+        "jobs walk forward moves the start",
+        "out of sample means the later",
+        "separate jobs walk forward moves the",
+        "with separate jobs walk forward moves",
+        "no spy holdout return"
+      ]
+    }
+  ],
+  "metrics": {
+    "words": 1385,
+    "sections": 14,
+    "sentences": 172,
+    "sentenceWordsMean": 7.98,
+    "sentenceWordsStdDev": 3.99,
+    "sectionWordsStdDev": 17.73,
+    "firstPersonEditorialMarkers": 2,
+    "correctiveContrastCount": 0,
+    "repeatedSloganNgrams": [
+      "blocks with separate jobs walk forward",
+      "fixed blocks with separate jobs walk",
+      "jobs walk forward moves the start",
+      "out of sample means the later",
+      "separate jobs walk forward moves the",
+      "with separate jobs walk forward moves",
+      "no spy holdout return"
+    ]
+  },
+  "generated_at": "2026-08-03T17:03:06Z"
+}

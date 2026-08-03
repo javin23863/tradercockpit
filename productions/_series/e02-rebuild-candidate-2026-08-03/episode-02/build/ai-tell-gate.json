@@ -1,0 +1,48 @@
+{
+  "verdict": "PASS",
+  "metrics": {
+    "words": 1445,
+    "copulaPct": 3.18,
+    "unseenBigramPct": 46.2,
+    "outOfRegisterWords": 19
+  },
+  "corpus": {
+    "documents": 91,
+    "words": 576007
+  },
+  "outOfRegister": [
+    "connors",
+    "curve-fitting",
+    "data-snooping",
+    "gates",
+    "holdout",
+    "intake",
+    "judges",
+    "lanes",
+    "ledger",
+    "lineage",
+    "percentile",
+    "segmented",
+    "survivor",
+    "trade-result",
+    "trading-rule",
+    "unitless",
+    "warmup",
+    "white's",
+    "worksheet"
+  ],
+  "findings": [],
+  "thresholdSource": {
+    "videos": 83,
+    "corpus": {
+      "documents": 91,
+      "words": 576007
+    },
+    "sampleWords": 1450,
+    "effectiveLimits": {
+      "copula": 5.0,
+      "unseen": 46.2,
+      "outOfRegister": 34
+    }
+  }
+}

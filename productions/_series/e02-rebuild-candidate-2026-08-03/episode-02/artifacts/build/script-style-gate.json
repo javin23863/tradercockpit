@@ -1,0 +1,65 @@
+{
+  "verdict": "PASS",
+  "checked_sections": 14,
+  "blocked": [],
+  "warns": [
+    {
+      "type": "ornamental group of three",
+      "count": 7,
+      "detail": "Use the natural number of items."
+    },
+    {
+      "type": "automatic summary ending",
+      "count": 1,
+      "detail": "no number, level, or dated catalyst in the final two sentences"
+    },
+    {
+      "type": "slogan repetition",
+      "count": 14,
+      "detail": "Repeated cross-section n-grams: 'forward moves the start and does', 'moves the start and does it', 'that is the number we keep', 'the start and does it again', 'walk forward moves the start and', 'in this run we have', 'losses the old brief gives', 'the later prices did not', 'in the first window', 'in the later window', 'look at the result', 'now look at the', 'the pinned row gives', 'you look at the'",
+      "ngrams": [
+        "forward moves the start and does",
+        "moves the start and does it",
+        "that is the number we keep",
+        "the start and does it again",
+        "walk forward moves the start and",
+        "in this run we have",
+        "losses the old brief gives",
+        "the later prices did not",
+        "in the first window",
+        "in the later window",
+        "look at the result",
+        "now look at the",
+        "the pinned row gives",
+        "you look at the"
+      ]
+    }
+  ],
+  "metrics": {
+    "words": 1535,
+    "sections": 14,
+    "sentences": 163,
+    "sentenceWordsMean": 9.34,
+    "sentenceWordsStdDev": 4.38,
+    "sectionWordsStdDev": 26.16,
+    "firstPersonEditorialMarkers": 1,
+    "correctiveContrastCount": 0,
+    "repeatedSloganNgrams": [
+      "forward moves the start and does",
+      "moves the start and does it",
+      "that is the number we keep",
+      "the start and does it again",
+      "walk forward moves the start and",
+      "in this run we have",
+      "losses the old brief gives",
+      "the later prices did not",
+      "in the first window",
+      "in the later window",
+      "look at the result",
+      "now look at the",
+      "the pinned row gives",
+      "you look at the"
+    ]
+  },
+  "generated_at": "2026-08-03T18:04:55Z"
+}

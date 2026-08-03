@@ -1,0 +1,518 @@
+{
+  "version": "1.0",
+  "style_playbook": "quant-atlas-v2-atelier",
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "animation",
+      "description": "The stock branch stops before the chamber: intake tokens travel to a sealed door, then the separate futures branch unfolds.",
+      "start_seconds": 0.0,
+      "end_seconds": 41.85,
+      "script_section_id": "scene-01",
+      "framing": "wide mechanism field",
+      "movement": "tokens advance to a seal; the futures branch opens on a separate rail",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "intake tokens travel to a sealed door, then the separate futures branch unfolds",
+      "narrative_role": "establish_context",
+      "information_role": "sealed-door funnel",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-01 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-02",
+      "type": "animation",
+      "description": "Freeze before the later block: choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out.",
+      "start_seconds": 41.85,
+      "end_seconds": 84.5,
+      "script_section_id": "scene-02",
+      "framing": "wide mechanism field",
+      "movement": "settings slide into a freeze clamp, then the later chamber opens once",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "choose, freeze, and one-way-open states clamp in sequence; re-entry is crossed out",
+      "narrative_role": "introduce_subject",
+      "information_role": "freeze-and-open sequence",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-02 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "description": "The vocabulary of a sealed test: the build chamber hands a frozen rule across a drawn seal to the judge chamber.",
+      "start_seconds": 84.5,
+      "end_seconds": 152.75,
+      "script_section_id": "scene-03",
+      "framing": "wide mechanism field",
+      "movement": "a drawn seal divides build history from the later judging chamber",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "the build chamber hands a frozen rule across a drawn seal to the judge chamber",
+      "narrative_role": "deliver_payload",
+      "information_role": "two-chamber vocabulary map",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-03 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-04",
+      "type": "animation",
+      "description": "The SPY mechanism and its warmup: warmup history sweeps into the indicator rail before the signal and exit rails light.",
+      "start_seconds": 152.75,
+      "end_seconds": 191.4,
+      "script_section_id": "scene-04",
+      "framing": "wide mechanism field",
+      "movement": "warmup bars sweep into the indicator window before the signal rail lights",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "rack_focus",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "warmup history sweeps into the indicator rail before the signal and exit rails light",
+      "narrative_role": "evidence",
+      "information_role": "indicator window rails",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-04 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "description": "Read the gate as inequalities: the operator probe visits actual, operator, threshold, and FALSE for each row.",
+      "start_seconds": 191.4,
+      "end_seconds": 238.05,
+      "script_section_id": "scene-05",
+      "framing": "wide mechanism field",
+      "movement": "actual, operator, threshold, and FALSE are visited row by row",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "the operator probe visits actual, operator, threshold, and FALSE for each row",
+      "narrative_role": "evidence",
+      "information_role": "inequality ruler",
+      "hero_moment": true,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-05 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "description": "Five rows stay five rows: five candidates traverse the intake rail while a single magnifier follows one row.",
+      "start_seconds": 238.05,
+      "end_seconds": 279.1,
+      "script_section_id": "scene-06",
+      "framing": "wide mechanism field",
+      "movement": "five intake tokens move while one row is magnified without changing the field",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "five candidates traverse the intake rail while a single magnifier follows one row",
+      "narrative_role": "comparison",
+      "information_role": "candidate field with one magnifier",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-06 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-07",
+      "type": "animation",
+      "description": "SPY does not reach the holdout: empty entering and surviving gauges stay empty while the later-price door locks.",
+      "start_seconds": 279.1,
+      "end_seconds": 310.95,
+      "script_section_id": "scene-07",
+      "framing": "wide mechanism field",
+      "movement": "zero gauges remain empty while the later-price boundary locks",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "empty entering and surviving gauges stay empty while the later-price door locks",
+      "narrative_role": "evidence",
+      "information_role": "SPY locked chamber",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-07 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-08",
+      "type": "animation",
+      "description": "The Dow lane is separate: the stock lane stops at its seal while a separate Dow lane continues across its rail.",
+      "start_seconds": 310.95,
+      "end_seconds": 339.2,
+      "script_section_id": "scene-08",
+      "framing": "wide mechanism field",
+      "movement": "stock and futures lanes move independently across an explicit divider",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "rack_focus",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "the stock lane stops at its seal while a separate Dow lane continues across its rail",
+      "narrative_role": "comparison",
+      "information_role": "parallel branch lanes",
+      "hero_moment": true,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-08 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-09",
+      "type": "animation",
+      "description": "One Dow row changes on later prices: one candidate identity is carried across two price-window rails as its metrics flip.",
+      "start_seconds": 339.2,
+      "end_seconds": 372.25,
+      "script_section_id": "scene-09",
+      "framing": "wide mechanism field",
+      "movement": "the same candidate identity crosses two price-window rails and changes metric state",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "one candidate identity is carried across two price-window rails as its metrics flip",
+      "narrative_role": "evidence",
+      "information_role": "same-row before-and-after track",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-09 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-10",
+      "type": "animation",
+      "description": "Why selection pressure matters: a smooth signal path and a noisy curve path are traced by different probes.",
+      "start_seconds": 372.25,
+      "end_seconds": 421.3,
+      "script_section_id": "scene-10",
+      "framing": "wide mechanism field",
+      "movement": "the smooth signal and noisy curve are traced as different paths",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "a smooth signal path and a noisy curve path are traced by different probes",
+      "narrative_role": "build_tension",
+      "information_role": "signal-and-noise curve",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-10 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-11",
+      "type": "animation",
+      "description": "A field is more than one number: ordered outcomes receive a median marker and a percentile marker in sequence.",
+      "start_seconds": 421.3,
+      "end_seconds": 466.35,
+      "script_section_id": "scene-11",
+      "framing": "wide mechanism field",
+      "movement": "ordered outcomes receive median and percentile marks in sequence",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "pan_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "ordered outcomes receive a median marker and a percentile marker in sequence",
+      "narrative_role": "evidence",
+      "information_role": "ordered outcome strip",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-11 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-12",
+      "type": "animation",
+      "description": "Fixed blocks are not walk-forward: fixed build/test blocks hold while the walk-forward origin advances independently.",
+      "start_seconds": 466.35,
+      "end_seconds": 511.4,
+      "script_section_id": "scene-12",
+      "framing": "wide mechanism field",
+      "movement": "fixed jobs stay in place while the walk-forward origin advances",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "rack_focus",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "fixed build/test blocks hold while the walk-forward origin advances independently",
+      "narrative_role": "transition",
+      "information_role": "fixed blocks versus rolling windows",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-12 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-13",
+      "type": "animation",
+      "description": "The reproducible worksheet: worksheet fields are filled from instrument to windows to counts, then hash-bound.",
+      "start_seconds": 511.4,
+      "end_seconds": 553.65,
+      "script_section_id": "scene-13",
+      "framing": "wide mechanism field",
+      "movement": "worksheet fields fill from instrument to windows to counts and hash binding",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "tracking_right",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "worksheet fields are filled from instrument to windows to counts, then hash-bound",
+      "narrative_role": "resolution",
+      "information_role": "worksheet path",
+      "hero_moment": false,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-13 evidence graphic",
+          "source": "record"
+        }
+      ]
+    },
+    {
+      "id": "scene-14",
+      "type": "animation",
+      "description": "The next question is execution: one evidence rail branches into two unopened execution questions without panel cards.",
+      "start_seconds": 553.65,
+      "end_seconds": 613.5,
+      "script_section_id": "scene-14",
+      "framing": "wide mechanism field",
+      "movement": "one evidence rail branches into two unanswered execution questions",
+      "transition_in": "mechanism-led match cut",
+      "transition_out": "evidence-state match cut",
+      "overlay_notes": "Sentence-bound probe marks the active mechanism; no provenance furniture is placed in the lesson graphic.",
+      "shot_language": {
+        "shot_size": "wide",
+        "camera_movement": "dolly_in",
+        "lighting_key": "low_key",
+        "depth_of_field": "deep",
+        "color_temperature": "cool"
+      },
+      "shot_intent": "one evidence rail branches into two unopened execution questions without panel cards",
+      "narrative_role": "call_to_action",
+      "information_role": "two unanswered execution dials",
+      "hero_moment": true,
+      "texture_keywords": [
+        "open canvas",
+        "evidence rail",
+        "mechanical probe"
+      ],
+      "required_assets": [
+        {
+          "type": "diagram",
+          "description": "Deterministic scene-14 evidence graphic",
+          "source": "record"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "composition_contract": "14 bespoke HyperFrames compositions with sentence-bound mechanism probes",
+    "repeated_stage_shell": "removed",
+    "paired_card_scenes": {
+      "scene-08": "linear stock/futures rails",
+      "scene-14": "branching execution-question rail"
+    }
+  }
+}
