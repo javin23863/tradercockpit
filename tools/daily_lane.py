@@ -6,10 +6,8 @@ import argparse
 import json
 import os
 import shutil
-import socket
 import subprocess
 import sys
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -20,11 +18,9 @@ for stream in (sys.stdout, sys.stderr):
 
 try:
     from tools.daily_production_init import eastern_now, production_path
-    from tools.notify_telegram import send as send_telegram
 except ImportError:  # direct `python tools/daily_lane.py` execution
     sys.path.insert(0, str(Path(__file__).parent))
     from daily_production_init import eastern_now, production_path
-    from notify_telegram import send as send_telegram
 
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = ROOT / "OpenMontage" / ".venv" / "Scripts" / "python.exe"
@@ -34,8 +30,6 @@ RUNNER = ROOT / "tools" / "daily_postclose.py"
 VAULT = Path(r"C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit")
 AGENT_TIMEOUT = 150 * 60
 RUNNER_TIMEOUT = 3 * 60 * 60
-TV_CDP_PORT = 9222
-TV_LAUNCH_WAIT_S = 90
 LOG_PATH: Path | None = None
 
 
@@ -49,61 +43,18 @@ def log(message: str) -> None:
 
 
 def notify(message: str) -> None:
-    """Best effort: Telegram failure is written to the run log, never hidden."""
+    """Ping the operator. A lane that fails silently reads as a lane that never ran."""
+    log(f"NOTIFY {message}")
     try:
-        send_telegram(message)
-        log("NOTIFY telegram sent")
-    except BaseException as error:  # SystemExit is notify_telegram's fail-closed API
-        log(f"NOTIFY FAILED: {type(error).__name__}: {error}")
-
-
-def cdp_up(port: int = TV_CDP_PORT) -> bool:
-    with socket.socket() as probe:
-        probe.settimeout(1)
-        return probe.connect_ex(("127.0.0.1", port)) == 0
-
-
-def ensure_tradingview() -> bool:
-    """Start a TradingView chart target on CDP :9222, preferring Chrome web."""
-    if cdp_up():
-        log("STAGE tradingview OK already on CDP :%d" % TV_CDP_PORT)
-        return True
-    chrome = (Path(os.environ.get("PROGRAMFILES", r"C:\Program Files"))
-              / "Google" / "Chrome" / "Application" / "chrome.exe")
-    if chrome.is_file():
-        profile = (Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData" / "Local"))
-                   / "TraderCockpit" / "TradingView-Chrome")
-        launch = [
-            str(chrome),
-            f"--remote-debugging-port={TV_CDP_PORT}",
-            f"--user-data-dir={profile}",
-            "--no-first-run",
-            "--no-default-browser-check",
-            "https://www.tradingview.com/chart/",
-        ]
-        source = "Chrome web"
-    else:
-        probe = subprocess.run(
-            ["powershell", "-NoProfile", "-Command",
-             "(Get-AppxPackage TradingView.Desktop).InstallLocation"],
-            capture_output=True, text=True, timeout=60,
-        )
-        exe = Path(probe.stdout.strip() or "nonexistent") / "TradingView.exe"
-        # ponytail: WindowsApps blocks listing; Get-AppxPackage resolves the optional fallback.
-        if not exe.is_file():
-            log(f"STAGE tradingview MISSING Chrome ({chrome}) and Desktop ({exe})")
-            return False
-        launch = [str(exe), f"--remote-debugging-port={TV_CDP_PORT}"]
-        source = "Desktop fallback"
-    subprocess.Popen(launch,
-                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    for _ in range(TV_LAUNCH_WAIT_S):
-        if cdp_up():
-            log(f"STAGE tradingview LAUNCHED {source}")
-            return True
-        time.sleep(1)
-    log(f"STAGE tradingview NO CDP after {TV_LAUNCH_WAIT_S}s")
-    return False
+        try:
+            from tools.notify_telegram import send
+        except ImportError:
+            from notify_telegram import send
+        send(f"TraderCockpit daily lane: {message}")
+    # notify_telegram raises SystemExit (not Exception) on missing custody — catch both, or a
+    # blocked lane exits 0 through the alert path and looks like a clean night.
+    except (Exception, SystemExit) as error:
+        log(f"NOTIFY telegram unavailable ({type(error).__name__}: {error}); log only")
 
 
 def run_process(
@@ -178,9 +129,16 @@ Hard boundaries:
 - Use OpenMontage\\.venv\\Scripts\\python.exe for every Python command.
 - Charts-before-script is a hard order: capture completed-session working charts before vo.txt,
   and never cite an uncaptured chart.
-- Use the authenticated TradingView web chart in the dedicated Google Chrome CDP profile;
-  TradingView Desktop is optional. If the operator's two indicators are absent, stop rather
-  than capture a guest/default chart.
+- Charts come from the operator's OWN signed-in Chrome, reached with your Chrome browser
+  capability (the chrome plugin / control-chrome skill). Do NOT start a browser yourself, do
+  NOT attach to a CDP debugging port, and do NOT accept a second browser profile just because
+  one is reachable: on 2026-08-03 a logged-out profile on :9222 was open, and taking it cost
+  the entire night. Verify BEFORE capturing that the chart carries the operator's black theme
+  and BOTH of his saved indicators. If either is missing, or the symbol carries an
+  unauthenticated feed prefix (BATS:, SP_NAUTH:, NASDAQ_DLY:), stop and report the blocker —
+  a guest chart is never a substitute.
+- Do not create or draw trend lines or other custom chart overlays. Keep the operator's black
+  chart and two indicators untouched; point out only the levels already visible on them.
 - Run the existing claims and script-style gates. Do not weaken claims, editorial, visual_qa,
   script_style_gate, or script_approval.
 - Exact-hash script approval is a hard gate. Never create, forge, or alter an approval receipt.
@@ -294,11 +252,8 @@ def main(argv=None) -> int:
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     log(f"LANE START eastern_day={run_day} executable={sys.executable}")
 
-    resume = now.hour == 17 and production.is_dir()
-    if args.at_production_hour and now.hour != 16 and not resume:
-        # Conservative DST choice: paired local triggers are expected; the non-16:00 ET trigger
-        # is redundant. At 17:00, an existing production gets one approval-resume attempt.
-        log(f"LANE STAND_DOWN outside start/resume window; eastern_now={now:%Y-%m-%d %H:%M:%S}")
+    if args.at_production_hour and now.hour != 16:
+        log(f"LANE STAND_DOWN outside production hour; eastern_now={now:%Y-%m-%d %H:%M:%S}")
         return 0
     if Path(sys.executable).resolve() != PYTHON.resolve():
         detail = f"wrapper must run with {PYTHON}, got {sys.executable}"
@@ -307,14 +262,15 @@ def main(argv=None) -> int:
         return 1
 
     def init_stage():
-        if not ensure_tradingview():
-            return False, (
-                f"TradingView web/Desktop is not reachable on CDP :{TV_CDP_PORT}; "
-                "charts-before-script would block the whole content step"
-            )
-        # Preflight AFTER the launch attempt (it probes, it does not start anything) and
-        # BEFORE any content work: a night that cannot be narrated, uploaded or written to
-        # disk must refuse in seconds, not stall for hours and look like 2026-07-27.
+        # The lane does NOT open a browser. It used to launch its own Chrome profile on CDP
+        # :9222 so the agent would find "a" TradingView — and on 2026-08-03 the agent found
+        # exactly that: a logged-OUT profile serving the guest chart (BATS:AAPL, Volume only),
+        # which correctly refused and cost the whole night. Codex reaches the operator's real
+        # signed-in Chrome through its own extension, so handing it a second, emptier browser
+        # only gave the wrong one a way to win. Chart eligibility is the agent's gate now.
+        #
+        # Preflight BEFORE any content work: a night that cannot be narrated, uploaded or
+        # written to disk must refuse in seconds, not stall for hours like 2026-07-27.
         code, output = run_process("preflight", [str(PYTHON), str(PREFLIGHT)], 180, capture=True)
         if code != 0:
             refusals = [line for line in output.splitlines() if "BLOCK" in line]

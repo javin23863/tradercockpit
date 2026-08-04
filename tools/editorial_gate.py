@@ -14,6 +14,7 @@ import yaml
 
 
 SCHEMA = "tradercockpit-scene-plan/v1"
+DEFAULT_TF = "1D"   # what the lane has always shot; an unstamped plan or receipt is daily
 # Predicates a viewer can see as a horizontal line. Mirrors the price entries of
 # claims_gate.FEED_PREDICATES, kept local so this gate carries no import-order dependency.
 LEVEL_PREDICATES = {"prior_open", "prior_high", "prior_low", "prior_close",
@@ -55,6 +56,34 @@ def _norm(value):
 def _instrument_subject(symbol):
     symbol = _norm(symbol)
     return INSTRUMENT_SUBJECTS.get(symbol, symbol)
+
+
+def _chart_tf(chart):
+    """A chart plan entry's timeframe. Absent means the daily the lane has always shot."""
+    return _norm(chart.get("tf")).upper() or DEFAULT_TF
+
+
+def _receipt_timeframe(root, source):
+    """The timeframe a claim's own receipt was gathered on.
+
+    A6 needed levels keyed by (symbol, timeframe) and the plan called that a schema
+    problem. It is not: the receipt already records it. `swing-receipts-*.json` stamps
+    `params.timeframe`, and `ohlcv-feed-receipts-*.json` is settled session bars by
+    construction — its predicates ARE the daily (session_open/high/low/close,
+    prior_close) — so the default is honest rather than a guess. claims.yaml is
+    untouched, which is the point: no migration, and every shipped receipt still resolves.
+    """
+    name = str(source).split("#", 1)[0].strip()
+    if not name:
+        return DEFAULT_TF
+    path = Path(root) / name
+    if not path.is_file():
+        return DEFAULT_TF
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return DEFAULT_TF
+    return _norm((payload.get("params") or {}).get("timeframe")).upper() or DEFAULT_TF
 
 
 def _capture_time(value):
@@ -245,9 +274,20 @@ def check_level_binding(production):
     claims = {c["id"]: c for c in (yaml.safe_load((root / "claims.yaml").read_text(encoding="utf-8")) or [])}
     receipts = yaml.safe_load((root / "vo-receipts.yaml").read_text(encoding="utf-8")) or {}
     owners = beat_chart_sections(scene)
+    # A6 multi-timeframe. While a symbol is charted at ONE timeframe, keying levels by symbol
+    # alone is exact and this is a no-op. The moment the same symbol is charted weekly AND
+    # daily it stops being exact: every level of that symbol would match against both charts,
+    # so a weekly swing could be spoken over the daily and the gate would call it bound.
+    # Qualification therefore switches on only where it is needed — no regression for the
+    # single-timeframe nights the lane has shipped so far.
+    tfs_charted = {}
+    for chart in charts.values():
+        tfs_charted.setdefault(_norm(chart.get("symbol")), set()).add(_chart_tf(chart))
 
     for out, chart in sorted(charts.items()):
         symbol = _norm(chart.get("symbol"))
+        chart_tf = _chart_tf(chart)
+        multi_tf = len(tfs_charted.get(symbol, set())) > 1
         sections = owners.get(out, set())
         if not sections:
             continue  # captured but never cut in: nothing is asserted on screen
@@ -268,6 +308,8 @@ def check_level_binding(production):
                     continue
                 if claim.get("predicate") not in LEVEL_PREDICATES:
                     continue
+                if multi_tf and _receipt_timeframe(root, source) != chart_tf:
+                    continue  # that level belongs to this symbol's other timeframe
                 price = _price(claim.get("value"))
                 if price is not None:
                     spoken[price] = f"{claim['id']} ({claim['predicate']})"
@@ -280,7 +322,7 @@ def check_level_binding(production):
             if not _matched(price, drawn):
                 blocked.append({"type": "level_binding", "path": out,
                                 "detail": f"{out}: {who} is spoken at {price} but not drawn on "
-                                          f"the {symbol} chart"})
+                                          f"the {symbol} {chart_tf} chart"})
     return {"status": "BLOCK" if blocked else "PASS", "charts": len(charts), "blocked": blocked}
 
 
@@ -505,7 +547,50 @@ def load_timeline(production, gap_s=DEFAULT_GAP_S):
     return timeline
 
 
+def _selftest_multi_timeframe():
+    """A6: the same symbol charted weekly AND daily must not cross-bind its levels."""
+    def build(tmp, weekly_tf):
+        root = Path(tmp)
+        (root / "chart-plan-daily.json").write_text(json.dumps([
+            {"out": "03-spx", "symbol": "SP:SPX", "tf": "1D",
+             "stages": [{"draw": [{"type": "horizontal_line", "price": 7413.18}]}]},
+            {"out": "04-spx-w", "symbol": "SP:SPX", "tf": weekly_tf,
+             "stages": [{"draw": [{"type": "horizontal_line", "price": 6481.34}]}]},
+        ]), encoding="utf-8")
+        (root / "scene-plan.json").write_text(json.dumps({"schema": SCHEMA, "beats": [
+            {"id": "b1", "section": "03", "visual": {"path": "visuals/03-spx.mp4"}},
+            {"id": "b2", "section": "03", "visual": {"path": "visuals/04-spx-w.mp4"}},
+        ]}), encoding="utf-8")
+        (root / "claims.yaml").write_text(yaml.safe_dump([
+            {"id": "spx-close", "subject": "SP:SPX", "predicate": "session_close",
+             "value": 7413.18, "source": "ohlcv-feed-receipts-x.json#SP:SPX"},
+            {"id": "spx-swing", "subject": "SP:SPX", "predicate": "swing_high",
+             "value": 6481.34, "source": "swing-receipts-x-1w.json#SP:SPX"},
+        ]), encoding="utf-8")
+        (root / "vo-receipts.yaml").write_text(yaml.safe_dump(
+            {"03": [{"claim": "spx-close", "quote": "7,413.18"},
+                    {"claim": "spx-swing", "quote": "6,481.34"}]}), encoding="utf-8")
+        (root / "ohlcv-feed-receipts-x.json").write_text(json.dumps({"session": "x"}), encoding="utf-8")
+        (root / "swing-receipts-x-1w.json").write_text(
+            json.dumps({"params": {"timeframe": "1W"}}), encoding="utf-8")
+        return root
+
+    # Weekly swing on the weekly chart, session close on the daily: each binds to its own.
+    with tempfile.TemporaryDirectory() as tmp:
+        assert check_level_binding(build(tmp, "1W"))["status"] == "PASS"
+
+    # Same artifacts, but both charts declared daily. Now the weekly swing has no timeframe
+    # to live on, so it is spoken over the daily chart and never drawn there -- the exact
+    # cross-bind A6 was blocked on. If this ever passes, the qualification stopped working.
+    with tempfile.TemporaryDirectory() as tmp:
+        report = check_level_binding(build(tmp, "1D"))
+        assert report["status"] == "BLOCK", report
+        assert any("6481.34" in b["detail"] or "7413.18" in b["detail"] for b in report["blocked"]), report
+    print("editorial-gate A6 multi-timeframe: 2/2 PASS")
+
+
 def selftest():
+    _selftest_multi_timeframe()
     with tempfile.TemporaryDirectory() as tmp:
         production = Path(tmp)
         visual = production / "visuals" / "chart.mp4"

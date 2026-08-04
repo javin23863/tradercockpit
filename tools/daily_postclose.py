@@ -28,12 +28,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 try:
-    from tools import ai_tell_gate, claims_gate, editorial_gate, script_style_gate, visual_qa
+    from tools import (ai_tell_gate, claims_gate, editorial_gate, insight_gate,
+                       script_style_gate, visual_qa)
     from tools.script_approval import require_production_approval
     from tools.social_batch import approval_fingerprint, load as load_social_batch
 except ImportError:  # direct `python tools/daily_postclose.py` execution
     sys.path.insert(0, str(Path(__file__).parent))
-    import ai_tell_gate, claims_gate, editorial_gate, script_style_gate, visual_qa
+    import ai_tell_gate, claims_gate, editorial_gate, insight_gate, script_style_gate, visual_qa
     from script_approval import require_production_approval
     from social_batch import approval_fingerprint, load as load_social_batch
 
@@ -46,15 +47,8 @@ def log(msg):
 
 
 def notify(text):
-    """Best-effort operator ping. A dead Telegram never changes the decision."""
-    try:
-        from tools.notify_telegram import send
-    except ImportError:
-        from notify_telegram import send
-    try:
-        send(text)
-    except (SystemExit, OSError) as error:
-        log(f"WARN telegram notify failed: {error}")
+    """Keep lane notifications local; Telegram is not part of this workflow."""
+    log(f"NOTIFY local-only: {text}")
 
 
 # --- decision logic (pure; self-tested below) --------------------------------
@@ -79,14 +73,27 @@ def safe_decide(collect):
 
 # --- gate collection ---------------------------------------------------------
 
+def format_claim_warning(warning):
+    return (f"claims {warning.get('type', 'warning')}: "
+            f"{warning.get('detail', 'missing warning detail')}")
+
+
 def collect_gates(production):
     """Run claims, style, and editorial gates. Hard fails block; warnings go private."""
     hard, warnings = [], []
 
+    # Insight bar first: every other gate measures how the claim is built, none of them ask
+    # whether the claim was worth making. That gap is what shipped "boring, surface-level"
+    # past a clean gate stack on 2026-07-27 (governing note: ops vault
+    # `GTM/Pipeline/Video Format v2 — StockedUp Model.md`).
+    insight = insight_gate.check(str(production))
+    if insight["status"] != "PASS":
+        hard += [f"insight_gate: {b['detail']}" for b in insight["blocked"]]
+
     claims = claims_gate.gate(str(production))
     if claims["verdict"] != "PASS":
         hard += [f"claims_gate {b['type']}: {b['detail']}" for b in claims["blocked"]]
-    warnings += [f"claims staleness: {w['claim']} as_of={w['as_of']}" for w in claims["warns"]]
+    warnings += [format_claim_warning(warning) for warning in claims["warns"]]
 
     # "unsourced claim" = anything the ledger does not call verified. claims_gate
     # already blocks unverified claims that reach the script; a merely single-
@@ -283,18 +290,6 @@ def run(production, dry_run=False, allow_public=False):
         urls = ", ".join(r["url"] for r in results if r.get("url"))
         notify(f"TraderCockpit {production.name}: published PRIVATE, needs your review.\n"
                f"{summary}\n{urls}\n" + "\n".join(reasons[:20]))
-        # The operator cannot judge a ping without the artifact (2026-07-21): attach the
-        # master itself. Best-effort like notify(); a failed send never changes the decision.
-        try:
-            from tools.notify_telegram import send_video
-        except ImportError:
-            from notify_telegram import send_video
-        try:
-            send_video(production / "build" / "master.mp4",
-                       f"REVIEW {production.name}: reply with approval to promote public, "
-                       f"or notes to fix. {urls}")
-        except (SystemExit, OSError) as error:
-            log(f"WARN telegram video attach failed: {error}")
     elif any(r["status"] != "published" for r in results):
         notify(f"TraderCockpit {production.name}: public run, partial delivery.\n{summary}")
     log(f"done: {summary}")

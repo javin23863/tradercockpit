@@ -17,11 +17,15 @@ is $0.
   hours end to end; there is no fixed early publish clock). The subject is the session that just
   closed; the next session is the outlook, not the lead. No product pitch in narration.
 - One story, one portfolio thesis, **10–12 minutes ALWAYS** (operator 2026-07-21: ad inventory —
-  mid-rolls — not editorial preference). MEASURED rate is **145 wpm**, so the band is
-  **1,450–1,700 words**, which lands a 10.1–11.8 min master once the 12 × 0.45s section gaps
-  are counted. **The old "~197 wpm → 2,000–2,350 words" figure was wrong** and could never fit
-  the 10:00–12:00 rule at the real rate: it produced a 14.3 min master on 2026-07-27. Size the
-  script with 145 before TTS and expand thin sections rather than shipping short. After the VO
+  mid-rolls — not editorial preference). **The rate is a property of the VOICE, so it moves when
+  the voice does — always re-measure, never inherit.** Voice of record since 2026-08-04 is
+  **Higgsfield Marcus**, measured **198 wpm**, so the band is **2,000–2,350 words**, landing a
+  10.1–11.9 min master once the section gaps are counted. This matches what actually shipped on
+  that rate: 2026-07-20 was 2,029 words / 10.0 min / 202 wpm and 2026-07-21 was 2,202 / 10.9 /
+  202. The **1,450–1,700 @ 145 wpm** band belongs to the ElevenLabs clone and is correct only on
+  the fallback route — at 145 it produced a 14.3 min master on 2026-07-27, and at 198 it would
+  ship an 8-minute video that misses the ad floor. Size the script for the voice the run will
+  actually use, and expand thin sections rather than shipping short. After the VO
   stage, ffprobe `build/vo-full.wav` BEFORE assemble — if it is under 10:00, extend sections with
   already-receipted unused claim facts and re-record only the changed sections (delete their
   `vo-NN.wav` + `vo-full.wav`; the runner reuses the rest).
@@ -40,10 +44,18 @@ is $0.
   (corrective contrast, BLOCK at >1). One genuinely earned correction per script is the ceiling.
 - Price/technical levels come from TradingView as end-of-day snapshots; events come from dated
   primary sources.
+- **TradingView runs inside Codex's in-app browser.** Use the
+  `browser:control-in-app-browser` skill, select `iab`, and claim the operator's existing
+  TradingView chart tab or open `https://www.tradingview.com/chart/` there. Keep that tab visible
+  for operator handoff. Do not launch external Chrome, attach through CDP/port 9222, create a
+  separate Chrome profile, or use TradingView Desktop for this lane.
 - Charts dominate. Use 4–6 story-required chart clips, 1–3 contained source visuals, and 0–1
   Godseye shot. Do not capture the entire dashboard merely because it was scanned.
 - Every chart shot is the completed session: the closing candle printed, the day's full range
   visible, levels drawn off settled prints. No mid-session or pre-open snapshots.
+- **No trend lines or custom chart overlays (operator ruling 2026-07-31).** This supersedes the
+  older trendline direction retained below as incident history. Capture the operator's black
+  chart and two indicators untouched, and point out only levels already visible on them.
 - Narration is the operator's ElevenLabs voice clone through `tools/tts_elevenlabs.py`
   (`eleven_v3`, operator ruling 2026-07-28 after a three-way A/B). Chatterbox is the fallback
   only, and `produce.stage_vo` WARNs when it fires — a Chatterbox render is not the shipped
@@ -70,11 +82,8 @@ fixes; this section is how to write so they pass on the first attempt.
   four-decimal figures, each of which costs seconds of speech and counts as one word. "It's
   boring" and "the speed varies" are the same defect and no model change reaches it.
   Spend the freed words on the mechanism, not more digits.
-- **Every level you speak is drawn, and every level drawn is spoken.** `editorial_gate`
-  BLOCKs otherwise. On 07-27 each chart drew the prior close and the session low while the
-  script spoke five levels of that instrument — three named and never shown, per chart. Plan
-  the horizontal lines from the levels the script actually quotes. Trendline anchors are exempt:
-  they are swing pivots, not quoted figures.
+- **Every level you speak is visible on the operator's indicator, and every highlighted level is
+  spoken.** `editorial_gate` BLOCKs otherwise. Do not add custom lines to satisfy this binding.
 - **What a beat speaks is DERIVED, not declared.** `spokenSubjects` is written by the same pass
   that writes the narration, so it can be satisfied while violated — 07-27 beat 01-03 declared
   `["nvda"]` and named XLK, the Nasdaq, the VIX and the S&P. The gate now derives instruments
@@ -82,9 +91,8 @@ fixes; this section is how to write so they pass on the first attempt.
   section never charts. An un-splittable pair clause ("an S&P close below X and a VIX close
   above Y") is allowed when the section shows both charts across neighbouring beats. News beats
   are exempt.
-- **Multi-timeframe and trendlines are the standing direction** (weekly/daily/60m, TF-qualified
-  subjects; swing-pivot trendlines through `draw_stage`, which is already type-agnostic and
-  supports `price2`/`time2`). Not yet gated — write them in.
+- **Multi-timeframe remains the standing direction; trendlines do not.** Use weekly/daily/60m
+  views only when the unchanged operator indicators show the relevant levels clearly.
 
 ## Voice authority
 
@@ -172,41 +180,56 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
    sentence is missing is not a receipt for the claim it sits under. Probe the real article for
    the exact sentence: "Nvidia and Micron" was never on the page; it reads "Nvidia fell 5% and
    Micron Technology slumped 2.3%".
-2. Run the fixed TradingView dashboard and `market-analysis`. Choose the lead from confirmation or
-   divergence. Emit `analysis-brief.md`, then lock title and thumbnail. Lock = RENDER it now
+2. Open the operator's TradingView chart in Codex's in-app browser and run `market-analysis`
+   against that visible surface. Choose the lead from confirmation or divergence. Emit
+   `analysis-brief.md`.
+
+   **The brief MUST carry these three lines, and `tools/insight_gate.py` hard-blocks the run
+   without them** (governing note: ops vault `GTM/Pipeline/Video Format v2 — StockedUp
+   Model.md`; the gate exists because that standard was prose until 2026-08-04 and the
+   2026-07-28 "boring, surface-level" rejection walked straight through a clean gate stack):
+
+   - `Insight-bar answer:` — must begin with **no**. The question is *could a competent trader
+     have reached this claim by reading the headline?* If the honest answer is yes, go back to
+     the data; do not rephrase the recap.
+   - `Insight-bar move:` — one of `what-did-not-move`, `damage-vs-mechanism`,
+     `refused-to-unwind`, `front-end-vs-narrative`, `dispersion`. Naming the move is a design
+     act; "none of these" is the signature of a recap.
+   - `One portfolio thesis:` — must name **at least two distinct instruments that appear as
+     `subject` in `claims.yaml`**. Every qualifying move is a comparison; a single-asset
+     observation almost never clears the bar, and the gate enforces exactly this part because
+     it is the half a writing pass cannot satisfy by word choice.
+
+   Then lock title and thumbnail. Lock = RENDER it now
    (never a video frame; design rules = `thumbnails-first-impressions` house skill):
    `node tools/visuals/render_thumb.cjs --out productions/daily-<date>/thumb.png --eyebrow
    "<ASSET>" --num "<$number>" --phrase "<3-5 words, ≠ title>" --dir up|down` — the spec gate
    (`check_thumbnail.cjs`) hard-blocks rule violations. Put the path in every `social-batch.json`
    youtube item as `"thumbnail"`; publish.py sets it on YouTube (fails loud if the file is
    missing — 2026-07-21 silent-drop scar).
-2b. **Charts before script (hard order).** Write the chart plan (symbols, timeframes, indicators,
-   exact levels/trendlines to draw) and do the TradingView work NOW — adjust indicators as needed
-   to make the point; capture working shots as end-of-day snapshots with the closing candle
-   printed. The script may only reference charts that already exist from this step. A script
-   citing an uncaptured chart is a defect (2026-07-17 incident). Levels talk is conditions and
-   invalidations off today's close ("watch X if and only if Y breaks"), never predictions.
+2b. **Charts before script (hard order).** Write the chart plan (symbols, timeframes, unchanged
+   operator indicators, and the already-visible levels to discuss) and do the TradingView work
+   NOW. Do not adjust indicators or add drawings. Capture working shots as end-of-day snapshots
+   with the closing candle printed. The script may only reference charts that already exist from
+   this step. A script citing an uncaptured chart is a defect (2026-07-17 incident). Levels talk
+   is conditions and invalidations off today's close, never predictions.
 
-   **Derive the levels and trendlines first — do not eyeball them.**
-   ```
-   PYTHONIOENCODING=utf-8 OpenMontage/.venv/Scripts/python.exe tools/visuals/swing_levels.py \
-       productions/daily-<date> --symbols SP:SPX NASDAQ:NVDA ... --tf 1D --count 245 --emit-draw
-   ```
-   Writes `swing-receipts-<date>.json` and prints `draw` blocks ready to merge into the chart
-   plan's stages. It finds 7-bar fractal pivots, clusters them into at most three levels per
-   side WITHIN 8% of the last close (a level 10% away is history — the first run surfaced SPX
-   levels at 6,550 with price at 7,413, true and useless), and fits the best trendline through
-   two same-side pivots spanning ≥15 bars with a recent second anchor. **Never "the last two
-   pivots"** — that produced a 7-bar squiggle. Every trendline carries `spanBars`, `touches`,
-   `broken` and `projectedNow`: quote the projection, and never call a broken line intact.
-   A level's `kind` is where it came from, `position` is what it is now — a swing low price has
-   closed below is resistance today, and calling it support is wrong on the page.
+   Do not run the retired trendline path (`swing_levels.py --emit-draw` or
+   `build_daily_chart_plan.py`). Bind each claimed level to the settled feed and verify that the
+   operator's indicator visibly shows it in the accepted capture.
 
-   Cite these through `swing-receipts-<date>.json#<SYMBOL>` with predicates `swing_high`,
-   `swing_low`, `trendline_anchor`, `trendline_projection`. `claims_gate` checks each value
-   against the receipt's own structure and BLOCKs a wrong-side or unmeasured number; swing
-   levels count toward the recital cap like feed claims, and `swing_high`/`swing_low` are
-   levels for the drawn↔spoken binding, while trendline anchors are exempt from it.
+   **Multi-timeframe (A6, shipped 2026-08-04).** The lead instrument may carry a SECOND chart at
+   a higher timeframe when the higher timeframe is what makes the claim — the weekly structure a
+   daily bar sits inside is usually the "more informative" the daily lane is missing. Mechanics:
+   - Add a second plan entry with its own `out` and `"tf": "1W"`. `tv_ta_capture.py` already
+     switches timeframe per shot; nothing new to run.
+   - Gather that timeframe's levels with `swing_levels.py --tf 1W`, which now writes
+     `swing-receipts-<date>-1w.json` — a distinct file, so it cannot overwrite the daily's.
+   - `check_level_binding` keys levels by **(symbol, timeframe)** as soon as a symbol is charted
+     at more than one, reading each claim's timeframe from its own receipt. A weekly level spoken
+     over the daily chart is a BLOCK, and vice versa. Nothing changes on single-timeframe nights.
+   - Keep it to the lead instrument. Two timeframes of everything is the squashed-chart defect in
+     a new costume; the visual-mix table still governs (55–70% charts, 4–6 charts total).
 
    Capture mechanics (deterministic — do not rely on judgment; 2026-07-20 incidents):
    - **No TV replay for post-close captures.** Between the 16:00 ET cash close and the futures
@@ -266,7 +289,7 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
      no-fear-bid point that night). Also: TVC:GOLD (~4,080) and OANDA:XAUUSD (~4,007) are
      DIFFERENT gold feeds — never mix them across days.
 3. Write `vo.txt` from the brief, the captured charts, and reference corpus. Mint `claims.yaml` and `vo-receipts.yaml`.
-   Run `tools/claims_gate.py` and `tools/script_style_gate.py`, read the script aloud, then stop with
+   Run `tools/insight_gate.py`, `tools/claims_gate.py` and `tools/script_style_gate.py`, read the script aloud, then stop with
    `script-approval.json` absent or `awaiting_human`. Proceed only after the operator explicitly
    approves that exact script hash; later script edits invalidate the receipt.
 
@@ -306,7 +329,8 @@ instead of padding or entering an open-ended rerender loop. Do not lower evidenc
 
    News-clip length contract (2026-07-20 incident): the assembler HARD-FAILS a news clip shorter
    than its narration beat — it will not loop entrance/exit animations. **Pre-size holdSec
-   BEFORE the first runner attempt**: narration words ÷ 145 wpm × 60 + ~8s buffer per news beat
+   BEFORE the first runner attempt**: narration words ÷ the ACTIVE voice's wpm (198 Marcus,
+   145 ElevenLabs clone) × 60 + ~8s buffer per news beat
    (2026-07-21: placeholder 24s holds vs 50–70s beats would have failed mid-run; generous holds
    cost nothing — the assembler trims to the beat). After the VO stage, read
    each news beat's length (`ffprobe build/vo-NN.wav`), set that shot's `holdSec` ≥ narration + 2s,

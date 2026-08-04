@@ -20,6 +20,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -35,7 +36,7 @@ FFMPEG = "ffmpeg"
 GAP_S = 0.45        # silence between sections
 VIDEO_FPS = 30
 TRANSITION_FRAMES = 12   # 0.4s crossfade between beats (operator ruling 2026-07-17: smooth transitions)
-PAD_COLOR = "0xFFFFFF"   # contain padding; white world per operator ruling (charts + news share white)
+PAD_COLOR = "0x08030a"   # contain padding; TraderCockpit brand black, never white edge gutters
 OPERATOR_REF = HUB / "productions" / "_voice" / "operator-clean.wav"
 CHATTERBOX_PYTHON = HUB / "OpenMontage" / ".venv-chatterbox" / (
     "Scripts/python.exe" if os.name == "nt" else "bin/python")
@@ -54,6 +55,15 @@ AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".flac", ".ogg"}
 
 def log(msg):
     print(f"[produce] {msg}", flush=True)
+
+
+def clean_whisper_caption(words):
+    """Undo token-boundary spaces that are not spoken punctuation."""
+    text = " ".join(word.word.strip() for word in words)
+    text = re.sub(r"(?<=\w)\s+([,.;:!?%])", r"\1", text)
+    text = re.sub(r"(?<=\w)\s+-\s*(?=\w)", "-", text)
+    text = re.sub(r"\bS\s*&\s*P\b", "S&P", text)
+    return re.sub(r"\$\s+(?=\d)", "$", text)
 
 
 def measure_lufs(path):
@@ -182,13 +192,18 @@ def parse_sections(prod: Path):
 
 
 def stage_vo(prod: Path, operator_ref=OPERATOR_REF, apollo_ref=None):
-    # ElevenLabs clone is the operator's voice of record (2026-07-28); Chatterbox stays
-    # as the offline path and still owns Apollo/hybrid narration for the Show lane.
-    try:  # local import: tts_elevenlabs imports this module
+    # Higgsfield Marcus is the daily voice of record (operator 2026-08-04) — the same
+    # proven series voice, billed to included Max credits instead of the ElevenLabs
+    # Creator tier that runs out mid-month. ElevenLabs stays as the fallback; Chatterbox
+    # stays as the offline path and still owns Apollo/hybrid narration for the Show lane.
+    try:  # local import: both TTS modules import this one
         from tools.tts_elevenlabs import load_env
     except ImportError:
         from tts_elevenlabs import load_env
     load_env()
+    if shutil.which("higgsfield") and not apollo_ref:
+        subprocess.run([sys.executable, str(HERE / "tts_higgsfield.py"), str(prod)], check=True)
+        return
     if os.environ.get("ELEVENLABS_API_KEY") and not apollo_ref:
         subprocess.run([sys.executable, str(HERE / "tts_elevenlabs.py"), str(prod)], check=True)
         return
@@ -203,7 +218,9 @@ def stage_vo(prod: Path, operator_ref=OPERATOR_REF, apollo_ref=None):
 
 def stage_captions(prod: Path):
     build = prod / "build"
-    wav = build / "vo-full.wav"
+    wav = build / "vo-full-mastered.wav"
+    if not wav.is_file():
+        wav = build / "vo-full.wav"
     if not wav.exists():
         sys.exit("run --stage vo first")
 
@@ -234,7 +251,7 @@ def stage_captions(prod: Path):
             for j in range(0, len(words), 5):
                 grp = words[j:j + 5]
                 lines += [str(i), f"{ts(grp[0].start)} --> {ts(grp[-1].end)}",
-                          " ".join(w.word.strip() for w in grp), ""]
+                          clean_whisper_caption(grp), ""]
                 i += 1
     except ImportError as exc:
         # Windows Application Control can block PyAV's native DLL. The narration is

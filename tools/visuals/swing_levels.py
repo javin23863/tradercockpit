@@ -257,7 +257,11 @@ def main(argv=None):
                    "pivotStrength": PIVOT_STRENGTH, "tolerancePct": TOLERANCE_PCT},
         "instruments": instruments,
     }
-    out = production / f"swing-receipts-{stamp:%Y-%m-%d}.json"
+    # A6: a second timeframe must not silently overwrite the first. The daily keeps the
+    # historical name so every shipped claim's `source` still resolves; only the added
+    # timeframes carry a suffix.
+    suffix = "" if args.tf.upper() == "1D" else f"-{args.tf.lower()}"
+    out = production / f"swing-receipts-{stamp:%Y-%m-%d}{suffix}.json"
     out.write_text(json.dumps(receipt, indent=2), encoding="utf-8")
     print(f"  -> {out}")
     if args.emit_draw:

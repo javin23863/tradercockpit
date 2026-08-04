@@ -13,8 +13,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
-import socket
 import subprocess
 import sys
 from pathlib import Path
@@ -26,11 +26,17 @@ except ImportError:  # direct `python tools/daily_preflight.py` execution
     from tts_elevenlabs import load_env
 
 ROOT = Path(__file__).resolve().parents[1]
-TV_CDP_PORT = 9222
-# Upper bound of one night at the shipped 1,450-1,700 word budget and the measured 5.90
-# chars/word (docs/DAILY-LANE-OVERHAUL-PLAN.md B4). A night that cannot be paid for must
-# not start: mid-render exhaustion leaves a half-narrated production and a stalled lane.
-NIGHT_CHARS = 10_332
+GUEST_CHART = "https://www.tradingview.com/chart/"
+# A saved layout has an id in the path. The bare /chart/ is what a LOGGED-OUT profile serves:
+# BATS: feeds, Volume only, none of the operator's indicators (daily-2026-08-03 died there).
+LAYOUT_RE = re.compile(r"https://(?:www\.)?tradingview\.com/chart/[^/?#]+/?")
+# Upper bound of one ElevenLabs night at 2,000-2,350 words and the measured 5.90 chars/word.
+# Only relevant on the fallback route; Higgsfield bills credits, not characters.
+NIGHT_CHARS = 13_865
+# ~0.09 included credits per section on the measured series route; a 13-section daily is
+# about 1.2, so 2 is a night with headroom. Only the ACTIVE voice route is probed: a BLOCK
+# on the route the lane will not take is a gate that refuses a night it could have run.
+NIGHT_CREDITS = 2
 DISK_FLOOR_GB = 20
 
 
@@ -38,13 +44,37 @@ def check(name, status, detail):
     return {"check": name, "status": status, "detail": detail}
 
 
-def tradingview():
-    with socket.socket() as probe:
-        probe.settimeout(1)
-        up = probe.connect_ex(("127.0.0.1", TV_CDP_PORT)) == 0
-    return check("tradingview", "PASS" if up else "BLOCK",
-                 f"CDP :{TV_CDP_PORT} {'reachable' if up else 'unreachable'}; "
-                 "charts-before-script cannot run without it")
+def saved_layout(urls):
+    """First saved-layout chart URL in the list, or None.
+
+    Kept because it names the 2026-08-03 defect precisely: the bare /chart/ is what a
+    logged-out profile serves. Preflight no longer probes a browser at all (the agent owns
+    chart eligibility through the operator's own signed-in Chrome), so this is the shared
+    definition of 'that is not the operator's chart', not a live check.
+    """
+    for url in urls:
+        if LAYOUT_RE.fullmatch(url.split("#")[0].split("?")[0]):
+            return url
+    return None
+
+
+def higgsfield():
+    """The daily voice of record since 2026-08-04: Marcus on included Max credits."""
+    try:
+        from tools.generate_series_higgsfield_narration import account_status
+    except ImportError:
+        from generate_series_higgsfield_narration import account_status
+    try:
+        account = account_status()
+    except Exception as error:  # CLI absent, not logged in, provider down
+        return [check("higgsfield", "BLOCK",
+                      f"account probe failed: {type(error).__name__}: {error}")]
+    credits = account.get("credits")
+    if not isinstance(credits, (int, float)):
+        return [check("higgsfield", "BLOCK", f"account returned no credit balance: {account!r}")]
+    return [check("higgsfield", "PASS" if credits >= NIGHT_CREDITS else "BLOCK",
+                  f"{credits:,.2f} credits on plan {account.get('plan')}; one night costs "
+                  f"about {NIGHT_CREDITS}")]
 
 
 def elevenlabs(require_pvc=False):
@@ -126,9 +156,14 @@ def verdict(rows):
     return "WARN" if any(row["status"] == "WARN" for row in rows) else "PASS"
 
 
+def voice(require_pvc=False):
+    """Probe whichever route produce.stage_vo will actually take, and only that one."""
+    return higgsfield() if shutil.which("higgsfield") else elevenlabs(require_pvc)
+
+
 def run(require_pvc=False):
     load_env()
-    rows = [tradingview(), *elevenlabs(require_pvc), youtube(), disk(), pagefile()]
+    rows = [*voice(require_pvc), youtube(), disk(), pagefile()]
     return {"verdict": verdict(rows), "checks": rows}
 
 
@@ -138,7 +173,12 @@ def selftest():
     assert verdict([check("a", "WARN", ""), check("b", "BLOCK", "")]) == "BLOCK"
     # the instant clone warns by default and blocks only once the PVC is meant to be live
     assert check("elevenlabs-voice", "WARN", "")["status"] == "WARN"
-    print("daily-preflight selftest: 4/4 PASS")
+    # the guest chart must never read as a layout: that is the whole 2026-08-03 failure
+    assert saved_layout([GUEST_CHART]) is None
+    assert saved_layout(["https://www.tradingview.com/"]) is None
+    assert saved_layout([GUEST_CHART, "https://www.tradingview.com/chart/Ab3xZ9/?symbol=SPX"])
+    assert saved_layout(["https://www.tradingview.com/chart/Ab3xZ9"])
+    print("daily-preflight selftest: 8/8 PASS")
 
 
 def main(argv=None):
