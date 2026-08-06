@@ -83,7 +83,6 @@ tools/              produce.py, publish.py, claims_gate.py, visuals/ (charts, ne
 tools/handoff/      the scripts that recovered/replaced live posts — CDP drivers, recut, platform replace
 productions/        one dir per video: vo.txt, claims.yaml, receipts, charts, shorts  (v4 = the baseline)
 docs/               the landing page (GitHub Pages) — the marketing surface
-design/helios/      immutable Helios v27 visual/motion reference and integration-gap receipt
 ops/                setup + SEO runbooks (creds, Meta/YouTube/social SEO, studio-kit wiring)
 handoffs/           dated session handoffs — read the newest before you touch anything live
 studio-kit/         extracted ai-video-studio-kit (clipper, generators)
@@ -92,7 +91,9 @@ OpenMontage/        the engine + its venv (gitignored — clone separately)
 Open-Generative-AI/ local-only Electron still-image studio (gitignored — clone separately)
 ```
 
-Knowledge base (outside this repo): `C:\Users\MSI\Desktop\TraderCockpit-Vault` — read `_meta/hot.md`.
+Knowledge base (outside this repo): the ops vault
+`C:\Users\MSI\Desktop\Obsidian Vault From VPS\tradercockpit\tradercockpit` — start at `GTM/README.md`.
+(`Desktop\TraderCockpit-Vault` is RETIRED and tombstoned; do not read or write it.)
 
 ## State
 
