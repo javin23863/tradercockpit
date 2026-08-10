@@ -1,9 +1,10 @@
 {
   "schema": "prelaunch-config/v1",
   "waitlist": {
-    "provider": "buttondown",
-    "status": "pending_operator_account",
-    "username": "tradercockpit",
+    "provider": "kit",
+    "status": "active",
+    "formId": "9787408",
+    "uid": "40f04d2d67",
     "allowedSources": [
       "youtube",
       "instagram",

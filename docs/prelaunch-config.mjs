@@ -18,16 +18,22 @@ export function validatePrelaunchConfig(value) {
   const waitlist = {
     provider: text(value.waitlist?.provider, 'waitlist.provider'),
     status: status(value.waitlist?.status, 'waitlist.status'),
-    username: typeof value.waitlist?.username === 'string' ? value.waitlist.username.trim() : '',
+    formId: typeof value.waitlist?.formId === 'string' ? value.waitlist.formId.trim() : '',
+    uid: typeof value.waitlist?.uid === 'string' ? value.waitlist.uid.trim() : '',
     allowedSources: value.waitlist?.allowedSources,
   }
-  if (waitlist.provider !== 'buttondown') throw new TypeError('waitlist.provider must be buttondown')
+  if (waitlist.provider !== 'kit') throw new TypeError('waitlist.provider must be kit')
   if (!Array.isArray(waitlist.allowedSources) || !waitlist.allowedSources.length ||
       waitlist.allowedSources.some((source) => !SOURCES.has(source))) {
     throw new TypeError('waitlist.allowedSources contains an unsupported source')
   }
-  if (waitlist.status === 'active' && !/^[a-zA-Z0-9_-]+$/.test(waitlist.username)) {
-    throw new TypeError('an active Buttondown waitlist requires a valid username')
+  // Fail closed on a half-configured live form: rendering a form that posts nowhere
+  // loses the address silently, which is worse than showing no form at all.
+  if (waitlist.status === 'active' && !/^[0-9]+$/.test(waitlist.formId)) {
+    throw new TypeError('an active Kit waitlist requires a numeric formId')
+  }
+  if (waitlist.status === 'active' && !/^[a-zA-Z0-9]+$/.test(waitlist.uid)) {
+    throw new TypeError('an active Kit waitlist requires an embed uid')
   }
 
   const analytics = {
@@ -82,7 +88,8 @@ export function activatePrelaunch(config, productManifest) {
   if (productManifest.status === 'available' || config.waitlist.status !== 'active') return
   const source = sourceFromLocation(config.waitlist.allowedSources)
   const form = document.getElementById('waitlist-form')
-  form.action = `https://buttondown.com/api/emails/embed-subscribe/${config.waitlist.username}`
+  form.action = `https://app.kit.com/forms/${config.waitlist.formId}/subscriptions`
+  form.dataset.uid = config.waitlist.uid
   form.hidden = false
   document.getElementById('product-cta').hidden = true
   document.getElementById('waitlist-source').value = `source-${source}`
