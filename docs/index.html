@@ -356,20 +356,22 @@ footer .warnline{color:var(--warn);margin-bottom:.5rem;text-transform:uppercase}
   <form id="waitlist-form" class="waitlist-form" method="post" hidden>
     <div class="waitlist-row">
       <label class="waitlist-field" for="waitlist-email">DAILY MARKET BREAKDOWN + APP WAITLIST
-        <input id="waitlist-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+        <input id="waitlist-email" name="email_address" type="email" autocomplete="email" required placeholder="you@example.com">
+      </label>
+      <label class="waitlist-field" for="waitlist-first-name">FIRST NAME (OPTIONAL)
+        <input id="waitlist-first-name" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="Your first name">
       </label>
       <button class="btn primary" type="submit">◈ Send confirmation</button>
     </div>
-    <input type="hidden" name="embed" value="1">
-    <input id="waitlist-source" type="hidden" name="tag" value="source-direct">
-    <input id="waitlist-utm-source" type="hidden" name="metadata__utm_source" value="direct">
-    <input id="waitlist-utm-medium" type="hidden" name="metadata__utm_medium" value="">
-    <input id="waitlist-utm-campaign" type="hidden" name="metadata__utm_campaign" value="">
+    <input id="waitlist-source" type="hidden" name="fields[source]" value="source-direct">
+    <input id="waitlist-utm-source" type="hidden" name="fields[utm_source]" value="direct">
+    <input id="waitlist-utm-medium" type="hidden" name="fields[utm_medium]" value="">
+    <input id="waitlist-utm-campaign" type="hidden" name="fields[utm_campaign]" value="">
     <p class="waitlist-note">Double opt-in: confirm the email before anything is sent. Unsubscribe anytime. Research only—not financial advice.</p>
   </form>
   <div class="ctas">
     <a id="youtube-cta" class="btn primary" href="https://www.youtube.com/@Thetradercockpit" rel="noopener">▶ Watch the daily breakdowns</a>
-    <a id="product-cta" class="btn" href="mailto:joshuajacob2386@gmail.com?subject=TraderCockpit%20product%20waitlist" rel="noopener">◈ Join the product waitlist</a>
+    <a id="product-cta" class="btn" href="strategy-claim-audit-checklist.html" rel="noopener">◈ Free: the strategy-claim audit checklist</a>
   </div>
   <p class="sub" id="manifest-detail" style="margin-top:1rem">
     Pricing and availability appear here only when the product itself publishes them.
@@ -540,7 +542,7 @@ const BOOT=[
  ["TRADERCOCKPIT OS v1.0 — command deck bootstrap",""],
  ["mounting data lake .............. ","OK"],
  ["arming gate array [12 phases] ... ","OK"],
- ["order routing ................... ","<span class='dim'>NOT ARMED</span>"],
+ ["order routing ................... ","<span class='accent'>LIVE-READY</span>"],
  ["product manifest ................ ","<span class='dim'>WAITLIST</span>"],
  ["loading strategy test deck ...... ","OK"],
 ];
