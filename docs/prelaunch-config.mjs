@@ -91,7 +91,10 @@ export function activatePrelaunch(config, productManifest) {
   form.action = `https://app.kit.com/forms/${config.waitlist.formId}/subscriptions`
   form.dataset.uid = config.waitlist.uid
   form.hidden = false
-  document.getElementById('product-cta').hidden = true
+  // The product CTA used to be hidden here. That made sense when it was a mailto: the
+  // waitlist replaced it. It is now the free strategy-claim audit checklist, which is the
+  // reason to join the waitlist rather than a competitor for it -- and hiding it left the
+  // checklist reachable from nowhere while conversion-status.json claimed it was linked.
   document.getElementById('waitlist-source').value = `source-${source}`
   document.getElementById('waitlist-utm-source').value = source
   for (const key of ['utm_medium', 'utm_campaign']) {
