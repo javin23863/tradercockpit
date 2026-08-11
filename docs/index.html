@@ -199,6 +199,8 @@ h2::before{content:"// ";color:var(--accent)}
 .waitlist-form{margin:1.4rem auto 0;max-width:42rem;border:1px solid var(--line);border-radius:6px;
   padding:1rem;background:var(--panel);text-align:left}
 .waitlist-form[hidden]{display:none}
+.waitlist-note[data-state="pending"]{color:var(--warn)}
+.waitlist-note[data-state="error"]{color:var(--bad)}
 .waitlist-row{display:flex;gap:.7rem;align-items:end;flex-wrap:wrap}
 .waitlist-field{display:grid;gap:.35rem;flex:1 1 18rem;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
 .waitlist-field input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:5px;
