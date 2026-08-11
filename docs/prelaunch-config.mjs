@@ -95,6 +95,7 @@ export function activatePrelaunch(config, productManifest) {
   // waitlist replaced it. It is now the free strategy-claim audit checklist, which is the
   // reason to join the waitlist rather than a competitor for it -- and hiding it left the
   // checklist reachable from nowhere while conversion-status.json claimed it was linked.
+  bindWaitlistSubmit(form)
   document.getElementById('waitlist-source').value = `source-${source}`
   document.getElementById('waitlist-utm-source').value = source
   for (const key of ['utm_medium', 'utm_campaign']) {
@@ -107,4 +108,42 @@ export function activatePrelaunch(config, productManifest) {
 export function trackConfirmedSignup(config) {
   enableAnalytics(config.analytics)
   if (config.analytics.status === 'active') globalThis.plausible('Confirmed Signup')
+}
+
+// Kit's own success redirect is broken: a normal browser POST to
+// app.kit.com/forms/<id>/subscriptions answers 302 -> app.kit.com/forms/success?form_id=<id>,
+// and that URL returns 404. The address IS accepted -- the same request with
+// `Accept: application/json` returns {"status":"success"} -- but the visitor is thrown onto a
+// Kit 404 page and concludes nothing happened. Reported by the operator on 2026-08-11 after two
+// attempts. The endpoint sends `access-control-allow-origin: *`, so we can submit it ourselves
+// and own the outcome instead of handing the visitor to a redirect we do not control.
+export function bindWaitlistSubmit(form, fetchImpl = globalThis.fetch) {
+  const note = form.querySelector('.waitlist-note')
+  const original = note ? note.textContent : ''
+  const say = (message, state) => {
+    if (!note) return
+    note.textContent = message
+    note.dataset.state = state
+  }
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault()
+    const button = form.querySelector('button[type="submit"]')
+    if (button) button.disabled = true
+    say('Sending…', 'pending')
+    try {
+      const response = await fetchImpl(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new URLSearchParams([...new FormData(form)]),
+      })
+      const result = await response.json()
+      if (!response.ok || result.status !== 'success') throw new Error(result.message || 'rejected')
+      globalThis.location.assign('confirmed.html')
+    } catch {
+      // Never swallow it. A silently dropped address is the failure we are fixing.
+      if (button) button.disabled = false
+      say('That did not go through. Check the address and try again — nothing was sent.', 'error')
+    }
+  })
+  return () => say(original, '')
 }
