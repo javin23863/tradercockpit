@@ -96,23 +96,16 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
     <div><strong>FORWARD-EVIDENCED</strong>A preregistered forward gate has receipts. This label still makes no performance promise.</div>
   </section>
 
-  <section class="capture-off" aria-label="Email capture status">
-    <strong>EMAIL DELIVERY // BUILT, NOT ACTIVE</strong>
-    <!-- Conservative operator-absent guard: activation must remove both the disabled controls
-         and the submit cancellation only after /api/signup has a double-opt-in receipt. -->
-    <form action="/api/signup" method="post" data-activation="off" onsubmit="return false">
-      <label for="capture-email">Email for a clean copy</label>
-      <input id="capture-email" name="email" type="email" autocomplete="email" disabled aria-disabled="true" placeholder="Not accepting signups yet">
-      <input id="capture-utm-source" name="utm_source" type="hidden">
-      <input id="capture-utm-medium" name="utm_medium" type="hidden">
-      <input id="capture-utm-campaign" name="utm_campaign" type="hidden">
-      <button type="submit" disabled aria-disabled="true">CAPTURE OFF</button>
-    </form>
-    <p>Nothing is submitted or sent while capture is off. The printable checklist above remains available without an email gate.</p>
+  <section class="capture-off" aria-label="Where to get the daily market map">
+    <strong>WANT THE DAILY MARKET MAP?</strong>
+    <p>This checklist is free and stays free — no email needed for it. If you want the daily
+      market breakdowns and word when the app opens,
+      <a href="./?utm_source=checklist&amp;utm_medium=lead_magnet&amp;utm_campaign=welcome">sign up on the main page</a>.
+      Double opt-in; nothing is sent until you confirm.</p>
   </section>
 
   <footer>
-    <div class="source-key">M = MARKET-ANALYSIS-DOCTRINE.md · F = esq-data-hygiene-ruling-2026-07-18.md · O = Offer Inventory and Claims Constraint.md</div>
+    <div class="source-key"><a href="./">tradercockpit</a> · the doctrine references beside each item are our own internal standards</div>
     <div class="disclaimer">Research tooling, not financial advice. No performance is promised or implied.</div>
   </footer>
 </main>
