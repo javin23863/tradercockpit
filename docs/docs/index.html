@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Documentation — TraderCockpit</title>
+  <meta name="description" content="TraderCockpit documentation architecture, contextual-help contract, and public reference entry point.">
+  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/docs/">
+  <link rel="stylesheet" href="../assets/site-v2.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
+      <div class="nav-links">
+        <a href="../research-lab.html">Research Lab</a>
+        <a href="../learn/">Learn</a>
+        <a href="./" aria-current="page">Docs</a>
+        <a href="../methods/">Methods</a>
+        <a href="../examples/">Examples</a>
+        <a href="../updates/">Updates</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="shell">
+        <span class="eyebrow">Docs / exact reference</span>
+        <h1>Find the exact answer, not a marketing paragraph.</h1>
+        <p class="lede">Docs are reserved for precise, verified product reference. Research education belongs in Learn and Methods; task instructions belong in How-Tos. That separation keeps in-app help direct and predictable.</p>
+        <div class="notice">This public documentation area will only describe product behavior that is approved for public disclosure. Research concepts may exist on the site before a matching product capability is publicly verified.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Documentation map</span>
+          <h2>Three kinds of answer.</h2>
+          <p>Users should not have to guess whether they need a definition, a workflow, or a control reference.</p>
+        </div>
+        <div class="card-grid">
+          <article class="depth-card">
+            <span class="kicker">Reference</span>
+            <h3>What does this control mean?</h3>
+            <p>Exact field names, allowed values, behavior, validation, errors, defaults, and related help IDs—only after the behavior is verified for public documentation.</p>
+          </article>
+          <article class="depth-card">
+            <span class="kicker">How-To</span>
+            <h3>How do I accomplish this task?</h3>
+            <p>Goal-oriented steps, prerequisites, expected results, common mistakes, troubleshooting, and optional video.</p>
+            <a class="deep-link" href="../how-to/">Open How-Tos →</a>
+          </article>
+          <article class="depth-card">
+            <span class="kicker">Concept / Method</span>
+            <h3>Why would I use this idea?</h3>
+            <p>Definitions, assumptions, visual explanations, mathematical reasoning, limitations, and what to inspect next.</p>
+            <a class="deep-link" href="../methods/">Open Methods →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contextual-help">
+      <div class="shell content-grid">
+        <div class="content-panel">
+          <span class="eyebrow">Contextual help</span>
+          <h2>Stable help IDs, exact deep links.</h2>
+          <p>Instead of sending a user from an in-app “What is this?” link to a generic documentation homepage, the site exposes a versioned registry of public-safe knowledge IDs. A future application integration can map a UI context to one of those IDs and open the exact explanation.</p>
+          <p>Example: <code>research.monte-carlo</code> resolves to the Monte Carlo section of Research Lab. The public registry does not contain unreleased controls, private application routes, backend names, or internal implementation details.</p>
+          <a class="deep-link" href="../help-registry.v1.json">View the public help registry →</a>
+        </div>
+        <aside class="side-panel">
+          <h3>Publication gate</h3>
+          <ul>
+            <li>Public-safe concept?</li>
+            <li>Product claim verified?</li>
+            <li>Exact behavior confirmed?</li>
+            <li>Deep link durable?</li>
+            <li>No proprietary/internal detail?</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Target taxonomy</span>
+          <h2>Reference areas ready to grow with the product.</h2>
+          <p>These are documentation destinations, not claims that every area is currently public or feature-complete.</p>
+        </div>
+        <div class="path-grid">
+          <div class="path-card"><strong>Getting Started</strong><span>Installation, first launch, navigation, and orientation only when those instructions are public-ready.</span></div>
+          <div class="path-card"><strong>Navigation & Workspaces</strong><span>Public conventions for moving through the application after they are verified for disclosure.</span></div>
+          <div class="path-card"><strong>Visual Analysis Reference</strong><span>Verified chart/visual encodings, controls, and troubleshooting without exposing unreleased surfaces.</span></div>
+          <div class="path-card"><strong>Validation Reference</strong><span>Exact public validation fields and result meanings only after the corresponding behavior is verified.</span></div>
+          <div class="path-card"><strong>Settings</strong><span>Configuration reference, defaults, and platform notes when verified.</span></div>
+          <div class="path-card"><strong>Errors & Recovery</strong><span>Exact public messages, causes, safe recovery steps, and escalation routes.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>TraderCockpit documentation · public-safe reference only.</div>
+      <div class="footer-links"><a href="../research-lab.html">Research Lab</a><a href="../learn/">Learn</a><a href="../how-to/">How-Tos</a></div>
+    </div>
+  </footer>
+</body>
+</html>

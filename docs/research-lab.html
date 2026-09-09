@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Research Lab — TraderCockpit</title>
+  <meta name="description" content="Explore visual, synthetic demonstrations of quantitative research concepts including multidimensional candidate analysis and Monte Carlo uncertainty.">
+  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/research-lab.html">
+  <link rel="stylesheet" href="assets/site-v2.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
+      <div class="nav-links">
+        <a href="research-lab.html" aria-current="page">Research Lab</a>
+        <a href="learn/">Learn</a>
+        <a href="docs/">Docs</a>
+        <a href="methods/">Methods</a>
+        <a href="examples/">Examples</a>
+        <a href="updates/">Updates</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <span class="eyebrow">Research Lab / synthetic visualizations</span>
+          <h1>See the <span class="gradient-text">shape</span> of a research problem.</h1>
+          <p class="lede">Quantitative research is easier to reason about when uncertainty, disagreement, parameter behavior, and distributions are visible. This lab turns those ideas into interactive diagrams rather than decorative charts.</p>
+          <div class="notice"><strong>Important:</strong> every dataset on this page is synthetic and illustrative. These scenes are research education, not trading recommendations, forecasts, or claims about product capability.</div>
+        </div>
+
+        <div class="scene-frame" id="strategy-universe" aria-labelledby="universe-title">
+          <span class="scene-label">Strategy Universe · synthetic</span>
+          <canvas
+            id="strategy-universe-canvas"
+            class="scene-canvas"
+            role="img"
+            aria-label="A synthetic three-dimensional candidate field. Horizontal position represents a synthetic dispersion axis, vertical position represents a synthetic drawdown axis, and depth represents synthetic in-sample versus out-of-sample disagreement. Candidate family is also indicated by color, but no conclusion depends on color alone."
+          ></canvas>
+          <div class="scene-controls" aria-label="Strategy Universe controls">
+            <button class="control-btn" id="universe-pause" type="button" aria-pressed="false">Pause motion</button>
+            <button class="control-btn" id="universe-reset" type="button">Reset view</button>
+            <button class="control-btn" id="candidate-prev" type="button">Previous candidate</button>
+            <button class="control-btn" id="candidate-next" type="button">Next candidate</button>
+            <div class="focus-readout" id="candidate-readout" aria-live="polite">Synthetic candidate details</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="universe-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">01 / Strategy Universe</span>
+          <h2 id="universe-title">One point is simple. A population has structure.</h2>
+          <p>This first scene is deliberately not a performance leaderboard. It demonstrates how many candidate research objects can occupy several analytical dimensions at once. The axes below are synthetic variables so the visual can teach spatial reasoning without implying a market result.</p>
+        </div>
+        <div class="legend-grid" aria-label="Strategy Universe visual encoding">
+          <div class="legend-item"><strong>X · dispersion</strong><span>Horizontal position is a synthetic normalized outcome-dispersion score from 0 to 1.</span></div>
+          <div class="legend-item"><strong>Y · drawdown axis</strong><span>Vertical position is a synthetic normalized drawdown-severity score from 0 to 1.</span></div>
+          <div class="legend-item"><strong>Z · disagreement</strong><span>Depth is a synthetic normalized in-sample/out-of-sample disagreement score from 0 to 1.</span></div>
+          <div class="legend-item"><strong>Size · evidence weight</strong><span>Point size is a synthetic evidence-weight field. Family color groups are illustrative only.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="monte-carlo" aria-labelledby="mc-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">02 / Uncertainty</span>
+          <h2 id="mc-title">A single path hides the range of possible paths.</h2>
+          <p>A Monte Carlo view is useful because one sequence can look unusually smooth or unusually poor by chance. This illustration generates multiple synthetic zero-drift paths to make path dispersion visible. It is not a forecast and does not use market data.</p>
+        </div>
+        <div class="visual-panel">
+          <div class="visual-topline">
+            <div>
+              <h3>Synthetic Monte Carlo field</h3>
+              <p class="micro">64 paths · 90 synthetic steps · deterministic seed until regenerated</p>
+            </div>
+            <span class="synthetic-badge">Illustrative data</span>
+          </div>
+          <canvas
+            id="monte-carlo-canvas"
+            role="img"
+            aria-label="Sixty-four synthetic cumulative paths fan out from the same starting point. The field illustrates sequence uncertainty; it is not a market forecast."
+          ></canvas>
+          <div class="metric-row" aria-label="Synthetic terminal distribution summary">
+            <div class="metric"><b id="mc-p10">—</b><span>10th percentile terminal value</span></div>
+            <div class="metric"><b id="mc-p50">—</b><span>median terminal value</span></div>
+            <div class="metric"><b id="mc-p90">—</b><span>90th percentile terminal value</span></div>
+          </div>
+          <p><button class="control-btn" id="mc-regenerate" type="button">Regenerate synthetic sample</button></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="next-lab-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Next modules</span>
+          <h2 id="next-lab-title">A visual atlas, not a wall of feature cards.</h2>
+          <p>These modules are part of the public educational roadmap for the site. Their presence here does not assert that a matching TraderCockpit product capability is currently available.</p>
+        </div>
+        <div class="card-grid">
+          <article class="depth-card" id="walk-forward">
+            <span class="kicker">Validation windows</span>
+            <h3>Walk-forward landscape</h3>
+            <p>Training and evaluation windows become a stepped landscape so stability across time can be inspected visually.</p>
+            <a class="deep-link" href="methods/#walk-forward">Understand the method →</a>
+          </article>
+          <article class="depth-card" id="out-of-sample">
+            <span class="kicker">Holdout evidence</span>
+            <h3>In-sample / out-of-sample boundary</h3>
+            <p>A visible boundary separates information used for development from evidence reserved for evaluation.</p>
+            <a class="deep-link" href="methods/#out-of-sample">Understand the method →</a>
+          </article>
+          <article class="depth-card" id="parameter-robustness">
+            <span class="kicker">Parameter geometry</span>
+            <h3>Robustness surface</h3>
+            <p>A broad plateau and a narrow spike look fundamentally different when the parameter neighborhood is rendered as terrain.</p>
+            <a class="deep-link" href="methods/#parameter-robustness">Understand the method →</a>
+          </article>
+          <article class="depth-card" id="drawdown">
+            <span class="kicker">Path risk</span>
+            <h3>Drawdown valleys</h3>
+            <p>Depth, duration, and recovery can be made spatial so one headline statistic does not hide the path.</p>
+            <a class="deep-link" href="methods/#drawdown">Understand the method →</a>
+          </article>
+          <article class="depth-card" id="correlation">
+            <span class="kicker">Relationships</span>
+            <h3>Correlation network</h3>
+            <p>Related synthetic series pull together in a graph, making clustering and apparent diversification easier to inspect.</p>
+            <a class="deep-link" href="methods/#correlation">Understand the method →</a>
+          </article>
+          <article class="depth-card" id="selection-bias">
+            <span class="kicker">Multiple testing</span>
+            <h3>Selection funnel</h3>
+            <p>A large candidate family narrows through explicit filters so the cost of selection can be discussed rather than hidden.</p>
+            <a class="deep-link" href="methods/#selection-bias">Understand the method →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell content-grid">
+        <div class="content-panel">
+          <h2>Where to go next</h2>
+          <p>Research Lab shows the shape of a problem. Methods explains the underlying reasoning. Learn builds a curriculum. Docs will eventually answer exact verified product questions. Those are intentionally separate jobs.</p>
+          <div class="path-grid">
+            <a class="path-card" href="methods/"><strong>Methods</strong><span>Understand the mathematics, assumptions, and failure modes behind each research idea.</span></a>
+            <a class="path-card" href="learn/"><strong>Learn</strong><span>Follow structured concept and workflow learning paths instead of browsing randomly.</span></a>
+            <a class="path-card" href="docs/"><strong>Docs</strong><span>Use exact reference material when verified product documentation is available.</span></a>
+            <a class="path-card" href="how-to/"><strong>How-Tos</strong><span>Complete task-focused lessons with written steps and optional video.</span></a>
+          </div>
+        </div>
+        <aside class="side-panel">
+          <h2>Public help IDs</h2>
+          <p class="micro">The desktop app can later deep-link to exact public knowledge topics without hard-coding page layout.</p>
+          <ul>
+            <li><code>research.strategy-universe</code></li>
+            <li><code>research.monte-carlo</code></li>
+            <li><code>research.walk-forward</code></li>
+            <li><code>research.out-of-sample</code></li>
+            <li><code>research.parameter-robustness</code></li>
+          </ul>
+          <a class="deep-link" href="docs/#contextual-help">See the help contract →</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>TraderCockpit · evidence-first research education · no performance promised.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="strategy-claim-audit-checklist.html">Audit checklist</a>
+        <a href="refund-policy.html">Refund policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <noscript><div class="shell notice">Interactive canvases are disabled, but all educational explanations and navigation on this page remain available.</div></noscript>
+  <script src="assets/research-lab.js" defer></script>
+</body>
+</html>

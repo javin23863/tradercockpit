@@ -1,0 +1,95 @@
+{
+  "schema": "help-registry/v1",
+  "baseUrl": "https://javin23863.github.io/tradercockpit/",
+  "scope": "public-safe research education",
+  "entries": [
+    {
+      "id": "research.strategy-universe",
+      "path": "research-lab.html#strategy-universe",
+      "title": "Strategy Universe",
+      "kind": "concept",
+      "status": "public",
+      "aliases": ["candidate universe", "research universe", "multidimensional candidates"]
+    },
+    {
+      "id": "research.monte-carlo",
+      "path": "research-lab.html#monte-carlo",
+      "title": "Monte Carlo uncertainty",
+      "kind": "concept",
+      "status": "public",
+      "aliases": ["monte carlo", "sequence uncertainty", "path simulation"]
+    },
+    {
+      "id": "research.out-of-sample",
+      "path": "methods/#out-of-sample",
+      "title": "In-sample vs out-of-sample",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["oos", "holdout", "out of sample"]
+    },
+    {
+      "id": "research.walk-forward",
+      "path": "methods/#walk-forward",
+      "title": "Walk-forward analysis",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["walk forward", "rolling evaluation", "time-aware validation"]
+    },
+    {
+      "id": "research.parameter-robustness",
+      "path": "methods/#parameter-robustness",
+      "title": "Parameter robustness",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["robustness surface", "parameter stability", "parameter neighborhood"]
+    },
+    {
+      "id": "research.drawdown",
+      "path": "methods/#drawdown",
+      "title": "Drawdown",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["drawdown depth", "drawdown duration", "recovery"]
+    },
+    {
+      "id": "research.correlation",
+      "path": "methods/#correlation",
+      "title": "Correlation and diversification",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["correlation", "diversification", "co-movement"]
+    },
+    {
+      "id": "research.selection-bias",
+      "path": "methods/#selection-bias",
+      "title": "Selection bias and multiple testing",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["selection bias", "multiple testing", "candidate selection"]
+    },
+    {
+      "id": "research.pbo",
+      "path": "methods/#pbo",
+      "title": "Probability of Backtest Overfitting",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["pbo", "backtest overfitting probability"]
+    },
+    {
+      "id": "research.dsr",
+      "path": "methods/#dsr",
+      "title": "Deflated Sharpe Ratio",
+      "kind": "method",
+      "status": "public",
+      "aliases": ["dsr", "deflated sharpe"]
+    },
+    {
+      "id": "site.contextual-help",
+      "path": "docs/#contextual-help",
+      "title": "Contextual help system",
+      "kind": "reference",
+      "status": "public",
+      "aliases": ["what is this", "help links", "deep links"]
+    }
+  ]
+}
