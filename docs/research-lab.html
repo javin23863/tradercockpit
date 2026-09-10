@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Research Lab — TraderCockpit</title>
+  <meta name="description" content="Explore visual, synthetic demonstrations of quantitative research concepts including multidimensional candidate analysis and Monte Carlo uncertainty.">
+  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/research-lab.html">
+  <link rel="stylesheet" href="assets/site-v2.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
+      <div class="nav-links">
+        <a href="research-lab.html" aria-current="page">Research Lab</a>
+        <a href="learn/">Learn</a>
+        <a href="docs/">Docs</a>
+        <a href="methods/">Methods</a>
+        <a href="examples/">Examples</a>
+        <a href="updates/">Updates</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <span class="eyebrow">Research Lab / synthetic visualizations</span>
+          <h1>See the <span class="gradient-text">shape</span> of a research problem.</h1>
+          <p class="lede">Quantitative research is easier to reason about when uncertainty, disagreement, parameter behavior, and distributions are visible. This lab turns those ideas into interactive diagrams rather than decorative charts.</p>
+          <div class="notice"><strong>Important:</strong> every dataset on this page is synthetic and illustrative. These scenes are research education, not trading recommendations, forecasts, or claims about product capability.</div>
+        </div>
+
+        <div class="scene-frame" id="strategy-universe" aria-labelledby="universe-title">
+          <span class="scene-label">Strategy Universe · synthetic</span>
+          <canvas
+            id="strategy-universe-canvas"
+            class="scene-canvas"
+            role="img"
+            aria-label="A synthetic three-dimensional candidate field. Horizontal position represents a synthetic dispersion axis, vertical position represents a synthetic drawdown axis, and depth represents synthetic in-sample versus out-of-sample disagreement. Candidate family is also indicated by color, but no conclusion depends on color alone."
+          ></canvas>
+          <div class="scene-controls" aria-label="Strategy Universe controls">
+            <button class="control-btn" id="universe-pause" type="button" aria-pressed="false">Pause motion</button>
+            <button class="control-btn" id="universe-reset" type="button">Reset view</button>
+            <button class="control-btn" id="candidate-prev" type="button">Previous candidate</button>
+            <button class="control-btn" id="candidate-next" type="button">Next candidate</button>
+            <div class="focus-readout" id="candidate-readout" aria-live="polite">Synthetic candidate details</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="lab-atlas-nav" id="atlas" aria-label="Research Lab visual atlas">
+      <div class="shell"><div class="atlas-shell">
+        <div class="atlas-nav-head"><div><span class="eyebrow">Visual Atlas / 10 modules</span><h2>Choose the research shape you want to inspect.</h2></div><p>Jump directly to a synthetic research concept. Every module defines its encodings and limitations.</p></div>
+        <div class="atlas-nav-grid">
+          <a class="atlas-nav-item" href="#strategy-universe"><b>01 / POPULATION</b><strong>Strategy Universe</strong><span>high-dimensional candidates</span></a>
+          <a class="atlas-nav-item" href="#monte-carlo"><b>02 / UNCERTAINTY</b><strong>Monte Carlo</strong><span>path dispersion</span></a>
+          <a class="atlas-nav-item" href="#parameter-robustness"><b>03 / GEOMETRY</b><strong>Parameter surface</strong><span>plateau vs spike</span></a>
+          <a class="atlas-nav-item" href="#correlation"><b>04 / RELATIONSHIPS</b><strong>Correlation network</strong><span>dependence structure</span></a>
+          <a class="atlas-nav-item" href="#distribution"><b>05 / SHAPE</b><strong>Distribution</strong><span>skew + tail mass</span></a>
+          <a class="atlas-nav-item" href="#regime-map"><b>06 / STATE</b><strong>Regime cube</strong><span>market-state coordinates</span></a>
+          <a class="atlas-nav-item" href="#walk-forward"><b>07 / TIME</b><strong>Walk-forward</strong><span>moving evaluation windows</span></a>
+          <a class="atlas-nav-item" href="#out-of-sample"><b>08 / BOUNDARY</b><strong>Holdout flow</strong><span>information separation</span></a>
+          <a class="atlas-nav-item" href="#drawdown"><b>09 / PATH RISK</b><strong>Drawdown valleys</strong><span>depth + duration</span></a>
+          <a class="atlas-nav-item" href="#selection-bias"><b>10 / SELECTION</b><strong>Testing pressure</strong><span>best-of-many effect</span></a>
+        </div>
+      </div></div>
+    </nav>
+
+    <section class="section" aria-labelledby="universe-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">01 / Strategy Universe</span>
+          <h2 id="universe-title">One point is simple. A population has structure.</h2>
+          <p>This first scene is deliberately not a performance leaderboard. It demonstrates how many candidate research objects can occupy several analytical dimensions at once. The axes below are synthetic variables so the visual can teach spatial reasoning without implying a market result.</p>
+        </div>
+        <div class="legend-grid" aria-label="Strategy Universe visual encoding">
+          <div class="legend-item"><strong>X · dispersion</strong><span>Horizontal position is a synthetic normalized outcome-dispersion score from 0 to 1.</span></div>
+          <div class="legend-item"><strong>Y · drawdown axis</strong><span>Vertical position is a synthetic normalized drawdown-severity score from 0 to 1.</span></div>
+          <div class="legend-item"><strong>Z · disagreement</strong><span>Depth is a synthetic normalized in-sample/out-of-sample disagreement score from 0 to 1.</span></div>
+          <div class="legend-item"><strong>Size · evidence weight</strong><span>Point size is a synthetic evidence-weight field. Family color groups are illustrative only.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="monte-carlo" aria-labelledby="mc-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">02 / Uncertainty</span>
+          <h2 id="mc-title">A single path hides the range of possible paths.</h2>
+          <p>A Monte Carlo view is useful because one sequence can look unusually smooth or unusually poor by chance. This illustration generates multiple synthetic zero-drift paths to make path dispersion visible. It is not a forecast and does not use market data.</p>
+        </div>
+        <div class="visual-panel">
+          <div class="visual-topline">
+            <div>
+              <h3>Synthetic Monte Carlo field</h3>
+              <p class="micro">64 paths · 90 synthetic steps · deterministic seed until regenerated</p>
+            </div>
+            <span class="synthetic-badge">Illustrative data</span>
+          </div>
+          <canvas
+            id="monte-carlo-canvas"
+            role="img"
+            aria-label="Sixty-four synthetic cumulative paths fan out from the same starting point. The field illustrates sequence uncertainty; it is not a market forecast."
+          ></canvas>
+          <div class="metric-row" aria-label="Synthetic terminal distribution summary">
+            <div class="metric"><b id="mc-p10">—</b><span>10th percentile terminal value</span></div>
+            <div class="metric"><b id="mc-p50">—</b><span>median terminal value</span></div>
+            <div class="metric"><b id="mc-p90">—</b><span>90th percentile terminal value</span></div>
+          </div>
+          <p><button class="control-btn" id="mc-regenerate" type="button">Regenerate synthetic sample</button></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="parameter-robustness" aria-labelledby="robustness-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">03 / Parameter geometry</span>
+          <h2 id="robustness-title">A broad neighborhood tells a different story than one sharp peak.</h2>
+          <p>This synthetic terrain compares response shapes across two normalized parameters. Switch between a broad plateau, a narrow spike, and a ridge. Height is an illustrative response score, not strategy performance.</p>
+        </div>
+        <div class="visual-panel" data-robustness-explorer>
+          <div class="visual-topline"><div><h3>Synthetic robustness surface</h3><p class="micro">21 × 21 parameter grid · deterministic functions · no market data</p></div><span class="synthetic-badge">Illustrative geometry</span></div>
+          <div class="segmented-controls" aria-label="Synthetic surface shape">
+            <button class="control-btn" type="button" data-surface-mode="plateau" aria-pressed="true">Broad plateau</button>
+            <button class="control-btn" type="button" data-surface-mode="spike" aria-pressed="false">Narrow spike</button>
+            <button class="control-btn" type="button" data-surface-mode="ridge" aria-pressed="false">Ridge</button>
+          </div>
+          <canvas id="robustness-canvas" class="lab-depth-canvas" role="img" aria-label="A synthetic three-dimensional parameter response surface. Horizontal axes represent normalized parameter A and parameter B. Height represents a synthetic response score from zero to one."></canvas>
+          <div class="metric-row" aria-label="Synthetic surface summary"><div class="metric"><b id="robustness-peak">—</b><span>peak synthetic response</span></div><div class="metric"><b id="robustness-neighborhood">—</b><span>peak-neighborhood mean</span></div><div class="metric"><b id="robustness-range">—</b><span>peak-neighborhood range</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>X · parameter A</strong><span>Normalized illustrative parameter from 0 to 1.</span></div><div class="legend-item"><strong>Z · parameter B</strong><span>Second normalized illustrative parameter from 0 to 1.</span></div><div class="legend-item"><strong>Height · response</strong><span>Synthetic response score from 0 to 1; higher is not a profit claim.</span></div><div class="legend-item"><strong>Shape · sensitivity</strong><span>Plateaus, spikes, and ridges illustrate different neighborhood behavior.</span></div></div>
+          <a class="deep-link" href="methods/#parameter-robustness">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="correlation" aria-labelledby="correlation-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">04 / Relationship structure</span>
+          <h2 id="correlation-title">Diversification is a network problem, not a list of names.</h2>
+          <p>This deterministic synthetic network groups eighteen series into three families. Lines appear only for strong illustrative relationships. Cycle through nodes to see how one series can sit inside a dense cluster even when the whole graph looks diversified.</p>
+        </div>
+        <div class="visual-panel" data-correlation-explorer>
+          <div class="visual-topline"><div><h3>Synthetic correlation network</h3><p class="micro">18 series · 3 synthetic families · edges shown above |relationship| 0.62</p></div><span class="synthetic-badge">Illustrative relationships</span></div>
+          <canvas id="correlation-canvas" class="lab-depth-canvas network-canvas" role="img" aria-label="A synthetic network of eighteen series in three labeled families. Strong illustrative relationships are drawn as lines and the selected series is emphasized with a ring."></canvas>
+          <div class="scene-controls inline-controls" aria-label="Correlation network controls"><button class="control-btn" type="button" id="network-prev">Previous series</button><button class="control-btn" type="button" id="network-next">Next series</button><button class="control-btn" type="button" id="network-focus" aria-pressed="false">Focus selected</button><div class="focus-readout" id="network-readout" aria-live="polite">Synthetic relationship details</div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Node · synthetic series</strong><span>Each labeled point is one illustrative series.</span></div><div class="legend-item"><strong>Family · label + color</strong><span>Families A, B, and C are always named; color is redundant.</span></div><div class="legend-item"><strong>Line · strong relation</strong><span>Line width maps to absolute synthetic relationship strength.</span></div><div class="legend-item"><strong>Distance · layout only</strong><span>Position supports readability; it is not a precise correlation scale.</span></div></div>
+          <a class="deep-link" href="methods/#correlation">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="distribution" aria-labelledby="distribution-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">05 / Distribution shape</span>
+          <h2 id="distribution-title">Averages can look similar while tails behave very differently.</h2>
+          <p>Switch among three deterministic synthetic distributions, then move the threshold to inspect the share of observations below it. The exercise is about shape, skew, and tail mass—not forecasting returns.</p>
+        </div>
+        <div class="visual-panel" data-distribution-explorer>
+          <div class="visual-topline"><div><h3>Synthetic distribution explorer</h3><p class="micro">4,000 observations · deterministic seed · standardized illustrative outcomes</p></div><span class="synthetic-badge">Illustrative distribution</span></div>
+          <div class="segmented-controls" aria-label="Synthetic distribution family"><button class="control-btn" type="button" data-distribution-mode="symmetric" aria-pressed="true">Symmetric</button><button class="control-btn" type="button" data-distribution-mode="skewed" aria-pressed="false">Skewed</button><button class="control-btn" type="button" data-distribution-mode="heavy" aria-pressed="false">Heavy tail</button></div>
+          <div class="threshold-control"><label for="distribution-threshold">Inspect lower-tail threshold <output id="distribution-threshold-value" for="distribution-threshold">−1.00</output></label><input id="distribution-threshold" type="range" min="-3" max="1" step="0.1" value="-1"></div>
+          <canvas id="distribution-canvas" class="lab-depth-canvas distribution-canvas" role="img" aria-label="A histogram of standardized synthetic observations. A labeled vertical threshold marks a lower-tail cutoff selected with a keyboard-operable range input."></canvas>
+          <div class="metric-row" aria-label="Synthetic distribution summary"><div class="metric"><b id="distribution-below">—</b><span>observations at/below threshold</span></div><div class="metric"><b id="distribution-median">—</b><span>synthetic median</span></div><div class="metric"><b id="distribution-p01">—</b><span>synthetic 1st percentile</span></div></div>
+          <div class="notice"><strong>Interpretation:</strong> the same headline average can coexist with different skew or tail behavior. These generated observations are not historical returns, forecasts, or evidence of a tradable edge.</div>
+          <a class="deep-link" href="methods/#distribution-shape">Read about distribution shape →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="regime-map" aria-labelledby="regime-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">06 / Market state geometry</span>
+          <h2 id="regime-title">A regime is a coordinate system, not a hindsight label.</h2>
+          <p>This synthetic cube places observations on three normalized dimensions: directional tendency, volatility, and liquidity stress. Rotate the cube, filter stress conditions, and inspect points to see how a market-state label can compress several variables into one word.</p>
+        </div>
+        <div class="visual-panel" data-regime-explorer>
+          <div class="visual-topline"><div><h3>Synthetic regime cube</h3><p class="micro">96 deterministic observations · 3 normalized axes · illustrative thresholds only</p></div><span class="synthetic-badge">Illustrative market states</span></div>
+          <div class="segmented-controls" aria-label="Regime cube stress filter"><button class="control-btn" type="button" data-regime-filter="all" aria-pressed="true">All observations</button><button class="control-btn" type="button" data-regime-filter="low" aria-pressed="false">Lower stress</button><button class="control-btn" type="button" data-regime-filter="high" aria-pressed="false">Higher stress</button></div>
+          <canvas id="regime-canvas" class="lab-depth-canvas regime-canvas" role="img" aria-label="A synthetic three-dimensional cube of market-state observations. Horizontal direction represents a normalized directional score from negative to positive, vertical position represents normalized volatility, and depth represents normalized liquidity stress."></canvas>
+          <div class="scene-controls inline-controls" aria-label="Regime cube controls"><button class="control-btn" type="button" id="regime-rotate-left">Rotate left</button><button class="control-btn" type="button" id="regime-rotate-right">Rotate right</button><button class="control-btn" type="button" id="regime-prev">Previous observation</button><button class="control-btn" type="button" id="regime-next">Next observation</button><div class="focus-readout" id="regime-readout" aria-live="polite">Synthetic regime details</div></div>
+          <div class="metric-row" aria-label="Selected synthetic regime coordinates"><div class="metric"><b id="regime-direction">—</b><span>directional score</span></div><div class="metric"><b id="regime-volatility">—</b><span>volatility score</span></div><div class="metric"><b id="regime-stress">—</b><span>liquidity-stress score</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>X · direction</strong><span>−1 means strongly negative synthetic direction; +1 strongly positive.</span></div><div class="legend-item"><strong>Y · volatility</strong><span>Normalized illustrative volatility from 0 to 1.</span></div><div class="legend-item"><strong>Z · liquidity stress</strong><span>Normalized illustrative stress from 0 to 1.</span></div><div class="legend-item"><strong>Label · compression</strong><span>Named states summarize coordinates using explicit illustrative thresholds; they are not forecasts.</span></div></div>
+          <div class="notice"><strong>Interpretation boundary:</strong> these labels come from simple synthetic thresholds, not a fitted market-regime model. Real regime definitions depend on the variables, sampling, thresholds, and purpose chosen before interpretation.</div>
+          <a class="deep-link" href="methods/#regime-map">Read about regime definitions and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="walk-forward" aria-labelledby="walk-forward-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">07 / Time-aware validation</span>
+          <h2 id="walk-forward-title">Move the boundary through time instead of trusting one split.</h2>
+          <p>This synthetic landscape shows seven ordered train/evaluate folds. Switch between rolling and anchored training windows, then inspect each fold. The geometry explains data partitioning only; it does not display strategy performance.</p>
+        </div>
+        <div class="visual-panel" data-walk-forward-explorer>
+          <div class="visual-topline"><div><h3>Walk-forward window landscape</h3><p class="micro">100 synthetic time units · 7 folds · ordered partitions · no market data</p></div><span class="synthetic-badge">Illustrative partitioning</span></div>
+          <div class="segmented-controls" aria-label="Walk-forward training-window type"><button class="control-btn" type="button" data-wf-mode="rolling" aria-pressed="true">Rolling window</button><button class="control-btn" type="button" data-wf-mode="anchored" aria-pressed="false">Anchored window</button></div>
+          <canvas id="walk-forward-canvas" class="lab-depth-canvas validation-canvas" role="img" aria-label="Seven synthetic walk-forward folds arranged in perspective. Each fold has a labeled training block followed by a held-out evaluation block along a left-to-right time axis."></canvas>
+          <div class="scene-controls inline-controls" aria-label="Walk-forward fold controls"><button class="control-btn" type="button" id="wf-prev">Previous fold</button><button class="control-btn" type="button" id="wf-next">Next fold</button><div class="focus-readout" id="wf-readout" aria-live="polite">Synthetic fold details</div></div>
+          <div class="metric-row" aria-label="Walk-forward structure summary"><div class="metric"><b id="wf-fold-count">7</b><span>ordered folds</span></div><div class="metric"><b id="wf-train-span">—</b><span>selected training span</span></div><div class="metric"><b id="wf-eval-span">10</b><span>evaluation span</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>X · synthetic time</strong><span>Time moves left to right from 0 to 100.</span></div><div class="legend-item"><strong>Depth · fold order</strong><span>Each receding platform is the next evaluation fold.</span></div><div class="legend-item"><strong>Train block</strong><span>Data available to development/selection for that fold.</span></div><div class="legend-item"><strong>Evaluation block</strong><span>The immediately following held-out interval for that fold.</span></div></div>
+          <a class="deep-link" href="methods/#walk-forward">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="out-of-sample" aria-labelledby="out-of-sample-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">08 / Information boundary</span>
+          <h2 id="out-of-sample-title">A holdout stops being independent when it starts steering selection.</h2>
+          <p>This synthetic diagram contrasts a preserved holdout with repeated peeking. In the clean case, candidate selection happens before the boundary and the chosen candidate crosses once for evaluation. The repeated-peek mode adds illustrative feedback loops from holdout information back into selection.</p>
+        </div>
+        <div class="visual-panel" data-oos-explorer>
+          <div class="visual-topline"><div><h3>In-sample / out-of-sample boundary</h3><p class="micro">36 synthetic candidates · one evaluation boundary · no measured strategy results</p></div><span class="synthetic-badge">Illustrative information flow</span></div>
+          <div class="segmented-controls" aria-label="Holdout information-flow scenario"><button class="control-btn" type="button" data-oos-mode="clean" aria-pressed="true">Preserved holdout</button><button class="control-btn" type="button" data-oos-mode="peek" aria-pressed="false">Repeated peek</button></div>
+          <canvas id="oos-canvas" class="lab-depth-canvas validation-canvas" role="img" aria-label="Synthetic candidate paths remain on the development side of a vertical information boundary. In preserved-holdout mode only one selected path crosses for evaluation; repeated-peek mode shows feedback arrows crossing back into selection."></canvas>
+          <div class="metric-row" aria-label="Holdout scenario summary"><div class="metric"><b id="oos-boundary-state">Preserved</b><span>illustrative boundary state</span></div><div class="metric"><b id="oos-feedback">0</b><span>holdout feedback loops</span></div><div class="metric"><b>36</b><span>synthetic candidate family</span></div></div>
+          <div class="notice" id="oos-notice" aria-live="polite"><strong>Preserved holdout:</strong> selection does not receive feedback from the illustrative evaluation region before the one-time evaluation shown here.</div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Left · development</strong><span>Synthetic candidate generation, comparison, and selection occur here.</span></div><div class="legend-item"><strong>Boundary · information</strong><span>The vertical plane represents what evaluation information is withheld.</span></div><div class="legend-item"><strong>Right · evaluation</strong><span>Reserved evidence used after the illustrated selection decision.</span></div><div class="legend-item"><strong>Feedback arrows</strong><span>Repeated peeking is shown as information crossing back into selection.</span></div></div>
+          <a class="deep-link" href="methods/#out-of-sample">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="drawdown" aria-labelledby="drawdown-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">09 / Path-dependent risk</span>
+          <h2 id="drawdown-title">Similar endpoints can hide very different time spent underwater.</h2>
+          <p>Drawdown is a path property. These deterministic synthetic index paths show a deep shock, a long shallow valley, and repeated valleys. The shaded distance from each running peak makes depth and recovery visible without treating a single maximum-drawdown number as the whole story.</p>
+        </div>
+        <div class="visual-panel" data-drawdown-explorer>
+          <div class="visual-topline"><div><h3>Drawdown valley explorer</h3><p class="micro">120 synthetic path steps · running-peak reference · no market or account data</p></div><span class="synthetic-badge">Illustrative path risk</span></div>
+          <div class="segmented-controls" aria-label="Synthetic drawdown path shape"><button class="control-btn" type="button" data-drawdown-mode="deep" aria-pressed="true">Deep shock</button><button class="control-btn" type="button" data-drawdown-mode="long" aria-pressed="false">Long valley</button><button class="control-btn" type="button" data-drawdown-mode="repeat" aria-pressed="false">Repeated valleys</button></div>
+          <canvas id="drawdown-canvas" class="lab-depth-canvas risk-canvas" role="img" aria-label="A synthetic index path is plotted against its running peak. The vertical shaded distance below the running peak represents drawdown depth; horizontal extent represents time underwater."></canvas>
+          <div class="metric-row" aria-label="Synthetic drawdown summary"><div class="metric"><b id="drawdown-max">—</b><span>maximum synthetic drawdown</span></div><div class="metric"><b id="drawdown-duration">—</b><span>longest underwater run</span></div><div class="metric"><b id="drawdown-recoveries">—</b><span>new-peak recoveries</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Path · synthetic index</strong><span>A generated level path used only to explain drawdown geometry.</span></div><div class="legend-item"><strong>Running peak</strong><span>The highest synthetic level observed up to each step.</span></div><div class="legend-item"><strong>Vertical gap · depth</strong><span>Drawdown is measured from the prior running peak to the current level.</span></div><div class="legend-item"><strong>Horizontal span · duration</strong><span>Time underwater continues until the path reaches a new running peak.</span></div></div>
+          <a class="deep-link" href="methods/#drawdown">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="selection-bias" aria-labelledby="selection-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">10 / Multiple testing</span>
+          <h2 id="selection-title">Search more candidates and the best-looking noise gets more extreme.</h2>
+          <p>This synthetic independent-null demonstration draws candidate scores from a standardized Normal distribution with no signal. Increase the family size to see how selection alone can produce a more impressive maximum. The approximation is educational and depends on the stated independence/Normal assumptions.</p>
+        </div>
+        <div class="visual-panel" data-selection-explorer>
+          <div class="visual-topline"><div><h3>Selection / multiple-testing funnel</h3><p class="micro">Independent synthetic Normal null · deterministic seed per family size · no strategy results</p></div><span class="synthetic-badge">Illustrative selection effect</span></div>
+          <div class="threshold-control"><label for="selection-family">Synthetic candidate family <output id="selection-family-value" for="selection-family">64</output></label><input id="selection-family" type="range" min="4" max="10" step="1" value="6" aria-valuetext="64 synthetic candidates"></div>
+          <canvas id="selection-canvas" class="lab-depth-canvas selection-canvas" role="img" aria-label="A perspective funnel carries a synthetic candidate family through increasingly selective stages. The final highlighted point is the maximum of independent standardized Normal noise, illustrating selection rather than skill."></canvas>
+          <div class="metric-row" aria-label="Synthetic selection summary"><div class="metric"><b id="selection-observed">—</b><span>observed maximum synthetic z-score</span></div><div class="metric"><b id="selection-typical">—</b><span>approx. typical maximum under null</span></div><div class="metric"><b id="selection-survivors">—</b><span>final selected synthetic example</span></div></div>
+          <div class="notice"><strong>Assumption boundary:</strong> the typical-maximum marker uses a Normal order-statistic approximation under independent draws. The top-25% and top-5% planes are a simplified visualization of selection pressure, not a recommended validation workflow. Real research candidates can be dependent, non-Normal, filtered in multiple ways, and require methods designed for the actual selection process.</div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Particles · candidates</strong><span>Dots are synthetic null scores; large families are sampled visually for performance.</span></div><div class="legend-item"><strong>Planes · selection stages</strong><span>Each plane retains a smaller upper-ranked subset only to illustrate selection pressure.</span></div><div class="legend-item"><strong>Final glow · selected maximum</strong><span>The highlighted point is the largest synthetic score, not a profitable strategy.</span></div><div class="legend-item"><strong>Typical-max marker</strong><span>An approximate Normal order-statistic reference makes the family-size effect explicit.</span></div></div>
+          <a class="deep-link" href="methods/#selection-bias">Read selection-bias limitations →</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="shell content-grid">
+        <div class="content-panel">
+          <h2>Where to go next</h2>
+          <p>Research Lab shows the shape of a problem. Methods explains the underlying reasoning. Learn builds a curriculum. Docs will eventually answer exact verified product questions. Those are intentionally separate jobs.</p>
+          <div class="path-grid">
+            <a class="path-card" href="methods/"><strong>Methods</strong><span>Understand the mathematics, assumptions, and failure modes behind each research idea.</span></a>
+            <a class="path-card" href="learn/"><strong>Learn</strong><span>Follow structured concept and workflow learning paths instead of browsing randomly.</span></a>
+            <a class="path-card" href="docs/"><strong>Docs</strong><span>Use exact reference material when verified product documentation is available.</span></a>
+            <a class="path-card" href="how-to/"><strong>How-Tos</strong><span>Complete task-focused lessons with written steps and optional video.</span></a>
+          </div>
+        </div>
+        <aside class="side-panel">
+          <h2>Popular deep dives</h2>
+          <p class="micro">Move from the visual into a plain-language concept or method when you want more context.</p>
+          <ul>
+            <li><a href="learn/concepts/monte-carlo.html">Monte Carlo uncertainty</a></li>
+            <li><a href="learn/concepts/walk-forward.html">Walk-forward analysis</a></li>
+            <li><a href="learn/concepts/out-of-sample.html">Out-of-sample evidence</a></li>
+            <li><a href="learn/concepts/parameter-robustness.html">Parameter robustness</a></li>
+            <li><a href="learn/concepts/regime-map.html">Market regimes</a></li>
+          </ul>
+          <a class="deep-link" href="learn/#concept-atlas">Browse all learning topics →</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>TraderCockpit · evidence-first research education · no performance promised.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="strategy-claim-audit-checklist.html">Audit checklist</a>
+        <a href="refund-policy.html">Refund policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <noscript><div class="shell notice">Interactive canvases are disabled, but all educational explanations and navigation on this page remain available.</div></noscript>
+  <script src="assets/site-search.js" defer></script>
+  <script src="assets/research-lab.js" defer></script>
+  <script src="assets/research-lab-depth.js" defer></script>
+  <script src="assets/research-lab-validation.js" defer></script>
+  <script src="assets/research-lab-risk.js" defer></script>
+  <script src="assets/research-lab-regime.js" defer></script>
+</body>
+</html>

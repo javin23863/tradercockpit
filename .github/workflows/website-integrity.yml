@@ -1,0 +1,36 @@
+name: website-integrity
+
+on:
+  push:
+    paths:
+      - "docs/**"
+      - ".github/scripts/**"
+      - ".github/workflows/website-integrity.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - ".github/scripts/**"
+      - ".github/workflows/website-integrity.yml"
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate site architecture and registries
+        run: python .github/scripts/check_website.py
+      - name: Validate public-site hardening contracts
+        run: python .github/scripts/check_site_hardening.py
+      - name: Validate public product claims and disclosure boundaries
+        run: python .github/scripts/check_public_claims.py
+      - name: Validate all public JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do node --check "$file"; done < <(find docs -type f \( -name '*.js' -o -name '*.mjs' \) -print0)

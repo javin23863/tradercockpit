@@ -1,0 +1,346 @@
+{
+  "schema": "site-search/v1",
+  "generated": "2026-09-10",
+  "entries": [
+    {
+      "id": "research-lab",
+      "title": "Research Lab",
+      "path": "research-lab.html",
+      "kind": "lab",
+      "summary": "Interactive synthetic visualizations for quantitative research concepts.",
+      "terms": [
+        "visual atlas",
+        "synthetic",
+        "quantitative research",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "research.strategy-universe",
+      "title": "Strategy Universe",
+      "path": "research-lab.html#strategy-universe",
+      "kind": "concept",
+      "summary": "A spatial synthetic candidate field that makes several analytical dimensions visible at once.",
+      "terms": [
+        "candidate population",
+        "dispersion",
+        "drawdown",
+        "out-of-sample",
+        "3d"
+      ]
+    },
+    {
+      "id": "research.monte-carlo",
+      "title": "Monte Carlo uncertainty",
+      "path": "learn/concepts/monte-carlo.html",
+      "kind": "concept",
+      "summary": "Monte Carlo synthetic path distributions that illustrate sequence uncertainty rather than a single outcome.",
+      "terms": [
+        "monte carlo",
+        "bootstrap",
+        "randomized paths",
+        "resampling",
+        "percentile",
+        "distribution"
+      ]
+    },
+    {
+      "id": "research.out-of-sample",
+      "title": "In-sample vs out-of-sample",
+      "path": "learn/concepts/out-of-sample.html",
+      "kind": "concept",
+      "summary": "Why evaluation data should be separated from development and selection decisions.",
+      "terms": [
+        "holdout",
+        "information boundary",
+        "is oos",
+        "oos",
+        "preserved holdout",
+        "repeated peek",
+        "validation"
+      ]
+    },
+    {
+      "id": "research.walk-forward",
+      "title": "Walk-forward analysis",
+      "path": "learn/concepts/walk-forward.html",
+      "kind": "concept",
+      "summary": "Time-aware repeated training and evaluation windows.",
+      "terms": [
+        "anchored window",
+        "fold",
+        "rolling validation",
+        "rolling window",
+        "time series",
+        "validation",
+        "walk-forward landscape",
+        "window"
+      ]
+    },
+    {
+      "id": "research.parameter-robustness",
+      "title": "Parameter robustness",
+      "path": "learn/concepts/parameter-robustness.html",
+      "kind": "concept",
+      "summary": "Inspect whether behavior persists across a parameter neighborhood rather than a single point.",
+      "terms": [
+        "surface",
+        "plateau",
+        "spike",
+        "parameter sensitivity"
+      ]
+    },
+    {
+      "id": "research.drawdown",
+      "title": "Drawdown",
+      "path": "learn/concepts/drawdown.html",
+      "kind": "concept",
+      "summary": "Path-dependent decline from a prior peak, including depth, duration, and recovery context.",
+      "terms": [
+        "drawdown valley",
+        "peak to trough",
+        "recovery",
+        "recovery duration",
+        "risk",
+        "running peak",
+        "time underwater"
+      ]
+    },
+    {
+      "id": "research.correlation",
+      "title": "Correlation and diversification",
+      "path": "learn/concepts/correlation-diversification.html",
+      "kind": "concept",
+      "summary": "Co-movement, clustering, dependence, and why historical correlation is conditional.",
+      "terms": [
+        "network",
+        "diversification",
+        "dependence",
+        "cluster"
+      ]
+    },
+    {
+      "id": "research.selection-bias",
+      "title": "Selection bias and multiple testing",
+      "path": "learn/concepts/selection-bias.html",
+      "kind": "concept",
+      "summary": "Why searching many candidates changes how the selected result should be interpreted.",
+      "terms": [
+        "best of many",
+        "candidate family",
+        "independent null",
+        "maximum noise",
+        "multiple testing",
+        "overfitting",
+        "selection",
+        "selection funnel"
+      ]
+    },
+    {
+      "id": "research.pbo",
+      "title": "Probability of Backtest Overfitting",
+      "path": "methods/#pbo",
+      "kind": "method",
+      "summary": "A diagnostic for how often in-sample selection fails to carry into held-out partitions.",
+      "terms": [
+        "pbo",
+        "overfitting",
+        "partitions",
+        "selection"
+      ]
+    },
+    {
+      "id": "research.dsr",
+      "title": "Deflated Sharpe Ratio",
+      "path": "methods/#dsr",
+      "kind": "method",
+      "summary": "Selection-adjusted interpretation of a Sharpe estimate under stated assumptions.",
+      "terms": [
+        "dsr",
+        "sharpe",
+        "multiple testing",
+        "non-normality"
+      ]
+    },
+    {
+      "id": "learn",
+      "title": "Learn",
+      "path": "learn/",
+      "kind": "learning",
+      "summary": "Structured paths connecting concepts, methods, workflows, and reference material.",
+      "terms": [
+        "academy",
+        "curriculum",
+        "start here",
+        "education"
+      ]
+    },
+    {
+      "id": "how-to",
+      "title": "How-Tos and Academy",
+      "path": "how-to/",
+      "kind": "how-to",
+      "summary": "Task-focused lessons with written steps, troubleshooting, concepts, and optional video.",
+      "terms": [
+        "tutorial",
+        "video",
+        "lesson",
+        "workflow",
+        "academy"
+      ]
+    },
+    {
+      "id": "docs",
+      "title": "Documentation",
+      "path": "docs/",
+      "kind": "reference",
+      "summary": "The public entry point for exact verified product reference and contextual help.",
+      "terms": [
+        "docs",
+        "reference",
+        "controls",
+        "fields",
+        "help"
+      ]
+    },
+    {
+      "id": "docs.contextual-help",
+      "title": "Contextual help",
+      "path": "docs/#contextual-help",
+      "kind": "reference",
+      "summary": "Open the explanation that matches what you are viewing in the app.",
+      "terms": [
+        "what is this",
+        "help id",
+        "deep link",
+        "registry"
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Research Methods",
+      "path": "methods/",
+      "kind": "method",
+      "summary": "Plain-language explanations of quantitative research assumptions, limitations, and interpretation.",
+      "terms": [
+        "methodology",
+        "math",
+        "validation",
+        "research"
+      ]
+    },
+    {
+      "id": "examples",
+      "title": "Research Examples",
+      "path": "examples/",
+      "kind": "example",
+      "summary": "Public-safe end-to-end research stories using synthetic or explicitly publishable evidence.",
+      "terms": [
+        "case study",
+        "example",
+        "research journey"
+      ]
+    },
+    {
+      "id": "updates",
+      "title": "Updates",
+      "path": "updates/",
+      "kind": "updates",
+      "summary": "Public release and availability updates without exposing private roadmap material.",
+      "terms": [
+        "release notes",
+        "status",
+        "changes"
+      ]
+    },
+    {
+      "id": "research.distribution-shape",
+      "title": "Distribution shape explorer",
+      "path": "learn/concepts/distribution-shape.html",
+      "kind": "concept",
+      "summary": "Compare symmetric, skewed, and heavy-tail synthetic distributions and inspect lower-tail thresholds.",
+      "terms": [
+        "distribution",
+        "histogram",
+        "skew",
+        "heavy tail",
+        "tail mass",
+        "percentile"
+      ]
+    },
+    {
+      "id": "method.monte-carlo",
+      "title": "Monte Carlo method",
+      "path": "methods/monte-carlo.html",
+      "kind": "method",
+      "summary": "Procedure, assumptions, interpretation, and failure modes for Monte Carlo and resampling research.",
+      "terms": [
+        "monte carlo method",
+        "block bootstrap",
+        "resampling",
+        "simulation assumptions",
+        "dependence"
+      ]
+    },
+    {
+      "id": "how-to.read-monte-carlo",
+      "title": "How to read a Monte Carlo result",
+      "path": "how-to/read-monte-carlo.html",
+      "kind": "how-to",
+      "summary": "A task-focused sequence for interpreting a Monte Carlo distribution without treating a percentile as a forecast.",
+      "terms": [
+        "read monte carlo",
+        "interpret percentile",
+        "simulation result",
+        "how to",
+        "block resampling"
+      ]
+    },
+    {
+      "id": "help.resolver",
+      "title": "Open contextual help",
+      "path": "help.html",
+      "kind": "reference",
+      "summary": "Go directly from an in-app help link to the matching Concept, Method, How-To, or reference page.",
+      "terms": [
+        "what is this",
+        "help id",
+        "contextual help",
+        "deep link",
+        "resolver"
+      ]
+    },
+    {
+      "id": "example.holdout-selection",
+      "title": "Synthetic holdout selection example",
+      "path": "examples/holdout-selection.html",
+      "kind": "example",
+      "summary": "An end-to-end synthetic research story connecting selection, preserved holdout evidence, walk-forward checks, Monte Carlo interpretation, limitations, and next questions.",
+      "terms": [
+        "research example",
+        "holdout",
+        "selection bias",
+        "walk forward",
+        "monte carlo",
+        "limitations",
+        "case study"
+      ]
+    },
+    {
+      "id": "research.regime-map",
+      "title": "Market regimes as coordinates",
+      "path": "learn/concepts/regime-map.html",
+      "kind": "concept",
+      "summary": "A synthetic 3D market-state cube using direction, volatility, and liquidity-stress coordinates.",
+      "terms": [
+        "regime",
+        "regime map",
+        "market state",
+        "direction",
+        "volatility",
+        "liquidity stress",
+        "regime cube"
+      ]
+    }
+  ]
+}

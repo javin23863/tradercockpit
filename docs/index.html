@@ -1,596 +1,264 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="data:,">
-<title>TraderCockpit — You are the market. Test the strategy before you buy it</title>
-<meta name="description" content="Course sellers and signal rooms get paid by traders, not by the market. Trader Cockpit puts their rules through real robustness testing — out-of-sample, walk-forward, Monte Carlo, real costs — before you risk a dollar. No performance promised.">
-<meta name="keywords" content="trading strategy test, backtest robustness, strategy validation, Monte Carlo, walk-forward analysis">
-<link rel="canonical" href="https://javin23863.github.io/tradercockpit/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TraderCockpit — You are the market.">
-<meta property="og:description" content="Strategy sellers get paid by traders, not by the market. Backtest their rules honestly before you fund them. No performance promised.">
-<meta property="og:url" content="https://javin23863.github.io/tradercockpit/">
-<meta property="og:site_name" content="TraderCockpit">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TraderCockpit — You are the market.">
-<meta name="twitter:description" content="Strategy sellers get paid by traders, not by the market. Backtest their rules honestly before you fund them. No performance promised.">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"TraderCockpit",
-"url":"https://javin23863.github.io/tradercockpit/",
-"description":"Media and product education for evidence-first trading-strategy research.",
-"sameAs":["https://www.youtube.com/@Thetradercockpit","https://www.instagram.com/tradercockpit/","https://www.tiktok.com/@trader.cockpit","https://www.facebook.com/profile.php?id=61591774715570"]}
-</script>
-<style>
-:root{
-  --bg:#08030a; --bg-soft:#0d0510; --panel:#0a0407; --elev:#160a12;
-  --line:#3a0d1a; --ink:#F5E8EA; --dim:#c89aa3; --faint:#7a4a52;
-  --accent:#FF1744; --accent-soft:#7a142e;
-  --ok:#00E676; --warn:#FF9100; --bad:#FF5E79; --run:#2196F3;
-  --bio-cyan:#ffb72b; --bio-blue:#ff6b1f; --bio-violet:#ff1744; --bio-ink:#fff4d8;
-  --bio-deep:#140700; --bio-line:rgba(255,145,28,.28);
-  --mono:"Cascadia Mono",Consolas,ui-monospace,monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:var(--mono);line-height:1.55;overflow-x:hidden}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:1060px;margin:0 auto;padding:0 1.2rem}
-
-/* ---------- boot screen ---------- */
-#boot{position:fixed;inset:0;background:var(--bg);z-index:50;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .6s}
-#boot.done{opacity:0;pointer-events:none}
-#bootlog{width:min(640px,90vw);font-size:.85rem;color:var(--ok);text-shadow:0 0 8px rgba(0,230,118,.45)}
-#bootlog .dim{color:var(--faint)}
-#bootlog .accent{color:var(--accent)}
-#boot .skip{position:absolute;bottom:2rem;color:var(--faint);font-size:.75rem;letter-spacing:.15em}
-/* ---------- hero ---------- */
-header{padding:4.5rem 0 2rem;text-align:center;position:relative}
-.sig{color:var(--faint);font-size:.72rem;letter-spacing:.35em;text-transform:uppercase}
-h1{font-size:clamp(1.7rem,4.6vw,3.1rem);font-weight:700;margin:.8rem 0 .4rem;letter-spacing:-.01em}
-h1 .x{color:var(--accent);text-shadow:0 0 18px rgba(255,23,68,.6)}
-.sub{color:var(--dim);max-width:640px;margin:0 auto;font-size:.95rem}
-.sub b{color:var(--ink)}
-
-/* ---------- gauntlet chamber ---------- */
-#chamber{border:1px solid var(--line);background:
-  radial-gradient(circle at 23% 23%,rgba(86,169,255,.08),transparent 32%),
-  radial-gradient(circle at 78% 42%,rgba(167,124,255,.07),transparent 36%),
-  linear-gradient(180deg,#08070e,var(--bg-soft));
-  border-radius:10px;margin:2.2rem auto 0;padding:1.4rem;position:relative;
-  box-shadow:0 0 60px rgba(255,23,68,.07),inset 0 0 120px rgba(0,0,0,.5)}
-.chamber-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;
-  border-bottom:1px solid var(--line);padding-bottom:.8rem;margin-bottom:1rem}
-.chamber-head .t{color:var(--dim);font-size:.75rem;letter-spacing:.25em;text-transform:uppercase}
-.tag{font-size:.62rem;letter-spacing:.18em;color:var(--warn);border:1px solid var(--warn);
-  border-radius:3px;padding:.15rem .5rem;opacity:.9}
-/* Hero stage. Was the Apollo stage, built around an interactive #apollo-core canvas and a
-   voice-assistant persona. The canvas element was deleted at some point but its styles and
-   ~200 lines of JS were left behind, and the page kept advertising an interface that was
-   retired by operator ruling on 2026-08-06. Both are gone now. */
-.hero-stage{display:grid;grid-template-columns:minmax(300px,1.35fr) minmax(240px,.85fr);align-items:center;
-  gap:1.2rem;margin:0 0 1.2rem;border:1px solid var(--bio-line);border-radius:18px;position:relative;
-  background:linear-gradient(145deg,rgba(13,5,3,.96),rgba(20,5,14,.88));overflow:hidden;
-  box-shadow:inset 0 1px rgba(255,244,216,.05),0 24px 70px rgba(0,0,0,.28)}
-.hero-stage::before{content:"";position:absolute;inset:-30%;pointer-events:none;
-  background:conic-gradient(from 90deg,transparent,rgba(255,183,43,.06),transparent,rgba(255,23,68,.07),transparent);
-  animation:field-drift 18s linear infinite}
-@keyframes field-drift{to{transform:rotate(1turn)}}
-@media(prefers-reduced-motion:reduce){.hero-stage::before{animation:none}}
-.shot-wrap{position:relative;z-index:1;padding:.9rem}
-#desktop-shot{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--bio-line)}
-.shot-cap{margin-top:.5rem;font-size:.56rem;letter-spacing:.16em;color:var(--faint);text-transform:uppercase;text-align:center}
-.hero-copy{padding:1rem 1.2rem 1rem 0;text-align:left;position:relative;z-index:1}
-.hero-copy h2{color:var(--bio-ink);font-size:.95rem;letter-spacing:.1em;text-transform:none;margin:0 0 .6rem}
-.hero-copy p{font-size:.78rem;color:var(--dim);margin:0 0 .55rem}
-.hero-copy .receipt{margin-top:.65rem;color:var(--faint);font-size:.68rem}
-.hero-steps{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.4rem}
-.hero-steps li{border-left:1px solid var(--bio-line);padding:.2rem .55rem;font-size:.7rem;color:var(--dim)}
-.hero-steps b{color:var(--bio-ink);font-weight:400}
-.sim-line{font-size:.72rem;color:var(--dim);margin:0 0 1rem;min-height:1.1rem}
-.social-dock{margin-top:1.35rem;padding-top:1rem;border-top:1px solid var(--line)}
-.social-dock-head{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap;margin-bottom:.65rem;
-  color:var(--faint);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase}
-.social-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.55rem}
-.social-link{display:grid;grid-template-columns:auto 1fr;gap:.05rem .48rem;align-items:center;padding:.65rem .72rem;
-  border:1px solid var(--line);border-radius:7px;background:rgba(8,3,10,.72);color:var(--dim);text-align:left;
-  transition:border-color .15s,transform .15s,box-shadow .15s}
-.social-link::before{content:"";grid-row:1/3;width:.48rem;height:.48rem;border-radius:50%;background:var(--channel);
-  box-shadow:0 0 10px color-mix(in srgb,var(--channel) 72%,transparent)}
-.social-link strong{font-size:.67rem;letter-spacing:.12em;color:var(--ink)}
-.social-link span{font-size:.55rem;letter-spacing:.08em;color:var(--faint)}
-.social-link:hover,.social-link:focus-visible{text-decoration:none;transform:translateY(-2px);border-color:var(--channel);
-  outline:none;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.social-link[data-channel="youtube"]{--channel:#ff1744}.social-link[data-channel="instagram"]{--channel:#d868d8}
-.social-link[data-channel="tiktok"]{--channel:#4fe5d5}.social-link[data-channel="facebook"]{--channel:#5b8cff}
-@media(max-width:700px){.hero-stage{grid-template-columns:1fr}.hero-copy{padding:0 1rem 1.2rem;text-align:left}}
-@media(max-width:700px){.social-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:420px){.social-links{grid-template-columns:1fr}}
-.chips{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin:.4rem 0 1.1rem}
-.chip{font-family:var(--mono);font-size:.8rem;color:var(--dim);background:var(--elev);
-  border:1px solid var(--line);border-radius:5px;padding:.5rem .9rem;cursor:pointer;transition:all .15s}
-.chip:hover{color:var(--ink);border-color:var(--accent-soft)}
-.chip.sel{color:var(--ink);border-color:var(--accent);box-shadow:0 0 14px rgba(255,23,68,.35)}
-#initiate{display:block;margin:0 auto;font-family:var(--mono);font-size:1rem;letter-spacing:.22em;
-  color:var(--ink);background:var(--accent-soft);border:1px solid var(--accent);border-radius:6px;
-  padding:.85rem 2.4rem;cursor:pointer;text-transform:uppercase;transition:all .2s}
-#initiate:hover:not(:disabled){background:var(--accent);color:#fff;box-shadow:0 0 30px rgba(255,23,68,.55)}
-#initiate:disabled{opacity:.35;cursor:default}
-.hint{text-align:center;color:var(--faint);font-size:.7rem;margin-top:.6rem}
-.confirm-panel{max-width:640px;margin:1rem auto 0;padding:1rem;border:1px solid var(--bio-line);border-radius:10px;
-  background:rgba(20,7,3,.94);text-align:left}
-.confirm-panel[hidden]{display:none}
-.confirm-panel h3{font-size:.82rem;color:var(--bio-ink);margin-bottom:.35rem}
-.confirm-panel p{font-size:.72rem;color:var(--dim)}
-.confirm-actions{display:flex;gap:.55rem;justify-content:flex-end;margin-top:.8rem}
-.confirm-actions button{font:inherit;font-size:.68rem;padding:.45rem .75rem;border-radius:5px;cursor:pointer;
-  border:1px solid var(--line);background:var(--elev);color:var(--dim)}
-.confirm-actions .confirm{border-color:var(--bio-cyan);color:var(--bio-ink);background:rgba(255,145,28,.09)}
-
-/* run grid */
-#rungrid{display:none;grid-template-columns:1.1fr .9fr;gap:1.2rem;margin-top:1.3rem}
-#rungrid.on{display:grid}
-@media(max-width:760px){#rungrid{grid-template-columns:1fr}}
-.phases{display:flex;flex-direction:column;gap:.3rem}
-.ph{display:flex;align-items:center;gap:.6rem;font-size:.74rem;color:var(--faint);
-  border-left:2px solid var(--line);padding:.28rem .6rem;transition:all .2s}
-.ph .n{width:1.4rem;color:var(--faint)}
-.ph .nm{flex:1}
-.ph .kill{color:var(--bad);opacity:0;font-variant-numeric:tabular-nums}
-.ph.live{color:var(--ink);border-left-color:var(--run);background:rgba(33,150,243,.06)}
-.ph.live .n{color:var(--run)}
-.ph.done{color:var(--dim);border-left-color:var(--accent)}
-.ph.done .kill{opacity:1}
-.ph.clear{border-left-color:var(--ok)}
-.ph.clear .kill{color:var(--ok)}
-.right{display:flex;flex-direction:column;gap:.9rem}
-#mc{width:100%;height:190px;background:var(--panel);border:1px solid var(--line);border-radius:6px}
-.count{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem;text-align:center}
-.count .big{font-size:2.1rem;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;
-  text-shadow:0 0 16px rgba(255,23,68,.35)}
-.count .lbl{font-size:.66rem;color:var(--faint);letter-spacing:.25em;text-transform:uppercase}
-#termbox{background:#050208;border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem;
-  height:130px;overflow-y:auto;font-size:.68rem;color:var(--dim)}
-#termbox .k{color:var(--bad)} #termbox .g{color:var(--ok)} #termbox .b{color:var(--run)}
-
-/* verdict */
-#verdict{display:none;margin-top:1.3rem;border:1px solid var(--accent);border-radius:8px;
-  background:linear-gradient(180deg,rgba(255,23,68,.08),transparent);padding:1.3rem;text-align:center}
-#verdict.on{display:block;animation:vin .5s ease}
-@keyframes vin{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
-#verdict .vh{font-size:1.35rem;font-weight:700;color:var(--accent);letter-spacing:.06em;text-shadow:0 0 20px rgba(255,23,68,.5)}
-#verdict .vh.lucky{color:var(--warn);text-shadow:0 0 20px rgba(255,145,0,.5)}
-#verdict p{color:var(--dim);font-size:.85rem;max-width:560px;margin:.6rem auto 0}
-#verdict .again{margin-top:1rem;display:inline-block;color:var(--dim);font:inherit;font-size:.75rem;cursor:pointer;
-  background:none;border:0;border-bottom:1px dashed var(--faint);padding:0}
-.evidence-receipt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;max-width:620px;margin:1rem auto 0;text-align:left}
-.evidence-receipt div{background:rgba(5,2,8,.7);border:1px solid var(--line);border-radius:5px;padding:.55rem .7rem}
-.evidence-receipt dt{font-size:.58rem;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
-.evidence-receipt dd{font-size:.72rem;color:var(--ink);margin-top:.15rem}
-
-/* ---------- sections ---------- */
-section{padding:4.2rem 0 1rem}
-h2{font-size:1.25rem;letter-spacing:.08em;margin-bottom:1.4rem}
-h2::before{content:"// ";color:var(--accent)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1.2rem}
-.card h3{font-size:.9rem;color:var(--ink);margin-bottom:.5rem}
-.card h3::before{content:"▸ ";color:var(--accent)}
-.card p{font-size:.8rem;color:var(--dim)}
-.quote{border-left:3px solid var(--accent);padding:.6rem 1.1rem;margin:2rem 0;color:var(--dim);font-size:.95rem}
-.quote b{color:var(--ink)}
-
-/* pyramid strip */
-.strip{display:flex;flex-direction:column;gap:.35rem;max-width:560px;margin:1.5rem auto 0}
-.strip .row{display:flex;justify-content:space-between;font-size:.76rem;color:var(--dim);
-  border:1px solid var(--line);border-radius:4px;padding:.5rem .9rem;background:var(--panel)}
-.strip .row.hi{border-color:var(--accent);color:var(--ink);box-shadow:0 0 18px rgba(255,23,68,.18)}
-
-/* CTA */
-#cta{text-align:center;padding-bottom:3rem}
-.ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
-.btn{font-family:var(--mono);letter-spacing:.14em;font-size:.85rem;border-radius:6px;padding:.8rem 1.6rem;
-  cursor:pointer;text-transform:uppercase;border:1px solid var(--line);color:var(--dim);background:var(--elev)}
-.btn.primary{border-color:var(--accent);color:var(--ink);background:var(--accent-soft)}
-.btn.primary:hover{background:var(--accent);color:#fff;text-decoration:none;box-shadow:0 0 26px rgba(255,23,68,.5)}
-.btn:hover{color:var(--ink);text-decoration:none}
-.waitlist-form{margin:1.4rem auto 0;max-width:42rem;border:1px solid var(--line);border-radius:6px;
-  padding:1rem;background:var(--panel);text-align:left}
-.waitlist-form[hidden]{display:none}
-.waitlist-note[data-state="pending"]{color:var(--warn)}
-.waitlist-note[data-state="error"]{color:var(--bad)}
-.waitlist-row{display:flex;gap:.7rem;align-items:end;flex-wrap:wrap}
-.waitlist-field{display:grid;gap:.35rem;flex:1 1 18rem;font-family:var(--mono);font-size:.7rem;color:var(--dim)}
-.waitlist-field input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:5px;
-  padding:.8rem;background:var(--bg);color:var(--ink);font:inherit}
-.waitlist-note{margin:.65rem 0 0;color:var(--faint);font-size:.68rem}
-
-footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--faint);font-size:.68rem;text-align:center}
-footer .warnline{color:var(--warn);margin-bottom:.5rem;text-transform:uppercase}
-@media (prefers-reduced-motion: reduce){
-  #boot{display:none}
-  .hero-stage::before{display:none}
-  *{animation:none!important;transition:none!important}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>TraderCockpit — Research the strategy, not the story</title>
+  <meta name="description" content="Explore interactive quantitative-research concepts, methods, documentation, and the TraderCockpit public waitlist. Synthetic visualizations; no performance promised.">
+  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TraderCockpit — Research the strategy, not the story">
+  <meta property="og:description" content="Explore quantitative research visually, learn the methods, and follow the public TraderCockpit development state. Synthetic education; no performance promised.">
+  <meta property="og:url" content="https://javin23863.github.io/tradercockpit/">
+  <meta property="og:site_name" content="TraderCockpit">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TraderCockpit — Research the strategy, not the story">
+  <meta name="twitter:description" content="Explore quantitative research visually, learn the methods, and follow the public development state.">
+  <link rel="stylesheet" href="assets/site-v2.css">
+  <link rel="stylesheet" href="assets/home-v2.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TraderCockpit","url":"https://javin23863.github.io/tradercockpit/","description":"Evidence-first trading-strategy research education and public product status.","sameAs":["https://www.youtube.com/@Thetradercockpit"]}</script>
 </head>
-<body>
-
-<div id="boot" title="click to skip">
-  <div id="bootlog"></div>
-  <div class="skip">CLICK TO SKIP</div>
-</div>
-
-<header class="wrap">
-  <div class="sig">TRADERCOCKPIT // TEST THE CLAIM</div>
-  <h1>You are the <span class="x">market</span>.<br>You're what they're trading.</h1>
-  <p class="sub">The courses, the signal rooms, the YouTube systems — they don't get paid by the market.
-    They get paid by you. I paid them for 25 years, down every rabbit hole. Trader Cockpit takes the rules
-    they sell and puts them through real robustness testing — not just a backtest: out-of-sample, walk-forward,
-    Monte Carlo, spread and commissions — so you see what survives before you fund it.</p>
-
-  <form id="waitlist-form" class="waitlist-form" method="post" hidden>
-    <div class="waitlist-row">
-      <label class="waitlist-field" for="waitlist-email">DAILY MARKET BREAKDOWN + APP WAITLIST
-        <input id="waitlist-email" name="email_address" type="email" autocomplete="email" required placeholder="you@example.com">
-      </label>
-      <label class="waitlist-field" for="waitlist-first-name">FIRST NAME (OPTIONAL)
-        <input id="waitlist-first-name" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="Your first name">
-      </label>
-      <button class="btn primary" type="submit">◈ Send confirmation</button>
-    </div>
-    <input id="waitlist-source" type="hidden" name="fields[source]" value="source-direct">
-    <input id="waitlist-utm-source" type="hidden" name="fields[utm_source]" value="direct">
-    <input id="waitlist-utm-medium" type="hidden" name="fields[utm_medium]" value="">
-    <input id="waitlist-utm-campaign" type="hidden" name="fields[utm_campaign]" value="">
-    <p class="waitlist-note">Double opt-in: confirm the email before anything is sent. Unsubscribe anytime. Research only—not financial advice.</p>
-  </form>
-
-  <div id="chamber" class="wrap">
-    <div class="chamber-head">
-      <span class="t">12-PHASE ROBUSTNESS TEST // PICK A STRATEGY</span>
-      <span class="tag" id="sim-state" aria-live="polite">LISTENING</span>
-    </div>
-    <p class="sim-line" id="sim-line" aria-live="polite">Pick a strategy, or bring your own rules. The real run happens in the app.</p>
-    <div class="hero-stage">
-      <div class="shot-wrap">
-        <img id="desktop-shot" src="assets/app-home.png" loading="lazy"
-             alt="The TraderCockpit app: a chat panel on the left reading 'What do you want to create?', and a candlestick chart on the right marked SAMPLE DATA.">
-        <div class="shot-cap">THE APP — THE CHART IS SAMPLE DATA, AND IT SAYS SO</div>
-      </div>
-      <div class="hero-copy">
-        <h2 id="product-name">Describe the strategy in plain English.</h2>
-        <p>It writes the actual rules, runs the test, and shows you what came out. You read the
-          result — including when the result is that it does not work.</p>
-        <ol class="hero-steps">
-          <li><b>Describe it.</b> Yours, or the one you were sold.</li>
-          <li><b>It writes the rules.</b> Entry, exit, stop, size — in code you can read.</li>
-          <li><b>It tests them.</b> Out-of-sample, walk-forward, Monte Carlo, real costs.</li>
-          <li><b>You see what survived.</b> Or that nothing did.</li>
-        </ol>
-        <div class="receipt" id="product-state">STATUS: WAITLIST · IN DEVELOPMENT</div>
+<body class="home-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-current="page"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
+      <div class="nav-links">
+        <a href="research-lab.html">Research Lab</a>
+        <a href="learn/">Learn</a>
+        <a href="docs/">Docs</a>
+        <a href="methods/">Methods</a>
+        <a href="examples/">Examples</a>
+        <a href="updates/">Updates</a>
       </div>
     </div>
-    <div class="chips" id="chips"></div>
-    <button id="initiate">Run the simulation</button>
-    <div class="hint">pick a strategy and run the simulation — the real run happens in the app.</div>
-    <div class="confirm-panel" id="confirm-panel" role="group" aria-labelledby="confirm-title" hidden>
-      <h3 id="confirm-title">Run the simulation</h3>
-      <p>No market data, no orders — the real run happens in the app.</p>
-      <div class="confirm-actions">
-        <button id="cancel-run" type="button">Cancel</button>
-        <button class="confirm" id="confirm-run" type="button">Run simulation</button>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="home-hero">
+      <div class="shell home-hero-grid">
+        <div class="home-hero-copy">
+          <span class="eyebrow">TraderCockpit / evidence before narrative</span>
+          <h1>Research the <span class="gradient-text">strategy</span>, not the story.</h1>
+          <p class="lede">Markets are noisy, testing is high-dimensional, and one attractive result is easy to overread. TraderCockpit's public site makes the research questions explorable before asking you to trust a conclusion.</p>
+          <div class="home-actions">
+            <a class="home-action primary" href="research-lab.html">Explore the Research Lab →</a>
+            <a class="home-action" href="learn/">Learn the concepts</a>
+            <a class="home-action" href="docs/">Open Docs</a>
+          </div>
+          <div class="home-truth-line" aria-label="Public site boundaries">
+            <span>Synthetic public demos</span>
+            <span>No performance promised</span>
+            <span id="product-state">STATUS: UNVERIFIED</span>
+          </div>
+        </div>
+
+        <div class="home-universe" aria-labelledby="home-universe-title">
+          <span class="home-universe-label" id="home-universe-title">Strategy Universe · synthetic research geometry</span>
+          <canvas id="home-universe-canvas" role="img" aria-label="A synthetic three-dimensional field of 180 research candidates. Horizontal position represents normalized outcome dispersion, vertical position represents normalized drawdown severity, and depth represents normalized in-sample versus out-of-sample disagreement. The visualization contains no market data or product results."></canvas>
+          <noscript><div class="home-universe-nojs"><strong>Interactive research geometry is paused because JavaScript is disabled.</strong><span>The Research Lab and all written explanations remain directly navigable.</span><a href="research-lab.html">Open Research Lab →</a></div></noscript>
+          <div class="home-universe-controls" aria-label="Strategy Universe controls" hidden>
+            <button class="control-btn" id="home-universe-pause" type="button" aria-pressed="false">Pause rotation</button>
+            <button class="control-btn" id="home-universe-reset" type="button">Reset view</button>
+            <div class="home-universe-readout" id="home-universe-readout" aria-live="polite">Synthetic candidate field</div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div id="rungrid">
-      <div class="phases" id="phases"></div>
-      <div class="right">
-        <div class="count"><div class="big" id="alive">1,024</div><div class="lbl">variants alive</div></div>
-        <canvas id="mc" width="460" height="190"></canvas>
-        <div id="termbox"></div>
+    <section class="home-section" id="research-preview">
+      <div class="shell">
+        <div class="home-section-head">
+          <span class="eyebrow">Research Lab / visual atlas</span>
+          <h2>Turn abstractions into shapes you can inspect.</h2>
+          <p>These are public educational visualizations built from deterministic synthetic data. They explain research structure; they are not claims that a matching product capability is currently available.</p>
+        </div>
+        <div class="research-grid">
+          <a class="research-tile" href="research-lab.html#monte-carlo"><span class="index">01 / UNCERTAINTY</span><h3>Monte Carlo paths</h3><p>Replace one smooth line with a distribution of generated paths and ask what depends on the particular sequence observed.</p><span class="route">Open the path field →</span></a>
+          <a class="research-tile" href="research-lab.html#parameter-robustness"><span class="index">02 / GEOMETRY</span><h3>Parameter robustness</h3><p>Compare broad plateaus, narrow spikes, and ridges so local sensitivity becomes visible instead of hiding inside a table.</p><span class="route">Explore the surface →</span></a>
+          <a class="research-tile" href="research-lab.html#correlation"><span class="index">03 / RELATIONSHIPS</span><h3>Correlation network</h3><p>See clustering and dependence as a network, with family labels and relationship strength instead of a decorative web.</p><span class="route">Inspect the network →</span></a>
+          <a class="research-tile" href="research-lab.html#walk-forward"><span class="index">04 / TIME</span><h3>Walk-forward windows</h3><p>Move the development/evaluation boundary through synthetic time and compare rolling with anchored training histories.</p><span class="route">See the windows →</span></a>
+          <a class="research-tile" href="research-lab.html#drawdown"><span class="index">05 / PATH RISK</span><h3>Drawdown valleys</h3><p>Make depth, duration, and recovery visible together so one maximum number does not become the whole risk story.</p><span class="route">Enter the valleys →</span></a>
+          <a class="research-tile" href="research-lab.html#selection-bias"><span class="index">06 / SELECTION</span><h3>Multiple-testing pressure</h3><p>Increase a synthetic candidate family and see why the best-looking null result can become more extreme simply because more were tried.</p><span class="route">Open the selection funnel →</span></a>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div id="verdict">
-      <div class="vh" id="vh"></div>
-      <p id="vp"></p>
-      <dl class="evidence-receipt" aria-label="Simulation summary">
-        <div><dt>Mode</dt><dd>simulation</dd></div>
-        <div><dt>Market data</dt><dd>none</dd></div>
-        <div><dt>Real run</dt><dd>in the app</dd></div>
-        <div><dt>Survivors</dt><dd id="receipt-status">—</dd></div>
-      </dl>
-      <button class="again" id="again" type="button">run another strategy through it</button>
-    </div>
-    <nav class="social-dock" aria-label="TraderCockpit public channels">
-      <div class="social-dock-head"><span>WHERE WE POST</span><span>DAILY MARKET BREAKDOWNS</span></div>
-      <div class="social-links">
-        <a class="social-link" data-channel="youtube" href="https://www.youtube.com/@Thetradercockpit" target="_blank" rel="noopener noreferrer"><strong>YOUTUBE</strong><span>LONGFORM + SHORTS</span></a>
-        <a class="social-link" data-channel="instagram" href="https://www.instagram.com/tradercockpit/" target="_blank" rel="noopener noreferrer"><strong>INSTAGRAM</strong><span>REELS + MARKET MAPS</span></a>
-        <a class="social-link" data-channel="tiktok" href="https://www.tiktok.com/@trader.cockpit" target="_blank" rel="noopener noreferrer"><strong>TIKTOK</strong><span>DAILY SIGNAL BRIEFS</span></a>
-        <a class="social-link" data-channel="facebook" href="https://www.facebook.com/profile.php?id=61591774715570" target="_blank" rel="noopener noreferrer"><strong>FACEBOOK</strong><span>NEWS + COMMUNITY</span></a>
+    <section class="home-section" id="research-pressure">
+      <div class="shell research-pressure">
+        <div class="pressure-copy">
+          <span class="eyebrow">Evidence / information flow</span>
+          <h3>An idea is not an edge. A test is not proof.</h3>
+          <p>The useful question is what information entered each decision, what assumptions the test made, and which evidence stayed genuinely separate from selection. The public site teaches that reasoning before it teaches buttons.</p>
+          <a class="deep-link" href="learn/concepts/out-of-sample.html">Learn the holdout boundary →</a>
+        </div>
+        <div class="pressure-viz" aria-label="Illustrative research information layers">
+          <div class="pressure-layers">
+            <div class="pressure-stack">
+              <div class="pressure-plane"><b>01</b><strong>Define the question</strong><span>before evidence</span></div>
+              <div class="pressure-plane"><b>02</b><strong>Develop & select</strong><span>information used</span></div>
+              <div class="pressure-plane"><b>03</b><strong>Reserve evidence</strong><span>holdout boundary</span></div>
+              <div class="pressure-plane"><b>04</b><strong>Interpret limits</strong><span>no guarantees</span></div>
+            </div>
+          </div>
+          <p class="micro">Illustrative research structure only. These layers do not represent a measured TraderCockpit run.</p>
+        </div>
       </div>
-    </nav>
-  </div>
-</header>
+    </section>
 
-<section class="wrap" id="why">
-  <h2>the claim becomes a test</h2>
-  <div class="cards">
-    <div class="card"><h3>Write the actual rules</h3>
-      <p>A YouTube title isn't a strategy. Entry, exit, stop, position size, market, timeframe — if you can't
-      write it down, you can't test it. And neither can they.</p></div>
-    <div class="card"><h3>One good backtest proves nothing</h3>
-      <p>Any strategy can be curve-fit to look great on history. Robustness testing — walk-forward, Monte Carlo,
-      out-of-sample, real spread and commissions — is what separates an edge from a lucky fit.</p></div>
-    <div class="card"><h3>Results you can't fake</h3>
-      <p>Every result is recorded and signed, pass or fail. No cherry-picked equity curves. No Photoshopped
-      P&amp;L. What you see is what the test produced.</p></div>
-  </div>
-  <div class="quote">I wish I'd had something like this over my shoulder all those years — something to save
-    me from myself. Instead I had the devil on the other shoulder: click the button, take the trade,
-    over-leverage — you know what it's going to be this time. Last week my own ES strategy failed these
-    same tests. I put a lot of work into that strategy. It served me well for many years. But it died,
-    and I followed the rules.</div>
-</section>
+    <section class="home-section" id="learning-system">
+      <div class="shell">
+        <div class="home-section-head">
+          <span class="eyebrow">Learn / one connected knowledge system</span>
+          <h2>Go from “what is this?” to “what do I do next?” without losing context.</h2>
+          <p>The website separates explanation by job, then connects the layers. That same structure is designed for future in-app helper links.</p>
+        </div>
+        <div class="learning-map">
+          <a class="learning-node" href="learn/concepts/monte-carlo.html"><b>1</b><h3>Concept</h3><p>Plain-language intuition, bounded interpretation, and the research question.</p></a>
+          <a class="learning-node" href="research-lab.html#monte-carlo"><b>2</b><h3>Visual</h3><p>Interactive synthetic geometry that makes the idea inspectable.</p></a>
+          <a class="learning-node" href="methods/monte-carlo.html"><b>3</b><h3>Method</h3><p>Assumptions, procedure families, diagnostics, and failure modes.</p></a>
+          <a class="learning-node" href="how-to/read-monte-carlo.html"><b>4</b><h3>How-To</h3><p>A task-focused path for reading a result without overclaiming what it means.</p></a>
+          <a class="learning-node" href="docs/"><b>5</b><h3>Docs</h3><p>Exact product reference after the underlying behavior has been verified.</p></a>
+        </div>
+        <div class="notice"><strong>In-app help:</strong> “What is this?” links can open the explanation that matches the topic you are viewing, so you can move straight to the right Concept, Method, How-To, or reference page without searching from scratch.</div>
+      </div>
+    </section>
 
-<section class="wrap" id="machine">
-  <h2>what the app does with a strategy</h2>
-  <div class="cards">
-    <div class="card"><h3>1,024 variants go in</h3><p>Each phase kills the weak ones: bad data, lookahead bias,
-      knife-edge parameters, walk-forward failures, Monte Carlo shuffles, cost stress, regime splits, alpha
-      decay. Most don't make it out. That's the point.</p></div>
-    <div class="card"><h3>Why one equity curve lies</h3><p>Resample the trades and one pretty backtest becomes
-      a cloud of possible outcomes. If the strategy only wins in the one history that already happened, it
-      never had an edge.</p></div>
-    <div class="card"><h3>Testing you can trust</h3><p>Real data, real costs, no mocked-up results.
-      If it didn't survive the testing, it doesn't get traded.</p></div>
-  </div>
-</section>
+    <section class="home-section" id="development">
+      <div class="shell">
+        <div class="home-section-head">
+          <span class="eyebrow">Product / public status</span>
+          <h2>See the research world. Keep product availability separate.</h2>
+          <p>This section only shows product availability, supported platforms, and actions that have been verified for the current public state.</p>
+        </div>
+        <div class="product-preview">
+          <figure class="product-shot">
+            <img src="assets/app-home.png" width="1440" height="900" loading="lazy" alt="A public TraderCockpit development screenshot with a research conversation panel beside a chart explicitly labeled as sample data.">
+            <figcaption>Development preview · public screenshot · product availability and supported capabilities are shown separately from this preview.</figcaption>
+          </figure>
+          <div class="product-state-panel">
+            <span class="eyebrow">Current product status</span>
+            <h2 id="product-heading">Checking the latest product status.</h2>
+            <p id="product-summary">Availability, supported platforms, and current actions are verified before they appear here.</p>
+            <div class="manifest-capabilities" id="manifest-capabilities" hidden></div>
+            <p class="micro" id="manifest-detail">Loading verified public product state…</p>
+            <form id="waitlist-form" class="waitlist-form" method="post" hidden>
+              <div class="waitlist-row">
+                <label class="waitlist-field" for="waitlist-email">APP WAITLIST EMAIL
+                  <input id="waitlist-email" name="email_address" type="email" autocomplete="email" required placeholder="you@example.com">
+                </label>
+                <label class="waitlist-field" for="waitlist-first-name">FIRST NAME (OPTIONAL)
+                  <input id="waitlist-first-name" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="Your first name">
+                </label>
+                <button class="home-action primary waitlist-submit" type="submit">Send confirmation</button>
+              </div>
+              <input id="waitlist-source" type="hidden" name="fields[source]" value="source-direct">
+              <input id="waitlist-utm-source" type="hidden" name="fields[utm_source]" value="direct">
+              <input id="waitlist-utm-medium" type="hidden" name="fields[utm_medium]" value="">
+              <input id="waitlist-utm-campaign" type="hidden" name="fields[utm_campaign]" value="">
+              <p class="waitlist-note">Double opt-in: confirm the email before anything is sent. Unsubscribe anytime. Research education only—not financial advice.</p>
+            </form>
+            <div class="home-cta-row">
+              <a id="product-cta" class="home-action primary" href="strategy-claim-audit-checklist.html" hidden>Product action</a>
+              <a id="youtube-cta" class="home-action" href="https://www.youtube.com/@Thetradercockpit" target="_blank" rel="noopener noreferrer">Watch the research channel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="home-section" id="keep-exploring">
+      <div class="shell">
+        <div class="home-section-head">
+          <span class="eyebrow">Keep exploring</span>
+          <h2>The site is built to branch, not dead-end.</h2>
+          <p>Follow the layer that answers your current question, then move deeper when you need more precision.</p>
+        </div>
+        <div class="explore-footer-grid">
+          <a class="explore-footer-card" href="learn/"><strong>Learn the concepts</strong><span>Structured paths through uncertainty, holdouts, drawdown, dependence, and selection.</span></a>
+          <a class="explore-footer-card" href="methods/"><strong>Read the methods</strong><span>Assumptions, failure modes, and quantitative reasoning independent of product controls.</span></a>
+          <a class="explore-footer-card" href="examples/"><strong>Follow an example</strong><span>End-to-end public research stories built only from synthetic or explicitly publishable evidence.</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<section class="wrap" id="views">
-  <h2>how you'll use it</h2>
-  <div class="strip">
-    <div class="row"><span>1 · describe the strategy — yours, or the one you were sold</span><span>specify</span></div>
-    <div class="row"><span>2 · the pipeline stress-tests it — 12 phases, out-of-sample through cost stress</span><span>test</span></div>
-    <div class="row"><span>3 · what survives lands in Strategies — signed and tracked</span><span>review</span></div>
-    <div class="row hi"><span>4 · trade it — paper first, live once every gate clears</span><span>go live</span></div>
-  </div>
-</section>
+  <footer>
+    <div class="footer-inner">
+      <div><div class="home-footer-note">Research tooling and education, not financial advice. No performance is promised or implied.</div><div style="margin-top:.6rem">TraderCockpit © 2026 · <a id="purchase-support" href="refund-policy.html">Support</a></div></div>
+      <div class="footer-links"><a href="research-lab.html">Research Lab</a><a href="learn/">Learn</a><a href="docs/">Docs</a><a href="strategy-claim-audit-checklist.html">Audit checklist</a></div>
+    </div>
+  </footer>
 
-<section class="wrap" id="cta">
-  <h2 id="product-heading">follow the evidence</h2>
-  <p class="sub" id="product-summary">Daily market breakdowns on YouTube. Nobody here promises you a winner.</p>
-  <div class="strip" id="manifest-capabilities" hidden></div>
-  <div class="ctas">
-    <a id="youtube-cta" class="btn primary" href="https://www.youtube.com/@Thetradercockpit" rel="noopener">▶ Watch the daily breakdowns</a>
-    <a id="product-cta" class="btn" href="strategy-claim-audit-checklist.html" rel="noopener">◈ Free: the strategy-claim audit checklist</a>
-  </div>
-  <p class="sub" id="manifest-detail" style="margin-top:1rem">
-    Pricing and availability appear here only when the product itself publishes them.
-    The waitlist costs nothing and sells nothing.
-  </p>
-</section>
+  <script src="assets/site-search.js" defer></script>
+  <script src="assets/home-v2.js" defer></script>
+  <script type="module">
+    import { loadProductManifest } from './product-manifest.mjs';
+    import { activatePrelaunch, loadPrelaunchConfig } from './prelaunch-config.mjs';
 
-<footer>
-  <div class="wrap">
-    <div class="warnline">Research tooling, not financial advice. No performance is promised or implied.</div>
-    <div style="margin-top:.5rem">TRADERCOCKPIT © 2026 · <a id="purchase-support" href="refund-policy.html" style="color:inherit">Support</a></div>
-  </div>
-</footer>
+    const productState = document.getElementById('product-state');
+    const productHeading = document.getElementById('product-heading');
+    const productSummary = document.getElementById('product-summary');
+    const productCta = document.getElementById('product-cta');
+    const manifestDetail = document.getElementById('manifest-detail');
+    const capabilities = document.getElementById('manifest-capabilities');
 
-<script>
-"use strict";
-/* ---------- deterministic rng per strategy (no Math.random needed, and repeatable) ---------- */
-function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);
-  t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-
-/* The simulation reports its own state. This replaced a ~145-line canvas that drew a
-   voice-assistant orb for a UI retired on 2026-08-06; the element it painted into had
-   already been deleted, so it was drawing nothing. */
-const simState=document.getElementById("sim-state"),simLine=document.getElementById("sim-line"),
- reduceMotion=matchMedia("(prefers-reduced-motion: reduce)").matches;
-function setSim(mode,line){
-  if(simState)simState.textContent=mode.toUpperCase();
-  if(line&&simLine)simLine.textContent=line
-}
-
-/* ---------- boot sequence ---------- */
-const BOOT=[
- ["TRADERCOCKPIT OS v1.0 — command deck bootstrap",""],
- ["mounting data lake .............. ","OK"],
- ["arming gate array [12 phases] ... ","OK"],
- ["order routing ................... ","<span class='accent'>LIVE-READY</span>"],
- ["product manifest ................ ","<span class='dim'>WAITLIST</span>"],
- ["loading strategy test deck ...... ","OK"],
-];
-const boot=document.getElementById("boot"),blog=document.getElementById("bootlog");
-let bootDone=false;
-function endBoot(){if(!bootDone){bootDone=true;boot.classList.add("done")}}
-boot.addEventListener("click",endBoot);
-(function type(i){
-  if(i>=BOOT.length){setTimeout(endBoot,650);return}
-  const d=document.createElement("div");d.innerHTML="<span class='dim'>&gt;</span> "+BOOT[i][0]+BOOT[i][1];
-  blog.appendChild(d);setTimeout(()=>type(i+1),i===0?520:300);
-})(0);
-
-/* ---------- gauntlet data ---------- */
-const STRATS=[
- {n:"ICT / Smart Money", s:11, flavor:"creator framework concept"},
- {n:"SMC Order Blocks", s:23, flavor:"order-block concept"},
- {n:"Supply & Demand", s:37, flavor:"zone-based concept"},
- {n:"MA Golden Cross", s:41, flavor:"moving-average concept"},
- {n:"RSI Reversal", s:53, flavor:"oscillator concept"},
- {n:"Breakout + Volume", s:67, flavor:"breakout concept"},
-];
-const PHASES=[
- ["01","spec parse & sanity","malformed logic"],
- ["02","data integrity","lookahead bias"],
- ["03","in-sample fit","never had an edge"],
- ["04","parameter plateau","knife-edge params"],
- ["05","walk-forward","curve-fit to the past"],
- ["06","MC resample","fragile trade order"],
- ["07","MC shuffle","edge = luck"],
- ["08","cost & slippage stress","spread ate it"],
- ["09","regime split","one-regime wonder"],
- ["10","alpha decay","edge already gone"],
- ["11","portfolio overlap","clone of a survivor"],
- ["12","capacity & final gate","couldn't scale"],
-];
-const chipsEl=document.getElementById("chips"),phasesEl=document.getElementById("phases"),
- initBtn=document.getElementById("initiate"),grid=document.getElementById("rungrid"),
- aliveEl=document.getElementById("alive"),term=document.getElementById("termbox"),
- verdict=document.getElementById("verdict"),vh=document.getElementById("vh"),vp=document.getElementById("vp"),
- confirmPanel=document.getElementById("confirm-panel"),confirmRun=document.getElementById("confirm-run"),
- cancelRun=document.getElementById("cancel-run"),
- receiptStatus=document.getElementById("receipt-status"),mc=document.getElementById("mc"),ctx=mc.getContext("2d");
-let sel=null,running=false,thinkingTimer=null;
-
-STRATS.forEach((s,i)=>{
-  const b=document.createElement("button");b.className="chip";b.textContent=s.n;
-  b.onclick=()=>{if(running)return;document.querySelectorAll(".chip").forEach(c=>c.classList.remove("sel"));
-    b.classList.add("sel");sel=s;initBtn.disabled=false;
-    clearTimeout(thinkingTimer);
-    setSim("thinking",`Reading ${s.n}: does it have enough written rules to test?`);
-    thinkingTimer=setTimeout(()=>{
-      if(sel===s&&!running&&confirmPanel.hidden)setSim("previewing",`${s.n} selected.`)
-    },600)};
-  chipsEl.appendChild(b);
-});
-initBtn.disabled=true;
-
-function buildPhases(){phasesEl.innerHTML="";return PHASES.map(p=>{
-  const d=document.createElement("div");d.className="ph";
-  d.innerHTML=`<span class="n">${p[0]}</span><span class="nm">${p[1]}</span><span class="kill"></span>`;
-  phasesEl.appendChild(d);return d})}
-function log(html){const d=document.createElement("div");d.innerHTML=html;term.appendChild(d);term.scrollTop=term.scrollHeight}
-function fmt(n){return n.toLocaleString("en-US")}
-
-/* MC spaghetti: paths drift, most decay */
-function drawMC(rng,prog,survRatio){
-  const W=mc.width,H=mc.height;ctx.fillStyle="#050208";ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle="rgba(58,13,26,.9)";ctx.beginPath();ctx.moveTo(0,H*.55);ctx.lineTo(W,H*.55);ctx.stroke();
-  const paths=42,r2=mulberry32((sel?.s??1)*97+1);
-  for(let p=0;p<paths;p++){
-    const lucky=r2()<survRatio;let y=H*.55,x=0;
-    ctx.beginPath();ctx.moveTo(x,y);
-    const drift=lucky? -.16 : (r2()*.5-.14);
-    for(let i=1;i<=90;i++){
-      x=i/90*W*prog; y+=(r2()-.5)*7+drift; y=Math.max(8,Math.min(H-8,y));
-      ctx.lineTo(x,y);
+    function statusLabel(status) {
+      if (status === 'available') return 'STATUS: AVAILABLE';
+      if (status === 'waitlist') return 'STATUS: WAITLIST';
+      return 'STATUS: UNAVAILABLE';
     }
-    ctx.strokeStyle=lucky?"rgba(0,230,118,.5)":"rgba(255,94,121,.16)";ctx.stroke();
-  }
-  ctx.fillStyle="rgba(245,232,234,.45)";ctx.font="10px monospace";
-  ctx.fillText("MC THEATER — SIMULATED",8,14);
-}
 
-function runGauntlet(){
-  if(!sel||running)return;running=true;
-  confirmPanel.hidden=true;receiptStatus.textContent="running";
-  setSim("running","Simulation running. In the app, the pipeline decides.");
-  initBtn.disabled=true;grid.classList.add("on");verdict.classList.remove("on");term.innerHTML="";
-  const rng=mulberry32(sel.s),rows=buildPhases();
-  /* survivors: mostly 0, occasionally a handful — honest theater */
-  const luckyRun=rng()<.25, finalSurv=luckyRun?Math.floor(rng()*4)+1:0;
-  let alive=1024;aliveEl.textContent=fmt(alive);
-  log(`<span class="b">&gt; candidate: ${sel.n}</span> — ${sel.flavor}`);
-  log(`&gt; breeding 1,024 parameter variants… seeded through PHASE G`);
-  let i=0;
-  (function phase(){
-    if(i>0){rows[i-1].classList.remove("live");rows[i-1].classList.add("done")}
-    if(i>=PHASES.length){
-      drawMC(rng,1,finalSurv>0?.06:.015);
-      vh.textContent="SIMULATION COMPLETE";vh.className="vh";
-      vp.textContent=`${finalSurv} of 1,024 variants survived the simulation. The real number for ${sel.n} comes from the full 12-phase robustness run in the app.`;
-      receiptStatus.textContent=`${finalSurv} survivor${finalSurv===1?"":"s"}`;
-      setSim("speaking","Simulation complete.");
-      verdict.classList.add("on");running=false;initBtn.disabled=false;
-      log(`<span class="${finalSurv?'g':'k'}">&gt; test complete — ${finalSurv} survivor(s)</span>`);
-      return;
+    try {
+      const manifest = await loadProductManifest();
+      document.documentElement.dataset.productManifest = 'verified';
+      productState.textContent = statusLabel(manifest.status);
+      if (manifest.product) {
+        productHeading.textContent = manifest.product.name;
+        productSummary.textContent = manifest.product.summary;
+      } else {
+        productHeading.textContent = manifest.status === 'waitlist' ? 'TraderCockpit public waitlist.' : 'TraderCockpit public product state';
+        productSummary.textContent = 'Availability and supported capabilities are shown here only after they have been verified for the current public state.';
+      }
+      const action = manifest.status === 'available' && manifest.checkout ? manifest.checkout : manifest.cta;
+      if (action) {
+        productCta.textContent = action.label;
+        productCta.href = action.url;
+        productCta.hidden = false;
+      }
+      if (manifest.verifiedCapabilities.length) {
+        capabilities.hidden = false;
+        for (const capability of manifest.verifiedCapabilities) {
+          const row = document.createElement('div');
+          row.className = 'manifest-capability';
+          const label = document.createElement('b');
+          label.textContent = capability.label;
+          const verified = document.createElement('span');
+          verified.textContent = 'verified';
+          row.append(label, verified);
+          capabilities.appendChild(row);
+        }
+      }
+      const details = [statusLabel(manifest.status)];
+      if (manifest.status === 'available' && manifest.offer) details.push(manifest.offer.display);
+      if (manifest.platforms?.length) details.push(manifest.platforms.join(' · '));
+      manifestDetail.textContent = details.join(' // ');
+      const support = manifest.refund ?? manifest.support;
+      if (support) {
+        const link = document.getElementById('purchase-support');
+        link.textContent = support.label;
+        link.href = support.url;
+      }
+      try { activatePrelaunch(await loadPrelaunchConfig(), manifest); }
+      catch { document.documentElement.dataset.prelaunch = 'fallback'; }
+    } catch {
+      document.documentElement.dataset.productManifest = 'fallback';
+      productState.textContent = 'STATUS: UNVERIFIED';
+      productHeading.textContent = 'Product availability could not be verified.';
+      productSummary.textContent = 'Browse the research and learning material while current product status is unavailable.';
+      manifestDetail.textContent = 'Product state unavailable';
+      productCta.hidden = true;
     }
-    const row=rows[i];row.classList.add("live");
-    if(simLine)simLine.textContent=`Phase ${PHASES[i][0]}: ${PHASES[i][1]}.`;
-    const isLast=i===PHASES.length-1;
-    let killFrac=.25+rng()*.45;
-    if(isLast){killFrac=(alive-finalSurv)/alive}
-    else if(alive<=finalSurv+2){killFrac=0}
-    const kills=Math.min(alive-(isLast?finalSurv:0),Math.round(alive*killFrac));
-    alive-=kills;
-    setTimeout(()=>{
-      aliveEl.textContent=fmt(alive);
-      row.querySelector(".kill").textContent=kills>0?`-${fmt(kills)} ${PHASES[i][2]}`:"clear";
-      if(kills===0)row.classList.add("clear");
-      drawMC(rng,(i+1)/PHASES.length,.03);
-      if(kills>0)log(`&gt; phase ${PHASES[i][0]} <span class="k">culled ${fmt(kills)}</span> — ${PHASES[i][2]}`);
-      else log(`&gt; phase ${PHASES[i][0]} <span class="g">clear</span>`);
-      i++;phase();
-    },560);
-  })();
-}
-function reviewRun(){
-  if(!sel||running)return;
-  clearTimeout(thinkingTimer);
-  confirmPanel.hidden=false;
-  setSim("confirming",`Run the simulation for ${sel.n}? No market data, no orders.`);
-  confirmRun.focus()
-}
-initBtn.addEventListener("click",reviewRun);
-confirmRun.addEventListener("click",runGauntlet);
-cancelRun.addEventListener("click",()=>{
-  confirmPanel.hidden=true;
-  setSim("previewing",`Cancelled.`);
-  initBtn.focus()
-});
-document.getElementById("again").addEventListener("click",()=>{
-  verdict.classList.remove("on");grid.classList.remove("on");
-  receiptStatus.textContent="—";
-  setSim("listening","Pick a strategy, or bring your own rules. The real run happens in the app.");
-  document.getElementById("chamber").scrollIntoView({behavior:"smooth"});
-});
-drawMC(mulberry32(1),0,.02);
-</script>
-<script type="module">
-import { loadProductManifest } from "./product-manifest.mjs";
-import { activatePrelaunch, loadPrelaunchConfig } from "./prelaunch-config.mjs";
-
-try {
-  const manifest=await loadProductManifest();
-  document.documentElement.dataset.productManifest="verified";
-  document.getElementById("product-state").textContent=`STATUS: ${manifest.status.toUpperCase()} · IN DEVELOPMENT`;
-    if(manifest.product){
-    document.getElementById("product-heading").textContent=manifest.product.name;
-    document.getElementById("product-summary").textContent=manifest.product.summary;
-  }
-  const action=manifest.status==="available"&&manifest.checkout?manifest.checkout:manifest.cta;
-  if(action){const a=document.getElementById("product-cta");a.textContent=`◈ ${action.label}`;a.href=action.url}
-  const caps=document.getElementById("manifest-capabilities");
-  if(manifest.verifiedCapabilities.length){
-    caps.hidden=false;
-    for(const capability of manifest.verifiedCapabilities){
-      const row=document.createElement("div");row.className="row";
-      const label=document.createElement("span");label.textContent=capability.label;
-      const status=document.createElement("span");status.textContent="verified";
-      row.append(label,status);caps.appendChild(row);
-    }
-  }
-  const details=[`STATUS: ${manifest.status.toUpperCase()}`];
-  if(manifest.status==="available"&&manifest.offer)details.push(manifest.offer.display);
-  if(manifest.platforms?.length)details.push(manifest.platforms.join(" · "));
-  document.getElementById("manifest-detail").textContent=details.join(" // ");
-  const support=manifest.refund??manifest.support;
-  if(support){const a=document.getElementById("purchase-support");a.textContent=support.label;a.href=support.url}
-  try { activatePrelaunch(await loadPrelaunchConfig(), manifest) }
-  catch { document.documentElement.dataset.prelaunch="fallback" }
-} catch {
-  // The manifest is the only thing allowed to state what the product is. If it cannot be
-  // read, say so plainly rather than leaving optimistic copy standing.
-  document.documentElement.dataset.productManifest="fallback";
-  document.getElementById("product-state").textContent="STATUS: UNVERIFIED";
-}
-</script>
+  </script>
 </body>
 </html>

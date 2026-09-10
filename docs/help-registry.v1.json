@@ -1,0 +1,200 @@
+{
+  "schema": "help-registry/v1",
+  "baseUrl": "https://javin23863.github.io/tradercockpit/",
+  "scope": "public-safe research education",
+  "entries": [
+    {
+      "id": "research.strategy-universe",
+      "path": "research-lab.html#strategy-universe",
+      "title": "Strategy Universe",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "candidate universe",
+        "research universe",
+        "multidimensional candidates"
+      ]
+    },
+    {
+      "id": "research.monte-carlo",
+      "path": "learn/concepts/monte-carlo.html",
+      "title": "Monte Carlo uncertainty",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "monte carlo",
+        "sequence uncertainty",
+        "path simulation"
+      ]
+    },
+    {
+      "id": "research.out-of-sample",
+      "path": "learn/concepts/out-of-sample.html",
+      "title": "In-sample vs out-of-sample",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "oos",
+        "holdout",
+        "out of sample"
+      ]
+    },
+    {
+      "id": "research.walk-forward",
+      "path": "learn/concepts/walk-forward.html",
+      "title": "Walk-forward analysis",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "walk forward",
+        "rolling evaluation",
+        "time-aware validation"
+      ]
+    },
+    {
+      "id": "research.parameter-robustness",
+      "path": "learn/concepts/parameter-robustness.html",
+      "title": "Parameter robustness",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "robustness surface",
+        "parameter stability",
+        "parameter neighborhood"
+      ]
+    },
+    {
+      "id": "research.drawdown",
+      "path": "learn/concepts/drawdown.html",
+      "title": "Drawdown",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "drawdown depth",
+        "drawdown duration",
+        "recovery"
+      ]
+    },
+    {
+      "id": "research.correlation",
+      "path": "learn/concepts/correlation-diversification.html",
+      "title": "Correlation and diversification",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "correlation",
+        "diversification",
+        "co-movement"
+      ]
+    },
+    {
+      "id": "research.selection-bias",
+      "path": "learn/concepts/selection-bias.html",
+      "title": "Selection bias and multiple testing",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "selection bias",
+        "multiple testing",
+        "candidate selection"
+      ]
+    },
+    {
+      "id": "research.pbo",
+      "path": "methods/#pbo",
+      "title": "Probability of Backtest Overfitting",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "pbo",
+        "backtest overfitting probability"
+      ]
+    },
+    {
+      "id": "research.dsr",
+      "path": "methods/#dsr",
+      "title": "Deflated Sharpe Ratio",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "dsr",
+        "deflated sharpe"
+      ]
+    },
+    {
+      "id": "site.contextual-help",
+      "path": "docs/#contextual-help",
+      "title": "Contextual help system",
+      "kind": "reference",
+      "status": "public",
+      "aliases": [
+        "what is this",
+        "help links",
+        "deep links"
+      ]
+    },
+    {
+      "id": "research.distribution-shape",
+      "path": "learn/concepts/distribution-shape.html",
+      "title": "Distribution shape explorer",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "distribution shape",
+        "tail mass",
+        "skew",
+        "histogram"
+      ]
+    },
+    {
+      "id": "method.monte-carlo",
+      "path": "methods/monte-carlo.html",
+      "title": "Monte Carlo method",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "monte carlo method",
+        "resampling method",
+        "simulation assumptions"
+      ]
+    },
+    {
+      "id": "how-to.read-monte-carlo",
+      "path": "how-to/read-monte-carlo.html",
+      "title": "How to read a Monte Carlo result",
+      "kind": "how-to",
+      "status": "public",
+      "aliases": [
+        "read monte carlo",
+        "interpret simulation percentile",
+        "monte carlo how to"
+      ]
+    },
+    {
+      "id": "example.holdout-selection",
+      "path": "examples/holdout-selection.html",
+      "title": "Synthetic holdout selection example",
+      "kind": "example",
+      "status": "public",
+      "aliases": [
+        "research example",
+        "holdout case study",
+        "selection example"
+      ]
+    },
+    {
+      "id": "research.regime-map",
+      "path": "learn/concepts/regime-map.html",
+      "title": "Market regimes as coordinates",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "regime map",
+        "market regime",
+        "volatility regime",
+        "liquidity stress",
+        "market state"
+      ]
+    }
+  ]
+}

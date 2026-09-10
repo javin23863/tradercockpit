@@ -6,13 +6,108 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html</loc>
+    <loc>https://javin23863.github.io/tradercockpit/research-lab.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/docs/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/methods/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/how-to/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/examples/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/updates/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/monte-carlo.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/out-of-sample.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/walk-forward.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/parameter-robustness.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/drawdown.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/selection-bias.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/correlation-diversification.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/distribution-shape.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/methods/monte-carlo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/how-to/read-monte-carlo.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://javin23863.github.io/tradercockpit/refund-policy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/examples/holdout-selection.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://javin23863.github.io/tradercockpit/learn/concepts/regime-map.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
