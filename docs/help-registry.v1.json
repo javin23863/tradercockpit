@@ -390,6 +390,19 @@
         "interpret chart",
         "volume profile tpo replay"
       ]
+    },
+    {
+      "id": "example.replay-boundary",
+      "path": "examples/replay-boundary.html",
+      "title": "Synthetic historical replay boundary",
+      "kind": "example",
+      "status": "public",
+      "aliases": [
+        "historical replay example",
+        "look ahead example",
+        "future information leak",
+        "replay cutoff"
+      ]
     }
   ]
 }

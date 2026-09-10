@@ -674,6 +674,21 @@
         "click to load",
         "research video"
       ]
+    },
+    {
+      "id": "example.replay-boundary",
+      "title": "Synthetic historical replay boundary",
+      "path": "examples/replay-boundary.html",
+      "kind": "example",
+      "summary": "Interactive synthetic example comparing information-safe replay with an explicitly leaky future-information view.",
+      "terms": [
+        "historical replay",
+        "replay cutoff",
+        "look ahead",
+        "future information",
+        "OHLC",
+        "chart evidence"
+      ]
     }
   ]
 }
