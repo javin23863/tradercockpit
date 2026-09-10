@@ -6,7 +6,17 @@
 
   const rootUrl = new URL('../', new URL(script.src, document.baseURI));
   const indexUrl = new URL('search-index.v1.json', rootUrl);
+  const MAX_INITIAL_QUERY_LENGTH = 120;
   let entriesPromise;
+
+  function initialSearchQuery() {
+    const hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
+    const hashParams = new URLSearchParams(hash);
+    const urlParams = new URLSearchParams(window.location.search);
+    const raw = hashParams.get('search') ?? urlParams.get('q') ?? '';
+    const query = String(raw).trim();
+    return query && query.length <= MAX_INITIAL_QUERY_LENGTH ? query : '';
+  }
 
   function normalize(value) {
     return String(value || '')
@@ -183,7 +193,7 @@
       if (event.target === dialog) closeDialog();
     });
 
-    return { dialog, input, openDialog };
+    return { dialog, input, openDialog, search };
   }
 
   function init() {
@@ -198,6 +208,13 @@
     trigger.setAttribute('aria-label', 'Search public TraderCockpit knowledge');
     trigger.addEventListener('click', searchUi.openDialog);
     nav.append(trigger);
+
+    const initialQuery = initialSearchQuery();
+    if (initialQuery) {
+      searchUi.input.value = initialQuery;
+      searchUi.openDialog();
+      void searchUi.search(initialQuery);
+    }
 
     document.addEventListener('keydown', (event) => {
       const target = event.target;

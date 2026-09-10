@@ -799,3 +799,6 @@ The additive first milestone is complete when:
 
 - 2026-09-10: Reconciled the deeper Backtest Result Metrics reference onto current website main after short metric explanations had already landed separately. Stable Profit Factor, Expectancy, and Return/Drawdown help IDs now resolve to exact anchors on the full reference without changing the in-app contract.
 - 2026-09-10: Metric-reference adversarial reconciliation retained the canonical `research.return-drawdown-ratio` ID, removed the obsolete `return-dd` anchor, and added an explicit warning that platform-specific metric formulas govern when they differ from the common forms explained here.
+
+- 2026-09-10: Added bounded public-help search prefill for desktop/in-app handoff. `#search=` is preferred so the term stays out of the HTTP request; `?q=` remains a bounded web fallback. Auto-open is limited to 120 characters, ordinary content anchors remain unaffected, and search still uses only the same-origin static index.
+- 2026-09-10: Search-prefill browser acceptance passed local-only request checks, Monte Carlo ranking, normal-anchor isolation, overlong-input fail-closed behavior, 1280px/390px reflow, and 200% text enlargement.
