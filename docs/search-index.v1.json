@@ -689,6 +689,23 @@
         "OHLC",
         "chart evidence"
       ]
+    },
+    {
+      "id": "reference.site-privacy",
+      "title": "Site privacy and third-party boundaries",
+      "path": "trust/privacy.html",
+      "kind": "reference",
+      "summary": "When the public site uses same-origin search, submits waitlist fields to Kit, or loads YouTube after an explicit action.",
+      "terms": [
+        "privacy",
+        "third party",
+        "Kit",
+        "waitlist data",
+        "YouTube",
+        "cookies",
+        "local storage",
+        "search privacy"
+      ]
     }
   ]
 }

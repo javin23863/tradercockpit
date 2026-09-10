@@ -304,6 +304,13 @@
       "path": "examples/replay-boundary.html",
       "title": "Synthetic historical replay boundary",
       "status": "public"
+    },
+    {
+      "id": "reference.site-privacy",
+      "kind": "reference",
+      "path": "trust/privacy.html",
+      "title": "Site privacy and third-party boundaries",
+      "status": "public"
     }
   ]
 }
