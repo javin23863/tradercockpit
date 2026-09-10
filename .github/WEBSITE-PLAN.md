@@ -805,3 +805,26 @@ The additive first milestone is complete when:
 - 2026-09-10: Added product-neutral Validation Foundations covering acceptance conditions, calendar-year consistency, and evidence/provenance chains, plus Net Profit in the Backtest Result Metrics reference. Four new stable help IDs resolve directly to those anchors without asserting product availability.
 - 2026-09-10: Validation-foundation browser acceptance passed all four help-ID routes at 1280px and 390px with no overflow or console errors; public-claims authority remains waitlist with zero verified capabilities.
 - 2026-09-10: Adversarial wording review softened an overstrong reproducibility claim: evidence provenance helps support reproducibility and auditability but does not guarantee methodological validity or future performance.
+
+## 16. Post-foundation public learning and support expansion — 2026-09-11
+
+This expansion extends the completed Phases A–F without changing the manifest-governed product-availability boundary or the approved research-first visual direction.
+
+- [x] Added product-neutral Higher-precision Retesting, Validation Foundations, Backtest Result Metrics, and Chart Evidence Method material with stable public help IDs.
+- [x] Added complete written Academy guides for staged validation, reading result metrics together, and reading chart evidence.
+- [x] Added Support, Trust, and a manifest-backed fail-closed FAQ without inventing a contact channel, pricing, download, or release availability.
+- [x] Added Learn Start Here, the linked Research Glossary, and a Video Lessons index that lists only the one actually published companion video.
+- [x] Preserved click-to-load video privacy: no YouTube request occurs until explicit user action, and the privacy-enhanced embed remains optional to the written lesson.
+- [x] Added Example 002, a deterministic synthetic historical-replay boundary case comparing information-safe replay with an explicitly invalid future-leaking view.
+- [x] Kept synthetic examples, research education, and current product availability as separate claims; `product-manifest.v1.json` remains the sole public product-state authority.
+- [x] Avoided homepage edits during this expansion while the separate Helios homepage/parity lane remains independently owned.
+
+Latest merged public-surface evidence after Example 002:
+
+- Website integrity: **PASS — 22 primary pages, 32 help IDs, 47 search entries**.
+- Site hardening: **PASS — 38 HTML pages, 36 canonicals**.
+- Public claims: **PASS — status `waitlist`, 0 verified capabilities**.
+- Generated Concepts: **PASS — 9 generated pages current**.
+- Sitemap: **35 indexable URLs**.
+- Fresh browser crawl: **35 sitemap URLs × 1280px/390px PASS** for main landmarks, visible-control naming, no horizontal overflow, no console/page errors, no eager iframes, and no eager third-party requests.
+- Focused replay acceptance: slider and keyboard cutoff movement, safe-vs-leaky future-bar handling, Example-index discovery, contextual-help resolution, and desktop/mobile visual appraisal all **PASS**.
