@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Distribution shape and tails — TraderCockpit Learn</title>
+  <meta name="description" content="Learn why mean and dispersion can miss skew, tail mass, multimodality, and other features that change how an outcome distribution should be interpreted.">
+  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/learn/concepts/distribution-shape.html">
+  <link rel="stylesheet" href="../../assets/site-v2.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
+      <div class="nav-links">
+        <a href="../../research-lab.html">Research Lab</a>
+        <a href="../" aria-current="page">Learn</a>
+        <a href="../../docs/">Docs</a>
+        <a href="../../methods/">Methods</a>
+        <a href="../../examples/">Examples</a>
+        <a href="../../updates/">Updates</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="article-hero">
+      <div class="shell article-hero-inner">
+        <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>Distribution shape and tails</span></div>
+        <span class="eyebrow">Concept / public research education</span>
+        <h1>Distribution shape and tails</h1>
+        <p>Learn why mean and dispersion can miss skew, tail mass, multimodality, and other features that change how an outcome distribution should be interpreted.</p>
+        <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Not product availability</span></div>
+        <div class="article-actions">
+          <a class="deep-link" href="../../research-lab.html#distribution">Open the visual explanation →</a>
+          <a class="deep-link" href="../../methods/#distribution-shape">Read the method →</a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section article-section-wrap">
+      <div class="shell article-layout">
+        <article class="article-main">
+          <section class="article-section" id="definition">
+            <span class="kicker">Plain-language definition</span>
+            <h2>What is it?</h2>
+            <div class="definition-card"><strong>Distribution shape and tails:</strong> A distribution describes how observations are spread across possible values. Shape includes symmetry or skew, concentration, multiple modes, and the behavior of tails. Tail estimates are especially sensitive to sample size and modeling assumptions.</div>
+          </section>
+          <section class="article-section" id="research-question">
+            <span class="kicker">Research question</span>
+            <h2>What question does it help answer?</h2>
+            <p>What information disappears when a distribution is reduced to one average and one dispersion statistic?</p>
+          </section>
+          <section class="article-section" id="can-tell">
+            <span class="kicker">Bounded interpretation</span>
+            <h2>What can it tell you?</h2>
+            <ul>
+            <li>Whether observations are symmetric, skewed, concentrated, multimodal, or unusually heavy in the tails.</li>
+            <li>How threshold exceedance can differ even when headline scale measures are similar.</li>
+            <li>Which tail or distributional assumptions need explicit validation.</li>
+            </ul>
+          </section>
+          <section class="article-section" id="cannot-tell">
+            <span class="kicker">Limitations</span>
+            <h2>What can it not tell you?</h2>
+            <ul>
+            <li>A histogram shape does not identify the future distribution by itself.</li>
+            <li>Tail frequencies are unstable when the sample contains few extreme observations.</li>
+            <li>Standardization can make scale comparable while hiding economically important differences in units or regime.</li>
+            </ul>
+          </section>
+          <section class="article-section" id="synthetic-example">
+            <span class="kicker">Synthetic example</span>
+            <h2>See the shape before reading the formula.</h2>
+            <p>The Research Lab compares symmetric, skewed, and heavy-tail deterministic synthetic samples after standardization. A keyboard-operable threshold shows how much generated mass lies in the selected lower tail.</p>
+            <a class="deep-link" href="../../research-lab.html#distribution">Open this concept in Research Lab →</a>
+          </section>
+          <section class="article-section" id="product-boundary">
+            <span class="kicker">Product boundary</span>
+            <h2>Concept education is not a product claim.</h2>
+            <div class="boundary-card"><strong>Public research concept:</strong> this page explains a quantitative-research idea. It does not assert that a matching TraderCockpit control, workflow, or capability is currently available. Product availability remains governed separately by the public product manifest.</div>
+          </section>
+          <section class="article-section" id="related">
+            <span class="kicker">Continue learning</span>
+            <h2>Related concepts</h2>
+            <div class="related-grid">
+          <a class="related-link" href="drawdown.html"><strong>Drawdown</strong><span>Continue to the related public concept.</span></a>
+          <a class="related-link" href="monte-carlo.html"><strong>Monte Carlo uncertainty</strong><span>Continue to the related public concept.</span></a>
+          <a class="related-link" href="correlation-diversification.html"><strong>Correlation and diversification</strong><span>Continue to the related public concept.</span></a>
+            </div>
+          </section>
+        </article>
+
+        <aside class="article-aside" aria-label="Page guide">
+          <div class="side-panel">
+            <h2>On this page</h2>
+            <ul>
+              <li><a href="#definition">Definition</a></li>
+              <li><a href="#research-question">Research question</a></li>
+              <li><a href="#can-tell">What it can tell you</a></li>
+              <li><a href="#cannot-tell">Limitations</a></li>
+              <li><a href="#synthetic-example">Synthetic example</a></li>
+              <li><a href="#related">Related concepts</a></li>
+            </ul>
+          </div>
+          <div class="side-panel">
+            <h2>Go deeper</h2>
+            <p class="micro">Concept pages explain intuition. Methods explain assumptions and calculation. Research Lab makes the geometry visible.</p>
+            <a class="deep-link" href="../../methods/#distribution-shape">Method →</a>
+            <a class="deep-link" href="../../research-lab.html#distribution">Visual →</a>
+
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><div>TraderCockpit · evidence-first research education · no performance promised.</div><div class="footer-links"><a href="../../index.html">Home</a><a href="../">Learn</a><a href="../../methods/">Methods</a></div></div></footer>
+  <script src="../../assets/site-search.js" defer></script>
+</body>
+</html>

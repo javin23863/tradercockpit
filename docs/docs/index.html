@@ -70,8 +70,9 @@
           <span class="eyebrow">Contextual help</span>
           <h2>Stable help IDs, exact deep links.</h2>
           <p>Instead of sending a user from an in-app “What is this?” link to a generic documentation homepage, the site exposes a versioned registry of public-safe knowledge IDs. A future application integration can map a UI context to one of those IDs and open the exact explanation.</p>
-          <p>Example: <code>research.monte-carlo</code> resolves to the Monte Carlo section of Research Lab. The public registry does not contain unreleased controls, private application routes, backend names, or internal implementation details.</p>
-          <a class="deep-link" href="../help-registry.v1.json">View the public help registry →</a>
+          <p>Example: <code>research.monte-carlo</code> resolves to the current public Monte Carlo concept page. An application can open <code>help.html?id=research.monte-carlo</code> and let the versioned registry choose the current destination, so the application does not need to hard-code documentation paths.</p>
+          <p>The public registry does not contain unreleased controls, private application routes, backend names, or internal implementation details.</p>
+          <div class="article-actions"><a class="deep-link" href="../help.html?id=research.monte-carlo">Test the public help resolver →</a><a class="deep-link" href="../help-registry.v1.json">View the public help registry →</a></div>
         </div>
         <aside class="side-panel">
           <h3>Publication gate</h3>

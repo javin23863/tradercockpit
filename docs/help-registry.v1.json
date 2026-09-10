@@ -17,7 +17,7 @@
     },
     {
       "id": "research.monte-carlo",
-      "path": "research-lab.html#monte-carlo",
+      "path": "learn/concepts/monte-carlo.html",
       "title": "Monte Carlo uncertainty",
       "kind": "concept",
       "status": "public",
@@ -29,9 +29,9 @@
     },
     {
       "id": "research.out-of-sample",
-      "path": "methods/#out-of-sample",
+      "path": "learn/concepts/out-of-sample.html",
       "title": "In-sample vs out-of-sample",
-      "kind": "method",
+      "kind": "concept",
       "status": "public",
       "aliases": [
         "oos",
@@ -41,9 +41,9 @@
     },
     {
       "id": "research.walk-forward",
-      "path": "methods/#walk-forward",
+      "path": "learn/concepts/walk-forward.html",
       "title": "Walk-forward analysis",
-      "kind": "method",
+      "kind": "concept",
       "status": "public",
       "aliases": [
         "walk forward",
@@ -53,9 +53,9 @@
     },
     {
       "id": "research.parameter-robustness",
-      "path": "methods/#parameter-robustness",
+      "path": "learn/concepts/parameter-robustness.html",
       "title": "Parameter robustness",
-      "kind": "method",
+      "kind": "concept",
       "status": "public",
       "aliases": [
         "robustness surface",
@@ -65,9 +65,9 @@
     },
     {
       "id": "research.drawdown",
-      "path": "methods/#drawdown",
+      "path": "learn/concepts/drawdown.html",
       "title": "Drawdown",
-      "kind": "method",
+      "kind": "concept",
       "status": "public",
       "aliases": [
         "drawdown depth",
@@ -77,9 +77,9 @@
     },
     {
       "id": "research.correlation",
-      "path": "methods/#correlation",
+      "path": "learn/concepts/correlation-diversification.html",
       "title": "Correlation and diversification",
-      "kind": "method",
+      "kind": "concept",
       "status": "public",
       "aliases": [
         "correlation",
@@ -89,9 +89,9 @@
     },
     {
       "id": "research.selection-bias",
-      "path": "methods/#selection-bias",
+      "path": "learn/concepts/selection-bias.html",
       "title": "Selection bias and multiple testing",
-      "kind": "method",
+      "kind": "concept",
       "status": "public",
       "aliases": [
         "selection bias",
@@ -135,7 +135,7 @@
     },
     {
       "id": "research.distribution-shape",
-      "path": "research-lab.html#distribution",
+      "path": "learn/concepts/distribution-shape.html",
       "title": "Distribution shape explorer",
       "kind": "concept",
       "status": "public",
@@ -144,6 +144,30 @@
         "tail mass",
         "skew",
         "histogram"
+      ]
+    },
+    {
+      "id": "method.monte-carlo",
+      "path": "methods/monte-carlo.html",
+      "title": "Monte Carlo method",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "monte carlo method",
+        "resampling method",
+        "simulation assumptions"
+      ]
+    },
+    {
+      "id": "how-to.read-monte-carlo",
+      "path": "how-to/read-monte-carlo.html",
+      "title": "How to read a Monte Carlo result",
+      "kind": "how-to",
+      "status": "public",
+      "aliases": [
+        "read monte carlo",
+        "interpret simulation percentile",
+        "monte carlo how to"
       ]
     }
   ]

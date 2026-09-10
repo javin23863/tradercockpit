@@ -1,0 +1,33 @@
+{
+  "schema": "content-registry/v1",
+  "kinds": {
+    "concept": "Plain-language definition, research question, visual intuition, and limitations.",
+    "method": "Procedure, assumptions, interpretation, and failure modes independent of product UI.",
+    "how-to": "Task-focused steps with expected result, mistakes, troubleshooting, and optional video.",
+    "reference": "Exact verified product/control/state documentation; publication-gated.",
+    "lab": "Interactive synthetic research visualization.",
+    "landing": "Navigation and information-architecture entry point.",
+    "example": "End-to-end public-safe research story.",
+    "updates": "Public release or availability communication only."
+  },
+  "entries": [
+    {"id":"research-lab","kind":"lab","path":"research-lab.html","title":"Research Lab","status":"public"},
+    {"id":"learn","kind":"landing","path":"learn/","title":"Learn","status":"public"},
+    {"id":"docs","kind":"landing","path":"docs/","title":"Documentation","status":"public"},
+    {"id":"methods","kind":"landing","path":"methods/","title":"Research Methods","status":"public"},
+    {"id":"how-to","kind":"landing","path":"how-to/","title":"How-Tos and Academy","status":"public"},
+    {"id":"examples","kind":"example","path":"examples/","title":"Research Examples","status":"public"},
+    {"id":"updates","kind":"updates","path":"updates/","title":"Updates","status":"public"},    {"id":"concept.monte-carlo","kind":"concept","path":"learn/concepts/monte-carlo.html","title":"Monte Carlo uncertainty","status":"public"},
+    {"id":"concept.out-of-sample","kind":"concept","path":"learn/concepts/out-of-sample.html","title":"In-sample vs out-of-sample evidence","status":"public"},
+    {"id":"concept.walk-forward","kind":"concept","path":"learn/concepts/walk-forward.html","title":"Walk-forward analysis","status":"public"},
+    {"id":"concept.parameter-robustness","kind":"concept","path":"learn/concepts/parameter-robustness.html","title":"Parameter robustness","status":"public"},
+    {"id":"concept.drawdown","kind":"concept","path":"learn/concepts/drawdown.html","title":"Drawdown","status":"public"},
+    {"id":"concept.selection-bias","kind":"concept","path":"learn/concepts/selection-bias.html","title":"Selection bias and multiple testing","status":"public"},
+    {"id":"concept.correlation-diversification","kind":"concept","path":"learn/concepts/correlation-diversification.html","title":"Correlation and diversification","status":"public"},
+    {"id":"concept.distribution-shape","kind":"concept","path":"learn/concepts/distribution-shape.html","title":"Distribution shape and tails","status":"public"},
+    {"id":"method.monte-carlo","kind":"method","path":"methods/monte-carlo.html","title":"Monte Carlo method","status":"public"},
+    {"id":"how-to.read-monte-carlo","kind":"how-to","path":"how-to/read-monte-carlo.html","title":"How to read a Monte Carlo result","status":"public"},
+    {"id":"reference.contextual-help","kind":"reference","path":"docs/#contextual-help","title":"Contextual help contract","status":"public"},
+    {"id":"help.resolver","kind":"reference","path":"help.html","title":"Contextual help resolver","status":"public"}
+  ]
+}

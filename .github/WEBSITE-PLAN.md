@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **Phase A complete / Phase B visual depth complete / Phase C next**
+Status: **Phase A complete / Phase B visual depth complete / Phase C documentation system complete / Phase D next**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -381,6 +381,18 @@ Initial performance rules:
 - initial high-value public-safe concept pages
 - help-ID resolver validation
 
+### Phase C progress checklist
+
+- [x] Durable public content taxonomy is versioned in `content-registry.v1.json`.
+- [x] Concept, Method, How-To, and Reference authoring templates exist under `.github/site-templates/`.
+- [x] Eight high-value Concept pages are generated from `concepts.v1.json` and checked for source drift.
+- [x] A full Monte Carlo Method page demonstrates the deeper mathematical/assumption layer.
+- [x] A full product-neutral Monte Carlo How-To demonstrates task-oriented interpretation.
+- [x] Client-side search indexes the new Concept, Method, How-To, and help-resolver destinations locally.
+- [x] `help.html?id=...` resolves versioned public help IDs without exposing private application routes.
+- [x] Concept → visual → Method → How-To continuations are visible and browser-tested.
+- [x] Phase C detail/resolver pages pass 320px reflow, 200% text enlargement, and console-error review.
+
 ### Phase D — homepage integration
 
 Only after Phase A/B acceptance:
@@ -505,6 +517,22 @@ The final Phase B slice was reviewed for invalid quantitative claims, accidental
 | Medium | The two new long modules could break narrow/large-text layouts or fail when deep-linked. | Expanded Research Lab passes 320px reflow, 200% text stress, and independent 390px hash-link lazy initialization for both modules. |
 
 **Phase B completion result:** no unresolved high-severity findings. The Research Lab now has nine real educational visual modules/sections spanning candidate geometry, uncertainty, parameter robustness, correlation, distributions, walk-forward partitioning, holdout information flow, drawdown path risk, and multiple-testing selection pressure. Phase B is complete without changing the legacy homepage or claiming unverified product capability.
+## 12F. Phase C documentation-system review — 2026-09-10
+
+The documentation-system slice was adversarially reviewed for content drift, brittle in-app links, product-claim leakage, privacy regressions, and visual/interaction dead ends.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | If the desktop application deep-links directly to page paths, later documentation reorganization could break released in-app help. | Added `help.html?id=...` plus a versioned public help registry. Browser acceptance covers valid, unknown, and invalid IDs; the resolver only accepts public knowledge IDs and same-origin registry destinations. |
+| High | Concept pages could drift independently and quietly contradict their shared taxonomy. | Added `concepts.v1.json` as the versioned source and `generate_concept_pages.py --check`; the integrity gate now fails if any generated Concept page differs from source. |
+| High | Public Concept/How-To content could be mistaken for proof that a corresponding TraderCockpit feature ships today. | Every generated Concept page carries explicit public-research/product-boundary copy, while the full How-To is product-neutral. Product availability remains governed by `product-manifest.v1.json`. |
+| Medium | The first Monte Carlo Concept hero exposed the visual and Method but not the completed How-To, leaving the learning chain incomplete. | Added optional data-driven How-To handoffs in both the Concept hero and page guide; Monte Carlo now exposes visual, Method, and How-To continuations. |
+| Medium | A stable resolver could become an open-redirect surface if registry paths were trusted without origin validation. | Resolver logic accepts the versioned public registry only and rejects destinations that resolve outside the current site origin; the integrity checker also validates all registry/content paths. |
+| Medium | Rich Academy video could reintroduce third-party requests inside the detailed How-To layer. | The detailed How-To reuses the click-to-load privacy-enhanced loader; browser interception confirms no YouTube request occurs before explicit user action. |
+| Medium | Documentation pages could become visually dense or inaccessible while sharing one large-type design system. | Browser acceptance covers all eight Concepts plus Method/How-To/help resolver at 320px and under 200% text enlargement with no horizontal overflow or console errors. |
+
+**Phase C result:** no unresolved high-severity findings. The public site now has a durable Concept/Method/How-To/Reference authoring model, eight source-controlled Concept pages, one complete deep Method/How-To chain, local search, and a stable help-ID resolver suitable for future in-app `What is this?` links.
+
 ## 13. Acceptance checklist
 
 ### Governance / truth
@@ -633,3 +661,5 @@ The additive first milestone is complete when:
 - 2026-09-10: Built the independent-null selection funnel with keyboard-controlled candidate family size, explicit Normal order-statistic reference, and simplified-stage disclosure.
 - 2026-09-10: Final Phase B adversarial review corrected overstrong endpoint copy, invalid exponentiation syntax, a transferred label encoding defect, workflow-prescription risk, and an unsound observed-max monotonicity test.
 - 2026-09-10: Phase B completion browser acceptance passed drawdown semantics, selection-family effect, keyboard interaction, 320px reflow, 200% text stress, and 390px direct links.
+- 2026-09-10: Phase C added a versioned content taxonomy, four authoring templates, eight source-generated Concept pages, a full Monte Carlo Method, a full product-neutral interpretation How-To, and a stable help-ID resolver.
+- 2026-09-10: Phase C adversarial review completed the Concept → visual → Method → How-To chain and passed 11-page help/search/video/reflow browser acceptance.

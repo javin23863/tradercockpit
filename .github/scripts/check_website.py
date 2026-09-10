@@ -8,6 +8,7 @@ from urllib.parse import urlsplit
 import json
 import os
 import re
+import subprocess
 import sys
 
 REPO = Path(__file__).resolve().parents[2]
@@ -17,12 +18,20 @@ PAGES = [
     DOCS / "docs" / "index.html",
     DOCS / "learn" / "index.html",
     DOCS / "how-to" / "index.html",
+    DOCS / "how-to" / "read-monte-carlo.html",
     DOCS / "methods" / "index.html",
+    DOCS / "methods" / "monte-carlo.html",
     DOCS / "examples" / "index.html",
     DOCS / "updates" / "index.html",
-]
+    DOCS / "help.html",
+] + sorted((DOCS / "learn" / "concepts").glob("*.html"))
 REGISTRY = DOCS / "help-registry.v1.json"
 SEARCH_INDEX = DOCS / "search-index.v1.json"
+CONTENT_REGISTRY = DOCS / "content-registry.v1.json"
+CONCEPT_SOURCE = DOCS / "concepts.v1.json"
+CONCEPT_GENERATOR = REPO / ".github" / "scripts" / "generate_concept_pages.py"
+HELP_PAGE = DOCS / "help.html"
+HELP_RESOLVER = DOCS / "assets" / "help-resolver.js"
 SITE_SEARCH = DOCS / "assets" / "site-search.js"
 VIDEO_SCRIPT = DOCS / "assets" / "video-slot.js"
 LAB_DEPTH = DOCS / "assets" / "research-lab-depth.js"
@@ -166,6 +175,57 @@ def main() -> int:
             problems.append("Research Lab risk script contains an external network target")
         if "innerHTML" in risk_script:
             problems.append("Research Lab risk script should not use innerHTML")
+    if not CONCEPT_SOURCE.is_file():
+        problems.append("missing docs/concepts.v1.json")
+    elif not CONCEPT_GENERATOR.is_file():
+        problems.append("missing concept-page generator")
+    else:
+        generated = subprocess.run(
+            [sys.executable, str(CONCEPT_GENERATOR), "--check"],
+            cwd=REPO,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        if generated.returncode != 0:
+            detail = (generated.stdout + generated.stderr).strip().replace("\n", " | ")
+            problems.append(f"generated concept pages are stale: {detail}")
+
+    content_entries: list[dict] = []
+    if not CONTENT_REGISTRY.is_file():
+        problems.append("missing docs/content-registry.v1.json")
+    else:
+        try:
+            content_registry = json.loads(CONTENT_REGISTRY.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            problems.append(f"invalid content registry JSON: {exc}")
+            content_registry = {"kinds": {}, "entries": []}
+        if content_registry.get("schema") != "content-registry/v1":
+            problems.append("unsupported content registry schema")
+        kinds = content_registry.get("kinds", {})
+        required_kinds = {"concept", "method", "how-to", "reference", "lab", "landing", "example", "updates"}
+        if not required_kinds.issubset(kinds):
+            problems.append(f"content registry missing kinds: {sorted(required_kinds.difference(kinds))}")
+        content_entries = content_registry.get("entries", [])
+        content_ids = [entry.get("id") for entry in content_entries]
+        if len(content_ids) != len(set(content_ids)):
+            problems.append("duplicate content registry IDs")
+        for entry in content_entries:
+            required = {"id", "kind", "path", "title", "status"}
+            missing = required.difference(entry)
+            if missing:
+                problems.append(f"content entry {entry.get('id')} missing {sorted(missing)}")
+                continue
+            if entry["kind"] not in kinds:
+                problems.append(f"content entry {entry['id']} has unknown kind {entry['kind']}")
+            if entry["status"] != "public":
+                problems.append(f"public content registry entry {entry['id']} must have status public")
+            validate_target(f"content entry {entry['id']}", entry["path"], parsers, problems)
+
+        concept_paths = {f"learn/concepts/{entry.get('slug')}.html" for entry in json.loads(CONCEPT_SOURCE.read_text(encoding="utf-8")).get("entries", [])}
+        registered_concepts = {entry.get("path") for entry in content_entries if entry.get("kind") == "concept"}
+        if concept_paths != registered_concepts:
+            problems.append("content registry concept paths do not exactly match generated concept source")
     registry_entries: list[dict] = []
     if not REGISTRY.is_file():
         problems.append("missing docs/help-registry.v1.json")
@@ -215,6 +275,25 @@ def main() -> int:
                 continue
             validate_target(f"search entry {entry['id']}", entry["path"], parsers, problems)
 
+    help_parser = parsers.get(HELP_PAGE)
+    if not HELP_PAGE.is_file():
+        problems.append("missing docs/help.html")
+    elif help_parser and not any(src.endswith("assets/help-resolver.js") for src in help_parser.scripts):
+        problems.append("help.html is missing the help resolver script")
+    if not HELP_RESOLVER.is_file():
+        problems.append("missing docs/assets/help-resolver.js")
+    else:
+        resolver_script = HELP_RESOLVER.read_text(encoding="utf-8")
+        if "help-registry.v1.json" not in resolver_script:
+            problems.append("help resolver does not load public registry")
+        if "URLSearchParams" not in resolver_script or "window.location.replace" not in resolver_script:
+            problems.append("help resolver must accept an ID and resolve it to the registry destination")
+        if "target.origin !== window.location.origin" not in resolver_script:
+            problems.append("help resolver is missing same-origin target enforcement")
+        if "innerHTML" in resolver_script:
+            problems.append("help resolver should not use innerHTML")
+        if "http://" in resolver_script or "https://" in resolver_script:
+            problems.append("help resolver contains an external network target")
     if not SITE_SEARCH.is_file():
         problems.append("missing docs/assets/site-search.js")
     else:

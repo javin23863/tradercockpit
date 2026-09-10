@@ -1,0 +1,278 @@
+{
+  "schema": "concept-content/v1",
+  "entries": [
+    {
+      "slug": "monte-carlo",
+      "title": "Monte Carlo uncertainty",
+      "description": "Understand what randomized or resampled paths can reveal about sequence sensitivity without treating a simulation percentile as a forecast.",
+      "question": "How sensitive is a result to the particular order or sample path that happened to be observed?",
+      "definition": "Monte Carlo is a family of simulation methods that repeatedly generate alternative outcomes under an explicitly chosen randomization or resampling rule. In trading research, the useful question is not whether one simulated path looks good, but how the distribution changes under defensible assumptions.",
+      "example": "The Research Lab starts 64 synthetic paths from the same zero level and lets path ordering produce a range of terminal values. The spread is an illustration of uncertainty, not a probability forecast for a market.",
+      "tells": [
+        "Whether a reported result is unusually dependent on one path ordering under the chosen simulation rule.",
+        "How a distribution of synthetic outcomes differs from a single headline path.",
+        "Which percentile or tail questions deserve closer investigation."
+      ],
+      "cannot": [
+        "It cannot prove future profitability.",
+        "A percentile is only meaningful relative to the simulation assumptions that generated it.",
+        "Naive resampling can destroy serial dependence, volatility clustering, regime structure, or other features that matter."
+      ],
+      "visual": "../../research-lab.html#monte-carlo",
+      "method": "../../methods/monte-carlo.html",
+      "related": [
+        {
+          "title": "Out-of-sample evidence",
+          "path": "out-of-sample.html"
+        },
+        {
+          "title": "Walk-forward analysis",
+          "path": "walk-forward.html"
+        },
+        {
+          "title": "Drawdown",
+          "path": "drawdown.html"
+        }
+      ],
+      "howTo": "../../how-to/read-monte-carlo.html"
+    },
+    {
+      "slug": "out-of-sample",
+      "title": "In-sample vs out-of-sample evidence",
+      "description": "See why evidence reserved from development has a different role from data repeatedly consulted during selection.",
+      "question": "What evidence was genuinely withheld from the decisions that created or selected the candidate?",
+      "definition": "In-sample data participates in development, fitting, or selection. Out-of-sample data is reserved for later evaluation. The distinction is about information flow: once holdout results repeatedly steer choices, that holdout is no longer independent of those choices.",
+      "example": "The Research Lab shows 36 synthetic candidates converging on one selection point. Preserved-holdout mode crosses the information boundary once; repeated-peek mode draws four illustrative feedback loops back into selection.",
+      "tells": [
+        "Whether evaluation evidence was separated from the decisions being assessed.",
+        "Where a research process risks feeding holdout information back into selection.",
+        "Why a clean information boundary matters even when the numerical split percentage is unchanged."
+      ],
+      "cannot": [
+        "A holdout cannot erase bias already introduced by data cleaning, feature design, universe selection, or repeated experimentation.",
+        "One successful holdout result does not guarantee stability in later regimes.",
+        "Calling a dataset OOS does not make it independent if it influenced the process indirectly."
+      ],
+      "visual": "../../research-lab.html#out-of-sample",
+      "method": "../../methods/#out-of-sample",
+      "related": [
+        {
+          "title": "Walk-forward analysis",
+          "path": "walk-forward.html"
+        },
+        {
+          "title": "Selection bias",
+          "path": "selection-bias.html"
+        },
+        {
+          "title": "Monte Carlo uncertainty",
+          "path": "monte-carlo.html"
+        }
+      ]
+    },
+    {
+      "slug": "walk-forward",
+      "title": "Walk-forward analysis",
+      "description": "Understand repeated time-ordered train and evaluation windows instead of relying on one static split.",
+      "question": "Does the research conclusion persist when the development/evaluation boundary moves through time?",
+      "definition": "Walk-forward analysis repeats a time-aware development and evaluation process across ordered windows. Rolling windows keep training length approximately fixed; anchored windows keep the initial start while training history grows.",
+      "example": "The Research Lab displays seven synthetic folds over 100 time units. Each blue training block is followed immediately by a gold held-out evaluation block, and the reader can compare rolling with anchored geometry.",
+      "tells": [
+        "How a conclusion behaves across multiple chronological evaluation periods.",
+        "Whether evidence is concentrated in one favorable interval or appears across several folds.",
+        "How rolling and anchored training designs expose different history-length assumptions."
+      ],
+      "cannot": [
+        "Repeated windows do not guarantee independence between folds.",
+        "Window lengths, retraining rules, costs, and selection performed inside each fold still matter.",
+        "A stable historical walk-forward result does not guarantee future stability."
+      ],
+      "visual": "../../research-lab.html#walk-forward",
+      "method": "../../methods/#walk-forward",
+      "related": [
+        {
+          "title": "Out-of-sample evidence",
+          "path": "out-of-sample.html"
+        },
+        {
+          "title": "Parameter robustness",
+          "path": "parameter-robustness.html"
+        },
+        {
+          "title": "Selection bias",
+          "path": "selection-bias.html"
+        }
+      ]
+    },
+    {
+      "slug": "parameter-robustness",
+      "title": "Parameter robustness",
+      "description": "Learn why a broad neighborhood of similar behavior is usually more informative than one isolated optimized point.",
+      "question": "Does the observed behavior persist when nearby parameter choices change, or does it depend on one narrow setting?",
+      "definition": "Parameter robustness examines how a measured response changes across a neighborhood of parameter values. A broad plateau suggests lower local sensitivity than a narrow spike, but the interpretation still depends on the metric, data, search process, and parameter meaning.",
+      "example": "The Research Lab offers three deterministic synthetic surfaces: a broad plateau, a narrow spike, and a ridge. Their height is an illustrative response score, not profit or a product result.",
+      "tells": [
+        "Whether nearby parameter values produce similar or sharply different measured behavior.",
+        "Where a selected point sits relative to broader surface geometry.",
+        "Which parameters or regions appear locally sensitive and deserve additional validation."
+      ],
+      "cannot": [
+        "A smooth surface does not prove the underlying strategy is valid.",
+        "A plateau can arise from an insensitive or uninformative metric.",
+        "Parameter searches can still introduce selection bias even when the chosen region looks broad."
+      ],
+      "visual": "../../research-lab.html#parameter-robustness",
+      "method": "../../methods/#parameter-robustness",
+      "related": [
+        {
+          "title": "Walk-forward analysis",
+          "path": "walk-forward.html"
+        },
+        {
+          "title": "Selection bias",
+          "path": "selection-bias.html"
+        },
+        {
+          "title": "Out-of-sample evidence",
+          "path": "out-of-sample.html"
+        }
+      ]
+    },
+    {
+      "slug": "drawdown",
+      "title": "Drawdown",
+      "description": "Understand drawdown as a path-dependent decline from a prior running peak, including depth, duration, and recovery context.",
+      "question": "How far and how long did a path remain below its prior peak, and what does one maximum number hide?",
+      "definition": "Drawdown measures the decline from a running peak to a later value. Maximum drawdown captures the deepest observed decline, while duration and recovery describe how long the path remained underwater and how it returned to a new peak.",
+      "example": "The Research Lab compares deep-shock, long-valley, and repeated-valley synthetic index paths. One mode has greater depth, another remains underwater longer, and the repeated path has several recoveries.",
+      "tells": [
+        "The depth of losses relative to prior peaks in the observed path.",
+        "How long an observed path remained below its previous high-water mark.",
+        "Whether risk occurred as one large valley or several separate episodes."
+      ],
+      "cannot": [
+        "Historical maximum drawdown is not a bound on future drawdown.",
+        "Drawdown depends on the path, sample period, valuation frequency, and starting point.",
+        "One drawdown statistic does not describe liquidity, tail gaps, leverage, or all forms of risk."
+      ],
+      "visual": "../../research-lab.html#drawdown",
+      "method": "../../methods/#drawdown",
+      "related": [
+        {
+          "title": "Monte Carlo uncertainty",
+          "path": "monte-carlo.html"
+        },
+        {
+          "title": "Distribution shape",
+          "path": "distribution-shape.html"
+        },
+        {
+          "title": "Walk-forward analysis",
+          "path": "walk-forward.html"
+        }
+      ]
+    },
+    {
+      "slug": "selection-bias",
+      "title": "Selection bias and multiple testing",
+      "description": "See why the best-looking result from a large search deserves different interpretation from a result specified before the search.",
+      "question": "How much of the selected result could be explained by searching many candidates and keeping only the most impressive one?",
+      "definition": "Selection bias appears when the same evidence helps choose which result to report. Multiple testing intensifies the problem: as more candidates are compared, extreme-looking results can arise from noise even when no candidate has a true advantage.",
+      "example": "The Research Lab draws independent synthetic Normal scores under a no-signal assumption. As the family expands from 64 to 1,024 candidates, the approximate typical maximum under that null rises even though the generating process contains no edge.",
+      "tells": [
+        "Why the number and dependence of tried candidates matter when interpreting the selected result.",
+        "Why a maximum should be compared with a selection-aware reference rather than treated like a prespecified observation.",
+        "Where an experiment needs stronger holdout, correction, or resampling logic."
+      ],
+      "cannot": [
+        "A simple independent-Normal example does not model the dependence structure of real candidate searches.",
+        "Counting visible trials alone can miss hidden researcher degrees of freedom.",
+        "A correction method is only as defensible as its assumptions and accounting of the search process."
+      ],
+      "visual": "../../research-lab.html#selection-bias",
+      "method": "../../methods/#selection-bias",
+      "related": [
+        {
+          "title": "Out-of-sample evidence",
+          "path": "out-of-sample.html"
+        },
+        {
+          "title": "Parameter robustness",
+          "path": "parameter-robustness.html"
+        },
+        {
+          "title": "Walk-forward analysis",
+          "path": "walk-forward.html"
+        }
+      ]
+    },
+    {
+      "slug": "correlation-diversification",
+      "title": "Correlation and diversification",
+      "description": "Understand why co-movement, clustering, and dependence matter more than simply counting how many series are in a portfolio or research set.",
+      "question": "Which series tend to move together, and how stable is that dependence across the conditions that matter?",
+      "definition": "Correlation summarizes linear co-movement over a chosen sample. Diversification depends on the structure of relationships among exposures, not merely on the number of names. Correlations can change through time and can behave differently in stressed conditions.",
+      "example": "The Research Lab arranges 18 synthetic series into three labeled families and draws only strong illustrative relationships. Node distance supports readability; the line strength, not geometric distance, carries the relationship encoding.",
+      "tells": [
+        "Where exposures cluster under the chosen dependence measure and sample.",
+        "Which individual series have many strong relationships with others.",
+        "Why a collection of many positions can still behave like a small number of common risk groups."
+      ],
+      "cannot": [
+        "Historical correlation is not a fixed law and can change across regimes.",
+        "Zero linear correlation does not imply independence.",
+        "A correlation matrix alone does not capture nonlinear dependence, tail dependence, liquidity, or all portfolio risks."
+      ],
+      "visual": "../../research-lab.html#correlation",
+      "method": "../../methods/#correlation",
+      "related": [
+        {
+          "title": "Distribution shape",
+          "path": "distribution-shape.html"
+        },
+        {
+          "title": "Drawdown",
+          "path": "drawdown.html"
+        },
+        {
+          "title": "Walk-forward analysis",
+          "path": "walk-forward.html"
+        }
+      ]
+    },
+    {
+      "slug": "distribution-shape",
+      "title": "Distribution shape and tails",
+      "description": "Learn why mean and dispersion can miss skew, tail mass, multimodality, and other features that change how an outcome distribution should be interpreted.",
+      "question": "What information disappears when a distribution is reduced to one average and one dispersion statistic?",
+      "definition": "A distribution describes how observations are spread across possible values. Shape includes symmetry or skew, concentration, multiple modes, and the behavior of tails. Tail estimates are especially sensitive to sample size and modeling assumptions.",
+      "example": "The Research Lab compares symmetric, skewed, and heavy-tail deterministic synthetic samples after standardization. A keyboard-operable threshold shows how much generated mass lies in the selected lower tail.",
+      "tells": [
+        "Whether observations are symmetric, skewed, concentrated, multimodal, or unusually heavy in the tails.",
+        "How threshold exceedance can differ even when headline scale measures are similar.",
+        "Which tail or distributional assumptions need explicit validation."
+      ],
+      "cannot": [
+        "A histogram shape does not identify the future distribution by itself.",
+        "Tail frequencies are unstable when the sample contains few extreme observations.",
+        "Standardization can make scale comparable while hiding economically important differences in units or regime."
+      ],
+      "visual": "../../research-lab.html#distribution",
+      "method": "../../methods/#distribution-shape",
+      "related": [
+        {
+          "title": "Drawdown",
+          "path": "drawdown.html"
+        },
+        {
+          "title": "Monte Carlo uncertainty",
+          "path": "monte-carlo.html"
+        },
+        {
+          "title": "Correlation and diversification",
+          "path": "correlation-diversification.html"
+        }
+      ]
+    }
+  ]
+}
