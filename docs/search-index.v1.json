@@ -477,6 +477,24 @@
         "fast validation",
         "retesting"
       ]
+    },
+    {
+      "id": "how-to.read-staged-validation",
+      "title": "How to read a staged validation chain",
+      "path": "how-to/read-staged-validation.html",
+      "kind": "how-to",
+      "summary": "A task-focused guide for interpreting a multi-stage validation process without treating stage count as proof.",
+      "terms": [
+        "staged validation",
+        "validation funnel",
+        "validation chain",
+        "higher precision",
+        "year consistency",
+        "regime",
+        "monte carlo",
+        "out of sample",
+        "evidence chain"
+      ]
     }
   ]
 }

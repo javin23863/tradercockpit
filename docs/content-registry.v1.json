@@ -227,6 +227,13 @@
       "path": "methods/result-metrics.html#net-profit",
       "title": "Net Profit",
       "status": "public"
+    },
+    {
+      "id": "how-to.read-staged-validation",
+      "kind": "how-to",
+      "path": "how-to/read-staged-validation.html",
+      "title": "How to read a staged validation chain",
+      "status": "public"
     }
   ]
 }

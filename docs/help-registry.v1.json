@@ -310,6 +310,20 @@
         "simulation fidelity",
         "fast validation"
       ]
+    },
+    {
+      "id": "how-to.read-staged-validation",
+      "path": "how-to/read-staged-validation.html",
+      "title": "How to read a staged validation chain",
+      "kind": "how-to",
+      "status": "public",
+      "aliases": [
+        "staged validation",
+        "validation funnel",
+        "validation chain",
+        "read validation result",
+        "seven stage validation"
+      ]
     }
   ]
 }
