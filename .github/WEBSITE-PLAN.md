@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **Phase A complete / Phase B visual depth in progress**
+Status: **Phase A complete / Phase B visual depth complete / Phase C next**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -368,8 +368,8 @@ Initial performance rules:
 - [x] Expanded Research Lab passes 320px reflow and 200% text-size stress.
 - [x] Build the walk-forward landscape.
 - [x] Build the explicit in-sample/out-of-sample boundary visualization.
-- [ ] Build drawdown-valley path visualization.
-- [ ] Build the selection/multiple-testing funnel.
+- [x] Build drawdown-valley path visualization.
+- [x] Build the selection/multiple-testing funnel.
 ### Phase C — documentation system
 
 - durable docs taxonomy
@@ -489,6 +489,22 @@ The walk-forward and holdout-boundary slice was reviewed for false precision, mi
 | Medium | New long validation modules could reintroduce mobile/large-text overflow or fail to initialize on direct hash navigation. | Both modules pass 320px reflow, 200% text stress, and independent 390px direct-link initialization below the sticky navigation. |
 
 **Validation-geometry result:** no unresolved high-severity findings. Rolling/anchored mode switching, fold navigation, preserved/repeated-peek information flow, direct links, narrow reflow, and large-text behavior pass in Windows Edge/Puppeteer.
+## 12E. Path-risk and selection review — 2026-09-10
+
+The final Phase B slice was reviewed for invalid quantitative claims, accidental workflow prescription, random-sample overfitting in the acceptance test itself, encoding defects, and responsive failures.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | The selection funnel could imply that “top 25% → top 5% → winner” is a recommended validation workflow. | The page now states that those planes are a simplified visualization of selection pressure only, under an independent standardized-Normal null; it directs users to the Methods limitations rather than presenting the funnel as product or research procedure. |
+| Medium | The first drawdown headline said the synthetic paths reached the “same” endpoint, but the generated endpoints are only similar. | Softened the claim to “Similar endpoints” so the copy matches the actual deterministic paths. |
+| Medium | The first drawdown JavaScript used unary minus directly before exponentiation, which is invalid JavaScript syntax. | Rewrote the Gaussian-valley terms with `Math.pow(...)`; `node --check` now passes before browser execution. |
+| Medium | A corrupted non-ASCII arrow appeared in the selection canvas label during file transfer. | Replaced the label with ASCII-safe text and added a UTF-8 replacement-character scan during review. |
+| Medium | Requiring the observed maximum of one null sample to increase monotonically with family size would make the acceptance test statistically unsound. | Browser acceptance checks monotonicity of the explicit Normal order-statistic reference instead. The observed maximum remains one deterministic example and is not used as the theorem. |
+| Medium | “Final survivors” could imply that the simplified funnel proves a validated survivor. | Renamed the metric to “final selected synthetic example”; the highlighted point is explicitly described as noise, not a profitable strategy. |
+| Medium | Drawdown modes could have labels without materially different path geometry. | Browser assertions verify: deep shock has larger maximum drawdown than long valley; long valley remains underwater longer; repeated-valley mode records multiple peak recoveries. |
+| Medium | The two new long modules could break narrow/large-text layouts or fail when deep-linked. | Expanded Research Lab passes 320px reflow, 200% text stress, and independent 390px hash-link lazy initialization for both modules. |
+
+**Phase B completion result:** no unresolved high-severity findings. The Research Lab now has nine real educational visual modules/sections spanning candidate geometry, uncertainty, parameter robustness, correlation, distributions, walk-forward partitioning, holdout information flow, drawdown path risk, and multiple-testing selection pressure. Phase B is complete without changing the legacy homepage or claiming unverified product capability.
 ## 13. Acceptance checklist
 
 ### Governance / truth
@@ -613,3 +629,7 @@ The additive first milestone is complete when:
 - 2026-09-10: Built the walk-forward validation landscape with rolling/anchored window geometry, seven selectable folds, explicit train/evaluation encodings, and no performance data.
 - 2026-09-10: Built the in-sample/out-of-sample information-boundary visualization with preserved-holdout and repeated-peek modes; four feedback loops are explicitly illustrative.
 - 2026-09-10: Validation-geometry adversarial review corrected repeated-peek labeling, removed unnecessary `innerHTML`, strengthened duplicate-ID/script integrity checks, and passed 320px/200%-text/direct-link browser acceptance.
+- 2026-09-10: Built the drawdown-valley explorer with deep-shock, long-valley, and repeated-valley deterministic paths; browser checks verify distinct depth/duration/recovery behavior.
+- 2026-09-10: Built the independent-null selection funnel with keyboard-controlled candidate family size, explicit Normal order-statistic reference, and simplified-stage disclosure.
+- 2026-09-10: Final Phase B adversarial review corrected overstrong endpoint copy, invalid exponentiation syntax, a transferred label encoding defect, workflow-prescription risk, and an unsound observed-max monotonicity test.
+- 2026-09-10: Phase B completion browser acceptance passed drawdown semantics, selection-family effect, keyboard interaction, 320px reflow, 200% text stress, and 390px direct links.

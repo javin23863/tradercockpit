@@ -27,6 +27,7 @@ SITE_SEARCH = DOCS / "assets" / "site-search.js"
 VIDEO_SCRIPT = DOCS / "assets" / "video-slot.js"
 LAB_DEPTH = DOCS / "assets" / "research-lab-depth.js"
 LAB_VALIDATION = DOCS / "assets" / "research-lab-validation.js"
+LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
 
 
 class PageParser(HTMLParser):
@@ -126,7 +127,7 @@ def main() -> int:
 
     lab_page = DOCS / "research-lab.html"
     lab_parser = parsers.get(lab_page)
-    required_lab_ids = {"parameter-robustness", "correlation", "distribution", "walk-forward", "out-of-sample"}
+    required_lab_ids = {"parameter-robustness", "correlation", "distribution", "walk-forward", "out-of-sample", "drawdown", "selection-bias"}
     if lab_parser:
         missing_ids = required_lab_ids.difference(lab_parser.ids)
         if missing_ids:
@@ -135,6 +136,8 @@ def main() -> int:
             problems.append("Research Lab Phase B script missing")
         if not any(src.endswith("assets/research-lab-validation.js") for src in lab_parser.scripts):
             problems.append("Research Lab validation script missing")
+        if not any(src.endswith("assets/research-lab-risk.js") for src in lab_parser.scripts):
+            problems.append("Research Lab risk script missing")
     if not LAB_DEPTH.is_file():
         problems.append("missing docs/assets/research-lab-depth.js")
     else:
@@ -153,6 +156,16 @@ def main() -> int:
             problems.append("Research Lab validation script contains an external network target")
         if "innerHTML" in validation_script:
             problems.append("Research Lab validation script should not use innerHTML")
+    if not LAB_RISK.is_file():
+        problems.append("missing docs/assets/research-lab-risk.js")
+    else:
+        risk_script = LAB_RISK.read_text(encoding="utf-8")
+        if "IntersectionObserver" not in risk_script:
+            problems.append("Research Lab risk modules are not lazy-initialized")
+        if "http://" in risk_script or "https://" in risk_script:
+            problems.append("Research Lab risk script contains an external network target")
+        if "innerHTML" in risk_script:
+            problems.append("Research Lab risk script should not use innerHTML")
     registry_entries: list[dict] = []
     if not REGISTRY.is_file():
         problems.append("missing docs/help-registry.v1.json")

@@ -591,3 +591,17 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
 .validation-canvas { height: 430px; }
 @media (max-width: 720px) { .validation-canvas { height: 350px; } }
 @media (max-width: 470px) { .validation-canvas { height: 310px; } }
+
+/* ---------- path risk + selection ---------- */
+.risk-canvas { height: 430px; }
+.selection-canvas { height: 440px; }
+
+@media (max-width: 720px) {
+  .risk-canvas { height: 350px; }
+  .selection-canvas { height: 350px; }
+}
+
+@media (max-width: 470px) {
+  .risk-canvas { height: 310px; }
+  .selection-canvas { height: 315px; }
+}

@@ -196,12 +196,39 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="next-lab-title">
+    <section class="section" id="drawdown" aria-labelledby="drawdown-title">
       <div class="shell">
-        <div class="section-head"><span class="eyebrow">Next atlas modules</span><h2 id="next-lab-title">Two path-and-selection views remain in this phase.</h2><p>These are public educational modules still open in the living checklist. Their presence here does not assert that a matching TraderCockpit product capability is available.</p></div>
-        <div class="card-grid">
-          <article class="depth-card" id="drawdown"><span class="kicker">Path risk</span><h3>Drawdown valleys</h3><p>Depth, duration, and recovery can be made spatial so one headline statistic does not hide the path.</p><a class="deep-link" href="methods/#drawdown">Understand the method →</a></article>
-          <article class="depth-card" id="selection-bias"><span class="kicker">Multiple testing</span><h3>Selection funnel</h3><p>A large candidate family narrows through explicit filters so the cost of selection can be discussed rather than hidden.</p><a class="deep-link" href="methods/#selection-bias">Understand the method →</a></article>
+        <div class="section-head">
+          <span class="eyebrow">08 / Path-dependent risk</span>
+          <h2 id="drawdown-title">Similar endpoints can hide very different time spent underwater.</h2>
+          <p>Drawdown is a path property. These deterministic synthetic index paths show a deep shock, a long shallow valley, and repeated valleys. The shaded distance from each running peak makes depth and recovery visible without treating a single maximum-drawdown number as the whole story.</p>
+        </div>
+        <div class="visual-panel" data-drawdown-explorer>
+          <div class="visual-topline"><div><h3>Drawdown valley explorer</h3><p class="micro">120 synthetic path steps · running-peak reference · no market or account data</p></div><span class="synthetic-badge">Illustrative path risk</span></div>
+          <div class="segmented-controls" aria-label="Synthetic drawdown path shape"><button class="control-btn" type="button" data-drawdown-mode="deep" aria-pressed="true">Deep shock</button><button class="control-btn" type="button" data-drawdown-mode="long" aria-pressed="false">Long valley</button><button class="control-btn" type="button" data-drawdown-mode="repeat" aria-pressed="false">Repeated valleys</button></div>
+          <canvas id="drawdown-canvas" class="lab-depth-canvas risk-canvas" role="img" aria-label="A synthetic index path is plotted against its running peak. The vertical shaded distance below the running peak represents drawdown depth; horizontal extent represents time underwater."></canvas>
+          <div class="metric-row" aria-label="Synthetic drawdown summary"><div class="metric"><b id="drawdown-max">—</b><span>maximum synthetic drawdown</span></div><div class="metric"><b id="drawdown-duration">—</b><span>longest underwater run</span></div><div class="metric"><b id="drawdown-recoveries">—</b><span>new-peak recoveries</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Path · synthetic index</strong><span>A generated level path used only to explain drawdown geometry.</span></div><div class="legend-item"><strong>Running peak</strong><span>The highest synthetic level observed up to each step.</span></div><div class="legend-item"><strong>Vertical gap · depth</strong><span>Drawdown is measured from the prior running peak to the current level.</span></div><div class="legend-item"><strong>Horizontal span · duration</strong><span>Time underwater continues until the path reaches a new running peak.</span></div></div>
+          <a class="deep-link" href="methods/#drawdown">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="selection-bias" aria-labelledby="selection-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">09 / Multiple testing</span>
+          <h2 id="selection-title">Search more candidates and the best-looking noise gets more extreme.</h2>
+          <p>This synthetic independent-null demonstration draws candidate scores from a standardized Normal distribution with no signal. Increase the family size to see how selection alone can produce a more impressive maximum. The approximation is educational and depends on the stated independence/Normal assumptions.</p>
+        </div>
+        <div class="visual-panel" data-selection-explorer>
+          <div class="visual-topline"><div><h3>Selection / multiple-testing funnel</h3><p class="micro">Independent synthetic Normal null · deterministic seed per family size · no strategy results</p></div><span class="synthetic-badge">Illustrative selection effect</span></div>
+          <div class="threshold-control"><label for="selection-family">Synthetic candidate family <output id="selection-family-value" for="selection-family">64</output></label><input id="selection-family" type="range" min="4" max="10" step="1" value="6" aria-valuetext="64 synthetic candidates"></div>
+          <canvas id="selection-canvas" class="lab-depth-canvas selection-canvas" role="img" aria-label="A perspective funnel carries a synthetic candidate family through increasingly selective stages. The final highlighted point is the maximum of independent standardized Normal noise, illustrating selection rather than skill."></canvas>
+          <div class="metric-row" aria-label="Synthetic selection summary"><div class="metric"><b id="selection-observed">—</b><span>observed maximum synthetic z-score</span></div><div class="metric"><b id="selection-typical">—</b><span>approx. typical maximum under null</span></div><div class="metric"><b id="selection-survivors">—</b><span>final selected synthetic example</span></div></div>
+          <div class="notice"><strong>Assumption boundary:</strong> the typical-maximum marker uses a Normal order-statistic approximation under independent draws. The top-25% and top-5% planes are a simplified visualization of selection pressure, not a recommended validation workflow. Real research candidates can be dependent, non-Normal, filtered in multiple ways, and require methods designed for the actual selection process.</div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Particles · candidates</strong><span>Dots are synthetic null scores; large families are sampled visually for performance.</span></div><div class="legend-item"><strong>Planes · selection stages</strong><span>Each plane retains a smaller upper-ranked subset only to illustrate selection pressure.</span></div><div class="legend-item"><strong>Final glow · selected maximum</strong><span>The highlighted point is the largest synthetic score, not a profitable strategy.</span></div><div class="legend-item"><strong>Typical-max marker</strong><span>An approximate Normal order-statistic reference makes the family-size effect explicit.</span></div></div>
+          <a class="deep-link" href="methods/#selection-bias">Read selection-bias limitations →</a>
         </div>
       </div>
     </section>
@@ -251,5 +278,6 @@
   <script src="assets/research-lab.js" defer></script>
   <script src="assets/research-lab-depth.js" defer></script>
   <script src="assets/research-lab-validation.js" defer></script>
+  <script src="assets/research-lab-risk.js" defer></script>
 </body>
 </html>
