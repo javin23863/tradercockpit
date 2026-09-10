@@ -568,6 +568,38 @@
         "event markers",
         "chart interpretation"
       ]
+    },
+    {
+      "id": "support",
+      "title": "Support",
+      "path": "support/",
+      "kind": "support",
+      "summary": "Find the right route for exact documentation, task guidance, research explanations, troubleshooting, and current product status.",
+      "terms": [
+        "support",
+        "help",
+        "troubleshooting",
+        "documentation",
+        "how to",
+        "product status",
+        "windows desktop"
+      ]
+    },
+    {
+      "id": "trust",
+      "title": "Trust",
+      "path": "trust/",
+      "kind": "trust",
+      "summary": "How TraderCockpit separates evidence provenance, synthetic examples, product availability, and research interpretation.",
+      "terms": [
+        "trust",
+        "evidence",
+        "provenance",
+        "synthetic data",
+        "product boundary",
+        "performance claims",
+        "auditability"
+      ]
     }
   ]
 }
