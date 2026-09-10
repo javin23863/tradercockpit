@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Focused integrity checks for the additive TraderCockpit public-site architecture."""
+"""Focused integrity checks for the TraderCockpit public-site architecture."""
 from __future__ import annotations
 
 from html.parser import HTMLParser
@@ -10,10 +10,12 @@ import os
 import re
 import subprocess
 import sys
+import xml.etree.ElementTree as ET
 
 REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 PAGES = [
+    DOCS / "index.html",
     DOCS / "research-lab.html",
     DOCS / "docs" / "index.html",
     DOCS / "learn" / "index.html",
@@ -37,6 +39,10 @@ VIDEO_SCRIPT = DOCS / "assets" / "video-slot.js"
 LAB_DEPTH = DOCS / "assets" / "research-lab-depth.js"
 LAB_VALIDATION = DOCS / "assets" / "research-lab-validation.js"
 LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
+HOME_PAGE = DOCS / "index.html"
+HOME_SCRIPT = DOCS / "assets" / "home-v2.js"
+HOME_STYLE = DOCS / "assets" / "home-v2.css"
+SITEMAP = DOCS / "sitemap.xml"
 
 
 class PageParser(HTMLParser):
@@ -133,6 +139,44 @@ def main() -> int:
             problems.append(f"bad canonical: {page.relative_to(REPO)}")
         if not any(src.endswith("assets/site-search.js") for src in parser.scripts):
             problems.append(f"missing local search script: {page.relative_to(REPO)}")
+
+    home_text = HOME_PAGE.read_text(encoding="utf-8") if HOME_PAGE.is_file() else ""
+    home_parser = parsers.get(HOME_PAGE)
+    required_home_ids = {
+        "home-universe-canvas", "home-universe-pause", "home-universe-reset",
+        "product-state", "product-heading", "product-summary", "manifest-capabilities",
+        "manifest-detail", "product-cta", "youtube-cta", "purchase-support",
+        "waitlist-form", "waitlist-email", "waitlist-first-name", "waitlist-source",
+        "waitlist-utm-source", "waitlist-utm-medium", "waitlist-utm-campaign",
+    }
+    if home_parser:
+        missing_ids = required_home_ids.difference(home_parser.ids)
+        if missing_ids:
+            problems.append(f"homepage missing manifest/waitlist contract IDs: {sorted(missing_ids)}")
+        if not any(src.endswith("assets/home-v2.js") for src in home_parser.scripts):
+            problems.append("homepage visual script missing")
+    for asset in (HOME_SCRIPT, HOME_STYLE):
+        if not asset.is_file():
+            problems.append(f"missing homepage asset: {asset.relative_to(REPO)}")
+    if HOME_SCRIPT.is_file():
+        home_script = HOME_SCRIPT.read_text(encoding="utf-8")
+        if "http://" in home_script or "https://" in home_script:
+            problems.append("homepage visual script contains an external network target")
+        if "prefers-reduced-motion" not in home_script or "visibilitychange" not in home_script:
+            problems.append("homepage visual script is missing motion/visibility safeguards")
+    for marker in ("product-manifest.mjs", "prelaunch-config.mjs", "activatePrelaunch", "loadProductManifest"):
+        if marker not in home_text:
+            problems.append(f"homepage missing product/prelaunch contract: {marker}")
+    for marker in ('name="email_address"', 'name="fields[first_name]"', 'name="fields[source]"', 'name="fields[utm_source]"', 'name="fields[utm_medium]"', 'name="fields[utm_campaign]"'):
+        if marker not in home_text:
+            problems.append(f"homepage missing waitlist field contract: {marker}")
+    if not re.search(r'<form[^>]*id="waitlist-form"[^>]*hidden', home_text):
+        problems.append("homepage waitlist form must fail closed in static HTML")
+    if not re.search(r'<a[^>]*id="product-cta"[^>]*hidden', home_text):
+        problems.append("homepage product CTA must fail closed until manifest verification")
+    for legacy_id in ("initiate", "rungrid", "phases", "verdict", "chips"):
+        if f'id="{legacy_id}"' in home_text:
+            problems.append(f"legacy homepage simulation remains present: #{legacy_id}")
 
     lab_page = DOCS / "research-lab.html"
     lab_parser = parsers.get(lab_page)
@@ -334,6 +378,20 @@ def main() -> int:
                 target_parser = parsers.get(target) or parse_page(target)
                 if fragment not in target_parser.ids:
                     problems.append(f"broken anchor {page.relative_to(REPO)} -> {href}")
+
+    if not SITEMAP.is_file():
+        problems.append("missing docs/sitemap.xml")
+    else:
+        try:
+            root = ET.parse(SITEMAP).getroot()
+            sitemap_urls = {node.text.strip() for node in root.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc") if node.text}
+        except (ET.ParseError, OSError) as exc:
+            problems.append(f"invalid sitemap XML: {exc}")
+            sitemap_urls = set()
+        expected_urls = {parser.canonical for page, parser in parsers.items() if page != HELP_PAGE and parser.canonical}
+        missing_urls = expected_urls.difference(sitemap_urls)
+        if missing_urls:
+            problems.append(f"sitemap missing public pages: {sorted(missing_urls)}")
 
     public_text = "\n".join(page.read_text(encoding="utf-8") for page in PAGES if page.is_file())
     if REGISTRY.is_file():

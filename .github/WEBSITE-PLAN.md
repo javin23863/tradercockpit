@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **Phase A complete / Phase B visual depth complete / Phase C documentation system complete / Phase D next**
+Status: **Phase A complete / Phase B complete / Phase C complete / Phase D homepage integration complete / Phase E next**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -395,13 +395,34 @@ Initial performance rules:
 
 ### Phase D — homepage integration
 
-Only after Phase A/B acceptance:
+Completed after Phase A/B/C acceptance:
 
-- replace legacy/decorative hero behavior with the accepted Strategy Universe narrative
-- connect homepage to Research Lab, Learn, Docs, Methods, Examples
-- preserve manifest-driven CTA behavior
-- preserve waitlist/prelaunch behavior until manifest state changes
-- update metadata, sitemap, and internal navigation
+- [x] Replace the legacy/decorative hero with the accepted synthetic Strategy Universe narrative.
+- [x] Connect the homepage to Research Lab, Learn, Docs, Methods, Examples, and Updates.
+- [x] Preserve manifest-driven product/CTA behavior and fail closed when the manifest cannot be verified.
+- [x] Preserve the existing prelaunch/waitlist integration and UTM/source mapping while manifest status remains `waitlist`.
+- [x] Separate public research education from product availability and verified capability.
+- [x] Provide no-JavaScript, reduced-motion, keyboard, 320px reflow, and 200% text-size behavior.
+- [x] Make initial homepage load same-origin only; external YouTube is a normal outbound link, not an eager embed/request.
+- [x] Update homepage metadata, local search coverage, sitemap, and integrity checks.
+- [x] Perform screenshot/adversarial visual review before commit.
+
+## 12F. Homepage integration review — 2026-09-10
+
+The Phase D homepage replacement was reviewed against the accepted Research Lab direction and the existing public product/waitlist contracts before commit.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | Replacing the old homepage could silently turn synthetic research education into implied product output or performance evidence. | The new hero and atlas explicitly use deterministic synthetic data, label the axes/visuals as research geometry, state that no market data is used, and keep product availability in a separate manifest-governed section. |
+| High | A redesigned product section could bypass the canonical manifest or expose a waitlist/CTA when product truth cannot be verified. | Static HTML fails closed with `STATUS: UNVERIFIED`, hidden waitlist and product CTA. Browser acceptance verifies the live `waitlist` state, Windows platform detail, canonical CTA, and a simulated manifest-500 failure that leaves conversion UI hidden. |
+| High | Homepage rewiring could break the existing Kit double-opt-in and attribution contract. | The original field names, source mapping, UTM fields, and prelaunch activation path are preserved; browser acceptance verifies the Kit form action and YouTube/social attribution values. |
+| Medium | The richer hero could create persistent animation or unusable no-JavaScript controls. | Motion has Pause/Resume and Reset controls, stops while hidden, hides the motion control under `prefers-reduced-motion`, and leaves a static explanatory fallback with inert controls hidden when JavaScript is disabled. |
+| Medium | The new homepage could become a privacy/performance regression by eagerly contacting third parties. | Browser request capture confirms no initial external requests; search remains same-origin and YouTube remains an explicit outbound action. |
+| Medium | Large typography and the visual grid could overflow narrow or enlarged-text layouts. | Browser acceptance passes at 320px and at 200% text size without horizontal overflow. |
+| Medium | The homepage/search/sitemap/integrity rewrite was initially saved with CRLF, causing the repository whitespace gate to fail. | All changed text files were normalized to LF and `git diff --check` is required in the final checkpoint gate. |
+| Medium | A visually attractive marketing homepage could dead-end instead of supporting exploration. | The homepage now exposes direct paths into Research Lab, Concept, Method, How-To, Docs, Examples, Updates, and the stable contextual-help contract. |
+
+**Phase D result:** no unresolved high-severity findings. Windows Edge/Puppeteer acceptance passes manifest/waitlist truth, fail-closed behavior, local search, initial-request privacy, 320px reflow, 200% text enlargement, reduced motion, no-JavaScript fallback, and hero controls. Screenshot review covers the hero, research atlas, information-flow section, connected-learning system, and product/waitlist surface.
 
 ### Phase E — Academy and examples
 
@@ -663,3 +684,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Phase B completion browser acceptance passed drawdown semantics, selection-family effect, keyboard interaction, 320px reflow, 200% text stress, and 390px direct links.
 - 2026-09-10: Phase C added a versioned content taxonomy, four authoring templates, eight source-generated Concept pages, a full Monte Carlo Method, a full product-neutral interpretation How-To, and a stable help-ID resolver.
 - 2026-09-10: Phase C adversarial review completed the Concept → visual → Method → How-To chain and passed 11-page help/search/video/reflow browser acceptance.
+- 2026-09-10: Phase D replaced the legacy homepage with a research-first Strategy Universe hero, six-entry visual atlas, evidence/information-flow narrative, connected learning/help map, and a separate manifest-governed public product state.
+- 2026-09-10: Homepage browser acceptance verified the canonical waitlist form/action, UTM/source mapping, manifest CTA/platform truth, no initial third-party requests, fail-closed manifest behavior, reduced motion, no-JavaScript fallback, 320px reflow, and 200% text enlargement.
+- 2026-09-10: Phase D adversarial visual review accepted the hero/research/learning/development surfaces after normalizing CRLF formatting that had failed `git diff --check`.
