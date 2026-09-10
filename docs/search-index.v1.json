@@ -462,6 +462,21 @@
         "total profit",
         "cumulative trade outcome"
       ]
+    },
+    {
+      "id": "research.higher-precision",
+      "title": "Higher-precision retesting",
+      "path": "methods/validation-foundations.html#higher-precision",
+      "kind": "method",
+      "summary": "Why rerunning a strategy under a more detailed execution model can reveal sensitivity to simulation approximations.",
+      "terms": [
+        "higher precision",
+        "precision retest",
+        "execution model",
+        "simulation fidelity",
+        "fast validation",
+        "retesting"
+      ]
     }
   ]
 }

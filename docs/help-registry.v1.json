@@ -296,6 +296,20 @@
         "cumulative pnl",
         "total profit loss"
       ]
+    },
+    {
+      "id": "research.higher-precision",
+      "path": "methods/validation-foundations.html#higher-precision",
+      "title": "Higher-precision retesting",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "higher precision",
+        "precision retest",
+        "execution model sensitivity",
+        "simulation fidelity",
+        "fast validation"
+      ]
     }
   ]
 }
