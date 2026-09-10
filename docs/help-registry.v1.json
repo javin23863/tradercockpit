@@ -232,6 +232,19 @@
         "return dd ratio",
         "return drawdown ratio"
       ]
+    },
+    {
+      "id": "research.equity-curve",
+      "path": "methods/#equity-curve",
+      "title": "Equity Curve",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "equity curve",
+        "balance curve",
+        "cumulative equity",
+        "performance curve"
+      ]
     }
   ]
 }
