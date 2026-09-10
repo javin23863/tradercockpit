@@ -276,6 +276,13 @@
       "path": "learn/glossary.html",
       "title": "Research Glossary",
       "status": "public"
+    },
+    {
+      "id": "support.faq",
+      "kind": "landing",
+      "path": "support/faq.html",
+      "title": "Frequently Asked Questions",
+      "status": "public"
     }
   ]
 }
