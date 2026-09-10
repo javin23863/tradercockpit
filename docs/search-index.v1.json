@@ -658,6 +658,22 @@
         "evidence",
         "orientation"
       ]
+    },
+    {
+      "id": "learn.videos",
+      "title": "Video Lessons",
+      "path": "learn/videos.html",
+      "kind": "learn",
+      "summary": "Optional click-to-load research videos paired with complete written Concepts, Methods, and How-Tos.",
+      "terms": [
+        "video lessons",
+        "videos",
+        "youtube",
+        "monte carlo video",
+        "academy video",
+        "click to load",
+        "research video"
+      ]
     }
   ]
 }
