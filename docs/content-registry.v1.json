@@ -192,6 +192,41 @@
       "path": "methods/result-metrics.html",
       "title": "Backtest Result Metrics",
       "status": "public"
+    },
+    {
+      "id": "method.validation-foundations",
+      "kind": "method",
+      "path": "methods/validation-foundations.html",
+      "title": "Validation foundations",
+      "status": "public"
+    },
+    {
+      "id": "method.acceptance-conditions",
+      "kind": "method",
+      "path": "methods/validation-foundations.html#acceptance-conditions",
+      "title": "Acceptance conditions",
+      "status": "public"
+    },
+    {
+      "id": "method.year-consistency",
+      "kind": "method",
+      "path": "methods/validation-foundations.html#year-consistency",
+      "title": "Calendar-year consistency",
+      "status": "public"
+    },
+    {
+      "id": "method.evidence-chain",
+      "kind": "method",
+      "path": "methods/validation-foundations.html#evidence-chain",
+      "title": "Evidence and provenance chains",
+      "status": "public"
+    },
+    {
+      "id": "method.net-profit",
+      "kind": "method",
+      "path": "methods/result-metrics.html#net-profit",
+      "title": "Net Profit",
+      "status": "public"
     }
   ]
 }

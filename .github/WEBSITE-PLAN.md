@@ -802,3 +802,6 @@ The additive first milestone is complete when:
 
 - 2026-09-10: Added bounded public-help search prefill for desktop/in-app handoff. `#search=` is preferred so the term stays out of the HTTP request; `?q=` remains a bounded web fallback. Auto-open is limited to 120 characters, ordinary content anchors remain unaffected, and search still uses only the same-origin static index.
 - 2026-09-10: Search-prefill browser acceptance passed local-only request checks, Monte Carlo ranking, normal-anchor isolation, overlong-input fail-closed behavior, 1280px/390px reflow, and 200% text enlargement.
+- 2026-09-10: Added product-neutral Validation Foundations covering acceptance conditions, calendar-year consistency, and evidence/provenance chains, plus Net Profit in the Backtest Result Metrics reference. Four new stable help IDs resolve directly to those anchors without asserting product availability.
+- 2026-09-10: Validation-foundation browser acceptance passed all four help-ID routes at 1280px and 390px with no overflow or console errors; public-claims authority remains waitlist with zero verified capabilities.
+- 2026-09-10: Adversarial wording review softened an overstrong reproducibility claim: evidence provenance helps support reproducibility and auditability but does not guarantee methodological validity or future performance.

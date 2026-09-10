@@ -394,6 +394,74 @@
         "drawdown",
         "performance path"
       ]
+    },
+    {
+      "id": "validation-foundations",
+      "title": "Validation foundations",
+      "path": "methods/validation-foundations.html",
+      "kind": "method",
+      "summary": "Acceptance conditions, calendar-year consistency, and evidence provenance as separate validation controls.",
+      "terms": [
+        "validation foundations",
+        "acceptance criteria",
+        "year consistency",
+        "evidence chain",
+        "provenance"
+      ]
+    },
+    {
+      "id": "research.acceptance-conditions",
+      "title": "Acceptance conditions",
+      "path": "methods/validation-foundations.html#acceptance-conditions",
+      "kind": "method",
+      "summary": "Predefined metric, operator, threshold, and sample rules used as explicit research checks.",
+      "terms": [
+        "acceptance conditions",
+        "acceptance criteria",
+        "ranking conditions",
+        "threshold",
+        "initial test"
+      ]
+    },
+    {
+      "id": "research.year-consistency",
+      "title": "Calendar-year consistency",
+      "path": "methods/validation-foundations.html#year-consistency",
+      "kind": "method",
+      "summary": "A coarse time partition for checking whether an aggregate result depends on only a few calendar years.",
+      "terms": [
+        "profitable years",
+        "year consistency",
+        "calendar year",
+        "golden validation"
+      ]
+    },
+    {
+      "id": "research.evidence-chain",
+      "title": "Evidence and provenance chains",
+      "path": "methods/validation-foundations.html#evidence-chain",
+      "kind": "method",
+      "summary": "Immutable identity and lineage connecting the exact artifacts evaluated in a research conclusion.",
+      "terms": [
+        "research proof",
+        "evidence chain",
+        "provenance",
+        "custody",
+        "lineage"
+      ]
+    },
+    {
+      "id": "research.net-profit",
+      "title": "Net Profit",
+      "path": "methods/result-metrics.html#net-profit",
+      "kind": "method",
+      "summary": "Aggregate trade P/L over a selected sample under its stated accounting convention.",
+      "terms": [
+        "net profit",
+        "pnl",
+        "total profit",
+        "cumulative trade outcome"
+      ]
     }
   ]
 }
