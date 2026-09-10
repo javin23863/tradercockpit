@@ -309,6 +309,22 @@
         "deep link",
         "resolver"
       ]
+    },
+    {
+      "id": "example.holdout-selection",
+      "title": "Synthetic holdout selection example",
+      "path": "examples/holdout-selection.html",
+      "kind": "example",
+      "summary": "An end-to-end synthetic research story connecting selection, preserved holdout evidence, walk-forward checks, Monte Carlo interpretation, limitations, and next questions.",
+      "terms": [
+        "research example",
+        "holdout",
+        "selection bias",
+        "walk forward",
+        "monte carlo",
+        "limitations",
+        "case study"
+      ]
     }
   ]
 }

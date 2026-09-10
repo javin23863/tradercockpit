@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **Phase A complete / Phase B complete / Phase C complete / Phase D homepage integration complete / Phase E next**
+Status: **Phase A complete / Phase B complete / Phase C complete / Phase D complete / Phase E Academy/examples complete / Phase F next**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -426,10 +426,29 @@ The Phase D homepage replacement was reviewed against the accepted Research Lab 
 
 ### Phase E — Academy and examples
 
-- structured Academy learning paths
-- click-to-load video lesson template
-- first end-to-end synthetic research example
-- cross-links between video, concepts, methods, and help IDs
+- [x] Build multiple structured Academy learning paths rather than a video-thumbnail catalog.
+- [x] Preserve the click-to-load video lesson template with written instruction as the primary source.
+- [x] Publish the first end-to-end synthetic research example with question, selection context, reserved evidence, validation, interpretation, limitations, and next question.
+- [x] Cross-link Concept, Visual, Method, How-To, Example, search, and stable help IDs.
+- [x] Keep all example values explicitly synthetic and product-neutral.
+- [x] Pass local-search, help-resolver, privacy, 320px reflow, 200% text, and visual review.
+
+## 12G. Academy and synthetic-example review — 2026-09-10
+
+Phase E was reviewed for performance-claim leakage, accidental product-workflow disclosure, weak learning structure, navigation dead ends, and responsive regressions.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | An end-to-end example could read like a successful real strategy validation and imply future performance. | Example 001 uses deterministic synthetic values only, exposes no live strategy/account/market data, states “No performance claim,” says agreement across checks is evidence rather than proof, and ends with explicit limitations plus a next research question. |
+| High | A public example could accidentally document unreleased product controls or internal workflow contracts. | The case study is product-neutral research education and links only to public Concept, Visual, Method, How-To, Example, and help destinations. No private route/control/backend identifiers are introduced. |
+| Medium | The Phase E plan called for Academy learning paths, but the first implementation contained only one complete path. | Added a second six-step path for path risk and uncertainty, so Academy now has separate validation and path-risk/uncertainty journeys. |
+| Medium | A selection example could hide how many alternatives were tried and make the chosen result look isolated. | The visual evidence chain explicitly shows `256 synthetic candidates → 1 development-selected candidate → 0 holdout feedback loops before selection`. |
+| Medium | A research story could terminate with a verdict instead of exposing uncertainty that remains. | The example requires a dedicated limitations section and finishes with “What assumption would most change the conclusion if it were wrong?” plus concrete next branches. |
+| Medium | Search/help plumbing could point to the example inconsistently or break once surfaced from the app. | The example is registered in content, local search, stable help routing, and sitemap; browser acceptance verifies `help.html?id=example.holdout-selection` and search ranking. |
+| Medium | Six-step Academy rows and the example evidence chain could become horizontal-overflow traps on narrow/large-text layouts. | Responsive rules collapse the evidence chain and Academy paths; browser acceptance passes at 320px and under 200% text enlargement. |
+| Medium | Educational pages could contact third parties merely by being opened. | Browser request capture confirms the example stays same-origin; video remains separately click-to-load. |
+
+**Phase E result:** no unresolved high-severity findings. Two distinct Academy paths and the first complete public synthetic case study are implemented, searchable, help-addressable, responsive, and visually reviewed.
 
 ### Phase F — hardening
 
@@ -687,3 +706,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Phase D replaced the legacy homepage with a research-first Strategy Universe hero, six-entry visual atlas, evidence/information-flow narrative, connected learning/help map, and a separate manifest-governed public product state.
 - 2026-09-10: Homepage browser acceptance verified the canonical waitlist form/action, UTM/source mapping, manifest CTA/platform truth, no initial third-party requests, fail-closed manifest behavior, reduced motion, no-JavaScript fallback, 320px reflow, and 200% text enlargement.
 - 2026-09-10: Phase D adversarial visual review accepted the hero/research/learning/development surfaces after normalizing CRLF formatting that had failed `git diff --check`.
+- 2026-09-10: Phase E published Example 001, a synthetic holdout-selection research chain covering selection context, preserved holdout evidence, walk-forward checks, Monte Carlo interpretation, limitations, and the next research question.
+- 2026-09-10: Academy now contains two six-step connected learning paths: research validation and path risk/uncertainty.
+- 2026-09-10: Phase E adversarial/browser review verified help resolution, local search, same-origin example loading, 320px reflow, 200% text enlargement, and visual clarity of the Academy paths and 256 → 1 → 0 evidence chain.

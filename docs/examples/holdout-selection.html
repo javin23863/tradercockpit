@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Synthetic Holdout Selection Example — TraderCockpit</title>
+  <meta name="description" content="A public synthetic research example connecting selection bias, holdout evidence, walk-forward validation, Monte Carlo interpretation, and limitations.">
+  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/examples/holdout-selection.html">
+  <link rel="stylesheet" href="../assets/site-v2.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../research-lab.html">Research Lab</a><a href="../learn/">Learn</a><a href="../docs/">Docs</a><a href="../methods/">Methods</a><a href="./" aria-current="page">Examples</a><a href="../updates/">Updates</a></div></div></nav>
+  <main id="main">
+    <section class="article-hero"><div class="shell article-hero-inner">
+      <div class="breadcrumb"><a href="./">Examples</a><span>/</span><span>Synthetic case 001</span></div>
+      <span class="eyebrow">Example 001 / selection → reserved evidence</span>
+      <h1>What changes when the result that won selection meets information it did not see?</h1>
+      <p>This case study is a deterministic educational scenario. It uses synthetic scores and partitions only—no market data, no account data, no live strategy, and no product-run output.</p>
+      <div class="article-meta"><span>256 synthetic candidates</span><span>Reserved holdout</span><span>No performance claim</span></div>
+    </div></section>    <section class="section article-section-wrap"><div class="shell article-layout">
+      <article class="article-main">
+        <section class="article-section" id="question"><span class="kicker">1 · Research question</span><h2>Define the question before seeing the reserved evidence.</h2><p>Suppose a researcher compares 256 synthetic candidates and chooses one using a development-only score. The question is not “did the winner look good?” The question is whether the selected candidate still looks structurally consistent when evaluated on information that did not participate in selection.</p></section>
+        <section class="article-section" id="selection"><span class="kicker">2 · Selection context</span><h2>One winner came from a family of 256.</h2><p>The selected candidate is shown in context because the number of alternatives matters. A best-looking synthetic score can become more extreme simply because more candidates were searched.</p>
+          <div class="example-flow" aria-label="Synthetic research evidence chain">
+            <div class="example-stage"><b>256</b><span>synthetic candidates searched</span></div>
+            <div class="example-arrow" aria-hidden="true">→</div>
+            <div class="example-stage"><b>1</b><span>development-selected candidate</span></div>
+            <div class="example-arrow" aria-hidden="true">→</div>
+            <div class="example-stage"><b>0</b><span>holdout feedback loops before selection</span></div>
+          </div>
+          <a class="deep-link" href="../research-lab.html#selection-bias">Open the multiple-testing visualization →</a>
+        </section>
+        <section class="article-section" id="holdout"><span class="kicker">3 · Preserved holdout</span><h2>Keep the evaluation information on the other side of the boundary.</h2><p>In this example, the held-out region is not consulted while the candidate family is being compared. That preserves the meaning of the later check better than repeatedly peeking at the holdout and then changing the selection.</p><a class="deep-link" href="../research-lab.html#out-of-sample">Inspect the information boundary →</a></section>
+        <section class="article-section" id="walk-forward"><span class="kicker">4 · Time-aware follow-up</span><h2>One holdout split is not the whole argument.</h2><p>The case then asks whether the conclusion depends heavily on one cutoff. Rolling and anchored synthetic windows provide several ordered train/evaluate partitions so consistency across time can be inspected without pretending those partitions are independent copies of the future.</p><a class="deep-link" href="../research-lab.html#walk-forward">Inspect walk-forward windows →</a></section>        <section class="article-section" id="monte-carlo"><span class="kicker">5 · Sequence uncertainty</span><h2>Ask how much the conclusion depends on one ordering.</h2><p>Monte Carlo or resampling methods can explore alternative synthetic paths under stated assumptions. In this case they are used to ask a sensitivity question about sequence and distribution—not to produce a forecast or probability of profit.</p><a class="deep-link" href="../how-to/read-monte-carlo.html">Use the Monte Carlo interpretation How-To →</a></section>
+        <section class="article-section" id="interpretation"><span class="kicker">6 · Interpretation</span><h2>Agreement across checks is evidence, not proof.</h2><p>If the selected synthetic candidate remains broadly consistent across reserved and time-aware checks, that supports a narrower statement: the observed development result was not obviously confined to one chosen sample under these illustrative procedures. It still does not establish a future edge, remove model risk, or validate assumptions that were never tested.</p></section>
+        <section class="article-section" id="limitations"><span class="kicker">7 · Limitations</span><h2>Name what this example still cannot answer.</h2><ul><li>The synthetic data-generating process is known and deliberately simplified.</li><li>Real candidate families may be strongly dependent rather than independent.</li><li>Costs, execution, regime shifts, data quality, and specification choices can change real conclusions.</li><li>Repeated researcher decisions can consume the information value of later checks.</li><li>No statistical procedure converts historical or synthetic evidence into certainty about future returns.</li></ul></section>
+        <section class="article-section" id="next-question"><span class="kicker">8 · Next research question</span><h2>What assumption would most change the conclusion if it were wrong?</h2><p>The example ends by choosing the next uncertainty to investigate rather than declaring success. A sensible next branch could be dependence between candidates, parameter-neighborhood stability, cost sensitivity, or a different resampling rule.</p><div class="related-grid"><a class="path-card" href="../learn/concepts/correlation-diversification.html"><strong>Candidate dependence</strong><span>See why independent-trial thinking can be misleading.</span></a><a class="path-card" href="../learn/concepts/parameter-robustness.html"><strong>Parameter neighborhood</strong><span>Inspect whether behavior persists around the selected point.</span></a></div></section>
+      </article>
+      <aside class="article-aside" aria-label="Example guide"><div class="side-panel"><h2>Research chain</h2><ol><li><a href="#question">Question</a></li><li><a href="#selection">Selection</a></li><li><a href="#holdout">Holdout</a></li><li><a href="#walk-forward">Walk-forward</a></li><li><a href="#monte-carlo">Monte Carlo</a></li><li><a href="#interpretation">Interpretation</a></li><li><a href="#limitations">Limitations</a></li></ol></div><div class="side-panel"><h2>Related layers</h2><a class="deep-link" href="../learn/concepts/selection-bias.html">Concept →</a><a class="deep-link" href="../research-lab.html#selection-bias">Visual →</a><a class="deep-link" href="../methods/monte-carlo.html">Method →</a><a class="deep-link" href="../how-to/read-monte-carlo.html">How-To →</a></div></aside>
+    </div></section>
+  </main>
+  <footer><div class="footer-inner"><div>TraderCockpit Example 001 · synthetic/public-safe research story.</div><div class="footer-links"><a href="./">Examples</a><a href="../learn/">Learn</a><a href="../research-lab.html">Research Lab</a></div></div></footer>
+  <script src="../assets/site-search.js" defer></script>
+</body>
+</html>

@@ -24,6 +24,7 @@ PAGES = [
     DOCS / "methods" / "index.html",
     DOCS / "methods" / "monte-carlo.html",
     DOCS / "examples" / "index.html",
+    DOCS / "examples" / "holdout-selection.html",
     DOCS / "updates" / "index.html",
     DOCS / "help.html",
 ] + sorted((DOCS / "learn" / "concepts").glob("*.html"))
@@ -346,6 +347,15 @@ def main() -> int:
             problems.append("site search does not load local search index")
         if "http://" in search_script or "https://" in search_script:
             problems.append("site search contains an external network target")
+
+    academy_text = (DOCS / "how-to" / "index.html").read_text(encoding="utf-8")
+    for academy_marker in ("validation-path", "path-risk-path", "../examples/holdout-selection.html", "../learn/concepts/selection-bias.html", "../learn/concepts/drawdown.html", "../learn/concepts/distribution-shape.html", "../methods/monte-carlo.html", "read-monte-carlo.html"):
+        if academy_marker not in academy_text:
+            problems.append(f"Academy connected path missing: {academy_marker}")
+    example_text = (DOCS / "examples" / "holdout-selection.html").read_text(encoding="utf-8")
+    for example_marker in ("256 synthetic candidates", "Reserved holdout", "No performance claim", "limitations", "next-question"):
+        if example_marker not in example_text:
+            problems.append(f"synthetic example contract missing: {example_marker}")
 
     how_to = DOCS / "how-to" / "index.html"
     how_text = how_to.read_text(encoding="utf-8") if how_to.is_file() else ""

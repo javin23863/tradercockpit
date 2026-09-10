@@ -169,6 +169,18 @@
         "interpret simulation percentile",
         "monte carlo how to"
       ]
+    },
+    {
+      "id": "example.holdout-selection",
+      "path": "examples/holdout-selection.html",
+      "title": "Synthetic holdout selection example",
+      "kind": "example",
+      "status": "public",
+      "aliases": [
+        "research example",
+        "holdout case study",
+        "selection example"
+      ]
     }
   ]
 }
