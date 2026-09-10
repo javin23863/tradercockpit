@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="data:,">
   <title>Documentation — TraderCockpit</title>
-  <meta name="description" content="TraderCockpit documentation architecture, contextual-help contract, and public reference entry point.">
+  <meta name="description" content="TraderCockpit documentation for exact answers, guided learning, contextual help, and product reference.">
   <link rel="canonical" href="https://javin23863.github.io/tradercockpit/docs/">
   <link rel="stylesheet" href="../assets/site-v2.css">
 </head>
@@ -26,7 +26,7 @@
   </nav>
 
   <main id="main" tabindex="-1">
-    <section class="page-hero landing-hero"><div class="shell landing-hero-grid"><div class="landing-hero-copy"><span class="eyebrow">Docs / exact reference</span><h1>Find the exact answer, not a marketing paragraph.</h1><p class="lede">Docs are reserved for precise, verified product reference. Research education belongs in Learn and Methods; task instructions belong in How-Tos. That separation keeps in-app help direct and predictable.</p><div class="notice">This public documentation area will only describe product behavior that is approved for public disclosure. Research concepts may exist on the site before a matching product capability is publicly verified.</div></div><div role="group" class="landing-hero-visual visual-docs" aria-label="Contextual help route from an in-app question through a stable help ID to the right public knowledge layer"><span class="visual-kicker">Contextual help / stable routing</span><div class="visual-orbit" aria-hidden="true"></div><div class="visual-core">help.html<br>?id=…</div><a class="visual-node n1" href="#contextual-help"><em>INPUT</em><strong>What is this?</strong>in-app question</a><a class="visual-node n2" href="../learn/concepts/monte-carlo.html"><em>ROUTE</em><strong>Concept</strong>intuition</a><a class="visual-node n3" href="../methods/monte-carlo.html"><em>ROUTE</em><strong>Method</strong>assumptions</a><a class="visual-node n4" href="../how-to/read-monte-carlo.html"><em>ROUTE</em><strong>How-To</strong>task</a><a class="visual-node n5" href="#contextual-help"><em>CONTRACT</em><strong>Reference</strong>verified only</a></div></div></section>
+    <section class="page-hero landing-hero"><div class="shell landing-hero-grid"><div class="landing-hero-copy"><span class="eyebrow">Docs / exact reference</span><h1>Find the exact answer, not a marketing paragraph.</h1><p class="lede">Docs are reserved for precise, verified product reference. Research education belongs in Learn and Methods; task instructions belong in How-Tos. That separation keeps in-app help direct and predictable.</p><div class="notice">Product-specific instructions appear here only after the behavior has been verified for customers. Research concepts can be available earlier without implying that a matching feature is ready.</div></div><div role="group" class="landing-hero-visual visual-docs" aria-label="Contextual help route from an in-app question to the right Concept, Method, How-To, or exact reference page"><span class="visual-kicker">Contextual help / find the right depth</span><div class="visual-orbit" aria-hidden="true"></div><div class="visual-core">WHAT DO<br>YOU NEED?</div><a class="visual-node n1" href="#contextual-help"><em>INPUT</em><strong>What is this?</strong>in-app question</a><a class="visual-node n2" href="../learn/concepts/monte-carlo.html"><em>ROUTE</em><strong>Concept</strong>intuition</a><a class="visual-node n3" href="../methods/monte-carlo.html"><em>ROUTE</em><strong>Method</strong>assumptions</a><a class="visual-node n4" href="../how-to/read-monte-carlo.html"><em>ROUTE</em><strong>How-To</strong>task</a><a class="visual-node n5" href="#contextual-help"><em>REFERENCE</em><strong>Exact answer</strong>verified behavior</a></div></div></section>
 
     <section class="section">
       <div class="shell">
@@ -39,7 +39,7 @@
           <article class="depth-card">
             <span class="kicker">Reference</span>
             <h3>What does this control mean?</h3>
-            <p>Exact field names, allowed values, behavior, validation, errors, defaults, and related help IDs—only after the behavior is verified for public documentation.</p>
+            <p>Exact field names, allowed values, behavior, validation, errors, defaults, and related explanations—after the behavior has been verified.</p>
           </article>
           <article class="depth-card">
             <span class="kicker">How-To</span>
@@ -61,20 +61,20 @@
       <div class="shell content-grid">
         <div class="content-panel">
           <span class="eyebrow">Contextual help</span>
-          <h2>Stable help IDs, exact deep links.</h2>
-          <p>Instead of sending a user from an in-app “What is this?” link to a generic documentation homepage, the site exposes a versioned registry of public-safe knowledge IDs. A future application integration can map a UI context to one of those IDs and open the exact explanation.</p>
-          <p>Example: <code>research.monte-carlo</code> resolves to the current public Monte Carlo concept page. An application can open <code>help.html?id=research.monte-carlo</code> and let the versioned registry choose the current destination, so the application does not need to hard-code documentation paths.</p>
-          <p>The public registry does not contain unreleased controls, private application routes, backend names, or internal implementation details.</p>
-          <div class="article-actions"><a class="deep-link" href="../help.html?id=research.monte-carlo">Test the public help resolver →</a><a class="deep-link" href="../help-registry.v1.json">View the public help registry →</a></div>
+          <h2>From “What is this?” to the exact explanation.</h2>
+          <p>In-app helper links can take you directly to the Concept, Method, How-To, or reference page that matches the thing you are looking at. You do not need to start at the documentation homepage or know where the page lives.</p>
+          <p>The destination can evolve as the documentation grows while the in-app link keeps opening the right topic.</p>
+          <p>Only customer-facing help topics are linked from the product, so unfinished features do not become part of the help experience.</p>
+          <div class="article-actions"><a class="deep-link" href="../help.html?id=research.monte-carlo">Try contextual help →</a><a class="deep-link" href="../learn/concepts/monte-carlo.html">See a concept page →</a></div>
         </div>
         <aside class="side-panel">
-          <h3>Publication gate</h3>
+          <h3>What you can expect</h3>
           <ul>
-            <li>Public-safe concept?</li>
-            <li>Product claim verified?</li>
-            <li>Exact behavior confirmed?</li>
-            <li>Deep link durable?</li>
-            <li>No proprietary/internal detail?</li>
+            <li>One click from the app</li>
+            <li>A topic-matched explanation</li>
+            <li>Concept, Method, How-To, or reference depth</li>
+            <li>Only verified customer-facing information</li>
+            <li>Links that stay useful as Docs grow</li>
           </ul>
         </aside>
       </div>
@@ -83,16 +83,16 @@
     <section class="section">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">Target taxonomy</span>
-          <h2>Reference areas ready to grow with the product.</h2>
-          <p>These are documentation destinations, not claims that every area is currently public or feature-complete.</p>
+          <span class="eyebrow">Reference library</span>
+          <h2>Find help by the task in front of you.</h2>
+          <p>As product areas are verified, exact reference pages can be added here without mixing product instructions with research education.</p>
         </div>
         <div class="path-grid">
-          <div class="path-card"><strong>Getting Started</strong><span>Installation, first launch, navigation, and orientation only when those instructions are public-ready.</span></div>
-          <div class="path-card"><strong>Navigation & Workspaces</strong><span>Public conventions for moving through the application after they are verified for disclosure.</span></div>
-          <div class="path-card"><strong>Visual Analysis Reference</strong><span>Verified chart/visual encodings, controls, and troubleshooting without exposing unreleased surfaces.</span></div>
-          <div class="path-card"><strong>Validation Reference</strong><span>Exact public validation fields and result meanings only after the corresponding behavior is verified.</span></div>
-          <div class="path-card"><strong>Settings</strong><span>Configuration reference, defaults, and platform notes when verified.</span></div>
+          <div class="path-card"><strong>Getting Started</strong><span>Installation, first launch, navigation, and orientation when those instructions are available.</span></div>
+          <div class="path-card"><strong>Navigation & Workspaces</strong><span>How to move through the application and understand each workspace.</span></div>
+          <div class="path-card"><strong>Visual Analysis Reference</strong><span>Chart and visual encodings, controls, and troubleshooting as they become available.</span></div>
+          <div class="path-card"><strong>Validation Reference</strong><span>Exact validation fields, result meanings, and interpretation notes after the behavior is verified.</span></div>
+          <div class="path-card"><strong>Settings</strong><span>Configuration reference, defaults, and platform notes.</span></div>
           <div class="path-card"><strong>Errors & Recovery</strong><span>Exact public messages, causes, safe recovery steps, and escalation routes.</span></div>
         </div>
       </div>
@@ -101,7 +101,7 @@
 
   <footer>
     <div class="footer-inner">
-      <div>TraderCockpit documentation · public-safe reference only.</div>
+      <div>TraderCockpit documentation · exact answers when product behavior is verified.</div>
       <div class="footer-links"><a href="../research-lab.html">Research Lab</a><a href="../learn/">Learn</a><a href="../how-to/">How-Tos</a></div>
     </div>
   </footer>

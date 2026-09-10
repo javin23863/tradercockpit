@@ -64,7 +64,7 @@ def main() -> int:
 
     for page in sorted((DOCS / "learn" / "concepts").glob("*.html")):
         text = read(page).lower()
-        if "public research concept" not in text or "does not assert" not in text:
+        if "research concept" not in text or "matching tradercockpit feature" not in text:
             problems.append(f"concept page missing product-boundary disclosure: {page.relative_to(REPO)}")
 
     for page in sorted((DOCS / "examples").glob("*.html")):

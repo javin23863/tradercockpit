@@ -70,10 +70,10 @@ def render(entry: dict) -> str:
     <section class="article-hero">
       <div class="shell article-hero-inner">
         <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>{esc(title)}</span></div>
-        <span class="eyebrow">Concept / public research education</span>
+        <span class="eyebrow">Concept / research education</span>
         <h1>{esc(title)}</h1>
         <p>{esc(entry['description'])}</p>
-        <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Not product availability</span></div>
+        <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Research concept</span></div>
         <div class="article-actions">
           <a class="deep-link" href="{esc(entry['visual'])}">Open the visual explanation →</a>
           <a class="deep-link" href="{esc(entry['method'])}">Read the method →</a>
@@ -116,9 +116,9 @@ def render(entry: dict) -> str:
             <a class="deep-link" href="{esc(entry['visual'])}">Open this concept in Research Lab →</a>
           </section>
           <section class="article-section" id="product-boundary">
-            <span class="kicker">Product boundary</span>
-            <h2>Concept education is not a product claim.</h2>
-            <div class="boundary-card"><strong>Public research concept:</strong> this page explains a quantitative-research idea. It does not assert that a matching TraderCockpit control, workflow, or capability is currently available. Product availability remains governed separately by the public product manifest.</div>
+            <span class="kicker">Where this fits</span>
+            <h2>Research concept, not product instruction.</h2>
+            <div class="boundary-card"><strong>Research concept:</strong> this page explains the idea itself. It does not mean a matching TraderCockpit feature is available today. For product-specific instructions, use Docs when a verified reference is published.</div>
           </section>
           <section class="article-section" id="related">
             <span class="kicker">Continue learning</span>

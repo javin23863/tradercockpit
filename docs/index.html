@@ -119,9 +119,9 @@
           <a class="learning-node" href="research-lab.html#monte-carlo"><b>2</b><h3>Visual</h3><p>Interactive synthetic geometry that makes the idea inspectable.</p></a>
           <a class="learning-node" href="methods/monte-carlo.html"><b>3</b><h3>Method</h3><p>Assumptions, procedure families, diagnostics, and failure modes.</p></a>
           <a class="learning-node" href="how-to/read-monte-carlo.html"><b>4</b><h3>How-To</h3><p>A task-focused path for reading a result without overclaiming what it means.</p></a>
-          <a class="learning-node" href="docs/"><b>5</b><h3>Docs</h3><p>Exact product reference only when the underlying behavior is verified for public documentation.</p></a>
+          <a class="learning-node" href="docs/"><b>5</b><h3>Docs</h3><p>Exact product reference after the underlying behavior has been verified.</p></a>
         </div>
-        <div class="notice"><strong>In-app help contract:</strong> a future “What is this?” control can open <code>help.html?id=research.monte-carlo</code>. The versioned public registry chooses the current destination, so the application does not need to hard-code website paths.</div>
+        <div class="notice"><strong>In-app help:</strong> “What is this?” links can open the explanation that matches the topic you are viewing, so you can move straight to the right Concept, Method, How-To, or reference page without searching from scratch.</div>
       </div>
     </section>
 
@@ -130,17 +130,17 @@
         <div class="home-section-head">
           <span class="eyebrow">Product / public status</span>
           <h2>See the research world. Keep product availability separate.</h2>
-          <p>The public product manifest—not this marketing copy—controls what TraderCockpit may call available, which platforms are supported, and which CTA is shown.</p>
+          <p>This section only shows product availability, supported platforms, and actions that have been verified for the current public state.</p>
         </div>
         <div class="product-preview">
           <figure class="product-shot">
             <img src="assets/app-home.png" width="1440" height="900" loading="lazy" alt="A public TraderCockpit development screenshot with a research conversation panel beside a chart explicitly labeled as sample data.">
-            <figcaption>Development preview · public screenshot · availability and verified capability remain governed by the product manifest.</figcaption>
+            <figcaption>Development preview · public screenshot · product availability and supported capabilities are shown separately from this preview.</figcaption>
           </figure>
           <div class="product-state-panel">
-            <span class="eyebrow">Manifest-governed status</span>
-            <h2 id="product-heading">Product state is manifest-controlled.</h2>
-            <p id="product-summary">The public product manifest is the only authority for availability, verified capability, platform support, and commercial CTA state.</p>
+            <span class="eyebrow">Current product status</span>
+            <h2 id="product-heading">Checking the latest product status.</h2>
+            <p id="product-summary">Availability, supported platforms, and current actions are verified before they appear here.</p>
             <div class="manifest-capabilities" id="manifest-capabilities" hidden></div>
             <p class="micro" id="manifest-detail">Loading verified public product state…</p>
             <form id="waitlist-form" class="waitlist-form" method="post" hidden>
@@ -218,7 +218,7 @@
         productSummary.textContent = manifest.product.summary;
       } else {
         productHeading.textContent = manifest.status === 'waitlist' ? 'TraderCockpit public waitlist.' : 'TraderCockpit public product state';
-        productSummary.textContent = 'Only the public product manifest is allowed to state availability and verified capability.';
+        productSummary.textContent = 'Availability and supported capabilities are shown here only after they have been verified for the current public state.';
       }
       const action = manifest.status === 'available' && manifest.checkout ? manifest.checkout : manifest.cta;
       if (action) {
@@ -255,7 +255,7 @@
       document.documentElement.dataset.productManifest = 'fallback';
       productState.textContent = 'STATUS: UNVERIFIED';
       productHeading.textContent = 'Product availability could not be verified.';
-      productSummary.textContent = 'Browse the public research and learning material while the product manifest is unavailable.';
+      productSummary.textContent = 'Browse the research and learning material while current product status is unavailable.';
       manifestDetail.textContent = 'Product state unavailable';
       productCta.hidden = true;
     }

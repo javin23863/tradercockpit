@@ -205,10 +205,10 @@
     },
     {
       "id": "docs.contextual-help",
-      "title": "Contextual help contract",
+      "title": "Contextual help",
       "path": "docs/#contextual-help",
       "kind": "reference",
-      "summary": "Stable public help IDs that resolve to exact public pages or anchors.",
+      "summary": "Open the explanation that matches what you are viewing in the app.",
       "terms": [
         "what is this",
         "help id",
@@ -298,10 +298,10 @@
     },
     {
       "id": "help.resolver",
-      "title": "Contextual help resolver",
+      "title": "Open contextual help",
       "path": "help.html",
       "kind": "reference",
-      "summary": "Stable public help-ID resolver for future in-app What is this links.",
+      "summary": "Go directly from an in-app help link to the matching Concept, Method, How-To, or reference page.",
       "terms": [
         "what is this",
         "help id",

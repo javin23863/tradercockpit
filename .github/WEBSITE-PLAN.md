@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **Phases A–F complete / appraisal-adversarial quality pass complete**
+Status: **Phases A–F complete / appraisal-adversarial visual and customer-language passes complete**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -619,6 +619,33 @@ After technical hardening passed, the public site was reviewed again against the
 
 **Appraisal result:** the two blocking visual/navigation findings and all medium findings from this round are corrected. Static architecture/hardening/claims checks pass; the 22-page desktop/mobile browser crawl passes visual-hero contracts, atlas navigation, keyboard focus, privacy, reduced motion, and reflow. Homepage local text payload remains below the existing budget at approximately 78.4 KB after the shared CSS additions.
 
+
+## 12J. Customer-language adversarial review — 2026-09-10
+
+A second appraisal pass reviewed the site as a customer rather than as the implementation team. The underlying product-truth and contextual-help machinery was correct, but several public pages still explained that machinery instead of simply helping the visitor.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | Home, Docs, Updates, Research Lab, the help resolver, and generated Concept pages exposed implementation/governance terms such as “product manifest,” “help registry,” raw help IDs/URLs, “public-safe,” “private roadmap,” and “hard-code.” Accurate engineering language made the site feel like an internal handoff rather than a finished consumer experience. | Kept the manifest, help registry, stable IDs, fail-closed behavior, and CI contracts unchanged underneath, while rewriting visible copy around current product status, exact contextual help, customer-facing reference, and published updates. A rendered-text scan now reports zero occurrences of the flagged engineering vocabulary. |
+| High | Friendlier Updates copy briefly introduced “available now,” which violates the current waitlist claim policy even though the intent was descriptive. | The public-claims gate rejected the wording; the headline was changed to neutral “current product status” language without weakening the gate. |
+| Medium | Updates still rendered the internal abbreviation “CTA” and asked “What can I use today?” while the product remains on a waitlist. | Renamed the dynamic field to “Current action” and the section to “Where does the product stand today?” while retaining the same manifest-backed values. |
+| Medium | Docs visually exposed `help.html?id=…`, help-ID/registry terminology, a “Publication gate,” and a raw JSON-registry link. | The visual now asks “What do you need?” and routes to Concept/Method/How-To/exact answer. The page demonstrates contextual help without exposing raw routing syntax or registry files. |
+| Medium | Research Lab ended with a list of public help IDs instead of useful next learning choices. | Replaced the implementation list with customer-facing deep dives into Monte Carlo, walk-forward, out-of-sample evidence, parameter robustness, and market regimes. |
+| Medium | Generated Concept pages referred to the public product manifest in every product-boundary section. | Updated the source generator once and regenerated all nine pages with plain-language “research concept, not product instruction” wording; drift checking still protects the generated set. |
+| Medium | The help resolver’s fallback/status messages described IDs and registries instead of helping a visitor recover. | Resolver messages now say whether the help link is recognized/available and direct the visitor to Docs or Search; same-origin and registry-validation security checks remain unchanged. |
+
+### Customer-language quality gate
+
+- [x] Rendered public HTML contains none of the flagged implementation/governance vocabulary.
+- [x] Dynamic Home/Updates/help messages avoid manifest/registry/CTA jargon.
+- [x] Raw help-routing syntax and JSON registry files are no longer promoted as customer actions.
+- [x] Product truth remains `waitlist` with zero verified capabilities and fail-closed conversion surfaces.
+- [x] All nine generated Concept pages preserve the product boundary in plain language.
+- [x] Full 22-page desktop/mobile customer appraisal passes with no console errors, horizontal overflow, or eager external requests.
+- [x] Static architecture, hardening, public-claims, generated-content, and whitespace gates remain green.
+
+**Customer-language result:** no unresolved high-severity findings. The public site now presents customer concepts while keeping implementation contracts behind the interface. Product truth, contextual-help routing, privacy, and generated-content guarantees remain unchanged.
+
 ## 13. Acceptance checklist
 
 ### Governance / truth
@@ -762,3 +789,5 @@ The additive first milestone is complete when:
 - 2026-09-10: Appraisal/adversarial visual-quality review found repetitive text-first primary landing pages and missing Research Lab wayfinding; both were treated as blocking design findings rather than cosmetic polish.
 - 2026-09-10: Added six purpose-specific visual landing heroes and a ten-module Research Lab Visual Atlas navigator; mobile collision and accessible-group issues found during the second review were corrected.
 - 2026-09-10: Post-appraisal full-site regression passed architecture, hardening, public claims, generated-content drift, whitespace, and 22-sitemap-page desktop/mobile browser acceptance.
+- 2026-09-10: Customer-language adversarial review removed manifest/registry/raw-help-routing jargon from visible Home, Docs, Updates, Research Lab, contextual-help, search, and generated Concept surfaces while preserving the underlying contracts.
+- 2026-09-10: The claims gate rejected a brief “available now” wording regression; neutral current-status language replaced it, rendered-text scans reached zero flagged engineering terms, and the final 22-page desktop/mobile customer appraisal passed.

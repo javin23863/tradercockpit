@@ -13,12 +13,12 @@
 
   function fail(message) {
     status.textContent = message;
-    direct.textContent = 'Browse public Docs →';
+    direct.textContent = 'Browse Docs →';
     direct.href = new URL('docs/', siteRoot).href;
   }
 
   if (!validId) {
-    fail(id ? 'That help ID is not a valid public knowledge ID.' : 'No public help ID was supplied.');
+    fail(id ? 'This help link is not recognized.' : 'No help topic was requested.');
     return;
   }
 
@@ -33,7 +33,7 @@
       }
       const entry = registry.entries.find((candidate) => candidate.id === id && candidate.status === 'public');
       if (!entry) {
-        fail(`No public help topic is currently registered for “${id}”.`);
+        fail('That help topic is not available yet.');
         return;
       }
 
@@ -42,13 +42,13 @@
         throw new Error('Help target escaped the public site boundary');
       }
 
-      status.textContent = `Resolved “${entry.title}”. Opening the current public page.`;
+      status.textContent = `Opening ${entry.title}.`;
       direct.textContent = `Open ${entry.title} →`;
       direct.href = target.href;
       window.location.replace(target.href);
     })
     .catch((error) => {
       console.error('Public help resolver failed', error);
-      fail('The public help registry could not be resolved. Use Docs or search instead.');
+      fail("We couldn't open that help topic. Use Docs or search instead.");
     });
 })();
