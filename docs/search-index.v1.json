@@ -639,6 +639,25 @@
         "download",
         "release"
       ]
+    },
+    {
+      "id": "learn.start-here",
+      "title": "Start Here",
+      "path": "learn/start-here.html",
+      "kind": "learn",
+      "summary": "Research-first orientation to questions, information boundaries, metrics, uncertainty, robustness, selection, and evidence identity.",
+      "terms": [
+        "start here",
+        "research foundations",
+        "research question",
+        "out of sample",
+        "metrics",
+        "uncertainty",
+        "robustness",
+        "selection bias",
+        "evidence",
+        "orientation"
+      ]
     }
   ]
 }
