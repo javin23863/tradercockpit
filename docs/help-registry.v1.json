@@ -198,7 +198,7 @@
     },
     {
       "id": "research.profit-factor",
-      "path": "methods/#profit-factor",
+      "path": "methods/result-metrics.html#profit-factor",
       "title": "Profit Factor",
       "kind": "method",
       "status": "public",
@@ -210,7 +210,7 @@
     },
     {
       "id": "research.expectancy",
-      "path": "methods/#expectancy",
+      "path": "methods/result-metrics.html#expectancy",
       "title": "Expectancy",
       "kind": "method",
       "status": "public",
@@ -222,7 +222,7 @@
     },
     {
       "id": "research.return-drawdown-ratio",
-      "path": "methods/#return-drawdown-ratio",
+      "path": "methods/result-metrics.html#return-drawdown-ratio",
       "title": "Return / Drawdown Ratio",
       "kind": "method",
       "status": "public",

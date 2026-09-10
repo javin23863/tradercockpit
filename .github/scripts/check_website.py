@@ -23,6 +23,7 @@ PAGES = [
     DOCS / "how-to" / "read-monte-carlo.html",
     DOCS / "methods" / "index.html",
     DOCS / "methods" / "monte-carlo.html",
+    DOCS / "methods" / "result-metrics.html",
     DOCS / "examples" / "index.html",
     DOCS / "examples" / "holdout-selection.html",
     DOCS / "updates" / "index.html",

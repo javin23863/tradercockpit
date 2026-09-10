@@ -161,21 +161,21 @@
     {
       "id": "method.profit-factor",
       "kind": "method",
-      "path": "methods/#profit-factor",
+      "path": "methods/result-metrics.html#profit-factor",
       "title": "Profit Factor",
       "status": "public"
     },
     {
       "id": "method.expectancy",
       "kind": "method",
-      "path": "methods/#expectancy",
+      "path": "methods/result-metrics.html#expectancy",
       "title": "Expectancy",
       "status": "public"
     },
     {
       "id": "method.return-drawdown-ratio",
       "kind": "method",
-      "path": "methods/#return-drawdown-ratio",
+      "path": "methods/result-metrics.html#return-drawdown-ratio",
       "title": "Return / Drawdown Ratio",
       "status": "public"
     },
@@ -184,6 +184,13 @@
       "kind": "method",
       "path": "methods/#equity-curve",
       "title": "Equity Curve",
+      "status": "public"
+    },
+    {
+      "id": "method.result-metrics",
+      "kind": "method",
+      "path": "methods/result-metrics.html",
+      "title": "Backtest Result Metrics",
       "status": "public"
     }
   ]

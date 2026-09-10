@@ -580,12 +580,12 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
   .threshold-control label { align-items: flex-start; flex-direction: column; gap: .25rem; }
 }
 
-.section[id], .scene-frame[id], .depth-card[id] { scroll-margin-top: 6rem; }
+.section[id], .scene-frame[id], .depth-card[id], .article-section[id] { scroll-margin-top: 6rem; }
 
 @media (max-width: 720px) {
   .visual-topline { flex-direction: column; align-items: flex-start; }
   .synthetic-badge { white-space: normal; max-width: 100%; }
-  .section[id], .scene-frame[id], .depth-card[id] { scroll-margin-top: 10rem; }
+  .section[id], .scene-frame[id], .depth-card[id], .article-section[id] { scroll-margin-top: 10rem; }
 }
 
 .validation-canvas { height: 430px; }
@@ -610,7 +610,7 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
 .article-hero { padding: clamp(4.5rem, 9vw, 8rem) 0 clamp(2rem, 5vw, 4rem); }
 .compact-article-hero { min-height: 58vh; display: grid; align-items: center; }
 .article-hero-inner { max-width: 960px; }
-.article-hero h1 { max-width: 920px; margin: 1rem 0 .9rem; font-size: clamp(2.4rem, 7vw, 5.8rem); line-height: .94; letter-spacing: -.055em; }
+.article-hero h1 { max-width: 920px; margin: 1rem 0 .9rem; font-size: clamp(2.4rem, 7vw, 5.8rem); line-height: .94; letter-spacing: -.055em; overflow-wrap: anywhere; }
 .article-hero p { max-width: 760px; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.18rem); }
 .article-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.2rem; }
 .article-actions .deep-link { margin-top: 0; }
@@ -618,7 +618,7 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
 .article-main { min-width: 0; }
 .article-section { padding: 1.5rem 0 2.2rem; border-top: 1px solid rgba(255,255,255,.07); }
 .article-section:first-child { border-top: 0; }
-.article-section h2 { margin: 0 0 .8rem; font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.02; }
+.article-section h2 { margin: 0 0 .8rem; font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.02; overflow-wrap: anywhere; }
 .article-section h3 { margin: 1.35rem 0 .55rem; font-size: 1.15rem; }
 .article-section p, .article-section li { color: var(--muted); }
 .article-section ul, .article-section ol { padding-left: 1.2rem; display: grid; gap: .45rem; }
