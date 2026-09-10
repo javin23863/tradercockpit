@@ -324,6 +324,19 @@
         "read validation result",
         "seven stage validation"
       ]
+    },
+    {
+      "id": "how-to.read-result-metrics",
+      "path": "how-to/read-result-metrics.html",
+      "title": "How to read backtest metrics together",
+      "kind": "how-to",
+      "status": "public",
+      "aliases": [
+        "read backtest metrics",
+        "result metrics how to",
+        "profit factor expectancy drawdown",
+        "interpret backtest statistics"
+      ]
     }
   ]
 }
