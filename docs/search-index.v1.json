@@ -552,6 +552,22 @@
         "information boundary",
         "future leak"
       ]
+    },
+    {
+      "id": "how-to.read-chart-evidence",
+      "title": "How to read chart evidence",
+      "path": "how-to/read-chart-evidence.html",
+      "kind": "how-to",
+      "summary": "A task guide for reading OHLC bars, profiles, events, and replay while preserving source and information context.",
+      "terms": [
+        "chart evidence",
+        "ohlc bars",
+        "volume profile",
+        "tpo",
+        "historical replay",
+        "event markers",
+        "chart interpretation"
+      ]
     }
   ]
 }

@@ -376,6 +376,20 @@
         "information boundary",
         "future leak"
       ]
+    },
+    {
+      "id": "how-to.read-chart-evidence",
+      "path": "how-to/read-chart-evidence.html",
+      "title": "How to read chart evidence",
+      "kind": "how-to",
+      "status": "public",
+      "aliases": [
+        "read chart evidence",
+        "chart how to",
+        "ohlc profile replay",
+        "interpret chart",
+        "volume profile tpo replay"
+      ]
     }
   ]
 }
