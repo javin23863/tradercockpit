@@ -158,12 +158,48 @@
       </div>
     </section>
 
+    <section class="section" id="walk-forward" aria-labelledby="walk-forward-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">06 / Time-aware validation</span>
+          <h2 id="walk-forward-title">Move the boundary through time instead of trusting one split.</h2>
+          <p>This synthetic landscape shows seven ordered train/evaluate folds. Switch between rolling and anchored training windows, then inspect each fold. The geometry explains data partitioning only; it does not display strategy performance.</p>
+        </div>
+        <div class="visual-panel" data-walk-forward-explorer>
+          <div class="visual-topline"><div><h3>Walk-forward window landscape</h3><p class="micro">100 synthetic time units · 7 folds · ordered partitions · no market data</p></div><span class="synthetic-badge">Illustrative partitioning</span></div>
+          <div class="segmented-controls" aria-label="Walk-forward training-window type"><button class="control-btn" type="button" data-wf-mode="rolling" aria-pressed="true">Rolling window</button><button class="control-btn" type="button" data-wf-mode="anchored" aria-pressed="false">Anchored window</button></div>
+          <canvas id="walk-forward-canvas" class="lab-depth-canvas validation-canvas" role="img" aria-label="Seven synthetic walk-forward folds arranged in perspective. Each fold has a labeled training block followed by a held-out evaluation block along a left-to-right time axis."></canvas>
+          <div class="scene-controls inline-controls" aria-label="Walk-forward fold controls"><button class="control-btn" type="button" id="wf-prev">Previous fold</button><button class="control-btn" type="button" id="wf-next">Next fold</button><div class="focus-readout" id="wf-readout" aria-live="polite">Synthetic fold details</div></div>
+          <div class="metric-row" aria-label="Walk-forward structure summary"><div class="metric"><b id="wf-fold-count">7</b><span>ordered folds</span></div><div class="metric"><b id="wf-train-span">—</b><span>selected training span</span></div><div class="metric"><b id="wf-eval-span">10</b><span>evaluation span</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>X · synthetic time</strong><span>Time moves left to right from 0 to 100.</span></div><div class="legend-item"><strong>Depth · fold order</strong><span>Each receding platform is the next evaluation fold.</span></div><div class="legend-item"><strong>Train block</strong><span>Data available to development/selection for that fold.</span></div><div class="legend-item"><strong>Evaluation block</strong><span>The immediately following held-out interval for that fold.</span></div></div>
+          <a class="deep-link" href="methods/#walk-forward">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="out-of-sample" aria-labelledby="out-of-sample-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">07 / Information boundary</span>
+          <h2 id="out-of-sample-title">A holdout stops being independent when it starts steering selection.</h2>
+          <p>This synthetic diagram contrasts a preserved holdout with repeated peeking. In the clean case, candidate selection happens before the boundary and the chosen candidate crosses once for evaluation. The repeated-peek mode adds illustrative feedback loops from holdout information back into selection.</p>
+        </div>
+        <div class="visual-panel" data-oos-explorer>
+          <div class="visual-topline"><div><h3>In-sample / out-of-sample boundary</h3><p class="micro">36 synthetic candidates · one evaluation boundary · no measured strategy results</p></div><span class="synthetic-badge">Illustrative information flow</span></div>
+          <div class="segmented-controls" aria-label="Holdout information-flow scenario"><button class="control-btn" type="button" data-oos-mode="clean" aria-pressed="true">Preserved holdout</button><button class="control-btn" type="button" data-oos-mode="peek" aria-pressed="false">Repeated peek</button></div>
+          <canvas id="oos-canvas" class="lab-depth-canvas validation-canvas" role="img" aria-label="Synthetic candidate paths remain on the development side of a vertical information boundary. In preserved-holdout mode only one selected path crosses for evaluation; repeated-peek mode shows feedback arrows crossing back into selection."></canvas>
+          <div class="metric-row" aria-label="Holdout scenario summary"><div class="metric"><b id="oos-boundary-state">Preserved</b><span>illustrative boundary state</span></div><div class="metric"><b id="oos-feedback">0</b><span>holdout feedback loops</span></div><div class="metric"><b>36</b><span>synthetic candidate family</span></div></div>
+          <div class="notice" id="oos-notice" aria-live="polite"><strong>Preserved holdout:</strong> selection does not receive feedback from the illustrative evaluation region before the one-time evaluation shown here.</div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Left · development</strong><span>Synthetic candidate generation, comparison, and selection occur here.</span></div><div class="legend-item"><strong>Boundary · information</strong><span>The vertical plane represents what evaluation information is withheld.</span></div><div class="legend-item"><strong>Right · evaluation</strong><span>Reserved evidence used after the illustrated selection decision.</span></div><div class="legend-item"><strong>Feedback arrows</strong><span>Repeated peeking is shown as information crossing back into selection.</span></div></div>
+          <a class="deep-link" href="methods/#out-of-sample">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="next-lab-title">
       <div class="shell">
-        <div class="section-head"><span class="eyebrow">Next atlas modules</span><h2 id="next-lab-title">The visual atlas keeps expanding.</h2><p>These are public educational modules planned after the current depth slice. Their presence here does not assert that a matching TraderCockpit product capability is available.</p></div>
+        <div class="section-head"><span class="eyebrow">Next atlas modules</span><h2 id="next-lab-title">Two path-and-selection views remain in this phase.</h2><p>These are public educational modules still open in the living checklist. Their presence here does not assert that a matching TraderCockpit product capability is available.</p></div>
         <div class="card-grid">
-          <article class="depth-card" id="walk-forward"><span class="kicker">Validation windows</span><h3>Walk-forward landscape</h3><p>Training and evaluation windows become a stepped landscape so stability across time can be inspected visually.</p><a class="deep-link" href="methods/#walk-forward">Understand the method →</a></article>
-          <article class="depth-card" id="out-of-sample"><span class="kicker">Holdout evidence</span><h3>In-sample / out-of-sample boundary</h3><p>A visible boundary separates information used for development from evidence reserved for evaluation.</p><a class="deep-link" href="methods/#out-of-sample">Understand the method →</a></article>
           <article class="depth-card" id="drawdown"><span class="kicker">Path risk</span><h3>Drawdown valleys</h3><p>Depth, duration, and recovery can be made spatial so one headline statistic does not hide the path.</p><a class="deep-link" href="methods/#drawdown">Understand the method →</a></article>
           <article class="depth-card" id="selection-bias"><span class="kicker">Multiple testing</span><h3>Selection funnel</h3><p>A large candidate family narrows through explicit filters so the cost of selection can be discussed rather than hidden.</p><a class="deep-link" href="methods/#selection-bias">Understand the method →</a></article>
         </div>
@@ -214,5 +250,6 @@
   <script src="assets/site-search.js" defer></script>
   <script src="assets/research-lab.js" defer></script>
   <script src="assets/research-lab-depth.js" defer></script>
+  <script src="assets/research-lab-validation.js" defer></script>
 </body>
 </html>

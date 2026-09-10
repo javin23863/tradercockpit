@@ -366,8 +366,8 @@ Initial performance rules:
 - [x] New Phase B modules have adjacent legends and written interpretation/fallback text.
 - [x] Direct hash links initialize lazy visuals and land below the sticky navigation.
 - [x] Expanded Research Lab passes 320px reflow and 200% text-size stress.
-- [ ] Build the walk-forward landscape.
-- [ ] Build the explicit in-sample/out-of-sample boundary visualization.
+- [x] Build the walk-forward landscape.
+- [x] Build the explicit in-sample/out-of-sample boundary visualization.
 - [ ] Build drawdown-valley path visualization.
 - [ ] Build the selection/multiple-testing funnel.
 ### Phase C — documentation system
@@ -475,6 +475,20 @@ The first Research Lab depth slice was reviewed for misleading quantitative sema
 | Medium | Lazy initialization could leave a deep-linked module blank if the observer missed a hash jump. | Direct links to robustness, correlation, and distribution were exercised independently; each initializes its metric and canvas without console errors. |
 
 **Phase B review result:** no unresolved high-severity findings in this slice. Surface-mode switching, network selection/focus, keyboard threshold adjustment, direct hash navigation, 320px reflow, and 200% text stress pass in Windows Edge/Puppeteer.
+## 12D. Validation-geometry review — 2026-09-10
+
+The walk-forward and holdout-boundary slice was reviewed for false precision, misleading information-flow semantics, duplicate deep-link targets, unsafe DOM updates, and responsive failures.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | A repeated-peek diagram could look like measured leakage from a real TraderCockpit run. | The page states that the 36 candidates and four feedback loops are illustrative, shows no measured strategy result, and links the diagram to the independent Methods explanation. |
+| Medium | The OOS canvas labeled the selection point “selected once” in both modes, which became misleading after holdout feedback was enabled. | The label now changes to “selection + feedback” in repeated-peek mode while remaining “selected once” only in the preserved-holdout case. |
+| Medium | The first OOS notice update used static `innerHTML` even though markup injection was unnecessary. | Replaced it with `createElement`, `textContent`, and `replaceChildren`; the integrity checker now rejects `innerHTML` in the validation visual script. |
+| Medium | Replacing placeholder cards with real sections could leave duplicate `id` values and ambiguous help/deep-link targets. | Removed the placeholder IDs and upgraded the integrity checker to detect duplicate HTML IDs and require both validation anchors and the lazy validation script. |
+| Medium | Rolling and anchored modes could be visually different without actually representing different training spans. | Browser acceptance asserts the selected rolling span is 42 synthetic units and that the anchored span expands for the same fold; fold navigation must also change the readout. |
+| Medium | New long validation modules could reintroduce mobile/large-text overflow or fail to initialize on direct hash navigation. | Both modules pass 320px reflow, 200% text stress, and independent 390px direct-link initialization below the sticky navigation. |
+
+**Validation-geometry result:** no unresolved high-severity findings. Rolling/anchored mode switching, fold navigation, preserved/repeated-peek information flow, direct links, narrow reflow, and large-text behavior pass in Windows Edge/Puppeteer.
 ## 13. Acceptance checklist
 
 ### Governance / truth
@@ -596,3 +610,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Built the first Phase B visual-depth slice: a three-mode parameter surface, an 18-node synthetic correlation network, and a three-family distribution/tail explorer.
 - 2026-09-10: Phase B adversarial review fixed synthetic-badge reflow, deep-link sticky-nav occlusion, correlation toggle labeling, and the heavy-tail summary statistic.
 - 2026-09-10: Direct hash-link acceptance passed for all three new lazy modules at 390px; each initialized its canvas/metric below the sticky navigation with no horizontal overflow.
+- 2026-09-10: Built the walk-forward validation landscape with rolling/anchored window geometry, seven selectable folds, explicit train/evaluation encodings, and no performance data.
+- 2026-09-10: Built the in-sample/out-of-sample information-boundary visualization with preserved-holdout and repeated-peek modes; four feedback loops are explicitly illustrative.
+- 2026-09-10: Validation-geometry adversarial review corrected repeated-peek labeling, removed unnecessary `innerHTML`, strengthened duplicate-ID/script integrity checks, and passed 320px/200%-text/direct-link browser acceptance.

@@ -26,6 +26,7 @@ SEARCH_INDEX = DOCS / "search-index.v1.json"
 SITE_SEARCH = DOCS / "assets" / "site-search.js"
 VIDEO_SCRIPT = DOCS / "assets" / "video-slot.js"
 LAB_DEPTH = DOCS / "assets" / "research-lab-depth.js"
+LAB_VALIDATION = DOCS / "assets" / "research-lab-validation.js"
 
 
 class PageParser(HTMLParser):
@@ -43,7 +44,10 @@ class PageParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs) -> None:
         data = dict(attrs)
         if data.get("id"):
-            self.ids.add(data["id"])
+            value = data["id"]
+            if value in self.ids:
+                self.duplicate_ids.add(value)
+            self.ids.add(value)
         if tag == "a" and data.get("href"):
             self.links.append(data["href"])
         if tag == "script" and data.get("src"):
@@ -109,6 +113,8 @@ def main() -> int:
             continue
         parser = parse_page(page)
         parsers[page] = parser
+        if parser.duplicate_ids:
+            problems.append(f"duplicate HTML ids in {page.relative_to(REPO)}: {sorted(parser.duplicate_ids)}")
         if not parser.title.strip():
             problems.append(f"missing title: {page.relative_to(REPO)}")
         if not parser.description.strip():
@@ -120,13 +126,15 @@ def main() -> int:
 
     lab_page = DOCS / "research-lab.html"
     lab_parser = parsers.get(lab_page)
-    required_lab_ids = {"parameter-robustness", "correlation", "distribution"}
+    required_lab_ids = {"parameter-robustness", "correlation", "distribution", "walk-forward", "out-of-sample"}
     if lab_parser:
         missing_ids = required_lab_ids.difference(lab_parser.ids)
         if missing_ids:
             problems.append(f"Research Lab missing Phase B anchors: {sorted(missing_ids)}")
         if not any(src.endswith("assets/research-lab-depth.js") for src in lab_parser.scripts):
             problems.append("Research Lab Phase B script missing")
+        if not any(src.endswith("assets/research-lab-validation.js") for src in lab_parser.scripts):
+            problems.append("Research Lab validation script missing")
     if not LAB_DEPTH.is_file():
         problems.append("missing docs/assets/research-lab-depth.js")
     else:
@@ -135,6 +143,16 @@ def main() -> int:
             problems.append("Research Lab depth modules are not lazy-initialized")
         if "http://" in depth_script or "https://" in depth_script:
             problems.append("Research Lab depth script contains an external network target")
+    if not LAB_VALIDATION.is_file():
+        problems.append("missing docs/assets/research-lab-validation.js")
+    else:
+        validation_script = LAB_VALIDATION.read_text(encoding="utf-8")
+        if "IntersectionObserver" not in validation_script:
+            problems.append("Research Lab validation modules are not lazy-initialized")
+        if "http://" in validation_script or "https://" in validation_script:
+            problems.append("Research Lab validation script contains an external network target")
+        if "innerHTML" in validation_script:
+            problems.append("Research Lab validation script should not use innerHTML")
     registry_entries: list[dict] = []
     if not REGISTRY.is_file():
         problems.append("missing docs/help-registry.v1.json")

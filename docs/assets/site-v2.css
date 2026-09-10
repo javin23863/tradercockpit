@@ -587,3 +587,7 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
   .synthetic-badge { white-space: normal; max-width: 100%; }
   .section[id], .scene-frame[id] { scroll-margin-top: 10rem; }
 }
+
+.validation-canvas { height: 430px; }
+@media (max-width: 720px) { .validation-canvas { height: 350px; } }
+@media (max-width: 470px) { .validation-canvas { height: 310px; } }
