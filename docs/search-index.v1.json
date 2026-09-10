@@ -619,6 +619,26 @@
         "monte carlo",
         "walk forward"
       ]
+    },
+    {
+      "id": "support.faq",
+      "title": "Frequently Asked Questions",
+      "path": "support/faq.html",
+      "kind": "support",
+      "summary": "Short public answers about product status, research examples, documentation, video privacy, and evidence interpretation.",
+      "terms": [
+        "faq",
+        "frequently asked questions",
+        "product status",
+        "windows desktop",
+        "research lab",
+        "synthetic data",
+        "documentation",
+        "videos",
+        "pricing",
+        "download",
+        "release"
+      ]
     }
   ]
 }
