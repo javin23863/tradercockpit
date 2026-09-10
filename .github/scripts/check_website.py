@@ -374,6 +374,14 @@ def main() -> int:
             problems.append("site search does not load local search index")
         if "http://" in search_script or "https://" in search_script:
             problems.append("site search contains an external network target")
+        for marker in (
+            "MAX_INITIAL_QUERY_LENGTH = 120",
+            "hashParams.get('search') ?? urlParams.get('q')",
+            "searchUi.input.value = initialQuery",
+            "searchUi.search(initialQuery)",
+        ):
+            if marker not in search_script:
+                problems.append(f"site search missing bounded URL-prefill contract: {marker}")
 
     academy_text = (DOCS / "how-to" / "index.html").read_text(encoding="utf-8")
     for academy_marker in ("validation-path", "path-risk-path", "../examples/holdout-selection.html", "../learn/concepts/selection-bias.html", "../learn/concepts/drawdown.html", "../learn/concepts/distribution-shape.html", "../methods/monte-carlo.html", "read-monte-carlo.html"):
