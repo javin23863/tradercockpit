@@ -290,6 +290,13 @@
       "path": "learn/start-here.html",
       "title": "Start Here",
       "status": "public"
+    },
+    {
+      "id": "learn.videos",
+      "kind": "landing",
+      "path": "learn/videos.html",
+      "title": "Video Lessons",
+      "status": "public"
     }
   ]
 }
