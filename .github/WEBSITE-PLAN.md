@@ -791,3 +791,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Post-appraisal full-site regression passed architecture, hardening, public claims, generated-content drift, whitespace, and 22-sitemap-page desktop/mobile browser acceptance.
 - 2026-09-10: Customer-language adversarial review removed manifest/registry/raw-help-routing jargon from visible Home, Docs, Updates, Research Lab, contextual-help, search, and generated Concept surfaces while preserving the underlying contracts.
 - 2026-09-10: The claims gate rejected a brief “available now” wording regression; neutral current-status language replaced it, rendered-text scans reached zero flagged engineering terms, and the final 22-page desktop/mobile customer appraisal passed.
+- 2026-09-10: Post-merge in-app-help integration identified three Test & Validate metrics without public explanations: Profit Factor, Expectancy, and Return / Drawdown Ratio.
+- 2026-09-10: Added product-neutral anchored Method entries plus stable help/search/content-registry records for those three metrics; no new product capability claim or dedicated visualization was invented.
+- 2026-09-10: Adversarial terminology review removed the incorrect `payoff ratio` alias for Profit Factor and retained an explicit warning that Return / Drawdown conventions vary by platform and definition.

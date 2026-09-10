@@ -341,6 +341,45 @@
         "liquidity stress",
         "regime cube"
       ]
+    },
+    {
+      "id": "research.profit-factor",
+      "title": "Profit Factor",
+      "path": "methods/#profit-factor",
+      "kind": "method",
+      "summary": "Gross gains relative to gross losses, with limitations around path, concentration, and zero-loss samples.",
+      "terms": [
+        "profit factor",
+        "gross profit",
+        "gross loss",
+        "payoff balance"
+      ]
+    },
+    {
+      "id": "research.expectancy",
+      "title": "Expectancy",
+      "path": "methods/#expectancy",
+      "kind": "method",
+      "summary": "Average outcome per trade under a defined unit and cost convention.",
+      "terms": [
+        "expectancy",
+        "average trade",
+        "expected value",
+        "net profit per trade"
+      ]
+    },
+    {
+      "id": "research.return-drawdown-ratio",
+      "title": "Return / Drawdown Ratio",
+      "path": "methods/#return-drawdown-ratio",
+      "kind": "method",
+      "summary": "A return measure compared with a drawdown measure; exact conventions must be checked before comparison.",
+      "terms": [
+        "return drawdown",
+        "ret dd",
+        "return dd ratio",
+        "drawdown ratio"
+      ]
     }
   ]
 }

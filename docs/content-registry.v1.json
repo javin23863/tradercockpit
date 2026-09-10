@@ -157,6 +157,27 @@
       "path": "learn/concepts/regime-map.html",
       "title": "Market regimes as coordinates",
       "status": "public"
+    },
+    {
+      "id": "method.profit-factor",
+      "kind": "method",
+      "path": "methods/#profit-factor",
+      "title": "Profit Factor",
+      "status": "public"
+    },
+    {
+      "id": "method.expectancy",
+      "kind": "method",
+      "path": "methods/#expectancy",
+      "title": "Expectancy",
+      "status": "public"
+    },
+    {
+      "id": "method.return-drawdown-ratio",
+      "kind": "method",
+      "path": "methods/#return-drawdown-ratio",
+      "title": "Return / Drawdown Ratio",
+      "status": "public"
     }
   ]
 }

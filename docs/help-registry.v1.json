@@ -195,6 +195,43 @@
         "liquidity stress",
         "market state"
       ]
+    },
+    {
+      "id": "research.profit-factor",
+      "path": "methods/#profit-factor",
+      "title": "Profit Factor",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "profit factor",
+        "gross profit gross loss",
+        "gross profit gross loss"
+      ]
+    },
+    {
+      "id": "research.expectancy",
+      "path": "methods/#expectancy",
+      "title": "Expectancy",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "expectancy",
+        "average trade outcome",
+        "expected trade value"
+      ]
+    },
+    {
+      "id": "research.return-drawdown-ratio",
+      "path": "methods/#return-drawdown-ratio",
+      "title": "Return / Drawdown Ratio",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "return drawdown",
+        "ret dd",
+        "return dd ratio",
+        "return drawdown ratio"
+      ]
     }
   ]
 }
