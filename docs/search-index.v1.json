@@ -345,7 +345,7 @@
     {
       "id": "research.profit-factor",
       "title": "Profit Factor",
-      "path": "methods/#profit-factor",
+      "path": "methods/result-metrics.html#profit-factor",
       "kind": "method",
       "summary": "Gross gains relative to gross losses, with limitations around path, concentration, and zero-loss samples.",
       "terms": [
@@ -358,7 +358,7 @@
     {
       "id": "research.expectancy",
       "title": "Expectancy",
-      "path": "methods/#expectancy",
+      "path": "methods/result-metrics.html#expectancy",
       "kind": "method",
       "summary": "Average outcome per trade under a defined unit and cost convention.",
       "terms": [
@@ -371,7 +371,7 @@
     {
       "id": "research.return-drawdown-ratio",
       "title": "Return / Drawdown Ratio",
-      "path": "methods/#return-drawdown-ratio",
+      "path": "methods/result-metrics.html#return-drawdown-ratio",
       "kind": "method",
       "summary": "A return measure compared with a drawdown measure; exact conventions must be checked before comparison.",
       "terms": [

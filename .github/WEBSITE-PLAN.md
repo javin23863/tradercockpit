@@ -796,3 +796,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Adversarial terminology review removed the incorrect `payoff ratio` alias for Profit Factor and retained an explicit warning that Return / Drawdown conventions vary by platform and definition.
 - 2026-09-10: In-app Test & Validate coverage audit identified Performance Overview / Equity Curve as the remaining meaningful visualization without a matching public explanation.
 - 2026-09-10: Added a product-neutral Equity Curve Method anchor plus stable help, search, and content-registry records; the definition explicitly separates historical path shape from future-performance claims.
+
+- 2026-09-10: Reconciled the deeper Backtest Result Metrics reference onto current website main after short metric explanations had already landed separately. Stable Profit Factor, Expectancy, and Return/Drawdown help IDs now resolve to exact anchors on the full reference without changing the in-app contract.
+- 2026-09-10: Metric-reference adversarial reconciliation retained the canonical `research.return-drawdown-ratio` ID, removed the obsolete `return-dd` anchor, and added an explicit warning that platform-specific metric formulas govern when they differ from the common forms explained here.
