@@ -794,3 +794,5 @@ The additive first milestone is complete when:
 - 2026-09-10: Post-merge in-app-help integration identified three Test & Validate metrics without public explanations: Profit Factor, Expectancy, and Return / Drawdown Ratio.
 - 2026-09-10: Added product-neutral anchored Method entries plus stable help/search/content-registry records for those three metrics; no new product capability claim or dedicated visualization was invented.
 - 2026-09-10: Adversarial terminology review removed the incorrect `payoff ratio` alias for Profit Factor and retained an explicit warning that Return / Drawdown conventions vary by platform and definition.
+- 2026-09-10: In-app Test & Validate coverage audit identified Performance Overview / Equity Curve as the remaining meaningful visualization without a matching public explanation.
+- 2026-09-10: Added a product-neutral Equity Curve Method anchor plus stable help, search, and content-registry records; the definition explicitly separates historical path shape from future-performance claims.

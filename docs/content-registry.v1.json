@@ -178,6 +178,13 @@
       "path": "methods/#return-drawdown-ratio",
       "title": "Return / Drawdown Ratio",
       "status": "public"
+    },
+    {
+      "id": "method.equity-curve",
+      "kind": "method",
+      "path": "methods/#equity-curve",
+      "title": "Equity Curve",
+      "status": "public"
     }
   ]
 }

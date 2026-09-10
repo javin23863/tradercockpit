@@ -380,6 +380,20 @@
         "return dd ratio",
         "drawdown ratio"
       ]
+    },
+    {
+      "id": "research.equity-curve",
+      "title": "Equity Curve",
+      "path": "methods/#equity-curve",
+      "kind": "method",
+      "summary": "A cumulative value path whose shape reveals ordering, drawdowns, recovery periods, and concentration in time.",
+      "terms": [
+        "equity curve",
+        "balance curve",
+        "cumulative equity",
+        "drawdown",
+        "performance path"
+      ]
     }
   ]
 }
