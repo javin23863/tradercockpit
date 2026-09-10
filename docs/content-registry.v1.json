@@ -248,6 +248,13 @@
       "path": "methods/chart-evidence.html",
       "title": "Reading Chart Evidence",
       "status": "public"
+    },
+    {
+      "id": "how-to.read-chart-evidence",
+      "kind": "how-to",
+      "path": "how-to/read-chart-evidence.html",
+      "title": "How to read chart evidence",
+      "status": "public"
     }
   ]
 }
