@@ -269,6 +269,13 @@
       "path": "trust/",
       "title": "Trust",
       "status": "public"
+    },
+    {
+      "id": "learn.glossary",
+      "kind": "landing",
+      "path": "learn/glossary.html",
+      "title": "Research Glossary",
+      "status": "public"
     }
   ]
 }
