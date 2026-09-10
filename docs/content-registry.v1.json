@@ -297,6 +297,13 @@
       "path": "learn/videos.html",
       "title": "Video Lessons",
       "status": "public"
+    },
+    {
+      "id": "example.replay-boundary",
+      "kind": "example",
+      "path": "examples/replay-boundary.html",
+      "title": "Synthetic historical replay boundary",
+      "status": "public"
     }
   ]
 }
