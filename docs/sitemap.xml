@@ -86,6 +86,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://javin23863.github.io/tradercockpit/methods/validation-foundations.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://javin23863.github.io/tradercockpit/methods/result-metrics.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

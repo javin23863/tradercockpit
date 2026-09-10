@@ -245,6 +245,57 @@
         "cumulative equity",
         "performance curve"
       ]
+    },
+    {
+      "id": "research.acceptance-conditions",
+      "path": "methods/validation-foundations.html#acceptance-conditions",
+      "title": "Acceptance conditions",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "acceptance criteria",
+        "validation threshold",
+        "ranking conditions",
+        "initial test"
+      ]
+    },
+    {
+      "id": "research.year-consistency",
+      "path": "methods/validation-foundations.html#year-consistency",
+      "title": "Calendar-year consistency",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "profitable years",
+        "yearly consistency",
+        "calendar years",
+        "golden validation"
+      ]
+    },
+    {
+      "id": "research.evidence-chain",
+      "path": "methods/validation-foundations.html#evidence-chain",
+      "title": "Evidence and provenance chains",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "research proof",
+        "evidence chain",
+        "provenance",
+        "custody"
+      ]
+    },
+    {
+      "id": "research.net-profit",
+      "path": "methods/result-metrics.html#net-profit",
+      "title": "Net Profit",
+      "kind": "method",
+      "status": "public",
+      "aliases": [
+        "net profit",
+        "cumulative pnl",
+        "total profit loss"
+      ]
     }
   ]
 }
