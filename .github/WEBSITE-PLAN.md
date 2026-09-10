@@ -435,6 +435,19 @@ The additive implementation slice was reviewed against this plan before any home
 
 **Implementation review result:** no unresolved high-severity findings in the additive slice. Windows Edge/Puppeteer acceptance now passes for all seven new pages at 1440px and 390px, including no horizontal overflow or console errors. Keyboard candidate traversal, Monte Carlo regeneration, reduced-motion behavior, and no-JavaScript Docs navigation were exercised. The existing homepage remains untouched because Phase D is intentionally later than the additive foundation.
 
+## 12B. Foundation completion review — 2026-09-10
+
+The three deferred Phase A acceptance items were implemented and adversarially exercised before being marked complete.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | Documentation search could leak research/help queries to a third-party search service or analytics endpoint. | Added a versioned same-origin static search index and client-only ranking. Browser interception confirmed search makes no third-party requests; result text is created with DOM `textContent`. |
+| High | Video embeds could contact YouTube on page load even when the user only wanted written instructions. | The Academy ships no iframe in initial HTML. A privacy-enhanced `youtube-nocookie.com` player is created only after the explicit Load video action, while the written Method link remains primary. |
+| Medium | The first responsive video frame used a minimum height together with `aspect-ratio`, creating an intrinsic width wider than a 320px viewport. | Removed the minimum-height width pressure and constrained grid children with `min-width: 0`; 320px reflow now passes on all seven additive pages. |
+| Medium | A scripted HTML edit briefly inserted literal backtick-newline characters beside new script tags. | Detected during source inspection before commit, normalized to real line breaks, and revalidated through HTML/browser checks. |
+| Medium | Narrow-screen acceptance alone did not prove resilience under enlarged text. | Added a seven-page 200% text-size stress pass at a 640px viewport; no horizontal overflow or console errors remain. |
+
+**Foundation completion result:** all Phase A acceptance items are now evidence-backed. Local search covers 18 public-safe destinations, the first Academy video is optional and click-to-load, and browser acceptance passes for 320px reflow and 200% text enlargement across every additive page. The legacy homepage remains outside this change set.
 ## 13. Acceptance checklist
 
 ### Governance / truth
@@ -477,7 +490,7 @@ The additive implementation slice was reviewed against this plan before any home
 ### Academy / video
 
 - [x] Academy/How-To area uses structured learning paths rather than a thumbnail dump.
-- [ ] Video slots are click-to-load/lazy by design.
+- [x] Video slots are click-to-load/lazy by design.
 - [x] Written context remains available without video.
 
 ### Accessibility
@@ -487,7 +500,7 @@ The additive implementation slice was reviewed against this plan before any home
 - [x] Heading order and landmarks are semantic.
 - [x] Reduced-motion mode removes nonessential continuous motion.
 - [x] Important meaning is not color-only.
-- [ ] Text remains readable at narrow widths and zoom.
+- [x] Text remains readable at narrow widths and zoom.
 - [x] Canvas/SVG scenes have adjacent textual equivalents.
 
 ### Performance / resilience
@@ -502,7 +515,7 @@ The additive implementation slice was reviewed against this plan before any home
 ### Privacy
 
 - [x] No new tracker is introduced outside existing analytics configuration.
-- [ ] Search remains local/static in the first implementation.
+- [x] Search remains local/static in the first implementation.
 - [x] Analytics design excludes strategy parameters/research payloads.
 
 ### SEO / discoverability
@@ -550,3 +563,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Windows Edge/Puppeteer browser review covered all seven additive pages at 1440px and a true 390px viewport; mobile min-content/nav handling was hardened and the default favicon 404 was removed.
 - 2026-09-10: Browser interaction checks passed for keyboard candidate selection, Monte Carlo regeneration, reduced-motion suppression of continuous motion, and no-JavaScript Docs navigation.
 - 2026-09-10: Tracked-tree public-surface allowlist check passed with 31 tracked files; homepage, product manifest, and prelaunch config remained unchanged; publishable-content sensitive-pattern and unreleased-product-term scans passed.
+- 2026-09-10: Added same-origin local documentation search with 18 public-safe entries and an accessible Search dialog available from every additive page.
+- 2026-09-10: Added the first click-to-load Academy video using the public TraderCockpit Monte Carlo lesson; no third-party iframe exists before explicit user action.
+- 2026-09-10: Browser acceptance passed across all seven additive pages at 320px and under 200% text-size stress; fixed the video aspect-ratio/min-height overflow found by that review.

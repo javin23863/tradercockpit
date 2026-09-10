@@ -404,3 +404,107 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   .depth-card:hover, .depth-card:focus-within { transform: none; }
 }
+
+/* ---------- local search ---------- */
+.site-search-trigger {
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 8px;
+  padding: .48rem .65rem;
+  background: rgba(255,255,255,.035);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: .82rem;
+}
+.site-search-trigger:hover { color: var(--ink); border-color: var(--line-strong); }
+.site-search-dialog {
+  width: min(760px, calc(100vw - 2rem));
+  max-height: min(82vh, 760px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  color: var(--ink);
+  background: rgba(10, 4, 9, .98);
+  box-shadow: 0 35px 120px rgba(0,0,0,.72);
+}
+.site-search-dialog::backdrop { background: rgba(3,1,4,.78); backdrop-filter: blur(8px); }
+.site-search-shell { padding: clamp(1rem, 3vw, 1.5rem); }
+.site-search-head { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+.site-search-head h2 { margin: .35rem 0 1rem; font-size: clamp(1.55rem, 4vw, 2.6rem); line-height: 1; }
+.site-search-label { display: block; margin-bottom: .45rem; color: var(--muted); font-size: .84rem; }
+.site-search-input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 12px;
+  padding: .8rem .9rem;
+  background: rgba(255,255,255,.045);
+  color: var(--ink);
+  font: .92rem/1.2 var(--mono);
+}
+.site-search-input::placeholder { color: var(--faint); }
+.site-search-input:focus { outline: 2px solid var(--gold); outline-offset: 2px; border-color: transparent; }
+.site-search-status { margin: .75rem 0; }
+.site-search-results { display: grid; gap: .55rem; overflow-y: auto; max-height: 50vh; }
+.site-search-result {
+  display: grid;
+  gap: .22rem;
+  padding: .8rem .9rem;
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: 12px;
+  background: rgba(255,255,255,.025);
+  text-decoration: none;
+}
+.site-search-result:hover { border-color: rgba(255,183,43,.30); background: rgba(255,183,43,.04); }
+.site-search-result strong { font-size: .95rem; }
+.site-search-result > span:last-child { color: var(--muted); font-size: .82rem; }
+.site-search-result-meta { color: var(--gold); font: .65rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+
+/* ---------- click-to-load video ---------- */
+.video-slot {
+  display: grid;
+  grid-template-columns: minmax(0,.8fr) minmax(380px,1.2fr);
+  gap: 1rem;
+  align-items: stretch;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(29,10,18,.72), rgba(8,3,9,.92));
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+.video-slot > * { min-width: 0; }
+.video-copy { padding: .4rem; }
+.video-copy h3 { margin: .55rem 0 .65rem; font-size: clamp(1.4rem, 3vw, 2.1rem); }
+.video-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; margin: 1rem 0 .75rem; }
+.video-actions .deep-link { margin-top: 0; }
+.video-frame {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 16px;
+  background: radial-gradient(circle at 50% 50%, rgba(255,23,68,.09), transparent 48%), rgba(5,2,6,.9);
+}
+.video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+.video-placeholder { max-width: 28rem; padding: 1.5rem; text-align: center; color: var(--muted); }
+.video-placeholder strong { display: block; color: var(--ink); margin-bottom: .35rem; }
+.video-placeholder span { display: block; font-size: .82rem; }
+
+@media (max-width: 980px) {
+  .video-slot { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .site-search-trigger { padding: .45rem .55rem; }
+  .site-search-head { align-items: flex-start; }
+}
+
+@media (max-width: 470px) {
+  .site-search-dialog { width: calc(100vw - 1rem); border-radius: 14px; }
+  .site-search-head { gap: .6rem; }
+  .site-search-head h2 { font-size: 1.45rem; }
+}
