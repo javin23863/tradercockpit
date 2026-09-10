@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **Phases A–F complete / public website foundation, learning system, and hardening complete**
+Status: **Phases A–F complete / appraisal-adversarial quality pass complete**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -592,6 +592,33 @@ The documentation-system slice was adversarially reviewed for content drift, bri
 
 **Phase C result:** no unresolved high-severity findings. The public site now has a durable Concept/Method/How-To/Reference authoring model, eight source-controlled Concept pages, one complete deep Method/How-To chain, local search, and a stable help-ID resolver suitable for future in-app `What is this?` links.
 
+## 12I. Appraisal / adversarial visual-quality review — 2026-09-10
+
+After technical hardening passed, the public site was reviewed again against the original product brief: the site should invite exploration through graphical richness, not merely present the same styled text page repeatedly.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | Learn, Docs, Methods, How-Tos, Examples, and Updates opened with nearly identical oversized text-first heroes and large empty bands. The design system was coherent but the primary destinations did not feel individually explorable. | Rebuilt all six primary landing heroes as two-column visual experiences with purpose-specific diagrams: a five-depth learning orbit, contextual-help routing map, method-assumption stack, six-part lesson contract, evidence-story chain, and public-release authority stack. Headline scale was reduced on these pages so useful structure appears in the first viewport. |
+| High | Research Lab had grown beyond 15,000px with ten visual modules but lacked a first-class way to discover or jump between them. Richness had become navigation friction. | Added a complete ten-module Visual Atlas navigator with named research dimensions and direct hash links for Strategy Universe, Monte Carlo, parameter robustness, correlation, distribution, regime state, walk-forward, holdout flow, drawdown, and selection pressure. |
+| Medium | The first visual-hero markup supplied `aria-label` on generic containers without an explicit semantic role, so the group description was not reliably exposed to assistive technology. | Added `role="group"` to all six labeled landing visual systems and retained normal descendant text/links for direct reading and keyboard navigation. |
+| Medium | The orbit layout passed horizontal-overflow tests at 390px but the lower nodes could visually overlap even though the document width was valid. | Repositioned the mobile orbit nodes into separated upper/lower bands and visually re-captured Learn and Docs at 390px. This review therefore treats collision testing separately from overflow testing. |
+| Medium | Adding more visual richness risked undoing the dependency-light and reduced-motion requirements. | The appraisal slice is HTML/CSS only: no new JavaScript framework, WebGL dependency, tracker, font, or external request. Motion is limited to short hover/focus elevation under `prefers-reduced-motion: no-preference`; content and meaning remain static without it. |
+| Medium | Visual quality improvements could silently regress after this review because prior integrity checks only protected links/content contracts. | `check_website.py` now requires the six accessible visual landing heroes and exactly ten Research Lab atlas destinations. |
+
+### Appraisal quality gate
+
+- [x] Home and Research Lab retain distinct quantitative visual identities.
+- [x] Learn, Docs, Methods, How-Tos, Examples, and Updates each communicate their job graphically above the fold.
+- [x] Landing visuals explain information architecture rather than adding decorative 3D.
+- [x] Research Lab exposes all ten modules through a first-class atlas navigator.
+- [x] Visual navigation remains keyboard operable and semantically grouped.
+- [x] Mobile visual collision review passes in addition to normal overflow checks.
+- [x] Appraisal polish adds no new eager external requests or JavaScript dependencies.
+- [x] Full 22-sitemap-page desktop/mobile regression remains green after the visual changes.
+- [x] Product-manifest, waitlist, privacy, synthetic-data, and performance boundaries remain intact.
+
+**Appraisal result:** the two blocking visual/navigation findings and all medium findings from this round are corrected. Static architecture/hardening/claims checks pass; the 22-page desktop/mobile browser crawl passes visual-hero contracts, atlas navigation, keyboard focus, privacy, reduced motion, and reflow. Homepage local text payload remains below the existing budget at approximately 78.4 KB after the shared CSS additions.
+
 ## 13. Acceptance checklist
 
 ### Governance / truth
@@ -732,3 +759,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Phase F hardened legacy public pages, fixed stale checklist JavaScript, added keyboard-focusable skip targets across the public site, and expanded CI to architecture/hardening/claims plus all `.js`/`.mjs` syntax checks.
 - 2026-09-10: Final scope reconciliation implemented the previously orphaned Regime map as a synthetic 3D cube with Concept, Methods, help, search, content-registry, sitemap, and browser acceptance coverage.
 - 2026-09-10: Final full-site acceptance passed 22 sitemap pages at desktop/mobile, 25 HTML pages/23 canonicals, current waitlist/zero-capability public-claims audit, and 4× CPU Home/Research Lab performance budgets with no eager external requests.
+- 2026-09-10: Appraisal/adversarial visual-quality review found repetitive text-first primary landing pages and missing Research Lab wayfinding; both were treated as blocking design findings rather than cosmetic polish.
+- 2026-09-10: Added six purpose-specific visual landing heroes and a ten-module Research Lab Visual Atlas navigator; mobile collision and accessible-group issues found during the second review were corrected.
+- 2026-09-10: Post-appraisal full-site regression passed architecture, hardening, public claims, generated-content drift, whitespace, and 22-sitemap-page desktop/mobile browser acceptance.

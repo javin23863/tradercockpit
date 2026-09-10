@@ -142,6 +142,16 @@ def main() -> int:
         if not any(src.endswith("assets/site-search.js") for src in parser.scripts):
             problems.append(f"missing local search script: {page.relative_to(REPO)}")
 
+    visual_landings = [DOCS / name / "index.html" for name in ("learn", "docs", "methods", "how-to", "examples", "updates")]
+    for landing in visual_landings:
+        if not landing.is_file():
+            continue
+        landing_text = landing.read_text(encoding="utf-8")
+        if 'class="page-hero landing-hero"' not in landing_text or 'class="landing-hero-visual' not in landing_text:
+            problems.append(f"primary landing page missing appraisal visual hero: {landing.relative_to(REPO)}")
+        if 'role="group" class="landing-hero-visual' not in landing_text:
+            problems.append(f"landing visual group missing accessible role: {landing.relative_to(REPO)}")
+
     home_text = HOME_PAGE.read_text(encoding="utf-8") if HOME_PAGE.is_file() else ""
     home_parser = parsers.get(HOME_PAGE)
     required_home_ids = {
@@ -182,6 +192,9 @@ def main() -> int:
 
     lab_page = DOCS / "research-lab.html"
     lab_parser = parsers.get(lab_page)
+    lab_text_for_nav = lab_page.read_text(encoding="utf-8") if lab_page.is_file() else ""
+    if 'id="atlas"' not in lab_text_for_nav or lab_text_for_nav.count('class="atlas-nav-item"') != 10:
+        problems.append("Research Lab must expose the complete 10-module visual-atlas navigator")
     required_lab_ids = {"parameter-robustness", "correlation", "distribution", "walk-forward", "out-of-sample", "drawdown", "selection-bias", "regime-map"}
     if lab_parser:
         missing_ids = required_lab_ids.difference(lab_parser.ids)
