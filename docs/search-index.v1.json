@@ -513,6 +513,45 @@
         "out of sample",
         "metric shopping"
       ]
+    },
+    {
+      "id": "research.ohlc-bars",
+      "path": "methods/chart-evidence.html#ohlc-bars",
+      "title": "OHLC bars",
+      "kind": "method",
+      "summary": "Product-neutral interpretation guidance for OHLC bars.",
+      "terms": [
+        "ohlc",
+        "candlestick",
+        "price bars",
+        "open high low close"
+      ]
+    },
+    {
+      "id": "research.profile-tpo",
+      "path": "methods/chart-evidence.html#profile-tpo",
+      "title": "Volume Profile and TPO",
+      "kind": "method",
+      "summary": "Product-neutral interpretation guidance for Volume Profile and TPO.",
+      "terms": [
+        "volume profile",
+        "tpo",
+        "price profile",
+        "market profile"
+      ]
+    },
+    {
+      "id": "research.historical-replay",
+      "path": "methods/chart-evidence.html#historical-replay",
+      "title": "Historical replay",
+      "kind": "method",
+      "summary": "Product-neutral interpretation guidance for Historical replay.",
+      "terms": [
+        "historical replay",
+        "chart replay",
+        "information boundary",
+        "future leak"
+      ]
     }
   ]
 }
