@@ -292,6 +292,13 @@ h1 {
 .deep-link { display: inline-block; margin-top: 1rem; color: var(--gold); text-decoration: none; font: .78rem/1.3 var(--mono); }
 .deep-link:hover { text-decoration: underline; }
 
+.support-route-grid, .trust-principles-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.support-page .support-route-grid .depth-card h2,
+.trust-page .trust-principles-grid .depth-card h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  overflow-wrap: anywhere;
+}
+
 .visual-panel {
   padding: clamp(1rem, 2vw, 1.4rem);
   border: 1px solid var(--line);

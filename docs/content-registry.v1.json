@@ -255,6 +255,20 @@
       "path": "how-to/read-chart-evidence.html",
       "title": "How to read chart evidence",
       "status": "public"
+    },
+    {
+      "id": "support",
+      "kind": "landing",
+      "path": "support/",
+      "title": "Support",
+      "status": "public"
+    },
+    {
+      "id": "trust",
+      "kind": "landing",
+      "path": "trust/",
+      "title": "Trust",
+      "status": "public"
     }
   ]
 }
