@@ -234,6 +234,13 @@
       "path": "how-to/read-staged-validation.html",
       "title": "How to read a staged validation chain",
       "status": "public"
+    },
+    {
+      "id": "how-to.read-result-metrics",
+      "kind": "how-to",
+      "path": "how-to/read-result-metrics.html",
+      "title": "How to read backtest metrics together",
+      "status": "public"
     }
   ]
 }
