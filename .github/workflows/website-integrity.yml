@@ -4,12 +4,12 @@ on:
   push:
     paths:
       - "docs/**"
-      - ".github/scripts/check_website.py"
+      - ".github/scripts/**"
       - ".github/workflows/website-integrity.yml"
   pull_request:
     paths:
       - "docs/**"
-      - ".github/scripts/check_website.py"
+      - ".github/scripts/**"
       - ".github/workflows/website-integrity.yml"
 
 jobs:
@@ -23,7 +23,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Validate site architecture and help registry
+      - name: Validate site architecture and registries
         run: python .github/scripts/check_website.py
-      - name: Validate Research Lab JavaScript syntax
-        run: node --check docs/assets/research-lab.js
+      - name: Validate public-site hardening contracts
+        run: python .github/scripts/check_site_hardening.py
+      - name: Validate public product claims and disclosure boundaries
+        run: python .github/scripts/check_public_claims.py
+      - name: Validate all public JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do node --check "$file"; done < <(find docs -type f \( -name '*.js' -o -name '*.mjs' \) -print0)

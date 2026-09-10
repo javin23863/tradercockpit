@@ -66,7 +66,7 @@ def render(entry: dict) -> str:
     </div>
   </nav>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="article-hero">
       <div class="shell article-hero-inner">
         <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>{esc(title)}</span></div>

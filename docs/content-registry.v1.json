@@ -150,6 +150,13 @@
       "path": "examples/holdout-selection.html",
       "title": "Synthetic holdout selection example",
       "status": "public"
+    },
+    {
+      "id": "concept.regime-map",
+      "kind": "concept",
+      "path": "learn/concepts/regime-map.html",
+      "title": "Market regimes as coordinates",
+      "status": "public"
     }
   ]
 }

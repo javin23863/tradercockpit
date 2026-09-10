@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
 <title>TraderCockpit — Strategy-Claim Audit Checklist</title>
+<link rel="canonical" href="https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html">
 <meta name="description" content="A one-page evidence checklist for auditing a published trading-strategy claim without making a performance claim.">
 <style>
 :root{
@@ -14,6 +15,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--mono);line-height:1.35}
+.skip-link{position:fixed;left:1rem;top:-5rem;z-index:100;padding:.55rem .75rem;background:#ffb72b;color:#16080e;font-weight:700}.skip-link:focus{top:1rem}
 .sheet{width:min(1100px,calc(100% - 2rem));margin:1rem auto;padding:1.1rem;border:1px solid var(--line);background:var(--panel)}
 header{display:grid;grid-template-columns:1fr auto;gap:1rem;border-bottom:2px solid var(--accent);padding-bottom:.7rem}
 .eyebrow,.source-key{color:var(--faint);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
@@ -58,7 +60,8 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
 </style>
 </head>
 <body>
-<main class="sheet">
+<a class="skip-link" href="#main">Skip to content</a>
+<main class="sheet" id="main" tabindex="-1">
   <header>
     <div>
       <div class="eyebrow">TRADERCOCKPIT // TEST THE CLAIM</div>
@@ -109,10 +112,5 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
     <div class="disclaimer">Research tooling, not financial advice. No performance is promised or implied.</div>
   </footer>
 </main>
-<script>
-for(const key of ["utm_source","utm_medium","utm_campaign"]){
-  document.getElementById(`capture-${key.replace("_","-")}`).value=new URLSearchParams(location.search).get(key)??""
-}
-</script>
 </body>
 </html>

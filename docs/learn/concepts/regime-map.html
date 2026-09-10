@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="data:,">
-  <title>Selection bias and multiple testing — TraderCockpit Learn</title>
-  <meta name="description" content="See why the best-looking result from a large search deserves different interpretation from a result specified before the search.">
-  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/learn/concepts/selection-bias.html">
+  <title>Market regimes as coordinates — TraderCockpit Learn</title>
+  <meta name="description" content="Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight.">
+  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/learn/concepts/regime-map.html">
   <link rel="stylesheet" href="../../assets/site-v2.css">
 </head>
 <body>
@@ -28,14 +28,14 @@
   <main id="main" tabindex="-1">
     <section class="article-hero">
       <div class="shell article-hero-inner">
-        <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>Selection bias and multiple testing</span></div>
+        <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>Market regimes as coordinates</span></div>
         <span class="eyebrow">Concept / public research education</span>
-        <h1>Selection bias and multiple testing</h1>
-        <p>See why the best-looking result from a large search deserves different interpretation from a result specified before the search.</p>
+        <h1>Market regimes as coordinates</h1>
+        <p>Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight.</p>
         <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Not product availability</span></div>
         <div class="article-actions">
-          <a class="deep-link" href="../../research-lab.html#selection-bias">Open the visual explanation →</a>
-          <a class="deep-link" href="../../methods/#selection-bias">Read the method →</a>
+          <a class="deep-link" href="../../research-lab.html#regime-map">Open the visual explanation →</a>
+          <a class="deep-link" href="../../methods/#regime-map">Read the method →</a>
 
         </div>
       </div>
@@ -47,36 +47,36 @@
           <section class="article-section" id="definition">
             <span class="kicker">Plain-language definition</span>
             <h2>What is it?</h2>
-            <div class="definition-card"><strong>Selection bias and multiple testing:</strong> Selection bias appears when the same evidence helps choose which result to report. Multiple testing intensifies the problem: as more candidates are compared, extreme-looking results can arise from noise even when no candidate has a true advantage.</div>
+            <div class="definition-card"><strong>Market regimes as coordinates:</strong> A regime is a grouping of observations that share defined market-state characteristics. Useful regime analysis starts with explicit variables and rules or a documented model; the label itself is only a compressed description of those coordinates.</div>
           </section>
           <section class="article-section" id="research-question">
             <span class="kicker">Research question</span>
             <h2>What question does it help answer?</h2>
-            <p>How much of the selected result could be explained by searching many candidates and keeping only the most impressive one?</p>
+            <p>Which state variables define the regime, how were thresholds chosen, and does the label remain useful outside the sample that suggested it?</p>
           </section>
           <section class="article-section" id="can-tell">
             <span class="kicker">Bounded interpretation</span>
             <h2>What can it tell you?</h2>
             <ul>
-            <li>Why the number and dependence of tried candidates matter when interpreting the selected result.</li>
-            <li>Why a maximum should be compared with a selection-aware reference rather than treated like a prespecified observation.</li>
-            <li>Where an experiment needs stronger holdout, correction, or resampling logic.</li>
+            <li>How several state variables can be viewed jointly instead of one at a time.</li>
+            <li>Which observations occupy similar regions under the chosen variables and thresholds.</li>
+            <li>How changing the definition of stress or direction can change a regime label.</li>
             </ul>
           </section>
           <section class="article-section" id="cannot-tell">
             <span class="kicker">Limitations</span>
             <h2>What can it not tell you?</h2>
             <ul>
-            <li>A simple independent-Normal example does not model the dependence structure of real candidate searches.</li>
-            <li>Counting visible trials alone can miss hidden researcher degrees of freedom.</li>
-            <li>A correction method is only as defensible as its assumptions and accounting of the search process.</li>
+            <li>A regime label does not predict how long the state will persist or what returns will follow.</li>
+            <li>Thresholds discovered after viewing outcomes can introduce hindsight and selection bias.</li>
+            <li>Three variables cannot represent every relevant feature of liquidity, volatility, trend, or market structure.</li>
             </ul>
           </section>
           <section class="article-section" id="synthetic-example">
             <span class="kicker">Synthetic example</span>
             <h2>See the shape before reading the formula.</h2>
-            <p>The Research Lab draws independent synthetic Normal scores under a no-signal assumption. As the family expands from 64 to 1,024 candidates, the approximate typical maximum under that null rises even though the generating process contains no edge.</p>
-            <a class="deep-link" href="../../research-lab.html#selection-bias">Open this concept in Research Lab →</a>
+            <p>The Research Lab places 96 deterministic synthetic observations in a three-dimensional cube whose axes are directional tendency, volatility, and liquidity stress. Simple thresholds assign descriptive labels only to make the information compression visible.</p>
+            <a class="deep-link" href="../../research-lab.html#regime-map">Open this concept in Research Lab →</a>
           </section>
           <section class="article-section" id="product-boundary">
             <span class="kicker">Product boundary</span>
@@ -87,8 +87,8 @@
             <span class="kicker">Continue learning</span>
             <h2>Related concepts</h2>
             <div class="related-grid">
-          <a class="related-link" href="out-of-sample.html"><strong>Out-of-sample evidence</strong><span>Continue to the related public concept.</span></a>
-          <a class="related-link" href="parameter-robustness.html"><strong>Parameter robustness</strong><span>Continue to the related public concept.</span></a>
+          <a class="related-link" href="correlation-diversification.html"><strong>Correlation and diversification</strong><span>Continue to the related public concept.</span></a>
+          <a class="related-link" href="distribution-shape.html"><strong>Distribution shape</strong><span>Continue to the related public concept.</span></a>
           <a class="related-link" href="walk-forward.html"><strong>Walk-forward analysis</strong><span>Continue to the related public concept.</span></a>
             </div>
           </section>
@@ -109,8 +109,8 @@
           <div class="side-panel">
             <h2>Go deeper</h2>
             <p class="micro">Concept pages explain intuition. Methods explain assumptions and calculation. Research Lab makes the geometry visible.</p>
-            <a class="deep-link" href="../../methods/#selection-bias">Method →</a>
-            <a class="deep-link" href="../../research-lab.html#selection-bias">Visual →</a>
+            <a class="deep-link" href="../../methods/#regime-map">Method →</a>
+            <a class="deep-link" href="../../research-lab.html#regime-map">Visual →</a>
 
           </div>
         </aside>

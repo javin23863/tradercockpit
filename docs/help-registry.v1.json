@@ -181,6 +181,20 @@
         "holdout case study",
         "selection example"
       ]
+    },
+    {
+      "id": "research.regime-map",
+      "path": "learn/concepts/regime-map.html",
+      "title": "Market regimes as coordinates",
+      "kind": "concept",
+      "status": "public",
+      "aliases": [
+        "regime map",
+        "market regime",
+        "volatility regime",
+        "liquidity stress",
+        "market state"
+      ]
     }
   ]
 }

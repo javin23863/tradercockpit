@@ -273,6 +273,40 @@
           "path": "correlation-diversification.html"
         }
       ]
+    },
+    {
+      "slug": "regime-map",
+      "title": "Market regimes as coordinates",
+      "description": "Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight.",
+      "question": "Which state variables define the regime, how were thresholds chosen, and does the label remain useful outside the sample that suggested it?",
+      "definition": "A regime is a grouping of observations that share defined market-state characteristics. Useful regime analysis starts with explicit variables and rules or a documented model; the label itself is only a compressed description of those coordinates.",
+      "example": "The Research Lab places 96 deterministic synthetic observations in a three-dimensional cube whose axes are directional tendency, volatility, and liquidity stress. Simple thresholds assign descriptive labels only to make the information compression visible.",
+      "tells": [
+        "How several state variables can be viewed jointly instead of one at a time.",
+        "Which observations occupy similar regions under the chosen variables and thresholds.",
+        "How changing the definition of stress or direction can change a regime label."
+      ],
+      "cannot": [
+        "A regime label does not predict how long the state will persist or what returns will follow.",
+        "Thresholds discovered after viewing outcomes can introduce hindsight and selection bias.",
+        "Three variables cannot represent every relevant feature of liquidity, volatility, trend, or market structure."
+      ],
+      "visual": "../../research-lab.html#regime-map",
+      "method": "../../methods/#regime-map",
+      "related": [
+        {
+          "title": "Correlation and diversification",
+          "path": "correlation-diversification.html"
+        },
+        {
+          "title": "Distribution shape",
+          "path": "distribution-shape.html"
+        },
+        {
+          "title": "Walk-forward analysis",
+          "path": "walk-forward.html"
+        }
+      ]
     }
   ]
 }

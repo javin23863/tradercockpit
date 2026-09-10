@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **Phase A complete / Phase B complete / Phase C complete / Phase D complete / Phase E Academy/examples complete / Phase F next**
+Status: **Phases A–F complete / public website foundation, learning system, and hardening complete**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -452,15 +452,34 @@ Phase E was reviewed for performance-claim leakage, accidental product-workflow 
 
 ### Phase F — hardening
 
-- browser/device review
-- accessibility review
-- keyboard-only review
-- reduced-motion review
-- performance profiling
-- SEO/canonical/sitemap review
-- broken-link/deep-link validation
-- public-disclosure audit
-- product-claim audit against manifest
+- [x] Browser/device crawl covers every sitemap page at desktop and 390px mobile widths.
+- [x] Accessibility review checks named controls, semantic main landmarks, canvas text alternatives, and working skip-link focus.
+- [x] Keyboard-only review covers the site-wide skip-link contract and interactive research controls.
+- [x] Reduced-motion review confirms nonessential continuous motion is suppressed while static visuals remain meaningful.
+- [x] Performance profiling enforces dependency-light text-asset budgets and records 4× CPU browser metrics for Home and Research Lab.
+- [x] SEO/canonical/sitemap review reconciles all indexable public pages while excluding the help resolver utility from discovery.
+- [x] Broken-link/deep-link validation covers local navigation, generated concepts, registries, and Research Lab hash targets.
+- [x] Public-disclosure audit rejects local/internal path leakage and requires research/example boundary language.
+- [x] Product-claim audit enforces the current `waitlist` state, zero verified capabilities, and fail-closed conversion surfaces.
+- [x] CI runs architecture, hardening, claims, and syntax checks across all public `.js` and `.mjs` JavaScript files.
+- [x] Original module inventory was reconciled; the previously orphaned Regime map is implemented as a synthetic 3D regime cube with Concept/Method/help/search coverage.
+
+## 12H. Final hardening review — 2026-09-10
+
+Phase F was adversarially reviewed across the full public surface rather than only the newly added pages.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | The original Research Lab inventory named a Regime map, but no implementation phase actually owned it, allowing the plan to appear complete with an orphaned promised module. | Added the synthetic 3D Regime cube and a generated Regime Concept page, Methods entry, help ID, local-search entry, content-registry entry, sitemap URL, integrity requirements, and interaction/reflow acceptance. |
+| Medium | The legacy strategy-claim checklist still executed JavaScript against capture fields that had been removed, throwing a runtime null error on a public page. | Removed the stale script without changing checklist content; the site-wide browser crawl now reports no page/console error. |
+| Medium | The product-boundary/refund page lacked a main landmark, skip link, canonical metadata, and favicon handling, producing accessibility and console failures. | Added semantic/focusable main content, skip navigation, metadata/canonical, and zero-request favicon handling without changing the policy substance. |
+| Medium | Existing skip links often scrolled visually but did not transfer keyboard focus because `#main` was not focusable. | Added `tabindex="-1"` to primary main landmarks across the public site and to the Concept generator so regeneration preserves the fix. |
+| Medium | The first site-wide accessibility harness incorrectly flagged hidden attribution inputs as unnamed controls. | Corrected the test to exclude non-interactive hidden inputs rather than adding meaningless labels; visible controls remain name-checked. |
+| Medium | The first reduced-motion harness assumed every sampled page contained a `.depth-card`, causing a harness exception. | Removed the brittle page-shape assumption and retained the direct reduced-motion state/control assertions. |
+| Medium | The hardening checker originally required `id` to appear before `tabindex` in `<main>`, falsely rejecting a valid focusable checklist landmark. | Made the static focus check attribute-order independent and reran the full suite. |
+| Medium | Static syntax CI protected only the original Research Lab script, leaving later search/help/video/home/visual scripts outside the syntax gate. | CI now runs `node --check` over every public `.js` and `.mjs` file and executes architecture, hardening, and public-claims audits. |
+
+**Phase F result:** no unresolved high-severity findings. The browser crawl passes all 22 sitemap pages at desktop and mobile widths with no horizontal overflow, console errors, eager third-party requests, unnamed visible controls, or broken skip-link focus. Static hardening passes 25 HTML pages and 23 canonicals; `help.html` remains a resolver utility intentionally excluded from the 22-page sitemap. The current public-claims audit passes 42 public files with `status=waitlist` and zero verified capabilities. Under 4× CPU throttling, Home uses 8 local requests and about 65.5 KB transfer, Research Lab uses 7 local requests and about 98.3 KB transfer, and measured script duration remains roughly 20–25 ms with no eager external requests.
 
 ## 12. Adversarial review — 2026-09-10
 
@@ -709,3 +728,7 @@ The additive first milestone is complete when:
 - 2026-09-10: Phase E published Example 001, a synthetic holdout-selection research chain covering selection context, preserved holdout evidence, walk-forward checks, Monte Carlo interpretation, limitations, and the next research question.
 - 2026-09-10: Academy now contains two six-step connected learning paths: research validation and path risk/uncertainty.
 - 2026-09-10: Phase E adversarial/browser review verified help resolution, local search, same-origin example loading, 320px reflow, 200% text enlargement, and visual clarity of the Academy paths and 256 → 1 → 0 evidence chain.
+
+- 2026-09-10: Phase F hardened legacy public pages, fixed stale checklist JavaScript, added keyboard-focusable skip targets across the public site, and expanded CI to architecture/hardening/claims plus all `.js`/`.mjs` syntax checks.
+- 2026-09-10: Final scope reconciliation implemented the previously orphaned Regime map as a synthetic 3D cube with Concept, Methods, help, search, content-registry, sitemap, and browser acceptance coverage.
+- 2026-09-10: Final full-site acceptance passed 22 sitemap pages at desktop/mobile, 25 HTML pages/23 canonicals, current waitlist/zero-capability public-claims audit, and 4× CPU Home/Research Lab performance budgets with no eager external requests.

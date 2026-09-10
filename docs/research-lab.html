@@ -25,7 +25,7 @@
     </div>
   </nav>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero">
       <div class="shell hero-grid">
         <div>
@@ -158,10 +158,30 @@
       </div>
     </section>
 
+    <section class="section" id="regime-map" aria-labelledby="regime-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">06 / Market state geometry</span>
+          <h2 id="regime-title">A regime is a coordinate system, not a hindsight label.</h2>
+          <p>This synthetic cube places observations on three normalized dimensions: directional tendency, volatility, and liquidity stress. Rotate the cube, filter stress conditions, and inspect points to see how a market-state label can compress several variables into one word.</p>
+        </div>
+        <div class="visual-panel" data-regime-explorer>
+          <div class="visual-topline"><div><h3>Synthetic regime cube</h3><p class="micro">96 deterministic observations · 3 normalized axes · illustrative thresholds only</p></div><span class="synthetic-badge">Illustrative market states</span></div>
+          <div class="segmented-controls" aria-label="Regime cube stress filter"><button class="control-btn" type="button" data-regime-filter="all" aria-pressed="true">All observations</button><button class="control-btn" type="button" data-regime-filter="low" aria-pressed="false">Lower stress</button><button class="control-btn" type="button" data-regime-filter="high" aria-pressed="false">Higher stress</button></div>
+          <canvas id="regime-canvas" class="lab-depth-canvas regime-canvas" role="img" aria-label="A synthetic three-dimensional cube of market-state observations. Horizontal direction represents a normalized directional score from negative to positive, vertical position represents normalized volatility, and depth represents normalized liquidity stress."></canvas>
+          <div class="scene-controls inline-controls" aria-label="Regime cube controls"><button class="control-btn" type="button" id="regime-rotate-left">Rotate left</button><button class="control-btn" type="button" id="regime-rotate-right">Rotate right</button><button class="control-btn" type="button" id="regime-prev">Previous observation</button><button class="control-btn" type="button" id="regime-next">Next observation</button><div class="focus-readout" id="regime-readout" aria-live="polite">Synthetic regime details</div></div>
+          <div class="metric-row" aria-label="Selected synthetic regime coordinates"><div class="metric"><b id="regime-direction">—</b><span>directional score</span></div><div class="metric"><b id="regime-volatility">—</b><span>volatility score</span></div><div class="metric"><b id="regime-stress">—</b><span>liquidity-stress score</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>X · direction</strong><span>−1 means strongly negative synthetic direction; +1 strongly positive.</span></div><div class="legend-item"><strong>Y · volatility</strong><span>Normalized illustrative volatility from 0 to 1.</span></div><div class="legend-item"><strong>Z · liquidity stress</strong><span>Normalized illustrative stress from 0 to 1.</span></div><div class="legend-item"><strong>Label · compression</strong><span>Named states summarize coordinates using explicit illustrative thresholds; they are not forecasts.</span></div></div>
+          <div class="notice"><strong>Interpretation boundary:</strong> these labels come from simple synthetic thresholds, not a fitted market-regime model. Real regime definitions depend on the variables, sampling, thresholds, and purpose chosen before interpretation.</div>
+          <a class="deep-link" href="methods/#regime-map">Read about regime definitions and limitations →</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="walk-forward" aria-labelledby="walk-forward-title">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">06 / Time-aware validation</span>
+          <span class="eyebrow">07 / Time-aware validation</span>
           <h2 id="walk-forward-title">Move the boundary through time instead of trusting one split.</h2>
           <p>This synthetic landscape shows seven ordered train/evaluate folds. Switch between rolling and anchored training windows, then inspect each fold. The geometry explains data partitioning only; it does not display strategy performance.</p>
         </div>
@@ -180,7 +200,7 @@
     <section class="section" id="out-of-sample" aria-labelledby="out-of-sample-title">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">07 / Information boundary</span>
+          <span class="eyebrow">08 / Information boundary</span>
           <h2 id="out-of-sample-title">A holdout stops being independent when it starts steering selection.</h2>
           <p>This synthetic diagram contrasts a preserved holdout with repeated peeking. In the clean case, candidate selection happens before the boundary and the chosen candidate crosses once for evaluation. The repeated-peek mode adds illustrative feedback loops from holdout information back into selection.</p>
         </div>
@@ -199,7 +219,7 @@
     <section class="section" id="drawdown" aria-labelledby="drawdown-title">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">08 / Path-dependent risk</span>
+          <span class="eyebrow">09 / Path-dependent risk</span>
           <h2 id="drawdown-title">Similar endpoints can hide very different time spent underwater.</h2>
           <p>Drawdown is a path property. These deterministic synthetic index paths show a deep shock, a long shallow valley, and repeated valleys. The shaded distance from each running peak makes depth and recovery visible without treating a single maximum-drawdown number as the whole story.</p>
         </div>
@@ -217,7 +237,7 @@
     <section class="section" id="selection-bias" aria-labelledby="selection-title">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">09 / Multiple testing</span>
+          <span class="eyebrow">10 / Multiple testing</span>
           <h2 id="selection-title">Search more candidates and the best-looking noise gets more extreme.</h2>
           <p>This synthetic independent-null demonstration draws candidate scores from a standardized Normal distribution with no signal. Increase the family size to see how selection alone can produce a more impressive maximum. The approximation is educational and depends on the stated independence/Normal assumptions.</p>
         </div>
@@ -279,5 +299,6 @@
   <script src="assets/research-lab-depth.js" defer></script>
   <script src="assets/research-lab-validation.js" defer></script>
   <script src="assets/research-lab-risk.js" defer></script>
+  <script src="assets/research-lab-regime.js" defer></script>
 </body>
 </html>

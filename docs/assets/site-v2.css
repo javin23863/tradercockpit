@@ -674,3 +674,12 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
 .academy-step strong { display: block; font-size: .88rem; }
 @media (max-width: 900px) { .academy-path { grid-template-columns: repeat(3,minmax(0,1fr)); } }
 @media (max-width: 620px) { .example-flow { grid-template-columns: 1fr; } .example-arrow { transform: rotate(90deg); justify-self: center; } .academy-path { grid-template-columns: 1fr; } }
+
+/* ---------- regime cube ---------- */
+.regime-canvas { height: 430px; }
+@media (max-width: 720px) {
+  .regime-canvas { height: 350px; }
+}
+@media (max-width: 470px) {
+  .regime-canvas { height: 310px; }
+}

@@ -325,6 +325,22 @@
         "limitations",
         "case study"
       ]
+    },
+    {
+      "id": "research.regime-map",
+      "title": "Market regimes as coordinates",
+      "path": "learn/concepts/regime-map.html",
+      "kind": "concept",
+      "summary": "A synthetic 3D market-state cube using direction, volatility, and liquidity-stress coordinates.",
+      "terms": [
+        "regime",
+        "regime map",
+        "market state",
+        "direction",
+        "volatility",
+        "liquidity stress",
+        "regime cube"
+      ]
     }
   ]
 }

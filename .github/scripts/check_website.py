@@ -40,6 +40,7 @@ VIDEO_SCRIPT = DOCS / "assets" / "video-slot.js"
 LAB_DEPTH = DOCS / "assets" / "research-lab-depth.js"
 LAB_VALIDATION = DOCS / "assets" / "research-lab-validation.js"
 LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
+LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
 HOME_SCRIPT = DOCS / "assets" / "home-v2.js"
 HOME_STYLE = DOCS / "assets" / "home-v2.css"
@@ -181,7 +182,7 @@ def main() -> int:
 
     lab_page = DOCS / "research-lab.html"
     lab_parser = parsers.get(lab_page)
-    required_lab_ids = {"parameter-robustness", "correlation", "distribution", "walk-forward", "out-of-sample", "drawdown", "selection-bias"}
+    required_lab_ids = {"parameter-robustness", "correlation", "distribution", "walk-forward", "out-of-sample", "drawdown", "selection-bias", "regime-map"}
     if lab_parser:
         missing_ids = required_lab_ids.difference(lab_parser.ids)
         if missing_ids:
@@ -192,6 +193,8 @@ def main() -> int:
             problems.append("Research Lab validation script missing")
         if not any(src.endswith("assets/research-lab-risk.js") for src in lab_parser.scripts):
             problems.append("Research Lab risk script missing")
+        if not any(src.endswith("assets/research-lab-regime.js") for src in lab_parser.scripts):
+            problems.append("Research Lab regime script missing")
     if not LAB_DEPTH.is_file():
         problems.append("missing docs/assets/research-lab-depth.js")
     else:
@@ -271,6 +274,16 @@ def main() -> int:
         registered_concepts = {entry.get("path") for entry in content_entries if entry.get("kind") == "concept"}
         if concept_paths != registered_concepts:
             problems.append("content registry concept paths do not exactly match generated concept source")
+    if not LAB_REGIME.is_file():
+        problems.append("missing docs/assets/research-lab-regime.js")
+    else:
+        regime_script = LAB_REGIME.read_text(encoding="utf-8")
+        if "IntersectionObserver" not in regime_script:
+            problems.append("Research Lab regime module is not lazy-initialized")
+        if "http://" in regime_script or "https://" in regime_script:
+            problems.append("Research Lab regime script contains an external network target")
+        if "innerHTML" in regime_script:
+            problems.append("Research Lab regime script should not use innerHTML")
     registry_entries: list[dict] = []
     if not REGISTRY.is_file():
         problems.append("missing docs/help-registry.v1.json")
