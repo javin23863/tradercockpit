@@ -1,6 +1,6 @@
 # TraderCockpit Public Website Plan
 
-Status: **reviewed / implementation started**
+Status: **Phase A complete / Phase B visual depth in progress**
 Repository: `javin23863/tradercockpit`
 Publishing boundary: GitHub Pages from `docs/`
 Last adversarial review: 2026-09-10
@@ -357,6 +357,19 @@ Initial performance rules:
 - accessible legends/fallbacks
 - per-module deep links
 
+### Phase B progress checklist
+
+- [x] Existing Monte Carlo path field remains interactive and synthetic.
+- [x] Parameter-robustness surface compares broad plateau, narrow spike, and ridge geometry.
+- [x] Correlation network exposes labeled families, relationship strength, node selection, and focus mode.
+- [x] Distribution explorer compares symmetric, skewed, and heavy-tail synthetic families with a keyboard-operable threshold.
+- [x] New Phase B modules have adjacent legends and written interpretation/fallback text.
+- [x] Direct hash links initialize lazy visuals and land below the sticky navigation.
+- [x] Expanded Research Lab passes 320px reflow and 200% text-size stress.
+- [ ] Build the walk-forward landscape.
+- [ ] Build the explicit in-sample/out-of-sample boundary visualization.
+- [ ] Build drawdown-valley path visualization.
+- [ ] Build the selection/multiple-testing funnel.
 ### Phase C — documentation system
 
 - durable docs taxonomy
@@ -448,6 +461,20 @@ The three deferred Phase A acceptance items were implemented and adversarially e
 | Medium | Narrow-screen acceptance alone did not prove resilience under enlarged text. | Added a seven-page 200% text-size stress pass at a 640px viewport; no horizontal overflow or console errors remain. |
 
 **Foundation completion result:** all Phase A acceptance items are now evidence-backed. Local search covers 18 public-safe destinations, the first Academy video is optional and click-to-load, and browser acceptance passes for 320px reflow and 200% text enlargement across every additive page. The legacy homepage remains outside this change set.
+## 12C. Phase B visual-depth review — 2026-09-10
+
+The first Research Lab depth slice was reviewed for misleading quantitative semantics, inaccessible state, deep-link failures, and responsive defects.
+
+| Severity | Finding | Resolution |
+|---|---|---|
+| High | A visually rich surface/network/distribution could be mistaken for live product output or market evidence. | Every new module is deterministic synthetic education, explicitly names its visual encodings, links to method limitations, and avoids product-availability claims. |
+| Medium | Long synthetic-status badges forced correlation/distribution panels wider than 320px and failed the 200% text stress case. | Mobile visual headers now stack and badges wrap; the expanded Research Lab passes both reflow tests. |
+| Medium | Sticky navigation could cover the heading reached by an in-app/deep help link. | Added scroll margins for visual section targets; direct 390px hash-navigation tests land all three sections below the sticky nav. |
+| Medium | The correlation focus toggle changed its visible label while also using `aria-pressed`, making the toggle state harder to interpret. | Kept the control label stable as “Focus selected”; `aria-pressed` alone carries the toggle state. |
+| Medium | A standardized heavy-tail sample could have a less-negative 5th percentile than the symmetric sample, making the chosen tail summary visually counterintuitive. | Changed the summary to the 1st percentile and added an acceptance assertion that the current deterministic heavy-tail sample exposes the farther lower tail. |
+| Medium | Lazy initialization could leave a deep-linked module blank if the observer missed a hash jump. | Direct links to robustness, correlation, and distribution were exercised independently; each initializes its metric and canvas without console errors. |
+
+**Phase B review result:** no unresolved high-severity findings in this slice. Surface-mode switching, network selection/focus, keyboard threshold adjustment, direct hash navigation, 320px reflow, and 200% text stress pass in Windows Edge/Puppeteer.
 ## 13. Acceptance checklist
 
 ### Governance / truth
@@ -566,3 +593,6 @@ The additive first milestone is complete when:
 - 2026-09-10: Added same-origin local documentation search with 18 public-safe entries and an accessible Search dialog available from every additive page.
 - 2026-09-10: Added the first click-to-load Academy video using the public TraderCockpit Monte Carlo lesson; no third-party iframe exists before explicit user action.
 - 2026-09-10: Browser acceptance passed across all seven additive pages at 320px and under 200% text-size stress; fixed the video aspect-ratio/min-height overflow found by that review.
+- 2026-09-10: Built the first Phase B visual-depth slice: a three-mode parameter surface, an 18-node synthetic correlation network, and a three-family distribution/tail explorer.
+- 2026-09-10: Phase B adversarial review fixed synthetic-badge reflow, deep-link sticky-nav occlusion, correlation toggle labeling, and the heavy-tail summary statistic.
+- 2026-09-10: Direct hash-link acceptance passed for all three new lazy modules at 390px; each initialized its canvas/metric below the sticky navigation with no horizontal overflow.

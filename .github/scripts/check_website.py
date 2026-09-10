@@ -25,6 +25,7 @@ REGISTRY = DOCS / "help-registry.v1.json"
 SEARCH_INDEX = DOCS / "search-index.v1.json"
 SITE_SEARCH = DOCS / "assets" / "site-search.js"
 VIDEO_SCRIPT = DOCS / "assets" / "video-slot.js"
+LAB_DEPTH = DOCS / "assets" / "research-lab-depth.js"
 
 
 class PageParser(HTMLParser):
@@ -33,6 +34,7 @@ class PageParser(HTMLParser):
         self.links: list[str] = []
         self.scripts: list[str] = []
         self.ids: set[str] = set()
+        self.duplicate_ids: set[str] = set()
         self.title = ""
         self.description = ""
         self.canonical = ""
@@ -116,6 +118,23 @@ def main() -> int:
         if not any(src.endswith("assets/site-search.js") for src in parser.scripts):
             problems.append(f"missing local search script: {page.relative_to(REPO)}")
 
+    lab_page = DOCS / "research-lab.html"
+    lab_parser = parsers.get(lab_page)
+    required_lab_ids = {"parameter-robustness", "correlation", "distribution"}
+    if lab_parser:
+        missing_ids = required_lab_ids.difference(lab_parser.ids)
+        if missing_ids:
+            problems.append(f"Research Lab missing Phase B anchors: {sorted(missing_ids)}")
+        if not any(src.endswith("assets/research-lab-depth.js") for src in lab_parser.scripts):
+            problems.append("Research Lab Phase B script missing")
+    if not LAB_DEPTH.is_file():
+        problems.append("missing docs/assets/research-lab-depth.js")
+    else:
+        depth_script = LAB_DEPTH.read_text(encoding="utf-8")
+        if "IntersectionObserver" not in depth_script:
+            problems.append("Research Lab depth modules are not lazy-initialized")
+        if "http://" in depth_script or "https://" in depth_script:
+            problems.append("Research Lab depth script contains an external network target")
     registry_entries: list[dict] = []
     if not REGISTRY.is_file():
         problems.append("missing docs/help-registry.v1.json")

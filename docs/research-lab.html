@@ -100,53 +100,76 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="next-lab-title">
+    <section class="section" id="parameter-robustness" aria-labelledby="robustness-title">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">Next modules</span>
-          <h2 id="next-lab-title">A visual atlas, not a wall of feature cards.</h2>
-          <p>These modules are part of the public educational roadmap for the site. Their presence here does not assert that a matching TraderCockpit product capability is currently available.</p>
+          <span class="eyebrow">03 / Parameter geometry</span>
+          <h2 id="robustness-title">A broad neighborhood tells a different story than one sharp peak.</h2>
+          <p>This synthetic terrain compares response shapes across two normalized parameters. Switch between a broad plateau, a narrow spike, and a ridge. Height is an illustrative response score, not strategy performance.</p>
         </div>
-        <div class="card-grid">
-          <article class="depth-card" id="walk-forward">
-            <span class="kicker">Validation windows</span>
-            <h3>Walk-forward landscape</h3>
-            <p>Training and evaluation windows become a stepped landscape so stability across time can be inspected visually.</p>
-            <a class="deep-link" href="methods/#walk-forward">Understand the method →</a>
-          </article>
-          <article class="depth-card" id="out-of-sample">
-            <span class="kicker">Holdout evidence</span>
-            <h3>In-sample / out-of-sample boundary</h3>
-            <p>A visible boundary separates information used for development from evidence reserved for evaluation.</p>
-            <a class="deep-link" href="methods/#out-of-sample">Understand the method →</a>
-          </article>
-          <article class="depth-card" id="parameter-robustness">
-            <span class="kicker">Parameter geometry</span>
-            <h3>Robustness surface</h3>
-            <p>A broad plateau and a narrow spike look fundamentally different when the parameter neighborhood is rendered as terrain.</p>
-            <a class="deep-link" href="methods/#parameter-robustness">Understand the method →</a>
-          </article>
-          <article class="depth-card" id="drawdown">
-            <span class="kicker">Path risk</span>
-            <h3>Drawdown valleys</h3>
-            <p>Depth, duration, and recovery can be made spatial so one headline statistic does not hide the path.</p>
-            <a class="deep-link" href="methods/#drawdown">Understand the method →</a>
-          </article>
-          <article class="depth-card" id="correlation">
-            <span class="kicker">Relationships</span>
-            <h3>Correlation network</h3>
-            <p>Related synthetic series pull together in a graph, making clustering and apparent diversification easier to inspect.</p>
-            <a class="deep-link" href="methods/#correlation">Understand the method →</a>
-          </article>
-          <article class="depth-card" id="selection-bias">
-            <span class="kicker">Multiple testing</span>
-            <h3>Selection funnel</h3>
-            <p>A large candidate family narrows through explicit filters so the cost of selection can be discussed rather than hidden.</p>
-            <a class="deep-link" href="methods/#selection-bias">Understand the method →</a>
-          </article>
+        <div class="visual-panel" data-robustness-explorer>
+          <div class="visual-topline"><div><h3>Synthetic robustness surface</h3><p class="micro">21 × 21 parameter grid · deterministic functions · no market data</p></div><span class="synthetic-badge">Illustrative geometry</span></div>
+          <div class="segmented-controls" aria-label="Synthetic surface shape">
+            <button class="control-btn" type="button" data-surface-mode="plateau" aria-pressed="true">Broad plateau</button>
+            <button class="control-btn" type="button" data-surface-mode="spike" aria-pressed="false">Narrow spike</button>
+            <button class="control-btn" type="button" data-surface-mode="ridge" aria-pressed="false">Ridge</button>
+          </div>
+          <canvas id="robustness-canvas" class="lab-depth-canvas" role="img" aria-label="A synthetic three-dimensional parameter response surface. Horizontal axes represent normalized parameter A and parameter B. Height represents a synthetic response score from zero to one."></canvas>
+          <div class="metric-row" aria-label="Synthetic surface summary"><div class="metric"><b id="robustness-peak">—</b><span>peak synthetic response</span></div><div class="metric"><b id="robustness-neighborhood">—</b><span>peak-neighborhood mean</span></div><div class="metric"><b id="robustness-range">—</b><span>peak-neighborhood range</span></div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>X · parameter A</strong><span>Normalized illustrative parameter from 0 to 1.</span></div><div class="legend-item"><strong>Z · parameter B</strong><span>Second normalized illustrative parameter from 0 to 1.</span></div><div class="legend-item"><strong>Height · response</strong><span>Synthetic response score from 0 to 1; higher is not a profit claim.</span></div><div class="legend-item"><strong>Shape · sensitivity</strong><span>Plateaus, spikes, and ridges illustrate different neighborhood behavior.</span></div></div>
+          <a class="deep-link" href="methods/#parameter-robustness">Read the method and limitations →</a>
         </div>
       </div>
     </section>
+
+    <section class="section" id="correlation" aria-labelledby="correlation-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">04 / Relationship structure</span>
+          <h2 id="correlation-title">Diversification is a network problem, not a list of names.</h2>
+          <p>This deterministic synthetic network groups eighteen series into three families. Lines appear only for strong illustrative relationships. Cycle through nodes to see how one series can sit inside a dense cluster even when the whole graph looks diversified.</p>
+        </div>
+        <div class="visual-panel" data-correlation-explorer>
+          <div class="visual-topline"><div><h3>Synthetic correlation network</h3><p class="micro">18 series · 3 synthetic families · edges shown above |relationship| 0.62</p></div><span class="synthetic-badge">Illustrative relationships</span></div>
+          <canvas id="correlation-canvas" class="lab-depth-canvas network-canvas" role="img" aria-label="A synthetic network of eighteen series in three labeled families. Strong illustrative relationships are drawn as lines and the selected series is emphasized with a ring."></canvas>
+          <div class="scene-controls inline-controls" aria-label="Correlation network controls"><button class="control-btn" type="button" id="network-prev">Previous series</button><button class="control-btn" type="button" id="network-next">Next series</button><button class="control-btn" type="button" id="network-focus" aria-pressed="false">Focus selected</button><div class="focus-readout" id="network-readout" aria-live="polite">Synthetic relationship details</div></div>
+          <div class="legend-grid compact-legend"><div class="legend-item"><strong>Node · synthetic series</strong><span>Each labeled point is one illustrative series.</span></div><div class="legend-item"><strong>Family · label + color</strong><span>Families A, B, and C are always named; color is redundant.</span></div><div class="legend-item"><strong>Line · strong relation</strong><span>Line width maps to absolute synthetic relationship strength.</span></div><div class="legend-item"><strong>Distance · layout only</strong><span>Position supports readability; it is not a precise correlation scale.</span></div></div>
+          <a class="deep-link" href="methods/#correlation">Read the method and limitations →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="distribution" aria-labelledby="distribution-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">05 / Distribution shape</span>
+          <h2 id="distribution-title">Averages can look similar while tails behave very differently.</h2>
+          <p>Switch among three deterministic synthetic distributions, then move the threshold to inspect the share of observations below it. The exercise is about shape, skew, and tail mass—not forecasting returns.</p>
+        </div>
+        <div class="visual-panel" data-distribution-explorer>
+          <div class="visual-topline"><div><h3>Synthetic distribution explorer</h3><p class="micro">4,000 observations · deterministic seed · standardized illustrative outcomes</p></div><span class="synthetic-badge">Illustrative distribution</span></div>
+          <div class="segmented-controls" aria-label="Synthetic distribution family"><button class="control-btn" type="button" data-distribution-mode="symmetric" aria-pressed="true">Symmetric</button><button class="control-btn" type="button" data-distribution-mode="skewed" aria-pressed="false">Skewed</button><button class="control-btn" type="button" data-distribution-mode="heavy" aria-pressed="false">Heavy tail</button></div>
+          <div class="threshold-control"><label for="distribution-threshold">Inspect lower-tail threshold <output id="distribution-threshold-value" for="distribution-threshold">−1.00</output></label><input id="distribution-threshold" type="range" min="-3" max="1" step="0.1" value="-1"></div>
+          <canvas id="distribution-canvas" class="lab-depth-canvas distribution-canvas" role="img" aria-label="A histogram of standardized synthetic observations. A labeled vertical threshold marks a lower-tail cutoff selected with a keyboard-operable range input."></canvas>
+          <div class="metric-row" aria-label="Synthetic distribution summary"><div class="metric"><b id="distribution-below">—</b><span>observations at/below threshold</span></div><div class="metric"><b id="distribution-median">—</b><span>synthetic median</span></div><div class="metric"><b id="distribution-p01">—</b><span>synthetic 1st percentile</span></div></div>
+          <div class="notice"><strong>Interpretation:</strong> the same headline average can coexist with different skew or tail behavior. These generated observations are not historical returns, forecasts, or evidence of a tradable edge.</div>
+          <a class="deep-link" href="methods/#distribution-shape">Read about distribution shape →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="next-lab-title">
+      <div class="shell">
+        <div class="section-head"><span class="eyebrow">Next atlas modules</span><h2 id="next-lab-title">The visual atlas keeps expanding.</h2><p>These are public educational modules planned after the current depth slice. Their presence here does not assert that a matching TraderCockpit product capability is available.</p></div>
+        <div class="card-grid">
+          <article class="depth-card" id="walk-forward"><span class="kicker">Validation windows</span><h3>Walk-forward landscape</h3><p>Training and evaluation windows become a stepped landscape so stability across time can be inspected visually.</p><a class="deep-link" href="methods/#walk-forward">Understand the method →</a></article>
+          <article class="depth-card" id="out-of-sample"><span class="kicker">Holdout evidence</span><h3>In-sample / out-of-sample boundary</h3><p>A visible boundary separates information used for development from evidence reserved for evaluation.</p><a class="deep-link" href="methods/#out-of-sample">Understand the method →</a></article>
+          <article class="depth-card" id="drawdown"><span class="kicker">Path risk</span><h3>Drawdown valleys</h3><p>Depth, duration, and recovery can be made spatial so one headline statistic does not hide the path.</p><a class="deep-link" href="methods/#drawdown">Understand the method →</a></article>
+          <article class="depth-card" id="selection-bias"><span class="kicker">Multiple testing</span><h3>Selection funnel</h3><p>A large candidate family narrows through explicit filters so the cost of selection can be discussed rather than hidden.</p><a class="deep-link" href="methods/#selection-bias">Understand the method →</a></article>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section">
       <div class="shell content-grid">
@@ -190,5 +213,6 @@
   <noscript><div class="shell notice">Interactive canvases are disabled, but all educational explanations and navigation on this page remain available.</div></noscript>
   <script src="assets/site-search.js" defer></script>
   <script src="assets/research-lab.js" defer></script>
+  <script src="assets/research-lab-depth.js" defer></script>
 </body>
 </html>

@@ -508,3 +508,82 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
   .site-search-head { gap: .6rem; }
   .site-search-head h2 { font-size: 1.45rem; }
 }
+
+/* ---------- Research Lab depth ---------- */
+.segmented-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: .35rem 0 .9rem;
+}
+.control-btn[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: rgba(255,183,43,.62);
+  background: rgba(255,183,43,.10);
+  box-shadow: inset 0 0 18px rgba(255,183,43,.05);
+}
+.lab-depth-canvas {
+  display: block;
+  width: 100%;
+  height: 470px;
+  border: 1px solid rgba(255,255,255,.055);
+  border-radius: 14px;
+  background: rgba(5,2,6,.78);
+}
+.network-canvas { height: 430px; }
+.distribution-canvas { height: 390px; }
+.inline-controls {
+  position: static;
+  inset: auto;
+  margin-top: .8rem;
+  padding: 0;
+}
+.compact-legend { margin-top: .9rem; }
+.compact-legend .legend-item { min-height: 96px; }
+.threshold-control {
+  margin: .85rem 0 1rem;
+  padding: .8rem 1rem;
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: 12px;
+  background: rgba(255,255,255,.022);
+}
+.threshold-control label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .55rem;
+  color: var(--muted);
+  font: .76rem/1.35 var(--mono);
+}
+.threshold-control output { color: var(--gold); font-weight: 800; }
+.threshold-control input[type="range"] {
+  width: 100%;
+  min-height: 36px;
+  margin: 0;
+  accent-color: var(--gold);
+}
+.threshold-control input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+@media (max-width: 720px) {
+  .lab-depth-canvas { height: 370px; }
+  .network-canvas { height: 350px; }
+  .distribution-canvas { height: 320px; }
+  .inline-controls .focus-readout { width: 100%; margin-left: 0; }
+}
+
+@media (max-width: 470px) {
+  .lab-depth-canvas { height: 320px; border-radius: 11px; }
+  .network-canvas { height: 310px; }
+  .distribution-canvas { height: 285px; }
+  .threshold-control { padding: .7rem .75rem; }
+  .threshold-control label { align-items: flex-start; flex-direction: column; gap: .25rem; }
+}
+
+.section[id], .scene-frame[id] { scroll-margin-top: 6rem; }
+
+@media (max-width: 720px) {
+  .visual-topline { flex-direction: column; align-items: flex-start; }
+  .synthetic-badge { white-space: normal; max-width: 100%; }
+  .section[id], .scene-frame[id] { scroll-margin-top: 10rem; }
+}
