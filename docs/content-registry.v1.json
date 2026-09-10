@@ -283,6 +283,13 @@
       "path": "support/faq.html",
       "title": "Frequently Asked Questions",
       "status": "public"
+    },
+    {
+      "id": "learn.start-here",
+      "kind": "landing",
+      "path": "learn/start-here.html",
+      "title": "Start Here",
+      "status": "public"
     }
   ]
 }
