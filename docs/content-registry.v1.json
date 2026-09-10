@@ -241,6 +241,13 @@
       "path": "how-to/read-result-metrics.html",
       "title": "How to read backtest metrics together",
       "status": "public"
+    },
+    {
+      "id": "method.chart-evidence",
+      "kind": "method",
+      "path": "methods/chart-evidence.html",
+      "title": "Reading Chart Evidence",
+      "status": "public"
     }
   ]
 }
