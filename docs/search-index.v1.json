@@ -600,6 +600,25 @@
         "performance claims",
         "auditability"
       ]
+    },
+    {
+      "id": "learn.glossary",
+      "title": "Research Glossary",
+      "path": "learn/glossary.html",
+      "kind": "learn",
+      "summary": "Linked quantitative-research vocabulary for concepts, methods, metrics, chart evidence, validation, and uncertainty.",
+      "terms": [
+        "glossary",
+        "research terms",
+        "vocabulary",
+        "definitions",
+        "ohlc",
+        "tpo",
+        "profit factor",
+        "drawdown",
+        "monte carlo",
+        "walk forward"
+      ]
     }
   ]
 }
