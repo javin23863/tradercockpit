@@ -580,12 +580,12 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
   .threshold-control label { align-items: flex-start; flex-direction: column; gap: .25rem; }
 }
 
-.section[id], .scene-frame[id] { scroll-margin-top: 6rem; }
+.section[id], .scene-frame[id], .depth-card[id] { scroll-margin-top: 6rem; }
 
 @media (max-width: 720px) {
   .visual-topline { flex-direction: column; align-items: flex-start; }
   .synthetic-badge { white-space: normal; max-width: 100%; }
-  .section[id], .scene-frame[id] { scroll-margin-top: 10rem; }
+  .section[id], .scene-frame[id], .depth-card[id] { scroll-margin-top: 10rem; }
 }
 
 .validation-canvas { height: 430px; }
