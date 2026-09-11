@@ -1,3 +1,4 @@
+import './research-webgl.js';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocessing';
 
@@ -16,16 +17,14 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   const CYAN = new THREE.Color('#3daed3');
   const DEEP = new THREE.Color('#06131c');
 
+  const context = canvas.getContext('webgl2', {alpha:true, antialias:false, powerPreference:'high-performance'});
+  if (!context) {
+    document.documentElement.dataset.quantRenderer = 'canvas2d-fallback';
+    return;
+  }
   let renderer;
   try {
-    renderer = new THREE.WebGLRenderer({
-      canvas,
-      alpha: true,
-      antialias: false,
-      powerPreference: 'high-performance',
-      preserveDrawingBuffer: false,
-    });
-    renderer.getContext();
+    renderer = new THREE.WebGLRenderer({canvas, context, alpha:true, antialias:false, powerPreference:'high-performance', preserveDrawingBuffer:false});
   } catch {
     document.documentElement.dataset.quantRenderer = 'canvas2d-fallback';
     return;
@@ -332,7 +331,7 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     if (document.hidden) stop(); else if (autoMotion) start(); else render();
   });
 
-  if (readout) readout.textContent = 'WebGL strategy field ? teal gains / red losses / cyan neutral ? illustrative research geometry';
+  if (readout) readout.textContent = 'WebGL strategy field ? teal gains / red losses / cyan neutral ? synthetic research geometry';
   if (reduced) {
     pause?.setAttribute('hidden', '');
     autoMotion = false;

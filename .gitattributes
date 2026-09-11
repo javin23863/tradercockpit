@@ -2,3 +2,4 @@
 # autocrlf normalization on checkout/merge changed analysis-brief.md bytes and broke the
 # approval chain (2026-07-21). No text normalization in this repo — bytes are the contract.
 * -text
+docs/assets/generated/*.js -diff linguist-generated=true

@@ -87,6 +87,10 @@ The strategy field and foreground market terrain must preserve the measured sema
 
 The WebGL scene must retain reduced-motion behavior, pause/reset controls, mobile pixel-density limits, document-visibility throttling, and a local non-network fallback when WebGL cannot initialize. The generated browser bundle is reproducibly built from checked-in source and pinned dependencies; generated output may not be hand-edited.
 
+The same production-rendering rule applies to all ten Research Lab atlas canvases. Their legacy 2D renderers may remain as local fallbacks and as the metric/control logic authority, but when WebGL is available the visible strategy field, Monte Carlo fan, robustness terrain, network, distribution, regime cube, walk-forward blocks, holdout boundary, drawdown field, and selection funnel must use true perspective/depth geometry rather than 2D projection alone.
+
+WebGL geometry must visualize the same deterministic synthetic records that drive each module?s metrics and readouts; a visually similar parallel sample is not acceptable. Axis/threshold/node annotations remain visible in the 3D path. Narrow canvases must fit complete analytical geometry rather than crop endpoints. Context loss permanently hands that surface back to the 2D fallback for the page lifetime so two renderers can never overlap.
+
 ## Responsive translation
 - Desktop ≥1100px preserves the measured left/right composition and dense first viewport.
 - Tablet <1100px stacks copy above the subject visual; no side-by-side squeeze.

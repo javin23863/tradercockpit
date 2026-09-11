@@ -12,10 +12,10 @@ export default defineConfig({
     sourcemap: false,
     minify: "oxc",
     lib: {
-      entry: resolve(here, "src/home-webgl.js"),
+      entry: resolve(here, "src/site-webgl.js"),
       name: "TraderCockpitWebGL",
       formats: ["iife"],
-      fileName: () => "home-webgl-v1.js",
+      fileName: () => "site-webgl-v1.js",
     },
   },
 });

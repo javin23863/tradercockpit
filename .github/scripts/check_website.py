@@ -44,8 +44,9 @@ LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
 LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
 HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
-HOME_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "home-webgl.js"
-HOME_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "home-webgl-v1.js"
+HOME_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "site-webgl.js"
+RESEARCH_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "research-webgl.js"
+HOME_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "site-webgl-v1.js"
 HOME_STYLE = DOCS / "assets" / "home-v3.css"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
 HOME_VISUAL_SPEC = REPO / ".github" / "visual-authority-home-v4.md"
@@ -174,7 +175,7 @@ def main() -> int:
         missing_ids = required_home_ids.difference(home_parser.ids)
         if missing_ids:
             problems.append(f"homepage missing manifest/waitlist contract IDs: {sorted(missing_ids)}")
-        if not any(src.endswith("assets/generated/home-webgl-v1.js") for src in home_parser.scripts):
+        if not any(src.endswith("assets/generated/site-webgl-v1.js") for src in home_parser.scripts):
             problems.append("homepage production WebGL bundle missing")
         if not any(src.endswith("assets/home-v3.js") for src in home_parser.scripts):
             problems.append("homepage fallback/commerce script missing")
@@ -239,7 +240,7 @@ def main() -> int:
         problems.append("missing site-wide rendered appraisal receipt")
     else:
         appraisal = SITE_APPRAISAL.read_text(encoding="utf-8")
-        if "41/41 public HTML pages" not in appraisal or "two disabled structural future-tier slots" not in appraisal:
+        if "41/41 public HTML pages" not in appraisal or "one public monthly plan with no unfinished expansion controls" not in appraisal:
             problems.append("site-wide rendered appraisal receipt is incomplete")
     if not SITE_STYLE.is_file():
         problems.append("missing shared cinematic site stylesheet")
@@ -258,11 +259,8 @@ def main() -> int:
         if "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:
             problems.append(f"public page missing shared cinematic stylesheet: {page.relative_to(REPO)}")
     pricing_text = (DOCS / "pricing" / "index.html").read_text(encoding="utf-8")
-    pricing_tabs = re.findall(r'class="pricing-tier-tab(?:\s[^"]*)?"[^>]*', pricing_text)
-    if len(pricing_tabs) != 3 or sum("is-active" in tab for tab in pricing_tabs) != 1 or sum("disabled" in tab for tab in pricing_tabs) != 2:
-        problems.append("pricing must expose one current tier plus exactly two disabled reserved expansion slots")
-    if ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text:
-        problems.append("pricing expansion controls must not advertise unfinished tiers")
+    if "pricing-tier-tab" in pricing_text or ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text or "Reserved pricing expansion slot" in pricing_text:
+        problems.append("pricing must expose only the verified current plan, with no unfinished expansion controls")
     for utility in (DOCS / "confirmed.html", DOCS / "thanks.html", DOCS / "refund-policy.html"):
         if 'class="utility-page"' not in utility.read_text(encoding="utf-8"):
             problems.append(f"utility page missing cinematic stage contract: {utility.relative_to(REPO)}")
@@ -302,6 +300,44 @@ def main() -> int:
             problems.append("Research Lab risk script missing")
         if not any(src.endswith("assets/research-lab-regime.js") for src in lab_parser.scripts):
             problems.append("Research Lab regime script missing")
+        if not any(src.endswith("assets/generated/site-webgl-v1.js") for src in lab_parser.scripts):
+            problems.append("Research Lab production WebGL bundle missing")
+    if not RESEARCH_WEBGL_SOURCE.is_file():
+        problems.append("missing production Research Lab WebGL source")
+    else:
+        research_webgl = RESEARCH_WEBGL_SOURCE.read_text(encoding="utf-8")
+        if "http://" in research_webgl or "https://" in research_webgl:
+            problems.append("Research Lab WebGL source contains an external network target")
+        for marker in (
+            "new THREE.WebGLRenderer",
+            "new THREE.PerspectiveCamera",
+            "new THREE.InstancedMesh",
+            "lab-webgl-overlay",
+            "lab-webgl-annotations",
+            "fallbackActive",
+            "webglcontextlost",
+            "window.__tcResearchWebGL.data",
+            "IntersectionObserver",
+            "#3cfad2",
+            "#e54a5a",
+            "#3daed3",
+            "strategy-universe-canvas",
+            "monte-carlo-canvas",
+            "robustness-canvas",
+            "correlation-canvas",
+            "distribution-canvas",
+            "regime-canvas",
+            "walk-forward-canvas",
+            "oos-canvas",
+            "drawdown-canvas",
+            "selection-canvas",
+        ):
+            if marker not in research_webgl:
+                problems.append(f"Research Lab production WebGL renderer missing contract marker: {marker}")
+        if research_webgl.count("setupSurface('") != 10:
+            problems.append("Research Lab production WebGL renderer must initialize exactly 10 atlas canvases")
+        if "getContext('webgl'," in research_webgl:
+            problems.append("Research Lab production renderer must not request unsupported WebGL1 contexts")
     if not LAB_DEPTH.is_file():
         problems.append("missing docs/assets/research-lab-depth.js")
     else:

@@ -4,7 +4,7 @@
 /* Production WebGL + public-readiness pass ? 2026-09-11 */
 html[data-quant-renderer="three-webgl"] .quant-universe canvas{filter:drop-shadow(0 0 38px rgba(60,250,210,.13))}
 .universe-legend{position:absolute;z-index:6;right:1%;top:5.6rem;display:flex;gap:.45rem;align-items:center;padding:.42rem .5rem;border:1px solid rgba(22,72,91,.5);border-radius:999px;background:rgba(1,7,11,.7);backdrop-filter:blur(12px);font:700 .5rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#758b9d}
-.universe-legend span{display:flex;align-items:center;gap:.28rem}.universe-legend i{width:.42rem;height:.42rem;border-radius:50%;box-shadow:0 0 9px currentColor}.universe-legend .gain{color:#3cfad2}.universe-legend .loss{color:#e54a5a}.universe-legend .neutral{color:#3daed3}.universe-legend .gain i,.universe-legend .loss i,.universe-legend .neutral i{background:currentColor}
+.universe-legend span{display:flex;align-items:center;gap:.28rem}.universe-legend i{width:.42rem;height:.42rem;border-radius:50%;box-shadow:0 0 9px currentColor}.universe-legend .synthetic{color:#a4abb3;padding-right:.35rem;border-right:1px solid rgba(164,171,179,.22)}.universe-legend .gain{color:#3cfad2}.universe-legend .loss{color:#e54a5a}.universe-legend .neutral{color:#3daed3}.universe-legend .gain i,.universe-legend .loss i,.universe-legend .neutral i{background:currentColor}
 .pricing-tier-tab:disabled::after{content:""}.pricing-tier-tab:disabled{min-width:2.25rem;padding-inline:.72rem;font-size:.82rem}
 #pricing .pricing-stage{grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr);grid-template-areas:"primary promo"}
 #pricing .price-card-primary{grid-area:primary}#pricing .price-promo{grid-area:promo}.reserved-tier{display:none!important}
