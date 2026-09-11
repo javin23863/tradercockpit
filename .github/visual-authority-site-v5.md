@@ -1,6 +1,8 @@
-# TraderCockpit Public Site Visual Authority — Cinematic Quant System v5
+# TraderCockpit Public Site Visual Authority - Cinematic Quant System v5
 
-Status: site-wide appraisal authority derived from the owner-provided 2026-09-11 demo image and the approved homepage Quant Universe v4 direction.
+Status: site-wide authority derived from the owner-provided 2026-09-11 demo image and the approved homepage Quant Universe direction.
+Normative measured authority: `.github/visual-authority-demo-measured-v6.md`.
+Raw measurement receipt: `.github/reference-theme-measurements-v6.md`.
 
 ## Purpose
 Every public page must belong to the same premium quantitative-research universe. The reference image is authoritative for depth, luminous contrast, financial-data semantics, glass instrumentation, and spatial hierarchy. Pages may be quieter than the homepage, but they may not fall back to a flat documentation portal, generic SaaS card grid, or one repeated decorative orb with different text. A visual must communicate the page subject or user task.

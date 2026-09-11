@@ -2,6 +2,8 @@
 
 Status: approved visual-direction correction based on the owner-provided 2026-09-11 reference image.
 
+Measured dimensional authority: `visual-authority-demo-measured-v6.md`.
+
 ## Purpose
 The homepage must read as a premium quantitative-research cockpit, not a conventional SaaS page with decorative panels. The owner reference is authoritative for depth, spatial composition, luminous contrast, scene density, and the relationship between finance data graphics and the hero copy.
 

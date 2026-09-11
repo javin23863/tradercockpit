@@ -1,6 +1,6 @@
 # TraderCockpit Site Depth Appraisal — 2026-09-11
 
-Authority: `visual-authority-site-v5.md` and `visual-authority-home-v4.md`.
+Authority: `visual-authority-demo-measured-v6.md`, `visual-authority-site-v5.md`, and `visual-authority-home-v4.md`.
 
 ## Method
 All 41 public HTML pages were rendered from the PR #42 worktree at 1280×900. Both first-viewport and full-page captures were reviewed in family contact sheets. Representative families were then rechecked at 390×844, with reduced-motion acceptance for Home and Research Lab. Source-only compliance is not considered an appraisal pass.
@@ -64,9 +64,39 @@ Verdict key: **PASS** = page belongs to the cinematic Quant system at an appropr
 | `refund-policy.html` | PASS | Cinematic commercial-boundary stage; no invented refund/cancellation terms. |
 | `strategy-claim-audit-checklist.html` | PASS | Cinematic screen treatment with compact print/PDF behavior preserved. |
 
+## Measured demo parity at 1440px
+The owner reference is 935 x 1683 px. Its geometry was scaled by 1440 / 935 = 1.5401 and compared against the rendered homepage.
+
+| Geometry | Measured target @1440 | Rendered | Delta |
+|---|---:|---:|---:|
+| Header height | ~80px | 81px | +1px |
+| Hero headline top | ~182px | 182px | 0px |
+| Hero headline size | ~585x117px | 608x119px | +23/+2px |
+| Hero body top/height | ~316px / ~62px | 318px / 64px | +2/+2px |
+| Hero CTA top/height | ~403px / ~62px | 399px / 40px | -4/-22px |
+| Hero feature strip | ~77px x / ~513px y / ~470px w | 72px / 513px / 469px | -5/0/-1px |
+| Hero + product end | ~1294px | 1298px | +4px |
+| Product device left | ~243px | 244px | +1px |
+| Product device top | ~685px | 682px | -3px |
+| Product device width | ~1129px | 1145px | +16px |
+| Product device height | ~562px | 565px | +3px |
+| Video band start | ~1294px | 1298px | +4px |
+| Video band height | ~308px | 304px | -4px |
+| Pricing band start | ~1602px | 1602px | 0px |
+| Pricing band height | ~570px | 569px | -1px |
+| Docs band start | ~2172px | 2171px | -1px |
+| Docs band height | ~277px | 277px | 0px |
+| Footer/status band start | ~2449px | 2449px | 0px |
+| Footer/status band height | ~143px | 143px | 0px |
+| Full page height | ~2592px | 2593px | +1px |
+
+The verified product/waitlist boundary is preserved as a 48px disclosure row inside the measured footer band. It is collapsed by default, opens automatically for both `#public-status` and the stable `#development` alias, reopens on repeated same-hash activation, and expands on demand to expose the real manifest state and waitlist form without adding a permanent marketing section.
+
+Palette authority is measured from the reference: page void `#010509`, panel `#0A1219`, lit depth `#081B24` to `#0F2633`, luminous teal `#3CFAD2`, support cyan `#3DAED3`, negative red `#E54A5A`, primary text `#F6F8FA` to `#FFFFFF`, secondary text `#A4ABB3`.
+
 ## Acceptance evidence
 - Desktop rendered appraisal: 41/41 public HTML pages re-captured and reviewed at 1280×900 after the subject-specific scene pass, first viewport and full page.
-- Strict responsive appraisal: all 41 public HTML pages PASS at 390, 768, and 1280px with no horizontal overflow, clipped primary text/controls, or page/console errors; representative subject scenes also pass overlap checks from 390 through 1280px.
+- Strict responsive appraisal: all 41 public HTML pages PASS at 390, 768, 1280, and 1440px with no horizontal overflow, clipped primary text/controls, or page/console errors; representative subject scenes also pass overlap checks across the responsive range.
 - Reduced motion: Home and Research Lab — PASS; decorative motion freezes and composition remains complete.
 - Research Lab: 10 interactive canvases present; green/red/cyan semantic palette retained after conversion.
 - Article/detail identity: correlation network, distribution histogram, drawdown path, Monte Carlo path fan, validation boundary, robustness/regime coordinate field, chart/replay candlesticks, and metric-ring scenes all render as distinct subject-specific visuals.

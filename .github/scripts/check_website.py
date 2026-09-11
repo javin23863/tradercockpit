@@ -48,6 +48,7 @@ HOME_STYLE = DOCS / "assets" / "home-v3.css"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
 HOME_VISUAL_SPEC = REPO / ".github" / "visual-authority-home-v4.md"
 SITE_VISUAL_SPEC = REPO / ".github" / "visual-authority-site-v5.md"
+MEASURED_VISUAL_SPEC = REPO / ".github" / "visual-authority-demo-measured-v6.md"
 SITE_APPRAISAL = REPO / ".github" / "site-depth-appraisal-2026-09-11.md"
 PUBLIC_HTML = sorted(DOCS.rglob("*.html"))
 SITEMAP = DOCS / "sitemap.xml"
@@ -190,7 +191,7 @@ def main() -> int:
             problems.append(f"homepage cinematic scene missing authority marker: {marker}")
     if HOME_STYLE.is_file():
         home_style = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in ("Cinematic Quant Universe v4", ".universe-deck", ".hud-node"):
+        for marker in ("Cinematic Quant Universe v4", "Measured demo authority v6", ".universe-deck", ".hud-node"):
             if marker not in home_style:
                 problems.append(f"homepage cinematic style missing authority marker: {marker}")
     if not HOME_VISUAL_SPEC.is_file():
@@ -201,6 +202,13 @@ def main() -> int:
         problems.append("missing site-wide visual authority spec")
     elif "Every public page must belong to the same premium quantitative-research universe" not in SITE_VISUAL_SPEC.read_text(encoding="utf-8"):
         problems.append("site-wide visual authority spec lost the shared-universe requirement")
+    if not MEASURED_VISUAL_SPEC.is_file():
+        problems.append("missing measured demo visual authority spec")
+    else:
+        measured = MEASURED_VISUAL_SPEC.read_text(encoding="utf-8")
+        for marker in ("935 × 1683 px", "Primary luminous teal: `#3CFAD2`", "Hero + product stage", "Measured homepage geometry"):
+            if marker not in measured:
+                problems.append(f"measured demo authority missing marker: {marker}")
     if not SITE_APPRAISAL.is_file():
         problems.append("missing site-wide rendered appraisal receipt")
     else:

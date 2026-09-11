@@ -223,7 +223,7 @@
   }
 
   function buildDepthGraphic(svg, kind) {
-    const cyan = '#3de8ff', green = '#49ef9a', red = '#ff526e', blue = '#5aa7ff';
+    const cyan = '#3daed3', green = '#3cfad2', red = '#e54a5a', blue = '#3b779a';
     const line = (x1,y1,x2,y2,stroke=cyan,opacity=.45,width=1) => addSvg(svg,'line',{x1,y1,x2,y2,stroke,'stroke-opacity':opacity,'stroke-width':width});
     const circle = (cx,cy,r,fill=cyan,opacity=.72) => addSvg(svg,'circle',{cx,cy,r,fill,'fill-opacity':opacity});
     const rect = (x,y,width,height,fill='none',stroke=cyan,opacity=.45,rx=8) => addSvg(svg,'rect',{x,y,width,height,rx,fill,stroke,'stroke-opacity':opacity,'fill-opacity':fill==='none'?0:opacity});
@@ -267,6 +267,30 @@
     }
   }
 
+  function depthHudLabels(kind) {
+    const labels = {
+      network: ['DEPENDENCE', 'DIVERSIFY'], knowledge: ['QUESTION', 'SOURCE'],
+      distribution: ['CENTER', 'TAILS'], drawdown: ['RUNNING PEAK', 'RECOVERY'],
+      paths: ['RESAMPLE', 'RANGE'], validation: ['SELECT', 'EVALUATE'],
+      surface: ['NEIGHBORHOOD', 'STABILITY'], regime: ['STATE', 'COORDINATES'],
+      chart: ['TIME BASIS', 'EVIDENCE'], metrics: ['UNIT', 'SAMPLE'],
+      pricing: ['VERIFIED TIER', 'RESERVED'], boundary: ['SOURCE', 'BOUNDARY'],
+      timeline: ['PUBLISHED', 'CURRENT'], orbit: ['RESEARCH', 'CONTEXT']
+    };
+    return labels[kind] || labels.orbit;
+  }
+
+  function appendDepthHud(scene, label, position) {
+    const hud = document.createElement('span');
+    hud.className = `article-depth-hud article-depth-hud-${position}`;
+    const title = document.createElement('b');
+    title.textContent = label;
+    const bars = document.createElement('i');
+    bars.setAttribute('aria-hidden', 'true');
+    hud.append(title, bars);
+    scene.append(hud);
+  }
+
   function initArticleDepthScene() {
     const hero = document.querySelector('.article-hero');
     const inner = hero?.querySelector('.article-hero-inner');
@@ -281,6 +305,9 @@
     const svg = addSvg(scene, 'svg', { viewBox: '0 0 520 340', preserveAspectRatio: 'xMidYMid meet' });
     buildDepthGraphic(svg, kind);
     scene.append(label);
+    const [hudA, hudB] = depthHudLabels(kind);
+    appendDepthHud(scene, hudA, 'a');
+    appendDepthHud(scene, hudB, 'b');
     inner.append(scene);
   }
 
