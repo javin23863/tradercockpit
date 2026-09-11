@@ -78,8 +78,8 @@
       ctx.clearRect(0, 0, width, height);
       const bg = ctx.createLinearGradient(0, 0, width, height);
       bg.addColorStop(0, 'rgba(108,167,255,.06)');
-      bg.addColorStop(.55, 'rgba(255,23,68,.025)');
-      bg.addColorStop(1, 'rgba(255,183,43,.055)');
+      bg.addColorStop(.55, 'rgba(255,82,110,.025)');
+      bg.addColorStop(1, 'rgba(61,232,255,.055)');
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, width, height);
 
@@ -95,18 +95,18 @@
         const active = fold.index === selected;
         platform(ctx, mapX(0), mapX(100), y, 20, skew, 'rgba(255,255,255,.018)', 'rgba(255,255,255,.055)');
         platform(ctx, mapX(fold.trainStart), mapX(fold.trainEnd), y, 20, skew, active ? 'rgba(108,167,255,.62)' : 'rgba(108,167,255,.28)', active ? 'rgba(180,214,255,.85)' : 'rgba(108,167,255,.26)');
-        platform(ctx, mapX(fold.evalStart), mapX(fold.evalEnd), y, 20, skew, active ? 'rgba(255,183,43,.78)' : 'rgba(255,183,43,.38)', active ? 'rgba(255,236,180,.90)' : 'rgba(255,183,43,.32)');
+        platform(ctx, mapX(fold.evalStart), mapX(fold.evalEnd), y, 20, skew, active ? 'rgba(61,232,255,.78)' : 'rgba(61,232,255,.38)', active ? 'rgba(190,249,255,.90)' : 'rgba(61,232,255,.32)');
         if (active) {
-          ctx.strokeStyle = 'rgba(255,245,238,.78)';
+          ctx.strokeStyle = 'rgba(238,252,255,.78)';
           ctx.lineWidth = 1;
           ctx.strokeRect(mapX(fold.trainStart) - 3, y - 4, mapX(fold.evalEnd) - mapX(fold.trainStart) + skew + 6, 28);
         }
-        ctx.fillStyle = active ? 'rgba(255,245,238,.95)' : 'rgba(213,171,176,.56)';
+        ctx.fillStyle = active ? 'rgba(238,252,255,.95)' : 'rgba(158,184,201,.56)';
         ctx.font = `${active ? 700 : 500} 10px Cascadia Mono, Consolas, monospace`;
         ctx.fillText(`F${fold.index + 1}`, 8, y + 14);
       });
 
-      ctx.fillStyle = 'rgba(213,171,176,.62)';
+      ctx.fillStyle = 'rgba(158,184,201,.62)';
       ctx.font = '10px Cascadia Mono, Consolas, monospace';
       ctx.fillText('0', left - 2, height - 20);
       ctx.fillText('50', mapX(50) - 7, height - 20);
@@ -168,10 +168,10 @@
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = 'rgba(108,167,255,.045)';
       ctx.fillRect(0, 0, boundary, height);
-      ctx.fillStyle = mode === 'clean' ? 'rgba(255,183,43,.035)' : 'rgba(255,92,119,.055)';
+      ctx.fillStyle = mode === 'clean' ? 'rgba(61,232,255,.035)' : 'rgba(255,82,110,.055)';
       ctx.fillRect(boundary, 0, width - boundary, height);
 
-      ctx.strokeStyle = mode === 'clean' ? 'rgba(255,183,43,.78)' : 'rgba(255,92,119,.82)';
+      ctx.strokeStyle = mode === 'clean' ? 'rgba(61,232,255,.78)' : 'rgba(255,82,110,.82)';
       ctx.lineWidth = 1.6;
       ctx.setLineDash([5, 6]);
       ctx.beginPath();
@@ -192,7 +192,7 @@
         ctx.beginPath();
         ctx.moveTo(candidate.x, candidate.y);
         ctx.bezierCurveTo(width * .25, candidate.y + candidate.bend, width * .40, selectY - candidate.bend * .25, selectX, selectY);
-        ctx.strokeStyle = selected ? 'rgba(255,183,43,.92)' : 'rgba(108,167,255,.105)';
+        ctx.strokeStyle = selected ? 'rgba(61,232,255,.92)' : 'rgba(108,167,255,.105)';
         ctx.lineWidth = selected ? 2.1 : .7;
         ctx.stroke();
         if (!selected) {
@@ -205,9 +205,9 @@
 
       ctx.beginPath();
       ctx.arc(selectX, selectY, 9, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255,183,43,.92)';
+      ctx.fillStyle = 'rgba(61,232,255,.92)';
       ctx.fill();
-      ctx.strokeStyle = 'rgba(255,245,238,.90)';
+      ctx.strokeStyle = 'rgba(238,252,255,.90)';
       ctx.lineWidth = 1.4;
       ctx.stroke();
 
@@ -220,13 +220,13 @@
       ctx.beginPath();
       ctx.moveTo(selectX, selectY);
       evalPoints.forEach((point) => ctx.lineTo(point.x, point.y));
-      ctx.strokeStyle = 'rgba(255,183,43,.82)';
+      ctx.strokeStyle = 'rgba(61,232,255,.82)';
       ctx.lineWidth = 2.2;
       ctx.stroke();
       evalPoints.forEach((point, index) => {
         ctx.beginPath();
         ctx.arc(point.x, point.y, index === evalPoints.length - 1 ? 4.2 : 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255,183,43,.86)';
+        ctx.fillStyle = 'rgba(61,232,255,.86)';
         ctx.fill();
       });
 
@@ -237,27 +237,27 @@
           ctx.beginPath();
           ctx.moveTo(source.x, source.y);
           ctx.bezierCurveTo(boundary + 18, source.y - 32, boundary - 28, targetY + 28, selectX + 4, targetY);
-          ctx.strokeStyle = 'rgba(255,92,119,.72)';
+          ctx.strokeStyle = 'rgba(255,82,110,.72)';
           ctx.lineWidth = 1.4;
           ctx.setLineDash([4, 5]);
           ctx.stroke();
           ctx.setLineDash([]);
-          ctx.fillStyle = 'rgba(255,92,119,.88)';
+          ctx.fillStyle = 'rgba(255,82,110,.88)';
           arrowHead(ctx, boundary - 14, targetY + 12, selectX + 4, targetY, 7);
         });
       }
 
-      ctx.fillStyle = 'rgba(213,171,176,.70)';
+      ctx.fillStyle = 'rgba(158,184,201,.70)';
       ctx.font = '10px Cascadia Mono, Consolas, monospace';
       ctx.fillText('DEVELOP + SELECT', 16, 24);
       ctx.fillText('HELD-OUT EVALUATION', Math.min(width - 142, boundary + 12), 24);
       ctx.save();
       ctx.translate(boundary + 12, height - 44);
       ctx.rotate(-Math.PI / 2);
-      ctx.fillStyle = mode === 'clean' ? 'rgba(255,183,43,.82)' : 'rgba(255,92,119,.88)';
+      ctx.fillStyle = mode === 'clean' ? 'rgba(61,232,255,.82)' : 'rgba(255,82,110,.88)';
       ctx.fillText('information boundary', 0, 0);
       ctx.restore();
-      ctx.fillStyle = 'rgba(255,183,43,.94)';
+      ctx.fillStyle = 'rgba(61,232,255,.94)';
       ctx.fillText(mode === 'clean' ? 'selected once' : 'selection + feedback', selectX - 38, selectY - 16);
 
       if (stateNode) stateNode.textContent = mode === 'clean' ? 'Preserved' : 'Compromised';

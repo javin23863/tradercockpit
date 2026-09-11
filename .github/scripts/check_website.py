@@ -45,7 +45,11 @@ LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
 HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
 HOME_STYLE = DOCS / "assets" / "home-v3.css"
+SITE_STYLE = DOCS / "assets" / "site-v2.css"
 HOME_VISUAL_SPEC = REPO / ".github" / "visual-authority-home-v4.md"
+SITE_VISUAL_SPEC = REPO / ".github" / "visual-authority-site-v5.md"
+SITE_APPRAISAL = REPO / ".github" / "site-depth-appraisal-2026-09-11.md"
+PUBLIC_HTML = sorted(DOCS.rglob("*.html"))
 SITEMAP = DOCS / "sitemap.xml"
 
 
@@ -193,6 +197,38 @@ def main() -> int:
         problems.append("missing internal homepage visual authority spec")
     elif "The hero is a cinematic scene, not a bordered card" not in HOME_VISUAL_SPEC.read_text(encoding="utf-8"):
         problems.append("homepage visual authority spec lost the cinematic-scene requirement")
+    if not SITE_VISUAL_SPEC.is_file():
+        problems.append("missing site-wide visual authority spec")
+    elif "Every public page must belong to the same premium quantitative-research universe" not in SITE_VISUAL_SPEC.read_text(encoding="utf-8"):
+        problems.append("site-wide visual authority spec lost the shared-universe requirement")
+    if not SITE_APPRAISAL.is_file():
+        problems.append("missing site-wide rendered appraisal receipt")
+    else:
+        appraisal = SITE_APPRAISAL.read_text(encoding="utf-8")
+        if "41/41 public HTML pages" not in appraisal or "two disabled structural future-tier slots" not in appraisal:
+            problems.append("site-wide rendered appraisal receipt is incomplete")
+    if not SITE_STYLE.is_file():
+        problems.append("missing shared cinematic site stylesheet")
+    else:
+        site_style = SITE_STYLE.read_text(encoding="utf-8")
+        for marker in ("Site-wide cinematic appraisal pass - 2026-09-11", ".utility-stage", ".pricing-tier-tabs", "Research Lab palette authority"):
+            if marker not in site_style:
+                problems.append(f"site-wide cinematic style missing authority marker: {marker}")
+    for page in PUBLIC_HTML:
+        text = page.read_text(encoding="utf-8")
+        if "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:
+            problems.append(f"public page missing shared cinematic stylesheet: {page.relative_to(REPO)}")
+    pricing_text = (DOCS / "pricing" / "index.html").read_text(encoding="utf-8")
+    pricing_tabs = re.findall(r'class="pricing-tier-tab(?:\s[^"]*)?"[^>]*', pricing_text)
+    if len(pricing_tabs) != 3 or sum("is-active" in tab for tab in pricing_tabs) != 1 or sum("disabled" in tab for tab in pricing_tabs) != 2:
+        problems.append("pricing must expose one current tier plus exactly two disabled reserved expansion slots")
+    for utility in (DOCS / "confirmed.html", DOCS / "thanks.html", DOCS / "refund-policy.html"):
+        if 'class="utility-page"' not in utility.read_text(encoding="utf-8"):
+            problems.append(f"utility page missing cinematic stage contract: {utility.relative_to(REPO)}")
+    lab_palette = "\n".join(path.read_text(encoding="utf-8") for path in (DOCS / "assets").glob("research-lab*.js"))
+    for marker in ("[73, 239, 154]", "[255, 82, 110]", "[61, 232, 255]"):
+        if marker not in lab_palette:
+            problems.append(f"Research Lab missing semantic palette marker: {marker}")
     for marker in ("product-manifest.mjs", "prelaunch-config.mjs", "activatePrelaunch", "loadProductManifest"):
         if marker not in home_text:
             problems.append(f"homepage missing product/prelaunch contract: {marker}")

@@ -138,8 +138,8 @@
       const grid = buildGrid();
       ctx.clearRect(0, 0, width, height);
       const bg = ctx.createRadialGradient(width * .5, height * .48, 10, width * .5, height * .52, width * .62);
-      bg.addColorStop(0, 'rgba(255,107,31,.10)');
-      bg.addColorStop(.55, 'rgba(255,23,68,.035)');
+      bg.addColorStop(0, 'rgba(73,239,154,.10)');
+      bg.addColorStop(.55, 'rgba(255,82,110,.035)');
       bg.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, width, height);
@@ -159,9 +159,9 @@
           ctx.moveTo(points[0].x, points[0].y);
           points.slice(1).forEach((point) => ctx.lineTo(point.x, point.y));
           ctx.closePath();
-          ctx.fillStyle = `rgba(255,${Math.round(55 + average * 115)},${Math.round(42 + average * 55)},${(0.20 + average * 0.52).toFixed(3)})`;
+          ctx.fillStyle = `rgba(${Math.round(45 + average * 28)},${Math.round(190 + average * 49)},${Math.round(220 - average * 60)},${(0.20 + average * 0.52).toFixed(3)})`;
           ctx.fill();
-          ctx.strokeStyle = `rgba(255,214,170,${(0.05 + average * 0.18).toFixed(3)})`;
+          ctx.strokeStyle = `rgba(166,244,232,${(0.05 + average * 0.18).toFixed(3)})`;
           ctx.lineWidth = .7;
           ctx.stroke();
         }
@@ -169,11 +169,11 @@
       const origin = project(0, 0, 0, width, height);
       const endA = project(1, 0, 0, width, height);
       const endB = project(0, 1, 0, width, height);
-      ctx.strokeStyle = 'rgba(255,245,238,.34)';
+      ctx.strokeStyle = 'rgba(238,252,255,.34)';
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(origin.x, origin.y); ctx.lineTo(endA.x, endA.y); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(origin.x, origin.y); ctx.lineTo(endB.x, endB.y); ctx.stroke();
-      ctx.fillStyle = 'rgba(213,171,176,.82)';
+      ctx.fillStyle = 'rgba(158,184,201,.82)';
       ctx.font = '11px Cascadia Mono, Consolas, monospace';
       ctx.fillText('parameter A →', endA.x - 76, endA.y + 18);
       ctx.fillText('parameter B →', endB.x + 8, endB.y + 18);
@@ -265,7 +265,7 @@
       ctx.clearRect(0, 0, width, height);
       const glow = ctx.createRadialGradient(width * .5, height * .5, 20, width * .5, height * .5, width * .55);
       glow.addColorStop(0, 'rgba(108,167,255,.075)');
-      glow.addColorStop(.55, 'rgba(255,23,68,.035)');
+      glow.addColorStop(.55, 'rgba(255,82,110,.035)');
       glow.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, width, height);
@@ -279,15 +279,15 @@
           ctx.beginPath();
           ctx.moveTo(placed[i].x, placed[i].y);
           ctx.lineTo(placed[j].x, placed[j].y);
-          ctx.strokeStyle = active ? 'rgba(255,183,43,.58)' : 'rgba(213,171,176,.13)';
+          ctx.strokeStyle = active ? 'rgba(61,232,255,.58)' : 'rgba(158,184,201,.13)';
           ctx.lineWidth = active ? 1.2 + Math.abs(relation) * 2 : .5 + Math.abs(relation);
           ctx.stroke();
         }
       }
       const familyColors = [
-        [255, 183, 43],
-        [255, 92, 119],
-        [108, 167, 255]
+        [73, 239, 154],
+        [255, 82, 110],
+        [61, 232, 255]
       ];
       placed.forEach((node, index) => {
         const [r, g, b] = familyColors[node.family];
@@ -296,7 +296,7 @@
         ctx.beginPath();
         ctx.arc(node.x, node.y, radius + (isSelected ? 8 : 0), 0, TAU);
         if (isSelected) {
-          ctx.strokeStyle = 'rgba(255,245,238,.92)';
+          ctx.strokeStyle = 'rgba(238,252,255,.92)';
           ctx.lineWidth = 1.4;
           ctx.stroke();
         }
@@ -304,12 +304,12 @@
         ctx.arc(node.x, node.y, radius, 0, TAU);
         ctx.fillStyle = `rgba(${r},${g},${b},${isSelected ? .96 : .78})`;
         ctx.fill();
-        ctx.fillStyle = isSelected ? 'rgba(255,245,238,.98)' : 'rgba(213,171,176,.80)';
+        ctx.fillStyle = isSelected ? 'rgba(238,252,255,.98)' : 'rgba(158,184,201,.80)';
         ctx.font = `${isSelected ? 700 : 500} 11px Cascadia Mono, Consolas, monospace`;
         ctx.fillText(node.label, node.x + 9, node.y - 8);
       });
 
-      ctx.fillStyle = 'rgba(213,171,176,.52)';
+      ctx.fillStyle = 'rgba(158,184,201,.52)';
       ctx.font = '10px Cascadia Mono, Consolas, monospace';
       ctx.fillText('FAMILY A', 14, 22);
       ctx.fillText('FAMILY B', width * .47, 22);
@@ -395,7 +395,7 @@
       const plotWidth = width - pad.left - pad.right;
       const plotHeight = height - pad.top - pad.bottom;
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'rgba(5,2,6,.78)';
+      ctx.fillStyle = 'rgba(3,10,17,.78)';
       ctx.fillRect(0, 0, width, height);
 
       bins.forEach((count, index) => {
@@ -403,20 +403,20 @@
         const x1 = pad.left + plotWidth * ((index + 1) / binCount);
         const center = minX + (maxX - minX) * ((index + .5) / binCount);
         const barHeight = plotHeight * (count / maxBin);
-        ctx.fillStyle = center <= threshold ? 'rgba(255,92,119,.72)' : 'rgba(108,167,255,.48)';
+        ctx.fillStyle = center <= threshold ? 'rgba(255,82,110,.72)' : 'rgba(108,167,255,.48)';
         ctx.fillRect(x0 + 1, pad.top + plotHeight - barHeight, Math.max(1, x1 - x0 - 2), barHeight);
       });
       const thresholdX = pad.left + plotWidth * ((threshold - minX) / (maxX - minX));
-      ctx.strokeStyle = 'rgba(255,183,43,.92)';
+      ctx.strokeStyle = 'rgba(61,232,255,.92)';
       ctx.lineWidth = 1.4;
       ctx.beginPath();
       ctx.moveTo(thresholdX, pad.top);
       ctx.lineTo(thresholdX, pad.top + plotHeight);
       ctx.stroke();
-      ctx.fillStyle = 'rgba(255,183,43,.95)';
+      ctx.fillStyle = 'rgba(61,232,255,.95)';
       ctx.font = '11px Cascadia Mono, Consolas, monospace';
       ctx.fillText(`threshold ${threshold.toFixed(1)}`, Math.max(8, Math.min(width - 112, thresholdX + 6)), 18);
-      ctx.fillStyle = 'rgba(213,171,176,.65)';
+      ctx.fillStyle = 'rgba(158,184,201,.65)';
       ctx.fillText('-4', pad.left - 5, height - 12);
       ctx.fillText('0', pad.left + plotWidth * .5 - 3, height - 12);
       ctx.fillText('+4 standardized outcome', width - 151, height - 12);
