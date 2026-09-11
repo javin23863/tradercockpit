@@ -24,6 +24,7 @@ class SurfaceParser(HTMLParser):
         self.anchors: list[dict[str, str | None]] = []
         self.iframes: list[dict[str, str | None]] = []
         self.videos: list[dict[str, str | None]] = []
+        self.metas: list[dict[str, str | None]] = []
         self.canonical = ""
 
     def handle_starttag(self, tag: str, attrs) -> None:
@@ -35,6 +36,7 @@ class SurfaceParser(HTMLParser):
         elif tag == "a": self.anchors.append(data)
         elif tag == "iframe": self.iframes.append(data)
         elif tag == "video": self.videos.append(data)
+        elif tag == "meta": self.metas.append(data)
 
 def parse(path: Path) -> SurfaceParser:
     parser = SurfaceParser()
@@ -57,12 +59,18 @@ def local_asset(source: Path, value: str) -> Path | None:
 def main() -> int:
     problems: list[str] = []
     html_pages = sorted(DOCS.rglob("*.html"))
+    not_found = DOCS / "404.html"
+    if not not_found.is_file(): problems.append("missing public 404.html")
     canonical_seen: dict[str, Path] = {}
     parsers: dict[Path, SurfaceParser] = {}
 
     for page in html_pages:
         parser = parse(page)
         parsers[page] = parser
+        if page == not_found:
+            robots = " ".join((attrs.get("content") or "") for attrs in parser.metas if (attrs.get("name") or "").lower() == "robots").lower()
+            if "noindex" not in robots: problems.append("404.html must declare robots=noindex")
+            if parser.canonical: problems.append("404.html must not declare a canonical URL")
         if parser.canonical:
             if not parser.canonical.startswith(BASE):
                 problems.append(f"canonical outside public site: {page.relative_to(REPO)}")
