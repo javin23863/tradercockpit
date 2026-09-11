@@ -847,3 +847,4 @@ Current public-site evidence after these additions:
 - Sitemap: **36 indexable URLs**; `404.html` is intentionally excluded.
 - Site Privacy browser acceptance: **1280px/390px PASS** for Trust/FAQ discovery, same-origin search behavior, Kit field boundary, click-to-load YouTube behavior, and no overflow/errors.
 - Public 404 browser acceptance: **1280px/390px PASS** for recovery links, search, `noindex`, absence of canonical URL, no overflow/errors, and no eager third-party requests.
+- Fresh full-site browser crawl: **36 sitemap URLs × 1280px/390px PASS** for main landmarks, visible-control naming, no horizontal overflow, no console/page errors, no eager iframes, and no eager third-party requests.
