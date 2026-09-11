@@ -3,7 +3,7 @@
 Status: site-wide appraisal authority derived from the owner-provided 2026-09-11 demo image and the approved homepage Quant Universe v4 direction.
 
 ## Purpose
-Every public page must belong to the same premium quantitative-research universe. The reference image is authoritative for depth, luminous contrast, financial-data semantics, glass instrumentation, and spatial hierarchy. Pages may be quieter than the homepage, but they may not fall back to a flat documentation portal or generic SaaS card grid.
+Every public page must belong to the same premium quantitative-research universe. The reference image is authoritative for depth, luminous contrast, financial-data semantics, glass instrumentation, and spatial hierarchy. Pages may be quieter than the homepage, but they may not fall back to a flat documentation portal, generic SaaS card grid, or one repeated decorative orb with different text. A visual must communicate the page subject or user task.
 
 ## Site-wide constants
 - Base field: near-black navy, localized cyan/teal bloom, sparse star/grid texture.
@@ -24,7 +24,7 @@ The lab is the most graphically dense page after the homepage. Its interactive v
 Docs, Learn, Methods, How-Tos, Examples, Updates, Support, and Trust must open with a spatial visual scene or cinematic research object, not text above a generic card grid. Their bodies may use cards, but cards must sit inside a layered field with depth, section rhythm, and clear evidence hierarchy.
 
 ### Long-form Concepts, Methods, How-Tos, and Examples
-Reading remains primary. Each article gets a cinematic sphere/orbit/perspective hero and layered evidence sections. The page must feel like a research dossier inside the same universe, not a plain article template. Typography and information hierarchy remain more important than decorative density in the body.
+Reading remains primary. Each article gets a subject-specific research scene plus layered evidence sections. Correlation uses network geometry; distributions use histogram/distribution geometry; drawdown uses peak/valley path geometry; Monte Carlo uses path dispersion; validation/selection uses staged information-boundary geometry; chart/replay uses candlesticks; result metrics use comparative metric rings; robustness/regimes use spatial coordinate fields. Reusing one generic orb across these pages is an appraisal failure. Typography and information hierarchy remain more important than decorative density in the body.
 
 ### Utility and transactional pages
 404, contextual help, waitlist confirmation, confirmation reminder, and commercial-boundary pages use a focused cinematic utility stage. They may be short, but they still require one dominant research object, glass depth, intentional lighting, and the shared navigation/footer language. Transactional confirmation pages remain `noindex`.
@@ -49,6 +49,6 @@ Only verified commerce data may populate a tier. The current public record is Tr
 - The Research Lab retains its visual atlas and usable controls on mobile.
 
 ## Appraisal acceptance
-A site-wide pass requires rendered review of all tracked public HTML pages, not only source inspection. Representative mobile acceptance covers homepage, pricing, landing, long-form article, utility, and Research Lab families. The public site must also pass website integrity, hardening, public-claims, JavaScript syntax, reduced-motion, and no-overflow checks.
+A site-wide pass requires rendered review of all tracked public HTML pages, not only source inspection. Article/detail pages must demonstrate subject-specific scene variation rather than cosmetic copy swaps. Representative mobile acceptance covers homepage, pricing, landing, long-form article, utility, and Research Lab families. The public site must also pass website integrity, hardening, public-claims, JavaScript syntax, reduced-motion, and no-overflow checks.
 
 The current appraisal receipt is `.github/site-depth-appraisal-2026-09-11.md`.

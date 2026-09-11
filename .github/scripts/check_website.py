@@ -211,9 +211,14 @@ def main() -> int:
         problems.append("missing shared cinematic site stylesheet")
     else:
         site_style = SITE_STYLE.read_text(encoding="utf-8")
-        for marker in ("Site-wide cinematic appraisal pass - 2026-09-11", ".utility-stage", ".pricing-tier-tabs", "Research Lab palette authority"):
+        for marker in ("Site-wide cinematic appraisal pass - 2026-09-11", ".utility-stage", ".pricing-tier-tabs", "Research Lab palette authority", "Subject-specific article research scenes"):
             if marker not in site_style:
                 problems.append(f"site-wide cinematic style missing authority marker: {marker}")
+    if SITE_SEARCH.is_file():
+        site_search = SITE_SEARCH.read_text(encoding="utf-8")
+        for marker in ("function depthSceneKind", "function buildDepthGraphic", "article-depth-scene", "depth-scene-${kind}"):
+            if marker not in site_search:
+                problems.append(f"site-wide subject visual system missing authority marker: {marker}")
     for page in PUBLIC_HTML:
         text = page.read_text(encoding="utf-8")
         if "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:

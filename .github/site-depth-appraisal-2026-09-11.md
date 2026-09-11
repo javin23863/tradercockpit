@@ -65,10 +65,11 @@ Verdict key: **PASS** = page belongs to the cinematic Quant system at an appropr
 | `strategy-claim-audit-checklist.html` | PASS | Cinematic screen treatment with compact print/PDF behavior preserved. |
 
 ## Acceptance evidence
-- Desktop rendered appraisal: 41/41 public HTML pages captured and reviewed at 1280×900, first viewport and full page.
-- Representative mobile families: Home, Pricing, Landing, Article, Utility, Research Lab — PASS at 390×844 with no horizontal overflow or page/console errors.
+- Desktop rendered appraisal: 41/41 public HTML pages re-captured and reviewed at 1280×900 after the subject-specific scene pass, first viewport and full page.
+- Strict responsive appraisal: all 41 public HTML pages PASS at 390, 768, and 1280px with no horizontal overflow, clipped primary text/controls, or page/console errors; representative subject scenes also pass overlap checks from 390 through 1280px.
 - Reduced motion: Home and Research Lab — PASS; decorative motion freezes and composition remains complete.
 - Research Lab: 10 interactive canvases present; green/red/cyan semantic palette retained after conversion.
+- Article/detail identity: correlation network, distribution histogram, drawdown path, Monte Carlo path fan, validation boundary, robustness/regime coordinate field, chart/replay candlesticks, and metric-ring scenes all render as distinct subject-specific visuals.
 - Pricing: exactly one active current tier and two disabled structural future-tier slots; current rendered amount remains `$150`.
 - Website integrity, site hardening, public claims, generated concepts, JavaScript syntax, depth checks, mobile/reduced-motion checks, and `git diff --check` — PASS at closeout.
-- Adversarial review — PASS with no actionable regressions; 41 pages checked at 390, 768, and 1280px, and the audit checklist remained one PDF page.
+- Adversarial review — PASS. The initial subject-scene review found tablet-width overlap and search-encoding regressions; both were fixed and retested. A clean static follow-up reported `NO ACTIONABLE FINDINGS`. The audit checklist remains one PDF page.
