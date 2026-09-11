@@ -14,7 +14,10 @@ REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 BASE = "https://javin23863.github.io/tradercockpit/"
 MAX_TEXT_ASSET_BYTES = 100_000
-MAX_HOME_LOCAL_TEXT_BYTES = 160_000
+GENERATED_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "home-webgl-v1.js"
+MAX_GENERATED_WEBGL_BYTES = 650_000
+MAX_HOME_BASE_TEXT_BYTES = 165_000
+MAX_HOME_LOCAL_TEXT_BYTES = 810_000
 
 class SurfaceParser(HTMLParser):
     def __init__(self) -> None:
@@ -124,11 +127,13 @@ def main() -> int:
         if parser.canonical not in sitemap_urls:
             problems.append(f"canonical missing from sitemap: {page.relative_to(REPO)}")
 
-    # Text assets stay dependency-light; large media must not become critical JS/CSS.
+    # Ordinary text assets stay dependency-light. The generated WebGL runtime has its own
+    # bounded budget and is rebuilt from pinned source/dependencies in website-integrity CI.
     for path in sorted(DOCS.rglob("*")):
         if path.is_file() and path.suffix.lower() in {".html", ".css", ".js", ".mjs", ".json"}:
-            if path.stat().st_size > MAX_TEXT_ASSET_BYTES:
-                problems.append(f"oversized text asset ({path.stat().st_size} bytes): {path.relative_to(REPO)}")
+            limit = MAX_GENERATED_WEBGL_BYTES if path == GENERATED_WEBGL_BUNDLE else MAX_TEXT_ASSET_BYTES
+            if path.stat().st_size > limit:
+                problems.append(f"oversized text asset ({path.stat().st_size} bytes > {limit}): {path.relative_to(REPO)}")
     home = DOCS / "index.html"
     home_parser = parsers.get(home)
     if home_parser:
@@ -142,8 +147,14 @@ def main() -> int:
             target = local_asset(home, attrs.get("href") or "")
             if target and target.is_file(): payload_paths.add(target)
         payload = sum(path.stat().st_size for path in payload_paths)
+        webgl_bytes = GENERATED_WEBGL_BUNDLE.stat().st_size if GENERATED_WEBGL_BUNDLE in payload_paths and GENERATED_WEBGL_BUNDLE.is_file() else 0
+        base_payload = payload - webgl_bytes
+        if base_payload > MAX_HOME_BASE_TEXT_BYTES:
+            problems.append(f"homepage non-WebGL text payload exceeds base budget: {base_payload} bytes")
+        if webgl_bytes > MAX_GENERATED_WEBGL_BYTES:
+            problems.append(f"homepage generated WebGL bundle exceeds budget: {webgl_bytes} bytes")
         if payload > MAX_HOME_LOCAL_TEXT_BYTES:
-            problems.append(f"homepage local text payload exceeds budget: {payload} bytes")
+            problems.append(f"homepage local text payload exceeds total budget: {payload} bytes")
 
     # The product and prelaunch JSON remain authorities, not duplicated static claims.
     manifest = json.loads((DOCS / "product-manifest.v1.json").read_text(encoding="utf-8"))

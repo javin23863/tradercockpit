@@ -44,6 +44,8 @@ LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
 LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
 HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
+HOME_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "home-webgl.js"
+HOME_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "home-webgl-v1.js"
 HOME_STYLE = DOCS / "assets" / "home-v3.css"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
 HOME_VISUAL_SPEC = REPO / ".github" / "visual-authority-home-v4.md"
@@ -172,9 +174,11 @@ def main() -> int:
         missing_ids = required_home_ids.difference(home_parser.ids)
         if missing_ids:
             problems.append(f"homepage missing manifest/waitlist contract IDs: {sorted(missing_ids)}")
+        if not any(src.endswith("assets/generated/home-webgl-v1.js") for src in home_parser.scripts):
+            problems.append("homepage production WebGL bundle missing")
         if not any(src.endswith("assets/home-v3.js") for src in home_parser.scripts):
-            problems.append("homepage visual script missing")
-    for asset in (HOME_SCRIPT, HOME_STYLE):
+            problems.append("homepage fallback/commerce script missing")
+    for asset in (HOME_SCRIPT, HOME_WEBGL_SOURCE, HOME_WEBGL_BUNDLE, HOME_STYLE):
         if not asset.is_file():
             problems.append(f"missing homepage asset: {asset.relative_to(REPO)}")
     if HOME_SCRIPT.is_file():
@@ -183,12 +187,34 @@ def main() -> int:
             problems.append("homepage visual script contains an external network target")
         if "prefers-reduced-motion" not in home_script or "visibilitychange" not in home_script:
             problems.append("homepage visual script is missing motion/visibility safeguards")
-        for marker in ("drawPerspectiveGrid", "drawSatellites", "length: 360"):
-            if marker not in home_script:
-                problems.append(f"homepage cinematic renderer missing authority marker: {marker}")
-    for marker in ("universe-deck", "hud-node", "hud-spark", "deck-card"):
+        if "window.__tcWebGLHero" not in home_script:
+            problems.append("homepage fallback script is not gated by successful WebGL ownership")
+    if HOME_WEBGL_SOURCE.is_file():
+        webgl_source = HOME_WEBGL_SOURCE.read_text(encoding="utf-8")
+        if "http://" in webgl_source or "https://" in webgl_source:
+            problems.append("homepage WebGL source contains an external network target")
+        for marker in (
+            "new THREE.WebGLRenderer",
+            "new THREE.PerspectiveCamera",
+            "new THREE.InstancedMesh",
+            "new EffectComposer",
+            "new BloomEffect",
+            "prefers-reduced-motion",
+            "webglcontextlost",
+            "#3cfad2",
+            "#e54a5a",
+            "#3daed3",
+        ):
+            if marker not in webgl_source:
+                problems.append(f"homepage production WebGL renderer missing contract marker: {marker}")
+    if HOME_WEBGL_BUNDLE.is_file() and HOME_WEBGL_BUNDLE.stat().st_size < 100_000:
+        problems.append("homepage production WebGL bundle is unexpectedly small")
+    for marker in ("universe-deck", "hud-node", "hud-spark", "deck-card", "universe-legend"):
         if marker not in home_text:
             problems.append(f"homepage cinematic scene missing authority marker: {marker}")
+    for demo_marker in ("is being built", "development preview", "preserves the measured", "No invented tiers", ">Future tier<"):
+        if demo_marker in home_text:
+            problems.append(f"homepage exposes internal/demo copy: {demo_marker}")
     if HOME_STYLE.is_file():
         home_style = HOME_STYLE.read_text(encoding="utf-8")
         for marker in ("Cinematic Quant Universe v4", "Measured demo authority v6", ".universe-deck", ".hud-node"):
@@ -235,6 +261,8 @@ def main() -> int:
     pricing_tabs = re.findall(r'class="pricing-tier-tab(?:\s[^"]*)?"[^>]*', pricing_text)
     if len(pricing_tabs) != 3 or sum("is-active" in tab for tab in pricing_tabs) != 1 or sum("disabled" in tab for tab in pricing_tabs) != 2:
         problems.append("pricing must expose one current tier plus exactly two disabled reserved expansion slots")
+    if ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text:
+        problems.append("pricing expansion controls must not advertise unfinished tiers")
     for utility in (DOCS / "confirmed.html", DOCS / "thanks.html", DOCS / "refund-policy.html"):
         if 'class="utility-page"' not in utility.read_text(encoding="utf-8"):
             problems.append(f"utility page missing cinematic stage contract: {utility.relative_to(REPO)}")

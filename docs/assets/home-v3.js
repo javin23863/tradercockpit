@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  if (window.__tcWebGLHero) return;
   const canvas = document.querySelector('#quant-universe-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
@@ -165,8 +166,8 @@
     const formatted=new Intl.NumberFormat('en-US',{style:'currency',currency:data.plan.currency,maximumFractionDigits:0}).format(data.plan.unitAmount/100);
     if(price)price.textContent=formatted;
     if(plan)plan.textContent=data.plan.name;
-    if(state)state.textContent=data.checkout?.enabled?'Checkout available':'Prelaunch · checkout locked';
-    if(checkout&&data.checkout?.enabled&&/^https:\/\/[^\s]+$/.test(data.checkout.url||'')){checkout.removeAttribute('disabled');checkout.textContent='Continue to secure checkout';checkout.addEventListener('click',()=>location.assign(data.checkout.url),{once:true});}
+    if(state)state.textContent=data.checkout?.enabled?'Checkout available':'Waitlist open';
+    if(checkout&&data.checkout?.enabled&&/^https:\/\/[^\s]+$/.test(data.checkout.url||'')){checkout.hidden=false;checkout.removeAttribute('disabled');checkout.textContent='Continue to secure checkout';checkout.addEventListener('click',()=>location.assign(data.checkout.url),{once:true});}
   }catch{if(state)state.textContent='Billing status unavailable';}
 
   try{

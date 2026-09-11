@@ -5,11 +5,13 @@ on:
     paths:
       - "docs/**"
       - ".github/scripts/**"
+      - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
   pull_request:
     paths:
       - "docs/**"
       - ".github/scripts/**"
+      - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
 
 jobs:
@@ -23,6 +25,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Rebuild production WebGL bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci --prefix .github/site-build --ignore-scripts --no-audit --no-fund
+          npm run build --prefix .github/site-build
+          git diff --exit-code -- docs/assets/generated/home-webgl-v1.js
       - name: Validate site architecture and registries
         run: python .github/scripts/check_website.py
       - name: Validate public-site hardening contracts
