@@ -828,3 +828,22 @@ Latest merged public-surface evidence after Example 002:
 - Sitemap: **35 indexable URLs**.
 - Fresh browser crawl: **35 sitemap URLs × 1280px/390px PASS** for main landmarks, visible-control naming, no horizontal overflow, no console/page errors, no eager iframes, and no eager third-party requests.
 - Focused replay acceptance: slider and keyboard cutoff movement, safe-vs-leaky future-bar handling, Example-index discovery, contextual-help resolution, and desktop/mobile visual appraisal all **PASS**.
+
+### 16A. Trust and recovery completion — 2026-09-11
+
+- [x] Added a factual Site Privacy & Third-Party Boundaries reference under Trust. It describes only repository-verifiable behavior: same-origin static search, Kit waitlist submission after user action, click-to-load `youtube-nocookie.com` video, and no browser-storage calls from the site's own public scripts.
+- [x] Kept the privacy reference technical rather than making legal-compliance, provider-retention, or private-product data-handling claims that the public repository cannot establish.
+- [x] Linked Site Privacy from Trust and the FAQ, and exposed it through the desktop Settings → Help & Learning `Trust & status` group without changing product availability authority.
+- [x] Added `404.html` as a non-indexable recovery surface with current Support, Docs, Learn/How-Tos, Updates, and local-search routes instead of guessing a replacement destination.
+- [x] Hardened CI so the public 404 must exist, declare `robots=noindex`, and must not carry a canonical URL.
+- [x] Verified the deployed GitHub Pages behavior: `/404.html` serves the custom page and an unknown path returns HTTP **404** with the same custom recovery content and `noindex`.
+
+Current public-site evidence after these additions:
+
+- Website integrity: **PASS — 22 primary pages, 32 help IDs, 48 search entries**.
+- Site hardening: **PASS — 40 HTML pages, 37 canonicals**.
+- Public claims: **PASS — status `waitlist`, 0 verified capabilities**.
+- Generated Concepts: **PASS — 9 generated pages current**.
+- Sitemap: **36 indexable URLs**; `404.html` is intentionally excluded.
+- Site Privacy browser acceptance: **1280px/390px PASS** for Trust/FAQ discovery, same-origin search behavior, Kit field boundary, click-to-load YouTube behavior, and no overflow/errors.
+- Public 404 browser acceptance: **1280px/390px PASS** for recovery links, search, `noindex`, absence of canonical URL, no overflow/errors, and no eager third-party requests.
