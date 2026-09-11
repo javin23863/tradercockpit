@@ -45,6 +45,7 @@ LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
 HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
 HOME_STYLE = DOCS / "assets" / "home-v3.css"
+HOME_VISUAL_SPEC = REPO / ".github" / "visual-authority-home-v4.md"
 SITEMAP = DOCS / "sitemap.xml"
 
 
@@ -177,6 +178,21 @@ def main() -> int:
             problems.append("homepage visual script contains an external network target")
         if "prefers-reduced-motion" not in home_script or "visibilitychange" not in home_script:
             problems.append("homepage visual script is missing motion/visibility safeguards")
+        for marker in ("drawPerspectiveGrid", "drawSatellites", "length: 360"):
+            if marker not in home_script:
+                problems.append(f"homepage cinematic renderer missing authority marker: {marker}")
+    for marker in ("universe-deck", "hud-node", "hud-spark", "deck-card"):
+        if marker not in home_text:
+            problems.append(f"homepage cinematic scene missing authority marker: {marker}")
+    if HOME_STYLE.is_file():
+        home_style = HOME_STYLE.read_text(encoding="utf-8")
+        for marker in ("Cinematic Quant Universe v4", ".universe-deck", ".hud-node"):
+            if marker not in home_style:
+                problems.append(f"homepage cinematic style missing authority marker: {marker}")
+    if not HOME_VISUAL_SPEC.is_file():
+        problems.append("missing internal homepage visual authority spec")
+    elif "The hero is a cinematic scene, not a bordered card" not in HOME_VISUAL_SPEC.read_text(encoding="utf-8"):
+        problems.append("homepage visual authority spec lost the cinematic-scene requirement")
     for marker in ("product-manifest.mjs", "prelaunch-config.mjs", "activatePrelaunch", "loadProductManifest"):
         if marker not in home_text:
             problems.append(f"homepage missing product/prelaunch contract: {marker}")
