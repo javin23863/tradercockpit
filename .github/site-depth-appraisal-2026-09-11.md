@@ -12,7 +12,7 @@ Verdict key: **PASS** = page belongs to the cinematic Quant system at an appropr
 |---|---|---|
 | `index.html` | PASS | Full cinematic Quant Universe: dominant globe, orbit/HUD layers, perspective candles, semantic green/red/cyan. |
 | `research-lab.html` | PASS | Interactive 10-module visual atlas; canvas palette aligned to green/red/cyan with cool glass framing. |
-| `pricing/index.html` | PASS | Cinematic hero, one verified $150 Monthly tier, two disabled reserved expansion tabs, no speculative tier data. |
+| `pricing/index.html` | PASS | Cinematic hero, one verified $150 Monthly tier, no unfinished expansion controls or speculative tier data. |
 | `docs/index.html` | PASS | Spatial documentation hero plus layered answer/evidence surfaces. |
 | `learn/index.html` | PASS | Cinematic learning-system hero and layered path cards. |
 | `methods/index.html` | PASS | Research-method hero with depth scene and structured evidence map. |
@@ -98,8 +98,8 @@ Palette authority is measured from the reference: page void `#010509`, panel `#0
 - Desktop rendered appraisal: 41/41 public HTML pages re-captured and reviewed at 1280×900 after the subject-specific scene pass, first viewport and full page.
 - Strict responsive appraisal: all 41 public HTML pages PASS at 390, 768, 1280, and 1440px with no horizontal overflow, clipped primary text/controls, or page/console errors; representative subject scenes also pass overlap checks across the responsive range.
 - Reduced motion: Home and Research Lab — PASS; decorative motion freezes and composition remains complete.
-- Research Lab: 10 interactive canvases present; green/red/cyan semantic palette retained after conversion.
+- Research Lab: all 10 atlas canvases use production WebGL when WebGL2 is available, retain local Canvas2D fallbacks, and preserve teal/red/cyan semantics plus visible axis/threshold/node annotations. Monte Carlo, drawdown, distribution, regime, walk-forward, holdout, and selection visuals are bound to the same deterministic synthetic data/control state used by their public metrics and readouts.
 - Article/detail identity: correlation network, distribution histogram, drawdown path, Monte Carlo path fan, validation boundary, robustness/regime coordinate field, chart/replay candlesticks, and metric-ring scenes all render as distinct subject-specific visuals.
-- Pricing: exactly one active current tier and two disabled structural future-tier slots; current rendered amount remains `$150`.
-- Website integrity, site hardening, public claims, generated concepts, JavaScript syntax, depth checks, mobile/reduced-motion checks, and `git diff --check` — PASS at closeout.
-- Adversarial review — PASS. The initial subject-scene review found tablet-width overlap and search-encoding regressions; both were fixed and retested. A clean static follow-up reported `NO ACTIONABLE FINDINGS`. The audit checklist remains one PDF page.
+- Pricing: one public monthly plan with no unfinished expansion controls; current rendered amount remains `$150`.
+- Current WebGL acceptance: all 41 public HTML pages PASS at 390, 768, and 1440px; Home and Research Lab reduced-motion/fallback checks PASS; exact Research Lab data/control parity PASS; context-loss exclusive fallback PASS; generated WebGL bundle reproducibility PASS; website integrity, site hardening, public claims, JavaScript syntax, and `git diff --check` PASS.
+- WebGL adversarial review: two completed Codex rounds found data/metric divergence, broken control semantics, resource disposal, fallback, mobile framing, annotation, marker-transform, and context-recovery issues; every reported finding was corrected and locally re-tested. A third exact-state Codex re-review was attempted but interrupted by the Codex account usage limit before a verdict, so this document does **not** claim a final independent WebGL PASS. The earlier measured-theme review remains historical evidence for the baseline only.

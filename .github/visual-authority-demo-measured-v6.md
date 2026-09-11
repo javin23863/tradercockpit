@@ -80,6 +80,17 @@ Every major page must combine at least three visible depth cues from this set: v
 
 Homepage requires all four reference planes: star/background field; globe/orbits; HUD cards; foreground market terrain/device. Detail pages may use fewer planes but must retain overlap, localized lighting, and subject-specific geometry.
 
+## Production rendering contract
+The measured composition remains the visual authority, but the homepage Quant Universe is no longer allowed to satisfy the depth requirement with manual 2D projection alone. The production implementation must use a WebGL renderer with a perspective camera, true XYZ geometry, depth-tested meshes or instancing, scene lighting, and GPU post-processing.
+
+The strategy field and foreground market terrain must preserve the measured semantic palette: teal `#3CFAD2` for positive/gain examples, red `#E54A5A` for negative/loss examples, and cyan `#3DAED3` for neutral/supporting values. Color may not be the only distinction; height, position, geometry, or labels must carry the same meaning.
+
+The WebGL scene must retain reduced-motion behavior, pause/reset controls, mobile pixel-density limits, document-visibility throttling, and a local non-network fallback when WebGL cannot initialize. The generated browser bundle is reproducibly built from checked-in source and pinned dependencies; generated output may not be hand-edited.
+
+The same production-rendering rule applies to all ten Research Lab atlas canvases. Their legacy 2D renderers may remain as local fallbacks and as the metric/control logic authority, but when WebGL is available the visible strategy field, Monte Carlo fan, robustness terrain, network, distribution, regime cube, walk-forward blocks, holdout boundary, drawdown field, and selection funnel must use true perspective/depth geometry rather than 2D projection alone.
+
+WebGL geometry must visualize the same deterministic synthetic records that drive each module?s metrics and readouts; a visually similar parallel sample is not acceptable. Axis/threshold/node annotations remain visible in the 3D path. Narrow canvases must fit complete analytical geometry rather than crop endpoints. Context loss permanently hands that surface back to the 2D fallback for the page lifetime so two renderers can never overlap.
+
 ## Responsive translation
 - Desktop ≥1100px preserves the measured left/right composition and dense first viewport.
 - Tablet <1100px stacks copy above the subject visual; no side-by-side squeeze.

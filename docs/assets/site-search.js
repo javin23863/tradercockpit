@@ -274,7 +274,7 @@
       paths: ['RESAMPLE', 'RANGE'], validation: ['SELECT', 'EVALUATE'],
       surface: ['NEIGHBORHOOD', 'STABILITY'], regime: ['STATE', 'COORDINATES'],
       chart: ['TIME BASIS', 'EVIDENCE'], metrics: ['UNIT', 'SAMPLE'],
-      pricing: ['VERIFIED TIER', 'RESERVED'], boundary: ['SOURCE', 'BOUNDARY'],
+      pricing: ['CURRENT PLAN', 'ACCESS PATH'], boundary: ['SOURCE', 'BOUNDARY'],
       timeline: ['PUBLISHED', 'CURRENT'], orbit: ['RESEARCH', 'CONTEXT']
     };
     return labels[kind] || labels.orbit;

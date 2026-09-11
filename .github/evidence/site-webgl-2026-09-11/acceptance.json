@@ -1,0 +1,33 @@
+{
+  "schema": "tradercockpit.website-webgl-acceptance.v1",
+  "captured_at_utc": "2026-09-11T12:59:51.102121Z",
+  "branch": "codex/production-webgl-home-20260911",
+  "base": "bfed4b33e2d6ab94c07519059694860cc807531a",
+  "bundle_sha256": "5db4ba2e5270b6343c6685ddbb0ecdc97079768ec4c938ed44de5b6a15120a27",
+  "checks": {
+    "website_integrity": "PASS",
+    "site_hardening": "PASS",
+    "public_claims": "PASS",
+    "git_diff_check": "PASS",
+    "responsive_41_pages_390_768_1440": "PASS",
+    "research_data_control_parity": "PASS",
+    "home_and_research_2d_fallback": "PASS",
+    "reduced_motion": "PASS",
+    "context_loss_exclusive_fallback": "PASS",
+    "generated_bundle_reproducibility": "PASS"
+  },
+  "rendered_evidence": [
+    "home-1440-final.jpg",
+    "home-390-final.jpg",
+    "pricing-1440-final.jpg",
+    "pricing-390-final.jpg",
+    "research-1440-final.jpg",
+    "research-390-final.jpg"
+  ],
+  "adversarial_review": {
+    "completed_rounds": 2,
+    "all_reported_findings_resolved": true,
+    "final_exact_state_rerun": "INTERRUPTED_BY_CODEX_USAGE_LIMIT",
+    "final_independent_pass_claimed": false
+  }
+}
