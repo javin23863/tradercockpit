@@ -11,6 +11,7 @@ REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 MANIFEST = DOCS / "product-manifest.v1.json"
 HOME = DOCS / "index.html"
+COMMERCE = DOCS / "commerce-public.v1.json"
 
 RISKY_PHRASES = (
     "available now",
@@ -35,6 +36,14 @@ def main() -> int:
     problems: list[str] = []
     manifest = json.loads(read(MANIFEST))
     home = read(HOME)
+    commerce = json.loads(read(COMMERCE))
+    if commerce.get("schema") != "public-commerce/v1": problems.append("invalid public commerce schema")
+    checkout = commerce.get("checkout") or {}
+    if manifest.get("status") != "available" and checkout.get("enabled") is not False: problems.append("checkout must stay disabled while public product status is not available")
+    if checkout.get("enabled") is False and checkout.get("url") is not None: problems.append("disabled checkout must not expose a checkout URL")
+    plan = commerce.get("plan") or {}
+    if not isinstance(plan.get("unitAmount"), int) or plan.get("unitAmount", 0) <= 0: problems.append("public commerce plan must expose a positive integer unitAmount")
+    if not re.fullmatch(r"price_[A-Za-z0-9]+", str(plan.get("stripePriceId", ""))): problems.append("public commerce plan has invalid Stripe price id")
 
     if manifest.get("status") != "waitlist":
         problems.append(f"expected current public status waitlist, got {manifest.get('status')!r}")

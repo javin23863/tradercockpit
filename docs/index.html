@@ -4,261 +4,111 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="data:,">
-  <title>TraderCockpit — Research the strategy, not the story</title>
-  <meta name="description" content="Explore interactive quantitative-research concepts, methods, documentation, and the TraderCockpit public waitlist. Synthetic visualizations; no performance promised.">
+  <title>TraderCockpit — Research the edge without hiding uncertainty</title>
+  <meta name="description" content="Explore TraderCockpit's quantitative research world, current desktop preview, research lessons, public monthly billing record, and verified product status.">
   <link rel="canonical" href="https://javin23863.github.io/tradercockpit/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="TraderCockpit — Research the strategy, not the story">
-  <meta property="og:description" content="Explore quantitative research visually, learn the methods, and follow the public TraderCockpit development state. Synthetic education; no performance promised.">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit">
+  <meta property="og:title" content="TraderCockpit — Research the edge without hiding uncertainty">
+  <meta property="og:description" content="Build understanding through evidence, validation, interactive research visuals, and a connected learning system.">
   <meta property="og:url" content="https://javin23863.github.io/tradercockpit/">
-  <meta property="og:site_name" content="TraderCockpit">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TraderCockpit — Research the strategy, not the story">
-  <meta name="twitter:description" content="Explore quantitative research visually, learn the methods, and follow the public development state.">
-  <link rel="stylesheet" href="assets/site-v2.css">
-  <link rel="stylesheet" href="assets/home-v2.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TraderCockpit","url":"https://javin23863.github.io/tradercockpit/","description":"Evidence-first trading-strategy research education and public product status.","sameAs":["https://www.youtube.com/@Thetradercockpit"]}</script>
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="TraderCockpit">
+  <link rel="stylesheet" href="assets/site-v2.css"><link rel="stylesheet" href="assets/home-v3.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TraderCockpit","url":"https://javin23863.github.io/tradercockpit/","sameAs":["https://www.youtube.com/@Thetradercockpit"]}</script>
 </head>
 <body class="home-page">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a class="brand" href="index.html" aria-current="page"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
-      <div class="nav-links">
-        <a href="research-lab.html">Research Lab</a>
-        <a href="learn/">Learn</a>
-        <a href="docs/">Docs</a>
-        <a href="methods/">Methods</a>
-        <a href="examples/">Examples</a>
-        <a href="updates/">Updates</a>
-      </div>
-    </div>
-  </nav>
-
-  <main id="main" tabindex="-1">
-    <section class="home-hero">
-      <div class="shell home-hero-grid">
-        <div class="home-hero-copy">
-          <span class="eyebrow">TraderCockpit / evidence before narrative</span>
-          <h1>Research the <span class="gradient-text">strategy</span>, not the story.</h1>
-          <p class="lede">Markets are noisy, testing is high-dimensional, and one attractive result is easy to overread. TraderCockpit's public site makes the research questions explorable before asking you to trust a conclusion.</p>
-          <div class="home-actions">
-            <a class="home-action primary" href="research-lab.html">Explore the Research Lab →</a>
-            <a class="home-action" href="learn/">Learn the concepts</a>
-            <a class="home-action" href="docs/">Open Docs</a>
-          </div>
-          <div class="home-truth-line" aria-label="Public site boundaries">
-            <span>Synthetic public demos</span>
-            <span>No performance promised</span>
-            <span id="product-state">STATUS: UNVERIFIED</span>
-          </div>
-        </div>
-
-        <div class="home-universe" aria-labelledby="home-universe-title">
-          <span class="home-universe-label" id="home-universe-title">Strategy Universe · synthetic research geometry</span>
-          <canvas id="home-universe-canvas" role="img" aria-label="A synthetic three-dimensional field of 180 research candidates. Horizontal position represents normalized outcome dispersion, vertical position represents normalized drawdown severity, and depth represents normalized in-sample versus out-of-sample disagreement. The visualization contains no market data or product results."></canvas>
-          <noscript><div class="home-universe-nojs"><strong>Interactive research geometry is paused because JavaScript is disabled.</strong><span>The Research Lab and all written explanations remain directly navigable.</span><a href="research-lab.html">Open Research Lab →</a></div></noscript>
-          <div class="home-universe-controls" aria-label="Strategy Universe controls" hidden>
-            <button class="control-btn" id="home-universe-pause" type="button" aria-pressed="false">Pause rotation</button>
-            <button class="control-btn" id="home-universe-reset" type="button">Reset view</button>
-            <div class="home-universe-readout" id="home-universe-readout" aria-live="polite">Synthetic candidate field</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section" id="research-preview">
-      <div class="shell">
-        <div class="home-section-head">
-          <span class="eyebrow">Research Lab / visual atlas</span>
-          <h2>Turn abstractions into shapes you can inspect.</h2>
-          <p>These are public educational visualizations built from deterministic synthetic data. They explain research structure; they are not claims that a matching product capability is currently available.</p>
-        </div>
-        <div class="research-grid">
-          <a class="research-tile" href="research-lab.html#monte-carlo"><span class="index">01 / UNCERTAINTY</span><h3>Monte Carlo paths</h3><p>Replace one smooth line with a distribution of generated paths and ask what depends on the particular sequence observed.</p><span class="route">Open the path field →</span></a>
-          <a class="research-tile" href="research-lab.html#parameter-robustness"><span class="index">02 / GEOMETRY</span><h3>Parameter robustness</h3><p>Compare broad plateaus, narrow spikes, and ridges so local sensitivity becomes visible instead of hiding inside a table.</p><span class="route">Explore the surface →</span></a>
-          <a class="research-tile" href="research-lab.html#correlation"><span class="index">03 / RELATIONSHIPS</span><h3>Correlation network</h3><p>See clustering and dependence as a network, with family labels and relationship strength instead of a decorative web.</p><span class="route">Inspect the network →</span></a>
-          <a class="research-tile" href="research-lab.html#walk-forward"><span class="index">04 / TIME</span><h3>Walk-forward windows</h3><p>Move the development/evaluation boundary through synthetic time and compare rolling with anchored training histories.</p><span class="route">See the windows →</span></a>
-          <a class="research-tile" href="research-lab.html#drawdown"><span class="index">05 / PATH RISK</span><h3>Drawdown valleys</h3><p>Make depth, duration, and recovery visible together so one maximum number does not become the whole risk story.</p><span class="route">Enter the valleys →</span></a>
-          <a class="research-tile" href="research-lab.html#selection-bias"><span class="index">06 / SELECTION</span><h3>Multiple-testing pressure</h3><p>Increase a synthetic candidate family and see why the best-looking null result can become more extreme simply because more were tried.</p><span class="route">Open the selection funnel →</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section" id="research-pressure">
-      <div class="shell research-pressure">
-        <div class="pressure-copy">
-          <span class="eyebrow">Evidence / information flow</span>
-          <h3>An idea is not an edge. A test is not proof.</h3>
-          <p>The useful question is what information entered each decision, what assumptions the test made, and which evidence stayed genuinely separate from selection. The public site teaches that reasoning before it teaches buttons.</p>
-          <a class="deep-link" href="learn/concepts/out-of-sample.html">Learn the holdout boundary →</a>
-        </div>
-        <div class="pressure-viz" aria-label="Illustrative research information layers">
-          <div class="pressure-layers">
-            <div class="pressure-stack">
-              <div class="pressure-plane"><b>01</b><strong>Define the question</strong><span>before evidence</span></div>
-              <div class="pressure-plane"><b>02</b><strong>Develop & select</strong><span>information used</span></div>
-              <div class="pressure-plane"><b>03</b><strong>Reserve evidence</strong><span>holdout boundary</span></div>
-              <div class="pressure-plane"><b>04</b><strong>Interpret limits</strong><span>no guarantees</span></div>
-            </div>
-          </div>
-          <p class="micro">Illustrative research structure only. These layers do not represent a measured TraderCockpit run.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section" id="learning-system">
-      <div class="shell">
-        <div class="home-section-head">
-          <span class="eyebrow">Learn / one connected knowledge system</span>
-          <h2>Go from “what is this?” to “what do I do next?” without losing context.</h2>
-          <p>The website separates explanation by job, then connects the layers. That same structure is designed for future in-app helper links.</p>
-        </div>
-        <div class="learning-map">
-          <a class="learning-node" href="learn/concepts/monte-carlo.html"><b>1</b><h3>Concept</h3><p>Plain-language intuition, bounded interpretation, and the research question.</p></a>
-          <a class="learning-node" href="research-lab.html#monte-carlo"><b>2</b><h3>Visual</h3><p>Interactive synthetic geometry that makes the idea inspectable.</p></a>
-          <a class="learning-node" href="methods/monte-carlo.html"><b>3</b><h3>Method</h3><p>Assumptions, procedure families, diagnostics, and failure modes.</p></a>
-          <a class="learning-node" href="how-to/read-monte-carlo.html"><b>4</b><h3>How-To</h3><p>A task-focused path for reading a result without overclaiming what it means.</p></a>
-          <a class="learning-node" href="docs/"><b>5</b><h3>Docs</h3><p>Exact product reference after the underlying behavior has been verified.</p></a>
-        </div>
-        <div class="notice"><strong>In-app help:</strong> “What is this?” links can open the explanation that matches the topic you are viewing, so you can move straight to the right Concept, Method, How-To, or reference page without searching from scratch.</div>
-      </div>
-    </section>
-
-    <section class="home-section" id="development">
-      <div class="shell">
-        <div class="home-section-head">
-          <span class="eyebrow">Product / public status</span>
-          <h2>See the research world. Keep product availability separate.</h2>
-          <p>This section only shows product availability, supported platforms, and actions that have been verified for the current public state.</p>
-        </div>
-        <div class="product-preview">
-          <figure class="product-shot">
-            <img src="assets/app-home.png" width="1440" height="900" loading="lazy" alt="A public TraderCockpit development screenshot with a research conversation panel beside a chart explicitly labeled as sample data.">
-            <figcaption>Development preview · public screenshot · product availability and supported capabilities are shown separately from this preview.</figcaption>
-          </figure>
-          <div class="product-state-panel">
-            <span class="eyebrow">Current product status</span>
-            <h2 id="product-heading">Checking the latest product status.</h2>
-            <p id="product-summary">Availability, supported platforms, and current actions are verified before they appear here.</p>
-            <div class="manifest-capabilities" id="manifest-capabilities" hidden></div>
-            <p class="micro" id="manifest-detail">Loading verified public product state…</p>
-            <form id="waitlist-form" class="waitlist-form" method="post" hidden>
-              <div class="waitlist-row">
-                <label class="waitlist-field" for="waitlist-email">APP WAITLIST EMAIL
-                  <input id="waitlist-email" name="email_address" type="email" autocomplete="email" required placeholder="you@example.com">
-                </label>
-                <label class="waitlist-field" for="waitlist-first-name">FIRST NAME (OPTIONAL)
-                  <input id="waitlist-first-name" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="Your first name">
-                </label>
-                <button class="home-action primary waitlist-submit" type="submit">Send confirmation</button>
-              </div>
-              <input id="waitlist-source" type="hidden" name="fields[source]" value="source-direct">
-              <input id="waitlist-utm-source" type="hidden" name="fields[utm_source]" value="direct">
-              <input id="waitlist-utm-medium" type="hidden" name="fields[utm_medium]" value="">
-              <input id="waitlist-utm-campaign" type="hidden" name="fields[utm_campaign]" value="">
-              <p class="waitlist-note">Double opt-in: confirm the email before anything is sent. Unsubscribe anytime. Research education only—not financial advice.</p>
-            </form>
-            <div class="home-cta-row">
-              <a id="product-cta" class="home-action primary" href="strategy-claim-audit-checklist.html" hidden>Product action</a>
-              <a id="youtube-cta" class="home-action" href="https://www.youtube.com/@Thetradercockpit" target="_blank" rel="noopener noreferrer">Watch the research channel</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="home-section" id="keep-exploring">
-      <div class="shell">
-        <div class="home-section-head">
-          <span class="eyebrow">Keep exploring</span>
-          <h2>The site is built to branch, not dead-end.</h2>
-          <p>Follow the layer that answers your current question, then move deeper when you need more precision.</p>
-        </div>
-        <div class="explore-footer-grid">
-          <a class="explore-footer-card" href="learn/"><strong>Learn the concepts</strong><span>Structured paths through uncertainty, holdouts, drawdown, dependence, and selection.</span></a>
-          <a class="explore-footer-card" href="methods/"><strong>Read the methods</strong><span>Assumptions, failure modes, and quantitative reasoning independent of product controls.</span></a>
-          <a class="explore-footer-card" href="examples/"><strong>Follow an example</strong><span>End-to-end public research stories built only from synthetic or explicitly publishable evidence.</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div><div class="home-footer-note">Research tooling and education, not financial advice. No performance is promised or implied.</div><div style="margin-top:.6rem">TraderCockpit © 2026 · <a id="purchase-support" href="refund-policy.html">Support</a></div></div>
-      <div class="footer-links"><a href="research-lab.html">Research Lab</a><a href="learn/">Learn</a><a href="docs/">Docs</a><a href="strategy-claim-audit-checklist.html">Audit checklist</a></div>
-    </div>
-  </footer>
-
-  <script src="assets/site-search.js" defer></script>
-  <script src="assets/home-v2.js" defer></script>
-  <script type="module">
-    import { loadProductManifest } from './product-manifest.mjs';
-    import { activatePrelaunch, loadPrelaunchConfig } from './prelaunch-config.mjs';
-
-    const productState = document.getElementById('product-state');
-    const productHeading = document.getElementById('product-heading');
-    const productSummary = document.getElementById('product-summary');
-    const productCta = document.getElementById('product-cta');
-    const manifestDetail = document.getElementById('manifest-detail');
-    const capabilities = document.getElementById('manifest-capabilities');
-
-    function statusLabel(status) {
-      if (status === 'available') return 'STATUS: AVAILABLE';
-      if (status === 'waitlist') return 'STATUS: WAITLIST';
-      return 'STATUS: UNAVAILABLE';
-    }
-
-    try {
-      const manifest = await loadProductManifest();
-      document.documentElement.dataset.productManifest = 'verified';
-      productState.textContent = statusLabel(manifest.status);
-      if (manifest.product) {
-        productHeading.textContent = manifest.product.name;
-        productSummary.textContent = manifest.product.summary;
-      } else {
-        productHeading.textContent = manifest.status === 'waitlist' ? 'TraderCockpit public waitlist.' : 'TraderCockpit public product state';
-        productSummary.textContent = 'Availability and supported capabilities are shown here only after they have been verified for the current public state.';
-      }
-      const action = manifest.status === 'available' && manifest.checkout ? manifest.checkout : manifest.cta;
-      if (action) {
-        productCta.textContent = action.label;
-        productCta.href = action.url;
-        productCta.hidden = false;
-      }
-      if (manifest.verifiedCapabilities.length) {
-        capabilities.hidden = false;
-        for (const capability of manifest.verifiedCapabilities) {
-          const row = document.createElement('div');
-          row.className = 'manifest-capability';
-          const label = document.createElement('b');
-          label.textContent = capability.label;
-          const verified = document.createElement('span');
-          verified.textContent = 'verified';
-          row.append(label, verified);
-          capabilities.appendChild(row);
-        }
-      }
-      const details = [statusLabel(manifest.status)];
-      if (manifest.status === 'available' && manifest.offer) details.push(manifest.offer.display);
-      if (manifest.platforms?.length) details.push(manifest.platforms.join(' · '));
-      manifestDetail.textContent = details.join(' // ');
-      const support = manifest.refund ?? manifest.support;
-      if (support) {
-        const link = document.getElementById('purchase-support');
-        link.textContent = support.label;
-        link.href = support.url;
-      }
-      try { activatePrelaunch(await loadPrelaunchConfig(), manifest); }
-      catch { document.documentElement.dataset.prelaunch = 'fallback'; }
-    } catch {
-      document.documentElement.dataset.productManifest = 'fallback';
-      productState.textContent = 'STATUS: UNVERIFIED';
-      productHeading.textContent = 'Product availability could not be verified.';
-      productSummary.textContent = 'Browse the research and learning material while current product status is unavailable.';
-      manifestDetail.textContent = 'Product state unavailable';
-      productCta.hidden = true;
-    }
-  </script>
-</body>
-</html>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Primary"><div class="nav-inner">
+  <a class="brand" href="index.html" aria-current="page"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
+  <div class="nav-links"><a href="#product">Product</a><a href="#videos">How it works</a><a href="pricing/">Pricing</a><a href="learn/">Learn</a><a href="support/">Support</a></div>
+  <div class="quant-nav-social" aria-label="Social links">
+    <a id="youtube-cta" class="quant-social" data-social="youtube" href="https://www.youtube.com/@Thetradercockpit" target="_blank" rel="noopener noreferrer" aria-label="TraderCockpit on YouTube">YT</a>
+    <a class="quant-social" data-social="facebook" aria-disabled="true" tabindex="-1" aria-label="Facebook profile pending verification">f</a>
+    <a class="quant-social" data-social="instagram" aria-disabled="true" tabindex="-1" aria-label="Instagram profile pending verification">IG</a>
+    <a class="quant-social" data-social="tiktok" aria-disabled="true" tabindex="-1" aria-label="TikTok profile pending verification">TT</a>
+  </div>
+  <a class="quant-nav-cta" href="#pricing">Plan & access</a>
+</div></nav>
+<main id="main" tabindex="-1"><section class="quant-hero"><div class="shell quant-hero-grid">
+  <div>
+    <span class="quant-kicker">Strategies · evidence · uncertainty</span>
+    <h1>Research the edge.<span>See the whole field.</span></h1>
+    <p class="lede">TraderCockpit is being built around one research loop: form an idea, test it, challenge it, and keep the evidence boundary visible. The public site lets you explore that reasoning before product availability is claimed.</p>
+    <div class="quant-actions"><a class="quant-action primary" href="research-lab.html">Enter the Research Lab →</a><a class="quant-action" href="#videos">Watch how it works</a><a class="quant-action" href="#pricing">View the monthly plan</a></div>
+    <div class="quant-truth"><span>Synthetic public visuals</span><span>No performance promise</span><span id="product-state">STATUS: UNVERIFIED</span></div>
+  </div>
+  <div class="quant-universe" aria-labelledby="universe-title">
+    <span class="universe-label" id="universe-title">Quant Universe · deterministic synthetic geometry</span>
+    <span class="universe-sidecopy"><b>A universe of strategies</b>same questions<br>different evidence<br>visible uncertainty</span>
+    <canvas id="quant-universe-canvas" role="img" aria-label="Animated three-dimensional synthetic strategy universe. Green points represent positive synthetic outcomes, red points negative synthetic outcomes, cyan points neutral synthetic outcomes. The foreground contains synthetic candlestick terrain. No market data or trading result is shown."></canvas>
+    <div class="synthetic-card positive card-a"><strong>Robust region</strong><b>+0.74</b><span>synthetic score · illustrative</span></div>
+    <div class="synthetic-card negative card-b"><strong>Fragile region</strong><b>−0.41</b><span>synthetic score · illustrative</span></div>
+    <div class="synthetic-card neutral card-c"><strong>Holdout gap</strong><b>0.08</b><span>synthetic disagreement · illustrative</span></div>
+    <div class="synthetic-card positive card-d"><strong>Broad plateau</strong><b>+0.52</b><span>synthetic stability · illustrative</span></div>
+    <div class="universe-controls"><button id="quant-universe-pause" type="button" aria-pressed="false">Pause motion</button><button id="quant-universe-reset" type="button">Reset view</button><span class="universe-readout" id="quant-universe-readout" aria-live="polite">Synthetic research field</span></div>
+  </div>
+</div></section>
+<section class="quant-path"><div class="shell quant-path-grid" aria-label="Research path">
+  <div class="path-item"><span class="path-icon">01</span><div><b>Frame the question</b><span>Define what evidence can and cannot answer.</span></div></div>
+  <div class="path-item"><span class="path-icon">02</span><div><b>Test the idea</b><span>Keep sample, assumptions, and costs attached.</span></div></div>
+  <div class="path-item"><span class="path-icon">03</span><div><b>Challenge the result</b><span>Use holdouts, robustness, and path diagnostics.</span></div></div>
+  <div class="path-item"><span class="path-icon">04</span><div><b>Interpret the evidence</b><span>Separate useful diagnostics from guarantees.</span></div></div>
+</div></section><section class="quant-section quant-section-alt" id="product"><div class="shell">
+  <div class="quant-section-head"><div><span class="quant-kicker">Current desktop / actual build</span><h2>The product preview now matches the app.</h2></div><p>This capture is generated from the current TraderCockpit desktop codebase, not an old concept image. Availability remains a separate public-status claim.</p></div>
+  <div class="preview-stage">
+    <figure class="preview-frame"><img src="assets/desktop-current.png" width="1600" height="1000" loading="eager" alt="Current TraderCockpit desktop home showing Getting started, Charts, Builder, Custom projects, Apollo, Data organization, Settings, and current research/status cards."><figcaption class="micro">Current product-code capture · 2026-09-11 · shown as a development preview, not a claim of public availability.</figcaption></figure>
+    <div class="preview-badge badge-one"><b class="ok">Current product surface</b><span>Seven primary desktop destinations</span></div>
+    <div class="preview-badge badge-two"><b class="risk">Truthful empty states</b><span>No fabricated live market or performance values</span></div>
+  </div>
+</div></section>
+<section class="quant-section" id="videos"><div class="shell">
+  <div class="quant-section-head"><div><span class="quant-kicker">Learn · watch · repeat</span><h2>Watch the research, then reproduce the reasoning.</h2></div><p>The channel already contains current long-form lessons and playlists. Video remains optional: nothing from YouTube loads until you choose it.</p></div>
+  <div class="video-showcase">
+    <article class="video-feature" data-video-slot data-video-id="BgDFFr6o64Q" data-video-title="Monte Carlo Block Bootstrap"><span class="quant-kicker">Featured explainer · 7:08</span><h3>Monte Carlo block bootstrap.</h3><p>See why one historical sequence is not the same thing as a distribution of plausible paths.</p><div data-video-frame><button class="video-load" type="button" data-video-load aria-label="Load the Monte Carlo explainer from YouTube">▶</button></div></article>
+    <div><div class="video-catalog">
+      <a class="video-card" href="https://www.youtube.com/watch?v=VEuqe4YqdoU" target="_blank" rel="noopener noreferrer"><span class="video-type">Selection bias</span><span class="duration">6:04</span><h4>Did you try too many strategies?</h4><span>Open on YouTube →</span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=-EJr5AomAIg" target="_blank" rel="noopener noreferrer"><span class="video-type">Holdout</span><span class="duration">5:48</span><h4>When to open the final out-of-sample test.</h4><span>Open on YouTube →</span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=9_AElKnxZ7U" target="_blank" rel="noopener noreferrer"><span class="video-type">Walk-forward</span><span class="duration">5:50</span><h4>Do parameters hold up out of sample?</h4><span>Open on YouTube →</span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=Xp21k4WEUBw" target="_blank" rel="noopener noreferrer"><span class="video-type">Regimes</span><span class="duration">6:11</span><h4>Does the strategy survive different market periods?</h4><span>Open on YouTube →</span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=8HNujok7IdQ" target="_blank" rel="noopener noreferrer"><span class="video-type">OOS data</span><span class="duration">4:21</span><h4>Test on data the strategy has never seen.</h4><span>Open on YouTube →</span></a>
+      <a class="video-card" href="learn/videos.html"><span class="video-type">Video library</span><span class="duration">Index</span><h4>Browse written lessons and published videos together.</h4><span>Open Video Lessons →</span></a>
+    </div><div class="playlist-row"><a class="playlist-link" href="https://www.youtube.com/playlist?list=PLGDa1fkkGuo4" target="_blank" rel="noopener noreferrer">YouTube playlist · How to Use Indicators →</a><a class="playlist-link" href="https://www.youtube.com/playlist?list=PLSR9nG0oA9Hg" target="_blank" rel="noopener noreferrer">YouTube playlist · Into the Laboratory →</a></div></div>
+  </div>
+</div></section><section class="quant-section quant-section-alt" id="pricing"><div class="shell">
+  <div class="quant-section-head"><div><span class="quant-kicker">Monthly plan · real billing record</span><h2>One plan. No invented tiers.</h2></div><p>The live Stripe account currently contains one active TraderCockpit recurring price. Checkout stays locked until a successful payment can provision the same signed entitlement the desktop requires.</p></div>
+  <div class="pricing-stage">
+    <article class="price-card"><span class="price-chip" data-commerce-state>Billing status loading</span><h3 data-commerce-plan>TraderCockpit Monthly</h3><div class="price"><strong data-commerce-price>—</strong><span>/ month</span></div>
+      <div class="price-facts"><div class="price-fact"><b>Billing cadence</b><span>Monthly recurring USD plan</span></div><div class="price-fact"><b>Product state</b><span>Current public status remains waitlist</span></div><div class="price-fact"><b>Desktop target</b><span>Windows desktop</span></div><div class="price-fact"><b>Provisioning rule</b><span>Payment must create a verified signed entitlement before checkout opens</span></div></div>
+      <div class="checkout-lock"><div><strong>Checkout is intentionally locked.</strong><span>The Stripe price is real. Charging is not enabled until payment → account → signed entitlement → desktop access passes end to end.</span></div><button class="checkout-button" type="button" data-commerce-checkout disabled>Checkout not yet enabled</button></div>
+    </article>
+    <aside class="price-context"><span class="quant-kicker">Current desktop scope</span><h3>What the current app build visibly contains.</h3><p>This is a preview of current product surfaces, not the final commercial entitlement list. The final included capability list will be published only after release verification.</p><div class="surface-list"><span>Getting started</span><span>Charts</span><span>Builder</span><span>Custom projects</span><span>Apollo</span><span>Data organization</span><span>Settings</span><span>Help & Learning</span></div><a class="quant-action" href="#public-status" style="margin-top:1rem">Check public availability →</a></aside>
+  </div>
+</div></section>
+<section class="quant-section" id="learning"><div class="shell docs-orbit">
+  <div class="docs-intro"><span class="quant-kicker">Docs · How-Tos · Evidence</span><h3>Learn at the level of the question.</h3><p>Use exact product Docs for controls and states, How-Tos for tasks, Methods for assumptions, and Examples for complete research chains.</p><div class="quant-actions"><a class="quant-action primary" href="docs/">Browse Documentation →</a><a class="quant-action" href="how-to/">Open How-Tos</a></div></div>
+  <div class="docs-grid"><a class="docs-link" href="learn/start-here.html"><b>Start Here</b><span>Choose a path through the public research and product-learning system.</span><em>Learn →</em></a><a class="docs-link" href="how-to/"><b>How-Tos</b><span>Task-focused written guides connected to the same in-app help topics.</span><em>Practice →</em></a><a class="docs-link" href="methods/"><b>Methods</b><span>Definitions, assumptions, failure modes, and quantitative interpretation.</span><em>Go deeper →</em></a><a class="docs-link" href="examples/"><b>Examples</b><span>Deterministic synthetic cases that expose information boundaries and selection risk.</span><em>Inspect →</em></a></div>
+</div></section><section class="quant-section quant-section-alt" id="public-status"><span id="development" aria-hidden="true"></span><div class="shell product-preview">
+  <div class="product-state-panel"><span class="quant-kicker">Product / verified public state</span><h2 id="product-heading">Checking the latest product status.</h2><p id="product-summary">Availability and current public actions are verified before they appear here.</p><div class="manifest-capabilities" id="manifest-capabilities" hidden></div><p class="micro" id="manifest-detail">Loading verified public product state…</p>
+    <form id="waitlist-form" class="waitlist-form" method="post" hidden><div class="waitlist-row"><label class="waitlist-field" for="waitlist-email">APP WAITLIST EMAIL<input id="waitlist-email" name="email_address" type="email" autocomplete="email" required placeholder="you@example.com"></label><label class="waitlist-field" for="waitlist-first-name">FIRST NAME (OPTIONAL)<input id="waitlist-first-name" name="fields[first_name]" type="text" autocomplete="given-name" placeholder="Your first name"></label><button class="home-action primary waitlist-submit" type="submit">Send confirmation</button></div><input id="waitlist-source" type="hidden" name="fields[source]" value="source-direct"><input id="waitlist-utm-source" type="hidden" name="fields[utm_source]" value="direct"><input id="waitlist-utm-medium" type="hidden" name="fields[utm_medium]" value=""><input id="waitlist-utm-campaign" type="hidden" name="fields[utm_campaign]" value=""><p class="waitlist-note">Double opt-in: confirm the email before anything is sent. Unsubscribe anytime. Research education only—not financial advice.</p></form>
+    <div class="home-cta-row"><a id="product-cta" class="home-action primary" href="strategy-claim-audit-checklist.html" hidden>Product action</a><a class="home-action" href="updates/">Current Updates</a></div>
+  </div>
+  <aside class="price-context"><span class="quant-kicker">Trust boundary</span><h3>Marketing visuals do not override product state.</h3><p>The animated universe, synthetic examples, videos, and desktop screenshot explain the research direction. The verified product-status record remains the authority for availability and supported capabilities.</p><div class="quant-actions"><a class="quant-action" href="trust/">Trust</a><a class="quant-action" href="trust/privacy.html">Site Privacy</a><a class="quant-action" href="support/">Support</a></div></aside>
+</div></section>
+</main>
+<footer><div class="footer-inner"><div><div class="brand"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</div><p class="quant-footer-note">Research tooling and education, not financial advice. Public visuals do not promise performance or availability.</p></div><div class="quant-social-footer" aria-label="TraderCockpit social profiles"><a class="social-link youtube" data-social="youtube" href="https://www.youtube.com/@Thetradercockpit" target="_blank" rel="noopener noreferrer"><span class="social-dot"></span>YouTube</a><a class="social-link" data-social="facebook" aria-disabled="true" tabindex="-1"><span class="social-dot"></span>Facebook</a><a class="social-link" data-social="instagram" aria-disabled="true" tabindex="-1"><span class="social-dot"></span>Instagram</a><a class="social-link" data-social="tiktok" aria-disabled="true" tabindex="-1"><span class="social-dot"></span>TikTok</a><span class="social-verification">Only profiles with verified public URLs become clickable.</span></div><div class="footer-links"><a href="pricing/">Pricing</a><a href="learn/">Learn</a><a id="purchase-support" href="support/">Support</a><a href="trust/privacy.html">Privacy</a><a href="updates/">Updates</a></div></div></footer>
+<script src="assets/site-search.js" defer></script><script src="assets/video-slot.js" defer></script><script src="assets/home-v3.js" defer></script><script type="module">
+import { loadProductManifest } from './product-manifest.mjs';
+import { activatePrelaunch, loadPrelaunchConfig } from './prelaunch-config.mjs';
+const state=document.getElementById('product-state'), heading=document.getElementById('product-heading'), summary=document.getElementById('product-summary'), cta=document.getElementById('product-cta'), detail=document.getElementById('manifest-detail'), caps=document.getElementById('manifest-capabilities');
+const statusLabel=s=>s==='available'?'STATUS: AVAILABLE':s==='waitlist'?'STATUS: WAITLIST':'STATUS: UNAVAILABLE';
+try{
+  const manifest=await loadProductManifest();document.documentElement.dataset.productManifest='verified';state.textContent=statusLabel(manifest.status);
+  heading.textContent=manifest.product?.name||(manifest.status==='waitlist'?'TraderCockpit public waitlist.':'TraderCockpit public product state');
+  summary.textContent=manifest.product?.summary||'Availability and supported capabilities appear here only after verification for the current public state.';
+  const action=manifest.status==='available'&&manifest.checkout?manifest.checkout:manifest.cta;
+  if(action){cta.textContent=action.label;cta.href=action.url;cta.hidden=false}
+  if(manifest.verifiedCapabilities.length){caps.hidden=false;for(const item of manifest.verifiedCapabilities){const row=document.createElement('div');row.className='manifest-capability';const label=document.createElement('b');label.textContent=item.label;const verified=document.createElement('span');verified.textContent='verified';row.append(label,verified);caps.append(row)}}
+  const parts=[statusLabel(manifest.status)];if(manifest.platforms?.length)parts.push(manifest.platforms.join(' · '));detail.textContent=parts.join(' // ');
+  try{activatePrelaunch(await loadPrelaunchConfig(),manifest)}catch{document.documentElement.dataset.prelaunch='fallback'}
+}catch{document.documentElement.dataset.productManifest='fallback';state.textContent='STATUS: UNVERIFIED';heading.textContent='Product availability could not be verified.';summary.textContent='Browse the research and learning material while current product status is unavailable.';detail.textContent='Product state unavailable';cta.hidden=true}
+</script>
+</body></html>
