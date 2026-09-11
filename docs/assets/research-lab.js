@@ -102,11 +102,11 @@
 
     function drawAxes(ctx, width, height) {
       ctx.save();
-      ctx.strokeStyle = 'rgba(255,183,43,.14)';
+      ctx.strokeStyle = 'rgba(61,232,255,.14)';
       ctx.lineWidth = 1;
       const origin = project({ x: 0, y: 0, z: 0 }, width, height);
       const axes = [
-        { p: { x: 1.15, y: 0, z: 0 }, label: 'dispersion', color: 'rgba(255,183,43,.55)' },
+        { p: { x: 1.15, y: 0, z: 0 }, label: 'dispersion', color: 'rgba(61,232,255,.55)' },
         { p: { x: 0, y: 1.15, z: 0 }, label: 'drawdown axis', color: 'rgba(119,228,220,.55)' },
         { p: { x: 0, y: 0, z: 1.15 }, label: 'IS/OOS disagreement', color: 'rgba(108,167,255,.55)' }
       ];
@@ -131,8 +131,8 @@
       ctx.clearRect(0, 0, width, height);
 
       const glow = ctx.createRadialGradient(width * .5, height * .48, 10, width * .5, height * .48, Math.max(width, height) * .6);
-      glow.addColorStop(0, 'rgba(255,23,68,.095)');
-      glow.addColorStop(.42, 'rgba(255,107,31,.025)');
+      glow.addColorStop(0, 'rgba(255,82,110,.095)');
+      glow.addColorStop(.42, 'rgba(73,239,154,.025)');
       glow.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, width, height);
@@ -149,10 +149,10 @@
         const baseRadius = 2.1 + point.evidence * 2.7;
         const radius = baseRadius * screen.scale * (isSelected ? 1.45 : 1);
         const familyColor = point.family === 0
-          ? [255, 183, 43]
+          ? [73, 239, 154]
           : point.family === 1
-            ? [255, 92, 119]
-            : [108, 167, 255];
+            ? [255, 82, 110]
+            : [61, 232, 255];
         const alpha = 0.28 + point.evidence * 0.62;
 
         ctx.beginPath();
@@ -163,7 +163,7 @@
         if (isSelected) {
           ctx.beginPath();
           ctx.arc(screen.x, screen.y, radius + 7, 0, TAU);
-          ctx.strokeStyle = 'rgba(255,245,238,.92)';
+          ctx.strokeStyle = 'rgba(238,252,255,.92)';
           ctx.lineWidth = 1.3;
           ctx.stroke();
         }
@@ -317,15 +317,15 @@
         });
         const alpha = pathIndex % 8 === 0 ? .40 : .14;
         ctx.strokeStyle = pathIndex % 3 === 0
-          ? `rgba(255,183,43,${alpha})`
+          ? `rgba(61,232,255,${alpha})`
           : pathIndex % 3 === 1
-            ? `rgba(255,92,119,${alpha})`
+            ? `rgba(255,82,110,${alpha})`
             : `rgba(108,167,255,${alpha})`;
         ctx.lineWidth = pathIndex % 8 === 0 ? 1.35 : 1;
         ctx.stroke();
       });
 
-      ctx.fillStyle = 'rgba(213,171,176,.72)';
+      ctx.fillStyle = 'rgba(158,184,201,.72)';
       ctx.font = '11px Cascadia Mono, Consolas, monospace';
       ctx.fillText('synthetic path step', width - 132, height - 10);
       ctx.save();

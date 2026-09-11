@@ -15,8 +15,8 @@
 .replay-candle-body { fill:rgba(238,235,228,.7); }
 .replay-candle-down { fill:rgba(238,235,228,.24); }
 .replay-future { opacity:.22; stroke-dasharray:4 4; }
-.replay-cutoff-line { stroke:rgba(255,183,43,.86); stroke-width:2; stroke-dasharray:5 4; }
-.replay-cutoff-label { fill:rgba(255,183,43,.92); font:11px ui-monospace,SFMono-Regular,Consolas,monospace; }
+.replay-cutoff-line { stroke:rgba(61,174,211,.86); stroke-width:2; stroke-dasharray:5 4; }
+.replay-cutoff-label { fill:rgba(61,174,211,.92); font:11px ui-monospace,SFMono-Regular,Consolas,monospace; }
 .replay-panel .micro { margin-top:.7rem; min-height:2.5rem; }
 @media (max-width:800px) { .replay-example-grid { grid-template-columns:1fr; } .replay-plot { min-height:15rem; } }
 @media (prefers-reduced-motion:reduce) { .replay-control input { scroll-behavior:auto; } }

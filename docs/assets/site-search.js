@@ -196,6 +196,121 @@
     return { dialog, input, openDialog, search };
   }
 
+  function depthSceneKind() {
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes('correlation')) return 'network';
+    if (path.includes('distribution')) return 'distribution';
+    if (path.includes('drawdown')) return 'drawdown';
+    if (path.includes('monte-carlo')) return 'paths';
+    if (/(out-of-sample|walk-forward|validation|selection|holdout)/.test(path)) return 'validation';
+    if (path.includes('parameter-robustness')) return 'surface';
+    if (path.includes('regime')) return 'regime';
+    if (/(chart-evidence|replay-boundary)/.test(path)) return 'chart';
+    if (path.includes('result-metrics')) return 'metrics';
+    if (path.includes('/pricing/')) return 'pricing';
+    if (/(support|help\.html|404\.html)/.test(path)) return 'network';
+    if (/(trust|privacy|refund-policy)/.test(path)) return 'boundary';
+    if (path.includes('/updates/')) return 'timeline';
+    if (/(glossary|start-here|videos)/.test(path)) return 'knowledge';
+    return 'orbit';
+  }
+
+  function addSvg(parent, tag, attrs = {}) {
+    const node = document.createElementNS('http:' + '//www.w3.org/2000/svg', tag);
+    Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, String(value)));
+    parent.append(node);
+    return node;
+  }
+
+  function buildDepthGraphic(svg, kind) {
+    const cyan = '#3daed3', green = '#3cfad2', red = '#e54a5a', blue = '#3b779a';
+    const line = (x1,y1,x2,y2,stroke=cyan,opacity=.45,width=1) => addSvg(svg,'line',{x1,y1,x2,y2,stroke,'stroke-opacity':opacity,'stroke-width':width});
+    const circle = (cx,cy,r,fill=cyan,opacity=.72) => addSvg(svg,'circle',{cx,cy,r,fill,'fill-opacity':opacity});
+    const rect = (x,y,width,height,fill='none',stroke=cyan,opacity=.45,rx=8) => addSvg(svg,'rect',{x,y,width,height,rx,fill,stroke,'stroke-opacity':opacity,'fill-opacity':fill==='none'?0:opacity});
+    if (kind === 'network' || kind === 'knowledge') {
+      const pts=[[92,92],[184,54],[280,110],[394,70],[144,205],[262,190],[402,212],[318,270]];
+      [[0,1],[1,2],[2,3],[0,4],[2,5],[3,6],[4,5],[5,6],[5,7],[6,7]].forEach(([a,b])=>line(...pts[a],...pts[b],a%2?green:cyan,.34,1.2));
+      pts.forEach(([x,y],i)=>circle(x,y,i%3===0?7:5,i%4===0?green:i%4===1?red:cyan,.82));
+    } else if (kind === 'distribution') {
+      const heights=[22,34,58,92,132,166,186,172,134,94,58,32,20];
+      heights.forEach((h,i)=>rect(58+i*30,275-h,18,h,i<3?red:i>9?green:cyan,'none',.62,3));
+      addSvg(svg,'path',{d:'M54 267 C120 260 140 185 202 132 C248 92 284 76 324 111 C366 148 390 225 446 265',fill:'none',stroke:cyan,'stroke-width':3,'stroke-opacity':.72});
+    } else if (kind === 'drawdown') {
+      addSvg(svg,'path',{d:'M48 115 L95 92 L142 108 L188 76 L236 92 L278 170 L326 228 L370 194 L414 132 L468 88',fill:'none',stroke:green,'stroke-width':3,'stroke-opacity':.88});
+      addSvg(svg,'path',{d:'M48 115 L95 92 L142 108 L188 76 L236 92 L278 170 L326 228 L370 194 L414 132 L468 88 L468 286 L48 286 Z',fill:red,'fill-opacity':.08});
+      line(48,76,468,76,cyan,.34,1.2); line(236,92,236,286,red,.28,1); line(326,228,326,286,red,.48,1.3);
+    } else if (kind === 'paths') {
+      const paths=['M45 180 C105 110 145 238 214 154 S344 90 472 158','M45 186 C120 160 160 108 220 180 S344 246 472 128','M45 175 C112 240 156 136 230 170 S360 116 472 202','M45 184 C100 96 168 188 236 140 S380 232 472 172','M45 179 C104 210 174 218 238 156 S374 96 472 146','M45 181 C120 128 168 252 248 194 S370 160 472 94'];
+      paths.forEach((d,i)=>addSvg(svg,'path',{d,fill:'none',stroke:i%3===0?green:i%3===1?red:cyan,'stroke-width':i===0?2.4:1.2,'stroke-opacity':i===0?.8:.38}));
+      line(44,180,474,180,blue,.22,1);
+    } else if (kind === 'validation') {
+      for(let i=0;i<4;i++){const y=72+i*56;rect(70+i*14,y,210-i*8,24,blue,'none',.34,5);rect(294+i*14,y,72,24,green,'none',.68,5);}
+      line(288,46,288,286,red,.58,1.5); addSvg(svg,'path',{d:'M364 92 C414 112 412 174 338 204',fill:'none',stroke:red,'stroke-width':2,'stroke-dasharray':'6 6','stroke-opacity':.62});
+    } else if (kind === 'surface' || kind === 'regime') {
+      for(let i=0;i<7;i++){line(80+i*48,260,160+i*35,84,cyan,.2,1);line(72,250-i*27,430,250-i*27,blue,.17,1);}
+      const pts=[[120,210],[168,178],[212,158],[258,128],[306,148],[354,112],[404,170],[240,212],[330,224]];
+      pts.forEach(([x,y],i)=>circle(x,y,i%3===0?7:5,i%3===0?green:i%3===1?red:cyan,.82));
+    } else if (kind === 'chart') {
+      const vals=[[-22,34],[18,54],[-12,42],[24,66],[15,48],[-28,58],[30,72],[12,52],[-18,44],[34,80],[26,62],[-20,52],[18,68],[28,74]];
+      vals.forEach(([d,h],i)=>{const x=58+i*29,y=190-d;line(x,y-h*.7,x,y+h*.4,d>=0?green:red,.8,1.4);rect(x-5,y-h*.25,10,h*.42,d>=0?green:red,'none',.72,2);});
+      addSvg(svg,'path',{d:'M50 226 C118 212 134 176 190 186 S280 164 328 140 S408 112 468 92',fill:'none',stroke:cyan,'stroke-width':2.4,'stroke-opacity':.72});
+    } else if (kind === 'metrics') {
+      [150,260,370].forEach((x,i)=>{addSvg(svg,'circle',{cx:x,cy:168,r:54,fill:'none',stroke:cyan,'stroke-width':8,'stroke-opacity':.14});addSvg(svg,'circle',{cx:x,cy:168,r:54,fill:'none',stroke:i===1?red:green,'stroke-width':8,'stroke-dasharray':`${180-i*34} 360`,'stroke-linecap':'round','stroke-opacity':.76,transform:`rotate(-90 ${x} 168)`});});
+    } else if (kind === 'pricing') {
+      [70,205,340].forEach((x,i)=>{rect(x,82,112,174,i===0?'#082b2b':'#06131f',i===0?green:cyan,i===0?.75:.24,12);line(x+18,128,x+94,128,i===0?green:cyan,.35,2);line(x+18,152,x+80,152,cyan,.18,1);line(x+18,176,x+88,176,cyan,.18,1);line(x+18,226,x+94,226,i===0?green:cyan,.42,2);});
+    } else if (kind === 'boundary') {
+      line(264,56,264,286,red,.58,1.5); for(let i=0;i<6;i++){circle(96+i*20,92+i*26,4,cyan,.66);line(110+i*20,92+i*26,244,92+i*26,cyan,.24,1);} line(286,112,446,112,green,.42,2); line(286,168,420,168,green,.28,1); line(286,224,458,224,green,.22,1);
+    } else if (kind === 'timeline') {
+      for(let i=0;i<4;i++){const y=72+i*54;rect(92+i*18,y,300-i*26,34,'#061927',i===3?green:cyan,i===3?.6:.28,6);line(70,y+17,92+i*18,y+17,i===3?green:cyan,.5,1.4);}
+    } else {
+      addSvg(svg,'ellipse',{cx:260,cy:168,rx:176,ry:64,fill:'none',stroke:green,'stroke-opacity':.38,'stroke-width':1.4,transform:'rotate(-12 260 168)'});addSvg(svg,'ellipse',{cx:260,cy:168,rx:132,ry:48,fill:'none',stroke:cyan,'stroke-opacity':.3,'stroke-width':1.2,transform:'rotate(18 260 168)'});circle(260,168,64,cyan,.12);
+    }
+  }
+
+  function depthHudLabels(kind) {
+    const labels = {
+      network: ['DEPENDENCE', 'DIVERSIFY'], knowledge: ['QUESTION', 'SOURCE'],
+      distribution: ['CENTER', 'TAILS'], drawdown: ['RUNNING PEAK', 'RECOVERY'],
+      paths: ['RESAMPLE', 'RANGE'], validation: ['SELECT', 'EVALUATE'],
+      surface: ['NEIGHBORHOOD', 'STABILITY'], regime: ['STATE', 'COORDINATES'],
+      chart: ['TIME BASIS', 'EVIDENCE'], metrics: ['UNIT', 'SAMPLE'],
+      pricing: ['VERIFIED TIER', 'RESERVED'], boundary: ['SOURCE', 'BOUNDARY'],
+      timeline: ['PUBLISHED', 'CURRENT'], orbit: ['RESEARCH', 'CONTEXT']
+    };
+    return labels[kind] || labels.orbit;
+  }
+
+  function appendDepthHud(scene, label, position) {
+    const hud = document.createElement('span');
+    hud.className = `article-depth-hud article-depth-hud-${position}`;
+    const title = document.createElement('b');
+    title.textContent = label;
+    const bars = document.createElement('i');
+    bars.setAttribute('aria-hidden', 'true');
+    hud.append(title, bars);
+    scene.append(hud);
+  }
+
+  function initArticleDepthScene() {
+    const hero = document.querySelector('.article-hero');
+    const inner = hero?.querySelector('.article-hero-inner');
+    if (!hero || !inner || inner.querySelector('.article-depth-scene')) return;
+    const kind = depthSceneKind();
+    const scene = document.createElement('div');
+    scene.className = `article-depth-scene depth-scene-${kind}`;
+    scene.setAttribute('aria-hidden', 'true');
+    const label = document.createElement('span');
+    label.className = 'article-depth-label';
+    label.textContent = `${kind.replace('-', ' ')} research scene`;
+    const svg = addSvg(scene, 'svg', { viewBox: '0 0 520 340', preserveAspectRatio: 'xMidYMid meet' });
+    buildDepthGraphic(svg, kind);
+    scene.append(label);
+    const [hudA, hudB] = depthHudLabels(kind);
+    appendDepthHud(scene, hudA, 'a');
+    appendDepthHud(scene, hudB, 'b');
+    inner.append(scene);
+  }
+
   function init() {
     const nav = document.querySelector('.nav-links');
     if (!nav) return;
@@ -228,5 +343,6 @@
     });
   }
 
+  initArticleDepthScene();
   init();
 })();

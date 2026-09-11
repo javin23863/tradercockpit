@@ -106,7 +106,7 @@
       const x = (index) => pad.left + (index / (values.length - 1)) * plotWidth;
       const y = (value) => pad.top + (1 - (value - minValue) / (maxValue - minValue)) * plotHeight;
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'rgba(5,2,6,.80)';
+      ctx.fillStyle = 'rgba(3,10,17,.80)';
       ctx.fillRect(0, 0, width, height);
 
       ctx.beginPath();
@@ -119,9 +119,9 @@
       }
       ctx.closePath();
       const fill = ctx.createLinearGradient(0, pad.top, 0, height - pad.bottom);
-      fill.addColorStop(0, 'rgba(255,183,43,.04)');
-      fill.addColorStop(.45, 'rgba(255,92,119,.14)');
-      fill.addColorStop(1, 'rgba(255,23,68,.38)');
+      fill.addColorStop(0, 'rgba(61,232,255,.04)');
+      fill.addColorStop(.45, 'rgba(255,82,110,.14)');
+      fill.addColorStop(1, 'rgba(255,82,110,.38)');
       ctx.fillStyle = fill;
       ctx.fill();
 
@@ -130,7 +130,7 @@
         ctx.beginPath();
         ctx.moveTo(x(index), y(stats.peaks[index]));
         ctx.lineTo(x(index), y(values[index]));
-        ctx.strokeStyle = `rgba(255,92,119,${Math.min(.5, .12 + stats.drawdowns[index] * 1.8).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(255,82,110,${Math.min(.5, .12 + stats.drawdowns[index] * 1.8).toFixed(3)})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
@@ -140,7 +140,7 @@
         if (index === 0) ctx.moveTo(x(index), y(value));
         else ctx.lineTo(x(index), y(value));
       });
-      ctx.strokeStyle = 'rgba(255,183,43,.72)';
+      ctx.strokeStyle = 'rgba(61,232,255,.72)';
       ctx.lineWidth = 1.2;
       ctx.setLineDash([5, 5]);
       ctx.stroke();
@@ -151,16 +151,16 @@
         if (index === 0) ctx.moveTo(x(index), y(value));
         else ctx.lineTo(x(index), y(value));
       });
-      ctx.strokeStyle = 'rgba(255,245,238,.90)';
+      ctx.strokeStyle = 'rgba(238,252,255,.90)';
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      ctx.fillStyle = 'rgba(213,171,176,.66)';
+      ctx.fillStyle = 'rgba(158,184,201,.66)';
       ctx.font = '10px Cascadia Mono, Consolas, monospace';
       ctx.fillText('synthetic path step →', Math.max(pad.left, width - 145), height - 12);
-      ctx.fillStyle = 'rgba(255,183,43,.86)';
+      ctx.fillStyle = 'rgba(61,232,255,.86)';
       ctx.fillText('running peak', 12, 18);
-      ctx.fillStyle = 'rgba(255,92,119,.82)';
+      ctx.fillStyle = 'rgba(255,82,110,.82)';
       ctx.fillText('shaded gap = drawdown', 103, 18);
 
       if (maxNode) maxNode.textContent = `${(stats.maxDrawdown * 100).toFixed(1)}%`;
@@ -257,13 +257,13 @@
       ctx.clearRect(0, 0, width, height);
       const bg = ctx.createLinearGradient(0, 0, width, 0);
       bg.addColorStop(0, 'rgba(108,167,255,.055)');
-      bg.addColorStop(.6, 'rgba(255,23,68,.035)');
-      bg.addColorStop(1, 'rgba(255,183,43,.065)');
+      bg.addColorStop(.6, 'rgba(255,82,110,.035)');
+      bg.addColorStop(1, 'rgba(61,232,255,.065)');
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, width, height);
 
       const typicalY = mapY(typical);
-      ctx.strokeStyle = 'rgba(255,183,43,.64)';
+      ctx.strokeStyle = 'rgba(61,232,255,.64)';
       ctx.lineWidth = 1;
       ctx.setLineDash([5, 5]);
       ctx.beginPath();
@@ -271,7 +271,7 @@
       ctx.lineTo(width - 18, typicalY);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = 'rgba(255,183,43,.88)';
+      ctx.fillStyle = 'rgba(61,232,255,.88)';
       ctx.font = '10px Cascadia Mono, Consolas, monospace';
       ctx.fillText(`approx. typical max ${typical.toFixed(2)}`, 34, Math.max(16, typicalY - 6));
 
@@ -291,10 +291,10 @@
           const py = mapY(item.score);
           ctx.beginPath();
           ctx.arc(px, py, index === 3 ? 5.5 : 1.8 + index * .28, 0, TAU);
-          ctx.fillStyle = index === 0 ? 'rgba(108,167,255,.45)' : index === 1 ? 'rgba(255,92,119,.50)' : index === 2 ? 'rgba(255,107,31,.62)' : 'rgba(255,183,43,.96)';
+          ctx.fillStyle = index === 0 ? 'rgba(108,167,255,.45)' : index === 1 ? 'rgba(255,82,110,.50)' : index === 2 ? 'rgba(73,239,154,.62)' : 'rgba(61,232,255,.96)';
           ctx.fill();
         }
-        ctx.fillStyle = 'rgba(213,171,176,.72)';
+        ctx.fillStyle = 'rgba(158,184,201,.72)';
         ctx.font = '10px Cascadia Mono, Consolas, monospace';
         ctx.textAlign = 'center';
         ctx.fillText(stageLabels[index], xCenter, height - 21);
@@ -308,7 +308,7 @@
         if (index === 0) ctx.moveTo(xCenter, mapY(cutoff));
         else ctx.lineTo(xCenter, mapY(cutoff));
       });
-      ctx.strokeStyle = 'rgba(255,92,119,.58)';
+      ctx.strokeStyle = 'rgba(255,82,110,.58)';
       ctx.lineWidth = 1.4;
       ctx.stroke();
 
@@ -317,11 +317,11 @@
         if (index === 0) ctx.moveTo(xCenter, mapY(observed));
         else ctx.lineTo(xCenter, mapY(observed));
       });
-      ctx.strokeStyle = 'rgba(255,183,43,.72)';
+      ctx.strokeStyle = 'rgba(61,232,255,.72)';
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
-      ctx.fillStyle = 'rgba(213,171,176,.62)';
+      ctx.fillStyle = 'rgba(158,184,201,.62)';
       ctx.font = '10px Cascadia Mono, Consolas, monospace';
       ctx.fillText('higher synthetic z (up)', 12, 18);
       if (familyValue) familyValue.textContent = String(count);

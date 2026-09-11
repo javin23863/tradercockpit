@@ -51,10 +51,10 @@
   }
 
   const colors = {
-    'Liquidity stress': [255, 92, 119],
-    'Volatile directional': [255, 107, 31],
-    'Volatile range': [255, 183, 43],
-    'Directional': [108, 167, 255],
+    'Liquidity stress': [255, 82, 110],
+    'Volatile directional': [90, 167, 255],
+    'Volatile range': [73, 239, 154],
+    'Directional': [61, 232, 255],
     'Quiet range': [119, 228, 220]
   };
   let yaw = -.62;
@@ -131,7 +131,7 @@
       ctx.beginPath();
       ctx.moveTo(projected[a].x, projected[a].y);
       ctx.lineTo(projected[b].x, projected[b].y);
-      ctx.strokeStyle = 'rgba(255,183,43,.18)';
+      ctx.strokeStyle = 'rgba(61,232,255,.18)';
       ctx.stroke();
     }
     ctx.restore();
@@ -141,8 +141,8 @@
     const origin = project({x:-1,y:-1,z:-1}, width, height);
     const axes = [
       [{x:1.25,y:-1,z:-1}, 'direction →', 'rgba(108,167,255,.65)'],
-      [{x:-1,y:1.25,z:-1}, 'volatility ↑', 'rgba(255,183,43,.65)'],
-      [{x:-1,y:-1,z:1.25}, 'stress ↗', 'rgba(255,92,119,.65)']
+      [{x:-1,y:1.25,z:-1}, 'volatility ↑', 'rgba(61,232,255,.65)'],
+      [{x:-1,y:-1,z:1.25}, 'stress ↗', 'rgba(255,82,110,.65)']
     ];
     ctx.save();
     ctx.font = '10px Cascadia Mono, Consolas, monospace';
@@ -165,7 +165,7 @@
     ctx.clearRect(0,0,width,height);
     const glow = ctx.createRadialGradient(width*.5,height*.5,12,width*.5,height*.5,Math.max(width,height)*.62);
     glow.addColorStop(0,'rgba(108,167,255,.08)');
-    glow.addColorStop(.45,'rgba(255,92,119,.035)');
+    glow.addColorStop(.45,'rgba(255,82,110,.035)');
     glow.addColorStop(1,'rgba(0,0,0,0)');
     ctx.fillStyle = glow;
     ctx.fillRect(0,0,width,height);
@@ -186,10 +186,10 @@
       if (isSelected) {
         ctx.beginPath();
         ctx.arc(screen.x,screen.y,radius+7,0,TAU);
-        ctx.strokeStyle='rgba(255,245,238,.92)';
+        ctx.strokeStyle='rgba(238,252,255,.92)';
         ctx.lineWidth=1.4;
         ctx.stroke();
-        ctx.fillStyle='rgba(255,245,238,.92)';
+        ctx.fillStyle='rgba(238,252,255,.92)';
         ctx.font='10px Cascadia Mono, Consolas, monospace';
         ctx.fillText(label(point),screen.x+12,screen.y-9);
       }
