@@ -43,8 +43,8 @@ LAB_VALIDATION = DOCS / "assets" / "research-lab-validation.js"
 LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
 LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
-HOME_SCRIPT = DOCS / "assets" / "home-v2.js"
-HOME_STYLE = DOCS / "assets" / "home-v2.css"
+HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
+HOME_STYLE = DOCS / "assets" / "home-v3.css"
 SITEMAP = DOCS / "sitemap.xml"
 
 
@@ -156,7 +156,7 @@ def main() -> int:
     home_text = HOME_PAGE.read_text(encoding="utf-8") if HOME_PAGE.is_file() else ""
     home_parser = parsers.get(HOME_PAGE)
     required_home_ids = {
-        "home-universe-canvas", "home-universe-pause", "home-universe-reset",
+        "quant-universe-canvas", "quant-universe-pause", "quant-universe-reset",
         "product-state", "product-heading", "product-summary", "manifest-capabilities",
         "manifest-detail", "product-cta", "youtube-cta", "purchase-support",
         "waitlist-form", "waitlist-email", "waitlist-first-name", "waitlist-source",
@@ -166,7 +166,7 @@ def main() -> int:
         missing_ids = required_home_ids.difference(home_parser.ids)
         if missing_ids:
             problems.append(f"homepage missing manifest/waitlist contract IDs: {sorted(missing_ids)}")
-        if not any(src.endswith("assets/home-v2.js") for src in home_parser.scripts):
+        if not any(src.endswith("assets/home-v3.js") for src in home_parser.scripts):
             problems.append("homepage visual script missing")
     for asset in (HOME_SCRIPT, HOME_STYLE):
         if not asset.is_file():

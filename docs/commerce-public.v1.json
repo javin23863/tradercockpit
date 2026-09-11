@@ -1,0 +1,17 @@
+{
+  "schema": "public-commerce/v1",
+  "status": "prelaunch",
+  "plan": {
+    "name": "TraderCockpit Monthly",
+    "currency": "USD",
+    "unitAmount": 15000,
+    "interval": "month",
+    "stripeProductId": "prod_V6DR67MaZGMMH4",
+    "stripePriceId": "price_1U610SQtj95EgxLw0cdceJ4d"
+  },
+  "checkout": {
+    "enabled": false,
+    "url": null,
+    "reason": "Checkout opens after payment-to-entitlement provisioning is verified end to end."
+  }
+}

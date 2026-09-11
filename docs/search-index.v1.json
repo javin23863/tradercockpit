@@ -660,22 +660,6 @@
       ]
     },
     {
-      "id": "learn.videos",
-      "title": "Video Lessons",
-      "path": "learn/videos.html",
-      "kind": "learn",
-      "summary": "Optional click-to-load research videos paired with complete written Concepts, Methods, and How-Tos.",
-      "terms": [
-        "video lessons",
-        "videos",
-        "youtube",
-        "monte carlo video",
-        "academy video",
-        "click to load",
-        "research video"
-      ]
-    },
-    {
       "id": "example.replay-boundary",
       "title": "Synthetic historical replay boundary",
       "path": "examples/replay-boundary.html",
@@ -705,6 +689,42 @@
         "cookies",
         "local storage",
         "search privacy"
+      ]
+    },
+    {
+      "id": "learn.videos",
+      "title": "Video Lessons",
+      "path": "learn/videos.html",
+      "kind": "learn",
+      "summary": "Six long-form TraderCockpit research lessons plus published YouTube playlists, with an optional click-to-load player.",
+      "terms": [
+        "video lessons",
+        "youtube",
+        "monte carlo",
+        "selection bias",
+        "out of sample",
+        "walk forward",
+        "how to use indicators",
+        "into the laboratory",
+        "playlist"
+      ]
+    },
+    {
+      "id": "commerce.pricing",
+      "title": "Pricing & Access",
+      "path": "pricing/",
+      "kind": "reference",
+      "summary": "Current monthly TraderCockpit billing record, public availability state, and checkout readiness.",
+      "terms": [
+        "pricing",
+        "price",
+        "subscription",
+        "monthly",
+        "150",
+        "checkout",
+        "billing",
+        "access",
+        "Stripe"
       ]
     }
   ]

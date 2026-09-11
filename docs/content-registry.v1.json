@@ -311,6 +311,13 @@
       "path": "trust/privacy.html",
       "title": "Site privacy and third-party boundaries",
       "status": "public"
+    },
+    {
+      "id": "commerce.pricing",
+      "kind": "landing",
+      "path": "pricing/index.html",
+      "title": "Pricing & Access",
+      "status": "public"
     }
   ]
 }

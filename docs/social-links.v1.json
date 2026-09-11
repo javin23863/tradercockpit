@@ -1,0 +1,13 @@
+{
+  "schema": "social-links/v1",
+  "profiles": {
+    "youtube": {
+      "status": "verified",
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@Thetradercockpit"
+    },
+    "facebook": { "status": "unverified", "label": "Facebook", "url": null },
+    "instagram": { "status": "unverified", "label": "Instagram", "url": null },
+    "tiktok": { "status": "unverified", "label": "TikTok", "url": null }
+  }
+}
