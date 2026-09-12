@@ -99,3 +99,8 @@ WebGL geometry must visualize the same deterministic synthetic records that driv
 
 ## Acceptance
 Rendered appraisal must compare section heights, gutters, palette, headline scale, card radii, and graphic density against these measurements—not only check that cyan/green/red are present.
+
+## Reference-parity v8 rendering pass
+The owner-approved cinematic reference is now an implementation target, not a mood board. The homepage must preserve the verified content boundary while matching its graphical grammar: a dominant volumetric globe, multiple luminous orbit planes, displaced market terrain, foreground candlestick towers, explicit gain/loss color separation, glass HUD overlap, and a physically dimensional cockpit/device stage. Lower video, pricing, and documentation bands keep the same glass/depth family rather than reverting to flat SaaS panels.
+
+The homepage header intentionally omits the local search control to match the approved reference and keep the initial cinematic payload inside the public hardening budget. Local search remains required on internal documentation and learning surfaces.
