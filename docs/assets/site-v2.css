@@ -882,3 +882,24 @@ html[data-research-renderer="three-webgl"] .visual-panel{border-color:rgba(22,72
 .tc-vtk3d-axis-key span{min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:6px;padding:5px 7px;border:1px solid rgba(61,174,211,.16);border-radius:6px;background:rgba(2,13,22,.76);backdrop-filter:blur(5px);font-variant-numeric:tabular-nums}
 .tc-vtk3d-axis-key b{color:#3cfad2;font-size:10px}.tc-vtk3d-axis-key i{overflow:hidden;color:#8fd9ee;font-size:10px;font-style:normal;text-overflow:ellipsis;white-space:nowrap}.tc-vtk3d-axis-key em{color:#698a9d;font-size:9px;font-style:normal}
 @media(max-width:700px){.tc-vtk3d-axis-key{left:8px;right:8px;bottom:8px;gap:4px}.tc-vtk3d-axis-key span{grid-template-columns:auto minmax(0,1fr);gap:4px}.tc-vtk3d-axis-key em{display:none}}
+
+/* Research Lab VTK scale refinement - 2026-09-12 */
+/* Keep the VTK mount out of document flow; .tc-vtk3d is otherwise relative. */
+.lab-vtk-overlay.tc-vtk3d{position:absolute;inset:0}
+/* Retain full GPU resolution while bounding each visual's layout footprint. */
+.lab-vtk-stack>.scene-canvas{height:clamp(340px,30vw,430px)}
+.lab-vtk-stack>#monte-carlo-canvas,.lab-vtk-stack>.lab-depth-canvas{height:clamp(300px,27vw,380px)}
+.lab-vtk-stack-correlation>.network-canvas{height:clamp(290px,25vw,350px)}
+.lab-vtk-stack-distribution>.distribution-canvas{height:clamp(270px,23vw,330px)}
+@media(max-width:700px){
+  .lab-vtk-stack>.scene-canvas{height:340px}
+  .lab-vtk-stack>#monte-carlo-canvas,.lab-vtk-stack>.lab-depth-canvas{height:290px}
+  .lab-vtk-stack-correlation>.network-canvas{height:280px}
+  .lab-vtk-stack-distribution>.distribution-canvas{height:255px}
+}
+@media(max-width:470px){
+  .lab-vtk-stack>.scene-canvas{height:300px}
+  .lab-vtk-stack>#monte-carlo-canvas,.lab-vtk-stack>.lab-depth-canvas{height:260px}
+  .lab-vtk-stack-correlation>.network-canvas{height:250px}
+  .lab-vtk-stack-distribution>.distribution-canvas{height:235px}
+}
