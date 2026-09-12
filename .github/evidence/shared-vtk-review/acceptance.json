@@ -1,0 +1,32 @@
+{
+  "schema": "tc.website-shared-vtk-acceptance.v1",
+  "date": "2026-09-12",
+  "repository": "javin23863/tradercockpit",
+  "base": "f612b9764869031fa4f41d00668be6df356b894b",
+  "branch": "codex/vtk3d-shared-rendering-20260912",
+  "renderer": {
+    "engine": "@kitware/vtk.js",
+    "version": "36.14.2",
+    "contract": "tc.analytical-3d.v1",
+    "source_sha256": "13afb0142c38de9d60e7ca3bb6704dea89401f363b92625190a3db384fb0a738"
+  },
+  "browser": {
+    "renderer": "vtk-webgl",
+    "active_surfaces": 10,
+    "semantic_axis_keys": 10,
+    "console_or_page_errors": []
+  },
+  "checks": {
+    "website_integrity": "PASS (22 pages, 32 help IDs, 49 search entries)",
+    "site_hardening": "PASS (41 HTML pages, 38 canonicals, home local text payload 776960 bytes)",
+    "build": "PASS"
+  },
+  "interactions_reviewed": [
+    "robustness narrow-spike surface",
+    "regime rotate-right and higher-stress filter"
+  ],
+  "evidence": {
+    "robustness": "robustness.png",
+    "regime": "regime.png"
+  }
+}

@@ -877,3 +877,8 @@ html[data-research-renderer="three-webgl"] .visual-panel{border-color:rgba(22,72
 .lab-vtk-stack[data-vtk="active"]>.scene-canvas,.lab-vtk-stack[data-vtk="active"]>#monte-carlo-canvas,.lab-vtk-stack[data-vtk="active"]>.lab-depth-canvas{opacity:0;pointer-events:none}
 .scene-frame>.lab-vtk-stack .lab-vtk-overlay{border-radius:0}
 @media(max-width:700px){.lab-vtk-overlay{min-height:200px}}
+.tc-vtk3d{position:relative;overflow:hidden}
+.tc-vtk3d-axis-key{position:absolute;left:12px;right:12px;bottom:10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;pointer-events:none;z-index:3}
+.tc-vtk3d-axis-key span{min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:6px;padding:5px 7px;border:1px solid rgba(61,174,211,.16);border-radius:6px;background:rgba(2,13,22,.76);backdrop-filter:blur(5px);font-variant-numeric:tabular-nums}
+.tc-vtk3d-axis-key b{color:#3cfad2;font-size:10px}.tc-vtk3d-axis-key i{overflow:hidden;color:#8fd9ee;font-size:10px;font-style:normal;text-overflow:ellipsis;white-space:nowrap}.tc-vtk3d-axis-key em{color:#698a9d;font-size:9px;font-style:normal}
+@media(max-width:700px){.tc-vtk3d-axis-key{left:8px;right:8px;bottom:8px;gap:4px}.tc-vtk3d-axis-key span{grid-template-columns:auto minmax(0,1fr);gap:4px}.tc-vtk3d-axis-key em{display:none}}
