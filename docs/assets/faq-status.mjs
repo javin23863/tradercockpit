@@ -1,15 +1,15 @@
 import { loadProductManifest } from "../product-manifest.mjs";
 
 function statusText(status) {
-  if (status === "available") return "Current public status: Available";
-  if (status === "waitlist") return "Current public status: Waitlist";
-  return "Current public status: Unavailable";
+  if (status === "available") return "TraderCockpit access: Available";
+  if (status === "waitlist") return "TraderCockpit access: Waitlist";
+  return "TraderCockpit access: Unavailable";
 }
 
 function platformText(platforms) {
   return Array.isArray(platforms) && platforms.length
-    ? `Published platform target: ${platforms.join(" · ")}.`
-    : "No public platform target is currently listed.";
+    ? `Platform: ${platforms.join(" ? ")}.`
+    : "Platform information is not available right now.";
 }
 
 export async function renderFaqStatus(root = document) {
@@ -21,12 +21,12 @@ export async function renderFaqStatus(root = document) {
     const manifest = await loadProductManifest("../product-manifest.v1.json");
     status.textContent = statusText(manifest.status);
     platform.textContent = platformText(manifest.platforms);
-    detail.textContent = "Pricing, download, checkout, and feature availability are shown only when the current public status explicitly publishes them.";
+    detail.textContent = "See Pricing and Updates for the latest subscription, download, and release information.";
     return true;
   } catch {
-    status.textContent = "Current public status could not be verified here";
-    platform.textContent = "No availability or platform claim is inferred from a failed status read.";
-    detail.textContent = "Use Updates for the current published state.";
+    status.textContent = "Availability could not be loaded right now";
+    platform.textContent = "Platform information could not be loaded.";
+    detail.textContent = "Try Updates for the latest product information.";
     return false;
   }
 }
