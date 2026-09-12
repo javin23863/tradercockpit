@@ -2,6 +2,8 @@ import '@kitware/vtk.js/Rendering/Profiles/Geometry';
 import vtkGenericRenderWindow from '@kitware/vtk.js/Rendering/Misc/GenericRenderWindow';
 import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
 import vtkMapper from '@kitware/vtk.js/Rendering/Core/Mapper';
+import vtkSphereMapper from '@kitware/vtk.js/Rendering/Core/SphereMapper';
+import '@kitware/vtk.js/Rendering/OpenGL/SphereMapper';
 import vtkCubeAxesActor from '@kitware/vtk.js/Rendering/Core/CubeAxesActor';
 import vtkPolyData from '@kitware/vtk.js/Common/DataModel/PolyData';
 import vtkDataArray from '@kitware/vtk.js/Common/Core/DataArray';
@@ -50,8 +52,7 @@ function colorTransfer(range, palette) {
   return lut;
 }
 
-function scalarMapper(polyData, scalars, palette) {
-  const mapper = vtkMapper.newInstance();
+function configureScalarMapper(mapper, polyData, scalars, palette) {
   mapper.setInputData(polyData);
   if (scalars?.length) {
     const range = bounds(scalars);
@@ -64,6 +65,20 @@ function scalarMapper(polyData, scalars, palette) {
     mapper.setUseLookupTableScalarRange(true);
   } else mapper.setScalarVisibility(false);
   return mapper;
+}
+
+function scalarMapper(polyData, scalars, palette) {
+  return configureScalarMapper(vtkMapper.newInstance(), polyData, scalars, palette);
+}
+
+function pointReferenceSpan(groups) {
+  const points = (Array.isArray(groups) ? groups : []).flatMap((group) => Array.isArray(group?.points) ? group.points : []);
+  if (!points.length) return 1;
+  const xs = points.map((point) => point?.[0]).filter(finite);
+  const ys = points.map((point) => point?.[1]).filter(finite);
+  const zs = points.map((point) => point?.[2]).filter(finite);
+  const spans = [bounds(xs), bounds(ys), bounds(zs)].map(([low, high]) => high - low);
+  return Math.max(...spans, 1e-3);
 }
 
 function surfaceActor(spec) {
@@ -93,27 +108,28 @@ function surfaceActor(spec) {
   const property = actor.getProperty();
   property.setInterpolationToPhong();
   property.setAmbient(.18); property.setDiffuse(.72); property.setSpecular(.32); property.setSpecularPower(34);
-  property.setEdgeVisibility(spec.edges !== false);
+  property.setEdgeVisibility(spec.edges === true);
   property.setEdgeColor(...normalizeColor(spec.edgeColor, [0.12, .48, .58]));
   return { actor, poly: shaded, bounds: shaded.getBounds() };
 }
 
-function pointsActor(spec) {
+function pointsActor(spec, referenceSpan = 1) {
   const points = Array.isArray(spec.points) ? spec.points : [];
   if (!points.length || points.some((point) => !Array.isArray(point) || point.length < 3 || point.slice(0, 3).some((value) => !finite(value)))) throw new Error('Point cloud requires finite [x,y,z] points');
   const flat = points.flatMap((point) => point.slice(0, 3));
-  const verts = points.flatMap((_, index) => [1, index]);
   const poly = vtkPolyData.newInstance();
   poly.getPoints().setData(Float32Array.from(flat), 3);
-  poly.getVerts().setData(Uint32Array.from(verts));
   const scalars = Array.isArray(spec.scalars) && spec.scalars.length === points.length ? spec.scalars : null;
+  const pointBounds = poly.getBounds();
+  const visualSize = finite(spec.pointSize) && spec.pointSize > 0 ? spec.pointSize : 7;
+  const radius = finite(spec.radius) && spec.radius > 0 ? spec.radius : Math.max(referenceSpan * visualSize * .0028, referenceSpan * .0045);
+  const mapper = configureScalarMapper(vtkSphereMapper.newInstance({ radius }), poly, scalars, spec.palette);
   const actor = vtkActor.newInstance();
-  actor.setMapper(scalarMapper(poly, scalars, spec.palette));
+  actor.setMapper(mapper);
   const property = actor.getProperty();
   if (!scalars) property.setColor(...normalizeColor(spec.color, DEFAULT_NEUTRAL));
-  property.setRepresentationToPoints(); property.setPointSize(Math.max(1, Number(spec.pointSize) || 7));
-  property.setAmbient(.35); property.setDiffuse(.65);
-  return { actor, poly, bounds: poly.getBounds() };
+  property.setAmbient(.22); property.setDiffuse(.72); property.setSpecular(.52); property.setSpecularPower(48);
+  return { actor, poly, bounds: pointBounds };
 }
 
 function lineActor(spec) {
@@ -134,14 +150,47 @@ function unionBounds(items) {
   return result.every(Number.isFinite) ? result : [0, 1, 0, 1, 0, 1];
 }
 
+function scaledBounds(source, scale) {
+  const out = [];
+  for (let axis = 0; axis < 3; axis += 1) {
+    const a = source[axis * 2] * scale[axis], b = source[axis * 2 + 1] * scale[axis];
+    out.push(Math.min(a, b), Math.max(a, b));
+  }
+  return out;
+}
+
+function formatTick(value) {
+  const magnitude = Math.abs(value);
+  if (magnitude >= 1000 || (magnitude > 0 && magnitude < .001)) return value.toExponential(1);
+  if (magnitude >= 100) return value.toFixed(0);
+  if (magnitude >= 10) return value.toFixed(1).replace(/\.0$/, '');
+  return value.toFixed(2).replace(/\.?0+$/, '');
+}
+
+function semanticTickGenerator(sourceBounds, scale, count = 4, showText = false) {
+  return () => {
+    const ticks = [[], [], []], tickStrings = [[], [], []];
+    for (let axis = 0; axis < 3; axis += 1) {
+      const low = sourceBounds[axis * 2], high = sourceBounds[axis * 2 + 1];
+      for (let step = 0; step <= count; step += 1) {
+        const value = low + (high - low) * step / count;
+        ticks[axis].push(value * scale[axis]);
+        tickStrings[axis].push(showText ? formatTick(value) : '');
+      }
+    }
+    return { ticks, tickStrings };
+  };
+}
+
 export function mountAnalytical3D(container, spec = {}) {
   if (!(container instanceof Element)) throw new TypeError('Analytical 3D container is required');
   container.replaceChildren(); container.dataset.renderer = 'vtk-webgl'; container.classList.add('tc-vtk3d');
   const renderWindow = vtkGenericRenderWindow.newInstance({ background: normalizeColor(spec.background, DEFAULT_BG), listenWindowResize: false });
   renderWindow.setContainer(container); renderWindow.resize();
   const renderer = renderWindow.getRenderer(), window = renderWindow.getRenderWindow(), actors = [];
+  const pointSpan = pointReferenceSpan(spec.points);
   if (spec.surface) actors.push(surfaceActor(spec.surface));
-  for (const points of spec.points || []) actors.push(pointsActor(points));
+  for (const points of spec.points || []) actors.push(pointsActor(points, pointSpan));
   for (const lines of spec.lines || []) actors.push(lineActor(lines));
   if (!actors.length) { renderWindow.delete(); throw new Error('Analytical 3D scene has no renderable layers'); }
   actors.forEach(({ actor }) => renderer.addActor(actor));
@@ -152,14 +201,43 @@ export function mountAnalytical3D(container, spec = {}) {
   actors.forEach(({ actor }) => actor.setScale(...displayScale));
   container.dataset.axisScale = JSON.stringify(displayScale);
   const camera = renderer.getActiveCamera();
+  const displayBounds = scaledBounds(sceneBounds, displayScale);
   const axisLabels = spec.axisLabels || ['X', 'Y', 'Z'];
-  const axes = vtkCubeAxesActor.newInstance({ camera, dataBounds: sceneBounds, gridLines: true, boundsScaleFactor: 1.08, axisTextStyle: { fontColor: '#a9c6d6', fontSize: 14, fontFamily: 'Inter, system-ui, sans-serif' }, tickTextStyle: { fontColor: '#698a9d', fontSize: 10, fontFamily: 'Inter, system-ui, sans-serif' } });
+  const showAxisTextInScene = spec.axisTextInScene === true;
+  const axes = vtkCubeAxesActor.newInstance({
+    camera,
+    dataBounds: displayBounds,
+    generateTicks: semanticTickGenerator(sceneBounds, displayScale, 4, spec.axisTickLabels === true),
+    gridLines: spec.gridLines !== false,
+    boundsScaleFactor: 1.025,
+    faceVisibilityAngle: finite(spec.axisFaceVisibilityAngle) ? spec.axisFaceVisibilityAngle : 32,
+    axisTitlePixelOffset: 28,
+    tickLabelPixelOffset: 8,
+    axisTextStyle: { fontColor: '#8fd9ee', fontSize: 12, fontFamily: 'Inter, system-ui, sans-serif' },
+    tickTextStyle: { fontColor: '#557c8f', fontSize: 9, fontFamily: 'Inter, system-ui, sans-serif' },
+  });
   // vtkCubeAxesActor resets labels during construction, so semantic labels must
   // be set after newInstance rather than passed only as initial values.
-  axes.setAxisLabels(...axisLabels);
-  axes.setScale(...displayScale);
-  axes.getProperty().setColor(.16, .52, .62); renderer.addActor(axes);
-  const resetCamera = () => { renderer.resetCamera(); camera.azimuth(Number(spec.azimuth) || 32); camera.elevation(Number(spec.elevation) || 24); renderer.resetCameraClippingRange(); window.render(); };
+  axes.setAxisLabels(...(showAxisTextInScene ? axisLabels : ['', '', '']));
+  axes.getProperty().setColor(.10, .38, .48); renderer.addActor(axes);
+  const axisKey = document.createElement('div');
+  axisKey.className = 'tc-vtk3d-axis-key';
+  axisKey.dataset.vtkAxisKey = 'true';
+  axisKey.setAttribute('aria-hidden', 'true');
+  axisKey.innerHTML = axisLabels.map((label, axis) => `<span><b>${['X','Y','Z'][axis]}</b><i>${String(label)}</i><em>${formatTick(sceneBounds[axis * 2])}&rarr;${formatTick(sceneBounds[axis * 2 + 1])}</em></span>`).join('');
+  container.append(axisKey);
+  const resetCamera = () => {
+    const azimuth = (finite(spec.azimuth) ? spec.azimuth : 34) * Math.PI / 180;
+    const elevation = (finite(spec.elevation) ? spec.elevation : 24) * Math.PI / 180;
+    const cosElevation = Math.cos(elevation);
+    camera.setViewUp(0, 0, 1);
+    camera.setFocalPoint(0, 0, 0);
+    camera.setPosition(cosElevation * Math.cos(azimuth), -cosElevation * Math.sin(azimuth), Math.sin(elevation));
+    renderer.resetCamera(displayBounds);
+    camera.zoom(finite(spec.cameraZoom) && spec.cameraZoom > 0 ? spec.cameraZoom : 1.12);
+    renderer.resetCameraClippingRange(displayBounds);
+    window.render();
+  };
   resetCamera();
   const resizeObserver = new ResizeObserver(() => { renderWindow.resize(); window.render(); }); resizeObserver.observe(container);
   return {
