@@ -1,0 +1,27 @@
+{
+  "schema": "tradercockpit.public-copy-audit.v9",
+  "captured_at_utc": "2026-09-12T03:33:22.801415Z",
+  "branch": "codex/public-copy-audit-v9",
+  "base": "4b726b62e47fa3e782b51c9b6fd372053141bd97",
+  "public_pages": 41,
+  "browser_cases": 82,
+  "viewports": [
+    1440,
+    390
+  ],
+  "results": {
+    "http_200": "PASS",
+    "no_horizontal_overflow": "PASS",
+    "no_page_or_console_errors": "PASS",
+    "no_roadmap_or_internal_build_language": "PASS",
+    "concept_generation": "PASS",
+    "website_integrity": "PASS",
+    "site_hardening": "PASS",
+    "public_claims": "PASS"
+  },
+  "dynamic_copy": {
+    "faq_status": "TraderCockpit access: Waitlist",
+    "faq_platform": "Platform: Windows desktop."
+  },
+  "failures": []
+}
