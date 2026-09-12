@@ -31,7 +31,7 @@ jobs:
           set -euo pipefail
           npm ci --prefix .github/site-build --ignore-scripts --no-audit --no-fund
           npm run build --prefix .github/site-build
-          git diff --exit-code -- docs/assets/generated/site-webgl-v1.js
+          git diff --exit-code -- docs/assets/generated/site-webgl-v1.js docs/assets/generated/research-vtk-v1.js docs/assets/generated/research-vtk-v1.LICENSE.txt docs/assets/generated/research-vtk-v1.PROVENANCE.json
       - name: Validate site architecture and registries
         run: python .github/scripts/check_website.py
       - name: Validate public-site hardening contracts

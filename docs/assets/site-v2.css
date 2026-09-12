@@ -871,3 +871,9 @@ footer { margin-top: 4rem; border-top: 1px solid rgba(255,255,255,.07); }
 html[data-research-renderer="three-webgl"] .visual-panel{border-color:rgba(22,72,91,.62);box-shadow:0 26px 78px rgba(0,0,0,.34),0 0 32px rgba(61,174,211,.035),inset 0 1px rgba(255,255,255,.025)}
 @media(max-width:700px){.lab-webgl-badge{font-size:.46rem;right:.5rem;top:.5rem}.scene-frame>.lab-canvas-stack .lab-webgl-badge{top:3rem}}
 @media(prefers-reduced-motion:reduce){.lab-webgl-overlay{touch-action:pan-y}}
+
+.lab-vtk-overlay{position:absolute;inset:0;z-index:3;display:block;width:100%;height:100%;min-height:220px;border-radius:14px;overflow:hidden;background:#010509;touch-action:none}
+.lab-vtk-overlay[data-renderer="vtk-webgl"] canvas{display:block;width:100%;height:100%}
+.lab-vtk-stack[data-vtk="active"]>.scene-canvas,.lab-vtk-stack[data-vtk="active"]>#monte-carlo-canvas,.lab-vtk-stack[data-vtk="active"]>.lab-depth-canvas{opacity:0;pointer-events:none}
+.scene-frame>.lab-vtk-stack .lab-vtk-overlay{border-radius:0}
+@media(max-width:700px){.lab-vtk-overlay{min-height:200px}}

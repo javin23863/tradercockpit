@@ -1,0 +1,12 @@
+{
+  "schema": "tradercockpit.research-vtk-v10.full-site",
+  "captured_at_utc": "2026-09-12T05:31:44.356Z",
+  "pages": 41,
+  "widths": [
+    390,
+    768,
+    1440
+  ],
+  "cases": 123,
+  "failures": []
+}

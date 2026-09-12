@@ -1,0 +1,57 @@
+{
+  "schema": "tradercockpit.research-vtk.v10",
+  "captured_at_utc": "2026-09-12T05:26:31.911Z",
+  "renderer": "@kitware/vtk.js 36.14.2",
+  "cases": [
+    {
+      "width": 1440,
+      "http": 200,
+      "active": 10,
+      "overlays": 10,
+      "dataKeys": [
+        "correlation",
+        "distribution",
+        "drawdown",
+        "monteCarlo",
+        "oos",
+        "regime",
+        "robustness",
+        "selection",
+        "strategyUniverse",
+        "walkForward"
+      ],
+      "sw": 1440,
+      "vw": 1440,
+      "mode": "spike",
+      "errors": []
+    },
+    {
+      "width": 390,
+      "http": 200,
+      "active": 10,
+      "overlays": 10,
+      "dataKeys": [
+        "correlation",
+        "distribution",
+        "drawdown",
+        "monteCarlo",
+        "oos",
+        "regime",
+        "robustness",
+        "selection",
+        "strategyUniverse",
+        "walkForward"
+      ],
+      "sw": 390,
+      "vw": 390,
+      "mode": "plateau",
+      "errors": []
+    }
+  ],
+  "fallback": {
+    "renderer": "hybrid-fallback",
+    "active": 0,
+    "visible": true,
+    "errors": []
+  }
+}

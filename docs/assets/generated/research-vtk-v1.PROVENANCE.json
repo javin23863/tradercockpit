@@ -1,0 +1,9 @@
+{
+  "schema": "tradercockpit.research-vtk.v1",
+  "component": "@kitware/vtk.js",
+  "version": "36.14.2",
+  "license": "BSD-3-Clause",
+  "source": "https://github.com/Kitware/vtk-js",
+  "bundle": "research-vtk-v1.js",
+  "purpose": "Research Lab analytical 3D surfaces, point clouds and line families"
+}
