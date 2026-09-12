@@ -1,0 +1,25 @@
+{
+  "schema": "tradercockpit.reference-parity-v8.v1",
+  "captured_at_utc": "2026-09-12T01:21:56.889299Z",
+  "branch": "codex/reference-parity-v8",
+  "base": "f796fa0637208a8d1bd72eaa8a0e3687948e2038",
+  "bundle_sha256": "ba78687eb2f0bd95a371dccea8e7473c417ab0b1b7ac78563b8e7ff2541b8c80",
+  "checks": {
+    "website_integrity": "PASS",
+    "site_hardening": "PASS",
+    "public_claims": "PASS",
+    "responsive_41_pages_390_768_1440": "PASS",
+    "reduced_motion": "PASS",
+    "webgl_2d_fallback": "PASS"
+  },
+  "visual_scope": [
+    "volumetric globe shading",
+    "multi-plane orbit system",
+    "displaced market terrain",
+    "3D market trails",
+    "glass HUD cards",
+    "angled cockpit device",
+    "truthful four-column pricing composition"
+  ],
+  "truth_boundary": "Only the verified $150 monthly plan is priced; Research and Validate cards describe included workflow scope, not additional subscription tiers."
+}

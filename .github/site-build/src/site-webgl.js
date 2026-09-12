@@ -49,7 +49,7 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   root.rotation.x = -0.05;
   scene.add(root);
 
-  scene.add(new THREE.HemisphereLight(0x8eefff, 0x010509, 0.8));
+  scene.add(new THREE.HemisphereLight(0x8eefff, 0x010509, 1.0));
   const tealLight = new THREE.PointLight(0x3cfad2, 18, 13, 2.1);
   tealLight.position.set(-3.2, 3.6, 4.8);
   scene.add(tealLight);
@@ -60,12 +60,12 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   const globe = new THREE.Mesh(
     new THREE.SphereGeometry(2.22, mobile ? 40 : 64, mobile ? 26 : 40),
     new THREE.MeshPhysicalMaterial({
-      color: 0x04131b,
-      emissive: 0x062a32,
-      emissiveIntensity: 0.9,
-      roughness: 0.34,
-      metalness: 0.18,
-      clearcoat: 0.55,
+      color: 0x071a22,
+      emissive: 0x062e35,
+      emissiveIntensity: 1.04,
+      roughness: 0.46,
+      metalness: 0.24,
+      clearcoat: 0.68,
       clearcoatRoughness: 0.35,
     }),
   );
@@ -78,7 +78,7 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
       color: 0x3daed3,
       wireframe: true,
       transparent: true,
-      opacity: 0.095,
+      opacity: 0.052,
       depthWrite: false,
     }),
   );
@@ -90,7 +90,7 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     new THREE.MeshBasicMaterial({
       color: 0x3cfad2,
       transparent: true,
-      opacity: 0.035,
+      opacity: 0.055,
       side: THREE.BackSide,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
@@ -98,6 +98,36 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   );
   atmosphere.position.copy(globe.position);
   root.add(atmosphere);
+
+  // Reference-parity v8: dense spatial market environment around the globe.
+  const haloGroup = new THREE.Group();
+  haloGroup.position.copy(globe.position);
+  root.add(haloGroup);
+  [
+    [2.72, 0.018, 0.18, 0.12, TEAL, 0.74],
+    [2.88, 0.012, -0.38, -0.24, CYAN, 0.50],
+    [3.04, 0.010, 0.62, 0.31, RED, 0.28],
+  ].forEach(([radius, tube, rx, rz, color, opacity]) => {
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(radius, tube, 6, mobile ? 96 : 160),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false }),
+    );
+    ring.rotation.x = Math.PI / 2 + rx;
+    ring.rotation.z = rz;
+    haloGroup.add(ring);
+  });
+
+  const globePositions = globe.geometry.attributes.position;
+  const globeColors = new Float32Array(globePositions.count * 3);
+  const land = new THREE.Color('#15756b'), ocean = new THREE.Color('#03141d'), shelf = new THREE.Color('#0b9a8d');
+  for (let i = 0; i < globePositions.count; i += 1) {
+    const x = globePositions.getX(i), y = globePositions.getY(i), z = globePositions.getZ(i);
+    const field = Math.sin(x * 2.7 + z * 1.6) + Math.cos(z * 3.1 - y * 2.2) + 0.58 * Math.sin((x - y + z) * 4.3);
+    const color = field > 1.0 ? land : field > 0.55 ? shelf : ocean;
+    globeColors[i * 3] = color.r; globeColors[i * 3 + 1] = color.g; globeColors[i * 3 + 2] = color.b;
+  }
+  globe.geometry.setAttribute('color', new THREE.BufferAttribute(globeColors, 3));
+  globe.material.vertexColors = true; globe.material.color.set(0xffffff); globe.material.needsUpdate = true;
 
   function mulberry32(seed) {
     return () => {
@@ -182,6 +212,73 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   grid.material.transparent = true;
   grid.material.opacity = 0.18;
   root.add(grid);
+
+  const terrainGeometry = new THREE.PlaneGeometry(13.5, 7.2, mobile ? 34 : 64, mobile ? 18 : 34);
+  terrainGeometry.rotateX(-Math.PI / 2);
+  const terrainPosition = terrainGeometry.attributes.position;
+  const terrainColors = new Float32Array(terrainPosition.count * 3);
+  const terrainColor = new THREE.Color();
+  for (let i = 0; i < terrainPosition.count; i += 1) {
+    const x = terrainPosition.getX(i);
+    const z = terrainPosition.getZ(i);
+    const ridgeA = 1.35 * Math.exp(-((x + 2.7) ** 2) / 2.1 - ((z + 0.2) ** 2) / 1.2);
+    const ridgeB = 1.65 * Math.exp(-((x - 2.0) ** 2) / 1.7 - ((z - 0.7) ** 2) / 1.5);
+    const ridgeC = 0.95 * Math.exp(-((x - 0.1) ** 2) / 4.8 - ((z + 1.7) ** 2) / 0.72);
+    const noise = 0.17 * Math.sin(x * 2.5 + z * 1.7) + 0.10 * Math.cos(x * 4.1 - z * 2.2);
+    const height = Math.max(0, ridgeA + ridgeB + ridgeC + noise);
+    terrainPosition.setY(i, -2.48 + height);
+    terrainColor.copy(height > 1.0 ? TEAL : height > 0.45 ? CYAN : DEEP);
+    terrainColors[i * 3] = terrainColor.r;
+    terrainColors[i * 3 + 1] = terrainColor.g;
+    terrainColors[i * 3 + 2] = terrainColor.b;
+  }
+  terrainGeometry.setAttribute('color', new THREE.BufferAttribute(terrainColors, 3));
+  terrainGeometry.computeVertexNormals();
+  const terrain = new THREE.Mesh(
+    terrainGeometry,
+    new THREE.MeshStandardMaterial({
+      vertexColors: true,
+      roughness: 0.57,
+      metalness: 0.34,
+      emissive: 0x031d26,
+      emissiveIntensity: 0.64,
+      transparent: true,
+      opacity: 0.92,
+      side: THREE.DoubleSide,
+    }),
+  );
+  terrain.position.z = 1.0;
+  root.add(terrain);
+  const terrainWire = new THREE.LineSegments(
+    new THREE.WireframeGeometry(terrainGeometry),
+    new THREE.LineBasicMaterial({ color: 0x3daed3, transparent: true, opacity: mobile ? 0.055 : 0.085, blending: THREE.AdditiveBlending }),
+  );
+  terrainWire.position.copy(terrain.position);
+  root.add(terrainWire);
+
+  const marketTrails = new THREE.Group();
+  root.add(marketTrails);
+  const trailSpecs = [
+    { color: TEAL, z: 1.55, phase: 0.2 },
+    { color: RED, z: 2.15, phase: 1.7 },
+    { color: CYAN, z: 2.72, phase: 3.1 },
+  ];
+  trailSpecs.forEach(({ color, z, phase }, trailIndex) => {
+    const curvePoints = [];
+    const count = mobile ? 32 : 54;
+    for (let i = 0; i < count; i += 1) {
+      const t = i / (count - 1);
+      const x = -6.2 + t * 12.4;
+      const y = -1.95 + Math.sin(t * Math.PI * 4 + phase) * 0.22 + Math.sin(t * Math.PI * 11 + phase) * 0.07 + trailIndex * 0.10;
+      curvePoints.push(new THREE.Vector3(x, y, z + Math.cos(t * Math.PI * 5 + phase) * 0.16));
+    }
+    const curve = new THREE.CatmullRomCurve3(curvePoints);
+    const tube = new THREE.Mesh(
+      new THREE.TubeGeometry(curve, mobile ? 48 : 80, 0.018 + trailIndex * 0.004, 5, false),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.62, blending: THREE.AdditiveBlending, depthWrite: false }),
+    );
+    marketTrails.add(tube);
+  });
 
   const candleCount = mobile ? 54 : 92;
   const bodyGeometry = new THREE.BoxGeometry(0.105, 1, 0.105);
@@ -277,6 +374,9 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     globe.rotation.y += autoMotion ? dt * 0.045 : 0;
     shell.rotation.y = globe.rotation.y * 0.78;
     points.rotation.y = -globe.rotation.y * 0.42;
+    haloGroup.rotation.y = -globe.rotation.y * 0.18;
+    terrainWire.position.y = Math.sin(now * 0.00042) * 0.016;
+    marketTrails.position.y = Math.sin(now * 0.00065) * 0.022;
     satellites.forEach((mesh, i) => {
       const a = now * 0.001 * mesh.userData.speed + mesh.userData.offset;
       const r = mesh.userData.radius;
