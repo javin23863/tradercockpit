@@ -1,4 +1,3 @@
-import './research-webgl.js';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocessing';
 

@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "build:check": "vite build"
+    "build": "vite build && vite build --config vite.research.config.js",
+    "build:check": "vite build && vite build --config vite.research.config.js"
   },
   "dependencies": {
+    "@kitware/vtk.js": "36.14.2",
     "postprocessing": "6.39.5",
     "three": "0.186.0"
   },

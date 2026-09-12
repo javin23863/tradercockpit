@@ -15,7 +15,9 @@ DOCS = REPO / "docs"
 BASE = "https://javin23863.github.io/tradercockpit/"
 MAX_TEXT_ASSET_BYTES = 100_000
 GENERATED_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "site-webgl-v1.js"
+GENERATED_RESEARCH_VTK_BUNDLE = DOCS / "assets" / "generated" / "research-vtk-v1.js"
 MAX_GENERATED_WEBGL_BYTES = 650_000
+MAX_GENERATED_RESEARCH_VTK_BYTES = 850_000
 MAX_HOME_BASE_TEXT_BYTES = 165_000
 MAX_HOME_LOCAL_TEXT_BYTES = 810_000
 
@@ -131,7 +133,7 @@ def main() -> int:
     # bounded budget and is rebuilt from pinned source/dependencies in website-integrity CI.
     for path in sorted(DOCS.rglob("*")):
         if path.is_file() and path.suffix.lower() in {".html", ".css", ".js", ".mjs", ".json"}:
-            limit = MAX_GENERATED_WEBGL_BYTES if path == GENERATED_WEBGL_BUNDLE else MAX_TEXT_ASSET_BYTES
+            limit = MAX_GENERATED_WEBGL_BYTES if path == GENERATED_WEBGL_BUNDLE else MAX_GENERATED_RESEARCH_VTK_BYTES if path == GENERATED_RESEARCH_VTK_BUNDLE else MAX_TEXT_ASSET_BYTES
             if path.stat().st_size > limit:
                 problems.append(f"oversized text asset ({path.stat().st_size} bytes > {limit}): {path.relative_to(REPO)}")
     home = DOCS / "index.html"

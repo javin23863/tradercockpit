@@ -45,7 +45,8 @@ LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
 HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
 HOME_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "site-webgl.js"
-RESEARCH_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "research-webgl.js"
+RESEARCH_VTK_SOURCE = REPO / ".github" / "site-build" / "src" / "research-vtk.js"
+RESEARCH_VTK_BUNDLE = DOCS / "assets" / "generated" / "research-vtk-v1.js"
 HOME_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "site-webgl-v1.js"
 HOME_STYLE = DOCS / "assets" / "home-v3.css"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
@@ -302,27 +303,18 @@ def main() -> int:
             problems.append("Research Lab risk script missing")
         if not any(src.endswith("assets/research-lab-regime.js") for src in lab_parser.scripts):
             problems.append("Research Lab regime script missing")
-        if not any(src.endswith("assets/generated/site-webgl-v1.js") for src in lab_parser.scripts):
-            problems.append("Research Lab production WebGL bundle missing")
-    if not RESEARCH_WEBGL_SOURCE.is_file():
-        problems.append("missing production Research Lab WebGL source")
+        if not any(src.endswith("assets/generated/research-vtk-v1.js") for src in lab_parser.scripts):
+            problems.append("Research Lab scientific VTK bundle missing")
+    if not RESEARCH_VTK_SOURCE.is_file():
+        problems.append("missing production Research Lab VTK source")
     else:
-        research_webgl = RESEARCH_WEBGL_SOURCE.read_text(encoding="utf-8")
-        if "http://" in research_webgl or "https://" in research_webgl:
-            problems.append("Research Lab WebGL source contains an external network target")
+        research_vtk = RESEARCH_VTK_SOURCE.read_text(encoding="utf-8")
+        if "http://" in research_vtk or "https://" in research_vtk:
+            problems.append("Research Lab VTK source contains an external network target")
         for marker in (
-            "new THREE.WebGLRenderer",
-            "new THREE.PerspectiveCamera",
-            "new THREE.InstancedMesh",
-            "lab-webgl-overlay",
-            "lab-webgl-annotations",
-            "fallbackActive",
-            "webglcontextlost",
-            "window.__tcResearchWebGL.data",
-            "IntersectionObserver",
-            "#3cfad2",
-            "#e54a5a",
-            "#3daed3",
+            "mountAnalytical3D",
+            "window.__tcResearchVTK",
+            "vtk-webgl",
             "strategy-universe-canvas",
             "monte-carlo-canvas",
             "robustness-canvas",
@@ -333,13 +325,16 @@ def main() -> int:
             "oos-canvas",
             "drawdown-canvas",
             "selection-canvas",
+            "#3cfad2",
+            "#e54a5a",
+            "#3daed3",
         ):
-            if marker not in research_webgl:
-                problems.append(f"Research Lab production WebGL renderer missing contract marker: {marker}")
-        if research_webgl.count("setupSurface('") != 10:
-            problems.append("Research Lab production WebGL renderer must initialize exactly 10 atlas canvases")
-        if "getContext('webgl'," in research_webgl:
-            problems.append("Research Lab production renderer must not request unsupported WebGL1 contexts")
+            if marker not in research_vtk:
+                problems.append(f"Research Lab VTK renderer missing contract marker: {marker}")
+        if research_vtk.count("prepare('") != 10:
+            problems.append("Research Lab VTK renderer must initialize exactly 10 atlas canvases")
+    if not RESEARCH_VTK_BUNDLE.is_file():
+        problems.append("missing generated Research Lab VTK bundle")
     if not LAB_DEPTH.is_file():
         problems.append("missing docs/assets/research-lab-depth.js")
     else:
