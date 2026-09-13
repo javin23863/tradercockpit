@@ -1,0 +1,5217 @@
+[
+  {
+    "file": "404.html",
+    "route": "/404.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Page Not Found — TraderCockpit",
+    "h1s": [
+      "We couldn?t find that page."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2081,
+    "visibleMain": 6
+  },
+  {
+    "file": "confirmed.html",
+    "route": "/confirmed.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Confirmed · TraderCockpit",
+    "h1s": [
+      "Check your email."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "visibleMain": 1
+  },
+  {
+    "file": "docs/index.html",
+    "route": "/docs/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Documentation — TraderCockpit",
+    "h1s": [
+      "Find the answer you need, fast."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2892,
+    "visibleMain": 4
+  },
+  {
+    "file": "examples/holdout-selection.html",
+    "route": "/examples/holdout-selection.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Holdout Selection Example — TraderCockpit",
+    "h1s": [
+      "What changes when the result that won selection meets information it did not see?"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3527,
+    "visibleMain": 2
+  },
+  {
+    "file": "examples/index.html",
+    "route": "/examples/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Examples — TraderCockpit",
+    "h1s": [
+      "Follow the research question all the way to its limitations."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3410,
+    "visibleMain": 11
+  },
+  {
+    "file": "examples/replay-boundary.html",
+    "route": "/examples/replay-boundary.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Historical Replay Boundary — TraderCockpit",
+    "h1s": [
+      "What should disappear when you move a historical replay cutoff backward?"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3442,
+    "visibleMain": 4
+  },
+  {
+    "file": "help.html",
+    "route": "/help.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Contextual Help — TraderCockpit",
+    "h1s": [
+      "Opening the help topic you asked for."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "visibleMain": 1
+  },
+  {
+    "file": "how-to/index.html",
+    "route": "/how-to/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How-Tos & Academy — TraderCockpit",
+    "h1s": [
+      "One task. Clear steps. The concept behind it."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 7290,
+    "visibleMain": 12
+  },
+  {
+    "file": "how-to/read-chart-evidence.html",
+    "route": "/how-to/read-chart-evidence.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Chart Evidence — TraderCockpit",
+    "h1s": [
+      "Read the source before you read the shape."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4496,
+    "visibleMain": 2
+  },
+  {
+    "file": "how-to/read-monte-carlo.html",
+    "route": "/how-to/read-monte-carlo.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Monte Carlo Result — TraderCockpit",
+    "h1s": [
+      "Read the simulation rule before you read the percentile."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4003,
+    "visibleMain": 3
+  },
+  {
+    "file": "how-to/read-result-metrics.html",
+    "route": "/how-to/read-result-metrics.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Backtest Metrics Together — TraderCockpit",
+    "h1s": [
+      "Read the measurement context before you compare the numbers."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4148,
+    "visibleMain": 2
+  },
+  {
+    "file": "how-to/read-staged-validation.html",
+    "route": "/how-to/read-staged-validation.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Staged Validation Chain — TraderCockpit",
+    "h1s": [
+      "Read each stage as evidence, not as a badge."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3819,
+    "visibleMain": 2
+  },
+  {
+    "file": "index.html",
+    "route": "/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Research the edge without hiding uncertainty",
+    "h1s": [
+      "Quantitative research.Reimagined."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "email_address",
+            "label": "",
+            "placeholder": "you@example.com",
+            "type": "email"
+          },
+          {
+            "name": "fields[first_name]",
+            "label": "",
+            "placeholder": "Your first name",
+            "type": "text"
+          },
+          {
+            "name": "fields[source]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          },
+          {
+            "name": "fields[utm_source]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          },
+          {
+            "name": "fields[utm_medium]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          },
+          {
+            "name": "fields[utm_campaign]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [
+      {
+        "name": "email_address",
+        "label": "",
+        "placeholder": "you@example.com",
+        "type": "email"
+      },
+      {
+        "name": "fields[first_name]",
+        "label": "",
+        "placeholder": "Your first name",
+        "type": "text"
+      }
+    ],
+    "disabled": [
+      {
+        "text": "Secure checkout",
+        "title": "",
+        "describedby": ""
+      }
+    ],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2876,
+    "visibleMain": 3
+  },
+  {
+    "file": "learn/concepts/correlation-diversification.html",
+    "route": "/learn/concepts/correlation-diversification.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Correlation and diversification — TraderCockpit Learn",
+    "h1s": [
+      "Correlation and diversification"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/distribution-shape.html",
+    "route": "/learn/concepts/distribution-shape.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Distribution shape and tails — TraderCockpit Learn",
+    "h1s": [
+      "Distribution shape and tails"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/drawdown.html",
+    "route": "/learn/concepts/drawdown.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Drawdown — TraderCockpit Learn",
+    "h1s": [
+      "Drawdown"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/monte-carlo.html",
+    "route": "/learn/concepts/monte-carlo.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo uncertainty — TraderCockpit Learn",
+    "h1s": [
+      "Monte Carlo uncertainty"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/out-of-sample.html",
+    "route": "/learn/concepts/out-of-sample.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "In-sample vs out-of-sample evidence — TraderCockpit Learn",
+    "h1s": [
+      "In-sample vs out-of-sample evidence"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2808,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/parameter-robustness.html",
+    "route": "/learn/concepts/parameter-robustness.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Parameter robustness — TraderCockpit Learn",
+    "h1s": [
+      "Parameter robustness"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/regime-map.html",
+    "route": "/learn/concepts/regime-map.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Market regimes as coordinates — TraderCockpit Learn",
+    "h1s": [
+      "Market regimes as coordinates"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2833,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/selection-bias.html",
+    "route": "/learn/concepts/selection-bias.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Selection bias and multiple testing — TraderCockpit Learn",
+    "h1s": [
+      "Selection bias and multiple testing"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/walk-forward.html",
+    "route": "/learn/concepts/walk-forward.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Walk-forward analysis — TraderCockpit Learn",
+    "h1s": [
+      "Walk-forward analysis"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/glossary.html",
+    "route": "/learn/glossary.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Glossary — TraderCockpit Learn",
+    "h1s": [
+      "Use one term to find the deeper explanation."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 5113,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/index.html",
+    "route": "/learn/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Learn — TraderCockpit",
+    "h1s": [
+      "Learn the reasoning before memorizing the buttons."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3523,
+    "visibleMain": 13
+  },
+  {
+    "file": "learn/start-here.html",
+    "route": "/learn/start-here.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Start Here — TraderCockpit Learn",
+    "h1s": [
+      "Begin with the claim you want the evidence to support."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 5074,
+    "visibleMain": 6
+  },
+  {
+    "file": "learn/videos.html",
+    "route": "/learn/videos.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Video Lessons — TraderCockpit Learn",
+    "h1s": [
+      "Watch for intuition. Read for the assumptions."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3767,
+    "visibleMain": 6
+  },
+  {
+    "file": "methods/chart-evidence.html",
+    "route": "/methods/chart-evidence.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Reading Chart Evidence — TraderCockpit Methods",
+    "h1s": [
+      "A chart is evidence arranged in space, not a verdict."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2847,
+    "visibleMain": 2
+  },
+  {
+    "file": "methods/index.html",
+    "route": "/methods/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Methods — TraderCockpit",
+    "h1s": [
+      "The test matters only if you understand what it can and cannot tell you."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3525,
+    "visibleMain": 19
+  },
+  {
+    "file": "methods/monte-carlo.html",
+    "route": "/methods/monte-carlo.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo Method — TraderCockpit",
+    "h1s": [
+      "Monte Carlo is only as meaningful as the world you tell it to simulate."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3809,
+    "visibleMain": 2
+  },
+  {
+    "file": "methods/result-metrics.html",
+    "route": "/methods/result-metrics.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Backtest Result Metrics — TraderCockpit Methods",
+    "h1s": [
+      "A metric compresses a backtest. It does not replace the evidence."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4250,
+    "visibleMain": 2
+  },
+  {
+    "file": "methods/validation-foundations.html",
+    "route": "/methods/validation-foundations.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Validation Foundations — TraderCockpit Methods",
+    "h1s": [
+      "Validation is a chain of decisions, not one green check."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3453,
+    "visibleMain": 2
+  },
+  {
+    "file": "pricing/index.html",
+    "route": "/pricing/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Pricing & Access — TraderCockpit",
+    "h1s": [
+      "TraderCockpit Monthly. One plan, one access path."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [
+      {
+        "text": "Secure checkout",
+        "title": "",
+        "describedby": ""
+      }
+    ],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2789,
+    "visibleMain": 6
+  },
+  {
+    "file": "refund-policy.html",
+    "route": "/refund-policy.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit ? Refund Information",
+    "h1s": [
+      "Refund information"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "visibleMain": 1
+  },
+  {
+    "file": "research-lab.html",
+    "route": "/research-lab.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Lab — TraderCockpit",
+    "h1s": [
+      "See the shape of a research problem."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 14933,
+    "visibleMain": 1
+  },
+  {
+    "file": "strategy-claim-audit-checklist.html",
+    "route": "/strategy-claim-audit-checklist.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Strategy-Claim Audit Checklist",
+    "h1s": [
+      "Strategy-Claim Audit Checklist"
+    ],
+    "primaryHero": 0,
+    "forms": [],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1248,
+    "visibleMain": 12
+  },
+  {
+    "file": "support/faq.html",
+    "route": "/support/faq.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "FAQ — TraderCockpit Support",
+    "h1s": [
+      "Answers to common TraderCockpit questions."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4297,
+    "visibleMain": 11
+  },
+  {
+    "file": "support/index.html",
+    "route": "/support/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Support — TraderCockpit",
+    "h1s": [
+      "How can we help?"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2343,
+    "visibleMain": 7
+  },
+  {
+    "file": "thanks.html",
+    "route": "/thanks.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Check your inbox · TraderCockpit",
+    "h1s": [
+      "Check your inbox."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "visibleMain": 1
+  },
+  {
+    "file": "trust/index.html",
+    "route": "/trust/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Trust — TraderCockpit",
+    "h1s": [
+      "Know what supports the conclusion."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2096,
+    "visibleMain": 6
+  },
+  {
+    "file": "trust/privacy.html",
+    "route": "/trust/privacy.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Site Privacy & Third-Party Boundaries — TraderCockpit",
+    "h1s": [
+      "Your privacy on the TraderCockpit website"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2923,
+    "visibleMain": 6
+  },
+  {
+    "file": "updates/index.html",
+    "route": "/updates/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Updates — TraderCockpit",
+    "h1s": [
+      "TraderCockpit updates"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1441,
+    "visibleMain": 1
+  },
+  {
+    "file": "404.html",
+    "route": "/404.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Page Not Found — TraderCockpit",
+    "h1s": [
+      "We couldn?t find that page."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Support",
+        "w": 64,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 2658,
+    "visibleMain": 6
+  },
+  {
+    "file": "confirmed.html",
+    "route": "/confirmed.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Confirmed · TraderCockpit",
+    "h1s": [
+      "Check your email."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Support",
+        "w": 64,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "visibleMain": 1
+  },
+  {
+    "file": "docs/index.html",
+    "route": "/docs/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Documentation — TraderCockpit",
+    "h1s": [
+      "Find the answer you need, fast."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4522,
+    "visibleMain": 4
+  },
+  {
+    "file": "examples/holdout-selection.html",
+    "route": "/examples/holdout-selection.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Holdout Selection Example — TraderCockpit",
+    "h1s": [
+      "What changes when the result that won selection meets information it did not see?"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5523,
+    "visibleMain": 2
+  },
+  {
+    "file": "examples/index.html",
+    "route": "/examples/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Examples — TraderCockpit",
+    "h1s": [
+      "Follow the research question all the way to its limitations."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5403,
+    "visibleMain": 11
+  },
+  {
+    "file": "examples/replay-boundary.html",
+    "route": "/examples/replay-boundary.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Historical Replay Boundary — TraderCockpit",
+    "h1s": [
+      "What should disappear when you move a historical replay cutoff backward?"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4835,
+    "visibleMain": 4
+  },
+  {
+    "file": "help.html",
+    "route": "/help.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Contextual Help — TraderCockpit",
+    "h1s": [
+      "Opening the help topic you asked for."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 1034,
+    "visibleMain": 1
+  },
+  {
+    "file": "how-to/index.html",
+    "route": "/how-to/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How-Tos & Academy — TraderCockpit",
+    "h1s": [
+      "One task. Clear steps. The concept behind it."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Load video from YouTube",
+        "w": 165,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 10585,
+    "visibleMain": 12
+  },
+  {
+    "file": "how-to/read-chart-evidence.html",
+    "route": "/how-to/read-chart-evidence.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Chart Evidence — TraderCockpit",
+    "h1s": [
+      "Read the source before you read the shape."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6448,
+    "visibleMain": 2
+  },
+  {
+    "file": "how-to/read-monte-carlo.html",
+    "route": "/how-to/read-monte-carlo.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Monte Carlo Result — TraderCockpit",
+    "h1s": [
+      "Read the simulation rule before you read the percentile."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Load video from YouTube",
+        "w": 165,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5983,
+    "visibleMain": 3
+  },
+  {
+    "file": "how-to/read-result-metrics.html",
+    "route": "/how-to/read-result-metrics.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Backtest Metrics Together — TraderCockpit",
+    "h1s": [
+      "Read the measurement context before you compare the numbers."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6500,
+    "visibleMain": 2
+  },
+  {
+    "file": "how-to/read-staged-validation.html",
+    "route": "/how-to/read-staged-validation.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Staged Validation Chain — TraderCockpit",
+    "h1s": [
+      "Read each stage as evidence, not as a badge."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6055,
+    "visibleMain": 2
+  },
+  {
+    "file": "index.html",
+    "route": "/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Research the edge without hiding uncertainty",
+    "h1s": [
+      "Quantitative research.Reimagined."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "email_address",
+            "label": "",
+            "placeholder": "you@example.com",
+            "type": "email"
+          },
+          {
+            "name": "fields[first_name]",
+            "label": "",
+            "placeholder": "Your first name",
+            "type": "text"
+          },
+          {
+            "name": "fields[source]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          },
+          {
+            "name": "fields[utm_source]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          },
+          {
+            "name": "fields[utm_medium]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          },
+          {
+            "name": "fields[utm_campaign]",
+            "label": "",
+            "placeholder": "",
+            "type": "hidden"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [
+      {
+        "name": "email_address",
+        "label": "",
+        "placeholder": "you@example.com",
+        "type": "email"
+      },
+      {
+        "name": "fields[first_name]",
+        "label": "",
+        "placeholder": "Your first name",
+        "type": "text"
+      }
+    ],
+    "disabled": [
+      {
+        "text": "Secure checkout",
+        "title": "",
+        "describedby": ""
+      }
+    ],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Product",
+        "w": 63,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "How it works",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Pricing",
+        "w": 57,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Support",
+        "w": 64,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "YT",
+        "w": 32,
+        "h": 32,
+        "tag": "A"
+      },
+      {
+        "text": "Pause motion",
+        "w": 95,
+        "h": 30,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Reset view",
+        "w": 83,
+        "h": 30,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Send confirmation",
+        "w": 278,
+        "h": 36,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6302,
+    "visibleMain": 3
+  },
+  {
+    "file": "learn/concepts/correlation-diversification.html",
+    "route": "/learn/concepts/correlation-diversification.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Correlation and diversification — TraderCockpit Learn",
+    "h1s": [
+      "Correlation and diversification"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4012,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/distribution-shape.html",
+    "route": "/learn/concepts/distribution-shape.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Distribution shape and tails — TraderCockpit Learn",
+    "h1s": [
+      "Distribution shape and tails"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3989,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/drawdown.html",
+    "route": "/learn/concepts/drawdown.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Drawdown — TraderCockpit Learn",
+    "h1s": [
+      "Drawdown"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3874,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/monte-carlo.html",
+    "route": "/learn/concepts/monte-carlo.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo uncertainty — TraderCockpit Learn",
+    "h1s": [
+      "Monte Carlo uncertainty"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3997,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/out-of-sample.html",
+    "route": "/learn/concepts/out-of-sample.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "In-sample vs out-of-sample evidence — TraderCockpit Learn",
+    "h1s": [
+      "In-sample vs out-of-sample evidence"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4126,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/parameter-robustness.html",
+    "route": "/learn/concepts/parameter-robustness.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Parameter robustness — TraderCockpit Learn",
+    "h1s": [
+      "Parameter robustness"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3989,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/regime-map.html",
+    "route": "/learn/concepts/regime-map.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Market regimes as coordinates — TraderCockpit Learn",
+    "h1s": [
+      "Market regimes as coordinates"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4039,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/selection-bias.html",
+    "route": "/learn/concepts/selection-bias.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Selection bias and multiple testing — TraderCockpit Learn",
+    "h1s": [
+      "Selection bias and multiple testing"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4061,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/concepts/walk-forward.html",
+    "route": "/learn/concepts/walk-forward.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Walk-forward analysis — TraderCockpit Learn",
+    "h1s": [
+      "Walk-forward analysis"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3967,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/glossary.html",
+    "route": "/learn/glossary.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Glossary — TraderCockpit Learn",
+    "h1s": [
+      "Use one term to find the deeper explanation."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6114,
+    "visibleMain": 2
+  },
+  {
+    "file": "learn/index.html",
+    "route": "/learn/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Learn — TraderCockpit",
+    "h1s": [
+      "Learn the reasoning before memorizing the buttons."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6142,
+    "visibleMain": 13
+  },
+  {
+    "file": "learn/start-here.html",
+    "route": "/learn/start-here.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Start Here — TraderCockpit Learn",
+    "h1s": [
+      "Begin with the claim you want the evidence to support."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 7136,
+    "visibleMain": 6
+  },
+  {
+    "file": "learn/videos.html",
+    "route": "/learn/videos.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Video Lessons — TraderCockpit Learn",
+    "h1s": [
+      "Watch for intuition. Read for the assumptions."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Load video from YouTube",
+        "w": 165,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5420,
+    "visibleMain": 6
+  },
+  {
+    "file": "methods/chart-evidence.html",
+    "route": "/methods/chart-evidence.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Reading Chart Evidence — TraderCockpit Methods",
+    "h1s": [
+      "A chart is evidence arranged in space, not a verdict."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4384,
+    "visibleMain": 2
+  },
+  {
+    "file": "methods/index.html",
+    "route": "/methods/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Methods — TraderCockpit",
+    "h1s": [
+      "The test matters only if you understand what it can and cannot tell you."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 7562,
+    "visibleMain": 19
+  },
+  {
+    "file": "methods/monte-carlo.html",
+    "route": "/methods/monte-carlo.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo Method — TraderCockpit",
+    "h1s": [
+      "Monte Carlo is only as meaningful as the world you tell it to simulate."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5990,
+    "visibleMain": 2
+  },
+  {
+    "file": "methods/result-metrics.html",
+    "route": "/methods/result-metrics.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Backtest Result Metrics — TraderCockpit Methods",
+    "h1s": [
+      "A metric compresses a backtest. It does not replace the evidence."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6713,
+    "visibleMain": 2
+  },
+  {
+    "file": "methods/validation-foundations.html",
+    "route": "/methods/validation-foundations.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Validation Foundations — TraderCockpit Methods",
+    "h1s": [
+      "Validation is a chain of decisions, not one green check."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5519,
+    "visibleMain": 2
+  },
+  {
+    "file": "pricing/index.html",
+    "route": "/pricing/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Pricing & Access — TraderCockpit",
+    "h1s": [
+      "TraderCockpit Monthly. One plan, one access path."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [
+      {
+        "text": "Secure checkout",
+        "title": "",
+        "describedby": ""
+      }
+    ],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Pricing",
+        "w": 57,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Support",
+        "w": 64,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4241,
+    "visibleMain": 6
+  },
+  {
+    "file": "refund-policy.html",
+    "route": "/refund-policy.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit ? Refund Information",
+    "h1s": [
+      "Refund information"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Pricing",
+        "w": 57,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Support",
+        "w": 64,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Trust",
+        "w": 45,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 854,
+    "visibleMain": 1
+  },
+  {
+    "file": "research-lab.html",
+    "route": "/research-lab.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Lab — TraderCockpit",
+    "h1s": [
+      "See the shape of a research problem."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Reset view",
+        "w": 83,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Previous candidate",
+        "w": 134,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Next candidate",
+        "w": 108,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Regenerate synthetic sample",
+        "w": 190,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Broad plateau",
+        "w": 102,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Narrow spike",
+        "w": 96,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Ridge",
+        "w": 52,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Previous series",
+        "w": 115,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Next series",
+        "w": 90,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Focus selected",
+        "w": 108,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Symmetric",
+        "w": 77,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Skewed",
+        "w": 58,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Heavy tail",
+        "w": 83,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "All observations",
+        "w": 121,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Lower stress",
+        "w": 96,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Higher stress",
+        "w": 102,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Rotate left",
+        "w": 90,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Rotate right",
+        "w": 96,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Previous observation",
+        "w": 146,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Next observation",
+        "w": 121,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Rolling window",
+        "w": 108,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Anchored window",
+        "w": 115,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Previous fold",
+        "w": 102,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Next fold",
+        "w": 77,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Preserved holdout",
+        "w": 127,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Repeated peek",
+        "w": 102,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Deep shock",
+        "w": 83,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Long valley",
+        "w": 90,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Repeated valleys",
+        "w": 121,
+        "h": 28,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 19205,
+    "visibleMain": 1
+  },
+  {
+    "file": "strategy-claim-audit-checklist.html",
+    "route": "/strategy-claim-audit-checklist.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Strategy-Claim Audit Checklist",
+    "h1s": [
+      "Strategy-Claim Audit Checklist"
+    ],
+    "primaryHero": 0,
+    "forms": [],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "PRINT / SAVE PDF",
+        "w": 152,
+        "h": 43,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 2297,
+    "visibleMain": 12
+  },
+  {
+    "file": "support/faq.html",
+    "route": "/support/faq.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "FAQ — TraderCockpit Support",
+    "h1s": [
+      "Answers to common TraderCockpit questions."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4940,
+    "visibleMain": 11
+  },
+  {
+    "file": "support/index.html",
+    "route": "/support/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Support — TraderCockpit",
+    "h1s": [
+      "How can we help?"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3066,
+    "visibleMain": 7
+  },
+  {
+    "file": "thanks.html",
+    "route": "/thanks.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Check your inbox · TraderCockpit",
+    "h1s": [
+      "Check your inbox."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Support",
+        "w": 64,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "visibleMain": 1
+  },
+  {
+    "file": "trust/index.html",
+    "route": "/trust/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Trust — TraderCockpit",
+    "h1s": [
+      "Know what supports the conclusion."
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3021,
+    "visibleMain": 6
+  },
+  {
+    "file": "trust/privacy.html",
+    "route": "/trust/privacy.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Site Privacy & Third-Party Boundaries — TraderCockpit",
+    "h1s": [
+      "Your privacy on the TraderCockpit website"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Trust",
+        "w": 45,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3795,
+    "visibleMain": 6
+  },
+  {
+    "file": "updates/index.html",
+    "route": "/updates/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Updates — TraderCockpit",
+    "h1s": [
+      "TraderCockpit updates"
+    ],
+    "primaryHero": 0,
+    "forms": [
+      {
+        "fields": [
+          {
+            "name": "site-search-input",
+            "label": "Search concepts, methods, How-Tos, and public Docs",
+            "placeholder": "Try “Monte Carlo”, “drawdown”, or “what is this”",
+            "type": "search"
+          }
+        ]
+      }
+    ],
+    "placeholderOnly": [],
+    "disabled": [],
+    "generic": [],
+    "smallTargets": [
+      {
+        "text": "TraderCockpit",
+        "w": 157,
+        "h": 25,
+        "tag": "A"
+      },
+      {
+        "text": "Research Lab",
+        "w": 93,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Learn",
+        "w": 49,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Docs",
+        "w": 46,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Methods",
+        "w": 69,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Examples",
+        "w": 72,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Updates",
+        "w": 66,
+        "h": 35,
+        "tag": "A"
+      },
+      {
+        "text": "Search",
+        "w": 58,
+        "h": 37,
+        "tag": "BUTTON"
+      },
+      {
+        "text": "Close",
+        "w": 0,
+        "h": 0,
+        "tag": "BUTTON"
+      }
+    ],
+    "internal": [],
+    "ai": [],
+    "sw": 390,
+    "vw": 390,
+    "sh": 2170,
+    "visibleMain": 1
+  }
+]

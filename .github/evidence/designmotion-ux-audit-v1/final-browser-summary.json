@@ -1,0 +1,18 @@
+{
+  "schema": "tc.designmotion-ux-browser-audit.v1",
+  "pages": 41,
+  "cases": 82,
+  "failures": 0,
+  "byIssue": {
+    "http": 0,
+    "errors": 0,
+    "overflow": 0,
+    "h1": 0,
+    "placeholder": 0,
+    "internal": 0,
+    "generic": 0,
+    "ai": 0,
+    "unexplainedDisabled": 0,
+    "smallTargetsMobile": 0
+  }
+}

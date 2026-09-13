@@ -21,6 +21,7 @@ on:
 #   .gitattributes  byte-contract ("* -text") — docs/ JSON manifests rely on stable bytes
 #   .gitignore      repo plumbing
 #   README.md       public repo landing page (operator may veto; see manifest)
+#   DESIGN.md       public UX review authority enforced by website-integrity
 # ---------------------------------------------------------------------------
 env:
   ALLOWLIST: |
@@ -29,6 +30,7 @@ env:
     .gitattributes
     .gitignore
     README.md
+    DESIGN.md
 
 jobs:
   allowlist:

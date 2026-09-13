@@ -18,3 +18,21 @@ html[data-quant-renderer="three-webgl"] .quant-universe canvas{filter:drop-shado
 
 /* Reference parity v8 pricing density */
 #pricing .pricing-stage-parity{grid-template-columns:.72fr 1.08fr .72fr .62fr;align-items:stretch}#pricing .price-capability{min-height:100%;border-color:rgba(61,174,211,.2)}#pricing .price-capability .surface-list{grid-template-columns:1fr}#pricing .price-card-primary{box-shadow:0 36px 92px #0008,0 0 34px rgba(60,250,210,.12)}@media(max-width:1100px){#pricing .pricing-stage-parity{grid-template-columns:1fr 1fr}#pricing .price-card-primary{order:-2}#pricing .price-promo{order:3}}@media(max-width:700px){#pricing .pricing-stage-parity{grid-template-columns:1fr}#pricing .price-card-primary{order:-3}#pricing .research-card{order:-2}#pricing .validate-card{order:-1}}
+/* DesignMotion-informed homepage hierarchy */
+.quant-text-link{display:inline-flex;align-items:center;min-height:44px;padding:.72rem .15rem;color:var(--tc-cyan);text-decoration:none;font:700 .72rem/1.2 var(--mono);border-bottom:1px solid rgba(61,174,211,.32)}
+.quant-text-link:hover,.quant-text-link:focus-visible{color:#dffaff;border-bottom-color:var(--tc-teal)}
+.quant-social{width:44px;height:44px}
+.checkout-button[hidden]{display:none!important}
+@media (hover:none){
+  .home-page .brand,.home-page .nav-links a,.quant-social,.quant-nav-cta,.quant-action,.quant-text-link,.universe-controls button,.home-action,.playlist-link,.social-link{min-height:44px}
+}
+@media (pointer:coarse){
+  .home-page .brand,.home-page .nav-links a,.quant-social,.quant-nav-cta,.quant-action,.quant-text-link,.universe-controls button,.home-action,.playlist-link,.social-link{min-height:44px}
+  .universe-controls button{padding:.72rem .8rem}
+  .waitlist-field input,.waitlist-submit{min-height:44px}
+}
+/* DesignMotion mobile homepage touch contract */
+@media(max-width:760px){
+  .home-page .brand,.home-page .nav-links a,.quant-social,.quant-nav-cta,.quant-action,.quant-text-link,.universe-controls button,.home-action,.playlist-link,.social-link,.checkout-waitlist{min-height:44px}
+  .waitlist-field input,.waitlist-submit{min-height:44px}
+}

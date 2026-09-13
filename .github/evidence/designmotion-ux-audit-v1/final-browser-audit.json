@@ -1,0 +1,1642 @@
+[
+  {
+    "file": "404.html",
+    "route": "/404.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Page Not Found — TraderCockpit",
+    "h1s": [
+      "We couldn't find that page."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2081,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "confirmed.html",
+    "route": "/confirmed.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Confirmed · TraderCockpit",
+    "h1s": [
+      "Check your email."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "docs/index.html",
+    "route": "/docs/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Documentation — TraderCockpit",
+    "h1s": [
+      "Find the answer you need, fast."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2892,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "examples/holdout-selection.html",
+    "route": "/examples/holdout-selection.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Holdout Selection Example — TraderCockpit",
+    "h1s": [
+      "What changes when the result that won selection meets information it did not see?"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3527,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "examples/index.html",
+    "route": "/examples/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Examples — TraderCockpit",
+    "h1s": [
+      "Follow the research question all the way to its limitations."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3410,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "examples/replay-boundary.html",
+    "route": "/examples/replay-boundary.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Historical Replay Boundary — TraderCockpit",
+    "h1s": [
+      "What should disappear when you move a historical replay cutoff backward?"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3442,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "help.html",
+    "route": "/help.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Contextual Help — TraderCockpit",
+    "h1s": [
+      "Opening the help topic you asked for."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/index.html",
+    "route": "/how-to/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How-Tos & Academy — TraderCockpit",
+    "h1s": [
+      "One task. Clear steps. The concept behind it."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 7290,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-chart-evidence.html",
+    "route": "/how-to/read-chart-evidence.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Chart Evidence — TraderCockpit",
+    "h1s": [
+      "Read the source before you read the shape."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4496,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-monte-carlo.html",
+    "route": "/how-to/read-monte-carlo.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Monte Carlo Result — TraderCockpit",
+    "h1s": [
+      "Read the simulation rule before you read the percentile."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4003,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-result-metrics.html",
+    "route": "/how-to/read-result-metrics.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Backtest Metrics Together — TraderCockpit",
+    "h1s": [
+      "Read the measurement context before you compare the numbers."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4148,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-staged-validation.html",
+    "route": "/how-to/read-staged-validation.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Staged Validation Chain — TraderCockpit",
+    "h1s": [
+      "Read each stage as evidence, not as a badge."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3819,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "index.html",
+    "route": "/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Research the edge without hiding uncertainty",
+    "h1s": [
+      "Build, test, and understand trading strategies."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2864,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 1
+  },
+  {
+    "file": "learn/concepts/correlation-diversification.html",
+    "route": "/learn/concepts/correlation-diversification.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Correlation and diversification — TraderCockpit Learn",
+    "h1s": [
+      "Correlation and diversification"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/distribution-shape.html",
+    "route": "/learn/concepts/distribution-shape.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Distribution shape and tails — TraderCockpit Learn",
+    "h1s": [
+      "Distribution shape and tails"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/drawdown.html",
+    "route": "/learn/concepts/drawdown.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Drawdown — TraderCockpit Learn",
+    "h1s": [
+      "Drawdown"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/monte-carlo.html",
+    "route": "/learn/concepts/monte-carlo.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo uncertainty — TraderCockpit Learn",
+    "h1s": [
+      "Monte Carlo uncertainty"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/out-of-sample.html",
+    "route": "/learn/concepts/out-of-sample.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "In-sample vs out-of-sample evidence — TraderCockpit Learn",
+    "h1s": [
+      "In-sample vs out-of-sample evidence"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2808,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/parameter-robustness.html",
+    "route": "/learn/concepts/parameter-robustness.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Parameter robustness — TraderCockpit Learn",
+    "h1s": [
+      "Parameter robustness"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/regime-map.html",
+    "route": "/learn/concepts/regime-map.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Market regimes as coordinates — TraderCockpit Learn",
+    "h1s": [
+      "Market regimes as coordinates"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2833,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/selection-bias.html",
+    "route": "/learn/concepts/selection-bias.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Selection bias and multiple testing — TraderCockpit Learn",
+    "h1s": [
+      "Selection bias and multiple testing"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/walk-forward.html",
+    "route": "/learn/concepts/walk-forward.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Walk-forward analysis — TraderCockpit Learn",
+    "h1s": [
+      "Walk-forward analysis"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2784,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/glossary.html",
+    "route": "/learn/glossary.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Glossary — TraderCockpit Learn",
+    "h1s": [
+      "Use one term to find the deeper explanation."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 5113,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/index.html",
+    "route": "/learn/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Learn — TraderCockpit",
+    "h1s": [
+      "Learn the reasoning before memorizing the buttons."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3523,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/start-here.html",
+    "route": "/learn/start-here.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Start Here — TraderCockpit Learn",
+    "h1s": [
+      "Begin with the claim you want the evidence to support."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 5074,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/videos.html",
+    "route": "/learn/videos.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Video Lessons — TraderCockpit Learn",
+    "h1s": [
+      "Watch for intuition. Read for the assumptions."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3767,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/chart-evidence.html",
+    "route": "/methods/chart-evidence.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Reading Chart Evidence — TraderCockpit Methods",
+    "h1s": [
+      "A chart is evidence arranged in space, not a verdict."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2847,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/index.html",
+    "route": "/methods/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Methods — TraderCockpit",
+    "h1s": [
+      "The test matters only if you understand what it can and cannot tell you."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3525,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/monte-carlo.html",
+    "route": "/methods/monte-carlo.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo Method — TraderCockpit",
+    "h1s": [
+      "Monte Carlo is only as meaningful as the world you tell it to simulate."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3809,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/result-metrics.html",
+    "route": "/methods/result-metrics.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Backtest Result Metrics — TraderCockpit Methods",
+    "h1s": [
+      "A metric compresses a backtest. It does not replace the evidence."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4250,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/validation-foundations.html",
+    "route": "/methods/validation-foundations.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Validation Foundations — TraderCockpit Methods",
+    "h1s": [
+      "Validation is a chain of decisions, not one green check."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 3453,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "pricing/index.html",
+    "route": "/pricing/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Pricing & Access — TraderCockpit",
+    "h1s": [
+      "TraderCockpit Monthly. One plan, one access path."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2789,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "refund-policy.html",
+    "route": "/refund-policy.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit - Refund Information",
+    "h1s": [
+      "Refund information"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "research-lab.html",
+    "route": "/research-lab.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Research Lab — TraderCockpit",
+    "h1s": [
+      "See the shape of a research problem."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 14933,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "strategy-claim-audit-checklist.html",
+    "route": "/strategy-claim-audit-checklist.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Strategy-Claim Audit Checklist",
+    "h1s": [
+      "Strategy-Claim Audit Checklist"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1248,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "support/faq.html",
+    "route": "/support/faq.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "FAQ — TraderCockpit Support",
+    "h1s": [
+      "Answers to common TraderCockpit questions."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 4297,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "support/index.html",
+    "route": "/support/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Support — TraderCockpit",
+    "h1s": [
+      "How can we help?"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2343,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "thanks.html",
+    "route": "/thanks.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Check your inbox · TraderCockpit",
+    "h1s": [
+      "Check your inbox."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1000,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "trust/index.html",
+    "route": "/trust/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Trust — TraderCockpit",
+    "h1s": [
+      "Know what supports the conclusion."
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2096,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "trust/privacy.html",
+    "route": "/trust/privacy.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Site Privacy & Third-Party Boundaries — TraderCockpit",
+    "h1s": [
+      "Your privacy on the TraderCockpit website"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 2923,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "updates/index.html",
+    "route": "/updates/",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "title": "Updates — TraderCockpit",
+    "h1s": [
+      "TraderCockpit updates"
+    ],
+    "sw": 1440,
+    "vw": 1440,
+    "sh": 1441,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "404.html",
+    "route": "/404.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Page Not Found — TraderCockpit",
+    "h1s": [
+      "We couldn't find that page."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 2693,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "confirmed.html",
+    "route": "/confirmed.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Confirmed · TraderCockpit",
+    "h1s": [
+      "Check your email."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "docs/index.html",
+    "route": "/docs/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Documentation — TraderCockpit",
+    "h1s": [
+      "Find the answer you need, fast."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4558,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "examples/holdout-selection.html",
+    "route": "/examples/holdout-selection.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Holdout Selection Example — TraderCockpit",
+    "h1s": [
+      "What changes when the result that won selection meets information it did not see?"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5559,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "examples/index.html",
+    "route": "/examples/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Examples — TraderCockpit",
+    "h1s": [
+      "Follow the research question all the way to its limitations."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5438,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "examples/replay-boundary.html",
+    "route": "/examples/replay-boundary.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Synthetic Historical Replay Boundary — TraderCockpit",
+    "h1s": [
+      "What should disappear when you move a historical replay cutoff backward?"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4899,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "help.html",
+    "route": "/help.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Contextual Help — TraderCockpit",
+    "h1s": [
+      "Opening the help topic you asked for."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 1070,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/index.html",
+    "route": "/how-to/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How-Tos & Academy — TraderCockpit",
+    "h1s": [
+      "One task. Clear steps. The concept behind it."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 10637,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-chart-evidence.html",
+    "route": "/how-to/read-chart-evidence.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Chart Evidence — TraderCockpit",
+    "h1s": [
+      "Read the source before you read the shape."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6483,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-monte-carlo.html",
+    "route": "/how-to/read-monte-carlo.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Monte Carlo Result — TraderCockpit",
+    "h1s": [
+      "Read the simulation rule before you read the percentile."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6035,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-result-metrics.html",
+    "route": "/how-to/read-result-metrics.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read Backtest Metrics Together — TraderCockpit",
+    "h1s": [
+      "Read the measurement context before you compare the numbers."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6536,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "how-to/read-staged-validation.html",
+    "route": "/how-to/read-staged-validation.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "How to Read a Staged Validation Chain — TraderCockpit",
+    "h1s": [
+      "Read each stage as evidence, not as a badge."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6091,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "index.html",
+    "route": "/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Research the edge without hiding uncertainty",
+    "h1s": [
+      "Build, test, and understand trading strategies."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6287,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 1
+  },
+  {
+    "file": "learn/concepts/correlation-diversification.html",
+    "route": "/learn/concepts/correlation-diversification.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Correlation and diversification — TraderCockpit Learn",
+    "h1s": [
+      "Correlation and diversification"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4047,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/distribution-shape.html",
+    "route": "/learn/concepts/distribution-shape.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Distribution shape and tails — TraderCockpit Learn",
+    "h1s": [
+      "Distribution shape and tails"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4025,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/drawdown.html",
+    "route": "/learn/concepts/drawdown.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Drawdown — TraderCockpit Learn",
+    "h1s": [
+      "Drawdown"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3910,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/monte-carlo.html",
+    "route": "/learn/concepts/monte-carlo.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo uncertainty — TraderCockpit Learn",
+    "h1s": [
+      "Monte Carlo uncertainty"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4032,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/out-of-sample.html",
+    "route": "/learn/concepts/out-of-sample.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "In-sample vs out-of-sample evidence — TraderCockpit Learn",
+    "h1s": [
+      "In-sample vs out-of-sample evidence"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4162,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/parameter-robustness.html",
+    "route": "/learn/concepts/parameter-robustness.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Parameter robustness — TraderCockpit Learn",
+    "h1s": [
+      "Parameter robustness"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4025,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/regime-map.html",
+    "route": "/learn/concepts/regime-map.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Market regimes as coordinates — TraderCockpit Learn",
+    "h1s": [
+      "Market regimes as coordinates"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4074,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/selection-bias.html",
+    "route": "/learn/concepts/selection-bias.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Selection bias and multiple testing — TraderCockpit Learn",
+    "h1s": [
+      "Selection bias and multiple testing"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4097,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/concepts/walk-forward.html",
+    "route": "/learn/concepts/walk-forward.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Walk-forward analysis — TraderCockpit Learn",
+    "h1s": [
+      "Walk-forward analysis"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4003,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/glossary.html",
+    "route": "/learn/glossary.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Glossary — TraderCockpit Learn",
+    "h1s": [
+      "Use one term to find the deeper explanation."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6150,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/index.html",
+    "route": "/learn/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Learn — TraderCockpit",
+    "h1s": [
+      "Learn the reasoning before memorizing the buttons."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6178,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/start-here.html",
+    "route": "/learn/start-here.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Start Here — TraderCockpit Learn",
+    "h1s": [
+      "Begin with the claim you want the evidence to support."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 7172,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "learn/videos.html",
+    "route": "/learn/videos.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Video Lessons — TraderCockpit Learn",
+    "h1s": [
+      "Watch for intuition. Read for the assumptions."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5472,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/chart-evidence.html",
+    "route": "/methods/chart-evidence.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Reading Chart Evidence — TraderCockpit Methods",
+    "h1s": [
+      "A chart is evidence arranged in space, not a verdict."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4420,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/index.html",
+    "route": "/methods/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Methods — TraderCockpit",
+    "h1s": [
+      "The test matters only if you understand what it can and cannot tell you."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 7598,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/monte-carlo.html",
+    "route": "/methods/monte-carlo.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Monte Carlo Method — TraderCockpit",
+    "h1s": [
+      "Monte Carlo is only as meaningful as the world you tell it to simulate."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6026,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/result-metrics.html",
+    "route": "/methods/result-metrics.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Backtest Result Metrics — TraderCockpit Methods",
+    "h1s": [
+      "A metric compresses a backtest. It does not replace the evidence."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 6749,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "methods/validation-foundations.html",
+    "route": "/methods/validation-foundations.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Validation Foundations — TraderCockpit Methods",
+    "h1s": [
+      "Validation is a chain of decisions, not one green check."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 5555,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "pricing/index.html",
+    "route": "/pricing/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Pricing & Access — TraderCockpit",
+    "h1s": [
+      "TraderCockpit Monthly. One plan, one access path."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4289,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "refund-policy.html",
+    "route": "/refund-policy.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit - Refund Information",
+    "h1s": [
+      "Refund information"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 880,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "research-lab.html",
+    "route": "/research-lab.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Research Lab — TraderCockpit",
+    "h1s": [
+      "See the shape of a research problem."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 19447,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "strategy-claim-audit-checklist.html",
+    "route": "/strategy-claim-audit-checklist.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "TraderCockpit — Strategy-Claim Audit Checklist",
+    "h1s": [
+      "Strategy-Claim Audit Checklist"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 2299,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "support/faq.html",
+    "route": "/support/faq.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "FAQ — TraderCockpit Support",
+    "h1s": [
+      "Answers to common TraderCockpit questions."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 4976,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "support/index.html",
+    "route": "/support/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Support — TraderCockpit",
+    "h1s": [
+      "How can we help?"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3102,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "thanks.html",
+    "route": "/thanks.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Check your inbox · TraderCockpit",
+    "h1s": [
+      "Check your inbox."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 844,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "trust/index.html",
+    "route": "/trust/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Trust — TraderCockpit",
+    "h1s": [
+      "Know what supports the conclusion."
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3057,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "trust/privacy.html",
+    "route": "/trust/privacy.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Site Privacy & Third-Party Boundaries — TraderCockpit",
+    "h1s": [
+      "Your privacy on the TraderCockpit website"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 3830,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  },
+  {
+    "file": "updates/index.html",
+    "route": "/updates/",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "title": "Updates — TraderCockpit",
+    "h1s": [
+      "TraderCockpit updates"
+    ],
+    "sw": 390,
+    "vw": 390,
+    "sh": 2206,
+    "placeholderOnly": [],
+    "disabled": [],
+    "smallTargets": [],
+    "internal": [],
+    "ai": [],
+    "primaryHero": 0
+  }
+]

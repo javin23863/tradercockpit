@@ -903,3 +903,21 @@ html[data-research-renderer="three-webgl"] .visual-panel{border-color:rgba(22,72
   .lab-vtk-stack-correlation>.network-canvas{height:250px}
   .lab-vtk-stack-distribution>.distribution-canvas{height:235px}
 }
+/* DesignMotion public UX contract */
+:root{--ux-touch-target:44px;--ux-space-1:4px;--ux-space-2:8px;--ux-space-3:12px;--ux-space-4:16px;--ux-motion-fast:160ms}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.checkout-button[hidden]{display:none!important}
+@media (hover:none){
+  .control-btn{padding:.68rem .72rem}
+  .site-nav .brand,.site-nav .nav-links a,.site-search-trigger,.control-btn,.atlas-nav-item{min-height:var(--ux-touch-target)}
+}
+@media (pointer:coarse){
+  .site-nav .brand,.site-nav .nav-links a,.site-search-trigger,.control-btn,.atlas-nav-item{min-height:var(--ux-touch-target)}
+  .site-search-trigger,.control-btn{min-width:var(--ux-touch-target)}
+}
+/* DesignMotion mobile touch contract */
+@media(max-width:700px){
+  .site-nav .brand,.site-nav .nav-links a,.site-search-trigger,.control-btn,.atlas-nav-item{min-height:var(--ux-touch-target)}
+  .site-search-trigger,.control-btn{min-width:var(--ux-touch-target)}
+  button,input,select,textarea{min-height:var(--ux-touch-target)}
+}
