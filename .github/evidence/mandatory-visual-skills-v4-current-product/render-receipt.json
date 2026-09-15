@@ -1,0 +1,67 @@
+{
+  "schema": "tradercockpit.current-product-capture/v1",
+  "capturedAt": "2026-09-15T06:47:19.907Z",
+  "implementationCommit": "ed06c6256611c0b5903ee13d43957390ffa1f2fc",
+  "rows": [
+    {
+      "route": "/",
+      "mode": "desktop",
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "image": {
+        "w": "1440",
+        "h": "960",
+        "nw": 1440,
+        "nh": 960
+      },
+      "hasModels": true,
+      "screenshot": ".github/evidence/mandatory-visual-skills-v4-current-product/home-desktop.jpg"
+    },
+    {
+      "route": "/",
+      "mode": "mobile",
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "image": {
+        "w": "1440",
+        "h": "960",
+        "nw": 1440,
+        "nh": 960
+      },
+      "hasModels": true,
+      "screenshot": ".github/evidence/mandatory-visual-skills-v4-current-product/home-mobile.jpg"
+    },
+    {
+      "route": "/pricing/",
+      "mode": "desktop",
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "image": {
+        "w": "1440",
+        "h": "960",
+        "nw": 1440,
+        "nh": 960
+      },
+      "hasModels": true,
+      "screenshot": ".github/evidence/mandatory-visual-skills-v4-current-product/pricing-desktop.jpg"
+    },
+    {
+      "route": "/pricing/",
+      "mode": "mobile",
+      "status": 200,
+      "errors": [],
+      "overflow": false,
+      "image": {
+        "w": "1440",
+        "h": "960",
+        "nw": 1440,
+        "nh": 960
+      },
+      "hasModels": true,
+      "screenshot": ".github/evidence/mandatory-visual-skills-v4-current-product/pricing-mobile.jpg"
+    }
+  ]
+}
