@@ -441,3 +441,12 @@
   color:#597082;
   cursor:default;
 }
+
+/* Preserve asymmetric article compositions after the reference-overhaul scene sizing. */
+.visual-site-page.visual-layout-b .article-hero:has(.article-depth-scene) .article-hero-inner {
+  padding-left: min(43vw, 560px);
+  padding-right: 0;
+}
+.visual-site-page.visual-layout-c .article-hero:has(.article-depth-scene) .article-hero-inner {
+  padding-right: 0;
+}
