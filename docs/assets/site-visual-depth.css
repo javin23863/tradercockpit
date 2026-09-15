@@ -310,3 +310,10 @@
   .visual-reveal-enabled .section,.visual-reveal-enabled .article-section,.visual-reveal-enabled .depth-card,.visual-reveal-enabled .path-card,.visual-reveal-enabled .visual-panel{opacity:1;transform:none;transition:none}
   .visual-site-page .article-depth-scene{transition:none}
 }
+
+/* Keep narrow supporting rails readable when headings contain long words. */
+.visual-site-page .content-grid .side-panel h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.4rem);
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
