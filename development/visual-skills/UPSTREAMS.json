@@ -14,7 +14,9 @@
       "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
       "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
       "vendored_path": "vendor/vercel-agent-skills/web-design-guidelines",
-      "license": "MIT (upstream repository README)"
+      "license": "MIT (upstream repository README declaration; pinned commit has no LICENSE file)",
+      "license_notice": "vendor/vercel-agent-skills/LICENSE-NOTICE.md",
+      "note": "UPSTREAM-SKILL.md preserves the exact pinned upstream skill. SKILL.md is a local offline-hardened wrapper that reads the pinned local guideline snapshot instead of mutable main."
     },
     {
       "name": "vercel-web-interface-guidelines",
@@ -22,7 +24,7 @@
       "commit": "e3d624baaf29dc1fc645aff3e38f03e564d2d6b1",
       "vendored_path": "vendor/vercel-web-interface-guidelines",
       "license": "MIT",
-      "note": "Pinned command.md snapshot used by the Vercel skill; online final reviews should also check upstream for newer guidance."
+      "note": "Pinned command.md is the ordinary review authority. Upstream may be checked only during an explicit reviewed refresh."
     },
     {
       "name": "taste-skill",

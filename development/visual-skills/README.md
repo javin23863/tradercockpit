@@ -1,6 +1,6 @@
 # Mandatory visual-development skills
 
-This directory is a checked-in development authority for every TraderCockpit change that a user can see: public website pages, desktop UI, screenshots, charts, 3D scenes, motion, marketing surfaces, documentation visuals, and visual states.
+This directory is a checked-in development authority for every customer-visible change in the TraderCockpit public website: HTML/CSS/JS UI, screenshots, WebGL/VTK scenes, motion, marketing and commerce surfaces, documentation visuals, responsive behavior, and visual states. The separate desktop-product repository carries its own copy of the same mandatory skill authority.
 
 The material is vendored so an agent cannot silently skip it because an external URL changed or was unavailable. `UPSTREAMS.json` records the exact source commit for each snapshot.
 
@@ -10,7 +10,7 @@ Before planning or implementing a visible change, read this file, `CHECKLIST.md`
 
 For website work the minimum required reading is:
 
-- `vendor/vercel-agent-skills/web-design-guidelines/SKILL.md`
+- `vendor/vercel-agent-skills/web-design-guidelines/SKILL.md` (local offline wrapper; exact upstream copy is `UPSTREAM-SKILL.md`)
 - `vendor/vercel-web-interface-guidelines/command.md`
 - `vendor/taste-skill/skills/redesign-skill/SKILL.md`
 - `vendor/taste-skill/skills/image-to-code-skill/SKILL.md`
@@ -33,6 +33,6 @@ The Taste skills sometimes prescribe GSAP, generated imagery, randomization, or 
 
 ## Visual parity standard
 
-“Looks consistent” is not acceptance. Compare rendered pages against the owner-approved visual authority for composition, density, dimensional hierarchy, materials, semantic market colors, typography, responsive behavior, and motion. Do not claim parity from CSS tokens, source inspection, or a contact sheet alone.
+"Looks consistent" is not acceptance. Compare rendered pages against the owner-approved visual authority for composition, density, dimensional hierarchy, materials, semantic market colors, typography, responsive behavior, and motion. Do not claim parity from CSS tokens, source inspection, or a contact sheet alone.
 
 Every page family must have a distinct visual job. Repeating the same left-copy/right-diagram hero and the same equal-card grid across unrelated pages is a failure even if colors and spacing are correct. Depth must express real structure or clearly decorative atmosphere; it must never imply analytical dimensions that do not exist.

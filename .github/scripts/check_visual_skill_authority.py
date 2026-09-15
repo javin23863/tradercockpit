@@ -22,6 +22,8 @@ REQUIRED_FILES = (
     ROOT / "README.md",
     ROOT / "CHECKLIST.md",
     ROOT / "vendor" / "vercel-agent-skills" / "web-design-guidelines" / "SKILL.md",
+    ROOT / "vendor" / "vercel-agent-skills" / "web-design-guidelines" / "UPSTREAM-SKILL.md",
+    ROOT / "vendor" / "vercel-agent-skills" / "LICENSE-NOTICE.md",
     ROOT / "vendor" / "vercel-web-interface-guidelines" / "command.md",
     ROOT / "vendor" / "taste-skill" / "skills" / "redesign-skill" / "SKILL.md",
     ROOT / "vendor" / "taste-skill" / "skills" / "image-to-code-skill" / "SKILL.md",
@@ -50,6 +52,15 @@ def main() -> int:
             problems.append(f"missing upstream provenance: {name}")
         elif row.get("commit") != commit:
             problems.append(f"unexpected pinned commit for {name}: {row.get('commit')}")
+
+    vercel_row = sources.get("vercel-agent-skills/web-design-guidelines")
+    if vercel_row and vercel_row.get("license_notice") != "vendor/vercel-agent-skills/LICENSE-NOTICE.md":
+        problems.append("Vercel agent-skill provenance is missing its checked-in license notice")
+    vercel_skill_path = ROOT / "vendor" / "vercel-agent-skills" / "web-design-guidelines" / "SKILL.md"
+    if vercel_skill_path.is_file():
+        vercel_skill = vercel_skill_path.read_text(encoding="utf-8")
+        if "raw.githubusercontent.com" in vercel_skill or "/main/" in vercel_skill:
+            problems.append("Vercel visual review skill must use the pinned local guideline snapshot, not mutable main")
 
     design_docs = list((ROOT / "vendor" / "awesome-design-md" / "design-md").glob("*/DESIGN.md"))
     if len(design_docs) < 50:
