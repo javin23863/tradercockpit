@@ -1,0 +1,19 @@
+{
+  "schema": "tradercockpit.pricing-heading-measurement/v1",
+  "selector": ".content-grid .side-panel h2",
+  "viewport": {"width": 1440, "height": 1000},
+  "before": {
+    "commit": "6b6a1f84565c082ed610dda81c10880f7c8bd04e",
+    "fontSize": "64px",
+    "scrollWidth": 305,
+    "clientWidth": 266,
+    "overflowed": true
+  },
+  "after": {
+    "commit": "28beaeb5395af1e07a880a1c45d529328bf83552",
+    "fontSize": "36px",
+    "scrollWidth": 266,
+    "clientWidth": 266,
+    "overflowed": false
+  }
+}
