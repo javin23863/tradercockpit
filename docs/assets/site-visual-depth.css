@@ -1,0 +1,312 @@
+/* Mandatory visual-skills parity pass — 2026-09-15 */
+.visual-site-page {
+  --visual-accent: #3daed3;
+  --visual-positive: #3cfad2;
+  --visual-negative: #e54a5a;
+  --visual-surface: rgba(5, 15, 22, .82);
+  --visual-surface-deep: rgba(1, 6, 10, .94);
+  --visual-hairline: rgba(61, 174, 211, .16);
+  font-variant-numeric: tabular-nums;
+}
+.visual-site-page:not(.home-page) {
+  background:
+    radial-gradient(circle at 78% 8%, rgba(60,250,210,.08), transparent 28rem),
+    radial-gradient(circle at 18% 32%, rgba(61,174,211,.045), transparent 36rem),
+    radial-gradient(circle at 64% 72%, rgba(229,74,90,.025), transparent 34rem),
+    linear-gradient(180deg,#010509 0%,#040e14 48%,#010509 100%);
+}
+.visual-site-page:not(.home-page)::after {
+  opacity: .28;
+  background-size: 109px 127px, 173px 191px;
+  animation: visualStarDrift 28s linear infinite;
+}
+.visual-site-page .site-nav {
+  border-bottom-color: rgba(61,174,211,.12);
+  background: rgba(1,5,9,.82);
+  box-shadow: 0 18px 55px rgba(0,0,0,.2);
+}
+.visual-site-page .nav-inner { min-height: 66px; }
+.visual-site-page .nav-links a[aria-current="page"] {
+  color: #f7ffff;
+  background: linear-gradient(180deg,rgba(60,250,210,.075),rgba(61,174,211,.035));
+  box-shadow: inset 0 -1px rgba(60,250,210,.34);
+}
+
+/* Article heroes: four deterministic compositions instead of one repeated split. */
+.visual-site-page .article-hero {
+  min-height: clamp(520px, 44vw, 650px);
+  border-bottom-color: rgba(61,174,211,.1);
+  overflow: clip;
+  perspective: 1400px;
+}
+.visual-site-page .article-hero-inner {
+  max-width: 1296px;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.visual-site-page .article-hero h1 {
+  max-width: 12.5ch;
+  font-size: clamp(3rem, 5.15vw, 5.35rem);
+  line-height: .91;
+  letter-spacing: -.058em;
+}
+.visual-site-page .article-hero p { max-width: 42rem; }
+.visual-site-page.visual-layout-a .article-hero-inner,
+.visual-site-page.visual-layout-d .article-hero-inner { padding-right: min(45vw, 590px); }
+.visual-site-page.visual-layout-b .article-hero-inner { padding-left: min(43vw, 560px); padding-right: 0; }
+.visual-site-page.visual-layout-b .article-depth-scene { left: 0; right: auto; transform: perspective(1100px) rotateY(7deg) rotateX(2deg); }
+.visual-site-page.visual-layout-d .article-depth-scene { right: -2.8rem; transform: perspective(1100px) rotateY(-9deg) rotateX(3deg) rotateZ(-1deg); }
+.visual-site-page.visual-layout-c .article-hero { min-height: clamp(680px, 58vw, 780px); }
+.visual-site-page.visual-layout-c .article-hero-inner { padding-right: 0; padding-bottom: 330px; align-items: center; text-align: center; }
+.visual-site-page.visual-layout-c .article-hero h1,
+.visual-site-page.visual-layout-c .article-hero p { max-width: min(900px, 94%); }
+.visual-site-page.visual-layout-c .breadcrumb,
+.visual-site-page.visual-layout-c .article-actions,
+.visual-site-page.visual-layout-c .article-meta { justify-content: center; }
+.visual-site-page.visual-layout-c .article-depth-scene {
+  left: 50%; right: auto; top: auto; bottom: 34px;
+  width: min(74vw, 820px); height: 285px;
+  translate: -50% 0;
+  transform: perspective(1100px) rotateX(7deg);
+}
+
+/* Subject scene depth is layered presentation; SVG encodings remain truthful 2D where the concept is 2D. */
+.visual-site-page .article-depth-scene {
+  width: min(42vw, 545px);
+  height: 335px;
+  overflow: visible;
+  border-color: rgba(61,174,211,.2);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 54% 44%, rgba(60,250,210,.09), transparent 34%),
+    linear-gradient(145deg,rgba(6,20,29,.86),rgba(1,7,11,.72));
+  box-shadow: 0 38px 110px rgba(0,0,0,.48), 0 0 55px rgba(61,174,211,.055), inset 0 1px rgba(255,255,255,.035);
+  transform: perspective(1100px) rotateY(-5deg) rotateX(2deg);
+  transform-style: preserve-3d;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+.visual-site-page .article-depth-scene svg {
+  z-index: 3;
+  transform: translateZ(34px);
+  filter: drop-shadow(0 0 18px rgba(61,174,211,.1));
+}
+.scene-depth-plane {
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid rgba(61,174,211,.13);
+  border-radius: 18px;
+  transform-style: preserve-3d;
+}
+.scene-depth-plane-1 { inset: 7% -7%; transform: translateZ(-44px) rotateZ(-4deg); opacity: .74; }
+.scene-depth-plane-2 { inset: 15% -12%; transform: translateZ(-76px) rotateZ(5deg); opacity: .48; border-color: rgba(60,250,210,.12); }
+.scene-depth-plane-3 { inset: 26% -17%; transform: translateZ(-105px) rotateZ(-8deg); opacity: .28; border-color: rgba(229,74,90,.12); }
+.visual-site-page .article-depth-hud { transform: translateZ(72px); }
+.scene-axis-key {
+  position: absolute; right: .75rem; bottom: .68rem; z-index: 6;
+  display: flex; gap: .3rem; transform: translateZ(80px);
+}
+.scene-axis-key i {
+  display: grid; place-items: center; width: 1.35rem; height: 1.35rem;
+  border: 1px solid rgba(61,174,211,.18); border-radius: 5px;
+  color: #7395a8; background: rgba(1,7,11,.72); font: normal .48rem/1 var(--mono);
+}
+.scene-axis-key i:first-child { color: var(--visual-positive); }
+.scene-axis-key i:nth-child(2) { color: var(--visual-accent); }
+.scene-axis-key i:last-child { color: var(--visual-negative); }
+
+/* Landing pages share materials, not one identical composition. */
+.visual-site-page .landing-hero {
+  min-height: clamp(560px, 48vw, 690px);
+  display: grid;
+  align-items: center;
+  padding: clamp(3.2rem, 6vw, 5.8rem) 0 3.2rem;
+}
+.visual-site-page .landing-hero-grid {
+  grid-template-columns: minmax(0,.78fr) minmax(520px,1.22fr);
+  gap: clamp(1.5rem,4vw,4rem);
+}
+.visual-site-page .landing-hero h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem,5.3vw,5.45rem);
+  line-height: .92;
+  letter-spacing: -.058em;
+}
+.visual-site-page .landing-hero-visual {
+  min-height: 455px;
+  perspective: 1300px;
+  transform-style: preserve-3d;
+}
+.visual-site-page .landing-hero-visual::before {
+  inset: -12%;
+  background:
+    radial-gradient(circle at 52% 45%,rgba(60,250,210,.15),transparent 26%),
+    radial-gradient(circle at 57% 48%,rgba(61,174,211,.08),transparent 47%),
+    radial-gradient(circle,rgba(187,235,255,.24) 0 1px,transparent 1.2px);
+  background-size: auto,auto,49px 49px;
+}
+.visual-site-page .landing-hero-visual > :not(.scene-depth-plane) { transform-style: preserve-3d; }
+.visual-site-page .visual-core { transform: translate(-50%,-50%) translateZ(56px); }
+.visual-site-page .visual-node { transform: translateZ(72px); border-color: rgba(61,174,211,.18); }
+.visual-site-page .visual-orbit { transform: perspective(850px) rotateX(66deg) rotateZ(-9deg) translateZ(-24px); }
+.visual-site-page.visual-family-docs .landing-hero-grid,
+.visual-site-page.visual-family-examples .landing-hero-grid { grid-template-columns: minmax(500px,1.2fr) minmax(0,.8fr); }
+.visual-site-page.visual-family-docs .landing-hero-copy,
+.visual-site-page.visual-family-examples .landing-hero-copy { order: 2; }
+.visual-site-page.visual-family-docs .landing-hero-visual,
+.visual-site-page.visual-family-examples .landing-hero-visual { order: 1; }
+.visual-site-page.visual-family-methods .landing-hero-visual { transform: rotateY(-3deg) translateX(1rem); }
+.visual-site-page.visual-family-howto .landing-hero-visual { transform: rotateY(3deg) translateX(-.75rem); }
+
+/* Break the old equal-card / nested-panel rhythm. */
+.visual-site-page .section { padding: clamp(4rem,7vw,7rem) 0; }
+.visual-site-page .section + .section { border-top: 1px solid rgba(61,174,211,.055); }
+.visual-site-page .section-head { max-width: 880px; margin-bottom: clamp(1.8rem,3vw,3.2rem); }
+.visual-site-page .section h2 { max-width: 16ch; }
+.visual-site-page .card-grid {
+  grid-template-columns: repeat(12,minmax(0,1fr));
+  gap: clamp(.8rem,1.5vw,1.2rem);
+}
+.visual-site-page .card-grid > .depth-card { grid-column: span 6; min-height: 230px; }
+.visual-site-page .card-grid > .depth-card:nth-child(3n+1) { grid-column: span 5; }
+.visual-site-page .card-grid > .depth-card:nth-child(3n+2) { grid-column: span 7; }
+.visual-site-page .card-grid > .depth-card:nth-child(3n) { grid-column: span 12; min-height: 190px; }
+.visual-site-page .depth-card {
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 88% 12%,rgba(60,250,210,.055),transparent 33%),
+    linear-gradient(145deg,rgba(7,20,28,.76),rgba(1,7,11,.92));
+  box-shadow: 0 24px 70px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.022);
+}
+.visual-site-page .depth-card:nth-child(even) { transform: translateY(1.35rem); }
+.visual-site-page .path-grid { grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap: .8rem 1.2rem; }
+.visual-site-page .path-card { border-radius: 12px; border-left: 2px solid rgba(61,174,211,.22); }
+.visual-site-page .path-card:nth-child(4n+1),
+.visual-site-page .path-card:nth-child(4n+4) { transform: translateX(.85rem); }
+.visual-site-page .content-grid { grid-template-columns: minmax(0,1.7fr) minmax(280px,.55fr); gap: clamp(1.2rem,3vw,2.6rem); }
+.visual-site-page .content-panel { padding: clamp(1.4rem,3vw,2.2rem); border-left: 2px solid rgba(60,250,210,.22); }
+.visual-site-page .side-panel { padding: 1.2rem; }
+
+/* Long-form pages read as editorial research, not a stack of cards. */
+.visual-site-page .article-section-wrap { padding-top: clamp(3rem,5vw,5rem); }
+.visual-site-page .article-layout { grid-template-columns: minmax(0,1fr) minmax(230px,.27fr); gap: clamp(2rem,5vw,5rem); }
+.visual-site-page .article-main { max-width: 860px; }
+.visual-site-page .article-section {
+  padding: clamp(2.2rem,4vw,3.8rem) clamp(.35rem,1vw,.9rem);
+  border-top-color: rgba(61,174,211,.11);
+  background: transparent;
+}
+.visual-site-page .article-section:nth-child(even) {
+  margin-left: clamp(0rem,3vw,2.5rem);
+  background: linear-gradient(90deg,rgba(61,174,211,.018),transparent 58%);
+}
+.visual-site-page .article-section::before {
+  width: 2px; height: 3rem; top: 2.5rem;
+  background: linear-gradient(var(--visual-positive),rgba(61,174,211,.08));
+}
+.visual-site-page .article-section h2 { max-width: 19ch; font-size: clamp(2rem,4vw,3.4rem); }
+.visual-site-page .definition-card,
+.visual-site-page .boundary-card { max-width: 760px; padding: 1.15rem 1.25rem; }
+.visual-site-page .article-aside {
+  top: 6rem;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(61,174,211,.12);
+  border-radius: 14px;
+  background: linear-gradient(160deg,rgba(5,18,27,.72),rgba(1,7,11,.88));
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+}
+.visual-site-page .article-aside .side-panel {
+  border: 0; border-radius: 0; box-shadow: none; background: transparent;
+}
+.visual-site-page .article-aside .side-panel + .side-panel { border-top: 1px solid rgba(61,174,211,.1); }
+.visual-site-page .related-grid { grid-template-columns: repeat(12,minmax(0,1fr)); }
+.visual-site-page .related-link { grid-column: span 6; min-height: 112px; }
+.visual-site-page .related-link:first-child:nth-last-child(3) { grid-column: span 7; }
+.visual-site-page .related-link:nth-child(2):nth-last-child(2) { grid-column: span 5; }
+.visual-site-page .related-link:last-child:nth-child(3) { grid-column: 3 / span 8; }
+
+/* Family atmosphere: one visual language, distinct page jobs. */
+.visual-family-learning .article-hero,
+.visual-family-learning .landing-hero { background-image: radial-gradient(circle at 76% 38%,rgba(60,250,210,.095),transparent 24rem); }
+.visual-family-methods .article-hero,
+.visual-family-methods .landing-hero { background-image: radial-gradient(ellipse at 72% 48%,rgba(61,174,211,.1),transparent 30rem); }
+.visual-family-howto .article-hero,
+.visual-family-howto .landing-hero { background-image: linear-gradient(135deg,transparent 48%,rgba(60,250,210,.032) 49%,rgba(61,174,211,.025) 58%,transparent 59%); }
+.visual-family-examples .article-hero,
+.visual-family-examples .landing-hero { background-image: radial-gradient(circle at 20% 76%,rgba(229,74,90,.04),transparent 22rem),radial-gradient(circle at 78% 30%,rgba(60,250,210,.08),transparent 28rem); }
+.visual-family-trust .article-hero { background-image: linear-gradient(90deg,rgba(229,74,90,.025),transparent 35%),radial-gradient(circle at 77% 42%,rgba(61,174,211,.075),transparent 28rem); }
+.visual-family-support .article-hero { background-image: radial-gradient(circle at 77% 42%,rgba(60,250,210,.075),transparent 25rem); }
+.visual-family-updates .landing-hero { background-image: linear-gradient(180deg,rgba(61,174,211,.04),transparent 60%); }
+
+.visual-reveal-enabled .section,
+.visual-reveal-enabled .article-section,
+.visual-reveal-enabled .depth-card,
+.visual-reveal-enabled .path-card,
+.visual-reveal-enabled .visual-panel {
+  opacity: 1;
+  transform: translateY(12px);
+  transition: transform 620ms cubic-bezier(.2,.7,.2,1);
+}
+.visual-reveal-enabled .visual-revealed { opacity: 1; transform: none; }
+@keyframes visualStarDrift { to { background-position: 109px 127px, -173px 191px; } }
+
+@media(max-width:1100px){
+  .visual-site-page .article-hero{min-height:0;padding:4rem 0 2.4rem}
+  .visual-site-page .article-hero-inner,
+  .visual-site-page.visual-layout-a .article-hero-inner,
+  .visual-site-page.visual-layout-b .article-hero-inner,
+  .visual-site-page.visual-layout-c .article-hero-inner,
+  .visual-site-page.visual-layout-d .article-hero-inner{display:block;min-height:0;padding-left:0;padding-right:0;padding-bottom:0;text-align:left;align-items:stretch}
+  .visual-site-page.visual-layout-c .breadcrumb,
+  .visual-site-page.visual-layout-c .article-actions,
+  .visual-site-page.visual-layout-c .article-meta{justify-content:flex-start}
+  .visual-site-page .article-depth-scene,
+  .visual-site-page.visual-layout-b .article-depth-scene,
+  .visual-site-page.visual-layout-c .article-depth-scene,
+  .visual-site-page.visual-layout-d .article-depth-scene{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:100%;height:300px;translate:none;transform:none;margin:1.8rem 0 0}
+  .visual-site-page .landing-hero{min-height:0}
+  .visual-site-page .landing-hero-grid,
+  .visual-site-page.visual-family-docs .landing-hero-grid,
+  .visual-site-page.visual-family-examples .landing-hero-grid{grid-template-columns:1fr}
+  .visual-site-page.visual-family-docs .landing-hero-copy,
+  .visual-site-page.visual-family-examples .landing-hero-copy{order:1}
+  .visual-site-page.visual-family-docs .landing-hero-visual,
+  .visual-site-page.visual-family-examples .landing-hero-visual{order:2}
+  .visual-site-page.visual-family-methods .landing-hero-visual,
+  .visual-site-page.visual-family-howto .landing-hero-visual{transform:none}
+  .visual-site-page .content-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .visual-site-page .nav-inner{min-height:0}
+  .visual-site-page .article-hero h1,
+  .visual-site-page .landing-hero h1{font-size:clamp(2.65rem,12.5vw,4.6rem);max-width:100%}
+  .visual-site-page .landing-hero{padding-top:2.8rem}
+  .visual-site-page .landing-hero-visual{min-height:330px}
+  .visual-site-page .article-depth-scene{height:265px}
+  .visual-site-page .card-grid{grid-template-columns:1fr}
+  .visual-site-page .card-grid>.depth-card,
+  .visual-site-page .card-grid>.depth-card:nth-child(n){grid-column:auto;min-height:0;transform:none}
+  .visual-site-page .path-grid{grid-template-columns:1fr}
+  .visual-site-page .path-card:nth-child(n){transform:none}
+  .visual-site-page .article-section:nth-child(even){margin-left:0}
+  .visual-site-page .related-grid{grid-template-columns:1fr}
+  .visual-site-page .related-link,
+  .visual-site-page .related-link:first-child:nth-last-child(3),
+  .visual-site-page .related-link:nth-child(2):nth-last-child(2),
+  .visual-site-page .related-link:last-child:nth-child(3){grid-column:auto}
+  .scene-depth-plane-2,.scene-depth-plane-3{display:none}
+}
+@media(max-width:470px){
+  .visual-site-page .landing-hero-visual{min-height:295px}
+  .visual-site-page .article-depth-scene{height:235px;border-radius:15px}
+  .visual-site-page .article-depth-hud-b{display:none}
+  .visual-site-page .section{padding:3.2rem 0}
+}
+@media(prefers-reduced-motion:reduce){
+  .visual-site-page:not(.home-page)::after{animation:none}
+  .visual-reveal-enabled .section,.visual-reveal-enabled .article-section,.visual-reveal-enabled .depth-card,.visual-reveal-enabled .path-card,.visual-reveal-enabled .visual-panel{opacity:1;transform:none;transition:none}
+  .visual-site-page .article-depth-scene{transition:none}
+}
