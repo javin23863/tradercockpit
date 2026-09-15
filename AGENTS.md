@@ -10,7 +10,7 @@ Any change that affects something a customer can see must begin by reading:
 - `development/visual-skills/README.md`
 - `development/visual-skills/CHECKLIST.md`
 - the applicable vendored skills under `development/visual-skills/vendor/`
-- the relevant owner-approved visual authority under `.github/`
+- `.github/WEBSITE-CURRENT.md` — the only active website visual authority
 
 Visible work includes HTML, CSS, JS-rendered UI, WebGL/VTK scenes, screenshots, video or image presentation, responsive behavior, motion, documentation graphics, commerce surfaces, and utility/error states.
 

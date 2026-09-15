@@ -50,10 +50,8 @@ RESEARCH_VTK_BUNDLE = DOCS / "assets" / "generated" / "research-vtk-v1.js"
 HOME_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "site-webgl-v1.js"
 HOME_STYLE = DOCS / "assets" / "home-v3.css"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
-HOME_VISUAL_SPEC = REPO / ".github" / "visual-authority-home-v4.md"
-SITE_VISUAL_SPEC = REPO / ".github" / "visual-authority-site-v5.md"
-MEASURED_VISUAL_SPEC = REPO / ".github" / "visual-authority-demo-measured-v6.md"
-SITE_APPRAISAL = REPO / ".github" / "site-depth-appraisal-2026-09-11.md"
+WEBSITE_AUTHORITY = REPO / ".github" / "WEBSITE-CURRENT.md"
+SITE_APPRAISAL = REPO / ".github" / "site-appraisal-current.md"
 PUBLIC_HTML = sorted(DOCS.rglob("*.html"))
 SITEMAP = DOCS / "sitemap.xml"
 
@@ -224,35 +222,38 @@ def main() -> int:
             problems.append(f"homepage exposes internal/demo copy: {demo_marker}")
     if HOME_STYLE.is_file():
         home_style = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in ("Cinematic Quant Universe v4", "Measured demo authority v6", ".universe-deck", ".hud-node"):
+        for marker in ("CURRENT QUANT UNIVERSE AUTHORITY", "Owner-measured cinematic geometry", ".universe-deck", ".hud-node"):
             if marker not in home_style:
                 problems.append(f"homepage cinematic style missing authority marker: {marker}")
-    if not HOME_VISUAL_SPEC.is_file():
-        problems.append("missing internal homepage visual authority spec")
-    elif "The hero is a cinematic scene, not a bordered card" not in HOME_VISUAL_SPEC.read_text(encoding="utf-8"):
-        problems.append("homepage visual authority spec lost the cinematic-scene requirement")
-    if not SITE_VISUAL_SPEC.is_file():
-        problems.append("missing site-wide visual authority spec")
-    elif "Every public page must belong to the same premium quantitative-research universe" not in SITE_VISUAL_SPEC.read_text(encoding="utf-8"):
-        problems.append("site-wide visual authority spec lost the shared-universe requirement")
-    if not MEASURED_VISUAL_SPEC.is_file():
-        problems.append("missing measured demo visual authority spec")
+    if not WEBSITE_AUTHORITY.is_file():
+        problems.append("missing canonical current website authority")
     else:
-        measured = MEASURED_VISUAL_SPEC.read_text(encoding="utf-8")
-        for marker in ("935 × 1683 px", "Primary luminous teal: `#3CFAD2`", "Hero + product stage", "Measured homepage geometry"):
-            if marker not in measured:
-                problems.append(f"measured demo authority missing marker: {marker}")
+        authority = WEBSITE_AUTHORITY.read_text(encoding="utf-8")
+        for marker in (
+            "CURRENT / ONLY ACTIVE WEBSITE AUTHORITY",
+            "Core — $19.99/month",
+            "persistent ambient 3D field",
+            "935 × 1683 px",
+        ):
+            if marker not in authority:
+                problems.append(f"current website authority missing marker: {marker}")
     if not SITE_APPRAISAL.is_file():
-        problems.append("missing site-wide rendered appraisal receipt")
+        problems.append("missing current site appraisal")
     else:
         appraisal = SITE_APPRAISAL.read_text(encoding="utf-8")
-        if "41/41 public HTML pages" not in appraisal or "one public monthly plan with no unfinished expansion controls" not in appraisal:
-            problems.append("site-wide rendered appraisal receipt is incomplete")
+        for marker in (
+            "82/82 renders; BAD=0",
+            "Core $19.99",
+            "ApolloPro $150",
+            "WebGL deterministic rebuild: PASS",
+        ):
+            if marker not in appraisal:
+                problems.append(f"current site appraisal missing marker: {marker}")
     if not SITE_STYLE.is_file():
         problems.append("missing shared cinematic site stylesheet")
     else:
         site_style = SITE_STYLE.read_text(encoding="utf-8")
-        for marker in ("Site-wide cinematic appraisal pass - 2026-09-11", ".utility-stage", ".pricing-tier-tabs", "Research Lab palette authority", "Subject-specific article research scenes"):
+        for marker in ("CURRENT WEBSITE AUTHORITY", ".utility-stage", "Research Lab palette authority", "Subject-specific article research scenes"):
             if marker not in site_style:
                 problems.append(f"site-wide cinematic style missing authority marker: {marker}")
     if SITE_SEARCH.is_file():

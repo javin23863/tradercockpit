@@ -1,6 +1,6 @@
 # TraderCockpit Public Design Authority
 
-This file is the product-facing UX authority for every public TraderCockpit page. The process is adapted from the DesignMotionHQ UX Engine methodology; it is a review method, not a visual-style donor. Existing TraderCockpit visual authority, measured geometry, product truth, and data provenance remain controlling.
+This file is the product-facing UX authority for every public TraderCockpit page. The process is adapted from the DesignMotionHQ UX Engine methodology; it is a review method, not a visual-style donor. The canonical TraderCockpit website visual authority is `.github/WEBSITE-CURRENT.md`; its measured geometry, product truth, and data provenance remain controlling.
 
 ## Shipping rule
 
@@ -72,4 +72,4 @@ Primary destinations remain visible in ordinary navigation; search is an acceler
 
 ## Release evidence
 
-The DesignMotion audit produces browser evidence under `.github/evidence/designmotion-ux-audit-v1/`. The machine-readable page authority is `docs/ux-page-contracts.v1.json`, enforced by `.github/scripts/check_public_ux.py` in the `website-integrity` workflow.
+Current rendered acceptance is recorded only under `.github/evidence/current-website/` and `.github/site-appraisal-current.md`. The machine-readable page authority is `docs/ux-page-contracts.v1.json`, enforced by `.github/scripts/check_public_ux.py` in the `website-integrity` workflow.
