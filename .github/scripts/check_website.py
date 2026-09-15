@@ -262,8 +262,15 @@ def main() -> int:
         if "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:
             problems.append(f"public page missing shared cinematic stylesheet: {page.relative_to(REPO)}")
     pricing_text = (DOCS / "pricing" / "index.html").read_text(encoding="utf-8")
-    if "pricing-tier-tab" in pricing_text or ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text or "Reserved pricing expansion slot" in pricing_text:
-        problems.append("pricing must expose only the verified current plan, with no unfinished expansion controls")
+    if pricing_text.count("data-commerce-plan") != 1:
+        problems.append("pricing must expose exactly one verified commerce plan")
+    if "pricing-tier-tab" in pricing_text:
+        if pricing_text.count('class="pricing-tier-tab" aria-disabled="true">Reserved</span>') != 2:
+            problems.append("pricing expansion slots must remain exactly two non-interactive Reserved tabs")
+        if '<button class="pricing-tier-tab' in pricing_text:
+            problems.append("reserved pricing expansion slots must not be interactive controls")
+    if ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text or "Reserved pricing expansion slot" in pricing_text:
+        problems.append("pricing must not publish unapproved future tier claims")
     for utility in (DOCS / "confirmed.html", DOCS / "thanks.html", DOCS / "refund-policy.html"):
         if 'class="utility-page"' not in utility.read_text(encoding="utf-8"):
             problems.append(f"utility page missing cinematic stage contract: {utility.relative_to(REPO)}")

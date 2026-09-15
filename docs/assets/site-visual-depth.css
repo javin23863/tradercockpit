@@ -317,3 +317,127 @@
   line-height: 1;
   overflow-wrap: anywhere;
 }
+
+/* Owner-reference parity overhaul — remove the repeated generic orb treatment. */
+.visual-site-page .article-hero:has(.article-depth-scene)::before,
+.visual-site-page .article-hero:has(.article-depth-scene) .article-hero-inner::before,
+.visual-site-page .article-hero:has(.article-depth-scene) .article-hero-inner::after {
+  display:none;
+}
+.visual-site-page .article-hero:has(.article-depth-scene) {
+  min-height:clamp(500px,44vw,640px);
+  background:
+    radial-gradient(ellipse at 78% 44%,rgba(61,174,211,.10),transparent 29%),
+    radial-gradient(ellipse at 18% 82%,rgba(60,250,210,.035),transparent 34%),
+    linear-gradient(180deg,#010509,#04111a 58%,#010509);
+}
+.visual-site-page .article-hero:has(.article-depth-scene)::after {
+  right:-3%; bottom:-44%; width:66%; height:76%; opacity:.72;
+  background:linear-gradient(rgba(61,174,211,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(61,174,211,.09) 1px,transparent 1px);
+  background-size:38px 26px;
+}
+.visual-site-page .article-hero:has(.article-depth-scene) .article-hero-inner {
+  padding-right:min(47vw,620px);
+}
+.visual-site-page .article-depth-scene {
+  width:min(46vw,610px);
+  height:365px;
+  border-color:rgba(61,174,211,.28);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 52% 46%,rgba(60,250,210,.12),transparent 34%),
+    linear-gradient(145deg,rgba(7,23,34,.9),rgba(1,6,10,.76));
+  box-shadow:0 38px 110px rgba(0,0,0,.52),0 0 48px rgba(61,174,211,.08),inset 0 1px rgba(255,255,255,.04);
+  transform:perspective(1100px) rotateY(-5deg) rotateX(2deg);
+}
+.visual-site-page .article-depth-scene::before {
+  inset:-18% -10%;
+  border-color:rgba(60,250,210,.28);
+  transform:rotate(-8deg) scaleY(.48);
+}
+.visual-site-page .article-depth-scene::after {
+  left:-18%; right:-18%; bottom:-34%; height:64%; opacity:.68;
+}
+.visual-site-page .article-depth-scene svg {
+  filter:drop-shadow(0 0 20px rgba(61,174,211,.14));
+}
+.visual-site-page .article-depth-hud {
+  border-color:rgba(61,174,211,.38);
+  background:linear-gradient(145deg,rgba(3,15,23,.92),rgba(1,6,10,.76));
+}
+.visual-family-learning .article-depth-scene,
+.visual-family-docs .article-depth-scene { border-color:rgba(61,174,211,.34); }
+.visual-family-methods .article-depth-scene { border-color:rgba(88,142,255,.3); transform:perspective(1100px) rotateY(5deg) rotateX(1deg); }
+.visual-family-howto .article-depth-scene { border-color:rgba(60,250,210,.34); }
+.visual-family-examples .article-depth-scene { border-color:rgba(229,74,90,.28); }
+.visual-family-support .article-depth-scene {
+  border-color:rgba(61,174,211,.36);
+  background:radial-gradient(circle at 50% 48%,rgba(61,174,211,.14),transparent 36%),linear-gradient(145deg,rgba(6,22,34,.92),rgba(1,6,10,.8));
+}
+.visual-family-trust .article-depth-scene {
+  border-color:rgba(229,74,90,.3);
+  background:radial-gradient(circle at 60% 42%,rgba(229,74,90,.10),transparent 38%),linear-gradient(145deg,rgba(13,18,27,.92),rgba(1,6,10,.8));
+}
+.visual-family-commerce .article-depth-scene {
+  border-color:rgba(60,250,210,.44);
+  box-shadow:0 38px 110px rgba(0,0,0,.52),0 0 54px rgba(60,250,210,.10),inset 0 1px rgba(255,255,255,.04);
+}
+.visual-family-updates .article-depth-scene { transform:perspective(1100px) rotateY(-2deg) rotateX(3deg); }
+.visual-site-page .landing-hero-visual {
+  min-height:390px;
+  filter:drop-shadow(0 30px 70px rgba(0,0,0,.42));
+}
+.visual-family-commerce .section { padding:clamp(2.8rem,4vw,4.6rem) 0; }
+.visual-family-commerce .pricing-core { padding-top:3rem; }
+.visual-family-commerce .pricing-core .pricing-tier-tabs { margin:0 0 1rem auto; }
+.visual-family-commerce .pricing-stage {
+  grid-template-columns:minmax(300px,.56fr) minmax(0,1.44fr);
+  gap:1rem;
+  align-items:center;
+}
+.visual-family-commerce .pricing-stage>.price-card {
+  border-color:rgba(60,250,210,.52);
+  border-radius:20px;
+  background:radial-gradient(circle at 82% 14%,rgba(60,250,210,.12),transparent 28%),linear-gradient(145deg,rgba(7,23,34,.96),rgba(1,6,10,.99));
+  box-shadow:0 34px 90px rgba(0,0,0,.5),0 0 42px rgba(60,250,210,.08);
+}
+.visual-family-commerce .pricing-stage>.price-context {
+  border-color:rgba(61,174,211,.24);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(8,23,34,.88),rgba(1,6,10,.98));
+  box-shadow:0 32px 88px rgba(0,0,0,.42);
+}
+.visual-family-commerce .pricing-product-preview {
+  position:relative;
+  margin:1.1rem 0 1.3rem;
+  padding:.55rem .55rem .95rem;
+  border:1px solid rgba(61,174,211,.3);
+  border-radius:16px;
+  background:linear-gradient(145deg,rgba(12,28,39,.96),rgba(1,6,10,.99));
+  box-shadow:0 32px 80px rgba(0,0,0,.52),0 0 32px rgba(61,174,211,.06);
+  transform:perspective(1300px) rotateX(3deg) rotateY(-2deg);
+}
+.visual-family-commerce .pricing-product-preview img { display:block; width:100%; height:auto; border-radius:11px; }
+.visual-family-commerce .pricing-product-preview figcaption { margin-top:.45rem; text-align:center; color:#6f8797; font-size:.65rem; }
+.visual-family-commerce .content-grid { grid-template-columns:minmax(0,1.55fr) minmax(300px,.45fr); }
+.visual-family-commerce .content-panel,
+.visual-family-commerce .side-panel { min-height:100%; }
+.visual-family-commerce .section-head h2 { max-width:15ch; font-size:clamp(2.5rem,4.4vw,4.3rem); line-height:.94; }
+.visual-family-commerce .card-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem; }
+.visual-family-commerce .depth-card { min-height:210px; }
+@media(max-width:980px){
+  .visual-family-commerce .pricing-stage{grid-template-columns:1fr}
+  .visual-family-commerce .pricing-core .pricing-tier-tabs{margin-left:0}
+  .visual-family-commerce .content-grid{grid-template-columns:1fr}
+  .visual-family-commerce .card-grid{grid-template-columns:1fr}
+  .visual-family-commerce .pricing-product-preview{transform:none}
+}
+@media(max-width:1100px){
+  .visual-site-page .article-hero:has(.article-depth-scene) .article-hero-inner{padding-right:0}
+  .visual-site-page .article-depth-scene{width:100%;height:320px;transform:none}
+}
+.pricing-tier-tab[aria-disabled="true"] {
+  border-color:rgba(255,255,255,.065);
+  color:#597082;
+  cursor:default;
+}
