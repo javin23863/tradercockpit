@@ -3,8 +3,16 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
 
 (() => {
   'use strict';
-  const canvas = document.querySelector('#quant-universe-canvas');
-  if (!canvas) return;
+  let canvas = document.querySelector('#quant-universe-canvas');
+  const ambient = !canvas;
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'quant-ambient-canvas';
+    canvas.className = 'quant-ambient-canvas';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.prepend(canvas);
+    document.documentElement.dataset.quantAmbient = 'active';
+  }
 
   const pause = document.querySelector('#quant-universe-pause');
   const reset = document.querySelector('#quant-universe-reset');
@@ -48,7 +56,26 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   root.rotation.x = -0.05;
   scene.add(root);
 
-  scene.add(new THREE.HemisphereLight(0x8eefff, 0x010509, 1.0));
+  const ambientBase = new THREE.Vector3();
+  if (ambient) {
+    const route = location.pathname.toLowerCase();
+    const anchors = route.includes('/docs/') ? [-1.85, 0.25, -1.1]
+      : route.includes('/learn/') ? [1.75, 0.15, -1.25]
+      : route.includes('/methods/') ? [-1.55, -0.05, -1.4]
+      : route.includes('/how-to/') ? [1.55, -0.1, -1.3]
+      : route.includes('/examples/') ? [-1.45, 0.05, -1.25]
+      : route.includes('/trust/') ? [1.35, 0.05, -1.35]
+      : route.includes('/support/') ? [0.0, -0.05, -1.55]
+      : route.includes('/pricing/') ? [1.45, -0.15, -1.15]
+      : [0.0, 0.0, -1.45];
+    root.position.set(...anchors);
+    ambientBase.copy(root.position);
+    root.scale.setScalar(mobile ? 0.56 : 0.78);
+    camera.position.set(0.1, 0.65, mobile ? 10.8 : 9.6);
+    camera.lookAt(0, 0.0, 0);
+  }
+
+  scene.add(new THREE.HemisphereLight(0x8eefff, 0x010509, ambient ? 0.72 : 1.0));
   const tealLight = new THREE.PointLight(0x3cfad2, 18, 13, 2.1);
   tealLight.position.set(-3.2, 3.6, 4.8);
   scene.add(tealLight);
@@ -247,6 +274,46 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     orbitGroup.add(line);
   });
 
+  // Spatial research gates: decorative infrastructure that gives the universe a true foreground/midground/background stack.
+  const gateGroup = new THREE.Group();
+  gateGroup.position.set(0, 0.42, -1.15);
+  root.add(gateGroup);
+  [
+    [4.45, 0.020, -0.54, TEAL, ambient ? 0.14 : 0.28],
+    [4.95, 0.014, -0.18, CYAN, ambient ? 0.12 : 0.24],
+    [5.45, 0.010, 0.26, RED, ambient ? 0.08 : 0.16],
+  ].forEach(([radius, tube, rz, color, opacity], index) => {
+    const gate = new THREE.Mesh(
+      new THREE.TorusGeometry(radius, tube, 5, mobile ? 96 : 180),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false }),
+    );
+    gate.rotation.y = Math.PI / 2;
+    gate.rotation.z = rz;
+    gate.position.z = -index * 0.7;
+    gateGroup.add(gate);
+  });
+
+  const shardGroup = new THREE.Group();
+  shardGroup.position.set(0, -0.35, -0.6);
+  root.add(shardGroup);
+  const shardGeometry = new THREE.BoxGeometry(0.045, 0.52, 1.25);
+  for (let i = 0; i < (mobile ? 12 : 26); i += 1) {
+    const side = i % 2 === 0 ? -1 : 1;
+    const color = i % 7 === 0 ? RED : i % 3 === 0 ? CYAN : TEAL;
+    const shard = new THREE.Mesh(shardGeometry, new THREE.MeshBasicMaterial({
+      color,
+      transparent: true,
+      opacity: ambient ? 0.11 : 0.22,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    }));
+    shard.position.set(side * (3.2 + (i % 6) * 0.42), -1.3 + (i % 5) * 0.48, -2.8 + (i % 4) * 1.15);
+    shard.rotation.y = side * (0.18 + (i % 3) * 0.08);
+    shard.rotation.z = side * 0.04 * (i % 4);
+    shard.scale.y = 0.55 + (i % 5) * 0.18;
+    shardGroup.add(shard);
+  }
+
   const satellites = [];
   for (let i = 0; i < 7; i += 1) {
     const material = new THREE.MeshStandardMaterial({
@@ -441,6 +508,16 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   let targetPitch = -0.04;
   let yaw = targetYaw;
   let pitch = targetPitch;
+  let ambientScroll = 0;
+  if (ambient) {
+    const updateAmbientScroll = () => {
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      ambientScroll = Math.max(0, Math.min(1, scrollY / maxScroll));
+      if (!autoMotion) render();
+    };
+    updateAmbientScroll();
+    addEventListener('scroll', updateAmbientScroll, { passive: true });
+  }
 
   function render(now = performance.now()) {
     resize();
@@ -449,12 +526,25 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     if (autoMotion && !document.hidden) targetYaw += dt * 0.055;
     yaw += (targetYaw - yaw) * Math.min(1, dt * 4.5);
     pitch += (targetPitch - pitch) * Math.min(1, dt * 4.5);
-    root.rotation.y = yaw;
-    root.rotation.x = -0.05 + pitch;
+    const scrollYaw = ambient ? (ambientScroll - 0.5) * 1.15 : 0;
+    const scrollWave = ambient ? Math.sin(ambientScroll * Math.PI * 2) : 0;
+    root.rotation.y = yaw + scrollYaw;
+    root.rotation.x = -0.05 + pitch + (ambient ? (ambientScroll - 0.5) * 0.16 : 0);
+    if (ambient) {
+      root.position.x = ambientBase.x + scrollWave * 0.72;
+      root.position.y = ambientBase.y + Math.cos(ambientScroll * Math.PI * 1.5) * 0.32;
+      root.position.z = ambientBase.z - Math.sin(ambientScroll * Math.PI) * 0.9;
+      camera.position.x = 0.1 - scrollWave * 0.18;
+      camera.position.y = 0.65 + Math.sin(ambientScroll * Math.PI) * 0.34;
+    }
     globe.rotation.y += autoMotion ? dt * 0.045 : 0;
     shell.rotation.y = globe.rotation.y * 0.78;
     points.rotation.y = -globe.rotation.y * 0.42;
     haloGroup.rotation.y = -globe.rotation.y * 0.18;
+    gateGroup.rotation.y = Math.sin(now * 0.00011) * 0.08;
+    gateGroup.rotation.z = Math.sin(now * 0.00008) * 0.025;
+    shardGroup.position.y = -0.35 + Math.sin(now * 0.00019) * 0.08;
+    shardGroup.rotation.y = Math.sin(now * 0.00013) * 0.035;
     terrainWire.position.y = Math.sin(now * 0.00042) * 0.016;
     marketTrails.position.y = Math.sin(now * 0.00065) * 0.022;
     satellites.forEach((mesh, i) => {

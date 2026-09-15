@@ -273,7 +273,12 @@
     } else if (kind === 'metrics') {
       [150,260,370].forEach((x,i)=>{addSvg(svg,'circle',{cx:x,cy:168,r:54,fill:'none',stroke:cyan,'stroke-width':8,'stroke-opacity':.14});addSvg(svg,'circle',{cx:x,cy:168,r:54,fill:'none',stroke:i===1?red:green,'stroke-width':8,'stroke-dasharray':`${180-i*34} 360`,'stroke-linecap':'round','stroke-opacity':.76,transform:`rotate(-90 ${x} 168)`});});
     } else if (kind === 'pricing') {
-      [70,205,340].forEach((x,i)=>{rect(x,82,112,174,i===0?'#082b2b':'#06131f',i===0?green:cyan,i===0?.75:.24,12);line(x+18,128,x+94,128,i===0?green:cyan,.35,2);line(x+18,152,x+80,152,cyan,.18,1);line(x+18,176,x+88,176,cyan,.18,1);line(x+18,226,x+94,226,i===0?green:cyan,.42,2);});
+      addSvg(svg,'ellipse',{cx:260,cy:168,rx:190,ry:78,fill:'none',stroke:green,'stroke-width':1.3,'stroke-opacity':.34,transform:'rotate(-9 260 168)'});
+      addSvg(svg,'ellipse',{cx:260,cy:168,rx:154,ry:58,fill:'none',stroke:cyan,'stroke-width':1.1,'stroke-opacity':.24,transform:'rotate(14 260 168)'});
+      const tiers=[{x:112,y:102,label:'$19.99',color:cyan},{x:408,y:102,label:'$49.99',color:green},{x:112,y:234,label:'$99.99',color:cyan},{x:408,y:234,label:'$150',color:green}];
+      tiers.forEach(({x,y,label,color},i)=>{line(260,168,x,y,color,.24,1);rect(x-48,y-31,96,62,'#04151d',color,i===3?.58:.32,9);line(x-34,y-10,x+34,y-10,color,.35,1.4);const tx=addSvg(svg,'text',{x,y:y+12,fill:color,'fill-opacity':.9,'font-size':13,'font-family':'monospace','font-weight':700,'text-anchor':'middle'});tx.textContent=label;});
+      circle(260,168,38,green,.12);circle(260,168,7,green,.9);
+      const core=addSvg(svg,'text',{x:260,y:203,fill:cyan,'fill-opacity':.68,'font-size':8,'font-family':'monospace','font-weight':700,'letter-spacing':1.5,'text-anchor':'middle'});core.textContent='4 TIERS';
     } else if (kind === 'boundary') {
       line(264,56,264,286,red,.58,1.5); for(let i=0;i<6;i++){circle(96+i*20,92+i*26,4,cyan,.66);line(110+i*20,92+i*26,244,92+i*26,cyan,.24,1);} line(286,112,446,112,green,.42,2); line(286,168,420,168,green,.28,1); line(286,224,458,224,green,.22,1);
     } else if (kind === 'timeline') {
@@ -291,7 +296,7 @@
       paths: ['RESAMPLE', 'RANGE'], validation: ['SELECT', 'EVALUATE'],
       surface: ['NEIGHBORHOOD', 'STABILITY'], regime: ['STATE', 'COORDINATES'],
       chart: ['TIME BASIS', 'EVIDENCE'], metrics: ['UNIT', 'SAMPLE'],
-      pricing: ['CURRENT PLAN', 'ACCESS PATH'], boundary: ['SOURCE', 'BOUNDARY'],
+      pricing: ['FOUR TIERS', 'ACCESS FIELD'], boundary: ['SOURCE', 'BOUNDARY'],
       timeline: ['PUBLISHED', 'CURRENT'], orbit: ['RESEARCH', 'CONTEXT']
     };
     return labels[kind] || labels.orbit;
@@ -451,5 +456,23 @@
 
   if (reducedMotion) {
     revealTargets.forEach((target) => target.classList.add('visual-revealed'));
+  }
+
+  // Load the same production Quant Universe renderer as a persistent ambient field on public pages.
+  // Research Lab keeps its dedicated VTK/WebGL analytical renderers and does not double-mount this scene.
+  if (!path.includes('research-lab') && !document.querySelector('#quant-universe-canvas') && !document.querySelector('script[data-quant-ambient-loader]')) {
+    const sourceScript = [...document.scripts].find((item) => item.src && item.src.includes('/assets/site-search.js'));
+    if (sourceScript?.src) {
+      const universeScript = document.createElement('script');
+      universeScript.src = new URL('generated/site-webgl-v1.js', sourceScript.src).href;
+      universeScript.defer = true;
+      universeScript.dataset.quantAmbientLoader = 'true';
+      document.head.append(universeScript);
+      const telemetry = document.createElement('div');
+      telemetry.className = 'quant-ambient-telemetry';
+      telemetry.setAttribute('aria-hidden', 'true');
+      telemetry.innerHTML = '<b>QUANT UNIVERSE</b><span>SYNTHETIC RESEARCH FIELD</span><i class="q-positive">+</i><i class="q-negative">−</i><i class="q-neutral">○</i>';
+      document.body.append(telemetry);
+    }
   }
 })();

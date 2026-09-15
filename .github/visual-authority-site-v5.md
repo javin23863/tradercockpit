@@ -35,7 +35,7 @@ Reading remains primary. Each article gets a subject-specific research scene plu
 Screen presentation belongs to the cinematic system, while print/PDF output remains compact and evidence-first. Screen styling must not degrade print legibility or the one-page audit purpose.
 
 ### Pricing & Access
-Only verified commerce data may populate a tier. The current public record is TraderCockpit Monthly at $150/month. Pricing must retain a tier-navigation rail with one active verified tier plus disabled reserved expansion slots. Reserved slots are structural only: no future tier name, price, entitlement, discount, or benefit may be invented before a verified record exists.
+Only approved commerce data may populate a tier. The current owner-approved four-tier pricing record is Core $19.99/month, Trader $49.99/month, Quant $99.99/month, and ApolloPro $150/month. Pricing must show all four tiers together and keep checkout disabled until payment-to-entitlement provisioning is verified. Tier-specific entitlements, discounts, or benefits must not be invented beyond their approved product contracts.
 
 ## Interaction and motion
 - Decorative motion is slow and subordinate to comprehension.
@@ -47,7 +47,7 @@ Only verified commerce data may populate a tier. The current public record is Tr
 - No horizontal overflow at 390px.
 - Cinematic objects may crop intentionally, but primary copy and controls may not clip.
 - Remove secondary HUD/detail layers before shrinking critical text into illegibility.
-- Pricing future-tier slots remain visible as reserved structure on mobile.
+- All four approved pricing tiers remain visible and legible on mobile.
 - The Research Lab retains its visual atlas and usable controls on mobile.
 
 ## Appraisal acceptance

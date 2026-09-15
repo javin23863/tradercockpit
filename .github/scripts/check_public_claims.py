@@ -44,6 +44,17 @@ def main() -> int:
     plan = commerce.get("plan") or {}
     if not isinstance(plan.get("unitAmount"), int) or plan.get("unitAmount", 0) <= 0: problems.append("public commerce plan must expose a positive integer unitAmount")
     if not re.fullmatch(r"price_[A-Za-z0-9]+", str(plan.get("stripePriceId", ""))): problems.append("public commerce plan has invalid Stripe price id")
+    expected_tiers = [
+        {"name": "Core", "unitAmount": 1999, "interval": "month"},
+        {"name": "Trader", "unitAmount": 4999, "interval": "month"},
+        {"name": "Quant", "unitAmount": 9999, "interval": "month"},
+        {"name": "ApolloPro", "unitAmount": 15000, "interval": "month"},
+    ]
+    tiers = commerce.get("tiers")
+    if tiers != expected_tiers:
+        problems.append("public commerce tiers must match the approved four-tier pricing record")
+    if plan.get("name") != "ApolloPro" or plan.get("unitAmount") != 15000:
+        problems.append("Stripe-bound commerce plan must remain ApolloPro at $150/month")
 
     if manifest.get("status") != "waitlist":
         problems.append(f"expected current public status waitlist, got {manifest.get('status')!r}")

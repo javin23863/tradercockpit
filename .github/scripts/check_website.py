@@ -205,6 +205,9 @@ def main() -> int:
             "new BloomEffect",
             "prefers-reduced-motion",
             "webglcontextlost",
+            "quant-ambient-canvas",
+            "gateGroup",
+            "ambientScroll",
             "#3cfad2",
             "#e54a5a",
             "#3daed3",
@@ -254,7 +257,7 @@ def main() -> int:
                 problems.append(f"site-wide cinematic style missing authority marker: {marker}")
     if SITE_SEARCH.is_file():
         site_search = SITE_SEARCH.read_text(encoding="utf-8")
-        for marker in ("function depthSceneKind", "function buildDepthGraphic", "article-depth-scene", "depth-scene-${kind}"):
+        for marker in ("function depthSceneKind", "function buildDepthGraphic", "article-depth-scene", "depth-scene-${kind}", "quant-ambient-telemetry", "data-quant-ambient-loader"):
             if marker not in site_search:
                 problems.append(f"site-wide subject visual system missing authority marker: {marker}")
     for page in PUBLIC_HTML:
@@ -263,14 +266,18 @@ def main() -> int:
             problems.append(f"public page missing shared cinematic stylesheet: {page.relative_to(REPO)}")
     pricing_text = (DOCS / "pricing" / "index.html").read_text(encoding="utf-8")
     if pricing_text.count("data-commerce-plan") != 1:
-        problems.append("pricing must expose exactly one verified commerce plan")
-    if "pricing-tier-tab" in pricing_text:
-        if pricing_text.count('class="pricing-tier-tab" aria-disabled="true">Reserved</span>') != 2:
-            problems.append("pricing expansion slots must remain exactly two non-interactive Reserved tabs")
-        if '<button class="pricing-tier-tab' in pricing_text:
-            problems.append("reserved pricing expansion slots must not be interactive controls")
-    if ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text or "Reserved pricing expansion slot" in pricing_text:
-        problems.append("pricing must not publish unapproved future tier claims")
+        problems.append("pricing must expose exactly one Stripe-bound commerce plan")
+    expected_tiers = (("Core", "$19.99"), ("Trader", "$49.99"), ("Quant", "$99.99"), ("ApolloPro", "$150"))
+    if pricing_text.count('class="tier-card ') != 4:
+        problems.append("pricing must expose exactly four approved tier cards")
+    for tier_name, tier_price in expected_tiers:
+        if tier_name not in pricing_text or tier_price not in pricing_text:
+            problems.append(f"pricing missing approved tier {tier_name} at {tier_price}")
+    if home_text.count('class="home-tier-card ') != 4:
+        problems.append("homepage must expose exactly four approved pricing tiers")
+    for tier_name, tier_price in expected_tiers:
+        if tier_name not in home_text or tier_price not in home_text:
+            problems.append(f"homepage pricing missing approved tier {tier_name} at {tier_price}")
     for utility in (DOCS / "confirmed.html", DOCS / "thanks.html", DOCS / "refund-policy.html"):
         if 'class="utility-page"' not in utility.read_text(encoding="utf-8"):
             problems.append(f"utility page missing cinematic stage contract: {utility.relative_to(REPO)}")
