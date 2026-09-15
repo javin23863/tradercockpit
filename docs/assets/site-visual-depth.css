@@ -450,3 +450,16 @@
 .visual-site-page.visual-layout-c .article-hero:has(.article-depth-scene) .article-hero-inner {
   padding-right: 0;
 }
+
+@media(max-width:1100px){
+  .visual-site-page.visual-layout-b .article-hero:has(.article-depth-scene) .article-hero-inner{
+    padding-left:0;
+    padding-right:0;
+  }
+  .visual-site-page.visual-layout-b .article-depth-scene,
+  .visual-site-page.visual-layout-d .article-depth-scene{
+    left:auto;
+    right:auto;
+    transform:none;
+  }
+}
