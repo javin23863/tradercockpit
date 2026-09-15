@@ -1,4 +1,4 @@
-﻿# TraderCockpit Public Design Authority
+# TraderCockpit Public Design Authority
 
 This file is the product-facing UX authority for every public TraderCockpit page. The process is adapted from the DesignMotionHQ UX Engine methodology; it is a review method, not a visual-style donor. Existing TraderCockpit visual authority, measured geometry, product truth, and data provenance remain controlling.
 
@@ -6,6 +6,11 @@ This file is the product-facing UX authority for every public TraderCockpit page
 
 A public page is not complete because it renders. Before release it must pass all eight review dimensions below, desktop and mobile browser acceptance, public-claims checks, and the repository's visual/data integrity gates. Every public HTML page has a corresponding record in `docs/ux-page-contracts.v1.json`.
 
+## Mandatory visual-development skills
+
+Visible work must use the checked-in authorities under `development/visual-skills/`. At minimum, reviewers read the vendored Vercel web-design guidance, Taste redesign/image-to-code guidance, relevant `awesome-design-md` references, and `development/visual-skills/CHECKLIST.md`. Exact upstream revisions are recorded in `development/visual-skills/UPSTREAMS.json`.
+
+These external skills are mandatory review inputs, not a substitute for TraderCockpit truth. Product manifests, owner-approved screenshots, measured geometry, accessibility, data provenance, and this document take precedence when guidance conflicts. A visual PASS requires fresh rendered desktop and mobile evidence from the reviewed commit; source review or inherited audit metadata alone cannot close parity.
 ## 1. Intent discovery
 
 Name the audience, the single job the page should help them complete, and the worst mistake the page could cause. A page may educate, sell, route, explain, or resolve a state, but it must not attempt all of those at equal priority.

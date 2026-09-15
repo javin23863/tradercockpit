@@ -8,6 +8,8 @@ on:
       - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
       - "DESIGN.md"
+      - "AGENTS.md"
+      - "development/**"
   pull_request:
     paths:
       - "docs/**"
@@ -15,6 +17,8 @@ on:
       - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
       - "DESIGN.md"
+      - "AGENTS.md"
+      - "development/**"
 
 jobs:
   integrity:
@@ -34,6 +38,8 @@ jobs:
           npm ci --prefix .github/site-build --ignore-scripts --no-audit --no-fund
           npm run build --prefix .github/site-build
           git diff --exit-code -- docs/assets/generated/site-webgl-v1.js docs/assets/generated/research-vtk-v1.js docs/assets/generated/research-vtk-v1.LICENSE.txt docs/assets/generated/research-vtk-v1.PROVENANCE.json
+      - name: Validate mandatory visual-development skills
+        run: python .github/scripts/check_visual_skill_authority.py
       - name: Validate site architecture and registries
         run: python .github/scripts/check_website.py
       - name: Validate public-site hardening contracts

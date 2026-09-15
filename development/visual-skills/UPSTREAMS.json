@@ -1,0 +1,35 @@
+{
+  "schema": "tradercockpit.visual-skill-upstreams/v1",
+  "captured_at": "2026-09-15",
+  "sources": [
+    {
+      "name": "awesome-design-md",
+      "url": "https://github.com/VoltAgent/awesome-design-md",
+      "commit": "8147538b4226ae41e2487a9179e3bcc1f68e8554",
+      "vendored_path": "vendor/awesome-design-md",
+      "license": "MIT"
+    },
+    {
+      "name": "vercel-agent-skills/web-design-guidelines",
+      "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "vendored_path": "vendor/vercel-agent-skills/web-design-guidelines",
+      "license": "MIT (upstream repository README)"
+    },
+    {
+      "name": "vercel-web-interface-guidelines",
+      "url": "https://github.com/vercel-labs/web-interface-guidelines",
+      "commit": "e3d624baaf29dc1fc645aff3e38f03e564d2d6b1",
+      "vendored_path": "vendor/vercel-web-interface-guidelines",
+      "license": "MIT",
+      "note": "Pinned command.md snapshot used by the Vercel skill; online final reviews should also check upstream for newer guidance."
+    },
+    {
+      "name": "taste-skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "commit": "ccbc15639c97057cbfcf32ecebc38ef716e4bb37",
+      "vendored_path": "vendor/taste-skill",
+      "license": "MIT"
+    }
+  ]
+}

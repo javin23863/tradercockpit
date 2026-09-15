@@ -208,7 +208,8 @@
     if (/(chart-evidence|replay-boundary)/.test(path)) return 'chart';
     if (path.includes('result-metrics')) return 'metrics';
     if (path.includes('/pricing/')) return 'pricing';
-    if (/(support|help\.html|404\.html)/.test(path)) return 'network';
+    if (path.includes('404.html')) return 'missing';
+    if (/(support|help\.html)/.test(path)) return 'support';
     if (/(trust|privacy|refund-policy)/.test(path)) return 'boundary';
     if (path.includes('/updates/')) return 'timeline';
     if (/(glossary|start-here|videos)/.test(path)) return 'knowledge';
@@ -227,7 +228,22 @@
     const line = (x1,y1,x2,y2,stroke=cyan,opacity=.45,width=1) => addSvg(svg,'line',{x1,y1,x2,y2,stroke,'stroke-opacity':opacity,'stroke-width':width});
     const circle = (cx,cy,r,fill=cyan,opacity=.72) => addSvg(svg,'circle',{cx,cy,r,fill,'fill-opacity':opacity});
     const rect = (x,y,width,height,fill='none',stroke=cyan,opacity=.45,rx=8) => addSvg(svg,'rect',{x,y,width,height,rx,fill,stroke,'stroke-opacity':opacity,'fill-opacity':fill==='none'?0:opacity});
-    if (kind === 'network' || kind === 'knowledge') {
+    if (kind === 'support') {
+      circle(260,160,38,green,.14); circle(260,160,8,green,.9);
+      [[92,84],[92,160],[92,236],[428,84],[428,160],[428,236]].forEach(([x,y],i)=>{
+        rect(x-38,y-17,76,34,'#06131f',i<3?cyan:green,.34,8);
+        line(x<260?x+38:298,y,x<260?222:x-38,y,i%2?green:cyan,.42,1.3);
+        circle(x,y,3,i%2?green:cyan,.8);
+      });
+      addSvg(svg,'path',{d:'M222 160 C202 126 188 116 168 108 M298 160 C318 126 332 116 352 108 M222 160 C202 194 188 204 168 212 M298 160 C318 194 332 204 352 212',fill:'none',stroke:cyan,'stroke-width':1.4,'stroke-opacity':.28});
+    } else if (kind === 'missing') {
+      rect(72,86,146,152,'#06131f',cyan,.22,14); rect(302,86,146,152,'#06131f',green,.22,14);
+      line(218,162,248,162,red,.5,2); line(272,162,302,162,red,.5,2);
+      addSvg(svg,'path',{d:'M246 150 L258 162 L246 174 M274 150 L262 162 L274 174',fill:'none',stroke:red,'stroke-width':2.4,'stroke-opacity':.8});
+      [112,138,190].forEach((y,i)=>line(98,y,192,y,i===1?green:cyan,.28,1.3));
+      [112,138,190].forEach((y,i)=>line(328,y,422,y,i===1?cyan:green,.24,1.3));
+      circle(260,162,5,red,.9);
+    } else if (kind === 'network' || kind === 'knowledge') {
       const pts=[[92,92],[184,54],[280,110],[394,70],[144,205],[262,190],[402,212],[318,270]];
       [[0,1],[1,2],[2,3],[0,4],[2,5],[3,6],[4,5],[5,6],[5,7],[6,7]].forEach(([a,b])=>line(...pts[a],...pts[b],a%2?green:cyan,.34,1.2));
       pts.forEach(([x,y],i)=>circle(x,y,i%3===0?7:5,i%4===0?green:i%4===1?red:cyan,.82));
@@ -269,6 +285,7 @@
 
   function depthHudLabels(kind) {
     const labels = {
+      support: ['QUESTION', 'ROUTE'], missing: ['REQUEST', 'RECOVER'],
       network: ['DEPENDENCE', 'DIVERSIFY'], knowledge: ['QUESTION', 'SOURCE'],
       distribution: ['CENTER', 'TAILS'], drawdown: ['RUNNING PEAK', 'RECOVERY'],
       paths: ['RESAMPLE', 'RANGE'], validation: ['SELECT', 'EVALUATE'],
@@ -345,4 +362,94 @@
 
   initArticleDepthScene();
   init();
+})();
+
+
+/* Mandatory visual-skills composition pass — 2026-09-15 */
+(() => {
+  const body = document.body;
+  if (!body) return;
+  const path = window.location.pathname.toLowerCase();
+
+  function familyForPath() {
+    if (path.includes('/pricing/')) return 'commerce';
+    if (path.includes('/learn/')) return 'learning';
+    if (path.includes('/methods/')) return 'methods';
+    if (path.includes('/how-to/')) return 'howto';
+    if (path.includes('/docs/')) return 'docs';
+    if (path.includes('/examples/')) return 'examples';
+    if (path.includes('/updates/')) return 'updates';
+    if (path.includes('/support/') || /(?:help|404)\.html$/.test(path)) return 'support';
+    if (path.includes('/trust/') || /(?:privacy|refund-policy)\.html$/.test(path)) return 'trust';
+    if (path.includes('research-lab')) return 'lab';
+    if (path.includes('strategy-claim-audit')) return 'audit';
+    return 'utility';
+  }
+
+  function stableVariant(value) {
+    let hash = 17;
+    for (let index = 0; index < value.length; index += 1) hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+    return ['a', 'b', 'c', 'd'][hash % 4];
+  }
+  const family = familyForPath();
+  const variant = stableVariant(path || '/');
+  body.classList.add('visual-site-page', `visual-family-${family}`, `visual-layout-${variant}`);
+  document.documentElement.dataset.visualAuthority = 'mandatory-skills-v1';
+
+  const hero = document.querySelector('.article-hero, .landing-hero, .utility-stage');
+  if (hero) hero.dataset.visualComposition = `${family}-${variant}`;
+
+  function addDepthLayers(scene) {
+    if (!scene || scene.querySelector('.scene-depth-plane')) return;
+    for (let index = 0; index < 3; index += 1) {
+      const plane = document.createElement('span');
+      plane.className = `scene-depth-plane scene-depth-plane-${index + 1}`;
+      plane.setAttribute('aria-hidden', 'true');
+      scene.prepend(plane);
+    }
+    const axis = document.createElement('span');
+    axis.className = 'scene-axis-key';
+    axis.setAttribute('aria-hidden', 'true');
+    axis.innerHTML = '<i>X</i><i>Y</i><i>Z</i>';
+    scene.append(axis);
+  }
+
+  document.querySelectorAll('.article-depth-scene, .landing-hero-visual').forEach(addDepthLayers);
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealTargets = document.querySelectorAll('.section, .article-section, .depth-card, .path-card, .visual-panel');
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    body.classList.add('visual-reveal-enabled');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visual-revealed');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -7% 0px', threshold: 0.08 });
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+
+  if (!reducedMotion && window.matchMedia('(pointer: fine)').matches && hero) {
+    let frame = 0;
+    const updateDepth = (event) => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const bounds = hero.getBoundingClientRect();
+        const x = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2));
+        const y = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2));
+        hero.style.setProperty('--visual-pointer-x', x.toFixed(3));
+        hero.style.setProperty('--visual-pointer-y', y.toFixed(3));
+      });
+    };
+    hero.addEventListener('pointermove', updateDepth, { passive: true });
+    hero.addEventListener('pointerleave', () => {
+      hero.style.setProperty('--visual-pointer-x', '0');
+      hero.style.setProperty('--visual-pointer-y', '0');
+    });
+  }
+
+  if (reducedMotion) {
+    revealTargets.forEach((target) => target.classList.add('visual-revealed'));
+  }
 })();
