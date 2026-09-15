@@ -13,6 +13,7 @@ DESIGN = REPO / "DESIGN.md"
 CONTRACTS = DOCS / "ux-page-contracts.v1.json"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
 HOME_STYLE = DOCS / "assets" / "home-v3.css"
+VISUAL_DEPTH_STYLE = DOCS / "assets" / "site-visual-depth.css"
 HOME = DOCS / "index.html"
 
 REQUIRED_DIMENSIONS = {
@@ -40,6 +41,8 @@ class UXParser(HTMLParser):
         self.label_depth = 0
         self.inputs: list[dict[str, object]] = []
         self.visible_disabled: list[str] = []
+        self.metas: list[dict[str, str | None]] = []
+        self.images: list[dict[str, str | None]] = []
         self.public_text: list[str] = []
         self._ignore = 0
 
@@ -47,6 +50,10 @@ class UXParser(HTMLParser):
         data = dict(attrs)
         if tag in {"script", "style"}:
             self._ignore += 1
+        if tag == "meta":
+            self.metas.append(data)
+        if tag == "img":
+            self.images.append(data)
         if tag == "h1":
             self.h1_depth += 1
             self.h1_text = []
@@ -90,6 +97,13 @@ def parse_page(path: Path) -> UXParser:
     parser = UXParser()
     parser.feed(path.read_text(encoding="utf-8"))
     return parser
+
+
+def png_dimensions(path: Path) -> tuple[int, int] | None:
+    data = path.read_bytes()[:24]
+    if len(data) < 24 or data[:8] != b"\x89PNG\r\n\x1a\n":
+        return None
+    return int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
 
 
 def main() -> int:
@@ -140,6 +154,28 @@ def main() -> int:
     for page in public:
         rel = page.relative_to(DOCS).as_posix()
         parser = parse_page(page)
+        theme_colors = [attrs.get("content") for attrs in parser.metas if (attrs.get("name") or "").lower() == "theme-color"]
+        if theme_colors != ["#060207"]:
+            problems.append(f"{rel} must declare the canonical dark theme-color exactly once")
+        page_text = page.read_text(encoding="utf-8")
+        if "site-search.js" in page_text and page != HOME and "site-visual-depth.css" not in page_text:
+            problems.append(f"{rel} is missing the route-specific visual-depth stylesheet")
+        if page == HOME and "site-visual-depth.css" in page_text:
+            problems.append("homepage must not download route-specific visual-depth CSS")
+        for image in parser.images:
+            src = str(image.get("src") or "")
+            if not src or src.startswith(("http://", "https://", "data:")):
+                continue
+            target = (page.parent / src.split("?", 1)[0].split("#", 1)[0]).resolve()
+            if target.suffix.lower() != ".png" or not target.is_file():
+                continue
+            actual = png_dimensions(target)
+            try:
+                declared = (int(str(image.get("width") or "")), int(str(image.get("height") or "")))
+            except ValueError:
+                declared = None
+            if actual and declared != actual:
+                problems.append(f"{rel} image {src} must declare intrinsic size {actual[0]}x{actual[1]}")
         if len(parser.h1s) != 1:
             problems.append(f"{rel} must have exactly one H1, found {len(parser.h1s)}")
         for field in parser.inputs:
@@ -175,14 +211,22 @@ def main() -> int:
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
 
-    for style_path in (SITE_STYLE, HOME_STYLE):
+    for style_path in (SITE_STYLE, HOME_STYLE, VISUAL_DEPTH_STYLE):
         if not style_path.is_file():
             problems.append(f"missing shared UX stylesheet {style_path.relative_to(REPO)}")
     if SITE_STYLE.is_file():
         site_css = SITE_STYLE.read_text(encoding="utf-8")
-        for marker in ("--ux-touch-target:44px", "@media (hover:none)", ".control-btn{padding:.68rem .72rem}"):
+        for marker in ("--ux-touch-target:44px", "@media (hover:none)", ".control-btn{padding:.68rem .72rem}", "color-scheme: dark", "touch-action: manipulation", "overscroll-behavior: contain"):
             if marker not in site_css:
                 problems.append(f"shared site CSS missing UX contract marker: {marker}")
+        if "100vh" in site_css:
+            problems.append("shared site CSS must use dynamic viewport height instead of 100vh")
+        if re.search(r"transition\s*:\s*all", site_css):
+            problems.append("shared site CSS must not use transition: all")
+    if VISUAL_DEPTH_STYLE.is_file():
+        depth_css = VISUAL_DEPTH_STYLE.read_text(encoding="utf-8")
+        if "Mandatory visual-skills parity pass" not in depth_css:
+            problems.append("route-specific visual-depth CSS is missing its authority marker")
     if HOME_STYLE.is_file():
         home_css = HOME_STYLE.read_text(encoding="utf-8")
         for marker in ("DesignMotion-informed homepage hierarchy", ".quant-text-link", ".quant-social{width:44px;height:44px}"):

@@ -3,8 +3,16 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
 
 (() => {
   'use strict';
-  const canvas = document.querySelector('#quant-universe-canvas');
-  if (!canvas) return;
+  let canvas = document.querySelector('#quant-universe-canvas');
+  const ambient = !canvas;
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'quant-ambient-canvas';
+    canvas.className = 'quant-ambient-canvas';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.prepend(canvas);
+    document.documentElement.dataset.quantAmbient = 'active';
+  }
 
   const pause = document.querySelector('#quant-universe-pause');
   const reset = document.querySelector('#quant-universe-reset');
@@ -36,19 +44,38 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   renderer.setClearColor(0x000000, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.12;
+  renderer.toneMappingExposure = 1.24;
 
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x010509, 0.055);
-  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
-  camera.position.set(0.15, 1.15, 9.5);
-  camera.lookAt(0, 0.15, 0);
+  const camera = new THREE.PerspectiveCamera(44, 1, 0.1, 80);
+  camera.position.set(0.25, 0.92, 8.15);
+  camera.lookAt(0, 0.12, 0);
 
   const root = new THREE.Group();
   root.rotation.x = -0.05;
   scene.add(root);
 
-  scene.add(new THREE.HemisphereLight(0x8eefff, 0x010509, 1.0));
+  const ambientBase = new THREE.Vector3();
+  if (ambient) {
+    const route = location.pathname.toLowerCase();
+    const anchors = route.includes('/docs/') ? [-1.85, 0.25, -1.1]
+      : route.includes('/learn/') ? [1.75, 0.15, -1.25]
+      : route.includes('/methods/') ? [-1.55, -0.05, -1.4]
+      : route.includes('/how-to/') ? [1.55, -0.1, -1.3]
+      : route.includes('/examples/') ? [-1.45, 0.05, -1.25]
+      : route.includes('/trust/') ? [1.35, 0.05, -1.35]
+      : route.includes('/support/') ? [0.0, -0.05, -1.55]
+      : route.includes('/pricing/') ? [1.45, -0.15, -1.15]
+      : [0.0, 0.0, -1.45];
+    root.position.set(...anchors);
+    ambientBase.copy(root.position);
+    root.scale.setScalar(mobile ? 0.56 : 0.78);
+    camera.position.set(0.1, 0.65, mobile ? 10.8 : 9.6);
+    camera.lookAt(0, 0.0, 0);
+  }
+
+  scene.add(new THREE.HemisphereLight(0x8eefff, 0x010509, ambient ? 0.72 : 1.0));
   const tealLight = new THREE.PointLight(0x3cfad2, 18, 13, 2.1);
   tealLight.position.set(-3.2, 3.6, 4.8);
   scene.add(tealLight);
@@ -57,7 +84,7 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   scene.add(redLight);
 
   const globe = new THREE.Mesh(
-    new THREE.SphereGeometry(2.22, mobile ? 40 : 64, mobile ? 26 : 40),
+    new THREE.SphereGeometry(2.52, mobile ? 44 : 72, mobile ? 28 : 48),
     new THREE.MeshPhysicalMaterial({
       color: 0x071a22,
       emissive: 0x062e35,
@@ -68,11 +95,11 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
       clearcoatRoughness: 0.35,
     }),
   );
-  globe.position.y = 0.42;
+  globe.position.y = 0.58;
   root.add(globe);
 
   const shell = new THREE.Mesh(
-    new THREE.SphereGeometry(2.245, mobile ? 28 : 48, mobile ? 18 : 32),
+    new THREE.SphereGeometry(2.555, mobile ? 32 : 56, mobile ? 20 : 38),
     new THREE.MeshBasicMaterial({
       color: 0x3daed3,
       wireframe: true,
@@ -85,7 +112,7 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   root.add(shell);
 
   const atmosphere = new THREE.Mesh(
-    new THREE.SphereGeometry(2.43, 32, 20),
+    new THREE.SphereGeometry(2.82, 40, 26),
     new THREE.MeshBasicMaterial({
       color: 0x3cfad2,
       transparent: true,
@@ -103,9 +130,9 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   haloGroup.position.copy(globe.position);
   root.add(haloGroup);
   [
-    [2.72, 0.018, 0.18, 0.12, TEAL, 0.74],
-    [2.88, 0.012, -0.38, -0.24, CYAN, 0.50],
-    [3.04, 0.010, 0.62, 0.31, RED, 0.28],
+    [3.02, 0.024, 0.18, 0.12, TEAL, 0.86],
+    [3.25, 0.018, -0.38, -0.24, CYAN, 0.64],
+    [3.48, 0.015, 0.62, 0.31, RED, 0.48],
   ].forEach(([radius, tube, rx, rz, color, opacity]) => {
     const ring = new THREE.Mesh(
       new THREE.TorusGeometry(radius, tube, 6, mobile ? 96 : 160),
@@ -138,14 +165,42 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     };
   }
   const random = mulberry32(0x5eeda11);
-  const particleCount = mobile ? 360 : 720;
+
+  // Deep star field behind the globe so the hero reads as a spatial scene, not a flat orb.
+  const starCount = mobile ? 280 : 760;
+  const starPositions = new Float32Array(starCount * 3);
+  const starColors = new Float32Array(starCount * 3);
+  const starColor = new THREE.Color();
+  for (let i = 0; i < starCount; i += 1) {
+    starPositions[i * 3] = (random() - 0.5) * 17;
+    starPositions[i * 3 + 1] = (random() - 0.42) * 10;
+    starPositions[i * 3 + 2] = -2.8 - random() * 11;
+    starColor.copy(i % 11 === 0 ? TEAL : i % 17 === 0 ? RED : CYAN);
+    const dim = 0.24 + random() * 0.52;
+    starColors[i * 3] = starColor.r * dim;
+    starColors[i * 3 + 1] = starColor.g * dim;
+    starColors[i * 3 + 2] = starColor.b * dim;
+  }
+  const starGeometry = new THREE.BufferGeometry();
+  starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+  starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+  root.add(new THREE.Points(starGeometry, new THREE.PointsMaterial({
+    size: mobile ? 0.018 : 0.027,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.85,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  })));
+
+  const particleCount = mobile ? 420 : 920;
   const positions = new Float32Array(particleCount * 3);
   const colors = new Float32Array(particleCount * 3);
   const pointColor = new THREE.Color();
   for (let i = 0; i < particleCount; i += 1) {
     const theta = random() * Math.PI * 2;
     const phi = Math.acos(2 * random() - 1);
-    const radius = 2.34 + random() * 1.05;
+    const radius = 2.66 + random() * 1.28;
     const score = random() * 2 - 1;
     positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
     positions[i * 3 + 1] = globe.position.y + radius * Math.cos(phi);
@@ -172,6 +227,35 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   );
   root.add(points);
 
+  const cityCount = mobile ? 120 : 300;
+  const cityPositions = new Float32Array(cityCount * 3);
+  const cityColors = new Float32Array(cityCount * 3);
+  for (let i = 0; i < cityCount; i += 1) {
+    const theta = random() * Math.PI * 2;
+    const phi = Math.acos(2 * random() - 1);
+    const r = 2.57;
+    cityPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+    cityPositions[i * 3 + 1] = globe.position.y + r * Math.cos(phi);
+    cityPositions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+    const c = i % 13 === 0 ? RED : i % 5 === 0 ? CYAN : TEAL;
+    const power = 0.55 + random() * 0.45;
+    cityColors[i * 3] = c.r * power;
+    cityColors[i * 3 + 1] = c.g * power;
+    cityColors[i * 3 + 2] = c.b * power;
+  }
+  const cityGeometry = new THREE.BufferGeometry();
+  cityGeometry.setAttribute('position', new THREE.BufferAttribute(cityPositions, 3));
+  cityGeometry.setAttribute('color', new THREE.BufferAttribute(cityColors, 3));
+  const cityLights = new THREE.Points(cityGeometry, new THREE.PointsMaterial({
+    size: mobile ? 0.025 : 0.038,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.94,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  }));
+  root.add(cityLights);
+
   const orbitGroup = new THREE.Group();
   orbitGroup.position.copy(globe.position);
   root.add(orbitGroup);
@@ -189,6 +273,46 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     line.rotation.z = tilt;
     orbitGroup.add(line);
   });
+
+  // Spatial research gates: decorative infrastructure that gives the universe a true foreground/midground/background stack.
+  const gateGroup = new THREE.Group();
+  gateGroup.position.set(0, 0.42, -1.15);
+  root.add(gateGroup);
+  [
+    [4.45, 0.020, -0.54, TEAL, ambient ? 0.14 : 0.28],
+    [4.95, 0.014, -0.18, CYAN, ambient ? 0.12 : 0.24],
+    [5.45, 0.010, 0.26, RED, ambient ? 0.08 : 0.16],
+  ].forEach(([radius, tube, rz, color, opacity], index) => {
+    const gate = new THREE.Mesh(
+      new THREE.TorusGeometry(radius, tube, 5, mobile ? 96 : 180),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending, depthWrite: false }),
+    );
+    gate.rotation.y = Math.PI / 2;
+    gate.rotation.z = rz;
+    gate.position.z = -index * 0.7;
+    gateGroup.add(gate);
+  });
+
+  const shardGroup = new THREE.Group();
+  shardGroup.position.set(0, -0.35, -0.6);
+  root.add(shardGroup);
+  const shardGeometry = new THREE.BoxGeometry(0.045, 0.52, 1.25);
+  for (let i = 0; i < (mobile ? 12 : 26); i += 1) {
+    const side = i % 2 === 0 ? -1 : 1;
+    const color = i % 7 === 0 ? RED : i % 3 === 0 ? CYAN : TEAL;
+    const shard = new THREE.Mesh(shardGeometry, new THREE.MeshBasicMaterial({
+      color,
+      transparent: true,
+      opacity: ambient ? 0.11 : 0.22,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    }));
+    shard.position.set(side * (3.2 + (i % 6) * 0.42), -1.3 + (i % 5) * 0.48, -2.8 + (i % 4) * 1.15);
+    shard.rotation.y = side * (0.18 + (i % 3) * 0.08);
+    shard.rotation.z = side * 0.04 * (i % 4);
+    shard.scale.y = 0.55 + (i % 5) * 0.18;
+    shardGroup.add(shard);
+  }
 
   const satellites = [];
   for (let i = 0; i < 7; i += 1) {
@@ -220,13 +344,13 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   for (let i = 0; i < terrainPosition.count; i += 1) {
     const x = terrainPosition.getX(i);
     const z = terrainPosition.getZ(i);
-    const ridgeA = 1.35 * Math.exp(-((x + 2.7) ** 2) / 2.1 - ((z + 0.2) ** 2) / 1.2);
-    const ridgeB = 1.65 * Math.exp(-((x - 2.0) ** 2) / 1.7 - ((z - 0.7) ** 2) / 1.5);
-    const ridgeC = 0.95 * Math.exp(-((x - 0.1) ** 2) / 4.8 - ((z + 1.7) ** 2) / 0.72);
-    const noise = 0.17 * Math.sin(x * 2.5 + z * 1.7) + 0.10 * Math.cos(x * 4.1 - z * 2.2);
+    const ridgeA = 1.95 * Math.exp(-((x + 2.7) ** 2) / 1.65 - ((z + 0.2) ** 2) / 1.0);
+    const ridgeB = 2.25 * Math.exp(-((x - 2.0) ** 2) / 1.35 - ((z - 0.7) ** 2) / 1.2);
+    const ridgeC = 1.35 * Math.exp(-((x - 0.1) ** 2) / 4.0 - ((z + 1.7) ** 2) / 0.62);
+    const noise = 0.24 * Math.sin(x * 2.7 + z * 1.8) + 0.14 * Math.cos(x * 4.4 - z * 2.35);
     const height = Math.max(0, ridgeA + ridgeB + ridgeC + noise);
-    terrainPosition.setY(i, -2.48 + height);
-    terrainColor.copy(height > 1.0 ? TEAL : height > 0.45 ? CYAN : DEEP);
+    terrainPosition.setY(i, -2.68 + height);
+    terrainColor.copy(height > 1.35 ? (x > 0 ? TEAL : RED) : height > 0.55 ? CYAN : DEEP);
     terrainColors[i * 3] = terrainColor.r;
     terrainColors[i * 3 + 1] = terrainColor.g;
     terrainColors[i * 3 + 2] = terrainColor.b;
@@ -255,6 +379,30 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   terrainWire.position.copy(terrain.position);
   root.add(terrainWire);
 
+  const mountainGroup = new THREE.Group();
+  const mountainGeometry = new THREE.ConeGeometry(1, 1, 6, 1, false);
+  for (let i = 0; i < (mobile ? 11 : 19); i += 1) {
+    const height = 1.1 + random() * 2.4;
+    const radius = 0.65 + random() * 1.15;
+    const material = new THREE.MeshStandardMaterial({
+      color: i % 6 === 0 ? 0x113c42 : 0x06141b,
+      emissive: i % 7 === 0 ? 0x0b4d49 : i % 9 === 0 ? 0x43131a : 0x031017,
+      emissiveIntensity: 0.42,
+      roughness: 0.86,
+      metalness: 0.08,
+      flatShading: true,
+      transparent: true,
+      opacity: 0.92,
+    });
+    const peak = new THREE.Mesh(mountainGeometry, material);
+    const side = i % 2 === 0 ? -1 : 1;
+    peak.position.set(side * (2.5 + random() * 4.3), -2.56 + height * 0.46, -1.7 + random() * 2.2);
+    peak.scale.set(radius, height, radius * (0.72 + random() * 0.5));
+    peak.rotation.y = random() * Math.PI;
+    mountainGroup.add(peak);
+  }
+  root.add(mountainGroup);
+
   const marketTrails = new THREE.Group();
   root.add(marketTrails);
   const trailSpecs = [
@@ -279,8 +427,8 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     marketTrails.add(tube);
   });
 
-  const candleCount = mobile ? 54 : 92;
-  const bodyGeometry = new THREE.BoxGeometry(0.105, 1, 0.105);
+  const candleCount = mobile ? 68 : 132;
+  const bodyGeometry = new THREE.BoxGeometry(0.125, 1, 0.125);
   const bodyMaterial = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     roughness: 0.32,
@@ -329,9 +477,9 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   const composer = new EffectComposer(renderer, { multisampling: mobile ? 0 : 2 });
   composer.addPass(new RenderPass(scene, camera));
   const bloom = new BloomEffect({
-    intensity: mobile ? 0.55 : 0.78,
-    luminanceThreshold: 0.18,
-    luminanceSmoothing: 0.72,
+    intensity: mobile ? 0.7 : 1.05,
+    luminanceThreshold: 0.14,
+    luminanceSmoothing: 0.78,
     mipmapBlur: true,
   });
   composer.addPass(new EffectPass(camera, bloom));
@@ -360,6 +508,16 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
   let targetPitch = -0.04;
   let yaw = targetYaw;
   let pitch = targetPitch;
+  let ambientScroll = 0;
+  if (ambient) {
+    const updateAmbientScroll = () => {
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      ambientScroll = Math.max(0, Math.min(1, scrollY / maxScroll));
+      if (!autoMotion) render();
+    };
+    updateAmbientScroll();
+    addEventListener('scroll', updateAmbientScroll, { passive: true });
+  }
 
   function render(now = performance.now()) {
     resize();
@@ -368,12 +526,25 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from 'postprocess
     if (autoMotion && !document.hidden) targetYaw += dt * 0.055;
     yaw += (targetYaw - yaw) * Math.min(1, dt * 4.5);
     pitch += (targetPitch - pitch) * Math.min(1, dt * 4.5);
-    root.rotation.y = yaw;
-    root.rotation.x = -0.05 + pitch;
+    const scrollYaw = ambient ? (ambientScroll - 0.5) * 1.15 : 0;
+    const scrollWave = ambient ? Math.sin(ambientScroll * Math.PI * 2) : 0;
+    root.rotation.y = yaw + scrollYaw;
+    root.rotation.x = -0.05 + pitch + (ambient ? (ambientScroll - 0.5) * 0.16 : 0);
+    if (ambient) {
+      root.position.x = ambientBase.x + scrollWave * 0.72;
+      root.position.y = ambientBase.y + Math.cos(ambientScroll * Math.PI * 1.5) * 0.32;
+      root.position.z = ambientBase.z - Math.sin(ambientScroll * Math.PI) * 0.9;
+      camera.position.x = 0.1 - scrollWave * 0.18;
+      camera.position.y = 0.65 + Math.sin(ambientScroll * Math.PI) * 0.34;
+    }
     globe.rotation.y += autoMotion ? dt * 0.045 : 0;
     shell.rotation.y = globe.rotation.y * 0.78;
     points.rotation.y = -globe.rotation.y * 0.42;
     haloGroup.rotation.y = -globe.rotation.y * 0.18;
+    gateGroup.rotation.y = Math.sin(now * 0.00011) * 0.08;
+    gateGroup.rotation.z = Math.sin(now * 0.00008) * 0.025;
+    shardGroup.position.y = -0.35 + Math.sin(now * 0.00019) * 0.08;
+    shardGroup.rotation.y = Math.sin(now * 0.00013) * 0.035;
     terrainWire.position.y = Math.sin(now * 0.00042) * 0.016;
     marketTrails.position.y = Math.sin(now * 0.00065) * 0.022;
     satellites.forEach((mesh, i) => {

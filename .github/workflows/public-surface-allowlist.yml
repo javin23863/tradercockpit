@@ -11,26 +11,21 @@ on:
   push:
   pull_request:
 
-# ---------------------------------------------------------------------------
 # ALLOWLIST — the only paths permitted in this public repo.
-# Entries ending in "/" allow the whole directory; others are exact files.
-#   docs/           GitHub Pages publishing source (site is served from /docs on main;
-#                   no CNAME and no .nojekyll exist — the site uses the default
-#                   javin23863.github.io/tradercockpit domain and needs neither)
-#   .github/        this workflow and any future repo plumbing
-#   .gitattributes  byte-contract ("* -text") — docs/ JSON manifests rely on stable bytes
-#   .gitignore      repo plumbing
-#   README.md       public repo landing page (operator may veto; see manifest)
-#   DESIGN.md       public UX review authority enforced by website-integrity
-# ---------------------------------------------------------------------------
+# docs/ contains the GitHub Pages publishing source.
+# .github/ contains workflows, build tooling, evidence and repository plumbing.
+# development/ contains checked-in visual-development authorities required by agents.
+# AGENTS.md and DESIGN.md are repository-wide development/review authorities.
 env:
   ALLOWLIST: |
     docs/
     .github/
+    development/
     .gitattributes
     .gitignore
     README.md
     DESIGN.md
+    AGENTS.md
 
 jobs:
   allowlist:
@@ -41,9 +36,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # Exact prefix/file matching against the ALLOWLIST data above.
-          # No regex: "docs/" allows only paths starting with the literal "docs/",
-          # bare entries must match the whole path byte-for-byte.
           violations=""
           while IFS= read -r f; do
             ok=""
