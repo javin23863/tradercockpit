@@ -5,7 +5,7 @@ Authority: `.github/WEBSITE-CURRENT.md`
 
 ## Goal
 
-Replace the retired Quant Universe / neon sci-fi website presentation with a reproducible cinematic research-lab system that can be implemented faithfully in the existing static HTML/CSS/JS stack.
+Replace the retired Quant Universe / neon sci-fi presentation with a reproducible cinematic research-lab system that can be implemented faithfully in the existing static HTML/CSS/JS stack.
 
 The new direction is product-led rather than effect-led. Real TraderCockpit captures, restrained physical materials, strong typography, and deliberate composition carry the experience. WebGL is optional and is not a visual-quality requirement.
 
@@ -34,34 +34,34 @@ The new direction is product-led rather than effect-led. Real TraderCockpit capt
 
 ## Rollout
 
-### Phase 1 — Home visual proof
-- replace the Quant Universe hero;
-- remove Home dependency on the production ambient WebGL bundle;
-- integrate the current product capture into the hero and platform proof;
-- replace fabricated-looking research instrumentation with product/truth-based content;
-- preserve pricing, access state, waitlist, video privacy, and learning routes;
-- create fresh desktop/mobile evidence and iterate from screenshots.
+### Phase 1 — Home visual proof — COMPLETE
+- rebuilt the Home hero and product proof;
+- removed Home dependency on ambient WebGL;
+- preserved pricing/access/waitlist/video/privacy truth;
+- captured desktop/mobile/reduced-motion evidence;
+- established the approved Theme 2 implementation baseline.
 
-### Phase 2 — Pricing and commerce
-- carry Theme 2 into the four-tier page;
-- keep tier entitlements unclaimed unless verified;
-- make access state visually first-class without returning to generic card towers.
+### Phase 2 — Pricing and shared public system — COMPLETE
+- rebuilt Pricing without constellation/orbit imagery;
+- preserved the exact four approved monthly prices with no invented tier entitlements;
+- added `cinematic-site-v1.css` to ordinary public routes;
+- removed retired visual-depth CSS outside Research Lab;
+- removed article-depth SVG generation and site-wide Quant Universe loading from `site-search.js`;
+- migrated generated Concept pages through their generator;
+- completed representative screenshots and an 82-render all-route browser audit with BAD=0.
 
-### Phase 3 — Knowledge surfaces
-- migrate Docs, Learn, Methods, How-Tos, Examples, Updates, and generated Concept pages;
-- keep reading surfaces calmer than marketing surfaces while retaining the same material/type system.
+### Phase 3 — full-page visual appraisal — ACTIVE
+- inspect full-page compositions for Pricing, Docs, Learn, Methods, How-Tos, Examples, Updates, Support, Trust, utilities, and generated Concept pages;
+- correct pages that still feel too flat, too card-driven, or insufficiently product/research specific;
+- retain calmer editorial treatment where content density is the job;
+- preserve Research Lab as the analytical-renderer exception.
 
-### Phase 4 — Support and Trust
-- replace constellation/evidence-field metaphors with direct premium information architecture;
-- preserve privacy, provenance, limitations, and recovery clarity.
-
-### Phase 5 — Final all-route acceptance
-- regenerate generated pages;
-- run integrity, hardening, public claims, UX, and visual-skill gates;
-- render every public page desktop/mobile;
-- inspect major page families individually;
+### Phase 4 — final acceptance
+- rerun integrity, hardening, public claims, UX, and visual-skill gates;
+- render all public pages desktop/mobile;
 - complete keyboard and reduced-motion review;
-- update `.github/site-appraisal-current.md` only from fresh evidence.
+- update `.github/site-appraisal-current.md` only from fresh evidence;
+- do not merge until visual findings are resolved.
 
 ## Visual acceptance rule
 
@@ -69,7 +69,7 @@ DOM correctness, WebGL presence, route count, and no-overflow checks cannot esta
 
 A Theme-2 PASS requires a rendered page that visibly achieves:
 - coherent foreground/midground/background depth;
-- believable material/lighting behavior;
+- believable material/lighting behavior where cinematic treatment is appropriate;
 - product integration with adequate scale;
 - strong typography and negative space;
 - clear primary action;

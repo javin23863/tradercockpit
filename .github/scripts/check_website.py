@@ -238,19 +238,25 @@ def main() -> int:
                 problems.append(f"site-wide cinematic style missing authority marker: {marker}")
     if SITE_SEARCH.is_file():
         site_search = SITE_SEARCH.read_text(encoding="utf-8")
-        for marker in ("function depthSceneKind", "function buildDepthGraphic", "article-depth-scene", "depth-scene-${kind}"):
-            if marker not in site_search:
-                problems.append(f"site-wide subject visual system missing authority marker: {marker}")
+        if "site-search-trigger" not in site_search:
+            problems.append("site search trigger contract missing")
+        for retired_marker in ("function depthSceneKind", "buildDepthGraphic", "article-depth-scene", "data-quant-ambient-loader", "quant-ambient-telemetry", "site-webgl-v1.js"):
+            if retired_marker in site_search:
+                problems.append(f"retired site-wide visual runtime remains: {retired_marker}")
     for page in PUBLIC_HTML:
         text = page.read_text(encoding="utf-8")
         if "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:
-            problems.append(f"public page missing shared cinematic stylesheet: {page.relative_to(REPO)}")
+            problems.append(f"public page missing base site stylesheet: {page.relative_to(REPO)}")
+        if page not in {HOME_PAGE, DOCS / "research-lab.html"} and "cinematic-site-v1.css" not in text:
+            problems.append(f"Theme 2 public page missing cinematic shared stylesheet: {page.relative_to(REPO)}")
+        if page != DOCS / "research-lab.html" and "site-visual-depth.css" in text:
+            problems.append(f"retired visual-depth stylesheet remains outside Research Lab: {page.relative_to(REPO)}")
     pricing_text = (DOCS / "pricing" / "index.html").read_text(encoding="utf-8")
     if pricing_text.count("data-commerce-plan") != 1:
         problems.append("pricing must expose exactly one Stripe-bound commerce plan")
     expected_tiers = (("Core", "$19.99"), ("Trader", "$49.99"), ("Quant", "$99.99"), ("ApolloPro", "$150"))
-    if pricing_text.count('class="tier-card ') != 4:
-        problems.append("pricing must expose exactly four approved tier cards")
+    if pricing_text.count('<article class="pricing-tier') != 4:
+        problems.append("pricing must expose exactly four approved tier sections")
     for tier_name, tier_price in expected_tiers:
         if tier_name not in pricing_text or tier_price not in pricing_text:
             problems.append(f"pricing missing approved tier {tier_name} at {tier_price}")

@@ -1,44 +1,52 @@
-[Reading 41 lines from start (total: 41 lines, 0 remaining)]
-
 # TraderCockpit Website — Current Appraisal
 
 Authority: `.github/WEBSITE-CURRENT.md`.
 
-Status: **THEME 2 IN PROGRESS — prior Quant Universe visual PASS revoked**.
+Status: **THEME 2 IN PROGRESS — site-wide base migration complete; final visual appraisal still open**.
 
 ## Current implementation
 
 - Branch: `codex/website-theme2-cinematic-lab-20260918`
-- Base: `bb9f469f9a52e1fc8fd2c72205d1f7c4fb07fe47`
+- Theme-2 base: `bb9f469f9a52e1fc8fd2c72205d1f7c4fb07fe47`
 - Direction: Cinematic Research Lab
-- Current completed visual slice: Home
-- Remaining migration: Pricing, Docs, Learn, Methods, How-Tos, Examples, Updates, Support, Trust, utility/generated page families.
+- Completed visual foundation: Home, Pricing, and shared public-page system
+- Deliberate exception: Research Lab retains its analytical VTK/WebGL/depth assets where the visualization is data-bearing.
 
-The earlier 82-route browser record remains historical engineering evidence for the superseded theme. It is not visual acceptance for Theme 2.
+The earlier Quant Universe visual PASS is revoked. Its browser records remain historical engineering evidence only.
 
 ## Theme 2 Home
 
-The new Home:
+Home:
 - removes the Quant Universe globe/orbit/HUD presentation;
 - does not load the retired ambient WebGL bundle;
-- uses warm near-black/graphite architecture, ivory type, and champagne/brass action light;
+- uses warm near-black/graphite architecture, ivory type, and champagne/brass interface light;
 - integrates the current TraderCockpit desktop capture as the hero and platform visual subject;
 - keeps product, pricing, waitlist, learning, and public-claim truth contracts intact;
 - uses restrained transform/opacity motion with reduced-motion support.
 
-## Fresh Home evidence
+Fresh Home evidence:
+- `.github/evidence/theme2-progress/home-1440.jpg`
+- `.github/evidence/theme2-progress/home-1440-full.jpg`
+- `.github/evidence/theme2-progress/home-390.jpg`
+- `.github/evidence/theme2-progress/home-reduced.jpg`
+- `.github/evidence/theme2-progress/home-receipt.json`
 
-Fresh browser evidence was captured from the Theme 2 worktree after the first implementation pass:
+Home evidence returns HTTP 200 with zero page errors, zero console errors, zero hidden reveal targets, and zero horizontal overflow. The live product state resolves to `STATUS: WAITLIST`.
 
-- `.github/evidence/theme2-progress/home-1440.jpg` — 1440×1000 viewport.
-- `.github/evidence/theme2-progress/home-1440-full.jpg` — full desktop page.
-- `.github/evidence/theme2-progress/home-390.jpg` — 390×844 mobile viewport.
-- `.github/evidence/theme2-progress/home-reduced.jpg` — reduced-motion desktop viewport.
-- `.github/evidence/theme2-progress/home-receipt.json` — HTTP/runtime/layout receipt.
+## Theme 2 shared migration
 
-All four Home renders return HTTP 200 with zero page errors, zero console errors, zero hidden reveal targets, and zero horizontal overflow. The live product state resolves to `STATUS: WAITLIST`.
+The second slice replaces the retired visual layer across ordinary public routes:
+- Pricing is rebuilt without constellation/orbit presentation and keeps exactly four approved monthly prices.
+- 39 non-Home/non-Research-Lab HTML pages load `cinematic-site-v1.css`.
+- Ordinary pages no longer load `site-visual-depth.css`.
+- `site-search.js` retains search but no longer creates article-depth scenes, loads the ambient Quant Universe renderer, or appends Quant Universe telemetry.
+- Generated Concept pages receive Theme 2 through their generator and remain source-current.
+- Browser theme color is warm black (`#080706`) outside Research Lab.
 
-Visual appraisal: the Home hero establishes the new product-led warm-black/brass direction and no longer resembles the retired Quant Universe treatment. This is the implementation baseline for Theme 2, not a full-site visual PASS.
+Representative visual evidence:
+- Pricing, Docs, Learn, Methods, Support, and Trust at 1440×1000 and 390×844 under `.github/evidence/theme2-phase2/`.
+- `.github/evidence/theme2-phase2/receipt.json` verifies those 12 renders use Theme 2 with no old depth CSS, ambient Quant Universe, visible orbit layer, overflow, page error, or console error.
+- `.github/evidence/theme2-phase2/all-route-audit.json` verifies **41 pages × two viewports = 82/82 renders with BAD=0**.
 
 ## Commerce truth
 
@@ -52,8 +60,4 @@ Checkout remains closed until subscription-to-desktop entitlement provisioning i
 
 ## Acceptance status
 
-**IN PROGRESS.** Theme 2 Home must receive fresh desktop/mobile browser evidence before its visual slice can be accepted. Full-site visual PASS remains blocked until every public page family is migrated and freshly rendered.
-
-Current engineering gates are rerun against Theme 2 contracts. Public claims and accessibility/security contracts remain independent of visual direction.
-
-[executed on device: DESKTOP-6GJ0ADT (43661d22-2c32-4c55-8c0c-3f31aab296f9)]
+Theme 2 has a clean site-wide implementation baseline and clean browser admission. It is **not yet declared a final visual PASS**. Final acceptance still requires direct rendered appraisal of the major page families at their full-page compositions, not just clean browser metrics.

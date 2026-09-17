@@ -155,12 +155,12 @@ def main() -> int:
         rel = page.relative_to(DOCS).as_posix()
         parser = parse_page(page)
         theme_colors = [attrs.get("content") for attrs in parser.metas if (attrs.get("name") or "").lower() == "theme-color"]
-        expected_theme = "#080706" if page == HOME else "#060207"
+        expected_theme = "#060207" if page.name == "research-lab.html" else "#080706"
         if theme_colors != [expected_theme]:
             problems.append(f"{rel} must declare the canonical dark theme-color exactly once")
         page_text = page.read_text(encoding="utf-8")
-        if "site-search.js" in page_text and page != HOME and "site-visual-depth.css" not in page_text:
-            problems.append(f"{rel} is missing the route-specific visual-depth stylesheet")
+        if "site-search.js" in page_text and page != HOME and "site-visual-depth.css" not in page_text and "cinematic-site-v1.css" not in page_text:
+            problems.append(f"{rel} is missing a route-specific visual stylesheet")
         if page == HOME and "site-visual-depth.css" in page_text:
             problems.append("homepage must not download route-specific visual-depth CSS")
         for image in parser.images:
