@@ -223,7 +223,7 @@ def main() -> int:
         appraisal = SITE_APPRAISAL.read_text(encoding="utf-8")
         for marker in (
             "THEME 2",
-            "IN PROGRESS",
+            "PR REVIEW READY",
             "Core $19.99",
             "ApolloPro $150",
         ):

@@ -2,62 +2,101 @@
 
 Authority: `.github/WEBSITE-CURRENT.md`.
 
-Status: **THEME 2 IN PROGRESS — site-wide base migration complete; final visual appraisal still open**.
+Status: **THEME 2 — PR REVIEW READY**
 
-## Current implementation
+## Reviewed implementation
 
 - Branch: `codex/website-theme2-cinematic-lab-20260918`
 - Theme-2 base: `bb9f469f9a52e1fc8fd2c72205d1f7c4fb07fe47`
+- Reviewed implementation commit: `21f579739793cdded947da4a4a258a389bf4d529`
 - Direction: Cinematic Research Lab
-- Completed visual foundation: Home, Pricing, and shared public-page system
-- Deliberate exception: Research Lab retains its analytical VTK/WebGL/depth assets where the visualization is data-bearing.
+- Browser: Chrome 152.0.7977.83
+- Final evidence: `.github/evidence/theme2-pr-final/acceptance.json`
+- Deliberate exception: Research Lab retains analytical VTK/WebGL/depth assets where the visualization is data-bearing.
 
 The earlier Quant Universe visual PASS is revoked. Its browser records remain historical engineering evidence only.
 
-## Theme 2 Home
+## Final visual appraisal
 
-Home:
-- removes the Quant Universe globe/orbit/HUD presentation;
-- does not load the retired ambient WebGL bundle;
-- uses warm near-black/graphite architecture, ivory type, and champagne/brass interface light;
-- integrates the current TraderCockpit desktop capture as the hero and platform visual subject;
-- keeps product, pricing, waitlist, learning, and public-claim truth contracts intact;
-- uses restrained transform/opacity motion with reduced-motion support.
+The reviewed implementation no longer uses the retired globe/orbit/HUD language as the ordinary public identity. Home uses the real current TraderCockpit product capture as the primary visual subject. Pricing uses the same material system without a constellation presentation and keeps the exact public pricing record.
 
-Fresh Home evidence:
-- `.github/evidence/theme2-progress/home-1440.jpg`
-- `.github/evidence/theme2-progress/home-1440-full.jpg`
-- `.github/evidence/theme2-progress/home-390.jpg`
-- `.github/evidence/theme2-progress/home-reduced.jpg`
-- `.github/evidence/theme2-progress/home-receipt.json`
+The major information families no longer collapse into one repeated card template:
+- Docs uses a reference-routing instrument.
+- Learn uses a curriculum ladder and concept atlas.
+- Methods uses an evidence-led research hierarchy.
+- How-Tos use staged task/workflow composition.
+- Examples use an explicit evidence chain.
+- Updates uses a current-state/status timeline.
+- Support uses a destination routing index.
+- Trust uses four bounded evidence claims.
+- Utility pages intentionally use a sparse treatment.
+- Generated Concept pages use the same Theme 2 reading system.
+- The strategy-claim audit checklist has normal public navigation on screen while preserving a clean printable A4 surface.
 
-Home evidence returns HTTP 200 with zero page errors, zero console errors, zero hidden reveal targets, and zero horizontal overflow. The live product state resolves to `STATUS: WAITLIST`.
+Mobile navigation remains visible and horizontally scrollable instead of disappearing. Reduced-motion mode preserves information and composition without requiring active motion.
 
-## Theme 2 shared migration
+No unresolved high-impact visual finding remains from this review.
 
-The second slice replaces the retired visual layer across ordinary public routes:
-- Pricing is rebuilt without constellation/orbit presentation and keeps exactly four approved monthly prices.
-- 39 non-Home/non-Research-Lab HTML pages load `cinematic-site-v1.css`.
-- Ordinary pages no longer load `site-visual-depth.css`.
-- `site-search.js` retains search but no longer creates article-depth scenes, loads the ambient Quant Universe renderer, or appends Quant Universe telemetry.
-- Generated Concept pages receive Theme 2 through their generator and remain source-current.
-- Browser theme color is warm black (`#080706`) outside Research Lab.
+## Exact-commit browser evidence
 
-Representative visual evidence:
-- Pricing, Docs, Learn, Methods, Support, and Trust at 1440×1000 and 390×844 under `.github/evidence/theme2-phase2/`.
-- `.github/evidence/theme2-phase2/receipt.json` verifies those 12 renders use Theme 2 with no old depth CSS, ambient Quant Universe, visible orbit layer, overflow, page error, or console error.
-- `.github/evidence/theme2-phase2/all-route-audit.json` verifies **41 pages × two viewports = 82/82 renders with BAD=0**.
+Fresh evidence was generated only after confirming that the worktree was clean at `21f579739793cdded947da4a4a258a389bf4d529`.
 
-## Commerce truth
+The final browser receipt records:
+- **41 public pages**
+- **82/82 desktop/mobile route renders, badRoutes=0**
+- **26/26 full-page major-family renders, badMajor=0**
+- **badReduced=0**
+- **keyboardBad=false**
+- **videoBad=false**
+- **commerceBad=false**
+- **printBad=false**
 
-The four approved public monthly prices remain:
-- Core $19.99
-- Trader $49.99
-- Quant $99.99
-- ApolloPro $150
+Evidence includes:
+- `.github/evidence/theme2-pr-final/acceptance.json`
+- `.github/evidence/theme2-pr-final/desktop-contact-sheet.jpg`
+- `.github/evidence/theme2-pr-final/mobile-contact-sheet.jpg`
+- full-page desktop/mobile captures for 13 major page families;
+- reduced-motion captures;
+- keyboard/Search capture;
+- printable strategy-claim checklist PDF.
 
-Checkout remains closed until subscription-to-desktop entitlement provisioning is verified.
+The final route pass reports no HTTP failures, page errors, console errors, horizontal overflow, H1 contract failures, eager external requests, hidden mobile navigation, or retired ambient Quant Universe leakage.
 
-## Acceptance status
+## Interaction, privacy, and commerce acceptance
 
-Theme 2 has a clean site-wide implementation baseline and clean browser admission. It is **not yet declared a final visual PASS**. Final acceptance still requires direct rendered appraisal of the major page families at their full-page compositions, not just clean browser metrics.
+- Keyboard focus: visible.
+- Slash-key local Search: opens, focuses the input, and returns local Monte Carlo results.
+- Search performs no external request.
+- Video privacy: no YouTube iframe or external YouTube request exists before explicit click.
+- After explicit click, the video uses `youtube-nocookie.com`.
+- Product state resolves to `STATUS: WAITLIST`.
+- Checkout remains disabled.
+- The waitlist form activates from the verified public manifest.
+- The four approved public prices are present on Home and Pricing:
+  - Core $19.99
+  - Trader $49.99
+  - Quant $99.99
+  - ApolloPro $150
+
+## Repository and production-build gates
+
+On the reviewed implementation before the evidence/governance closeout:
+- Concept generation: **PASS — 9 pages current**
+- Mandatory visual-skill authority: **PASS — 4 pinned upstreams, 74 design references, 13 Taste skills**
+- Website integrity: **PASS — 22 pages, 32 help IDs, 49 search entries**
+- Site hardening: **PASS — 41 HTML pages, 38 canonicals**
+- Public claims: **PASS — status=waitlist, verifiedCapabilities=0, files=68**
+- Public UX: **PASS — 41/41 pages, 8/8 review dimensions**
+- JavaScript syntax: PASS
+- `git diff --check`: PASS
+- Vite production build: PASS for the site WebGL artifact and Research Lab VTK artifact
+- npm install audit result: **0 vulnerabilities**
+- generated WebGL/VTK output remained deterministic after the build.
+
+These repository/build gates are rerun once more on the final PR head after this evidence and appraisal are committed.
+
+## PR disposition
+
+**PR REVIEW READY.**
+
+This appraisal does not imply production deployment, checkout release, or a guarantee that a reviewer will find zero additional issues. It means the implementation has completed its planned Theme 2 migration and has no known unresolved visual, browser, truth-boundary, accessibility, privacy, or build finding from this review.

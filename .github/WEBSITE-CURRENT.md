@@ -1,11 +1,13 @@
 # TraderCockpit Website — Current Authority
 
-Status: **CURRENT — THEME 2 / CINEMATIC RESEARCH LAB / MIGRATION IN PROGRESS**
+Status: **CURRENT — THEME 2 / CINEMATIC RESEARCH LAB / PR REVIEW CANDIDATE**
 
 This document is the only active public-website visual authority. On 2026-09-18 the owner retired the prior Quant Universe / neon sci-fi theme because the implementation never reached the quality of its original concept. Do not extend, rehabilitate, or reinterpret that retired theme.
 
 Current implementation branch: `codex/website-theme2-cinematic-lab-20260918`
 Theme-2 base: `bb9f469f9a52e1fc8fd2c72205d1f7c4fb07fe47`
+Reviewed implementation commit: `21f579739793cdded947da4a4a258a389bf4d529`
+Final browser evidence: `.github/evidence/theme2-pr-final/acceptance.json`
 
 ## Theme 2 identity
 
@@ -17,7 +19,8 @@ The visual system uses:
 - ivory/off-white primary typography;
 - one champagne/brass interface accent for primary actions and controlled illumination;
 - real current TraderCockpit product captures as the visual subject;
-- strong foreground, midground, and background separation;
+- strong foreground, midground, and background separation where cinematic treatment is appropriate;
+- calmer editorial/instrument layouts for information-heavy surfaces;
 - restrained pointer/scroll motion that supports depth without becoming the subject.
 
 The following prior motifs are retired from ordinary public marketing presentation:
@@ -29,7 +32,7 @@ The following prior motifs are retired from ordinary public marketing presentati
 - purple/blue AI gradients;
 - visual acceptance based merely on the presence of WebGL or named decorative objects.
 
-Research Lab may retain analytical WebGL/VTK only where the visualization is actually warranted by the data contract.
+Research Lab may retain analytical WebGL/VTK only where the visualization is warranted by the data contract.
 
 ## Color and material rules
 
@@ -47,9 +50,10 @@ Lighting must have a coherent direction. Glow is local and motivated by a visibl
 
 - The product, a purposeful image, or meaningful research visualization must be the subject of each major composition.
 - Avoid generic SaaS card grids, nested bordered panels, repeated left-copy/right-diagram templates, and tiny badge clusters.
-- Use large visual planes, overlap, perspective, negative space, and editorial typography.
+- Use large visual planes, overlap, perspective, negative space, editorial typography, or instrument-like information structures according to the page's job.
 - A hero headline should normally fit within 2–3 lines at desktop widths.
 - Product proof follows the primary claim early.
+- Mobile navigation remains reachable; it must not disappear at narrow widths.
 - Motion uses transforms/opacity, remains interruptible, and respects reduced motion.
 - Do not depend on runtime 3D to make a page feel premium.
 
@@ -71,11 +75,11 @@ Do not invent market data, performance metrics, customer counts, social proof, p
 
 The current desktop capture contains Getting started, Charts, Builder, Custom Projects, Apollo, Models, Data organization, and Settings. Theme 2 integrates that real capture into the presentation instead of substituting a fabricated dashboard.
 
-## Migration and acceptance
+## Completion and acceptance
 
-Theme 2 is a site-wide direction, not a Home-only skin. The homepage establishes the system first, then Pricing, Docs, Learn, Methods, How-Tos, Examples, Updates, Support, Trust, utilities, and generated Concept pages must be migrated before the website is declared visually complete.
+Theme 2 is implemented across Home, Pricing, Docs, Learn, Methods, How-Tos, Examples, Updates, Support, Trust, utilities, the printable strategy-claim checklist, and generated Concept pages. Research Lab remains the deliberate analytical-renderer exception. The site-wide Theme 2 migration is complete.
 
-A route or site-wide visual PASS requires fresh browser evidence from the reviewed commit. Engineering checks remain necessary but cannot award visual parity by themselves.
+The reviewed implementation commit has fresh browser evidence at desktop and mobile widths, including full-page review of the major page families. Engineering checks remain necessary but cannot award visual quality by themselves.
 
 Primary visual gate:
 1. rendered desktop/mobile browser captures;
@@ -83,4 +87,4 @@ Primary visual gate:
 3. source/integrity/accessibility/public-claim gates;
 4. no unresolved high-impact visual finding.
 
-The prior Quant Universe PASS is historical evidence only and is not an acceptance result for Theme 2.
+The prior Quant Universe PASS is historical evidence only and is not an acceptance result for Theme 2. Further visual changes should respond to a new review finding rather than revive or incrementally extend the retired theme.
