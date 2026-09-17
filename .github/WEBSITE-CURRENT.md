@@ -1,67 +1,90 @@
 # TraderCockpit Website — Current Authority
 
-Status: **CURRENT / ONLY ACTIVE WEBSITE AUTHORITY**
+Status: **CURRENT — THEME 2 / CINEMATIC RESEARCH LAB / PR REVIEW CANDIDATE**
 
-This document defines the website state that agents, reviewers, and future work must use. Historical website designs, evidence folders, pricing drafts, and versioned visual-authority notes are superseded and are not active specifications.
+This document is the only active public-website visual authority. On 2026-09-18 the owner retired the prior Quant Universe / neon sci-fi theme because the implementation never reached the quality of its original concept. Do not extend, rehabilitate, or reinterpret that retired theme.
 
-Current implementation branch: `codex/mandatory-visual-skills-site-parity-20260915`  
-Current PR: `#50`  
-Current implementation baseline: `4e9462f7e32aff33c754aed16a81e797190f4c2a`
+Current implementation branch: `codex/website-theme2-cinematic-lab-20260918`
+Theme-2 base: `bb9f469f9a52e1fc8fd2c72205d1f7c4fb07fe47`
+Reviewed implementation commit: `21f579739793cdded947da4a4a258a389bf4d529`
+Final browser evidence: `.github/evidence/theme2-pr-final/acceptance.json`
 
-## Product and visual identity
+## Theme 2 identity
 
-TraderCockpit is presented as a futuristic quantitative-research universe, not a conventional SaaS card site or documentation portal. The Quant Universe is the primary spatial language across the public site.
+TraderCockpit is presented as a precision quantitative-research laboratory: serious, physical, restrained, premium, and product-led.
 
-- Home uses the dominant Three.js/WebGL Quant Universe: volumetric globe, orbital geometry, market terrain, research nodes, HUD instrumentation, particles, depth gates, and foreground structures.
-- Ordinary public pages load the same production Quant Universe as a persistent ambient 3D field.
-- Research Lab keeps its dedicated analytical WebGL/VTK renderers and deterministic synthetic data contracts.
-- Support is a routing constellation, Trust is an evidence/boundary field, and Pricing is a four-tier constellation.
-- Major page families must not collapse back into repetitive shaded panels with text.
+The visual system uses:
+- warm near-black and graphite architectural surfaces;
+- blackened metal, smoked glass, subtle grain, reflections, and controlled shadow;
+- ivory/off-white primary typography;
+- one champagne/brass interface accent for primary actions and controlled illumination;
+- real current TraderCockpit product captures as the visual subject;
+- strong foreground, midground, and background separation where cinematic treatment is appropriate;
+- calmer editorial/instrument layouts for information-heavy surfaces;
+- restrained pointer/scroll motion that supports depth without becoming the subject.
 
-## Four-tier pricing authority
+The following prior motifs are retired from ordinary public marketing presentation:
+- Quant Universe globe;
+- orbital geometry as the site-wide identity;
+- persistent ambient WebGL on ordinary pages;
+- neon cyan/teal borders and glow as generic decoration;
+- star fields, floating HUD cards, and pseudo-analytical sci-fi instrumentation;
+- purple/blue AI gradients;
+- visual acceptance based merely on the presence of WebGL or named decorative objects.
+
+Research Lab may retain analytical WebGL/VTK only where the visualization is warranted by the data contract.
+
+## Color and material rules
+
+- Page void: warm near-black, approximately `#080706`.
+- Elevated surfaces: charcoal/brown-black, approximately `#12100d` to `#191611`.
+- Primary text: warm ivory, approximately `#f4efe5`.
+- Secondary text: warm gray, approximately `#aaa296`.
+- Interface accent: champagne/brass, approximately `#c89b5c` to `#e9c88f`.
+- Red and green remain semantic research/risk colors where data requires them; they are not ambient brand decoration.
+- Cyan/teal may appear inside truthful product captures or analytical graphics, but is no longer the public-site action language.
+
+Lighting must have a coherent direction. Glow is local and motivated by a visible or implied source. Generic luminous outlines do not create depth.
+
+## Composition rules
+
+- The product, a purposeful image, or meaningful research visualization must be the subject of each major composition.
+- Avoid generic SaaS card grids, nested bordered panels, repeated left-copy/right-diagram templates, and tiny badge clusters.
+- Use large visual planes, overlap, perspective, negative space, editorial typography, or instrument-like information structures according to the page's job.
+- A hero headline should normally fit within 2–3 lines at desktop widths.
+- Product proof follows the primary claim early.
+- Mobile navigation remains reachable; it must not disappear at narrow widths.
+- Motion uses transforms/opacity, remains interruptible, and respects reduced motion.
+- Do not depend on runtime 3D to make a page feel premium.
+
+## Product and commerce truth
 
 The approved public monthly pricing ladder is exactly:
-
 - **Core — $19.99/month**
 - **Trader — $49.99/month**
 - **Quant — $99.99/month**
 - **ApolloPro — $150/month**
 
-All four tiers must be visible on Home and Pricing. `docs/commerce-public.v1.json` is the machine-readable pricing record. ApolloPro remains the Stripe-bound plan at $150/month. Checkout remains disabled until subscription-to-desktop entitlement provisioning is verified end to end.
+`docs/product-manifest.v1.json` controls public product state and verified capability publication.
+`docs/commerce-public.v1.json` controls public pricing and checkout state.
+Checkout remains disabled until subscription-to-desktop entitlement provisioning is verified end to end.
 
-Do not reintroduce a retired single-plan presentation, placeholder future tiers, or speculative tier entitlements.
+Do not invent market data, performance metrics, customer counts, social proof, product entitlements, testimonials, or availability.
 
-## Measured owner-reference grammar
+## Current product proof
 
-The owner-supplied visual reference is 935 × 1683 px and remains the composition reference. Treat its measurements as ratios, not fixed browser pixels.
+The current desktop capture contains Getting started, Charts, Builder, Custom Projects, Apollo, Models, Data organization, and Settings. Theme 2 integrates that real capture into the presentation instead of substituting a fabricated dashboard.
 
-- Near-black base: `#010509` / `#01070B`; elevated field: `#040E14`.
-- Primary luminous teal: `#3CFAD2`; supporting cyan: `#3DAED3`; negative/risk red: `#E54A5A`.
-- Desktop hero copy occupies roughly 32–40% while the Quant Universe owns the remaining field.
-- Home requires background/stars, globe/orbits, floating HUD layers, and foreground market terrain/device depth.
-- Product proof is the real current TraderCockpit Guided Home capture, not a retired dashboard.
-- Depth comes from overlap, perspective, scale, localized light, true 3D geometry, and foreground/background separation—not a blue/purple gradient.
+## Completion and acceptance
 
-## Public truth boundaries
+Theme 2 is implemented across Home, Pricing, Docs, Learn, Methods, How-Tos, Examples, Updates, Support, Trust, utilities, the printable strategy-claim checklist, and generated Concept pages. Research Lab remains the deliberate analytical-renderer exception. The site-wide Theme 2 migration is complete.
 
-- `docs/product-manifest.v1.json` controls product availability, platform state, and verified capability publication.
-- `docs/commerce-public.v1.json` controls public pricing and checkout state.
-- Synthetic research graphics remain explicitly synthetic and cannot be described as live market data, customer performance, or guaranteed outcomes.
-- The current public state is waitlist/prelaunch; marketing visuals cannot override that state.
-- The current desktop product proof contains Getting started, Charts, Builder, Custom Projects, Apollo, Models, Data organization, and Settings.
+The reviewed implementation commit has fresh browser evidence at desktop and mobile widths, including full-page review of the major page families. Engineering checks remain necessary but cannot award visual quality by themselves.
 
-## Responsive and accessibility contract
+Primary visual gate:
+1. rendered desktop/mobile browser captures;
+2. direct visual appraisal of composition, materials, hierarchy, product integration, motion, and responsive behavior;
+3. source/integrity/accessibility/public-claim gates;
+4. no unresolved high-impact visual finding.
 
-- No horizontal overflow at 390px or desktop acceptance widths.
-- Primary copy and controls may not collide with cinematic objects.
-- Reduced motion freezes decorative movement while preserving depth and information.
-- Keyboard focus remains visible; interactive research controls remain reachable.
-- Mobile keeps the same Quant Universe identity; remove secondary ornament before shrinking critical text.
-
-## Current acceptance
-
-The current implementation passed the strengthened browser gate across **41 public routes × desktop/mobile = 82/82 renders with BAD=0**. The gate checks HTTP state, page errors, horizontal overflow, headline/scene collision, mojibake, Quant Universe presence, and four-tier pricing presence where required.
-
-The production WebGL bundle rebuilt deterministically. Visual-skill authority, website integrity, site hardening, public claims, public UX, JavaScript syntax, and `git diff --check` also passed.
-
-The current rendered appraisal is recorded in `.github/site-appraisal-current.md`. No earlier website appraisal is an active authority.
+The prior Quant Universe PASS is historical evidence only and is not an acceptance result for Theme 2. Further visual changes should respond to a new review finding rather than revive or incrementally extend the retired theme.

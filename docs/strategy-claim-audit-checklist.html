@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#060207">
+  <meta name="theme-color" content="#080706">
 <link rel="icon" href="data:,">
 <title>TraderCockpit — Strategy-Claim Audit Checklist</title>
 <link rel="canonical" href="https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html">
@@ -53,16 +53,17 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
   :root{color-scheme:dark}
   html,body{width:210mm;min-height:297mm;background:var(--ground)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .sheet{width:auto;margin:0;padding:6mm;border:0}
-  .print,.capture-off{display:none}
+  .site-nav,.print,.capture-off{display:none!important}
   h1{font-size:17pt}.promise{font-size:7.7pt}.claim{margin:4mm 0}.field{min-height:9mm}
   .definition{font-size:6.8pt;margin:3mm 0}.checklist{gap:2mm 3mm}.item{min-height:25mm;padding:.4rem .45rem .35rem 1.8rem}
   .item h2{font-size:6.8pt}.item p{font-size:5.9pt}.receipt,footer{font-size:5.2pt}.outcome div,.disclaimer{font-size:5.8pt}
 }
 </style>
 <link rel="stylesheet" href="assets/site-v2.css" media="screen">
-</head>
+<link rel="stylesheet" href="assets/cinematic-site-v1.css"></head>
 <body class="audit-page">
 <a class="skip-link" href="#main">Skip to content</a>
+<nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="research-lab.html">Research Lab</a><a href="learn/">Learn</a><a href="docs/">Docs</a><a href="methods/">Methods</a><a href="support/">Support</a><a href="updates/">Updates</a></div></div></nav>
 <main class="sheet" id="main" tabindex="-1">
   <header>
     <div>
@@ -114,5 +115,6 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
     <div class="disclaimer">Research tooling, not financial advice. No performance is promised or implied.</div>
   </footer>
 </main>
+<script src="assets/site-search.js" defer></script>
 </body>
 </html>

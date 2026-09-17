@@ -12,7 +12,7 @@ DOCS = REPO / "docs"
 DESIGN = REPO / "DESIGN.md"
 CONTRACTS = DOCS / "ux-page-contracts.v1.json"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
-HOME_STYLE = DOCS / "assets" / "home-v3.css"
+HOME_STYLE = DOCS / "assets" / "cinematic-lab-v1.css"
 VISUAL_DEPTH_STYLE = DOCS / "assets" / "site-visual-depth.css"
 HOME = DOCS / "index.html"
 
@@ -155,11 +155,12 @@ def main() -> int:
         rel = page.relative_to(DOCS).as_posix()
         parser = parse_page(page)
         theme_colors = [attrs.get("content") for attrs in parser.metas if (attrs.get("name") or "").lower() == "theme-color"]
-        if theme_colors != ["#060207"]:
+        expected_theme = "#060207" if page.name == "research-lab.html" else "#080706"
+        if theme_colors != [expected_theme]:
             problems.append(f"{rel} must declare the canonical dark theme-color exactly once")
         page_text = page.read_text(encoding="utf-8")
-        if "site-search.js" in page_text and page != HOME and "site-visual-depth.css" not in page_text:
-            problems.append(f"{rel} is missing the route-specific visual-depth stylesheet")
+        if "site-search.js" in page_text and page != HOME and "site-visual-depth.css" not in page_text and "cinematic-site-v1.css" not in page_text:
+            problems.append(f"{rel} is missing a route-specific visual stylesheet")
         if page == HOME and "site-visual-depth.css" in page_text:
             problems.append("homepage must not download route-specific visual-depth CSS")
         for image in parser.images:
@@ -197,17 +198,19 @@ def main() -> int:
                 problems.append(f"{rel} contains prohibited public copy: {phrase}")
 
     home = HOME.read_text(encoding="utf-8") if HOME.is_file() else ""
-    hero_match = re.search(r'<section class="quant-hero">([\s\S]*?)</section>', home)
+    hero_match = re.search(r'<section class="lab-hero">([\s\S]*?)</section>', home)
     if not hero_match:
         problems.append("homepage hero missing")
     else:
         hero = hero_match.group(1)
-        if len(re.findall(r'class="[^"]*\bprimary\b[^"]*"', hero)) != 1:
+        if hero.count("lab-button-primary") != 1:
             problems.append("homepage hero must expose exactly one primary action")
         if "See TraderCockpit" not in hero:
             problems.append("homepage primary action must lead with product proof")
-        if "quant-text-link" not in hero:
+        if "lab-button-secondary" not in hero:
             problems.append("homepage secondary hero action must be visually subordinate")
+        if "desktop-current.png" not in hero:
+            problems.append("homepage hero must integrate current product proof")
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
 
@@ -229,7 +232,7 @@ def main() -> int:
             problems.append("route-specific visual-depth CSS is missing its authority marker")
     if HOME_STYLE.is_file():
         home_css = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in ("DesignMotion-informed homepage hierarchy", ".quant-text-link", ".quant-social{width:44px;height:44px}"):
+        for marker in ("--lab-brass:#c89b5c", ".lab-hero", ".lab-monitor", ".lab-pricing-grid", "@media (prefers-reduced-motion:reduce)"):
             if marker not in home_css:
                 problems.append(f"homepage CSS missing UX contract marker: {marker}")
 

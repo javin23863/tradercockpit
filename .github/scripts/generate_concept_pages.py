@@ -44,13 +44,13 @@ def render(entry: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#060207">
+  <meta name="theme-color" content="#080706">
   <link rel="icon" href="data:,">
   <title>{esc(title)} — TraderCockpit Learn</title>
   <meta name="description" content="{esc(entry['description'])}">
   <link rel="canonical" href="{esc(canonical)}">
   <link rel="stylesheet" href="../../assets/site-v2.css">
-  <link rel="stylesheet" href="../../assets/site-visual-depth.css">
+  <link rel="stylesheet" href="../../assets/cinematic-site-v1.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>

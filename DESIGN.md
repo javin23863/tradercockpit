@@ -47,7 +47,7 @@ All 41 public HTML pages are browser-audited at desktop and mobile widths. New p
 
 ## 7. Design system discipline
 
-Use semantic tokens rather than page-local visual inventions. The public site keeps a 4px-derived spacing rhythm, bounded type hierarchy, near-black layered surfaces, one primary teal/cyan action language, red for risk/negative meaning, and restrained supporting blue. State variants are designed, not inferred from opacity alone.
+Use semantic tokens rather than page-local visual inventions. Theme 2 keeps a 4px-derived spacing rhythm, bounded type hierarchy, warm near-black layered surfaces, ivory typography, and one champagne/brass interface accent. Red and green remain semantic research/risk colors where data requires them; cyan/teal may remain inside truthful product captures or analytical graphics but is no longer the generic public-site action language. State variants are designed, not inferred from opacity alone.
 
 Core interaction tokens are declared in shared CSS, including `--ux-touch-target`, spacing tokens, focus treatment, and motion timing. Page-specific styling may refine composition but must not create a second visual language.
 
@@ -56,7 +56,7 @@ Core interaction tokens are declared in shared CSS, including `--ux-touch-target
 Each page is reviewed on four explicit axes:
 
 - **Type:** hierarchy must read before decoration; long-form text prioritizes legibility.
-- **Color:** teal/cyan communicates action/positive evidence, red communicates negative/risk, and color is never the sole carrier of meaning.
+- **Color:** champagne/brass carries public-site action and controlled illumination; red/green carry negative/positive research semantics when data warrants them; color is never the sole carrier of meaning.
 - **Space:** dense research material uses grouping and rhythm instead of arbitrary panels; marketing uses breathing room around the focal proof.
 - **Finish:** depth, glass, 3D, shadows, and motion must reinforce real structure. Decorative effects cannot imply analytical dimensions that do not exist.
 
