@@ -1,68 +1,78 @@
-# TraderCockpit Public Website Plan — Current
+# TraderCockpit Public Website Plan — Theme 2
 
-Status: **current implementation accepted on the active PR branch**
-
-Canonical visual authority: `.github/WEBSITE-CURRENT.md`
-Current appraisal: `.github/site-appraisal-current.md`
-Current PR: `#50`
-
-This file contains only the active website plan. Superseded phase logs, retired pricing assumptions, and prior visual-version notes are intentionally kept out of the current tree; Git history remains the archive.
+Status: **active migration plan**
+Authority: `.github/WEBSITE-CURRENT.md`
 
 ## Goal
 
-Maintain TraderCockpit as an explorable futuristic quantitative-research environment, not a conventional SaaS brochure or a documentation site made of repeated panels.
+Replace the retired Quant Universe / neon sci-fi website presentation with a reproducible cinematic research-lab system that can be implemented faithfully in the existing static HTML/CSS/JS stack.
 
-The public experience combines:
+The new direction is product-led rather than effect-led. Real TraderCockpit captures, restrained physical materials, strong typography, and deliberate composition carry the experience. WebGL is optional and is not a visual-quality requirement.
 
-- an immersive Quant Universe;
-- real TraderCockpit product proof;
-- interactive research education;
-- documentation and How-Tos;
-- evidence/trust boundaries;
-- current public access and pricing state.
+## Non-negotiable truth boundaries
 
-## Current public architecture
+- Keep public assets under `docs/` and governance under `.github/`.
+- Preserve `docs/product-manifest.v1.json` and `docs/commerce-public.v1.json` as product/commerce authorities.
+- Keep the current waitlist/prelaunch boundary.
+- Preserve the four approved monthly prices exactly.
+- Do not invent performance, users, strategies built, data-source counts, customer evidence, entitlements, or testimonials.
+- Research examples stay synthetic unless a publishable source is explicitly approved.
+- Maintain keyboard, reduced-motion, mobile reflow, and no-horizontal-overflow requirements.
 
-- Home — immersive Quant Universe and product proof.
-- Research Lab — analytical WebGL/VTK atlas.
-- Learn — structured research education.
-- Docs — exact product/reference answers.
-- Methods — quantitative reasoning and limitations.
-- How-Tos — task-focused workflows.
-- Examples — complete synthetic research stories.
-- Pricing — four approved monthly tiers and current product proof.
-- Support — routing constellation.
-- Trust — provenance, interpretation, privacy, and evidence boundaries.
+## Theme system
 
-## Pricing and commerce
+- warm black/graphite environmental canvas;
+- ivory typography;
+- champagne/brass interface accent;
+- real product screens framed as black-metal/smoked-glass instruments;
+- directional warm light and realistic shadow;
+- minimal radii and restrained borders;
+- no generic cyan glow language;
+- no site-wide globe/orbit/HUD identity;
+- no purple/blue AI gradient language;
+- no dependence on decorative 3D for perceived quality.
 
-The active monthly ladder is exactly:
+## Rollout
 
-1. Core — $19.99
-2. Trader — $49.99
-3. Quant — $99.99
-4. ApolloPro — $150
+### Phase 1 — Home visual proof
+- replace the Quant Universe hero;
+- remove Home dependency on the production ambient WebGL bundle;
+- integrate the current product capture into the hero and platform proof;
+- replace fabricated-looking research instrumentation with product/truth-based content;
+- preserve pricing, access state, waitlist, video privacy, and learning routes;
+- create fresh desktop/mobile evidence and iterate from screenshots.
 
-`docs/commerce-public.v1.json` is the public pricing/checkout record. ApolloPro is the Stripe-bound plan. Checkout stays disabled until entitlement provisioning is verified. Do not publish invented benefits, discounts, future tiers, or a retired single-plan presentation.
+### Phase 2 — Pricing and commerce
+- carry Theme 2 into the four-tier page;
+- keep tier entitlements unclaimed unless verified;
+- make access state visually first-class without returning to generic card towers.
 
-## Visual implementation
+### Phase 3 — Knowledge surfaces
+- migrate Docs, Learn, Methods, How-Tos, Examples, Updates, and generated Concept pages;
+- keep reading surfaces calmer than marketing surfaces while retaining the same material/type system.
 
-- Three.js/WebGL source lives in `.github/site-build/src/site-webgl.js`; generated output is `docs/assets/generated/site-webgl-v1.js`.
-- Home uses the full Quant Universe scene.
-- Ordinary public pages progressively mount the same universe as an ambient spatial field.
-- Research Lab owns its dedicated WebGL/VTK analytical renderers.
-- The current Guided Home capture under `docs/assets/desktop-current.png` is the public product-truth image.
-- Major page families must use distinct spatial compositions and may not regress to repetitive shaded text blocks.
+### Phase 4 — Support and Trust
+- replace constellation/evidence-field metaphors with direct premium information architecture;
+- preserve privacy, provenance, limitations, and recovery clarity.
 
-## Truth boundaries
+### Phase 5 — Final all-route acceptance
+- regenerate generated pages;
+- run integrity, hardening, public claims, UX, and visual-skill gates;
+- render every public page desktop/mobile;
+- inspect major page families individually;
+- complete keyboard and reduced-motion review;
+- update `.github/site-appraisal-current.md` only from fresh evidence.
 
-- `docs/product-manifest.v1.json`: availability, platform, verified-capability state.
-- `docs/commerce-public.v1.json`: approved tier prices and checkout state.
-- Research examples: synthetic unless an explicitly publishable dataset is approved.
-- No performance promises, guaranteed edge, invented market data, or fabricated customer proof.
+## Visual acceptance rule
 
-## Completion gate
+DOM correctness, WebGL presence, route count, and no-overflow checks cannot establish visual quality.
 
-A visible change is complete only after the checks in `AGENTS.md` and `DESIGN.md` pass, including rendered desktop/mobile acceptance. The current strengthened browser gate covers all 41 public pages at desktop and mobile and explicitly checks renderer presence, four-tier pricing, overflow, mojibake, page errors, and headline/scene collisions.
-
-Current acceptance: **82/82 rendered routes PASS; BAD=0**.
+A Theme-2 PASS requires a rendered page that visibly achieves:
+- coherent foreground/midground/background depth;
+- believable material/lighting behavior;
+- product integration with adequate scale;
+- strong typography and negative space;
+- clear primary action;
+- minimal generic cards/pills;
+- responsive continuity;
+- a distinct TraderCockpit identity that does not depend on copying the reference site.

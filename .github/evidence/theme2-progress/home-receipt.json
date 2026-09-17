@@ -1,0 +1,122 @@
+[
+  {
+    "file": ".github/evidence/theme2-progress/home-1440.jpg",
+    "http": 200,
+    "errors": [],
+    "consoleErrors": [],
+    "title": "TraderCockpit — Quantitative research in one desktop environment",
+    "status": "STATUS: WAITLIST",
+    "overflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1": {
+      "x": 32,
+      "y": 220.796875,
+      "width": 508.4375,
+      "height": 314.5
+    },
+    "hero": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 972.1875
+    },
+    "monitor": {
+      "x": 743.1713256835938,
+      "y": 268.509765625,
+      "width": 765.7935180664062,
+      "height": 563.2764892578125
+    },
+    "hiddenReveal": 0
+  },
+  {
+    "file": ".github/evidence/theme2-progress/home-1440-full.jpg",
+    "http": 200,
+    "errors": [],
+    "consoleErrors": [],
+    "title": "TraderCockpit — Quantitative research in one desktop environment",
+    "status": "STATUS: WAITLIST",
+    "overflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1": {
+      "x": 32,
+      "y": 220.796875,
+      "width": 508.4375,
+      "height": 314.5
+    },
+    "hero": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 972.1875
+    },
+    "monitor": {
+      "x": 743.1713256835938,
+      "y": 268.509765625,
+      "width": 765.7935180664062,
+      "height": 563.2764892578125
+    },
+    "hiddenReveal": 0
+  },
+  {
+    "file": ".github/evidence/theme2-progress/home-390.jpg",
+    "http": 200,
+    "errors": [],
+    "consoleErrors": [],
+    "title": "TraderCockpit — Quantitative research in one desktop environment",
+    "status": "STATUS: WAITLIST",
+    "overflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "h1": {
+      "x": 16,
+      "y": 154.796875,
+      "width": 357.25,
+      "height": 212.9375
+    },
+    "hero": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 1148.78125
+    },
+    "monitor": {
+      "x": -58.49052429199219,
+      "y": 775.3990478515625,
+      "width": 551.0186157226562,
+      "height": 408.835205078125
+    },
+    "hiddenReveal": 0
+  },
+  {
+    "file": ".github/evidence/theme2-progress/home-reduced.jpg",
+    "http": 200,
+    "errors": [],
+    "consoleErrors": [],
+    "title": "TraderCockpit — Quantitative research in one desktop environment",
+    "status": "STATUS: WAITLIST",
+    "overflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "h1": {
+      "x": 32,
+      "y": 220.796875,
+      "width": 508.4375,
+      "height": 314.5
+    },
+    "hero": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 972.1875
+    },
+    "monitor": {
+      "x": 743.1713256835938,
+      "y": 268.509765625,
+      "width": 765.7935180664062,
+      "height": 563.2764892578125
+    },
+    "hiddenReveal": 0
+  }
+]

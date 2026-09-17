@@ -4,7 +4,7 @@ Use this before implementation and again before a visible change is called compl
 
 ## Authority and intent
 
-- Read the owner-approved screenshots and measured TraderCockpit visual authority first.
+- Read the owner-approved Theme 2 visual reference, current browser evidence, and TraderCockpit visual authority first.
 - Read the vendored Vercel web-design guidance and Taste redesign/image-to-code guidance.
 - Choose relevant `awesome-design-md` references for the page's job; never copy their branding.
 - Identify the page's one primary user intent, primary action, and evidence boundary.
@@ -34,7 +34,7 @@ Use this before implementation and again before a visible change is called compl
 - Render every public HTML page at the required desktop viewport; do not infer all-page quality from three representative pages.
 - Render every public page at the required mobile viewport.
 - Produce an all-page contact sheet plus full-resolution evidence for the major page families.
-- Compare Home directly to the measured owner reference and preserve its four-plane Quant Universe hierarchy.
+- Compare Home directly to the approved Theme 2 direction and verify product-led foreground/midground/background depth, coherent materials/lighting, typography, and current product proof.
 - Inspect Pricing, Docs, Learn, Methods, How-To, Examples, Updates, Support, Trust, utility pages, and generated Concept pages separately.
 - Confirm generated pages retain the visual system after the generator is rerun.
 - Review at least one keyboard-only journey and one reduced-motion render.

@@ -44,11 +44,10 @@ LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
 LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
 HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
-HOME_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "site-webgl.js"
+HOME_THEME_SCRIPT = DOCS / "assets" / "cinematic-lab-v1.js"
+HOME_THEME_STYLE = DOCS / "assets" / "cinematic-lab-v1.css"
 RESEARCH_VTK_SOURCE = REPO / ".github" / "site-build" / "src" / "research-vtk.js"
 RESEARCH_VTK_BUNDLE = DOCS / "assets" / "generated" / "research-vtk-v1.js"
-HOME_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "site-webgl-v1.js"
-HOME_STYLE = DOCS / "assets" / "home-v3.css"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
 WEBSITE_AUTHORITY = REPO / ".github" / "WEBSITE-CURRENT.md"
 SITE_APPRAISAL = REPO / ".github" / "site-appraisal-current.md"
@@ -166,7 +165,6 @@ def main() -> int:
     home_text = HOME_PAGE.read_text(encoding="utf-8") if HOME_PAGE.is_file() else ""
     home_parser = parsers.get(HOME_PAGE)
     required_home_ids = {
-        "quant-universe-canvas", "quant-universe-pause", "quant-universe-reset",
         "product-state", "product-heading", "product-summary", "manifest-capabilities",
         "manifest-detail", "product-cta", "youtube-cta", "purchase-support",
         "waitlist-form", "waitlist-email", "waitlist-first-name", "waitlist-source",
@@ -176,64 +174,46 @@ def main() -> int:
         missing_ids = required_home_ids.difference(home_parser.ids)
         if missing_ids:
             problems.append(f"homepage missing manifest/waitlist contract IDs: {sorted(missing_ids)}")
-        if not any(src.endswith("assets/generated/site-webgl-v1.js") for src in home_parser.scripts):
-            problems.append("homepage production WebGL bundle missing")
+        if any(src.endswith("assets/generated/site-webgl-v1.js") for src in home_parser.scripts):
+            problems.append("Theme 2 homepage must not load the retired ambient WebGL bundle")
         if not any(src.endswith("assets/home-v3.js") for src in home_parser.scripts):
-            problems.append("homepage fallback/commerce script missing")
-    for asset in (HOME_SCRIPT, HOME_WEBGL_SOURCE, HOME_WEBGL_BUNDLE, HOME_STYLE):
+            problems.append("homepage commerce/social script missing")
+        if not any(src.endswith("assets/cinematic-lab-v1.js") for src in home_parser.scripts):
+            problems.append("Theme 2 homepage motion script missing")
+    for asset in (HOME_SCRIPT, HOME_THEME_SCRIPT, HOME_THEME_STYLE):
         if not asset.is_file():
             problems.append(f"missing homepage asset: {asset.relative_to(REPO)}")
-    if HOME_SCRIPT.is_file():
-        home_script = HOME_SCRIPT.read_text(encoding="utf-8")
-        if "http://" in home_script or "https://" in home_script:
-            problems.append("homepage visual script contains an external network target")
-        if "prefers-reduced-motion" not in home_script or "visibilitychange" not in home_script:
-            problems.append("homepage visual script is missing motion/visibility safeguards")
-        if "window.__tcWebGLHero" not in home_script:
-            problems.append("homepage fallback script is not gated by successful WebGL ownership")
-    if HOME_WEBGL_SOURCE.is_file():
-        webgl_source = HOME_WEBGL_SOURCE.read_text(encoding="utf-8")
-        if "http://" in webgl_source or "https://" in webgl_source:
-            problems.append("homepage WebGL source contains an external network target")
-        for marker in (
-            "new THREE.WebGLRenderer",
-            "new THREE.PerspectiveCamera",
-            "new THREE.InstancedMesh",
-            "new EffectComposer",
-            "new BloomEffect",
-            "prefers-reduced-motion",
-            "webglcontextlost",
-            "quant-ambient-canvas",
-            "gateGroup",
-            "ambientScroll",
-            "#3cfad2",
-            "#e54a5a",
-            "#3daed3",
-        ):
-            if marker not in webgl_source:
-                problems.append(f"homepage production WebGL renderer missing contract marker: {marker}")
-    if HOME_WEBGL_BUNDLE.is_file() and HOME_WEBGL_BUNDLE.stat().st_size < 100_000:
-        problems.append("homepage production WebGL bundle is unexpectedly small")
-    for marker in ("universe-deck", "hud-node", "hud-spark", "deck-card", "universe-legend"):
+    if HOME_THEME_SCRIPT.is_file():
+        theme_script = HOME_THEME_SCRIPT.read_text(encoding="utf-8")
+        if "http://" in theme_script or "https://" in theme_script:
+            problems.append("Theme 2 homepage script contains an external network target")
+        for marker in ("prefers-reduced-motion", "IntersectionObserver", "data-lab-parallax"):
+            if marker not in theme_script:
+                problems.append(f"Theme 2 homepage script missing contract marker: {marker}")
+    for marker in ("lab-hero-atmosphere", "lab-monitor", "lab-device-stage", "lab-pricing-grid", "desktop-current.png"):
         if marker not in home_text:
-            problems.append(f"homepage cinematic scene missing authority marker: {marker}")
+            problems.append(f"Theme 2 homepage missing authority marker: {marker}")
+    for retired in ("quant-universe-canvas", "universe-deck", "hud-node", "universe-legend"):
+        if retired in home_text:
+            problems.append(f"Theme 2 homepage retains retired Quant Universe marker: {retired}")
     for demo_marker in ("is being built", "development preview", "preserves the measured", "No invented tiers", ">Future tier<"):
         if demo_marker in home_text:
             problems.append(f"homepage exposes internal/demo copy: {demo_marker}")
-    if HOME_STYLE.is_file():
-        home_style = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in ("CURRENT QUANT UNIVERSE AUTHORITY", "Owner-measured cinematic geometry", ".universe-deck", ".hud-node"):
-            if marker not in home_style:
-                problems.append(f"homepage cinematic style missing authority marker: {marker}")
+    if HOME_THEME_STYLE.is_file():
+        theme_style = HOME_THEME_STYLE.read_text(encoding="utf-8")
+        for marker in ("--lab-brass:#c89b5c", ".lab-hero", ".lab-monitor", ".lab-device", "prefers-reduced-motion"):
+            if marker not in theme_style:
+                problems.append(f"Theme 2 homepage style missing authority marker: {marker}")
     if not WEBSITE_AUTHORITY.is_file():
         problems.append("missing canonical current website authority")
     else:
         authority = WEBSITE_AUTHORITY.read_text(encoding="utf-8")
         for marker in (
-            "CURRENT / ONLY ACTIVE WEBSITE AUTHORITY",
+            "CURRENT — THEME 2",
+            "CINEMATIC RESEARCH LAB",
             "Core — $19.99/month",
-            "persistent ambient 3D field",
-            "935 × 1683 px",
+            "ApolloPro — $150/month",
+            "persistent ambient WebGL",
         ):
             if marker not in authority:
                 problems.append(f"current website authority missing marker: {marker}")
@@ -242,10 +222,10 @@ def main() -> int:
     else:
         appraisal = SITE_APPRAISAL.read_text(encoding="utf-8")
         for marker in (
-            "82/82 renders; BAD=0",
+            "THEME 2",
+            "IN PROGRESS",
             "Core $19.99",
             "ApolloPro $150",
-            "WebGL deterministic rebuild: PASS",
         ):
             if marker not in appraisal:
                 problems.append(f"current site appraisal missing marker: {marker}")
@@ -258,7 +238,7 @@ def main() -> int:
                 problems.append(f"site-wide cinematic style missing authority marker: {marker}")
     if SITE_SEARCH.is_file():
         site_search = SITE_SEARCH.read_text(encoding="utf-8")
-        for marker in ("function depthSceneKind", "function buildDepthGraphic", "article-depth-scene", "depth-scene-${kind}", "quant-ambient-telemetry", "data-quant-ambient-loader"):
+        for marker in ("function depthSceneKind", "function buildDepthGraphic", "article-depth-scene", "depth-scene-${kind}"):
             if marker not in site_search:
                 problems.append(f"site-wide subject visual system missing authority marker: {marker}")
     for page in PUBLIC_HTML:
@@ -274,7 +254,8 @@ def main() -> int:
     for tier_name, tier_price in expected_tiers:
         if tier_name not in pricing_text or tier_price not in pricing_text:
             problems.append(f"pricing missing approved tier {tier_name} at {tier_price}")
-    if home_text.count('class="home-tier-card ') != 4:
+    home_pricing = re.search(r'<div class="lab-pricing-grid">([\s\S]*?)</div>\s*<div class="lab-pricing-actions">', home_text)
+    if not home_pricing or home_pricing.group(1).count("<article") != 4:
         problems.append("homepage must expose exactly four approved pricing tiers")
     for tier_name, tier_price in expected_tiers:
         if tier_name not in home_text or tier_price not in home_text:
