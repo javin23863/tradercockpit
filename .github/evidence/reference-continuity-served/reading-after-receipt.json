@@ -1,8 +1,8 @@
 {
   "schema": "tradercockpit.reference-content-package/v2",
   "label": "after",
-  "parentCommit": "d0a106b914d86b090448fea931ec62fdfdf80a72",
-  "publicDigest": "ea5620e270c3f44e98673e34820f33808e1448bd3ed4de8fab132943920c5cca",
+  "parentCommit": "e42b185eeafd3a6d6ba42739a3a761d2e8a28091",
+  "publicDigest": "9a970247b0bd28755466ceec1a3ae4d1e09b672fc950936b92565ad9bf626f91",
   "browser": "Chrome/153.0.8010.50",
   "scope": "FULL_SERVED_PUBLISHING_TREE",
   "rows": [
