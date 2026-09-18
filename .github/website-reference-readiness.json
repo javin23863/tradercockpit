@@ -24,5 +24,16 @@
   "baseline_checks": "Main baseline passed; NOT evidence for an integrated candidate.",
   "codex_review_requested": false,
   "production_deployment_authorized": false,
-  "limitation": "Branch preparation only. Preview source/assets have not been imported into docs. Previous in-memory renders and the minimal HTTP notes fixture are not full served-site acceptance."
+  "limitation": "Executable importer and integration bridge are implemented. Preview source/assets are still not imported into docs; source ZIP must first be available on the authorized Windows computer. Helper tests do not close full served-site or visual acceptance.",
+  "tooling_progress": {
+    "importer": "Implemented; input SHA checked before writes; runtime assets explicitly allowlisted",
+    "localExactArchiveFixture": "10 tests passed; temporary fixture only",
+    "windowsBridgeFixture": "7 checks passed; real existing modules over HTTP; not full site",
+    "sourceArchivePresent": false,
+    "sourceImportedIntoDocs": false,
+    "evidence": [
+      ".github/evidence/reference-integration-tooling/import-fixture.json",
+      ".github/evidence/reference-integration-tooling/windows-components.json"
+    ]
+  }
 }

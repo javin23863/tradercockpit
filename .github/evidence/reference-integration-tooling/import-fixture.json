@@ -1,0 +1,20 @@
+{
+  "schema": "tradercockpit.reference-import-tests/v1",
+  "scope": "EXACT_SOURCE_ZIP_IMPORTED_IN_TEMPORARY_REPOSITORY_FIXTURES_NOT_REAL_WEBSITE",
+  "python": "3.13.5",
+  "archive_sha256": "0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c",
+  "sources": {
+    ".github/scripts/import_reference_site.py": "4bdfff11dc5d25a26d7282fc189a7ea4fa85ed9a6cebe877bba7a7ab166c03df",
+    ".github/scripts/test_reference_import.py": "7d2fa8895da02b0f496950720cae7c6226270a3025d639f43a6f4cb6495bc11b",
+    ".github/reference-site/integration.mjs": "00b67a03aa06add497771d6f624b945abc872b505ae06557bc1f4130c67bbdb9",
+    ".github/reference-site/integration.css": "3dcc05da72154da5bf589556544a478fce8b36c1f77fcd34cb42d9807f32249f",
+    ".github/reference-site/access-panel.html": "c7e5ad4fd61aac7d2af46acb97cdad9736deea93a712c7b5ca27bbe26d826f36"
+  },
+  "exit_code": 0,
+  "tests": 10,
+  "skipped": 0,
+  "checks": ["changed_tiers_rejected", "conflicting_asset_preserved", "exact_scene_bytes_and_other_routes_preserved", "importer_exists", "concurrent_edit_rejected", "missing_archive_explicit", "unlisted_public_file_rejected", "changed_product_and_checkout_rejected", "tampered_import_rejected_without_readiness_upgrade", "wrong_archive_rejected_before_writes"],
+  "actual_windows_import": false,
+  "full_served_site_acceptance": false,
+  "visual_approval": false
+}
