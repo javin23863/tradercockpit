@@ -31,7 +31,8 @@ const npm=process.platform==='win32'?'cmd.exe':'npm';const npmArgs=args=>process
 run('production_build',npm,npmArgs(['run','build:check']),path.join(root,'.github/site-build'));run('npm_audit',npm,npmArgs(['audit','--json']),path.join(root,'.github/site-build'));
 if(JSON.stringify(before)!==JSON.stringify(publicFiles(docs))||git(['diff','HEAD','--','docs']))throw new Error('Publishing files changed during verification');
 const allowedEvidence=['.github/evidence/reference-continuity-served/','.github/evidence/reference-content/'];
-const unexpectedStatus=git(['status','--porcelain=v1','--untracked-files=all']).split(/\\r?\\n/).filter(Boolean).filter(line=>{const file=line.slice(3).replaceAll('\\\\','/');return !allowedEvidence.some(prefix=>file.startsWith(prefix));});
+const statusOutput=cp.execFileSync('git',['status','--porcelain=v1','--untracked-files=all'],{cwd:root,encoding:'utf8'}).trimEnd();
+const unexpectedStatus=statusOutput.split(/\r?\n/).filter(Boolean).filter(line=>{const file=line.slice(3).replaceAll('\\','/');return !allowedEvidence.some(prefix=>file.startsWith(prefix));});
 if(unexpectedStatus.length)throw new Error('Verification inputs drifted from recorded HEAD during execution:\n'+unexpectedStatus.join('\n'));
 run('diff_check','git',['diff','--check']);
 const read=name=>JSON.parse(fs.readFileSync(name,'utf8'));
