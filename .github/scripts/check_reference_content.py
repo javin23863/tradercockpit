@@ -21,7 +21,7 @@ def validate_content(root):
             if row['kind']=='ux_contracts':
                 baseline=(root/'.github/reference-site/ux-contracts-before.json').read_bytes()
                 readiness=json.loads((root/'.github/website-reference-readiness.json').read_text(encoding='utf-8'))
-                owner_approved=str(readiness.get('gates',{}).get('owner_visual_acceptance_of_integrated_result','')).startswith('complete')
+                owner_approved=readiness.get('gates',{}).get('owner_visual_acceptance_of_integrated_result')=='complete; owner approved exact integrated visual candidate on 2026-09-18'
                 expected=serialize_contracts(refresh_contracts(json.loads(baseline),owner_visual_approval=owner_approved,approved_at='2026-09-18' if owner_approved else None))
                 if sha(baseline)!=row['before_sha256'] or expected!=raw:errors.append('UX contract migration differs: '+name)
             elif row['kind']=='corrected_reading_shell':
