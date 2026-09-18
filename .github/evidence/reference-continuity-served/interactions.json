@@ -2,11 +2,15 @@
   "schema": "tradercockpit.served-interactions/v1",
   "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
   "browser": "Chrome/153.0.8010.50",
-  "capturedAt": "2026-09-18T06:25:24.691Z",
-  "publicDigest": "6fb651d8b7c0058ec2fb4da433bb5385a7fc03cc8904201e3a146f6a30c3d6ef",
+  "capturedAt": "2026-09-18T06:32:44.124Z",
+  "publicDigest": "b2ca07dd8cc2ded30a6efcf43ee85a0ae58793d58938207ffb5156799a6f3f01",
   "tests": [
     {
       "name": "native Learning link opens enhanced view with selected navigation",
+      "pass": true
+    },
+    {
+      "name": "journey evidence links resolve on the current public site",
       "pass": true
     },
     {
@@ -66,7 +70,7 @@
       "pass": true
     }
   ],
-  "passed": 15,
+  "passed": 16,
   "failed": 0,
   "visualApproval": false
 }
