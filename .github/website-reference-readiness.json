@@ -1,0 +1,28 @@
+{
+  "schema": "tradercockpit.website-reference-readiness/v1",
+  "status": "NOT_READY_FOR_CODEX_REVIEW",
+  "branch": "codex/website-reference-integration-20260918",
+  "integration_base": "d544de3f058d4541ab31441371ddb0656acf73a3",
+  "rejected_pr": 51,
+  "source_archive": "TraderCockpit-homepage-proof-source.zip",
+  "source_archive_sha256": "0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c",
+  "local_bundle_sha256": "d6d7711d6f9517435a7f76f8da611605613d6b256901692f0627113e9735cf6f",
+  "candidate_implementation_commit": null,
+  "public_tree_sha": null,
+  "served_browser_evidence": null,
+  "visual_appraisal": null,
+  "gates": {
+    "preview_integrated_into_publishable_docs": "pending",
+    "existing_public_routes_and_metadata_preserved": "pending",
+    "full_served_website_browser_acceptance": "pending",
+    "reference_visual_comparison_and_asset_quality": "pending",
+    "public_capture_provenance_and_resolution": "pending",
+    "privacy_access_notes_and_commerce_acceptance": "pending",
+    "exact_candidate_repository_and_build_checks": "pending",
+    "owner_visual_acceptance_of_integrated_result": "pending"
+  },
+  "baseline_checks": "Main baseline passed; NOT evidence for an integrated candidate.",
+  "codex_review_requested": false,
+  "production_deployment_authorized": false,
+  "limitation": "Branch preparation only. Preview source/assets have not been imported into docs. Previous in-memory renders and the minimal HTTP notes fixture are not full served-site acceptance."
+}
