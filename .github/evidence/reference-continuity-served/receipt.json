@@ -1,10 +1,10 @@
 {
   "schema": "tradercockpit.full-served-site/v1",
   "scope": "COMPLETE_PUBLISHING_DOCS_TREE_OVER_LOOPBACK_HTTP_WITH_PRODUCTION_PREFIX",
-  "capturedAt": "2026-09-18T05:09:43.217Z",
+  "capturedAt": "2026-09-18T05:40:01.057Z",
   "browser": "Chrome/153.0.8010.50",
-  "parentCommit": "f05970001303e5159be83934e488142da45c1006",
-  "worktreeStatus": "M .github/evidence/reference-continuity-served/access-plan-Quant-1440.png\n M .github/evidence/reference-continuity-served/platform-charts-390.png\n M .github/evidence/reference-continuity-served/platform-models-390.png\n?? .github/evidence/reference-content/",
+  "parentCommit": "4375a6722de3876c3976e515434951ca179216f8",
+  "worktreeStatus": "?? .github/evidence/reference-content/",
   "publicFiles": {
     "404.html": "9d6677cf4cf980f6b400964fb6d25eafd8aeededd92628f28a317c384dcb962f",
     "assets/desktop-current.png": "bf37da9aa22fcbe77dcf4668b6ccdb37c5eb8ff0b52a70c5a97d0ffb6f3ddcfa",
@@ -102,9 +102,9 @@
     "trust/index.html": "ab722bfd8bf0da1c9a067b57fe90c93cc08139d5220a2145f9b0c6988c0cab15",
     "trust/privacy.html": "e3611a9776e4d6fae2f85a7c8991ffdd6a99993e13b8240e3e9dafcec34e4f02",
     "updates/index.html": "e55a5668a0edb810878b5155a2247432289f94a1d25302b8d5d57b5c09a75caa",
-    "ux-page-contracts.v1.json": "73d8baa701eb85612b1941079dc9a058682d1eee7cfeb8c828f4b23a0b7fddbb"
+    "ux-page-contracts.v1.json": "9b8455786d3ca15aba481253f5ba58ff10ba775276c582cb5470ef66445c26f7"
   },
-  "publicDigest": "1f4db6965ea7698ee92c3ddaf21d8415fd21e357b40039122b1b404187042840",
+  "publicDigest": "6fb651d8b7c0058ec2fb4da433bb5385a7fc03cc8904201e3a146f6a30c3d6ef",
   "count": 94,
   "failures": 0,
   "rows": [
