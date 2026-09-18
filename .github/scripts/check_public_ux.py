@@ -12,7 +12,7 @@ DOCS = REPO / "docs"
 DESIGN = REPO / "DESIGN.md"
 CONTRACTS = DOCS / "ux-page-contracts.v1.json"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
-HOME_STYLE = DOCS / "assets" / "home-v3.css"
+HOME_STYLE = DOCS / "assets" / "reference-site" / "styles.css"
 HOME = DOCS / "index.html"
 
 REQUIRED_DIMENSIONS = {
@@ -161,16 +161,16 @@ def main() -> int:
                 problems.append(f"{rel} contains prohibited public copy: {phrase}")
 
     home = HOME.read_text(encoding="utf-8") if HOME.is_file() else ""
-    hero_match = re.search(r'<section class="quant-hero">([\s\S]*?)</section>', home)
+    hero_match = re.search(r'<section class="hero"[^>]*>([\s\S]*?)</section>', home)
     if not hero_match:
         problems.append("homepage hero missing")
     else:
         hero = hero_match.group(1)
-        if len(re.findall(r'class="[^"]*\bprimary\b[^"]*"', hero)) != 1:
+        if len(re.findall(r'class="[^"]*\bgold\b[^"]*"', hero)) != 1:
             problems.append("homepage hero must expose exactly one primary action")
-        if "See TraderCockpit" not in hero:
-            problems.append("homepage primary action must lead with product proof")
-        if "quant-text-link" not in hero:
+        if "Explore access" not in hero:
+            problems.append("homepage primary action must expose access")
+        if "button glass" not in hero:
             problems.append("homepage secondary hero action must be visually subordinate")
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
@@ -185,7 +185,7 @@ def main() -> int:
                 problems.append(f"shared site CSS missing UX contract marker: {marker}")
     if HOME_STYLE.is_file():
         home_css = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in ("DesignMotion-informed homepage hierarchy", ".quant-text-link", ".quant-social{width:44px;height:44px}"):
+        for marker in (".hero", ".scene-stack", "prefers-reduced-motion"):
             if marker not in home_css:
                 problems.append(f"homepage CSS missing UX contract marker: {marker}")
 

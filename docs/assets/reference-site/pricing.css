@@ -1,0 +1,15 @@
+/* Pricing uses the reference site's quiet warm-metal palette; the homepage scene is untouched. */
+:root{color-scheme:dark}
+body.home-page{background:#080b0b;color:#ebece7}
+.reference-plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #64706466;border-bottom:1px solid #64706466}
+.reference-plan{min-width:0;padding:36px 24px;border-right:1px solid #64706466}
+.reference-plan:last-child{border:0}
+.reference-plan h2{font-size:25px;font-weight:500;margin:0 0 56px}
+.reference-plan .price{font-size:14px;color:#bfc5b9}
+.reference-plan .price strong{font-size:36px;color:#fff0d7}
+.reference-plan p{color:#b5bfb3}
+.reference-plan .button{display:inline-flex;align-items:center;min-height:44px;padding:10px 14px;background:#d2b284;color:#131710;border:1px solid #e7c792;border-radius:3px;font-size:14px;margin-top:22px;text-decoration:none}
+.reference-plan a:focus-visible{outline:2px solid #f1d6a3;outline-offset:4px}
+#pricing-checkout-unavailable{margin:26px 0 12px;color:#c3c8bd}
+@media(max-width:960px){.reference-plans{grid-template-columns:repeat(2,minmax(0,1fr))}.reference-plan{border-bottom:1px solid #64706466}.reference-plan:nth-child(2){border-right:0}}
+@media(max-width:520px){.reference-plans{grid-template-columns:1fr}.reference-plan{border-right:0;padding:28px 16px}.reference-plan h2{margin-bottom:24px}}

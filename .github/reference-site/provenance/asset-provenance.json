@@ -1,0 +1,224 @@
+{
+  "source": "TraderCockpit Quant Lab Landing Page.png",
+  "source_sha256": "998d108267ed035aceebf39cc68253bd877193a7ec88d7be50e01a697975b15a",
+  "source_dimensions": [
+    1024,
+    1536
+  ],
+  "method": "Separate scene plates, raster text cleanup, separate decorative thumbnails",
+  "screen_provenance": "Original illustrative screens survive only in intermediate source artwork. Served -scene.webp plates mask them completely; separate -screen.webp overlays use retained native development captures. See product-captures.json and screen-placement.json.",
+  "assets": [
+    {
+      "file": "assets/room.webp",
+      "source_crop": [
+        0,
+        48,
+        1024,
+        490
+      ],
+      "text_boxes": [
+        [
+          46,
+          81,
+          208,
+          95,
+          115
+        ],
+        [
+          43,
+          106,
+          289,
+          144,
+          165
+        ],
+        [
+          43,
+          148,
+          405,
+          188,
+          165
+        ],
+        [
+          43,
+          187,
+          304,
+          231,
+          165
+        ],
+        [
+          44,
+          244,
+          318,
+          266,
+          125
+        ],
+        [
+          44,
+          274,
+          384,
+          291,
+          125
+        ],
+        [
+          44,
+          292,
+          390,
+          309,
+          125
+        ],
+        [
+          44,
+          310,
+          242,
+          331,
+          105
+        ],
+        [
+          45,
+          402,
+          347,
+          419,
+          100
+        ]
+      ],
+      "solid_boxes": [
+        [
+          45,
+          350,
+          168,
+          391
+        ],
+        [
+          175,
+          349,
+          319,
+          392
+        ]
+      ],
+      "purpose": "Intermediate source artwork only; original screen is illustrative. Not loaded directly by the homepage.",
+      "sha256": "d9e7b0abac8e6132e31f4cb6e3bc8105130eaef9ff07acfac228696ec9ef3621"
+    },
+    {
+      "file": "assets/laptop.webp",
+      "source_crop": [
+        0,
+        786,
+        1024,
+        1100
+      ],
+      "text_boxes": [
+        [
+          46,
+          832,
+          184,
+          847,
+          90
+        ],
+        [
+          43,
+          855,
+          386,
+          924,
+          150
+        ],
+        [
+          46,
+          938,
+          346,
+          956,
+          110
+        ],
+        [
+          46,
+          957,
+          394,
+          974,
+          110
+        ],
+        [
+          46,
+          975,
+          324,
+          995,
+          110
+        ]
+      ],
+      "solid_boxes": [
+        [
+          44,
+          1009,
+          242,
+          1054
+        ]
+      ],
+      "purpose": "Intermediate source artwork only; original screen is illustrative. Not loaded directly by the homepage.",
+      "sha256": "d51bf57d474e92b833c821293ed098e8e8e542c6da6cf978f0b8102176d00a32"
+    },
+    {
+      "file": "assets/builder.webp",
+      "source_crop": [
+        37,
+        1132,
+        182,
+        1207
+      ],
+      "purpose": "Decorative illustration, not analytical output",
+      "sha256": "f68df6a4e549720a6b821c37d32d82de6107c652cc07b6cf33cb7ff45a7d6846"
+    },
+    {
+      "file": "assets/charts.webp",
+      "source_crop": [
+        198,
+        1132,
+        343,
+        1207
+      ],
+      "purpose": "Decorative illustration, not analytical output",
+      "sha256": "e590007fe03c96e1834709422606f467e1881583fe0e84d129b66ac123ebcf79"
+    },
+    {
+      "file": "assets/models.webp",
+      "source_crop": [
+        359,
+        1132,
+        504,
+        1207
+      ],
+      "purpose": "Decorative illustration, not analytical output",
+      "sha256": "feb205aed8d4859beef527fbdcec69bd1fa39ff1fe992ae05c5e819368f30c45"
+    },
+    {
+      "file": "assets/apollo.webp",
+      "source_crop": [
+        520,
+        1132,
+        665,
+        1207
+      ],
+      "purpose": "Decorative illustration, not analytical output",
+      "sha256": "c492b801d96d8161744558cbcf234d5730e42bae80e1ec419acde526b380139d"
+    },
+    {
+      "file": "assets/data.webp",
+      "source_crop": [
+        681,
+        1132,
+        827,
+        1207
+      ],
+      "purpose": "Decorative illustration, not analytical output",
+      "sha256": "4c2b08f48e4260db94e45362c7720b8be7f38708f30d9a84ce06b618adbe2302"
+    },
+    {
+      "file": "assets/projects.webp",
+      "source_crop": [
+        844,
+        1132,
+        989,
+        1207
+      ],
+      "purpose": "Decorative illustration, not analytical output",
+      "sha256": "c87de8618aad9f7e8d11ea92cae18e8e6ea54de4f5fd8d340abf00b6e8334484"
+    }
+  ]
+}

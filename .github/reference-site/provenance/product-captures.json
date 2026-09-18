@@ -1,0 +1,51 @@
+{
+  "schema": "tradercockpit.homepage-product-captures/v1",
+  "status": "RETAINED_DEVELOPMENT_EVIDENCE_NOT_RELEASE_APPROVAL",
+  "verification": "Original bytes read with git show from the pinned product commit, hashed before whole-frame canvas resizing and WebP transcoding. Transcoded bytes independently rehashed in the proof build environment.",
+  "captures": [
+    {
+      "id": "charts",
+      "repo": "javin23863/tradercockpitsq",
+      "ref": "71a4a60cb3fbf7daca8ba7fbbbb1b61ad7303fa4",
+      "path": "docs/handoffs/2026-09-16-charts-indicator-visual-parity/evidence/after-indicator-parity-source-host-surface-1440.png",
+      "capture_date": "2026-09-16",
+      "original_sha256": "bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae",
+      "original_git_blob": "a0b79ce6410dc6f48900b47a6629870811c708d7",
+      "original_dimensions": [
+        1220,
+        886
+      ],
+      "asset": "assets/product-charts.webp",
+      "asset_dimensions": [
+        480,
+        349
+      ],
+      "asset_sha256": "ca0e0d9acbbdee23ef2f94d8531463026184c871cc076ebe2291c11d6773fa98",
+      "data_classification": "synthetic development test data",
+      "release_approved": false,
+      "description": "Native source-host Charts using TC_PROBE test data; Bollinger, Keltner, SMA and oscillator panes. Not a live market or performance result."
+    },
+    {
+      "id": "models",
+      "repo": "javin23863/tradercockpitsq",
+      "ref": "71a4a60cb3fbf7daca8ba7fbbbb1b61ad7303fa4",
+      "path": "docs/recovery/2026-09-09-models-ui-appraiser-10-of-10/pca-diagnostics-1440.png",
+      "capture_date": "2026-09-09",
+      "original_sha256": "3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6",
+      "original_git_blob": "86dac47583ecd1de74b2b13b9a1a5efff5f98127",
+      "original_dimensions": [
+        1440,
+        1000
+      ],
+      "asset": "assets/product-models.webp",
+      "asset_dimensions": [
+        480,
+        333
+      ],
+      "asset_sha256": "d4905040d2e6354472885b6c9f0c8fc0d188429e736fac2e33b16a90795d6da7",
+      "data_classification": "synthetic development test data",
+      "release_approved": false,
+      "description": "Retained Models PCA loading-map development capture. Provider not configured, no account and no live market connection."
+    }
+  ]
+}

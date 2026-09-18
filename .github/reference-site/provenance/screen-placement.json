@@ -1,0 +1,128 @@
+{
+  "schema": "tradercockpit.scene-screen-placement/v1",
+  "specs": [
+    {
+      "scene": "room",
+      "capture": "charts",
+      "crop": [
+        0,
+        96,
+        480,
+        333
+      ],
+      "plane": [
+        640,
+        360
+      ],
+      "corners": [
+        [
+          473,
+          160
+        ],
+        [
+          819,
+          129
+        ],
+        [
+          809,
+          336
+        ],
+        [
+          459,
+          322
+        ]
+      ],
+      "source_asset": "assets/product-charts.webp",
+      "screen_content": "actual retained product capture; synthetic test data",
+      "image_fit": "contain with dark letterboxing, then perspective transform",
+      "letterbox_offset": [
+        0,
+        22
+      ],
+      "letterbox_dimensions": [
+        640,
+        316
+      ],
+      "plane_to_scene_matrix": [
+        [
+          0.26436889848681716,
+          -0.06150704859321692,
+          473.0
+        ],
+        [
+          -0.09215942822907659,
+          0.43546226929513304,
+          160.0
+        ],
+        [
+          -0.00033834206352440155,
+          -4.904103291620315e-05,
+          1.0
+        ]
+      ],
+      "outputs": {
+        "assets/room-scene.webp": "11c5ee23fdb99943c379cf1cf35d6e4dad4619b0a08c04dcd8f0e662a47e566f",
+        "assets/room-screen.webp": "aea227e6d88f261df6424930ba89395e52bdb78c2fe8f9ad120245a82c46edd9"
+      }
+    },
+    {
+      "scene": "laptop",
+      "capture": "models",
+      "crop": null,
+      "plane": [
+        640,
+        400
+      ],
+      "corners": [
+        [
+          489,
+          59
+        ],
+        [
+          855,
+          28
+        ],
+        [
+          823,
+          270
+        ],
+        [
+          435,
+          250
+        ]
+      ],
+      "source_asset": "assets/product-models.webp",
+      "screen_content": "actual retained product capture; synthetic test data",
+      "image_fit": "contain with dark letterboxing, then perspective transform",
+      "letterbox_offset": [
+        31,
+        0
+      ],
+      "letterbox_dimensions": [
+        577,
+        400
+      ],
+      "plane_to_scene_matrix": [
+        [
+          0.2989253963316158,
+          -0.21555761706882082,
+          489.0
+        ],
+        [
+          -0.057481310909470625,
+          0.4325937124269589,
+          59.0
+        ],
+        [
+          -0.000320286031251494,
+          -0.00018441211771071074,
+          1.0
+        ]
+      ],
+      "outputs": {
+        "assets/laptop-scene.webp": "e14a9353f3bf83217db170c00dfdddd5ed405a246ad63a4729320b17f82402f2",
+        "assets/laptop-screen.webp": "84f9709a6bc2649673b0dbf4ca1ac2e43193369a965c96e06306e909627ce016"
+      }
+    }
+  ]
+}

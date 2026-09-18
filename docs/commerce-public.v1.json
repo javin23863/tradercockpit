@@ -2,13 +2,35 @@
   "schema": "public-commerce/v1",
   "status": "prelaunch",
   "plan": {
-    "name": "TraderCockpit Monthly",
+    "name": "ApolloPro",
     "currency": "USD",
     "unitAmount": 15000,
     "interval": "month",
     "stripeProductId": "prod_V6DR67MaZGMMH4",
     "stripePriceId": "price_1U610SQtj95EgxLw0cdceJ4d"
   },
+  "tiers": [
+    {
+      "name": "Core",
+      "unitAmount": 1999,
+      "interval": "month"
+    },
+    {
+      "name": "Trader",
+      "unitAmount": 4999,
+      "interval": "month"
+    },
+    {
+      "name": "Quant",
+      "unitAmount": 9999,
+      "interval": "month"
+    },
+    {
+      "name": "ApolloPro",
+      "unitAmount": 15000,
+      "interval": "month"
+    }
+  ],
   "checkout": {
     "enabled": false,
     "url": null,

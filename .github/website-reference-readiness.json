@@ -12,11 +12,11 @@
   "served_browser_evidence": null,
   "visual_appraisal": null,
   "gates": {
-    "preview_integrated_into_publishable_docs": "pending",
-    "existing_public_routes_and_metadata_preserved": "pending",
+    "preview_integrated_into_publishable_docs": "complete",
+    "existing_public_routes_and_metadata_preserved": "implemented_pending_final_receipt",
     "full_served_website_browser_acceptance": "pending",
     "reference_visual_comparison_and_asset_quality": "pending",
-    "public_capture_provenance_and_resolution": "pending",
+    "public_capture_provenance_and_resolution": "original_bytes_and_sizes_verified_development_evidence_not_release_approval",
     "privacy_access_notes_and_commerce_acceptance": "pending",
     "exact_candidate_repository_and_build_checks": "pending",
     "owner_visual_acceptance_of_integrated_result": "pending"
@@ -24,16 +24,18 @@
   "baseline_checks": "Main baseline passed; NOT evidence for an integrated candidate.",
   "codex_review_requested": false,
   "production_deployment_authorized": false,
-  "limitation": "Executable importer and integration bridge are implemented. Preview source/assets are still not imported into docs; source ZIP must first be available on the authorized Windows computer. Helper tests do not close full served-site or visual acceptance.",
+  "limitation": "The exact source archive has been imported into docs. Full original development captures are installed and labelled. Served-site checks are running against the complete publishing tree. Visual approval, broader legacy-page presentation, source-art cleanup and independent review remain open; no live deployment authorized.",
   "tooling_progress": {
     "importer": "Implemented; input SHA checked before writes; runtime assets explicitly allowlisted",
     "localExactArchiveFixture": "10 tests passed; temporary fixture only",
     "windowsBridgeFixture": "7 checks passed; real existing modules over HTTP; not full site",
-    "sourceArchivePresent": false,
-    "sourceImportedIntoDocs": false,
+    "sourceArchivePresent": true,
+    "sourceImportedIntoDocs": true,
     "evidence": [
       ".github/evidence/reference-integration-tooling/import-fixture.json",
       ".github/evidence/reference-integration-tooling/windows-components.json"
-    ]
-  }
+    ],
+    "windowsExactArchiveTests": "10 passed, zero skipped"
+  },
+  "source_download_name": "TraderCockpit-homepage-proof-source(6).zip"
 }
