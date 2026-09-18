@@ -2,7 +2,7 @@
   "schema": "tradercockpit.served-interactions/v1",
   "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
   "browser": "Chrome/153.0.8010.50",
-  "capturedAt": "2026-09-18T05:40:06.067Z",
+  "capturedAt": "2026-09-18T06:25:24.691Z",
   "publicDigest": "6fb651d8b7c0058ec2fb4da433bb5385a7fc03cc8904201e3a146f6a30c3d6ef",
   "tests": [
     {

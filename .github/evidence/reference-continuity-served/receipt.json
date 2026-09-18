@@ -1,9 +1,9 @@
 {
   "schema": "tradercockpit.full-served-site/v1",
   "scope": "COMPLETE_PUBLISHING_DOCS_TREE_OVER_LOOPBACK_HTTP_WITH_PRODUCTION_PREFIX",
-  "capturedAt": "2026-09-18T05:40:01.057Z",
+  "capturedAt": "2026-09-18T06:25:20.363Z",
   "browser": "Chrome/153.0.8010.50",
-  "parentCommit": "4375a6722de3876c3976e515434951ca179216f8",
+  "parentCommit": "f336192dac28e897982700ad36e1a4f88d4cf654",
   "worktreeStatus": "?? .github/evidence/reference-content/",
   "publicFiles": {
     "404.html": "9d6677cf4cf980f6b400964fb6d25eafd8aeededd92628f28a317c384dcb962f",
@@ -2573,18 +2573,18 @@
         },
         {
           "src": "assets/reference-site/laptop-scene.webp",
-          "width": 1024,
-          "complete": true
+          "width": 0,
+          "complete": false
         },
         {
           "src": "assets/reference-site/laptop-screen.webp",
-          "width": 2048,
-          "complete": true
+          "width": 0,
+          "complete": false
         },
         {
           "src": "assets/reference-site/builder.webp",
-          "width": 145,
-          "complete": true
+          "width": 0,
+          "complete": false
         }
       ],
       "commerce": "verified",

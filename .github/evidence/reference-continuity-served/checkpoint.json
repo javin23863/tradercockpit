@@ -1,6 +1,6 @@
 {
   "schema": "tradercockpit.reference-continuity-checkpoint/v1",
-  "implementationCommit": "4375a6722de3876c3976e515434951ca179216f8",
+  "implementationCommit": "f336192dac28e897982700ad36e1a4f88d4cf654",
   "publicTree": "589c5cfc675ceb86ec320fe3be0da30eef9e719e",
   "publicDigest": "6fb651d8b7c0058ec2fb4da433bb5385a7fc03cc8904201e3a146f6a30c3d6ef",
   "browser": "Chrome/153.0.8010.50",
@@ -49,19 +49,24 @@
   "archiveTests": 10,
   "integrityTests": 14,
   "contractTests": 4,
+  "reviewStateTests": 2,
   "npmVulnerabilities": 0,
   "logs": {
     "test_reference_import.py": {
       "exitCode": 0,
-      "output": "test_changed_tiers_are_not_silently_replaced (__main__.ReferenceImportTests.test_changed_tiers_are_not_silently_replaced) ... ok\r\ntest_conflicting_new_asset_is_never_overwritten (__main__.ReferenceImportTests.test_conflicting_new_asset_is_never_overwritten) ... ok\r\ntest_exact_import_preserves_art_and_other_routes (__main__.ReferenceImportTests.test_exact_import_preserves_art_and_other_routes) ... ok\r\ntest_implementation_is_available (__main__.ReferenceImportTests.test_implementation_is_available) ... ok\r\ntest_source_output_drift_rejected (__main__.ReferenceImportTests.test_source_output_drift_rejected) ... ok\r\ntest_unavailable_archive_is_explicit (__main__.ReferenceImportTests.test_unavailable_archive_is_explicit) ... ok\r\ntest_unlisted_public_file_is_not_accepted (__main__.ReferenceImportTests.test_unlisted_public_file_is_not_accepted) ... ok\r\ntest_unsupported_product_or_commerce_fails_closed (__main__.ReferenceImportTests.test_unsupported_product_or_commerce_fails_closed) ... ok\r\ntest_verify_detects_tampering_without_upgrading_readiness (__main__.ReferenceImportTests.test_verify_detects_tampering_without_upgrading_readiness) ... ok\r\ntest_wrong_archive_rejected_before_writes (__main__.ReferenceImportTests.test_wrong_archive_rejected_before_writes) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 10 tests in 1.167s\r\n\r\nOK\r\n"
+      "output": "test_changed_tiers_are_not_silently_replaced (__main__.ReferenceImportTests.test_changed_tiers_are_not_silently_replaced) ... ok\r\ntest_conflicting_new_asset_is_never_overwritten (__main__.ReferenceImportTests.test_conflicting_new_asset_is_never_overwritten) ... ok\r\ntest_exact_import_preserves_art_and_other_routes (__main__.ReferenceImportTests.test_exact_import_preserves_art_and_other_routes) ... ok\r\ntest_implementation_is_available (__main__.ReferenceImportTests.test_implementation_is_available) ... ok\r\ntest_source_output_drift_rejected (__main__.ReferenceImportTests.test_source_output_drift_rejected) ... ok\r\ntest_unavailable_archive_is_explicit (__main__.ReferenceImportTests.test_unavailable_archive_is_explicit) ... ok\r\ntest_unlisted_public_file_is_not_accepted (__main__.ReferenceImportTests.test_unlisted_public_file_is_not_accepted) ... ok\r\ntest_unsupported_product_or_commerce_fails_closed (__main__.ReferenceImportTests.test_unsupported_product_or_commerce_fails_closed) ... ok\r\ntest_verify_detects_tampering_without_upgrading_readiness (__main__.ReferenceImportTests.test_verify_detects_tampering_without_upgrading_readiness) ... ok\r\ntest_wrong_archive_rejected_before_writes (__main__.ReferenceImportTests.test_wrong_archive_rejected_before_writes) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 10 tests in 0.958s\r\n\r\nOK\r\n"
     },
     "test_reference_integrity.py": {
       "exitCode": 0,
-      "output": "test_article_link_change_rejected (__main__.IntegrityTests.test_article_link_change_rejected) ... ok\r\ntest_article_text_change_rejected (__main__.IntegrityTests.test_article_text_change_rejected) ... ok\r\ntest_current_import_and_adaptations (__main__.IntegrityTests.test_current_import_and_adaptations) ... ok\r\ntest_homepage_noindex_rejected (__main__.IntegrityTests.test_homepage_noindex_rejected) ... ok\r\ntest_internal_preview_copy_rejected (__main__.IntegrityTests.test_internal_preview_copy_rejected) ... ok\r\ntest_journey_preview_copy_rejected (__main__.IntegrityTests.test_journey_preview_copy_rejected) ... ok\r\ntest_original_capture_substitution_rejected (__main__.IntegrityTests.test_original_capture_substitution_rejected) ... ok\r\ntest_price_drift_rejected (__main__.IntegrityTests.test_price_drift_rejected) ... ok\r\ntest_reading_css_drift_rejected (__main__.IntegrityTests.test_reading_css_drift_rejected) ... ok\r\ntest_scene_substitution_rejected (__main__.IntegrityTests.test_scene_substitution_rejected) ... ok\r\ntest_screen_layer_source_downgrade_rejected (__main__.IntegrityTests.test_screen_layer_source_downgrade_rejected) ... ok\r\ntest_screen_layer_substitution_rejected (__main__.IntegrityTests.test_screen_layer_substitution_rejected) ... ok\r\ntest_signup_fail_open_rejected (__main__.IntegrityTests.test_signup_fail_open_rejected) ... ok\r\ntest_unlisted_raw_artwork_rejected (__main__.IntegrityTests.test_unlisted_raw_artwork_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 14 tests in 11.538s\r\n\r\nOK\r\n"
+      "output": "test_article_link_change_rejected (__main__.IntegrityTests.test_article_link_change_rejected) ... ok\r\ntest_article_text_change_rejected (__main__.IntegrityTests.test_article_text_change_rejected) ... ok\r\ntest_current_import_and_adaptations (__main__.IntegrityTests.test_current_import_and_adaptations) ... ok\r\ntest_homepage_noindex_rejected (__main__.IntegrityTests.test_homepage_noindex_rejected) ... ok\r\ntest_internal_preview_copy_rejected (__main__.IntegrityTests.test_internal_preview_copy_rejected) ... ok\r\ntest_journey_preview_copy_rejected (__main__.IntegrityTests.test_journey_preview_copy_rejected) ... ok\r\ntest_original_capture_substitution_rejected (__main__.IntegrityTests.test_original_capture_substitution_rejected) ... ok\r\ntest_price_drift_rejected (__main__.IntegrityTests.test_price_drift_rejected) ... ok\r\ntest_reading_css_drift_rejected (__main__.IntegrityTests.test_reading_css_drift_rejected) ... ok\r\ntest_scene_substitution_rejected (__main__.IntegrityTests.test_scene_substitution_rejected) ... ok\r\ntest_screen_layer_source_downgrade_rejected (__main__.IntegrityTests.test_screen_layer_source_downgrade_rejected) ... ok\r\ntest_screen_layer_substitution_rejected (__main__.IntegrityTests.test_screen_layer_substitution_rejected) ... ok\r\ntest_signup_fail_open_rejected (__main__.IntegrityTests.test_signup_fail_open_rejected) ... ok\r\ntest_unlisted_raw_artwork_rejected (__main__.IntegrityTests.test_unlisted_raw_artwork_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 14 tests in 10.203s\r\n\r\nOK\r\n"
     },
     "test_reference_contracts.py": {
       "exitCode": 0,
-      "output": "test_four_plan_metadata_is_current (__main__.ContractTests.test_four_plan_metadata_is_current) ... ok\r\ntest_live_metadata_records_owner_visual_approval (__main__.ContractTests.test_live_metadata_records_owner_visual_approval) ... ok\r\ntest_structural_refresh_cannot_grant_visual_approval (__main__.ContractTests.test_structural_refresh_cannot_grant_visual_approval) ... ok\r\ntest_transform_preserves_route_set_and_analytical_palette (__main__.ContractTests.test_transform_preserves_route_set_and_analytical_palette) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.008s\r\n\r\nOK\r\n"
+      "output": "test_four_plan_metadata_is_current (__main__.ContractTests.test_four_plan_metadata_is_current) ... ok\r\ntest_live_metadata_records_owner_visual_approval (__main__.ContractTests.test_live_metadata_records_owner_visual_approval) ... ok\r\ntest_structural_refresh_cannot_grant_visual_approval (__main__.ContractTests.test_structural_refresh_cannot_grant_visual_approval) ... ok\r\ntest_transform_preserves_route_set_and_analytical_palette (__main__.ContractTests.test_transform_preserves_route_set_and_analytical_palette) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 4 tests in 0.007s\r\n\r\nOK\r\n"
+    },
+    "test_review_state.py": {
+      "exitCode": 0,
+      "output": "test_mutable_github_review_state_is_not_committed (__main__.ReviewStateTests.test_mutable_github_review_state_is_not_committed) ... ok\r\ntest_verifier_cannot_reintroduce_mutable_request_snapshot (__main__.ReviewStateTests.test_verifier_cannot_reintroduce_mutable_request_snapshot) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 2 tests in 0.001s\r\n\r\nOK\r\n"
     },
     "check_reference_site.py": {
       "exitCode": 0,
@@ -137,7 +142,7 @@
     },
     "production_build": {
       "exitCode": 0,
-      "output": "\n> tradercockpit-public-site-renderer@1.0.0 build:check\n> vite build && vite build --config vite.research.config.js\n\n\u001b[36mvite v8.3.0 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\ntransforming...\n✓ 5 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../../docs/assets/generated/site-webgl-v1.js  626.04 kB │ gzip: 155.13 kB\n\n\u001b[32m✓ built in 385ms\u001b[39m\n\u001b[36mvite v8.3.0 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\ntransforming...\n✓ 351 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../../docs/assets/generated/research-vtk-v1.js  798.52 kB │ gzip: 216.87 kB\n\n\u001b[32m✓ built in 1.74s\u001b[39m\n"
+      "output": "\n> tradercockpit-public-site-renderer@1.0.0 build:check\n> vite build && vite build --config vite.research.config.js\n\n\u001b[36mvite v8.3.0 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\ntransforming...\n✓ 5 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../../docs/assets/generated/site-webgl-v1.js  626.04 kB │ gzip: 155.13 kB\n\n\u001b[32m✓ built in 326ms\u001b[39m\n\u001b[36mvite v8.3.0 \u001b[32mbuilding client environment for production...\u001b[36m\u001b[39m\ntransforming...\n✓ 351 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../../docs/assets/generated/research-vtk-v1.js  798.52 kB │ gzip: 216.87 kB\n\n\u001b[32m✓ built in 911ms\u001b[39m\n"
     },
     "npm_audit": {
       "exitCode": 0,
@@ -151,7 +156,7 @@
   "automatedVisualApproval": false,
   "ownerVisualApproval": true,
   "reviewReady": true,
-  "reviewRequested": true,
+  "reviewStateSource": "github_pr_external",
   "remaining": [
     "Independent Codex review before any separately authorized deployment"
   ],
