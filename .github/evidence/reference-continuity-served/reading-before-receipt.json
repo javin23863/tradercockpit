@@ -1,0 +1,974 @@
+{
+  "schema": "tradercockpit.reference-content/v1",
+  "label": "before",
+  "parentCommit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
+  "publicDigest": "2fd3c1d67496f1275fbfc0e8c54134b91d165bb0861c6f7382675876ba2c567c",
+  "browser": "Chrome/153.0.8010.50",
+  "scope": "FULL_SERVED_PUBLISHING_TREE",
+  "rows": [
+    {
+      "route": "docs/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Examples",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "Find the answer you need, fast."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "docs--1440.png"
+    },
+    {
+      "route": "docs/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Examples",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "Find the answer you need, fast."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "docs--390.png"
+    },
+    {
+      "route": "learn/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Examples",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "Learn the reasoning before memorizing the buttons."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "learn--1440.png"
+    },
+    {
+      "route": "learn/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Examples",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "Learn the reasoning before memorizing the buttons."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "learn--390.png"
+    },
+    {
+      "route": "how-to/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Examples",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "One task. Clear steps. The concept behind it."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "how-to--1440.png"
+    },
+    {
+      "route": "how-to/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Examples",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "One task. Clear steps. The concept behind it."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "how-to--390.png"
+    },
+    {
+      "route": "methods/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Examples",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "The test matters only if you understand what it can and cannot tell you."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "methods--1440.png"
+    },
+    {
+      "route": "methods/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Examples",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "The test matters only if you understand what it can and cannot tell you."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "methods--390.png"
+    },
+    {
+      "route": "examples/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Examples",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "Follow the research question all the way to its limitations."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "examples--1440.png"
+    },
+    {
+      "route": "examples/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Examples",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": false,
+      "h1": [
+        "Follow the research question all the way to its limitations."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "examples--390.png"
+    },
+    {
+      "route": "updates/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Examples",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 19.2,
+      "generatedDecoration": false,
+      "h1": [
+        "TraderCockpit updates"
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "updates--1440.png"
+    },
+    {
+      "route": "updates/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Examples",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 16,
+      "generatedDecoration": false,
+      "h1": [
+        "TraderCockpit updates"
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [],
+      "screenshot": "updates--390.png"
+    },
+    {
+      "route": "support/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": true,
+      "h1": [
+        "How can we help?"
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "support--1440.png"
+    },
+    {
+      "route": "support/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": true,
+      "h1": [
+        "How can we help?"
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "support--390.png"
+    },
+    {
+      "route": "trust/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": true,
+      "h1": [
+        "Know what supports the conclusion."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "trust--1440.png"
+    },
+    {
+      "route": "trust/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": true,
+      "h1": [
+        "Know what supports the conclusion."
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "trust--390.png"
+    },
+    {
+      "route": "learn/concepts/monte-carlo.html",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Examples",
+          "height": 36.34375
+        },
+        {
+          "text": "Updates",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 16,
+      "generatedDecoration": true,
+      "h1": [
+        "Monte Carlo uncertainty"
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "learn-concepts-monte-carlo-html-1440.png"
+    },
+    {
+      "route": "learn/concepts/monte-carlo.html",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Examples",
+          "height": 44
+        },
+        {
+          "text": "Updates",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 16,
+      "generatedDecoration": true,
+      "h1": [
+        "Monte Carlo uncertainty"
+      ],
+      "background": "rgba(0, 0, 0, 0)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "learn-concepts-monte-carlo-html-390.png"
+    },
+    {
+      "route": "pricing/",
+      "width": 1440,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 36.34375
+        },
+        {
+          "text": "Learn",
+          "height": 36.34375
+        },
+        {
+          "text": "Docs",
+          "height": 36.34375
+        },
+        {
+          "text": "Methods",
+          "height": 36.34375
+        },
+        {
+          "text": "Pricing",
+          "height": 36.34375
+        },
+        {
+          "text": "Support",
+          "height": 36.34375
+        },
+        {
+          "text": "Search",
+          "height": 37.6875
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": true,
+      "h1": [
+        "Four monthly plans. One research environment."
+      ],
+      "background": "rgb(8, 11, 11)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "pricing--1440.png"
+    },
+    {
+      "route": "pricing/",
+      "width": 390,
+      "overflow": false,
+      "navVisible": true,
+      "navTargets": [
+        {
+          "text": "Research Lab",
+          "height": 44
+        },
+        {
+          "text": "Learn",
+          "height": 44
+        },
+        {
+          "text": "Docs",
+          "height": 44
+        },
+        {
+          "text": "Methods",
+          "height": 44
+        },
+        {
+          "text": "Pricing",
+          "height": 44
+        },
+        {
+          "text": "Support",
+          "height": 44
+        },
+        {
+          "text": "Search",
+          "height": 44
+        }
+      ],
+      "minBodyFont": 14.4,
+      "generatedDecoration": true,
+      "h1": [
+        "Four monthly plans. One research environment."
+      ],
+      "background": "rgb(8, 11, 11)",
+      "brokenImages": [],
+      "errors": [],
+      "external": [],
+      "failures": [
+        "retired decorative article SVG"
+      ],
+      "screenshot": "pricing--390.png"
+    }
+  ],
+  "evidence": {
+    "docs--1440.png": "a791882854fe24fe808f558ce91d3bcf4826d3e68c803a1b3b7c43b3fe45d565",
+    "docs--390.png": "d3b27377581a0642ba0fc80b9796ee22fde6035b86827a630dbd76349992372c",
+    "learn--1440.png": "28853556ef58c7e783c41dcde934aef0bb86d0e67d9752a4305385a59ece3823",
+    "learn--390.png": "9e50c98b460051c7af067a5c69cc2f8192823cf2a3bc639542e0eed41593cf35",
+    "how-to--1440.png": "157d872fc101ba88ee73803179a45d856091d92a1736bfccdbb38b4fbb2af218",
+    "how-to--390.png": "7af892117b4188cac83104d510f46f348407f97ea13b76475826bb23c4e003e3",
+    "methods--1440.png": "dfb4fb8a47b611207492d47d915692088024682255d6eb9ad21a91f62eb253a5",
+    "methods--390.png": "8d5126c05f4bf425c75923a3041e08d3ec3230e3b9e6d7a54db92d0264459882",
+    "examples--1440.png": "85d1b4b368415da1adbd8362a680a3260760508cdb68a06c6a928281adb02061",
+    "examples--390.png": "59bf6324652b0e4ec6894539d52feb81193b5d7b864289711ab02c8b74ea0731",
+    "updates--1440.png": "2acba4a4877050a16215752a4426a5817b29f964b05e2e493cbbc95e0d9b625f",
+    "updates--390.png": "9a4cc56faf5b3aec55a3616975c01426c43c460167eea704a2d14ecab7e9898c",
+    "support--1440.png": "0740eadd2557bb3a5e49d2d0a5bd364cf65cd55d42a4a9ee35980079aa344600",
+    "support--390.png": "231e0826aee6624a5347bb47bb286ee8a5b9386d108ece4d535eaf457920a23b",
+    "trust--1440.png": "30e2752539d5584a308dbe5cd7e48979b655f35afa22696538eaa09f875452d5",
+    "trust--390.png": "a08b6abf801efbd7824166c3e76da27b326c6aac89ed5008b107cfef07b5d98f",
+    "learn-concepts-monte-carlo-html-1440.png": "895693bc6219330987e64d2f5428e240f30b9730ad28dd987d87af9b9e32603f",
+    "learn-concepts-monte-carlo-html-390.png": "01341010ed2d87b6790eb6ec1c31831247fb3f550e1c1d3c83a4ebb07aab8fb3",
+    "pricing--1440.png": "63e1a72f0d4dee89739f62d01452ba0ef37ef44073c35b7ead9c06b60a834780",
+    "pricing--390.png": "3c76662a16fac426a74a93496da9d0f9c67c876f22e0b178968ca1138177beb5"
+  },
+  "failures": 8,
+  "visualApproval": false
+}

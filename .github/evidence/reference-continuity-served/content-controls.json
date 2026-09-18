@@ -1,0 +1,13 @@
+{
+  "schema": "tradercockpit.reference-content-controls/v1",
+  "scope": "FULL_SERVED_WEBSITE_NOT_FIXTURE",
+  "browser": "Chrome/153.0.8010.50",
+  "publicDigest": "c7e9ba11fdf52b0e8b0d31b3f5ebd8598314e61291b76a6a57c766b5b3f87fb3",
+  "checks": [
+    "wrapped_docs_keyboard_search_and_focus_return",
+    "checklist_navigation_visible_on_screen_hidden_in_print",
+    "no_eager_external_requests"
+  ],
+  "failures": 0,
+  "visualApproval": false
+}
