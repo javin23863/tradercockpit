@@ -48,8 +48,9 @@ async function commerce() {
   } catch { showCommerce(null); }
 }
 async function access() {
+  let manifest;
   try {
-    const manifest = await loadProductManifest(new URL('product-manifest.v1.json',root));
+    manifest = await loadProductManifest(new URL('product-manifest.v1.json',root));
     $('#product-state').textContent = `Status: ${manifest.status}`;
     const descriptions = {waitlist:'Public access is on waitlist. Checkout remains closed.',unavailable:'Product access is currently unavailable.',available:'Check the published release and access details. This page does not enable checkout.'};
     $('#product-summary').textContent = manifest.product?.summary || descriptions[manifest.status];
@@ -71,8 +72,6 @@ async function access() {
       const row=document.createElement('p');row.textContent=item.label;caps.append(row);
     }
     caps.hidden = !manifest.verifiedCapabilities.length;
-    const config = await loadPrelaunchConfig(new URL('prelaunch-config.v1.json',root));
-    activatePrelaunch(config,manifest);
   } catch {
     $('#product-state').textContent = 'Status unavailable';
     const note = document.querySelector('.hero-note');
@@ -81,6 +80,19 @@ async function access() {
     $('#manifest-detail').textContent = 'No checkout or signup has been enabled by this failed check.';
     $('#waitlist-form').hidden = true;
     $('#product-cta').hidden = true;
+    return;
+  }
+  try {
+    const config = await loadPrelaunchConfig(new URL('prelaunch-config.v1.json',root));
+    activatePrelaunch(config,manifest);
+  } catch {
+    document.documentElement.dataset.prelaunch = 'fallback';
+    const form = $('#waitlist-form');
+    form.hidden = true;
+    form.removeAttribute('action');
+    delete form.dataset.uid;
+    const detail = $('#manifest-detail');
+    detail.textContent = [detail.textContent,'Waitlist signup unavailable; check Updates.'].filter(Boolean).join(' · ');
   }
 }
 await Promise.all([commerce(),access()]);
