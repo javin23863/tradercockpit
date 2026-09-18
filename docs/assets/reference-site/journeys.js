@@ -167,7 +167,7 @@
     if(mobile){mobile.hidden=true;menu?.setAttribute('aria-expanded','false');menu?.setAttribute('aria-label','Open navigation');}
     if(!isJourney){
       document.title='TraderCockpit — Quant research environment';
-      if(lastHash?.startsWith('#/'))requestAnimationFrame(()=>{document.querySelector(hash==='#main'?'#main':'#hero-title')?.focus({preventScroll:true}); if(hash==='#top'||!hash)scrollTo({top:0,behavior:'instant'});});
+      if(lastHash?.startsWith('#/'))requestAnimationFrame(()=>{const target=hash && !hash.startsWith('#/') ? document.getElementById(decodeURIComponent(hash.slice(1))) : null; if(target && hash!=='#top' && hash!=='#main')target.scrollIntoView({behavior:'instant',block:'start'}); else if(hash==='#top'||!hash)scrollTo({top:0,behavior:'instant'}); document.querySelector(hash==='#main'?'#main':'#hero-title')?.focus({preventScroll:true});});
       lastHash=hash;return;
     }
     const [route,search='']=hash.slice(1).split('?');

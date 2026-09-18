@@ -69,6 +69,6 @@ dialog{padding:0;border:1px solid #e1cba655;border-radius:8px;background:#121b17
 /* Inspector scales the image, never the surrounding page or hero artwork. */
 .capture-scale{display:flex;gap:8px;margin:14px 0}
 .capture-evidence{overflow:auto;max-width:100%;overscroll-behavior:contain}
-.capture-evidence.native-scale .capture-media{max-width:none;height:auto}
+.capture-evidence.native-scale{align-items:flex-start}.capture-evidence.native-scale .capture-media{max-width:none;height:auto}.capture-evidence.native-scale figcaption{align-self:stretch}
 .capture-evidence figcaption{position:sticky;left:0;max-width:100%;font-size:12px;line-height:1.5}
 .capture-scale button{min-height:44px}

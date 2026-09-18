@@ -46,6 +46,8 @@ def validate(root=ROOT):
  need([(x['name'],x['unitAmount']) for x in tiers]==[('Core',1999),('Trader',4999),('Quant',9999),('ApolloPro',15000)],'Four approved tier prices drifted')
  need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Checkout opens after payment-to-entitlement provisioning is verified end to end.'},'Checkout boundary changed')
  html=read('docs/index.html');bridge=read('docs/assets/reference-site/integration.mjs');app=read('docs/assets/reference-site/app.js');journeys=read('docs/assets/reference-site/journeys.js')
+ template_bridge=read('.github/reference-site/integration.mjs')
+ need(bridge==template_bridge,'Public integration runtime drifted from reviewed fail-closed template')
  public_runtime=(html+'\n'+app+'\n'+journeys).lower()
  need('noindex' not in html.lower() and 'nofollow' not in html.lower(),'Public homepage must remain indexable')
  for marker in ['property="og:type"','property="og:site_name"','property="og:title"','property="og:description"','property="og:url"','name="twitter:card"','type="application/ld+json"']:
@@ -72,6 +74,9 @@ def validate(root=ROOT):
   amount=('$'+format(tier['unitAmount']/100,'.2f')).removesuffix('.00')
   need(tier['name'] in pricing and amount in pricing,'Static pricing record disagrees: '+tier['name'])
  need('One plan, one access path' not in pricing,'Obsolete single-plan claim')
+ need('href="../#/access?plan=' not in pricing,'Pricing plan links must retain meaningful static fallback')
+ for plan in ['Core','Trader','Quant','ApolloPro']:
+  need(f'href="../#public-status" data-access-plan="{plan}"' in pricing,'Missing static pricing fallback: '+plan)
  return errors
 if __name__=='__main__':
  try: errors=validate()

@@ -154,9 +154,11 @@
       "after_sha256": "d4c17b757e9364412aa466de8cbdce51a7094b5bdadf885a3420b70ba4fb2bf7"
     },
     "pricing/index.html": {
-      "kind": "reading_shell",
+      "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "after_sha256": "df57392cfd377ce0b9ca243c198e9265ba7d002919e0b1498ea5871a3b7c8f40"
+      "corrected_unwrapped_sha256": "507a2969e6b6b13735b33913fbe6268cde2bfeacaaa1caba9f2b0fd06d8fcadb",
+      "correction": "Plan access links retain the static waitlist as the no-JavaScript destination and progressively enhance to the selected plan journey when JavaScript is available.",
+      "after_sha256": "ba0db6a836651bc531c16d0d6abcce57c7df182461aceb5bb89969dc35c24bf7"
     },
     "refund-policy.html": {
       "kind": "reading_shell",

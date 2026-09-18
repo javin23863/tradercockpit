@@ -6,7 +6,7 @@ class IntegrityTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
   shutil.copytree(ROOT/'docs',self.root/'docs')
-  for file in ['.github/reference-import-receipt.json','.github/reference-site/provenance/product-captures.json','.github/reference-site/provenance/screen-placement.json','.github/reference-site/provenance/production-screen-layers.json','.github/reference-content-manifest.json','.github/reference-site/ux-contracts-before.json','.github/website-reference-readiness.json','.github/scripts/generate_reference_screen_layers.mjs']:
+  for file in ['.github/reference-import-receipt.json','.github/reference-site/provenance/product-captures.json','.github/reference-site/provenance/screen-placement.json','.github/reference-site/provenance/production-screen-layers.json','.github/reference-content-manifest.json','.github/reference-site/ux-contracts-before.json','.github/website-reference-readiness.json','.github/reference-site/integration.mjs','.github/scripts/generate_reference_screen_layers.mjs']:
    p=self.root/file;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/file,p)
  def tearDown(self):self.tmp.cleanup()
  def alter(self,name,action):
@@ -34,6 +34,8 @@ class IntegrityTests(unittest.TestCase):
   self.alter('docs/assets/reference-site/journeys.js',lambda b:b+b"\n// https://github.com/javin23863/tradercockpit/blob/stale/docs/\n");self.assertTrue(module.validate(self.root))
  def test_signup_fail_open_rejected(self):
   self.alter('docs/index.html',lambda b:b.replace(b'class="reference-waitlist" method="post" hidden',b'class="reference-waitlist" method="post"'));self.assertTrue(module.validate(self.root))
+ def test_runtime_signup_fail_open_rejected(self):
+  self.alter('docs/assets/reference-site/integration.mjs',lambda b:b.replace(b"$('#waitlist-form').hidden = true;",b"$('#waitlist-form').hidden = false;"));self.assertTrue(module.validate(self.root))
  def test_unlisted_raw_artwork_rejected(self):
   (self.root/'docs/assets/reference-site/raw-mockup.png').write_bytes(b'unlisted artwork');self.assertTrue(module.validate(self.root))
  def test_article_text_change_rejected(self):
