@@ -1,8 +1,8 @@
 {
   "schema": "tradercockpit.reference-content/v1",
   "label": "after",
-  "parentCommit": "a3738c121b89795483c40fbfc648544689b3e21e",
-  "publicDigest": "19b6d3107efa49fa85a19939d76dd3f05407592aa4dcd4f35c18698dd45e15eb",
+  "parentCommit": "f05970001303e5159be83934e488142da45c1006",
+  "publicDigest": "1f4db6965ea7698ee92c3ddaf21d8415fd21e357b40039122b1b404187042840",
   "browser": "Chrome/153.0.8010.50",
   "scope": "FULL_SERVED_PUBLISHING_TREE",
   "rows": [
@@ -3589,7 +3589,7 @@
     "examples--1440.png": "dc5a1c146a7627ccd4580022698821bb13af0516c8cdaed7e69cec1fc3d0f150",
     "examples--390.png": "951c9e08a92f757fe09511977543d1adbe5ae49bf5065f7e5affd09aa81b398d",
     "examples-replay-boundary-html-1440.png": "0e32226e49d216b8b2ec76f3bbf96e99ae5380b880922d27ebfe3c4edff5cc0d",
-    "examples-replay-boundary-html-390.png": "c8e082c95dc0b53c6f333ac03ed525b2656aa92feea292885200010d1c172e4d",
+    "examples-replay-boundary-html-390.png": "ac8976038b03a82b46f667b0317450482e62c1645bc26c9f41c2fd385d72e2f1",
     "help-html-1440.png": "ceb6c79f55a4f362bd79def24f0afffba5c260fac2476d64a746a0b8e52efbf3",
     "help-html-390.png": "1ca1ae2822f5ea06893494e855e0a0671e376520cf0fdcfd236500ead83faf94",
     "how-to--1440.png": "2a16eb6d95279a0b95851353de3c49f2f37c2478ba16b272aaea85292dc6853a",

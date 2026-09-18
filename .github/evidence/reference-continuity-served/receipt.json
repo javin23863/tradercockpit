@@ -1,10 +1,10 @@
 {
   "schema": "tradercockpit.full-served-site/v1",
   "scope": "COMPLETE_PUBLISHING_DOCS_TREE_OVER_LOOPBACK_HTTP_WITH_PRODUCTION_PREFIX",
-  "capturedAt": "2026-09-18T04:58:17.883Z",
+  "capturedAt": "2026-09-18T05:09:43.217Z",
   "browser": "Chrome/153.0.8010.50",
-  "parentCommit": "a3738c121b89795483c40fbfc648544689b3e21e",
-  "worktreeStatus": "M .github/evidence/reference-continuity-served/access-plan-Quant-1440.png\n M .github/evidence/reference-continuity-served/access-plan-Quant-390.png\n M .github/evidence/reference-continuity-served/full-home-1440.png\n M .github/evidence/reference-continuity-served/full-home-390.png\n?? .github/evidence/reference-content/",
+  "parentCommit": "f05970001303e5159be83934e488142da45c1006",
+  "worktreeStatus": "M .github/evidence/reference-continuity-served/access-plan-Quant-1440.png\n M .github/evidence/reference-continuity-served/platform-charts-390.png\n M .github/evidence/reference-continuity-served/platform-models-390.png\n?? .github/evidence/reference-content/",
   "publicFiles": {
     "404.html": "9d6677cf4cf980f6b400964fb6d25eafd8aeededd92628f28a317c384dcb962f",
     "assets/desktop-current.png": "bf37da9aa22fcbe77dcf4668b6ccdb37c5eb8ff0b52a70c5a97d0ffb6f3ddcfa",
@@ -27,7 +27,7 @@
     "assets/reference-site/integration.css": "3dcc05da72154da5bf589556544a478fce8b36c1f77fcd34cb42d9807f32249f",
     "assets/reference-site/integration.mjs": "00b67a03aa06add497771d6f624b945abc872b505ae06557bc1f4130c67bbdb9",
     "assets/reference-site/journeys.css": "4ff71d7e7584211f1dc14528e54ce9872cf01f81c235a7665e1672730660d356",
-    "assets/reference-site/journeys.js": "d46bd952e557f3081a5ad13c4147e847e565f37197d1a32be7f43d45e020fcf4",
+    "assets/reference-site/journeys.js": "bbe659987c6282d61ff5e35ee0d62f644ab7ebcd6313d66a104c1a5aae509076",
     "assets/reference-site/laptop-scene.webp": "e14a9353f3bf83217db170c00dfdddd5ed405a246ad63a4729320b17f82402f2",
     "assets/reference-site/laptop-screen.webp": "560f85f0ce4301bd7e30c1d7cca2c39d399f920edc559d7c3d535f4d16610632",
     "assets/reference-site/mark.svg": "18be60e06144d3ecb46df9812f750a809b3552de42bf5527ef01d512863efd92",
@@ -104,7 +104,7 @@
     "updates/index.html": "e55a5668a0edb810878b5155a2247432289f94a1d25302b8d5d57b5c09a75caa",
     "ux-page-contracts.v1.json": "73d8baa701eb85612b1941079dc9a058682d1eee7cfeb8c828f4b23a0b7fddbb"
   },
-  "publicDigest": "19b6d3107efa49fa85a19939d76dd3f05407592aa4dcd4f35c18698dd45e15eb",
+  "publicDigest": "1f4db6965ea7698ee92c3ddaf21d8415fd21e357b40039122b1b404187042840",
   "count": 94,
   "failures": 0,
   "rows": [
@@ -2680,7 +2680,7 @@
     }
   ],
   "evidence": {
-    "access-plan-Quant-1440.png": "d09730e808f63b15a6a7567617007754ca09d742b3b997362f6016bce87b7400",
+    "access-plan-Quant-1440.png": "0f93365864a2217ea365ed9d6eb20a5cc7d72274142850d870c1c6d26f03a33f",
     "access-plan-Quant-390.png": "36d0e54fb16fa85b079995058bb2a6315b927ebffcecf6bc235efd0c208a548f",
     "full-home-1440.png": "2769e5fb27a0f381b5588beb5853e9bdf4590e1ed48f52cd0406fcef2ad532df",
     "full-home-390.png": "4321a9c0f998bb81df85862032d890a948d4efd947325843e7c329556e72ec44",
@@ -2693,13 +2693,13 @@
     "learn-monte-carlo-1440.png": "fc637bc502473c36d74e3d5fb1395bbf15749b5ec1f72fa30339cc2e4b0435f9",
     "learn-monte-carlo-390.png": "02b9799ea5272dc177af934f23d2559f77d2fe5b8c4ce9be8571f8f1ff576615",
     "platform-charts-1440.png": "8c33974df5a3cb9970999ff22bd62e8bbea45253e3a20e78024f1a238e504fa1",
-    "platform-charts-390.png": "b344ff48db14c3a1a5bb4f9d66427a528aabd215d99d331f433b5695e9ac556d",
+    "platform-charts-390.png": "0d9f6d3504badf08a93af176736b1625c5a2c53bad9c424f4178182f4793e8f0",
     "platform-models-1440.png": "c8a5aae2959a307d42bb0a33130621bc537103f02d97c7ee60be62a05fe0817b",
-    "platform-models-390.png": "e94c6286e5d0d6c2b8d27ee7d3eeba3787b6b9eaf16135123749410a20b225eb",
+    "platform-models-390.png": "fb238caaaa49093df77624a9ef55bc9aabce330e77807ba641992b00150f2339",
     "reading-docs-1440.png": "f7656986b4a8c045b505b96885c52bbd24aaa7ec8747ff9e4d2adf50e0a0a964",
     "reading-learn-390.png": "4bc7816ecba5f7a1a99b38ae55af0876ff06384dade9c2331f8ebf451e510836",
     "reading-methods-1440.png": "f22f8d866c9a392bc7fdba842d0ee27c88ae024a281e941f4255a8579bd9def0",
-    "reading-monte-carlo-390.png": "96a74eabded9aa88ad5ab3e744e89d01fb5af789d1c7acca109203c00cc3cff1",
+    "reading-monte-carlo-390.png": "b9b376f510b6f559a80af27e4638211c083214d8fd4c531d3c4ca9b4a169c64b",
     "reading-pricing-390.png": "52cde87be7156b811cb472e65a9f909ac9910b110e9b85795e26ca7de8330949",
     "reading-support-1440.png": "158ca79eceea44d03533eab2edf6fd6acafc2b5d498c2d43b9a8e2c3bda12fe4",
     "reading-trust-1440.png": "09773a0c283e2c1ec359935d2a063bfd06c39a7bff3776579fc1be3791f28cda",
