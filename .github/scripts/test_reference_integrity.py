@@ -28,6 +28,8 @@ class IntegrityTests(unittest.TestCase):
   self.alter('docs/assets/reference-site/journeys.js',lambda b:b+b"\n// This preview does not contain this route.\n");self.assertTrue(module.validate(self.root))
  def test_price_drift_rejected(self):
   self.alter('docs/commerce-public.v1.json',lambda b:b.replace(b'1999',b'2999'));self.assertTrue(module.validate(self.root))
+ def test_internal_repository_journey_link_rejected(self):
+  self.alter('docs/assets/reference-site/journeys.js',lambda b:b+b"\n// https://github.com/javin23863/tradercockpit/blob/stale/docs/\n");self.assertTrue(module.validate(self.root))
  def test_signup_fail_open_rejected(self):
   self.alter('docs/index.html',lambda b:b.replace(b'class="reference-waitlist" method="post" hidden',b'class="reference-waitlist" method="post"'));self.assertTrue(module.validate(self.root))
  def test_unlisted_raw_artwork_rejected(self):

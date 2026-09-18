@@ -4,7 +4,6 @@
   'use strict';
   const home = document.querySelector('#main');
   const main = document.querySelector('#journey-main');
-  const SOURCE = 'https://github.com/javin23863/tradercockpit/blob/8e596f6f5c57fd56a07cb8875db27ac18c76333d/docs/';
   let data = {}, validCommerce = false;
   const plans = ['Core', 'Trader', 'Quant', 'ApolloPro'];
   document.addEventListener('tc:commerce', event => {
@@ -52,7 +51,7 @@
 
   const arrow = '<span aria-hidden="true">↗</span>';
   const crumb = label => `<nav class="j-breadcrumb" aria-label="Breadcrumb"><a href="#top">Home</a><span aria-hidden="true">/</span><a href="#/learn">Learning</a><span aria-hidden="true">/</span><span>${label}</span></nav>`;
-  const sourceLink = (file,label='Read the source material') => `<a class="j-source" href="${SOURCE+file}" target="_blank" rel="noopener noreferrer">${label} ${arrow}</a>`;
+  const sourceLink = (file,label='Read the source material') => `<a class="j-source" href="${file}">${label} ${arrow}</a>`;
   const header = (eyebrow,title,description,breadcrumb='') => `${breadcrumb}<header class="j-heading"><p class="eyebrow">${eyebrow}</p><h1 tabindex="-1">${title}</h1><p class="j-lede">${description}</p></header>`;
   const next = (href,title,description) => `<a class="j-next" href="${href}"><span><small>${description}</small><strong>${title}</strong></span>${arrow}</a>`;
 

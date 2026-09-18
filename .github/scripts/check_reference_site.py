@@ -58,6 +58,7 @@ def validate(root=ROOT):
   need(marker in bridge,'Missing product/commerce integration: '+marker)
  need('prefers-reduced-motion' in app and 'visibilitychange' in app,'Scene accessibility safeguards missing')
  need('synthetic' in app.lower() and 'release approval' in app.lower(),'Capture limitations missing')
+ need('github.com/javin23863/tradercockpit/blob/' not in journeys,'Enhanced public journey evidence links must stay on the current local site')
  for name in ['product-state','product-heading','product-summary','manifest-capabilities','manifest-detail','product-cta','youtube-cta','purchase-support','waitlist-form','waitlist-email','waitlist-first-name','waitlist-source','waitlist-utm-source','waitlist-utm-medium','waitlist-utm-campaign']:
   need('id="'+name+'"' in html,'Missing functional access element: '+name)
  for marker in ['<form id="waitlist-form"','id="product-cta"','name="email_address"','name="fields[first_name]"']:
