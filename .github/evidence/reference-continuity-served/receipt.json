@@ -1,10 +1,10 @@
 {
   "schema": "tradercockpit.full-served-site/v1",
   "scope": "COMPLETE_PUBLISHING_DOCS_TREE_OVER_LOOPBACK_HTTP_WITH_PRODUCTION_PREFIX",
-  "capturedAt": "2026-09-18T08:12:10.160Z",
+  "capturedAt": "2026-09-18T08:27:52.958Z",
   "browser": "Chrome/153.0.8010.50",
-  "parentCommit": "6cc7f7ad6dfa01e07925f42fba4960b5e87f1090",
-  "worktreeStatus": "M .github/evidence/reference-continuity-served/reading-after-receipt.json\n?? .github/evidence/reference-content/",
+  "parentCommit": "b02b8169d7680ee7dd012624ab966c6c012ffc69",
+  "worktreeStatus": "M .github/evidence/reference-continuity-served/access-plan-Quant-390.png\n M .github/evidence/reference-continuity-served/full-home-390.png\n M .github/evidence/reference-continuity-served/home-390.png\n M .github/evidence/reference-continuity-served/learn-390.png\n M .github/evidence/reference-continuity-served/learn-checklist-390.png\n M .github/evidence/reference-continuity-served/learn-monte-carlo-390.png\n M .github/evidence/reference-continuity-served/platform-charts-390.png\n M .github/evidence/reference-continuity-served/platform-models-390.png\n M .github/evidence/reference-continuity-served/reading-after-receipt.json\n?? .github/evidence/reference-content/",
   "publicFiles": {
     "404.html": "9d6677cf4cf980f6b400964fb6d25eafd8aeededd92628f28a317c384dcb962f",
     "assets/desktop-current.png": "bf37da9aa22fcbe77dcf4668b6ccdb37c5eb8ff0b52a70c5a97d0ffb6f3ddcfa",
@@ -27,7 +27,7 @@
     "assets/reference-site/integration.css": "3dcc05da72154da5bf589556544a478fce8b36c1f77fcd34cb42d9807f32249f",
     "assets/reference-site/integration.mjs": "00b67a03aa06add497771d6f624b945abc872b505ae06557bc1f4130c67bbdb9",
     "assets/reference-site/journeys.css": "4ff71d7e7584211f1dc14528e54ce9872cf01f81c235a7665e1672730660d356",
-    "assets/reference-site/journeys.js": "282121b2229e3ce0fa1e58fe5907a4769c7894dca94fae26c6df395b7d39393a",
+    "assets/reference-site/journeys.js": "5bdfbaf106e31a52212472255c3eab792f9558ed3c0bde0bc9f5866dce388519",
     "assets/reference-site/laptop-scene.webp": "e14a9353f3bf83217db170c00dfdddd5ed405a246ad63a4729320b17f82402f2",
     "assets/reference-site/laptop-screen.webp": "560f85f0ce4301bd7e30c1d7cca2c39d399f920edc559d7c3d535f4d16610632",
     "assets/reference-site/mark.svg": "18be60e06144d3ecb46df9812f750a809b3552de42bf5527ef01d512863efd92",
@@ -39,7 +39,7 @@
     "assets/reference-site/projects.webp": "c87de8618aad9f7e8d11ea92cae18e8e6ea54de4f5fd8d340abf00b6e8334484",
     "assets/reference-site/room-scene.webp": "11c5ee23fdb99943c379cf1cf35d6e4dad4619b0a08c04dcd8f0e662a47e566f",
     "assets/reference-site/room-screen.webp": "7b0e120c44bb166fd849c7590809ff283bbcaa25fa501075b4d09b3aca7af0b5",
-    "assets/reference-site/styles.css": "2214f710c9967a6f4079891b4b14b0f3f7f4b23d33a1abc5c19fc9129c064d57",
+    "assets/reference-site/styles.css": "42db6ddd18dc8c70c659cff85ab5ab54351a18929b5928ec1199ca007af92605",
     "assets/replay-boundary-example.css": "3c80fd408637e94d9bdb7b484ff960f2224961108148fdddcca40e7d839237ce",
     "assets/replay-boundary-example.js": "3861fa211108ee9f667fe84c23a66a3ec81472ed33d4fa5183e7e48bd31fcfff",
     "assets/research-lab-depth.js": "338c9629e7a60213ea1a9fde88ed612b1c6ee810bdb2e5f221b57f95ba78c19d",
@@ -104,7 +104,7 @@
     "updates/index.html": "e55a5668a0edb810878b5155a2247432289f94a1d25302b8d5d57b5c09a75caa",
     "ux-page-contracts.v1.json": "9b8455786d3ca15aba481253f5ba58ff10ba775276c582cb5470ef66445c26f7"
   },
-  "publicDigest": "e1b43cc5876bccef875248886644c390ae28615fcebba5fbd488ae57e07dd107",
+  "publicDigest": "c6911aeeef8abf1d300ca87f8a7ca29e90fa6ab238121357cb1a022c368eaee2",
   "count": 94,
   "failures": 0,
   "rows": [
@@ -2441,18 +2441,18 @@
         },
         {
           "src": "assets/reference-site/laptop-scene.webp",
-          "width": 1024,
-          "complete": true
+          "width": 0,
+          "complete": false
         },
         {
           "src": "assets/reference-site/laptop-screen.webp",
-          "width": 2048,
-          "complete": true
+          "width": 0,
+          "complete": false
         },
         {
           "src": "assets/reference-site/builder.webp",
-          "width": 145,
-          "complete": true
+          "width": 0,
+          "complete": false
         }
       ],
       "commerce": "verified",
@@ -2681,21 +2681,21 @@
   ],
   "evidence": {
     "access-plan-Quant-1440.png": "0f93365864a2217ea365ed9d6eb20a5cc7d72274142850d870c1c6d26f03a33f",
-    "access-plan-Quant-390.png": "36d0e54fb16fa85b079995058bb2a6315b927ebffcecf6bc235efd0c208a548f",
+    "access-plan-Quant-390.png": "6522fbe3b6aa33a1b5669ad6fbc2e3838827b05810dc3575a65fd0e2c1797cda",
     "full-home-1440.png": "2769e5fb27a0f381b5588beb5853e9bdf4590e1ed48f52cd0406fcef2ad532df",
-    "full-home-390.png": "4321a9c0f998bb81df85862032d890a948d4efd947325843e7c329556e72ec44",
+    "full-home-390.png": "61b9d8a713978054db1056bcaf0ea8ec422f23738aa2c27438679aa55a488db0",
     "home-1440.png": "2cc5995da5fb37d2bc4444adb952f13e4e76951c242d5eb68869fc1785afa09f",
-    "home-390.png": "554687113ec5af505e4bdb05d2727ab60778178219b679fb4a9c63d72e9a7a1c",
+    "home-390.png": "15ff1c4ff526ae544ef2be3232aa886d4e7338767b766280cb6c8f9849f2f52d",
     "learn-1440.png": "66cece5bda256edeb5996e9c91530506942b2c4566aaf1c85a97559875a3b9d2",
-    "learn-390.png": "c4a0e5f76ed0fd70727d1c0914fb4cdfb8cf5413d0c1b1eb24b25aca7f2387ba",
+    "learn-390.png": "956778cec4d0ad1372e461393c7890f63fc3cb7b7cc55771e4dfeade1a903ad6",
     "learn-checklist-1440.png": "ab5f9bb557b5b1c08ac92578154c60bf4154c08631542ae686143201bf5dd679",
-    "learn-checklist-390.png": "3ad752b4864008134f01e8bb67951674518d2aa24ffbaaebce8843383cc86ce9",
+    "learn-checklist-390.png": "d3db36e20fabbf22c524391ea6c279d9a9dabc6eb63fbf08f86d222179854d71",
     "learn-monte-carlo-1440.png": "fc637bc502473c36d74e3d5fb1395bbf15749b5ec1f72fa30339cc2e4b0435f9",
-    "learn-monte-carlo-390.png": "02b9799ea5272dc177af934f23d2559f77d2fe5b8c4ce9be8571f8f1ff576615",
+    "learn-monte-carlo-390.png": "4c58f24b452d59e4ebb73c26a195df419d1dd92f71cddd945ff453e1360d6138",
     "platform-charts-1440.png": "8c33974df5a3cb9970999ff22bd62e8bbea45253e3a20e78024f1a238e504fa1",
-    "platform-charts-390.png": "0d9f6d3504badf08a93af176736b1625c5a2c53bad9c424f4178182f4793e8f0",
+    "platform-charts-390.png": "3431b1e8e234ac93b04dfcf98a2bbeadad43ca0e256bc25e1158d5900c5b7852",
     "platform-models-1440.png": "c8a5aae2959a307d42bb0a33130621bc537103f02d97c7ee60be62a05fe0817b",
-    "platform-models-390.png": "fb238caaaa49093df77624a9ef55bc9aabce330e77807ba641992b00150f2339",
+    "platform-models-390.png": "b47c0886292be0e3a9670665d264dc72eceea2c2fa253c8adc5435afe13e7c0e",
     "reading-docs-1440.png": "f7656986b4a8c045b505b96885c52bbd24aaa7ec8747ff9e4d2adf50e0a0a964",
     "reading-learn-390.png": "4bc7816ecba5f7a1a99b38ae55af0876ff06384dade9c2331f8ebf451e510836",
     "reading-methods-1440.png": "f22f8d866c9a392bc7fdba842d0ee27c88ae024a281e941f4255a8579bd9def0",
