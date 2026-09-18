@@ -24,6 +24,6 @@ The initial source homepage carried review-era metadata and copy. The reviewed i
 The complete candidate is tested separately by the served-site and journey suites over the production path prefix. Import fixtures, bridge fixtures and source receipts do not substitute for those complete browser runs.
 
 ## Imported and adapted site
-The original import receipt remains historical. Current adapted-site integrity is enforced by `check_reference_site.py`, the 14 mutation tests, the source-bound screen-layer generator/test, public UX/claims/hardening checks, and the exact-head continuity verifier.
+The original import receipt remains historical. Current adapted-site integrity is enforced by `check_reference_site.py`, the integrity mutation suite, the source-bound screen-layer generator/test, public UX/claims/hardening checks, and the exact-head continuity verifier.
 
 Use `.github/website-reference-readiness.json` for the current review gate. Owner visual approval is already recorded; an independent exact-head Codex review with zero unresolved findings is still required before merge. Deployment remains a separate authorization.

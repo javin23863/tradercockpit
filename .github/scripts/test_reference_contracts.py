@@ -18,6 +18,15 @@ class ContractTests(unittest.TestCase):
   value=json.loads((ROOT/'docs/ux-page-contracts.v1.json').read_text(encoding='utf-8'))
   pricing=next(row for row in value['pages'] if row['path']=='pricing/index.html')
   self.assertEqual(pricing['reviewed_h1'],'Four monthly plans. One research environment.')
+ def test_public_authority_contract_is_split_and_does_not_duplicate_mutable_counts(self):
+  readme=(ROOT/'README.md').read_text(encoding='utf-8')
+  reference_readme=(ROOT/'.github/reference-site/README.md').read_text(encoding='utf-8')
+  self.assertIn('docs/product-manifest.v1.json',readme)
+  self.assertIn('docs/commerce-public.v1.json',readme)
+  self.assertIn('docs/prelaunch-config.v1.json',readme)
+  self.assertNotIn('the ONLY source of product availability, pricing, platform support and checkout state',readme)
+  self.assertIn('public plan names, prices, and checkout state',readme)
+  self.assertNotRegex(reference_readme,r'\b\d+ mutation tests\b')
  def test_transform_preserves_route_set_and_analytical_palette(self):
   value=json.loads((ROOT/'docs/ux-page-contracts.v1.json').read_text(encoding='utf-8'))
   baseline=json.loads((ROOT/'.github/reference-site/ux-contracts-before.json').read_text(encoding='utf-8'))
