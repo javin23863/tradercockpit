@@ -2,7 +2,7 @@
   "schema": "tradercockpit.reference-content-controls/v1",
   "scope": "FULL_SERVED_WEBSITE_NOT_FIXTURE",
   "browser": "Chrome/153.0.8010.50",
-  "publicDigest": "b2ca07dd8cc2ded30a6efcf43ee85a0ae58793d58938207ffb5156799a6f3f01",
+  "publicDigest": "9173238c8c5c1316588dd35225c7a88340bf35227fdede179ec756f6c65d4acd",
   "checks": [
     "wrapped_docs_keyboard_search_and_focus_return",
     "checklist_navigation_visible_on_screen_hidden_in_print",
