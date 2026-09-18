@@ -1,8 +1,8 @@
 {
   "schema": "tradercockpit.reference-content-package/v2",
   "label": "after",
-  "parentCommit": "e42b185eeafd3a6d6ba42739a3a761d2e8a28091",
-  "publicDigest": "9a970247b0bd28755466ceec1a3ae4d1e09b672fc950936b92565ad9bf626f91",
+  "parentCommit": "ce54897804ab5f38be424f2249b05207b9f6477e",
+  "publicDigest": "5f7c99ba5a773fcd06d15f1904d1f1d2f3ac57cb132fb8f02371989002c3f267",
   "browser": "Chrome/153.0.8010.50",
   "scope": "FULL_SERVED_PUBLISHING_TREE",
   "rows": [
@@ -3582,7 +3582,7 @@
   "generatedEvidence": {
     "retention": "ephemeral_full_run_not_committed",
     "count": 78,
-    "manifestSha256": "982b27ad20aec43f09e96345164b5dce117f1b44f25d285d44c6280a2e8ab93f",
+    "manifestSha256": "ffe78996cb195413593c83226e59af8984d30693289ee77b1c226936e4d824f2",
     "hashes": {
       "404-html-1440.png": "1c192bf18ae1719bab9b361ec43336e7059bd0dfaec733e279266dec3acbab33",
       "404-html-390.png": "bb2b770d2e6fb8fcd1af7200090e950bb5cd84f6ad97bb6ed35af482100279b5",
@@ -3605,7 +3605,7 @@
       "how-to-read-monte-carlo-html-1440.png": "e6dc7d717c36d880c65da2c91a8d50e428f31b82ddb8e12cb818bf9e6241f7c7",
       "how-to-read-monte-carlo-html-390.png": "eb11a092dde3e419a1b401fb7d596417b82432601a5d0a4cb79ebdd3a37ac47f",
       "how-to-read-result-metrics-html-1440.png": "f18f5d4a3a044696728d9e387e9f0cdc8d98086b88cf2bf8f5dcfbfb13ee1786",
-      "how-to-read-result-metrics-html-390.png": "1ee393976f657b16fbad8f13de10beac601fe1051e011cd0d051f8cdde3f7517",
+      "how-to-read-result-metrics-html-390.png": "66bb257148d5be6b08a3b2613bd343ab0f16a9f8db5575e81edc7f6b5368ae5e",
       "how-to-read-staged-validation-html-1440.png": "94433807826f209b5d096f5907c3b2ead5581b8d514c5073569e7a5ec47904f6",
       "how-to-read-staged-validation-html-390.png": "6e8a2c2aff7875022989f06e1cd0f7aecaeb3dca041882772949246193fbecd3",
       "learn-concepts-correlation-diversification-html-1440.png": "738b56d8725f5f6edd39f31a06d4c73ed5e7015a34308888648ef8e6045f908d",
