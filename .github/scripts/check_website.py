@@ -486,6 +486,8 @@ def main() -> int:
             if not target.is_file():
                 problems.append(f"broken link {page.relative_to(REPO)} -> {href}")
                 continue
+            if target == HOME_PAGE and fragment.split('?')[0] in {'/learn','/learn/monte-carlo','/learn/checklist','/platform/charts','/platform/models','/access'}:
+                continue  # Exact existing hash routes have native page rendering, not static IDs.
             if fragment and target.suffix == ".html":
                 target_parser = parsers.get(target) or parse_page(target)
                 if fragment not in target_parser.ids:

@@ -134,8 +134,8 @@ def main() -> int:
             absent = REQUIRED_DIMENSIONS.difference(row)
             if absent:
                 problems.append(f"{rel} missing UX dimensions: {sorted(absent)}")
-            if row.get("audit", {}).get("status") != "pass":
-                problems.append(f"{rel} does not have a passing UX audit disposition")
+            if row.get("audit") != {"status":"pending_visual_review","visual_approval":False}:
+                problems.append(f"{rel} must distinguish structural checks from pending visual approval")
 
     for page in public:
         rel = page.relative_to(DOCS).as_posix()
@@ -194,7 +194,7 @@ def main() -> int:
         for item in problems:
             print(f"- {item}")
         return 1
-    print(f"PUBLIC UX: PASS ({len(public)}/{len(public)} public pages; 8/8 review dimensions enforced)")
+    print(f"PUBLIC UX: PASS ({len(public)}/{len(public)} public pages; 8/8 structural dimensions; visual approval remains separate)")
     return 0
 
 

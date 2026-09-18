@@ -17,6 +17,6 @@ The import receipt is a historical inventory of the initial copy, not a claim th
 ## Acceptance boundary
 The complete docs tree is exercised by test_reference_served.mjs and test_reference_journeys.mjs over loopback HTTP. These are not in-memory renders or minimal fixtures. Full visual acceptance remains separate. A zero error count does not approve the composition or production artwork.
 
-The legacy documentation URLs are preserved, not declared visually migrated to the new theme. Homepage artwork quality and the entire site's final presentation still need appraisal. Do not request Codex review, merge PR #51, deploy, enable checkout or buy Actions capacity.
+The 39 retained non-home, non-Research-Lab pages now have an additive reference reading shell. Their existing article text, links and anchors are preserved by reversible byte checks. Homepage and Research Lab files remain unchanged in this continuation. The rendered reading-page changes, remaining production artwork work and owner acceptance are separate from technical checks. Do not request Codex review, merge PR #51, deploy, enable checkout or buy Actions capacity.
 
 Use the newest source-bound receipts for technical status. Owner acceptance and independent review are separate gates.

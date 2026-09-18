@@ -6,7 +6,7 @@ class IntegrityTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
   shutil.copytree(ROOT/'docs',self.root/'docs')
-  for file in ['.github/reference-import-receipt.json','.github/reference-site/provenance/product-captures.json']:
+  for file in ['.github/reference-import-receipt.json','.github/reference-site/provenance/product-captures.json','.github/reference-content-manifest.json','.github/reference-site/ux-contracts-before.json']:
    p=self.root/file;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/file,p)
  def tearDown(self):self.tmp.cleanup()
  def alter(self,name,action):
@@ -22,4 +22,10 @@ class IntegrityTests(unittest.TestCase):
   self.alter('docs/index.html',lambda b:b.replace(b'class="reference-waitlist" method="post" hidden',b'class="reference-waitlist" method="post"'));self.assertTrue(module.validate(self.root))
  def test_unlisted_raw_artwork_rejected(self):
   (self.root/'docs/assets/reference-site/raw-mockup.png').write_bytes(b'unlisted artwork');self.assertTrue(module.validate(self.root))
+ def test_article_text_change_rejected(self):
+  self.alter('docs/docs/index.html',lambda b:b.replace(b'Three kinds of answer.',b'Changed article content.'));self.assertTrue(module.validate(self.root))
+ def test_article_link_change_rejected(self):
+  self.alter('docs/docs/index.html',lambda b:b.replace(b'../how-to/',b'../wrong-guide/'));self.assertTrue(module.validate(self.root))
+ def test_reading_css_drift_rejected(self):
+  self.alter('docs/assets/reference-site/content.css',lambda b:b+b'/* unreviewed */');self.assertTrue(module.validate(self.root))
 if __name__=='__main__':unittest.main(verbosity=2)

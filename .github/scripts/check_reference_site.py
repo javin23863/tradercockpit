@@ -3,6 +3,8 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import hashlib,json,re,sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from check_reference_content import validate_content
 ROOT=Path(__file__).resolve().parents[2];DOCS=ROOT/'docs'
 def validate(root=ROOT):
  docs=root/'docs';errors=[]
@@ -11,14 +13,16 @@ def validate(root=ROOT):
  def read(p): return (root/p).read_text(encoding='utf-8')
  receipt=json.loads(read('.github/reference-import-receipt.json'))
  need(receipt['source_archive_sha256']=='0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c','Wrong input archive identity')
- expected_files=set(receipt['unchanged']) | {p[5:] for p in receipt['outputs'] if p.startswith('docs/')} | {'assets/reference-site/original-charts.png','assets/reference-site/original-models.png','assets/reference-site/pricing.css'}
+ content_manifest=json.loads(read('.github/reference-content-manifest.json'))
+ errors.extend(validate_content(root))
+ expected_files=set(receipt['unchanged']) | {p[5:] for p in receipt['outputs'] if p.startswith('docs/')} | {'assets/reference-site/original-charts.png','assets/reference-site/original-models.png','assets/reference-site/pricing.css','assets/reference-site/content.css'}
  actual_files={p.relative_to(docs).as_posix() for p in docs.rglob('*') if p.is_file()}
  need(actual_files==expected_files,'Unlisted or missing publishing files: '+str(sorted(actual_files ^ expected_files)))
  for name,item in receipt['outputs'].items():
   if name.endswith(('.webp','.svg')):
    p=root/name;need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==item['sha256'],'Source artwork changed: '+name)
  for name,digest in receipt['unchanged'].items():
-  if name=='pricing/index.html':continue
+  if name=='pricing/index.html' or name in content_manifest['files']:continue
   p=docs/name;need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==digest,'Existing public file changed: '+name)
  records=json.loads(read('.github/reference-site/provenance/product-captures.json'))['captures']
  for r in records:
