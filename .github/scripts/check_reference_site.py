@@ -50,7 +50,7 @@ def validate(root=ROOT):
  need('noindex' not in html.lower() and 'nofollow' not in html.lower(),'Public homepage must remain indexable')
  for marker in ['property="og:type"','property="og:site_name"','property="og:title"','property="og:description"','property="og:url"','name="twitter:card"','type="application/ld+json"']:
   need(marker in html,'Public homepage metadata missing: '+marker)
- for phrase in ['search this preview','about this preview','homepage proof','not a release candidate','under visual review','in this preview']:
+ for phrase in ['search this preview','about this preview','homepage proof','not a release candidate','under visual review','in this preview','explore this preview','this preview does not offer','this preview does not contain','the preview does not establish']:
   need(phrase not in public_runtime,'Internal review wording leaked to public surface: '+phrase)
  need('assets/generated/site-webgl-v1.js' not in html and 'quant-universe' not in html,'Retired hero reintroduced')
  need('data-scene="room"' in html and 'data-scene="laptop"' in html,'Reference scenes missing')

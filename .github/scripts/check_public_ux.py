@@ -176,7 +176,7 @@ def main() -> int:
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
     public_runtime = "\n".join((DOCS / "assets" / "reference-site" / name).read_text(encoding="utf-8").lower() for name in ("app.js", "journeys.js"))
-    for phrase in ("homepage proof", "not a release candidate", "under visual review", "in this preview"):
+    for phrase in ("homepage proof", "not a release candidate", "under visual review", "in this preview", "explore this preview", "this preview does not offer", "this preview does not contain", "the preview does not establish"):
         if phrase in public_runtime:
             problems.append(f"homepage runtime contains internal review copy: {phrase}")
 
