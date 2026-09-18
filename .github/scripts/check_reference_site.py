@@ -12,6 +12,7 @@ def validate(root=ROOT):
   if not ok: errors.append(why)
  def read(p): return (root/p).read_text(encoding='utf-8')
  receipt=json.loads(read('.github/reference-import-receipt.json'))
+ production=json.loads(read('.github/reference-site/provenance/production-screen-layers.json'))
  need(receipt['source_archive_sha256']=='0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c','Wrong input archive identity')
  content_manifest=json.loads(read('.github/reference-content-manifest.json'))
  errors.extend(validate_content(root))
@@ -19,11 +20,24 @@ def validate(root=ROOT):
  actual_files={p.relative_to(docs).as_posix() for p in docs.rglob('*') if p.is_file()}
  need(actual_files==expected_files,'Unlisted or missing publishing files: '+str(sorted(actual_files ^ expected_files)))
  for name,item in receipt['outputs'].items():
-  if name.endswith(('.webp','.svg')):
+  if name.endswith(('.webp','.svg')) and not name.endswith(('room-screen.webp','laptop-screen.webp')):
    p=root/name;need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==item['sha256'],'Source artwork changed: '+name)
  for name,digest in receipt['unchanged'].items():
   if name=='pricing/index.html' or name in content_manifest['files']:continue
   p=docs/name;need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==digest,'Existing public file changed: '+name)
+ need(production.get('schema')=='tradercockpit.production-screen-layers/v1' and production.get('quality')=='FULL_RESOLUTION_CAPTURE_SOURCE','Production screen-layer provenance missing or downgraded')
+ need(hashlib.sha256((root/'.github/scripts/generate_reference_screen_layers.mjs').read_bytes()).hexdigest()==production.get('generator_sha256'),'Screen-layer generator identity changed')
+ need(hashlib.sha256((root/'.github/reference-site/provenance/screen-placement.json').read_bytes()).hexdigest()==production.get('placement_sha256'),'Screen placement authority changed')
+ expected_layers={'room':('charts','original-charts.png','room-screen.webp','bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae'),'laptop':('models','original-models.png','laptop-screen.webp','3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6')}
+ layers={item.get('scene'):item for item in production.get('layers',[])}
+ need(set(layers)==set(expected_layers),'Production screen layers must be room and laptop only')
+ for scene,(capture,source,output,source_hash) in expected_layers.items():
+  item=layers.get(scene,{})
+  src=docs/'assets/reference-site'/source;out=docs/'assets/reference-site'/output
+  need(item.get('capture')==capture and item.get('source_asset')=='docs/assets/reference-site/'+source,'Screen layer must use verified original: '+scene)
+  need(src.is_file() and hashlib.sha256(src.read_bytes()).hexdigest()==source_hash==item.get('source_sha256'),'Full-resolution screen source identity: '+scene)
+  need(out.is_file() and hashlib.sha256(out.read_bytes()).hexdigest()==item.get('output_sha256'),'Generated screen-layer identity: '+scene)
+  need(item.get('generator')=='.github/scripts/generate_reference_screen_layers.mjs' and item.get('release_approved') is False,'Screen layer provenance boundary: '+scene)
  records=json.loads(read('.github/reference-site/provenance/product-captures.json'))['captures']
  for r in records:
   p=docs/'assets/reference-site'/('original-'+r['id']+'.png')
