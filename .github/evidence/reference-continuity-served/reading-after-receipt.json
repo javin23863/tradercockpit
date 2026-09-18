@@ -1,8 +1,8 @@
 {
   "schema": "tradercockpit.reference-content-package/v2",
   "label": "after",
-  "parentCommit": "b02b8169d7680ee7dd012624ab966c6c012ffc69",
-  "publicDigest": "c6911aeeef8abf1d300ca87f8a7ca29e90fa6ab238121357cb1a022c368eaee2",
+  "parentCommit": "d0a106b914d86b090448fea931ec62fdfdf80a72",
+  "publicDigest": "ea5620e270c3f44e98673e34820f33808e1448bd3ed4de8fab132943920c5cca",
   "browser": "Chrome/153.0.8010.50",
   "scope": "FULL_SERVED_PUBLISHING_TREE",
   "rows": [
@@ -3582,7 +3582,7 @@
   "generatedEvidence": {
     "retention": "ephemeral_full_run_not_committed",
     "count": 78,
-    "manifestSha256": "c8b4fd72ac11f5b5c0d6f62fed9ca11bba7389ef819e601a00ace52f9e195f5b",
+    "manifestSha256": "982b27ad20aec43f09e96345164b5dce117f1b44f25d285d44c6280a2e8ab93f",
     "hashes": {
       "404-html-1440.png": "1c192bf18ae1719bab9b361ec43336e7059bd0dfaec733e279266dec3acbab33",
       "404-html-390.png": "bb2b770d2e6fb8fcd1af7200090e950bb5cd84f6ad97bb6ed35af482100279b5",
@@ -3595,7 +3595,7 @@
       "examples--1440.png": "dc5a1c146a7627ccd4580022698821bb13af0516c8cdaed7e69cec1fc3d0f150",
       "examples--390.png": "951c9e08a92f757fe09511977543d1adbe5ae49bf5065f7e5affd09aa81b398d",
       "examples-replay-boundary-html-1440.png": "0e32226e49d216b8b2ec76f3bbf96e99ae5380b880922d27ebfe3c4edff5cc0d",
-      "examples-replay-boundary-html-390.png": "ac8976038b03a82b46f667b0317450482e62c1645bc26c9f41c2fd385d72e2f1",
+      "examples-replay-boundary-html-390.png": "c8e082c95dc0b53c6f333ac03ed525b2656aa92feea292885200010d1c172e4d",
       "help-html-1440.png": "ceb6c79f55a4f362bd79def24f0afffba5c260fac2476d64a746a0b8e52efbf3",
       "help-html-390.png": "1ca1ae2822f5ea06893494e855e0a0671e376520cf0fdcfd236500ead83faf94",
       "how-to--1440.png": "2a16eb6d95279a0b95851353de3c49f2f37c2478ba16b272aaea85292dc6853a",
