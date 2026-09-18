@@ -22,3 +22,5 @@ The complete `docs/` tree is exercised over loopback HTTP with the production pa
 Automated checks do not grant visual approval. The owner explicitly approved the integrated visual candidate on 2026-09-18; that approval is recorded separately in `.github/website-reference-readiness.json` and `docs/ux-page-contracts.v1.json`.
 
 The remaining merge gate is a fresh independent Codex review of the exact current PR #52 head with zero unresolved findings. Do not merge or deploy a superseded head, enable checkout, or treat development screenshots as live-market/performance evidence.
+
+Codex request, reaction, findings, and completion state are mutable GitHub PR state and are deliberately not source-controlled. Repository readiness can say that review is required; only PR #52 itself can prove whether the current head has actually been requested or reviewed.

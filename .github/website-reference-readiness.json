@@ -22,9 +22,8 @@
     "owner_visual_acceptance_of_integrated_result": "complete; owner approved exact integrated visual candidate on 2026-09-18"
   },
   "baseline_checks": "Main baseline passed; NOT evidence for an integrated candidate.",
-  "codex_review_requested": true,
   "production_deployment_authorized": false,
-  "limitation": "Owner visual acceptance and exact-source verification are complete on 4375a67. Fresh Codex review has been requested for the final review head; merge requires zero unresolved findings. No deployment is authorized.",
+  "limitation": "Owner visual acceptance and exact-source verification are complete. Fresh Codex review must be requested and observed in GitHub PR #52 external state; mutable review-request status is not source-controlled. Merge still requires zero unresolved current-head findings. No deployment is authorized.",
   "tooling_progress": {
     "importer": "Implemented; input SHA checked before writes; runtime assets explicitly allowlisted",
     "localExactArchiveFixture": "10 tests passed; temporary fixture only",
@@ -37,5 +36,7 @@
     ],
     "windowsExactArchiveTests": "10 passed, zero skipped"
   },
-  "source_download_name": "TraderCockpit-homepage-proof-source(6).zip"
+  "source_download_name": "TraderCockpit-homepage-proof-source(6).zip",
+  "codex_review_required": true,
+  "codex_review_state_source": "github_pr_external"
 }
