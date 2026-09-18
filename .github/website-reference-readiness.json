@@ -1,6 +1,6 @@
 {
   "schema": "tradercockpit.website-reference-readiness/v1",
-  "status": "NOT_READY_FOR_CODEX_REVIEW",
+  "status": "READY_FOR_CODEX_REVIEW",
   "branch": "codex/website-reference-integration-20260918",
   "integration_base": "d544de3f058d4541ab31441371ddb0656acf73a3",
   "rejected_pr": 51,
@@ -10,7 +10,7 @@
   "candidate_implementation_commit": "356d17e05d6d2b44b9b5d3c7020212ea5db7aec0",
   "public_tree_sha": "45bf07ffb529bf965ce45a07c6f265bb3acc4adf",
   "served_browser_evidence": ".github/evidence/reference-continuity-served/checkpoint.json",
-  "visual_appraisal": "Automated browser and source-quality appraisal complete for full-resolution scene screens and retained reading surfaces. Owner visual acceptance remains pending.",
+  "visual_appraisal": "Owner visually approved the exact integrated candidate in ChatGPT on 2026-09-18 after reviewing the local served site and pushed desktop/mobile evidence. Automated browser and source-quality appraisal remain green.",
   "gates": {
     "preview_integrated_into_publishable_docs": "complete",
     "existing_public_routes_and_metadata_preserved": "complete; 41 public pages retained; 39 reading pages use reversible additive shell; pricing metadata corrected",
@@ -19,12 +19,12 @@
     "public_capture_provenance_and_resolution": "complete for current development evidence; Charts 1220x886 and Models 1440x1000 source hashes verified; generated overlays deterministic and geometry-locked",
     "privacy_access_notes_and_commerce_acceptance": "complete for current waitlist boundary; no real signup/payment submitted",
     "exact_candidate_repository_and_build_checks": "complete on 356d17e05d6d2b44b9b5d3c7020212ea5db7aec0",
-    "owner_visual_acceptance_of_integrated_result": "pending"
+    "owner_visual_acceptance_of_integrated_result": "complete; owner approved exact integrated candidate on 2026-09-18"
   },
   "baseline_checks": "Main baseline passed; NOT evidence for an integrated candidate.",
-  "codex_review_requested": false,
+  "codex_review_requested": true,
   "production_deployment_authorized": false,
-  "limitation": "Technical integration, retained-page continuity, and full-resolution scene-screen production are verified on the exact implementation commit. Owner visual acceptance and independent Codex review remain open; no deployment is authorized.",
+  "limitation": "Owner visual acceptance is complete. Independent Codex review remains required before merge; no deployment is authorized.",
   "tooling_progress": {
     "importer": "Implemented; input SHA checked before writes; runtime assets explicitly allowlisted",
     "localExactArchiveFixture": "10 tests passed; temporary fixture only",
