@@ -1,0 +1,2667 @@
+{
+  "schema": "tradercockpit.full-served-site/v1",
+  "scope": "COMPLETE_PUBLISHING_DOCS_TREE_OVER_LOOPBACK_HTTP_WITH_PRODUCTION_PREFIX",
+  "capturedAt": "2026-09-18T03:18:53.449Z",
+  "browser": "Chrome/153.0.8010.50",
+  "parentCommit": "068ff7292717c2f8bece8dddba414c73e63e7dc8",
+  "worktreeStatus": "?? .github/evidence/reference-served/\n?? .github/reference-served-run.log",
+  "publicFiles": {
+    "404.html": "7a534afcded123790db17bd7eeae83996d2d62bbac3dc9213b598ed2fb123224",
+    "assets/desktop-current.png": "bf37da9aa22fcbe77dcf4668b6ccdb37c5eb8ff0b52a70c5a97d0ffb6f3ddcfa",
+    "assets/faq-status.mjs": "60ef1485d6fc005893c67ed6ced932095cf4e5e5ad9dec6ddb68475ec0c0b736",
+    "assets/generated/research-vtk-v1.js": "ed0025be8303dca7923bc0b1eda654c6c0ee0fa122fdcbaefb1901746e0408ea",
+    "assets/generated/research-vtk-v1.LICENSE.txt": "975132688e5330fc9bef98cf3260af11d74f7ef2ffe8309b5d10bd73e212a5fc",
+    "assets/generated/research-vtk-v1.PROVENANCE.json": "4f0d85bbf461fe2ce89520d922d8ec82ba593244f68b12416ea58777220d44e9",
+    "assets/generated/site-webgl-v1.js": "510a9c465a151b67350c8a3c2c10f258bd2cf0d85c6bc889d489bbc892bde01f",
+    "assets/help-resolver.js": "0ef9497d2d3fcb1a29a1fda6436bdab95dfc3bb2c296b8e754b973bc9f64c2d3",
+    "assets/home-v2.css": "5df579c8c73a2c780135697f4b7a0c3e4ef6a93b49a76e80b1ac8883bc52bf3d",
+    "assets/home-v2.js": "4f960cd3b3c76656aec10c924d1ee81e653441ffcd9704f36035f80e6c48e682",
+    "assets/home-v3.css": "481df62082b2d522b99f9e2e2035bb1909f03e19002518344b35e40f1216d56a",
+    "assets/home-v3.js": "4085ebcdf6ec42014e85cb1db50e76b8c76279da66155ccede768a0224326a08",
+    "assets/reference-site/apollo.webp": "c492b801d96d8161744558cbcf234d5730e42bae80e1ec419acde526b380139d",
+    "assets/reference-site/app.js": "89b42bdde13befb7bba3cbb8e2f8d08a28886d3ad9971a8e5602962452307e15",
+    "assets/reference-site/builder.webp": "f68df6a4e549720a6b821c37d32d82de6107c652cc07b6cf33cb7ff45a7d6846",
+    "assets/reference-site/capture-overrides.js": "c0a078f5e1aa236a17658f153b6407351a7182db2a337d2a430b96e212b390d2",
+    "assets/reference-site/data.webp": "4c2b08f48e4260db94e45362c7720b8be7f38708f30d9a84ce06b618adbe2302",
+    "assets/reference-site/integration.css": "3dcc05da72154da5bf589556544a478fce8b36c1f77fcd34cb42d9807f32249f",
+    "assets/reference-site/integration.mjs": "00b67a03aa06add497771d6f624b945abc872b505ae06557bc1f4130c67bbdb9",
+    "assets/reference-site/journeys.css": "4ff71d7e7584211f1dc14528e54ce9872cf01f81c235a7665e1672730660d356",
+    "assets/reference-site/journeys.js": "d96cd9b16f3b1c32c51e60fbcd6a2230765df0c758d3626199e64e71e4d42755",
+    "assets/reference-site/laptop-scene.webp": "e14a9353f3bf83217db170c00dfdddd5ed405a246ad63a4729320b17f82402f2",
+    "assets/reference-site/laptop-screen.webp": "84f9709a6bc2649673b0dbf4ca1ac2e43193369a965c96e06306e909627ce016",
+    "assets/reference-site/mark.svg": "18be60e06144d3ecb46df9812f750a809b3552de42bf5527ef01d512863efd92",
+    "assets/reference-site/original-charts.png": "bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae",
+    "assets/reference-site/original-models.png": "3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6",
+    "assets/reference-site/pricing.css": "d8889c4761b6e1fda9687bcdd5e317817c0599f830ff39179f7f393c053783b6",
+    "assets/reference-site/product-charts.webp": "ca0e0d9acbbdee23ef2f94d8531463026184c871cc076ebe2291c11d6773fa98",
+    "assets/reference-site/product-models.webp": "d4905040d2e6354472885b6c9f0c8fc0d188429e736fac2e33b16a90795d6da7",
+    "assets/reference-site/projects.webp": "c87de8618aad9f7e8d11ea92cae18e8e6ea54de4f5fd8d340abf00b6e8334484",
+    "assets/reference-site/room-scene.webp": "11c5ee23fdb99943c379cf1cf35d6e4dad4619b0a08c04dcd8f0e662a47e566f",
+    "assets/reference-site/room-screen.webp": "aea227e6d88f261df6424930ba89395e52bdb78c2fe8f9ad120245a82c46edd9",
+    "assets/reference-site/styles.css": "bca1e443507ec8fd75ed57d0762c8e2cc2ebbf125198f53e75d9fe096ea19c3e",
+    "assets/replay-boundary-example.css": "3c80fd408637e94d9bdb7b484ff960f2224961108148fdddcca40e7d839237ce",
+    "assets/replay-boundary-example.js": "3861fa211108ee9f667fe84c23a66a3ec81472ed33d4fa5183e7e48bd31fcfff",
+    "assets/research-lab-depth.js": "338c9629e7a60213ea1a9fde88ed612b1c6ee810bdb2e5f221b57f95ba78c19d",
+    "assets/research-lab-regime.js": "349aff7a46548c068ae4f1ff0056cb8217bd61eb55dac9ed26f73a4af37048d4",
+    "assets/research-lab-risk.js": "95f60debf8bc38d39050250aeea35fdd8959eb3213a7208f686a5a3b4c29a520",
+    "assets/research-lab-validation.js": "c747633620a17799f66d4b8df9eec2ed25de575185f105ec9b990d71ebc52656",
+    "assets/research-lab.js": "ad11096cb9199a65ce2c85a02caec4a05945ae9f09a23e4c1384e555c14ea81d",
+    "assets/site-search.js": "4bc0d26ee9e1e6f3bd35aaecb279c052573d213cf056b01a7d62b430d06ba486",
+    "assets/site-v2.css": "95566dc18f0d830f3118bef89fe3815606a2b17f91d33f5a22cc49984210e688",
+    "assets/video-slot.js": "571ffd17d4137c544b16fca57b4c9314527b155a05b280a3272de71c067b76c8",
+    "commerce-public.v1.json": "cae1b513bf02ef472b15bafc7d58ebfdf328885da4386d1336a89f12c5434423",
+    "concepts.v1.json": "3ae970be5cfcc13e5e0762dc511c637261d033f87afe0b72fa8c37ebfee60103",
+    "confirmed.html": "ce4cad2aea3c81c68c35f3bc2a4e4751c4d469d6af5efaccb6a35d078c385a3c",
+    "content-registry.v1.json": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
+    "docs/index.html": "f24f8660892730ab6ebb2edfa4158735cc2aec34c5bb20268b2e027b28a881d0",
+    "examples/holdout-selection.html": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85",
+    "examples/index.html": "60ada0e34432da39ba418840da16ad33e64925f8e5caf43333754a2af1fe8668",
+    "examples/replay-boundary.html": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79",
+    "help-registry.v1.json": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
+    "help.html": "3f6e4a64ff3340a5c191d0dd305c9ffebcafb2fba3cf575e3c42955f70a6f999",
+    "how-to/index.html": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
+    "how-to/read-chart-evidence.html": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3",
+    "how-to/read-monte-carlo.html": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404",
+    "how-to/read-result-metrics.html": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833",
+    "how-to/read-staged-validation.html": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5",
+    "index.html": "160c5223d0026f71e938f4f1992f7787d240f9f20810d796fc0d8d6bd43c2933",
+    "learn/concepts/correlation-diversification.html": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
+    "learn/concepts/distribution-shape.html": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
+    "learn/concepts/drawdown.html": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
+    "learn/concepts/monte-carlo.html": "6e3f51c527177c355262b635824aa4a3ad3004686711081972a7fde552439fce",
+    "learn/concepts/out-of-sample.html": "b38d48b3ce6696868ee13396ac4a3f9afa0450abb32d28ace8742bd7e7cf7727",
+    "learn/concepts/parameter-robustness.html": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
+    "learn/concepts/regime-map.html": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
+    "learn/concepts/selection-bias.html": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
+    "learn/concepts/walk-forward.html": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
+    "learn/glossary.html": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335",
+    "learn/index.html": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31",
+    "learn/start-here.html": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3",
+    "learn/videos.html": "ac744ff241d35c402eac8e9a16a495d2a1f4895908e25899777b42b4f22b3a17",
+    "methods/chart-evidence.html": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8",
+    "methods/index.html": "0689e1b3324eeef298f4ca4718b7e9818ec2efff791b0a4beffa222a59667553",
+    "methods/monte-carlo.html": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0",
+    "methods/result-metrics.html": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1",
+    "methods/validation-foundations.html": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa",
+    "prelaunch-config.mjs": "970111ce96d32e56dcee429f55b3b9dea6673a30724d4db6ae5d51328f1207fe",
+    "prelaunch-config.v1.json": "fe38da3122cfcd9ba7bdc220c98938dfe3cbcc4ef4413c06314e4c2d7b321cc6",
+    "pricing/index.html": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
+    "product-manifest.mjs": "ddd4a068322f777f76032e0f8e7048d77974588bce936f7db7d68d95e071feb6",
+    "product-manifest.v1.json": "58b96cd926cb5fa15bb7be0f55678fea5121626545872407df03f797d5a23820",
+    "refund-policy.html": "427dbd7d33a45c376dacee264f98169b33fe26aa7274cc40339b5ba91e856752",
+    "research-lab.html": "0c0883a01c84341928f261af0a890b91c581c506d25e19a7ee8a494ccc82aad3",
+    "robots.txt": "e86d231f2ec238989449c6b59cae81b8760a86100f4ceb21d693b62fcd1f36c5",
+    "search-index.v1.json": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
+    "sitemap.xml": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
+    "social-links.v1.json": "369008141a65b8557fb9520e4d69921f72191bdab6428921740708de48926eaf",
+    "strategy-claim-audit-checklist.html": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
+    "support/faq.html": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
+    "support/index.html": "0dceeb4d047f0ad782c443e1136877ea0343df00f5bb38dd5e74b3fc4c0f1bc0",
+    "thanks.html": "7044bbe001264811706c0c3a3d72513c419b61b2314a7e3c97e19a8bedf4a077",
+    "trust/index.html": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
+    "trust/privacy.html": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
+    "updates/index.html": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
+    "ux-page-contracts.v1.json": "e4db5afe41a7109504ef74c3a0e5e4233b68899e2d635ba674bb7e9648699670"
+  },
+  "publicDigest": "2fd3c1d67496f1275fbfc0e8c54134b91d165bb0861c6f7382675876ba2c567c",
+  "count": 94,
+  "failures": 0,
+  "rows": [
+    {
+      "url": "404.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Page Not Found — TraderCockpit",
+      "h1s": [
+        "We couldn't find that page."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "404.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Page Not Found — TraderCockpit",
+      "h1s": [
+        "We couldn't find that page."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "confirmed.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Confirmed · TraderCockpit",
+      "h1s": [
+        "Check your email."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "hiddenWaitlist": true,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "confirmed.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Confirmed · TraderCockpit",
+      "h1s": [
+        "Check your email."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "hiddenWaitlist": true,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "docs/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Documentation — TraderCockpit",
+      "h1s": [
+        "Find the answer you need, fast."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "docs/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Documentation — TraderCockpit",
+      "h1s": [
+        "Find the answer you need, fast."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "examples/holdout-selection.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Synthetic Holdout Selection Example — TraderCockpit",
+      "h1s": [
+        "What changes when the result that won selection meets information it did not see?"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "examples/holdout-selection.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Synthetic Holdout Selection Example — TraderCockpit",
+      "h1s": [
+        "What changes when the result that won selection meets information it did not see?"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "examples/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Examples — TraderCockpit",
+      "h1s": [
+        "Follow the research question all the way to its limitations."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "examples/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Examples — TraderCockpit",
+      "h1s": [
+        "Follow the research question all the way to its limitations."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "examples/replay-boundary.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Synthetic Historical Replay Boundary — TraderCockpit",
+      "h1s": [
+        "What should disappear when you move a historical replay cutoff backward?"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "examples/replay-boundary.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Synthetic Historical Replay Boundary — TraderCockpit",
+      "h1s": [
+        "What should disappear when you move a historical replay cutoff backward?"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "help.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Contextual Help — TraderCockpit",
+      "h1s": [
+        "Opening the help topic you asked for."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "help.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Contextual Help — TraderCockpit",
+      "h1s": [
+        "Opening the help topic you asked for."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How-Tos & Academy — TraderCockpit",
+      "h1s": [
+        "One task. Clear steps. The concept behind it."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How-Tos & Academy — TraderCockpit",
+      "h1s": [
+        "One task. Clear steps. The concept behind it."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-chart-evidence.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read Chart Evidence — TraderCockpit",
+      "h1s": [
+        "Read the source before you read the shape."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-chart-evidence.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read Chart Evidence — TraderCockpit",
+      "h1s": [
+        "Read the source before you read the shape."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-monte-carlo.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read a Monte Carlo Result — TraderCockpit",
+      "h1s": [
+        "Read the simulation rule before you read the percentile."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-monte-carlo.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read a Monte Carlo Result — TraderCockpit",
+      "h1s": [
+        "Read the simulation rule before you read the percentile."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-result-metrics.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read Backtest Metrics Together — TraderCockpit",
+      "h1s": [
+        "Read the measurement context before you compare the numbers."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-result-metrics.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read Backtest Metrics Together — TraderCockpit",
+      "h1s": [
+        "Read the measurement context before you compare the numbers."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-staged-validation.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read a Staged Validation Chain — TraderCockpit",
+      "h1s": [
+        "Read each stage as evidence, not as a badge."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "how-to/read-staged-validation.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "How to Read a Staged Validation Chain — TraderCockpit",
+      "h1s": [
+        "Read each stage as evidence, not as a badge."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "TraderCockpit — Quant research environment",
+      "h1s": [
+        "A CompleteQuant ResearchEnvironment"
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 67.484375,
+          "width": 1440,
+          "height": 621.578125
+        },
+        {
+          "x": 0,
+          "y": 1105.453125,
+          "width": 1440,
+          "height": 441.5625
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "TraderCockpit — Quant research environment",
+      "h1s": [
+        "A CompleteQuant ResearchEnvironment"
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 410.203125,
+          "width": 390,
+          "height": 268.953125
+        },
+        {
+          "x": 0,
+          "y": 1515.78125,
+          "width": 390,
+          "height": 260
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/correlation-diversification.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Correlation and diversification — TraderCockpit Learn",
+      "h1s": [
+        "Correlation and diversification"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/correlation-diversification.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Correlation and diversification — TraderCockpit Learn",
+      "h1s": [
+        "Correlation and diversification"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/distribution-shape.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Distribution shape and tails — TraderCockpit Learn",
+      "h1s": [
+        "Distribution shape and tails"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/distribution-shape.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Distribution shape and tails — TraderCockpit Learn",
+      "h1s": [
+        "Distribution shape and tails"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/drawdown.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Drawdown — TraderCockpit Learn",
+      "h1s": [
+        "Drawdown"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/drawdown.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Drawdown — TraderCockpit Learn",
+      "h1s": [
+        "Drawdown"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/monte-carlo.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Monte Carlo uncertainty — TraderCockpit Learn",
+      "h1s": [
+        "Monte Carlo uncertainty"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/monte-carlo.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Monte Carlo uncertainty — TraderCockpit Learn",
+      "h1s": [
+        "Monte Carlo uncertainty"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/out-of-sample.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "In-sample vs out-of-sample evidence — TraderCockpit Learn",
+      "h1s": [
+        "In-sample vs out-of-sample evidence"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/out-of-sample.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "In-sample vs out-of-sample evidence — TraderCockpit Learn",
+      "h1s": [
+        "In-sample vs out-of-sample evidence"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/parameter-robustness.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Parameter robustness — TraderCockpit Learn",
+      "h1s": [
+        "Parameter robustness"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/parameter-robustness.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Parameter robustness — TraderCockpit Learn",
+      "h1s": [
+        "Parameter robustness"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/regime-map.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Market regimes as coordinates — TraderCockpit Learn",
+      "h1s": [
+        "Market regimes as coordinates"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/regime-map.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Market regimes as coordinates — TraderCockpit Learn",
+      "h1s": [
+        "Market regimes as coordinates"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/selection-bias.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Selection bias and multiple testing — TraderCockpit Learn",
+      "h1s": [
+        "Selection bias and multiple testing"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/selection-bias.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Selection bias and multiple testing — TraderCockpit Learn",
+      "h1s": [
+        "Selection bias and multiple testing"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/walk-forward.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Walk-forward analysis — TraderCockpit Learn",
+      "h1s": [
+        "Walk-forward analysis"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/concepts/walk-forward.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Walk-forward analysis — TraderCockpit Learn",
+      "h1s": [
+        "Walk-forward analysis"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/glossary.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Glossary — TraderCockpit Learn",
+      "h1s": [
+        "Use one term to find the deeper explanation."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/glossary.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Glossary — TraderCockpit Learn",
+      "h1s": [
+        "Use one term to find the deeper explanation."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Learn — TraderCockpit",
+      "h1s": [
+        "Learn the reasoning before memorizing the buttons."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Learn — TraderCockpit",
+      "h1s": [
+        "Learn the reasoning before memorizing the buttons."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/start-here.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Start Here — TraderCockpit Learn",
+      "h1s": [
+        "Begin with the claim you want the evidence to support."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/start-here.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Start Here — TraderCockpit Learn",
+      "h1s": [
+        "Begin with the claim you want the evidence to support."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/videos.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Video Lessons — TraderCockpit Learn",
+      "h1s": [
+        "Watch for intuition. Read for the assumptions."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "learn/videos.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Video Lessons — TraderCockpit Learn",
+      "h1s": [
+        "Watch for intuition. Read for the assumptions."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/chart-evidence.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Reading Chart Evidence — TraderCockpit Methods",
+      "h1s": [
+        "A chart is evidence arranged in space, not a verdict."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/chart-evidence.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Reading Chart Evidence — TraderCockpit Methods",
+      "h1s": [
+        "A chart is evidence arranged in space, not a verdict."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Methods — TraderCockpit",
+      "h1s": [
+        "The test matters only if you understand what it can and cannot tell you."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Methods — TraderCockpit",
+      "h1s": [
+        "The test matters only if you understand what it can and cannot tell you."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/monte-carlo.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Monte Carlo Method — TraderCockpit",
+      "h1s": [
+        "Monte Carlo is only as meaningful as the world you tell it to simulate."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/monte-carlo.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Monte Carlo Method — TraderCockpit",
+      "h1s": [
+        "Monte Carlo is only as meaningful as the world you tell it to simulate."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/result-metrics.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Backtest Result Metrics — TraderCockpit Methods",
+      "h1s": [
+        "A metric compresses a backtest. It does not replace the evidence."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/result-metrics.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Backtest Result Metrics — TraderCockpit Methods",
+      "h1s": [
+        "A metric compresses a backtest. It does not replace the evidence."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/validation-foundations.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Validation Foundations — TraderCockpit Methods",
+      "h1s": [
+        "Validation is a chain of decisions, not one green check."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "methods/validation-foundations.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Validation Foundations — TraderCockpit Methods",
+      "h1s": [
+        "Validation is a chain of decisions, not one green check."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "pricing/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Pricing & Access — TraderCockpit",
+      "h1s": [
+        "Four monthly plans. One research environment."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "pricing/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Pricing & Access — TraderCockpit",
+      "h1s": [
+        "Four monthly plans. One research environment."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "refund-policy.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "TraderCockpit - Refund Information",
+      "h1s": [
+        "Refund information"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "refund-policy.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "TraderCockpit - Refund Information",
+      "h1s": [
+        "Refund information"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "research-lab.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Lab — TraderCockpit",
+      "h1s": [
+        "See the shape of a research problem."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "research-lab.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Research Lab — TraderCockpit",
+      "h1s": [
+        "See the shape of a research problem."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "strategy-claim-audit-checklist.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "TraderCockpit — Strategy-Claim Audit Checklist",
+      "h1s": [
+        "Strategy-Claim Audit Checklist"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "strategy-claim-audit-checklist.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "TraderCockpit — Strategy-Claim Audit Checklist",
+      "h1s": [
+        "Strategy-Claim Audit Checklist"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "support/faq.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "FAQ — TraderCockpit Support",
+      "h1s": [
+        "Answers to common TraderCockpit questions."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "support/faq.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "FAQ — TraderCockpit Support",
+      "h1s": [
+        "Answers to common TraderCockpit questions."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "support/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Support — TraderCockpit",
+      "h1s": [
+        "How can we help?"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "support/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Support — TraderCockpit",
+      "h1s": [
+        "How can we help?"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "thanks.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Check your inbox · TraderCockpit",
+      "h1s": [
+        "Check your inbox."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "thanks.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Check your inbox · TraderCockpit",
+      "h1s": [
+        "Check your inbox."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "trust/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Trust — TraderCockpit",
+      "h1s": [
+        "Know what supports the conclusion."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "trust/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Trust — TraderCockpit",
+      "h1s": [
+        "Know what supports the conclusion."
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "trust/privacy.html",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Site Privacy & Third-Party Boundaries — TraderCockpit",
+      "h1s": [
+        "Your privacy on the TraderCockpit website"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "trust/privacy.html",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Site Privacy & Third-Party Boundaries — TraderCockpit",
+      "h1s": [
+        "Your privacy on the TraderCockpit website"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "updates/",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Updates — TraderCockpit",
+      "h1s": [
+        "TraderCockpit updates"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "updates/",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Updates — TraderCockpit",
+      "h1s": [
+        "TraderCockpit updates"
+      ],
+      "brokenImages": [],
+      "images": [],
+      "commerce": null,
+      "price": [],
+      "scene": [],
+      "bad": false
+    },
+    {
+      "url": "#/learn",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "A clearer view of your research. — TraderCockpit",
+      "h1s": [
+        "A clearer view of your research."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/learn",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "A clearer view of your research. — TraderCockpit",
+      "h1s": [
+        "A clearer view of your research."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/learn/monte-carlo",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Monte Carlo — TraderCockpit Learn",
+      "h1s": [
+        "A path is not a prediction."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/learn/monte-carlo",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Monte Carlo — TraderCockpit Learn",
+      "h1s": [
+        "A path is not a prediction."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 0,
+          "complete": false
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 0,
+          "complete": false
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 0,
+          "complete": false
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/learn/checklist",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Make the evidence traceable. — TraderCockpit",
+      "h1s": [
+        "Make the evidence traceable."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/learn/checklist",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Make the evidence traceable. — TraderCockpit",
+      "h1s": [
+        "Make the evidence traceable."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/platform/charts",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Read the chart. Keep the context. — TraderCockpit",
+      "h1s": [
+        "Read the chart. Keep the context."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/platform/charts",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Read the chart. Keep the context. — TraderCockpit",
+      "h1s": [
+        "Read the chart. Keep the context."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/platform/models",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Read the model. Keep the limits. — TraderCockpit",
+      "h1s": [
+        "Read the model. Keep the limits."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/platform/models",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "Read the model. Keep the limits. — TraderCockpit",
+      "h1s": [
+        "Read the model. Keep the limits."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/access?plan=Quant",
+      "width": 1440,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "A plan for your research. — TraderCockpit",
+      "h1s": [
+        "A plan for your research."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    },
+    {
+      "url": "#/access?plan=Quant",
+      "width": 390,
+      "status": 200,
+      "errors": [],
+      "consoleErrors": [],
+      "httpFailures": [],
+      "external": [],
+      "overflow": false,
+      "title": "A plan for your research. — TraderCockpit",
+      "h1s": [
+        "A plan for your research."
+      ],
+      "brokenImages": [],
+      "images": [
+        {
+          "src": "assets/reference-site/room-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/room-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-scene.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/laptop-screen.webp",
+          "width": 1024,
+          "complete": true
+        },
+        {
+          "src": "assets/reference-site/builder.webp",
+          "width": 145,
+          "complete": true
+        }
+      ],
+      "commerce": "verified",
+      "product": "Status: waitlist",
+      "hiddenWaitlist": false,
+      "price": [
+        "$19.99",
+        "$49.99",
+        "$99.99",
+        "$150"
+      ],
+      "scene": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "bad": false
+    }
+  ],
+  "evidence": {
+    "access-plan-Quant-1440.png": "3e58aae7d652129cb224827e6147b30d114afea6185fb63084fcac35242f74b8",
+    "access-plan-Quant-390.png": "4957f0bcbf7d467bdc6f9ab8ceac5d885b928b27ab6066d17b6809b177bd9baf",
+    "full-home-1440.png": "b28f407972c06147042525193242cd738dc1f1e1007c48aa87bb6eb32ba6bd5a",
+    "full-home-390.png": "b0281006e8b0f7fad81846e3ac55e95771c6f148cfa674a8019b80d06cfef9dc",
+    "home-1440.png": "6b1aefe09447135205688b71b1e9dd00299b7a7cdfa3f935871e14badfa1a0c9",
+    "home-390.png": "57efacfad90e68afa231e746dcdb189a6c6b5d792e51b509d3159260e4b6598c",
+    "learn-1440.png": "bfc11f64b140c43dd14588e30246af9d5616b3ffd40558bbd4f247cc41f867b5",
+    "learn-390.png": "0433df38d5f143afeacebbd9de5adbcd16e347b08316a26ca5c29856a907a31c",
+    "learn-checklist-1440.png": "ab5f9bb557b5b1c08ac92578154c60bf4154c08631542ae686143201bf5dd679",
+    "learn-checklist-390.png": "3ad752b4864008134f01e8bb67951674518d2aa24ffbaaebce8843383cc86ce9",
+    "learn-monte-carlo-1440.png": "fc637bc502473c36d74e3d5fb1395bbf15749b5ec1f72fa30339cc2e4b0435f9",
+    "learn-monte-carlo-390.png": "02b9799ea5272dc177af934f23d2559f77d2fe5b8c4ce9be8571f8f1ff576615",
+    "platform-charts-1440.png": "8c33974df5a3cb9970999ff22bd62e8bbea45253e3a20e78024f1a238e504fa1",
+    "platform-charts-390.png": "b344ff48db14c3a1a5bb4f9d66427a528aabd215d99d331f433b5695e9ac556d",
+    "platform-models-1440.png": "c8a5aae2959a307d42bb0a33130621bc537103f02d97c7ee60be62a05fe0817b",
+    "platform-models-390.png": "e94c6286e5d0d6c2b8d27ee7d3eeba3787b6b9eaf16135123749410a20b225eb"
+  },
+  "visualApproval": false,
+  "reviewReady": false
+}
