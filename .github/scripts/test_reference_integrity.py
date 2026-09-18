@@ -26,6 +26,8 @@ class IntegrityTests(unittest.TestCase):
   self.alter('docs/assets/reference-site/app.js',lambda b:b+b"\n// Homepage proof under visual review\n");self.assertTrue(module.validate(self.root))
  def test_journey_preview_copy_rejected(self):
   self.alter('docs/assets/reference-site/journeys.js',lambda b:b+b"\n// This preview does not contain this route.\n");self.assertTrue(module.validate(self.root))
+ def test_privacy_storage_disclosure_drift_rejected(self):
+  self.alter('docs/trust/privacy.html',lambda b:b.replace(b'writes only when you choose',b'writes automatically before you choose'));self.assertTrue(module.validate(self.root))
  def test_price_drift_rejected(self):
   self.alter('docs/commerce-public.v1.json',lambda b:b.replace(b'1999',b'2999'));self.assertTrue(module.validate(self.root))
  def test_internal_repository_journey_link_rejected(self):

@@ -189,9 +189,11 @@
       "after_sha256": "ab722bfd8bf0da1c9a067b57fe90c93cc08139d5220a2145f9b0c6988c0cab15"
     },
     "trust/privacy.html": {
-      "kind": "reading_shell",
+      "kind": "corrected_reading_shell",
       "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-      "after_sha256": "e3611a9776e4d6fae2f85a7c8991ffdd6a99993e13b8240e3e9dafcec34e4f02"
+      "after_sha256": "95c872838a52c8e6b1e05734779960f3700be98b0b4c1378a80dfec5fcfd7d02",
+      "corrected_unwrapped_sha256": "aac17266a8990fa8fede1a93b84fac633c91b5d29d2cf21031fd2700d94165b8",
+      "correction": "Privacy disclosure: document optional research-notes localStorage read/write behavior and local-only note storage."
     },
     "updates/index.html": {
       "kind": "reading_shell",
