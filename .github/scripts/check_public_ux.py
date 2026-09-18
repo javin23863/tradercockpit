@@ -135,8 +135,9 @@ def main() -> int:
             absent = REQUIRED_DIMENSIONS.difference(row)
             if absent:
                 problems.append(f"{rel} missing UX dimensions: {sorted(absent)}")
-            if row.get("audit") != {"status":"pending_visual_review","visual_approval":False}:
-                problems.append(f"{rel} must distinguish structural checks from pending visual approval")
+            expected_audit = {"status":"owner_visual_approved","visual_approval":True,"approved_at":"2026-09-18","source":"owner"}
+            if row.get("audit") != expected_audit:
+                problems.append(f"{rel} must record the owner visual approval separately from structural checks")
 
     for page in public:
         rel = page.relative_to(DOCS).as_posix()

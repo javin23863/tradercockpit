@@ -127,7 +127,7 @@ def make_plan(root: Path, archive: Path) -> dict:
         if name in ['app.js','journeys.js','capture-overrides.js']:
             text=text.replace('assets/','assets/reference-site/')
         if name=='app.js':
-            text=text.replace('The public website and PR #51 have not been changed.', 'This implementation is under visual review. The illustrative setting and development captures are not release approval.')
+            text=text.replace('The public website and PR #51 have not been changed.', 'The illustrative setting and development captures are not live-market views or evidence of trading performance.')
             text=text.replace('href="https://javin23863.github.io/tradercockpit/docs/" target="_blank" rel="noopener noreferrer"','href="docs/"')
         outputs[ASSET_ROOT+name]=text.encode('utf-8')
     for name in ['integration.mjs','integration.css']:

@@ -1,22 +1,24 @@
 # Reference-based website integration
 
-Status: INTEGRATED; NOT READY FOR CODEX REVIEW. No merge or deployment authorized.
+Status: OWNER APPROVED; READY FOR EXACT-HEAD CODEX REVIEW. PR #52 remains unmerged. No production deployment is authorized.
 
-The exact downloaded archive matched SHA-256 0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c. The original room-and-laptop source assets now exist in the actual docs publishing directory, with native text, controls and six enhanced reading/access views. Their source pixels were not redrawn.
+The exact downloaded archive matched SHA-256 `0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c`. The approved cinematic room-and-laptop artwork is integrated into the actual `docs/` publishing tree with native text, controls, enhanced learning/access journeys, and the existing public documentation/support surfaces.
 
-The import receipt is a historical inventory of the initial copy, not a claim that subsequent reviewed runtime changes equal the initial import bytes. Run check_reference_site.py for the current adapted site. It protects every imported image, verifies full original product captures, preserves existing documents, checks the complete public file set and retains fail-closed product/commerce behavior.
+The import receipt is a historical inventory of the initial copy, not a claim that reviewed post-import adaptations equal the archive bytes. Use `.github/website-reference-readiness.json` and the newest `.github/evidence/reference-continuity-served/checkpoint.json` for current candidate identity and verification.
 
 ## Deliberate integration changes
-- Product and waitlist modules are the existing website modules, served over the actual production path prefix.
-- Learning navigation respects the enhanced route; meaningful static destinations still work without JavaScript.
-- Original Charts and Models PNGs are served locally with their original dimensions and hashes; internal source paths are not included in public runtime code. Synthetic-data and development-evidence labels remain.
-- The public pricing URL shows all four plans without JavaScript, not the previous single-plan fallback.
-- Product/video incoming anchors are retained.
-- Obsolete hero-specific checker requirements were replaced by source-image integrity and functional checks. The claims, privacy, generated-document, Research Lab and general hardening checks remain.
+- Existing product-manifest, waitlist, privacy and commerce modules remain authoritative. Checkout stays closed and fail-closed.
+- All four monthly plans are exposed from the public commerce record without inventing entitlements.
+- Learning/access hash journeys preserve meaningful no-JavaScript destinations.
+- Charts and Models use hash-verified retained development captures with synthetic test data; full-resolution originals remain available for inspection.
+- Room/laptop screen layers are deterministically regenerated at 2x raster density from those originals while preserving the approved scene geometry.
+- The homepage is indexable; Open Graph, Twitter and Organization metadata are retained. Intentional `noindex` remains only on utility confirmation/error pages.
+- Customer-facing release-process language such as site-level “preview”, “homepage proof” and “under visual review” is prohibited by regression checks.
+- The 39 retained reading pages use a reversible additive shell; their prior article text, links and anchors remain byte-accounted.
 
 ## Acceptance boundary
-The complete docs tree is exercised by test_reference_served.mjs and test_reference_journeys.mjs over loopback HTTP. These are not in-memory renders or minimal fixtures. Full visual acceptance remains separate. A zero error count does not approve the composition or production artwork.
+The complete `docs/` tree is exercised over loopback HTTP with the production path prefix. Current acceptance includes all served routes, retained-page desktop/mobile renders, interaction journeys, content controls, source/provenance checks, production build and dependency audit.
 
-The 39 retained non-home, non-Research-Lab pages now have an additive reference reading shell. Their existing article text, links and anchors are preserved by reversible byte checks. Homepage and Research Lab files remain unchanged in this continuation. The rendered reading-page changes, remaining production artwork work and owner acceptance are separate from technical checks. Do not request Codex review, merge PR #51, deploy, enable checkout or buy Actions capacity.
+Automated checks do not grant visual approval. The owner explicitly approved the integrated visual candidate on 2026-09-18; that approval is recorded separately in `.github/website-reference-readiness.json` and `docs/ux-page-contracts.v1.json`.
 
-Use the newest source-bound receipts for technical status. Owner acceptance and independent review are separate gates.
+The remaining merge gate is a fresh independent Codex review of the exact current PR #52 head with zero unresolved findings. Do not merge or deploy a superseded head, enable checkout, or treat development screenshots as live-market/performance evidence.

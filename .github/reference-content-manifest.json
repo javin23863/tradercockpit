@@ -206,12 +206,14 @@
     "ux-page-contracts.v1.json": {
       "kind": "ux_contracts",
       "before_sha256": "e4db5afe41a7109504ef74c3a0e5e4233b68899e2d635ba674bb7e9648699670",
-      "after_sha256": "73d8baa701eb85612b1941079dc9a058682d1eee7cfeb8c828f4b23a0b7fddbb"
+      "after_sha256": "9b8455786d3ca15aba481253f5ba58ff10ba775276c582cb5470ef66445c26f7"
     }
   },
   "new_assets": {
     "assets/reference-site/content.css": "ec7723a2177275cbd95afeaa5a83ad7b699cc47ae660d7ef466370b01456711e"
   },
   "content_preservation": "Removing only the declared additive shell and labelled media restores the exact previous HTML bytes. Search change only prevents decorative hero SVG insertion.",
-  "visual_approval": false
+  "visual_approval": true,
+  "visual_approval_source": "owner",
+  "visual_approval_date": "2026-09-18"
 }

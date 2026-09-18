@@ -1,11 +1,11 @@
 # Reference-site integration tooling
 
-Status: tooling implemented; the reference artwork and homepage have NOT been imported into this worktree. This is not a review-ready website.
+Status: source imported and adapted; owner visual approval recorded. The current PR #52 candidate is review-ready only after its exact-head verification receipts remain green. No production deployment is authorized by these tools.
 
-The input is `TraderCockpit-homepage-proof-source.zip`, SHA-256 `0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c`. Keep the archive intact. The importer reads only explicitly listed runtime members; it never performs general ZIP extraction. Unmasked source artwork is not copied to the publishing tree.
+The historical input is `TraderCockpit-homepage-proof-source.zip`, SHA-256 `0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c`. Keep the archive intact. The importer reads only explicitly listed runtime members and never performs general ZIP extraction. Unmasked source artwork is not copied to the publishing tree.
 
-## Import sequence
-Run from the repository root, using an available Python 3.10+ interpreter:
+## Historical import sequence
+Run from the repository root, using Python 3.10+:
 
 ```text
 python .github/scripts/test_reference_import.py
@@ -14,16 +14,16 @@ python .github/scripts/import_reference_site.py --apply
 python .github/scripts/import_reference_site.py --check
 ```
 
-By default, the ZIP is read from the user's Downloads folder. For another path, set `TC_REFERENCE_ARCHIVE` for tests and pass `--source <path>` to the importer. The default importer command is planning-only. Apply is refused outside the isolated integration branch, on a changed publishing tree, on conflicting new assets, or on changed product/commerce authority.
+The importer is intentionally conservative: planning is read-only; apply is refused outside the isolated integration branch, on changed publishing destinations, on conflicting new assets, or when product/commerce authority no longer matches the expected prelaunch boundary. Importing source bytes alone never awards review or release readiness.
 
-The importer preserves all existing public documents except the homepage and the explicitly reconciled four-tier commerce record. It restores the existing product-manifest and prelaunch modules, meaningful non-JavaScript navigation, canonical metadata and a fail-closed waitlist surface. No real signup submission is part of testing. The imported homepage remains noindex until release review. Existing old-theme-specific checks still require a deliberate migration after import; do not remove checks merely to get a PASS.
+The initial source homepage carried review-era metadata and copy. The reviewed integration deliberately adapts that material: the public homepage is indexable, social/Organization metadata is present, public release-process wording is removed, and checkout remains closed. Regression checks reject reintroducing the homepage `noindex` state or customer-facing review/proof language. Intentional `noindex` on error/confirmation utility pages is unaffected.
 
-## Bridge browser fixture
-`node .github/scripts/test_reference_bridge.mjs` uses an installed Puppeteer package. Set `TC_PUPPETEER_MODULE` to its module file and `TC_CHROME` to an installed browser when those are not locally resolvable. No dependency, browser, credential or account is installed by this test.
+## Browser and bridge fixtures
+`test_reference_bridge.mjs` exercises the real integration and product/prelaunch modules over loopback HTTP. It checks valid/invalid commerce, failed product loading, native-link enhancement, same-origin CTA resolution and configured-but-unsubmitted waitlist behavior.
 
-The fixture serves the real integration module and existing product/prelaunch modules over loopback HTTP. It checks valid/invalid commerce, failed product loading, native-link enhancement, same-origin CTA resolution and configured-but-unsubmitted waitlist behavior. It is NOT a complete website render or a visual approval.
-
-Archive-dependent tests are explicitly skipped when the pinned ZIP is absent. Skipped tests do not close import or review readiness. Import receipts likewise do not award served-browser acceptance or visual approval. The complete integrated site must still be reviewed and tested under its actual publishing path before Codex review.
+The complete candidate is tested separately by the served-site and journey suites over the production path prefix. Import fixtures, bridge fixtures and source receipts do not substitute for those complete browser runs.
 
 ## Imported and adapted site
-The source was imported from the exact downloaded archive. The original import receipt remains historical. After the documented navigation, pricing, capture and access corrections, use `python .github/scripts/check_reference_site.py` and the served-browser tests for the current implementation; importer `--check` intentionally detects those post-import changes.
+The original import receipt remains historical. Current adapted-site integrity is enforced by `check_reference_site.py`, the 14 mutation tests, the source-bound screen-layer generator/test, public UX/claims/hardening checks, and the exact-head continuity verifier.
+
+Use `.github/website-reference-readiness.json` for the current review gate. Owner visual approval is already recorded; an independent exact-head Codex review with zero unresolved findings is still required before merge. Deployment remains a separate authorization.

@@ -6,7 +6,7 @@ class IntegrityTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
   shutil.copytree(ROOT/'docs',self.root/'docs')
-  for file in ['.github/reference-import-receipt.json','.github/reference-site/provenance/product-captures.json','.github/reference-site/provenance/screen-placement.json','.github/reference-site/provenance/production-screen-layers.json','.github/reference-content-manifest.json','.github/reference-site/ux-contracts-before.json','.github/scripts/generate_reference_screen_layers.mjs']:
+  for file in ['.github/reference-import-receipt.json','.github/reference-site/provenance/product-captures.json','.github/reference-site/provenance/screen-placement.json','.github/reference-site/provenance/production-screen-layers.json','.github/reference-content-manifest.json','.github/reference-site/ux-contracts-before.json','.github/website-reference-readiness.json','.github/scripts/generate_reference_screen_layers.mjs']:
    p=self.root/file;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/file,p)
  def tearDown(self):self.tmp.cleanup()
  def alter(self,name,action):

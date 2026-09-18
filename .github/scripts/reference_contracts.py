@@ -1,12 +1,12 @@
 """Keep structural page contracts separate from human visual approval."""
 import copy,json
 
-def refresh_contracts(original):
+def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None):
     data=copy.deepcopy(original)
     data['reviewed_at']='2026-09-18'
-    data['audit_scope']='Structural contracts only. Source-bound browser evidence and owner visual acceptance are separate gates.'
+    data['audit_scope']='Structural contract generation does not grant visual approval. Current visual approval is owner-provided and recorded in .github/website-reference-readiness.json.'
     for row in data['pages']:
-        row['audit']={'status':'pending_visual_review','visual_approval':False}
+        row['audit']=({'status':'owner_visual_approved','visual_approval':True,'approved_at':approved_at,'source':'owner'} if owner_visual_approval else {'status':'pending_visual_review','visual_approval':False})
         if row['path']!='research-lab.html':
             row['visual_character']['color']='Warm dark surfaces, ivory text, restrained gold navigation and action accents. Analytical images retain their source colors.'
         if row['path']=='index.html':
