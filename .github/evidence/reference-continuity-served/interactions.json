@@ -2,11 +2,15 @@
   "schema": "tradercockpit.served-interactions/v1",
   "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
   "browser": "Chrome/153.0.8010.50",
-  "capturedAt": "2026-09-18T06:48:44.287Z",
-  "publicDigest": "9173238c8c5c1316588dd35225c7a88340bf35227fdede179ec756f6c65d4acd",
+  "capturedAt": "2026-09-18T07:45:46.166Z",
+  "publicDigest": "b9cba866cede9c1488a230dd9d7fadfe592c63b64aff4d290c5bd6f1ed99aad4",
   "tests": [
     {
       "name": "native Learning link opens enhanced view with selected navigation",
+      "pass": true
+    },
+    {
+      "name": "leaving a journey restores requested homepage section position",
       "pass": true
     },
     {
@@ -62,6 +66,10 @@
       "pass": true
     },
     {
+      "name": "pricing plan links progressively enhance to selected plan journey",
+      "pass": true
+    },
+    {
       "name": "no-JavaScript public pricing lists all four monthly plans",
       "pass": true
     },
@@ -70,7 +78,7 @@
       "pass": true
     }
   ],
-  "passed": 16,
+  "passed": 18,
   "failed": 0,
   "visualApproval": false
 }
