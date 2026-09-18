@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "160c5223d0026f71e938f4f1992f7787d240f9f20810d796fc0d8d6bd43c2933",
+  "home_sha256": "afa28a0599a8af6687fee9fac99e516d2cb3cd3c95dac7ce955ae0a0f90935ee",
   "files": {
     "404.html": {
       "kind": "reading_shell",

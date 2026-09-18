@@ -45,7 +45,13 @@ def validate(root=ROOT):
  commerce=json.loads(read('docs/commerce-public.v1.json'));tiers=commerce.get('tiers',[])
  need([(x['name'],x['unitAmount']) for x in tiers]==[('Core',1999),('Trader',4999),('Quant',9999),('ApolloPro',15000)],'Four approved tier prices drifted')
  need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Checkout opens after payment-to-entitlement provisioning is verified end to end.'},'Checkout boundary changed')
- html=read('docs/index.html');bridge=read('docs/assets/reference-site/integration.mjs');app=read('docs/assets/reference-site/app.js')
+ html=read('docs/index.html');bridge=read('docs/assets/reference-site/integration.mjs');app=read('docs/assets/reference-site/app.js');journeys=read('docs/assets/reference-site/journeys.js')
+ public_runtime=(html+'\n'+app+'\n'+journeys).lower()
+ need('noindex' not in html.lower() and 'nofollow' not in html.lower(),'Public homepage must remain indexable')
+ for marker in ['property="og:type"','property="og:site_name"','property="og:title"','property="og:description"','property="og:url"','name="twitter:card"','type="application/ld+json"']:
+  need(marker in html,'Public homepage metadata missing: '+marker)
+ for phrase in ['search this preview','about this preview','homepage proof','not a release candidate','under visual review','in this preview']:
+  need(phrase not in public_runtime,'Internal review wording leaked to public surface: '+phrase)
  need('assets/generated/site-webgl-v1.js' not in html and 'quant-universe' not in html,'Retired hero reintroduced')
  need('data-scene="room"' in html and 'data-scene="laptop"' in html,'Reference scenes missing')
  for marker in ['loadProductManifest','loadPrelaunchConfig','activatePrelaunch','commerce-public.v1.json']:

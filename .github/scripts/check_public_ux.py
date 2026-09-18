@@ -23,6 +23,7 @@ BANNED_PUBLIC_PHRASES = (
     "is being built", "work in progress", "development preview", "public-ready",
     "product boundary", "verified-public", "internal development", "release boundary",
     "matching tradercockpit feature", "future tier", "reserved pricing",
+    "homepage proof", "search this preview", "about this preview",
 )
 BANNED_SLOP_PHRASES = (
     "quantitative research.reimagined", "game-changing", "cutting-edge", "revolutionary",
@@ -174,6 +175,10 @@ def main() -> int:
             problems.append("homepage secondary hero action must be visually subordinate")
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
+    public_runtime = "\n".join((DOCS / "assets" / "reference-site" / name).read_text(encoding="utf-8").lower() for name in ("app.js", "journeys.js"))
+    for phrase in ("homepage proof", "not a release candidate", "under visual review", "in this preview"):
+        if phrase in public_runtime:
+            problems.append(f"homepage runtime contains internal review copy: {phrase}")
 
     for style_path in (SITE_STYLE, HOME_STYLE):
         if not style_path.is_file():

@@ -112,7 +112,7 @@
       $('.video-box').replaceChildren(frame);
     });
   });
-  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this homepage proof', 'Not a release candidate', '<p>The room, mountains, furniture and laptop are decorative artwork reused from the supplied <strong>TraderCockpit Quant Lab Landing Page</strong> mockup. The original fictional dashboards are masked out.</p><p>The screen overlays now use two <strong>actual retained development screenshots</strong> from the product repository. Both contain synthetic test data. They are not live feeds, proof of performance, or screenshots of a newly verified release.</p><p>Use the screen inspectors to view each whole capture and its exact source. Perspective, crop and letterboxing are recorded in the source package.</p><p>The page remains native HTML with local interactions. Scene motion responds only to scrolling or pointer movement; it has a pause control and respects reduced motion. This is not a 3D engine.</p><p>This implementation is under visual review. The illustrative setting and development captures are not release approval.</p>')));
+  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Visual and data provenance', '<p>The room, mountains, furniture and laptop are illustrative artwork. The original fictional dashboards are masked out.</p><p>The embedded Charts and Models screens use <strong>retained TraderCockpit development captures</strong> from the product repository. Both contain synthetic test data. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture and its recorded source identity.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>Product access remains on waitlist and checkout is closed.</p>')));
   const menu = $('.menu-toggle'), mobileNav = $('#mobile-nav');
   function closeMenu() { mobileNav.hidden = true; menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Open navigation'); }
   menu.addEventListener('click', () => {
@@ -133,7 +133,7 @@
   function search() {
     const q = $('#search-input').value.trim().toLowerCase();
     const matches = searchItems.filter(item => `${item[0]} ${item[2]}`.toLowerCase().includes(q));
-    $('#search-status').textContent = `${matches.length} ${matches.length === 1 ? 'result' : 'results'} in this preview`;
+    $('#search-status').textContent = `${matches.length} ${matches.length === 1 ? 'result' : 'results'}`;
     const result = $('#search-results'); result.replaceChildren();
     matches.forEach(([label,href]) => {
       const link = document.createElement('a'); link.href=href; link.textContent=label+' →';
