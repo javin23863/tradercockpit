@@ -1,0 +1,23 @@
+import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import cp from 'node:child_process'; import {fileURLToPath,pathToFileURL} from 'node:url';
+import {serve,publicFiles} from './reference-preview-server.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..'),docs=path.join(root,'docs');
+const puppeteer=(await import(process.env.TC_PUPPETEER_MODULE?pathToFileURL(process.env.TC_PUPPETEER_MODULE).href:'puppeteer')).default;
+const label=process.argv.includes('--before')?'before':'after';
+const out=path.join(root,'.github/evidence/reference-content',label);fs.mkdirSync(out,{recursive:true});
+const routes=process.argv.includes('--all') ? Object.keys(publicFiles(docs)).filter(p=>p.endsWith('.html')&&!['index.html','research-lab.html'].includes(p)).map(p=>p.endsWith('/index.html')?p.slice(0,-10):p) : ['docs/','learn/','how-to/','methods/','examples/','updates/','support/','trust/','learn/concepts/monte-carlo.html','pricing/'];
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex'),before=publicFiles(docs),host=await serve(docs),rows=[];let browser;
+try{browser=await puppeteer.launch({executablePath:process.env.TC_CHROME,headless:true});
+ for(const route of routes)for(const width of [1440,390]){
+  const p=await browser.newPage(),errors=[],external=[];p.on('pageerror',e=>errors.push(String(e)));p.on('request',r=>{if(/^https?:/.test(r.url())&&!r.url().startsWith(host.base))external.push(r.url());});
+  await p.setViewport({width,height:width===390?844:1000,isMobile:width===390,hasTouch:width===390});await p.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
+  const res=await p.goto(host.base+route,{waitUntil:'domcontentloaded',timeout:15000});await p.evaluate(()=>document.fonts.ready);await new Promise(r=>setTimeout(r,200));
+  await p.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=750){scrollTo(0,y);await new Promise(r=>setTimeout(r,35));}scrollTo(0,0);});
+  const m=await p.evaluate(()=>{const nav=document.querySelector('.nav-links'),rect=nav?.getBoundingClientRect(),s=nav?getComputedStyle(nav):null;const ps=[...document.querySelectorAll('.article-section p,.depth-card p,.landing-hero-copy .lede')];return{overflow:document.documentElement.scrollWidth>innerWidth+1,navVisible:!!s&&s.display!=='none'&&s.visibility!=='hidden'&&rect.height>0,navTargets:[...document.querySelectorAll('.nav-links a,.site-search-trigger')].map(e=>({text:e.textContent.trim(),height:e.getBoundingClientRect().height})),minBodyFont:ps.length?Math.min(...ps.map(e=>parseFloat(getComputedStyle(e).fontSize))):null,generatedDecoration:!!document.querySelector('.article-depth-scene'),h1:[...document.querySelectorAll('h1')].map(e=>e.textContent.trim()),background:getComputedStyle(document.body).backgroundColor,brokenImages:[...document.images].filter(e=>!e.complete||!e.naturalWidth).map(e=>e.getAttribute('src'))};});
+  const failures=[];if(res.status()!==200)failures.push('HTTP');if(errors.length||external.length)failures.push('runtime/privacy');if(m.overflow)failures.push('overflow');if(!m.navVisible)failures.push('navigation hidden');if(width===390&&m.navTargets.some(e=>e.height<44))failures.push('touch targets below 44px');if(m.minBodyFont!==null&&m.minBodyFont<14)failures.push('body type below 14px');if(m.generatedDecoration)failures.push('retired decorative article SVG');if(m.brokenImages.length)failures.push('broken image');if(m.h1.length!==1)failures.push('H1');
+  const name=route.replace(/[^a-z0-9]+/gi,'-')+'-'+width+'.png';await p.screenshot({path:path.join(out,name),fullPage:true});rows.push({route,width,...m,errors,external,failures,screenshot:name});console.log(JSON.stringify({route,width,failures}));await p.close();
+ }
+ if(JSON.stringify(before)!==JSON.stringify(publicFiles(docs)))throw new Error('Public tree changed during capture');
+ const evidence=Object.fromEntries(rows.map(r=>[r.screenshot,hash(fs.readFileSync(path.join(out,r.screenshot)))]));
+ const receipt={schema:'tradercockpit.reference-content/v1',label,parentCommit:cp.execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),publicDigest:hash(JSON.stringify(before)),browser:await browser.version(),scope:'FULL_SERVED_PUBLISHING_TREE',rows,evidence,failures:rows.filter(r=>r.failures.length).length,visualApproval:false};
+ fs.writeFileSync(path.join(out,'receipt.json'),JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify({renders:rows.length,failures:receipt.failures}));if(receipt.failures)process.exitCode=1;
+}finally{if(browser)await browser.close();await host.close();}

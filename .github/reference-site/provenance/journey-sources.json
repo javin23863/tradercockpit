@@ -1,0 +1,24 @@
+{
+  "schema": "tradercockpit.preview-content-sources/v1",
+  "repository": "javin23863/tradercockpit",
+  "commit": "8e596f6f5c57fd56a07cb8875db27ac18c76333d",
+  "sources": [
+    {
+      "path": "docs/learn/concepts/monte-carlo.html",
+      "git_blob": "68ad801efa7a6de737d0027802008fe7dbd5cc85",
+      "use": "Condensed concept reading; no new simulation or forecasts."
+    },
+    {
+      "path": "docs/strategy-claim-audit-checklist.html",
+      "git_blob": "173296f137be34996ba314fac73080ffb85d4021",
+      "use": "Adapted six-question notes aid, not the full evidence doctrine or an automated verdict."
+    },
+    {
+      "path": "docs/commerce-public.v1.json",
+      "git_blob": "35454c9f9f9392e17cf2a8400ffdd59f2fcd4cae",
+      "use": "Pinned monthly prices and disabled checkout. Not a live-availability claim."
+    }
+  ],
+  "capture_guides": "Interpretations of the same retained development images documented in product-captures.json.",
+  "release_approved": false
+}

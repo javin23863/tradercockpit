@@ -168,7 +168,6 @@ def main() -> int:
     home_text = HOME_PAGE.read_text(encoding="utf-8") if HOME_PAGE.is_file() else ""
     home_parser = parsers.get(HOME_PAGE)
     required_home_ids = {
-        "quant-universe-canvas", "quant-universe-pause", "quant-universe-reset",
         "product-state", "product-heading", "product-summary", "manifest-capabilities",
         "manifest-detail", "product-cta", "youtube-cta", "purchase-support",
         "waitlist-form", "waitlist-email", "waitlist-first-name", "waitlist-source",
@@ -178,73 +177,15 @@ def main() -> int:
         missing_ids = required_home_ids.difference(home_parser.ids)
         if missing_ids:
             problems.append(f"homepage missing manifest/waitlist contract IDs: {sorted(missing_ids)}")
-        if not any(src.endswith("assets/generated/site-webgl-v1.js") for src in home_parser.scripts):
-            problems.append("homepage production WebGL bundle missing")
-        if not any(src.endswith("assets/home-v3.js") for src in home_parser.scripts):
-            problems.append("homepage fallback/commerce script missing")
-    for asset in (HOME_SCRIPT, HOME_WEBGL_SOURCE, HOME_WEBGL_BUNDLE, HOME_STYLE):
-        if not asset.is_file():
-            problems.append(f"missing homepage asset: {asset.relative_to(REPO)}")
-    if HOME_SCRIPT.is_file():
-        home_script = HOME_SCRIPT.read_text(encoding="utf-8")
-        if "http://" in home_script or "https://" in home_script:
-            problems.append("homepage visual script contains an external network target")
-        if "prefers-reduced-motion" not in home_script or "visibilitychange" not in home_script:
-            problems.append("homepage visual script is missing motion/visibility safeguards")
-        if "window.__tcWebGLHero" not in home_script:
-            problems.append("homepage fallback script is not gated by successful WebGL ownership")
-    if HOME_WEBGL_SOURCE.is_file():
-        webgl_source = HOME_WEBGL_SOURCE.read_text(encoding="utf-8")
-        if "http://" in webgl_source or "https://" in webgl_source:
-            problems.append("homepage WebGL source contains an external network target")
-        for marker in (
-            "new THREE.WebGLRenderer",
-            "new THREE.PerspectiveCamera",
-            "new THREE.InstancedMesh",
-            "new EffectComposer",
-            "new BloomEffect",
-            "prefers-reduced-motion",
-            "webglcontextlost",
-            "#3cfad2",
-            "#e54a5a",
-            "#3daed3",
-        ):
-            if marker not in webgl_source:
-                problems.append(f"homepage production WebGL renderer missing contract marker: {marker}")
-    if HOME_WEBGL_BUNDLE.is_file() and HOME_WEBGL_BUNDLE.stat().st_size < 100_000:
-        problems.append("homepage production WebGL bundle is unexpectedly small")
-    for marker in ("universe-deck", "hud-node", "hud-spark", "deck-card", "universe-legend"):
-        if marker not in home_text:
-            problems.append(f"homepage cinematic scene missing authority marker: {marker}")
-    for demo_marker in ("is being built", "development preview", "preserves the measured", "No invented tiers", ">Future tier<"):
-        if demo_marker in home_text:
-            problems.append(f"homepage exposes internal/demo copy: {demo_marker}")
-    if HOME_STYLE.is_file():
-        home_style = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in ("Cinematic Quant Universe v4", "Measured demo authority v6", ".universe-deck", ".hud-node"):
-            if marker not in home_style:
-                problems.append(f"homepage cinematic style missing authority marker: {marker}")
-    if not HOME_VISUAL_SPEC.is_file():
-        problems.append("missing internal homepage visual authority spec")
-    elif "The hero is a cinematic scene, not a bordered card" not in HOME_VISUAL_SPEC.read_text(encoding="utf-8"):
-        problems.append("homepage visual authority spec lost the cinematic-scene requirement")
-    if not SITE_VISUAL_SPEC.is_file():
-        problems.append("missing site-wide visual authority spec")
-    elif "Every public page must belong to the same premium quantitative-research universe" not in SITE_VISUAL_SPEC.read_text(encoding="utf-8"):
-        problems.append("site-wide visual authority spec lost the shared-universe requirement")
-    if not MEASURED_VISUAL_SPEC.is_file():
-        problems.append("missing measured demo visual authority spec")
-    else:
-        measured = MEASURED_VISUAL_SPEC.read_text(encoding="utf-8")
-        for marker in ("935 × 1683 px", "Primary luminous teal: `#3CFAD2`", "Hero + product stage", "Measured homepage geometry"):
-            if marker not in measured:
-                problems.append(f"measured demo authority missing marker: {marker}")
-    if not SITE_APPRAISAL.is_file():
-        problems.append("missing site-wide rendered appraisal receipt")
-    else:
-        appraisal = SITE_APPRAISAL.read_text(encoding="utf-8")
-        if "41/41 public HTML pages" not in appraisal or "one public monthly plan with no unfinished expansion controls" not in appraisal:
-            problems.append("site-wide rendered appraisal receipt is incomplete")
+        if not any(src.endswith("assets/reference-site/app.js") for src in home_parser.scripts):
+            problems.append("homepage scene/interaction script missing")
+        if not any(src.endswith("assets/reference-site/integration.mjs") for src in home_parser.scripts):
+            problems.append("homepage product/commerce integration missing")
+    # Reference integrity is not a visual sign-off. Historical theme marker tests
+    # are replaced by exact source-art preservation and functional surface checks.
+    result = subprocess.run([sys.executable, str(REPO / '.github/scripts/check_reference_site.py')], cwd=REPO, capture_output=True, text=True)
+    if result.returncode:
+        problems.append('Reference integration integrity failed: ' + (result.stdout + result.stderr).strip())
     if not SITE_STYLE.is_file():
         problems.append("missing shared cinematic site stylesheet")
     else:
@@ -259,7 +200,7 @@ def main() -> int:
                 problems.append(f"site-wide subject visual system missing authority marker: {marker}")
     for page in PUBLIC_HTML:
         text = page.read_text(encoding="utf-8")
-        if "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:
+        if page != HOME_PAGE and "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:
             problems.append(f"public page missing shared cinematic stylesheet: {page.relative_to(REPO)}")
     pricing_text = (DOCS / "pricing" / "index.html").read_text(encoding="utf-8")
     if "pricing-tier-tab" in pricing_text or ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text or "Reserved pricing expansion slot" in pricing_text:
@@ -272,7 +213,7 @@ def main() -> int:
         if marker not in lab_palette:
             problems.append(f"Research Lab missing semantic palette marker: {marker}")
     for marker in ("product-manifest.mjs", "prelaunch-config.mjs", "activatePrelaunch", "loadProductManifest"):
-        if marker not in home_text:
+        if marker not in (DOCS / "assets/reference-site/integration.mjs").read_text(encoding="utf-8"):
             problems.append(f"homepage missing product/prelaunch contract: {marker}")
     for marker in ('name="email_address"', 'name="fields[first_name]"', 'name="fields[source]"', 'name="fields[utm_source]"', 'name="fields[utm_medium]"', 'name="fields[utm_campaign]"'):
         if marker not in home_text:
@@ -545,6 +486,8 @@ def main() -> int:
             if not target.is_file():
                 problems.append(f"broken link {page.relative_to(REPO)} -> {href}")
                 continue
+            if target == HOME_PAGE and fragment.split('?')[0] in {'/learn','/learn/monte-carlo','/learn/checklist','/platform/charts','/platform/models','/access'}:
+                continue  # Exact existing hash routes have native page rendering, not static IDs.
             if fragment and target.suffix == ".html":
                 target_parser = parsers.get(target) or parse_page(target)
                 if fragment not in target_parser.ids:

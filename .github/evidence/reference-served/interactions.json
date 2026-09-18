@@ -1,0 +1,72 @@
+{
+  "schema": "tradercockpit.served-interactions/v1",
+  "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
+  "browser": "Chrome/153.0.8010.50",
+  "capturedAt": "2026-09-18T03:18:58.162Z",
+  "publicDigest": "2fd3c1d67496f1275fbfc0e8c54134b91d165bb0861c6f7382675876ba2c567c",
+  "tests": [
+    {
+      "name": "native Learning link opens enhanced view with selected navigation",
+      "pass": true
+    },
+    {
+      "name": "plan selection comes from live local commerce",
+      "pass": true
+    },
+    {
+      "name": "original Charts capture is local, full resolution, and labelled synthetic",
+      "pass": true
+    },
+    {
+      "name": "notes save survives full served-site reload",
+      "pass": true
+    },
+    {
+      "name": "notes survive complete browser restart",
+      "pass": true
+    },
+    {
+      "name": "reset cancel preserves and confirm clears stored notes",
+      "pass": true
+    },
+    {
+      "name": "corrupt storage is visible and not silently overwritten",
+      "pass": true
+    },
+    {
+      "name": "invalid imported file leaves the current notes unchanged",
+      "pass": true
+    },
+    {
+      "name": "mobile local search opens, closes, and returns focus",
+      "pass": true
+    },
+    {
+      "name": "reduced motion keeps both scene layers aligned and static",
+      "pass": true
+    },
+    {
+      "name": "ordinary browsing made no eager external request",
+      "pass": true
+    },
+    {
+      "name": "video connects only after explicit consent and stops on close",
+      "pass": true
+    },
+    {
+      "name": "no-JavaScript homepage keeps documentation links and closed signup",
+      "pass": true
+    },
+    {
+      "name": "no-JavaScript public pricing lists all four monthly plans",
+      "pass": true
+    },
+    {
+      "name": "unknown real route returns 404 and recovery page",
+      "pass": true
+    }
+  ],
+  "passed": 15,
+  "failed": 0,
+  "visualApproval": false
+}

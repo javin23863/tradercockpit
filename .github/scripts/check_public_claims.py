@@ -66,6 +66,15 @@ def main() -> int:
         for marker in INTERNAL_MARKERS:
             if marker in text:
                 problems.append(f"internal/local marker leaked to public surface {marker!r}: {path.relative_to(REPO)}")
+    journeys = read(DOCS / "assets" / "reference-site" / "journeys.js").lower()
+    privacy = read(DOCS / "trust" / "privacy.html").lower()
+    if "localstorage" in journeys:
+        false_storage_claim = "current public code does not call <code>document.cookie</code>, <code>localstorage</code>"
+        if false_storage_claim in privacy:
+            problems.append("privacy page falsely denies localStorage use while research notes read it")
+        for marker in ("research-notes", "localstorage", "save on this device", "clearing browser data", "not sent to a server"):
+            if marker not in privacy:
+                problems.append(f"privacy page missing research-notes storage disclosure: {marker!r}")
     lab = read(DOCS / "research-lab.html").lower()
     for marker in ("synthetic", "not trading recommendations", "no market data"):
         if marker not in lab:

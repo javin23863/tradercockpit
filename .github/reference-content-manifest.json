@@ -1,0 +1,223 @@
+{
+  "schema": "tradercockpit.reference-reading-shell/v1",
+  "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
+  "home_sha256": "afa28a0599a8af6687fee9fac99e516d2cb3cd3c95dac7ce955ae0a0f90935ee",
+  "files": {
+    "404.html": {
+      "kind": "reading_shell",
+      "before_sha256": "7a534afcded123790db17bd7eeae83996d2d62bbac3dc9213b598ed2fb123224",
+      "after_sha256": "9d6677cf4cf980f6b400964fb6d25eafd8aeededd92628f28a317c384dcb962f"
+    },
+    "confirmed.html": {
+      "kind": "reading_shell",
+      "before_sha256": "ce4cad2aea3c81c68c35f3bc2a4e4751c4d469d6af5efaccb6a35d078c385a3c",
+      "after_sha256": "2f357ba848204efad087a11640b55720b5cdab8a93297cc1df40322901aa2968"
+    },
+    "docs/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "f24f8660892730ab6ebb2edfa4158735cc2aec34c5bb20268b2e027b28a881d0",
+      "after_sha256": "cafb2376aeb44bd4b079b30e466be1c7435e21d0f1547294d41beac26cdf61cd"
+    },
+    "examples/holdout-selection.html": {
+      "kind": "reading_shell",
+      "before_sha256": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85",
+      "after_sha256": "86e6a83d6a5f94214f0ca53f320c2a382b50b48b77d968ead8d44b6922ad44fd"
+    },
+    "examples/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "60ada0e34432da39ba418840da16ad33e64925f8e5caf43333754a2af1fe8668",
+      "after_sha256": "45f0583b61abdde1ed6b39b36881797bff595e0a173e0ac361beeb1b51d917d6"
+    },
+    "examples/replay-boundary.html": {
+      "kind": "reading_shell",
+      "before_sha256": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79",
+      "after_sha256": "1ffce1f1f2c40dde10b24a3c93920ba3a5cfd84ec065435064e20fa40af9e7a8"
+    },
+    "help.html": {
+      "kind": "reading_shell",
+      "before_sha256": "3f6e4a64ff3340a5c191d0dd305c9ffebcafb2fba3cf575e3c42955f70a6f999",
+      "after_sha256": "dd6c92986c36b92bab863ea2c331e061a239938a9932cfc2b2ac343dcc9970e7"
+    },
+    "how-to/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
+      "after_sha256": "463fa6f32a051e79858ba4886b1772b70aca47b8963f5226a27bb24ca0c5943a"
+    },
+    "how-to/read-chart-evidence.html": {
+      "kind": "reading_shell",
+      "before_sha256": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3",
+      "after_sha256": "106850f295ddb5a9a662b85dac002fc0f1c0125c90b1a8f6b2ac7e7a78abde8e"
+    },
+    "how-to/read-monte-carlo.html": {
+      "kind": "reading_shell",
+      "before_sha256": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404",
+      "after_sha256": "4251e921cde87b638634ebb0bc66c710a16210fa5db58cb6b490610a5908beef"
+    },
+    "how-to/read-result-metrics.html": {
+      "kind": "reading_shell",
+      "before_sha256": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833",
+      "after_sha256": "24edcfcba4be97355e2bcf8c217d82350d79aa50a435affb353eb5cd3e33b13f"
+    },
+    "how-to/read-staged-validation.html": {
+      "kind": "reading_shell",
+      "before_sha256": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5",
+      "after_sha256": "5ae1d66718ce9d05753686191eaeaccba25a082ee84c48434dca62cf250d012b"
+    },
+    "learn/concepts/correlation-diversification.html": {
+      "kind": "reading_shell",
+      "before_sha256": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
+      "after_sha256": "4b7d99a841daead125b2dc17543a33664ca4a55378f52b81f4d462b7429be644"
+    },
+    "learn/concepts/distribution-shape.html": {
+      "kind": "reading_shell",
+      "before_sha256": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
+      "after_sha256": "56ada057430ea8e57d7840c1e3a7230d557b131206744a6cad38098296411388"
+    },
+    "learn/concepts/drawdown.html": {
+      "kind": "reading_shell",
+      "before_sha256": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
+      "after_sha256": "360ae49971d0d0a0ef75a9ffef7c8c8104c1ff84116eab8e4ac7791474c1c6fe"
+    },
+    "learn/concepts/monte-carlo.html": {
+      "kind": "reading_shell",
+      "before_sha256": "6e3f51c527177c355262b635824aa4a3ad3004686711081972a7fde552439fce",
+      "after_sha256": "b746f442aa057f2e3dcaed53a96b9efcaa927808ddbfafea2a94fe85d80f3268"
+    },
+    "learn/concepts/out-of-sample.html": {
+      "kind": "reading_shell",
+      "before_sha256": "b38d48b3ce6696868ee13396ac4a3f9afa0450abb32d28ace8742bd7e7cf7727",
+      "after_sha256": "2b082c19421e7424632482f06b884aab3696ddfbbbafa6cf92a7042d19d9db0f"
+    },
+    "learn/concepts/parameter-robustness.html": {
+      "kind": "reading_shell",
+      "before_sha256": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
+      "after_sha256": "d32a330d2aebd19512f7772ef5cd8cb3d21f5b1c86ba31f984ab840fadc3e360"
+    },
+    "learn/concepts/regime-map.html": {
+      "kind": "reading_shell",
+      "before_sha256": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
+      "after_sha256": "1cd74853efbfccd5ef260d6826ef08d657fc83a9b3d9b23ce6b218edb2507085"
+    },
+    "learn/concepts/selection-bias.html": {
+      "kind": "reading_shell",
+      "before_sha256": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
+      "after_sha256": "658fcf8735a4443853a712c05235777d1ef9706a47b7fc08b409a614f157fd50"
+    },
+    "learn/concepts/walk-forward.html": {
+      "kind": "reading_shell",
+      "before_sha256": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
+      "after_sha256": "6c1da029dc1493b189ba20af59793b28b747df9460a1b8b5c3fa4b8516e0109b"
+    },
+    "learn/glossary.html": {
+      "kind": "reading_shell",
+      "before_sha256": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335",
+      "after_sha256": "96c1974f3028a1f383c004876c855ce8de6b2386f9f1e492397371187fb328d9"
+    },
+    "learn/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31",
+      "after_sha256": "ae6ef9db4b870bbbdbfb2b244d11774aed75653ac6f825eafbc24f41c1538227"
+    },
+    "learn/start-here.html": {
+      "kind": "reading_shell",
+      "before_sha256": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3",
+      "after_sha256": "865b8219944c339ee4393e899e4664884ed6dbb5b0b701096f4758a0e2cf1002"
+    },
+    "learn/videos.html": {
+      "kind": "reading_shell",
+      "before_sha256": "ac744ff241d35c402eac8e9a16a495d2a1f4895908e25899777b42b4f22b3a17",
+      "after_sha256": "bef0dcff91470de4fe4f56e6650e49eab640cc808e5966c7493bbc68a7e74845"
+    },
+    "methods/chart-evidence.html": {
+      "kind": "reading_shell",
+      "before_sha256": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8",
+      "after_sha256": "e87b28f065241d7b407e2c985d7610f364e4c0f116d53847913701c0a8d41a83"
+    },
+    "methods/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "0689e1b3324eeef298f4ca4718b7e9818ec2efff791b0a4beffa222a59667553",
+      "after_sha256": "cc381fd7345ab3d4019a21a0f8c08f16ac810cf06fec72638ea35b742cef7bde"
+    },
+    "methods/monte-carlo.html": {
+      "kind": "reading_shell",
+      "before_sha256": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0",
+      "after_sha256": "909028b3b2053f989cb6ab2712822c3984995b7e64bd63a69dba9718ac049804"
+    },
+    "methods/result-metrics.html": {
+      "kind": "reading_shell",
+      "before_sha256": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1",
+      "after_sha256": "196faf2b288a2a63bdc605c9c6cc67fa3766d2f2edee75a3ccfcac24abbb75b3"
+    },
+    "methods/validation-foundations.html": {
+      "kind": "reading_shell",
+      "before_sha256": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa",
+      "after_sha256": "d4c17b757e9364412aa466de8cbdce51a7094b5bdadf885a3420b70ba4fb2bf7"
+    },
+    "pricing/index.html": {
+      "kind": "corrected_reading_shell",
+      "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
+      "corrected_unwrapped_sha256": "507a2969e6b6b13735b33913fbe6268cde2bfeacaaa1caba9f2b0fd06d8fcadb",
+      "correction": "Plan access links retain the static waitlist as the no-JavaScript destination and progressively enhance to the selected plan journey when JavaScript is available.",
+      "after_sha256": "ba0db6a836651bc531c16d0d6abcce57c7df182461aceb5bb89969dc35c24bf7"
+    },
+    "refund-policy.html": {
+      "kind": "reading_shell",
+      "before_sha256": "427dbd7d33a45c376dacee264f98169b33fe26aa7274cc40339b5ba91e856752",
+      "after_sha256": "1f3793fec22e008a446dc8e9f89a1c7ee5490eb212bc7eea58c4909a4408648e"
+    },
+    "strategy-claim-audit-checklist.html": {
+      "kind": "reading_shell",
+      "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
+      "after_sha256": "9311149cee6ed9a6028bc4a8c631195e0c0b4a8f759c8ff443a137b8594c01be"
+    },
+    "support/faq.html": {
+      "kind": "reading_shell",
+      "before_sha256": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
+      "after_sha256": "b2af0edb5bf738a71406070796f23a02783fd5cdb244964c83937280d13cfdd6"
+    },
+    "support/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "0dceeb4d047f0ad782c443e1136877ea0343df00f5bb38dd5e74b3fc4c0f1bc0",
+      "after_sha256": "a211a8a1208e39bc93df6e1e84276820928ec84468f355bb725181e6e819147d"
+    },
+    "thanks.html": {
+      "kind": "reading_shell",
+      "before_sha256": "7044bbe001264811706c0c3a3d72513c419b61b2314a7e3c97e19a8bedf4a077",
+      "after_sha256": "b1117754f60a25a6ea79e246997511e8a6ff61b3dbeb414a215892243d4f0ad2"
+    },
+    "trust/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
+      "after_sha256": "ab722bfd8bf0da1c9a067b57fe90c93cc08139d5220a2145f9b0c6988c0cab15"
+    },
+    "trust/privacy.html": {
+      "kind": "corrected_reading_shell",
+      "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
+      "after_sha256": "95c872838a52c8e6b1e05734779960f3700be98b0b4c1378a80dfec5fcfd7d02",
+      "corrected_unwrapped_sha256": "aac17266a8990fa8fede1a93b84fac633c91b5d29d2cf21031fd2700d94165b8",
+      "correction": "Privacy disclosure: document optional research-notes localStorage read/write behavior and local-only note storage."
+    },
+    "updates/index.html": {
+      "kind": "reading_shell",
+      "before_sha256": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
+      "after_sha256": "e55a5668a0edb810878b5155a2247432289f94a1d25302b8d5d57b5c09a75caa"
+    },
+    "assets/site-search.js": {
+      "kind": "search_guard",
+      "before_sha256": "4bc0d26ee9e1e6f3bd35aaecb279c052573d213cf056b01a7d62b430d06ba486",
+      "after_sha256": "055e3de13bca73e52cf11d6f1483ce503b8c7d9d32c5c9c3b4d5bf7b0a7a05c6"
+    },
+    "ux-page-contracts.v1.json": {
+      "kind": "ux_contracts",
+      "before_sha256": "e4db5afe41a7109504ef74c3a0e5e4233b68899e2d635ba674bb7e9648699670",
+      "after_sha256": "9b8455786d3ca15aba481253f5ba58ff10ba775276c582cb5470ef66445c26f7"
+    }
+  },
+  "new_assets": {
+    "assets/reference-site/content.css": "ec7723a2177275cbd95afeaa5a83ad7b699cc47ae660d7ef466370b01456711e"
+  },
+  "content_preservation": "Removing only the declared additive shell and labelled media restores the exact previous HTML bytes. Search change only prevents decorative hero SVG insertion.",
+  "visual_approval": true,
+  "visual_approval_source": "owner",
+  "visual_approval_date": "2026-09-18"
+}

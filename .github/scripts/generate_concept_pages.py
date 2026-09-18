@@ -180,7 +180,9 @@ def main() -> int:
     problems: list[str] = []
     for entry in entries:
         target = OUTPUT / f"{entry['slug']}.html"
-        content = render(entry)
+        sys.path.insert(0,str(Path(__file__).resolve().parent))
+        from reference_content import wrap_html
+        content = wrap_html(render(entry), f"learn/concepts/{entry['slug']}.html")
         if args.check:
             if not target.is_file():
                 problems.append(f"missing generated concept page: {target.relative_to(REPO)}")

@@ -1,4 +1,4 @@
-﻿# TraderCockpit Public Design Authority
+# TraderCockpit Public Design Authority
 
 This file is the product-facing UX authority for every public TraderCockpit page. The process is adapted from the DesignMotionHQ UX Engine methodology; it is a review method, not a visual-style donor. Existing TraderCockpit visual authority, measured geometry, product truth, and data provenance remain controlling.
 
@@ -42,7 +42,7 @@ All 41 public HTML pages are browser-audited at desktop and mobile widths. New p
 
 ## 7. Design system discipline
 
-Use semantic tokens rather than page-local visual inventions. The public site keeps a 4px-derived spacing rhythm, bounded type hierarchy, near-black layered surfaces, one primary teal/cyan action language, red for risk/negative meaning, and restrained supporting blue. State variants are designed, not inferred from opacity alone.
+Use semantic tokens rather than page-local visual inventions. The reference-based homepage keeps its original room-and-laptop composition, artwork and native type geometry. Reading pages use the same dark surfaces, ivory text and restrained gold action accents. Analytical plots and original product captures retain their meaningful source colors. State variants are designed, not inferred from opacity alone.
 
 Core interaction tokens are declared in shared CSS, including `--ux-touch-target`, spacing tokens, focus treatment, and motion timing. Page-specific styling may refine composition but must not create a second visual language.
 
@@ -51,7 +51,7 @@ Core interaction tokens are declared in shared CSS, including `--ux-touch-target
 Each page is reviewed on four explicit axes:
 
 - **Type:** hierarchy must read before decoration; long-form text prioritizes legibility.
-- **Color:** teal/cyan communicates action/positive evidence, red communicates negative/risk, and color is never the sole carrier of meaning.
+- **Color:** gold identifies reading-page navigation and actions; analytical graphics retain their own semantic color scales. Color is never the sole carrier of meaning.
 - **Space:** dense research material uses grouping and rhythm instead of arbitrary panels; marketing uses breathing room around the focal proof.
 - **Finish:** depth, glass, 3D, shadows, and motion must reinforce real structure. Decorative effects cannot imply analytical dimensions that do not exist.
 
@@ -68,3 +68,6 @@ Primary destinations remain visible in ordinary navigation; search is an acceler
 ## Release evidence
 
 The DesignMotion audit produces browser evidence under `.github/evidence/designmotion-ux-audit-v1/`. The machine-readable page authority is `docs/ux-page-contracts.v1.json`, enforced by `.github/scripts/check_public_ux.py` in the `website-integrity` workflow.
+
+## Reference integration review boundary
+The source-bound reading-page continuation is documented in `.github/reference-site/READING-PAGES.md`. Structural contract and browser checks are not owner visual approval. Old PASS labels from the retired theme must not be carried forward as current acceptance. The homepage artwork remains unchanged; no recoloring or procedural substitute is authorized by the reading-page migration.

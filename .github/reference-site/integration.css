@@ -1,0 +1,19 @@
+/* Integration-only surfaces. The reference's hero/scene geometry is untouched. */
+.reference-status{background:#080b0b;padding:28px clamp(24px,4.6vw,70px) 40px;color:#c6cec6}
+.reference-status details{border-top:1px solid #38423a;border-bottom:1px solid #38423a}
+.reference-status summary{min-height:56px;padding:16px 0;cursor:pointer;display:flex;justify-content:space-between;gap:20px;color:#f1e7d8}
+.reference-status #product-state{font-size:12px;align-self:center;color:#c0c9be}
+.reference-status-content{max-width:780px;padding:14px 0 30px}
+.reference-status h2{font-size:clamp(24px,3vw,36px);line-height:1.15;margin:12px 0}
+.reference-status p{font-size:14px;line-height:1.65;margin:12px 0}
+.reference-status [hidden]{display:none!important}
+.reference-waitlist{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+.reference-waitlist label{display:grid;gap:7px;font-size:14px}
+.reference-waitlist input{width:100%;min-width:0;background:#101712;border:1px solid #526151;border-radius:5px;color:#f2eddf;padding:10px 12px;min-height:44px;font:inherit}
+.reference-waitlist .waitlist-note{grid-column:1/-1;margin:0}
+.reference-footer-links{display:flex;flex-wrap:wrap;gap:4px 20px;padding-top:16px}
+.reference-footer-links a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:#d3dacf}
+.reference-footer-links a:hover{color:#f4d49d;text-decoration:underline}
+.reference-status :focus-visible{outline:2px solid #e8c98f;outline-offset:4px}
+#public-status{scroll-margin-top:32px}
+@media(max-width:600px){.reference-waitlist{grid-template-columns:1fr}.reference-status summary{flex-direction:column;gap:4px}.reference-status #product-state{align-self:flex-start}}

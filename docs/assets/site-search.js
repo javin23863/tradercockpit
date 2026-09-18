@@ -185,6 +185,12 @@
     }
 
     input.addEventListener('input', () => search(input.value));
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      event.stopPropagation();
+      closeDialog();
+    });
     dialog.addEventListener('cancel', (event) => {
       event.preventDefault();
       closeDialog();
@@ -292,6 +298,7 @@
   }
 
   function initArticleDepthScene() {
+    if (document.body.hasAttribute('data-reference-content')) return;
     const hero = document.querySelector('.article-hero');
     const inner = hero?.querySelector('.article-hero-inner');
     if (!hero || !inner || inner.querySelector('.article-depth-scene')) return;

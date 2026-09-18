@@ -12,7 +12,7 @@ DOCS = REPO / "docs"
 DESIGN = REPO / "DESIGN.md"
 CONTRACTS = DOCS / "ux-page-contracts.v1.json"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
-HOME_STYLE = DOCS / "assets" / "home-v3.css"
+HOME_STYLE = DOCS / "assets" / "reference-site" / "styles.css"
 HOME = DOCS / "index.html"
 
 REQUIRED_DIMENSIONS = {
@@ -23,6 +23,7 @@ BANNED_PUBLIC_PHRASES = (
     "is being built", "work in progress", "development preview", "public-ready",
     "product boundary", "verified-public", "internal development", "release boundary",
     "matching tradercockpit feature", "future tier", "reserved pricing",
+    "homepage proof", "search this preview", "about this preview",
 )
 BANNED_SLOP_PHRASES = (
     "quantitative research.reimagined", "game-changing", "cutting-edge", "revolutionary",
@@ -134,8 +135,9 @@ def main() -> int:
             absent = REQUIRED_DIMENSIONS.difference(row)
             if absent:
                 problems.append(f"{rel} missing UX dimensions: {sorted(absent)}")
-            if row.get("audit", {}).get("status") != "pass":
-                problems.append(f"{rel} does not have a passing UX audit disposition")
+            expected_audit = {"status":"owner_visual_approved","visual_approval":True,"approved_at":"2026-09-18","source":"owner"}
+            if row.get("audit") != expected_audit:
+                problems.append(f"{rel} must record the owner visual approval separately from structural checks")
 
     for page in public:
         rel = page.relative_to(DOCS).as_posix()
@@ -161,19 +163,23 @@ def main() -> int:
                 problems.append(f"{rel} contains prohibited public copy: {phrase}")
 
     home = HOME.read_text(encoding="utf-8") if HOME.is_file() else ""
-    hero_match = re.search(r'<section class="quant-hero">([\s\S]*?)</section>', home)
+    hero_match = re.search(r'<section class="hero"[^>]*>([\s\S]*?)</section>', home)
     if not hero_match:
         problems.append("homepage hero missing")
     else:
         hero = hero_match.group(1)
-        if len(re.findall(r'class="[^"]*\bprimary\b[^"]*"', hero)) != 1:
+        if len(re.findall(r'class="[^"]*\bgold\b[^"]*"', hero)) != 1:
             problems.append("homepage hero must expose exactly one primary action")
-        if "See TraderCockpit" not in hero:
-            problems.append("homepage primary action must lead with product proof")
-        if "quant-text-link" not in hero:
+        if "Explore access" not in hero:
+            problems.append("homepage primary action must expose access")
+        if "button glass" not in hero:
             problems.append("homepage secondary hero action must be visually subordinate")
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
+    public_runtime = "\n".join((DOCS / "assets" / "reference-site" / name).read_text(encoding="utf-8").lower() for name in ("app.js", "journeys.js"))
+    for phrase in ("homepage proof", "not a release candidate", "under visual review", "in this preview", "explore this preview", "this preview does not offer", "this preview does not contain", "the preview does not establish"):
+        if phrase in public_runtime:
+            problems.append(f"homepage runtime contains internal review copy: {phrase}")
 
     for style_path in (SITE_STYLE, HOME_STYLE):
         if not style_path.is_file():
@@ -185,7 +191,7 @@ def main() -> int:
                 problems.append(f"shared site CSS missing UX contract marker: {marker}")
     if HOME_STYLE.is_file():
         home_css = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in ("DesignMotion-informed homepage hierarchy", ".quant-text-link", ".quant-social{width:44px;height:44px}"):
+        for marker in (".hero", ".scene-stack", "prefers-reduced-motion"):
             if marker not in home_css:
                 problems.append(f"homepage CSS missing UX contract marker: {marker}")
 
@@ -194,7 +200,7 @@ def main() -> int:
         for item in problems:
             print(f"- {item}")
         return 1
-    print(f"PUBLIC UX: PASS ({len(public)}/{len(public)} public pages; 8/8 review dimensions enforced)")
+    print(f"PUBLIC UX: PASS ({len(public)}/{len(public)} public pages; 8/8 structural dimensions; visual approval remains separate)")
     return 0
 
 

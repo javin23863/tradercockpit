@@ -1,0 +1,41 @@
+{
+  "schema": "tradercockpit.website-reference-readiness/v1",
+  "status": "READY_FOR_CODEX_REVIEW",
+  "branch": "codex/website-reference-integration-20260918",
+  "integration_base": "d544de3f058d4541ab31441371ddb0656acf73a3",
+  "rejected_pr": 51,
+  "source_archive": "TraderCockpit-homepage-proof-source.zip",
+  "source_archive_sha256": "0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c",
+  "local_bundle_sha256": "d6d7711d6f9517435a7f76f8da611605613d6b256901692f0627113e9735cf6f",
+  "served_browser_evidence": ".github/evidence/reference-continuity-served/checkpoint.json",
+  "candidate_identity_source": ".github/evidence/reference-continuity-served/checkpoint.json",
+  "visual_appraisal": "Owner-approved visual composition retained. Approval metadata is reconciled across UX contracts and exact browser evidence is green on the current source candidate.",
+  "gates": {
+    "preview_integrated_into_publishable_docs": "complete",
+    "existing_public_routes_and_metadata_preserved": "complete; 41 public pages retained; 39 reading pages use the reference shell; pricing metadata corrected; enhanced evidence links stay local; Privacy page explicitly documents optional research-notes localStorage behavior",
+    "full_served_website_browser_acceptance": "complete; exact source identity, acceptance counts, and failures are recorded only in the served-browser evidence checkpoint",
+    "reference_visual_comparison_and_asset_quality": "owner-approved composition retained; full-resolution Charts/Models sources remain 2x, deterministic and geometry-locked; approval metadata reconciled",
+    "public_capture_provenance_and_resolution": "complete; Charts 1220x886 and Models 1440x1000 source hashes verified; generated overlays deterministic and geometry-locked",
+    "privacy_access_notes_and_commerce_acceptance": "complete for current waitlist boundary; no real signup/payment submitted",
+    "exact_candidate_repository_and_build_checks": "complete; exact implementation identity and current verification counts are recorded only in the served-browser evidence checkpoint",
+    "owner_visual_acceptance_of_integrated_result": "complete; owner approved exact integrated visual candidate on 2026-09-18"
+  },
+  "baseline_checks": "Main baseline passed; NOT evidence for an integrated candidate.",
+  "production_deployment_authorized": false,
+  "limitation": "Owner visual acceptance is recorded here; exact-source candidate identity and verification counts live only in the served-browser evidence checkpoint. Fresh Codex review must be requested and observed in GitHub PR #52 external state; mutable review-request status is not source-controlled. Merge still requires zero unresolved current-head findings. No deployment is authorized.",
+  "tooling_progress": {
+    "importer": "Implemented; input SHA checked before writes; runtime assets explicitly allowlisted",
+    "localExactArchiveFixture": "10 tests passed; temporary fixture only",
+    "windowsBridgeFixture": "7 checks passed; real existing modules over HTTP; not full site",
+    "sourceArchivePresent": true,
+    "sourceImportedIntoDocs": true,
+    "evidence": [
+      ".github/evidence/reference-integration-tooling/import-fixture.json",
+      ".github/evidence/reference-integration-tooling/windows-components.json"
+    ],
+    "windowsExactArchiveTests": "10 passed, zero skipped"
+  },
+  "source_download_name": "TraderCockpit-homepage-proof-source(6).zip",
+  "codex_review_required": true,
+  "codex_review_state_source": "github_pr_external"
+}
