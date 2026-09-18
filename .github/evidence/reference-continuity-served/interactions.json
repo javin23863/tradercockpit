@@ -2,8 +2,8 @@
   "schema": "tradercockpit.served-interactions/v1",
   "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
   "browser": "Chrome/153.0.8010.50",
-  "capturedAt": "2026-09-18T07:45:46.166Z",
-  "publicDigest": "b9cba866cede9c1488a230dd9d7fadfe592c63b64aff4d290c5bd6f1ed99aad4",
+  "capturedAt": "2026-09-18T08:12:15.121Z",
+  "publicDigest": "e1b43cc5876bccef875248886644c390ae28615fcebba5fbd488ae57e07dd107",
   "tests": [
     {
       "name": "native Learning link opens enhanced view with selected navigation",
@@ -11,6 +11,10 @@
     },
     {
       "name": "leaving a journey restores requested homepage section position",
+      "pass": true
+    },
+    {
+      "name": "malformed homepage fragment cannot break journey exit rendering",
       "pass": true
     },
     {
@@ -78,7 +82,7 @@
       "pass": true
     }
   ],
-  "passed": 18,
+  "passed": 19,
   "failed": 0,
   "visualApproval": false
 }
