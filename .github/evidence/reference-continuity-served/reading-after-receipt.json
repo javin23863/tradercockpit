@@ -1,8 +1,8 @@
 {
   "schema": "tradercockpit.reference-content-package/v2",
   "label": "after",
-  "parentCommit": "ce54897804ab5f38be424f2249b05207b9f6477e",
-  "publicDigest": "5f7c99ba5a773fcd06d15f1904d1f1d2f3ac57cb132fb8f02371989002c3f267",
+  "parentCommit": "5d4d5cf70347558f32b54ea5a5c9eff74acb18f0",
+  "publicDigest": "e5f725fd77dc1ca8ca8f656ba1cd0c7b1dfa99ffd838f9ad32488c14552556a3",
   "browser": "Chrome/153.0.8010.50",
   "scope": "FULL_SERVED_PUBLISHING_TREE",
   "rows": [
@@ -3582,12 +3582,12 @@
   "generatedEvidence": {
     "retention": "ephemeral_full_run_not_committed",
     "count": 78,
-    "manifestSha256": "ffe78996cb195413593c83226e59af8984d30693289ee77b1c226936e4d824f2",
+    "manifestSha256": "0e505af6486e1a491b7b1f5c2bc8d00974489d468e4a7fe5de2d18cf11c9c2a1",
     "hashes": {
       "404-html-1440.png": "1c192bf18ae1719bab9b361ec43336e7059bd0dfaec733e279266dec3acbab33",
       "404-html-390.png": "bb2b770d2e6fb8fcd1af7200090e950bb5cd84f6ad97bb6ed35af482100279b5",
       "confirmed-html-1440.png": "66e92ae7d6e341b5308afaf8d9b1a294179585d14e7f512e82d3de95a2fd52a6",
-      "confirmed-html-390.png": "0cfdedbeef6583e349fad01bc2df321a6fe7d727f0799958786a6bf6f4518d87",
+      "confirmed-html-390.png": "499cf95b81614860e779c4c2b7c346a8043dc900d32127bbbc98fe231ee4c281",
       "docs--1440.png": "f7656986b4a8c045b505b96885c52bbd24aaa7ec8747ff9e4d2adf50e0a0a964",
       "docs--390.png": "bd6d345f7c1cd409abf5fba67966452a9fe513aa475fc6d726638dc3ab6d3b4a",
       "examples-holdout-selection-html-1440.png": "bc5217106abb9df783002e908d3d0dc650b675165dd8f0aa641de1e50f639c97",
@@ -3605,7 +3605,7 @@
       "how-to-read-monte-carlo-html-1440.png": "e6dc7d717c36d880c65da2c91a8d50e428f31b82ddb8e12cb818bf9e6241f7c7",
       "how-to-read-monte-carlo-html-390.png": "eb11a092dde3e419a1b401fb7d596417b82432601a5d0a4cb79ebdd3a37ac47f",
       "how-to-read-result-metrics-html-1440.png": "f18f5d4a3a044696728d9e387e9f0cdc8d98086b88cf2bf8f5dcfbfb13ee1786",
-      "how-to-read-result-metrics-html-390.png": "66bb257148d5be6b08a3b2613bd343ab0f16a9f8db5575e81edc7f6b5368ae5e",
+      "how-to-read-result-metrics-html-390.png": "1ee393976f657b16fbad8f13de10beac601fe1051e011cd0d051f8cdde3f7517",
       "how-to-read-staged-validation-html-1440.png": "94433807826f209b5d096f5907c3b2ead5581b8d514c5073569e7a5ec47904f6",
       "how-to-read-staged-validation-html-390.png": "6e8a2c2aff7875022989f06e1cd0f7aecaeb3dca041882772949246193fbecd3",
       "learn-concepts-correlation-diversification-html-1440.png": "738b56d8725f5f6edd39f31a06d4c73ed5e7015a34308888648ef8e6045f908d",
@@ -3634,7 +3634,7 @@
       "learn-start-here-html-390.png": "b1be28e675603519fbfb010e97c7d7617832fa62247c3e9e00c7ca8a152115b0",
       "learn-videos-html-1440.png": "a3009e4774ebe06fe371bcbd60787281bf72cf3353fbf1604ba1b7e0d4feebfd",
       "learn-videos-html-390.png": "bbf6704f5781bb835fb72a6eef0a91d71586b993a06f2ee6ff96477d5c7e46cf",
-      "methods-chart-evidence-html-1440.png": "2aeb26e0b436c5075c81a44eafc1180f42b73d4b5e6bab9f0c798002fa976ecb",
+      "methods-chart-evidence-html-1440.png": "22d162eba0ece2c602c266b314bdc6745dbc5efb7792e5b0bbafd4a6297835de",
       "methods-chart-evidence-html-390.png": "ef2b441f5380fa897830a33742f4480f54006a86a125d2830b9bbb5b72379875",
       "methods--1440.png": "f22f8d866c9a392bc7fdba842d0ee27c88ae024a281e941f4255a8579bd9def0",
       "methods--390.png": "9176da45004ec43d211336bd785aa2260f23cd0f531fbe8f889a2fb5dd3ffd36",
