@@ -1,8 +1,8 @@
 {
   "schema": "tradercockpit.reference-content/v1",
   "label": "after",
-  "parentCommit": "356d17e05d6d2b44b9b5d3c7020212ea5db7aec0",
-  "publicDigest": "09ed434148b586090ecc241d493e5a6c647e2bc3373746915a0da99f849d5daa",
+  "parentCommit": "a3738c121b89795483c40fbfc648544689b3e21e",
+  "publicDigest": "19b6d3107efa49fa85a19939d76dd3f05407592aa4dcd4f35c18698dd45e15eb",
   "browser": "Chrome/153.0.8010.50",
   "scope": "FULL_SERVED_PUBLISHING_TREE",
   "rows": [
@@ -3609,7 +3609,7 @@
     "learn-concepts-drawdown-html-1440.png": "30e7aa6b3fc21363fd4f46926bb6f934fe06a0ceb5994a4b7b6a83e5fe452603",
     "learn-concepts-drawdown-html-390.png": "b6f4ca135e4e7f5581341573269958752f9fee3b258738e88fb807ecd8b7e74b",
     "learn-concepts-monte-carlo-html-1440.png": "1c605d5fc3d13b8c4744f111639ab55c78be9f217213b7461e025e822585baa3",
-    "learn-concepts-monte-carlo-html-390.png": "96a74eabded9aa88ad5ab3e744e89d01fb5af789d1c7acca109203c00cc3cff1",
+    "learn-concepts-monte-carlo-html-390.png": "b9b376f510b6f559a80af27e4638211c083214d8fd4c531d3c4ca9b4a169c64b",
     "learn-concepts-out-of-sample-html-1440.png": "472ac2a392fcc691de9641d5e67fc6c88ec715042f4ac8241cdba2a25f8be43a",
     "learn-concepts-out-of-sample-html-390.png": "97f95d71ff94eef53e24e53a75d78026c4d07c0d8343a80628369e759f6d30a2",
     "learn-concepts-parameter-robustness-html-1440.png": "a827a50754686573ca663d8ed8e5ecdd22a20f91681a3ea0c4e865638341858d",
@@ -3635,7 +3635,7 @@
     "methods-monte-carlo-html-1440.png": "b2caa8cef717d15f10598ab7c18634a9e5bd6f577287d5970ed7c047140a43f8",
     "methods-monte-carlo-html-390.png": "b932a061c5235bc7b48e42f448f3b921d1297e4978bbfb80c569c1f53936c73a",
     "methods-result-metrics-html-1440.png": "97bed34ab58290b81b885fead54bf3d9cccc594f3a54188c2855d92ef43052c7",
-    "methods-result-metrics-html-390.png": "32ddb29626003e53c7ccdef85529686dd9de0bfdf39159c20dc2b638d221affd",
+    "methods-result-metrics-html-390.png": "53391e391271b3a196e6a133895d4e733afca6ac6698640f92f2efb9ae5e9823",
     "methods-validation-foundations-html-1440.png": "db762277ce442f1aed338f53a4241f983a99ff04bf9fbeb9bb97bb693ace31c3",
     "methods-validation-foundations-html-390.png": "c422b677d8adf67059b1c8ff227362134e4058f76eff65e47b6af21438122835",
     "pricing--1440.png": "62862481a4e07f4c254cb23b46f3820b96b6ced43c3a2d3d568fc317b5c829e4",

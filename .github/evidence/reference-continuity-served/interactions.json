@@ -2,8 +2,8 @@
   "schema": "tradercockpit.served-interactions/v1",
   "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
   "browser": "Chrome/153.0.8010.50",
-  "capturedAt": "2026-09-18T04:34:58.488Z",
-  "publicDigest": "09ed434148b586090ecc241d493e5a6c647e2bc3373746915a0da99f849d5daa",
+  "capturedAt": "2026-09-18T04:58:23.594Z",
+  "publicDigest": "19b6d3107efa49fa85a19939d76dd3f05407592aa4dcd4f35c18698dd45e15eb",
   "tests": [
     {
       "name": "native Learning link opens enhanced view with selected navigation",
