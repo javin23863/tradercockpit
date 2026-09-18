@@ -186,7 +186,7 @@
   document.addEventListener('click',event=>{
     if(event.target.closest('.skip') && document.body.classList.contains('in-journey')) {event.preventDefault();main.focus();return;}
     const button=event.target.closest('[data-scroll-to]');
-    if(button){const target=document.getElementById(button.dataset.scrollTo);target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});}
+    if(button){const target=document.getElementById(button.dataset.scrollTo);if(target){target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}}
     const link=event.target.closest('a[href^="#/"]');
     if(link && link.getAttribute('href')===location.hash){event.preventDefault();render();}
   });
