@@ -25,7 +25,7 @@ def render_list(items: list[str]) -> str:
 
 def render_related(items: list[dict]) -> str:
     return "\n".join(
-        f'          <a class="related-link" href="{esc(item["path"])}"><strong>{esc(item["title"])}</strong><span>Continue to the related public concept.</span></a>'
+        f'          <a class="related-link" href="{esc(item["path"])}"><strong>{esc(item["title"])}</strong><span>Read this related concept.</span></a>'
         for item in items
     )
 
@@ -37,8 +37,8 @@ def render(entry: dict) -> str:
     tells = render_list(entry["tells"])
     cannot = render_list(entry["cannot"])
     how_to = entry.get("howTo")
-    how_to_action = f'          <a class="deep-link" href="{esc(how_to)}">Open the How-To →</a>' if how_to else ""
-    how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-To →</a>' if how_to else ""
+    how_to_action = f'          <a class="deep-link" href="{esc(how_to)}">Open the how-to guide →</a>' if how_to else ""
+    how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-to guide →</a>' if how_to else ""
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -56,12 +56,12 @@ def render(entry: dict) -> str:
     <div class="nav-inner">
       <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
       <div class="nav-links">
+        <a href="../../index.html#platform">Platform</a>
+        <a href="../../learn/" aria-current="page">Learn</a>
         <a href="../../research-lab.html">Research Lab</a>
-        <a href="../" aria-current="page">Learn</a>
         <a href="../../docs/">Docs</a>
-        <a href="../../methods/">Methods</a>
-        <a href="../../examples/">Examples</a>
-        <a href="../../updates/">Updates</a>
+        <a href="../../pricing/">Pricing</a>
+        <a href="../../support/">Support</a>
       </div>
     </div>
   </nav>
@@ -153,7 +153,7 @@ def render(entry: dict) -> str:
     </section>
   </main>
 
-  <footer><div class="footer-inner"><div>TraderCockpit · evidence-first research education · no performance promised.</div><div class="footer-links"><a href="../../index.html">Home</a><a href="../">Learn</a><a href="../../methods/">Methods</a></div></div></footer>
+  <footer><div class="footer-inner"><div>TraderCockpit · research education, not financial advice.</div><div class="footer-links"><a href="../../index.html">Home</a><a href="../">Learn</a><a href="../../methods/">Methods</a><a href="../../trust/privacy.html">Privacy</a></div></div></footer>
   <script src="../../assets/site-search.js" defer></script>
 </body>
 </html>

@@ -170,7 +170,7 @@ def main() -> int:
         hero = hero_match.group(1)
         if len(re.findall(r'class="[^"]*\bgold\b[^"]*"', hero)) != 1:
             problems.append("homepage hero must expose exactly one primary action")
-        if "Explore access" not in hero:
+        if "Join the waitlist" not in hero:
             problems.append("homepage primary action must expose access")
         if "button glass" not in hero:
             problems.append("homepage secondary hero action must be visually subordinate")

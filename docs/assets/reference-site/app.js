@@ -37,71 +37,24 @@
     openDialog(detail);
   }
   const features = Object.freeze({
-    builder:['Strategy Builder','Construct strategy logic and research configurations. Keep the idea and the assumptions behind it explicit.'],
-    charts:['Charts','Inspect price, studies, trades, and retained research results. This retained development capture uses synthetic TC_PROBE test data, not live markets.'],
-    models:['Quant Models','Explore model diagnostics and retained analytical evidence. A fitted model is not a promise of future performance.'],
-    apollo:['Apollo','Keep the guided research assistant close to the work it helps you understand.'],
-    data:['Market Data','Organize the historical inputs used by your research. This page does not establish provider access or a live data connection.'],
-    projects:['Custom Projects','Use reusable research workflows while keeping their settings and underlying evidence inspectable.']
+    builder:['Builder','Generate strategies from the building blocks and rules you choose, test them on historical data and review every result: trades, equity curve, statistics and robustness checks. Progress, Full settings and Results keep a run and its exact settings together.'],
+    charts:['Charts','Chart your own market data with studies, drawing tools, multi-chart layouts and bar replay. Order-flow views use the data your connected broker provides; if a broker does not supply a data type, TraderCockpit tells you instead of estimating it. The image shows the Charts workspace with sample data.'],
+    models:['Models','Run statistical and machine-learning studies on a saved copy of your data, such as feature structure, forecasts and diagnostics. Each result stays tied to the data it used. A fitted model is not a promise of future performance. The image shows the Models workspace with sample data.'],
+    apollo:['Apollo','Apollo is the research assistant built into TraderCockpit. Ask it to explain a result, help set up your next test or draft research notes. It uses the same controls you do, asks before it runs anything, and tells you before any of your material leaves your computer. Apollo uses the usage credit included in your plan.'],
+    data:['Data organization','Import price files, connect MetaTrader 5, or download Kraken and Coinbase spot market data, then find everything in one searchable library. Saved history stays on your computer and remains available offline.'],
+    projects:['Custom projects','Chain tasks such as build, retest, optimization and walk-forward into a workflow you can run again. Each task keeps its own settings, and results stay with the project.']
   });
-  // Provenance is fixed local metadata. No network request is made to GitHub.
-  const captures = Object.freeze({
-    charts: {title:'Charts — retained development capture', date:'16 September 2026',
-      src:'assets/reference-site/product-charts.webp', width:480, height:349,
-      path:'assets/reference-site/original-charts.png',
-      hash:'bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae',
-      note:'TC_PROBE is synthetic test data. The room display shows a crop of this chart workspace; this inspector preserves the entire capture. The screenshot is not a trading result or a live market.'},
-    models: {title:'Models — retained PCA development capture', date:'9 September 2026',
-      src:'assets/reference-site/product-models.webp', width:480, height:333,
-      path:'assets/reference-site/original-models.png',
-      hash:'3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6',
-      note:'This development screenshot shows a PCA loading map from test data. The visible provider-not-configured and no-account states are preserved. It is not evidence of a live connection or current release approval.'}
-  });
-  function inspectCapture(key, switching = false) {
-    const preview = captures[key];
-    if (!preview) return;
-    const supplied = window.TRADERCOCKPIT_CAPTURE_OVERRIDES?.[key];
-    const expectedSize = key==='charts' ? [1220,886] : [1440,1000];
-    const hasOriginal = supplied?.src === `assets/reference-site/original-${key}.png` &&
-      supplied.hash === preview.hash && supplied.width===expectedSize[0] && supplied.height===expectedSize[1];
-    const record = hasOriginal ? {...preview,src:supplied.src,width:supplied.width,height:supplied.height} : preview;
-    const sizeDescription = hasOriginal ? `${record.width} × ${record.height} · verified repository original` : `${preview.width}-pixel preview · original not installed locally`;
-    const origin = ''; // Original capture bytes are delivered from this site, not a private repository path.
-    const tabs = Object.keys(captures).map(k => `<button class="capture-choice" data-capture-choice="${k}" aria-pressed="${k===key}">${k==='charts'?'Charts':'Models'}</button>`).join('');
-    show(record.title, 'Actual software / synthetic development data',
-      `<div class="capture-switch" aria-label="Choose retained capture">${tabs}</div>
-       <div class="capture-scale" aria-label="Image scale"><button class="capture-choice" data-capture-scale="fit" aria-pressed="true">Fit screen</button><button class="capture-choice" data-capture-scale="native" aria-pressed="false">100% size</button></div>
-       <figure class="capture-evidence" tabindex="0" aria-label="Product capture; scroll horizontally at 100 percent size"><img class="detail-media capture-media" src="${record.src}" width="${record.width}" height="${record.height}" alt="${record.title}"><figcaption>${record.date} · ${sizeDescription}</figcaption></figure>
-       <p>${record.note}</p><a class="button glass" href="#/platform/${key}">Read this screen guide →</a><a class="button glass" href="${origin+record.path}" target="_blank" rel="noopener noreferrer">Full-resolution original ↗</a><p class="capture-limit">The surrounding room is illustrative artwork. Neither screen is the running application. The complete retained originals are served locally. A reduced preview is used only if the original cannot be loaded.</p>
-       <details class="capture-provenance"><summary>Capture source and verification</summary><p>Repository: javin23863/tradercockpitsq<br>Commit: <code>71a4a60cb3fbf7daca8ba7fbbbb1b61ad7303fa4</code></p><p>Original SHA-256: <code>${record.hash}</code></p><a href="${origin+record.path}" target="_blank" rel="noopener noreferrer">Open retained original ↗</a></details>`, true);
-    const frame=body.querySelector('.capture-evidence'),image=body.querySelector('.capture-media');
-    body.querySelectorAll('[data-capture-scale]').forEach(button=>button.addEventListener('click',()=>{
-      const native=button.dataset.captureScale==='native';
-      frame.classList.toggle('native-scale',native);
-      image.style.width=native ? `${image.naturalWidth||record.width}px` : '';
-      body.querySelectorAll('[data-capture-scale]').forEach(x=>x.setAttribute('aria-pressed',String(x===button)));
-    }));
-    image.addEventListener('error',()=>{
-      if(!hasOriginal || image.dataset.fallback) return;
-      image.dataset.fallback='true'; image.src=preview.src;
-      image.width=preview.width;image.height=preview.height;image.style.width='';
-      frame.classList.remove('native-scale');
-      frame.querySelector('figcaption').textContent=`${record.date} · original unavailable; ${preview.width}-pixel preview`;
-      body.querySelectorAll('[data-capture-scale]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.captureScale==='fit')));
-    });
-    body.querySelectorAll('[data-capture-choice]').forEach(button => button.addEventListener('click', () => inspectCapture(button.dataset.captureChoice, true)));
-    if (switching) body.querySelector(`[data-capture-choice="${key}"]`).focus();
-  }
-  document.addEventListener('click', event => { const button=event.target.closest('[data-capture]'); if(button) inspectCapture(button.dataset.capture); });
+  const images = Object.freeze({charts:['assets/reference-site/product-charts.webp',480,349], models:['assets/reference-site/product-models.webp',480,333]});
   document.querySelectorAll('[data-feature]').forEach(b => b.addEventListener('click', () => {
     const key = b.dataset.feature, entry = features[key];
     if (!entry) return;
-    if (Object.hasOwn(captures, key)) { inspectCapture(key); return; }
-    show(entry[0], 'Platform overview', `<img class="detail-media" src="assets/reference-site/${key}.webp" alt="Decorative illustration" width="450" height="230"><p>${entry[1]}</p><a class="button glass" href="docs/">Read product documentation ↗</a>`);
+    const [src,width,height] = images[key] || [`assets/reference-site/${key}.webp`,450,230];
+    const alt = images[key] ? `${entry[0]} workspace shown with sample data` : '';
+    show(entry[0], 'TraderCockpit desktop', `<img class="detail-media" src="${src}" alt="${alt}" width="${width}" height="${height}"><p>${entry[1]}</p><a class="button glass" href="docs/#workspaces">Read the product guide →</a>`);
   }));
   document.addEventListener('click', event => {
     if (!event.target.closest('[data-video]')) return;
-    show('Monte Carlo block bootstrap', 'Research explainer', '<p>This existing explainer discusses plausible historical paths. It is not a demonstration of every product feature.</p><div class="video-box"><button class="button gold" id="load-video">Load video from YouTube</button></div><p>Loading the video connects to YouTube. No video request is made before you press the button.</p>');
+    show('Monte Carlo block bootstrap', 'Research explainer', '<p>A short TraderCockpit explainer on resampling a strategy\'s trade sequence to see how much the result depends on one particular path.</p><div class="video-box"><button class="button gold" id="load-video">Load video from YouTube</button></div><p>The video loads from YouTube only after you press the button.</p>');
     $('#load-video').addEventListener('click', () => {
       const frame = document.createElement('iframe');
       frame.title = 'Monte Carlo block bootstrap explainer';
@@ -112,7 +65,7 @@
       $('.video-box').replaceChildren(frame);
     });
   });
-  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Visual and data provenance', '<p>The room, mountains, furniture and laptop are illustrative artwork. The original fictional dashboards are masked out.</p><p>The embedded Charts and Models screens use <strong>retained TraderCockpit development captures</strong> from the product repository. Both contain synthetic test data. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture and its recorded source identity.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>Product access remains on waitlist and checkout is closed.</p>')));
+  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About the images', 'TraderCockpit', '<p>The room, mountains, furniture and laptop are illustrative artwork.</p><p>The Charts and Models screens are taken from the TraderCockpit desktop app running on synthetic sample data. They are not live markets, real accounts or trading results.</p><p>Scene motion is decorative. You can pause it, and it stays off if your system prefers reduced motion.</p>')));
   const menu = $('.menu-toggle'), mobileNav = $('#mobile-nav');
   function closeMenu() { mobileNav.hidden = true; menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Open navigation'); }
   menu.addEventListener('click', () => {
@@ -126,8 +79,8 @@
     if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); }
   });
   const searchItems = [
-    ['Platform','#platform','environment workflow'],['Features','#features','capabilities'],['Pricing','#pricing','plans core trader quant apollopro'],['Learning','#/learn','guides methods library'],
-    ['Monte Carlo uncertainty','#/learn/monte-carlo','methods resampling assumptions simulation'],['Research checklist','#/learn/checklist','notes evidence questions source'],['Access','#/access','waitlist plans checkout'],['Read Charts','#/platform/charts','capture guide price studies'],['Read Models','#/platform/models','PCA capture diagnostic guide'],
+    ['Platform','#platform','environment workflow'],['Features','#features','capabilities'],['Pricing','#pricing','plans core trader quant apollo pro price subscription'],['Learn','#/learn','guides methods library learning'],['Join the waitlist','#public-status','waitlist email access signup'],
+    ['Monte Carlo uncertainty','#/learn/monte-carlo','methods resampling assumptions simulation'],['Research checklist','#/learn/checklist','notes evidence questions source'],['Plans and access','#/access','plans checkout pricing'],['Charts overview','#/platform/charts','price studies indicators replay'],['Models overview','#/platform/models','models machine learning diagnostics'],['Product guide','docs/','documentation help guide workspaces'],
     ...Object.entries(features).map(([key,entry]) => [entry[0],`#${key}`,entry[1]])
   ];
   function search() {

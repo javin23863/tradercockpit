@@ -1,10 +1,10 @@
 /* Integration-only surfaces. The reference's hero/scene geometry is untouched. */
 .reference-status{background:#080b0b;padding:28px clamp(24px,4.6vw,70px) 40px;color:#c6cec6}
 .reference-status details{border-top:1px solid #38423a;border-bottom:1px solid #38423a}
-.reference-status summary{min-height:56px;padding:16px 0;cursor:pointer;display:flex;justify-content:space-between;gap:20px;color:#f1e7d8}
+.reference-status summary{min-height:56px;padding:16px 0;cursor:pointer;display:flex;justify-content:space-between;gap:20px;color:#f1e7d8;font-size:15px}
 .reference-status #product-state{font-size:12px;align-self:center;color:#c0c9be}
 .reference-status-content{max-width:780px;padding:14px 0 30px}
-.reference-status h2{font-size:clamp(24px,3vw,36px);line-height:1.15;margin:12px 0}
+.reference-status h2{font-size:clamp(26px,3vw,40px);font-weight:500;letter-spacing:-.03em;line-height:1.12;margin:12px 0;color:#f4f1ea}
 .reference-status p{font-size:14px;line-height:1.65;margin:12px 0}
 .reference-status [hidden]{display:none!important}
 .reference-waitlist{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
@@ -17,3 +17,8 @@
 .reference-status :focus-visible{outline:2px solid #e8c98f;outline-offset:4px}
 #public-status{scroll-margin-top:32px}
 @media(max-width:600px){.reference-waitlist{grid-template-columns:1fr}.reference-status summary{flex-direction:column;gap:4px}.reference-status #product-state{align-self:flex-start}}
+#public-status .eyebrow{color:#e2c48f}
+#product-cta{margin-top:4px}
+footer .reference-footer-links{flex-basis:100%;padding-top:4px}
+footer .preview-disclosure{flex-basis:100%;margin:0;color:#8f9b92;font-size:12px;line-height:1.55}
+.price-grid article .button{margin-top:auto}.price-grid .tier-description{margin-bottom:max(18px,2.4cqw)}

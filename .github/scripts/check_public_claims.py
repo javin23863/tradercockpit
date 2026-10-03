@@ -50,8 +50,8 @@ def main() -> int:
     if manifest.get("verifiedCapabilities") != []:
         problems.append("current public manifest unexpectedly exposes verified capabilities")
 
-    if 'id="product-state">STATUS: UNVERIFIED<' not in home:
-        problems.append("homepage static product state must fail closed as UNVERIFIED")
+    if 'id="product-state">Checking availability<' not in home:
+        problems.append("homepage static product state must fail closed until the manifest is checked")
     if not re.search(r'<form[^>]*id="waitlist-form"[^>]*hidden', home):
         problems.append("homepage waitlist form must be hidden until manifest verification")
     if not re.search(r'<a[^>]*id="product-cta"[^>]*hidden', home):

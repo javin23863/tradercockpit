@@ -2,7 +2,7 @@
   "schema": "public-commerce/v1",
   "status": "prelaunch",
   "plan": {
-    "name": "ApolloPro",
+    "name": "Apollo Pro",
     "currency": "USD",
     "unitAmount": 15000,
     "interval": "month",
@@ -26,9 +26,19 @@
       "interval": "month"
     },
     {
-      "name": "ApolloPro",
+      "name": "Apollo Pro",
       "unitAmount": 15000,
       "interval": "month"
+    }
+  ],
+  "topups": [
+    {
+      "name": "Apollo top-up",
+      "unitAmount": 1000
+    },
+    {
+      "name": "Apollo top-up",
+      "unitAmount": 2500
     }
   ],
   "checkout": {

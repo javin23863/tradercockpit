@@ -43,7 +43,7 @@ def validate(root=ROOT):
   p=docs/'assets/reference-site'/('original-'+r['id']+'.png')
   need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r['original_sha256'],'Original capture identity: '+r['id'])
  commerce=json.loads(read('docs/commerce-public.v1.json'));tiers=commerce.get('tiers',[])
- need([(x['name'],x['unitAmount']) for x in tiers]==[('Core',1999),('Trader',4999),('Quant',9999),('ApolloPro',15000)],'Four approved tier prices drifted')
+ need([(x['name'],x['unitAmount']) for x in tiers]==[('Core',1999),('Trader',4999),('Quant',9999),('Apollo Pro',15000)],'Four approved tier prices drifted')
  need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Checkout opens after payment-to-entitlement provisioning is verified end to end.'},'Checkout boundary changed')
  html=read('docs/index.html');bridge=read('docs/assets/reference-site/integration.mjs');app=read('docs/assets/reference-site/app.js');journeys=read('docs/assets/reference-site/journeys.js')
  template_bridge=read('.github/reference-site/integration.mjs')
@@ -59,7 +59,7 @@ def validate(root=ROOT):
  for marker in ['loadProductManifest','loadPrelaunchConfig','activatePrelaunch','commerce-public.v1.json']:
   need(marker in bridge,'Missing product/commerce integration: '+marker)
  need('prefers-reduced-motion' in app and 'visibilitychange' in app,'Scene accessibility safeguards missing')
- need('synthetic' in app.lower() and 'release approval' in app.lower(),'Capture limitations missing')
+ need('sample data' in app.lower() and 'illustrative' in app.lower(),'Capture limitations missing')
  need('github.com/javin23863/tradercockpit/blob/' not in journeys,'Enhanced public journey evidence links must stay on the current local site')
  for name in ['product-state','product-heading','product-summary','manifest-capabilities','manifest-detail','product-cta','youtube-cta','purchase-support','waitlist-form','waitlist-email','waitlist-first-name','waitlist-source','waitlist-utm-source','waitlist-utm-medium','waitlist-utm-campaign']:
   need('id="'+name+'"' in html,'Missing functional access element: '+name)
@@ -75,7 +75,7 @@ def validate(root=ROOT):
   need(tier['name'] in pricing and amount in pricing,'Static pricing record disagrees: '+tier['name'])
  need('One plan, one access path' not in pricing,'Obsolete single-plan claim')
  need('href="../#/access?plan=' not in pricing,'Pricing plan links must retain meaningful static fallback')
- for plan in ['Core','Trader','Quant','ApolloPro']:
+ for plan in ['Core','Trader','Quant','Apollo Pro']:
   need(f'href="../#public-status" data-access-plan="{plan}"' in pricing,'Missing static pricing fallback: '+plan)
  return errors
 if __name__=='__main__':

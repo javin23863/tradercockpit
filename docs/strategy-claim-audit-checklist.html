@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
-<title>TraderCockpit — Strategy-Claim Audit Checklist</title>
+<title>Strategy-Claim Audit Checklist — TraderCockpit</title>
 <link rel="canonical" href="https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html">
-<meta name="description" content="A one-page evidence checklist for auditing a published trading-strategy claim without making a performance claim.">
+<meta name="description" content="A free one-page checklist for judging whether a published trading-strategy claim can be checked: rules set in advance, data held back, every attempt counted.">
 <style>
 :root{
-  --ground:#08030a;--panel:#0a0407;--line:#3a0d1a;--accent:#FF1744;
-  --accent-soft:#7a142e;--ink:#F5E8EA;--dim:#c89aa3;--faint:#7a4a52;
+  --ground:#080b0b;--panel:#0d1110;--line:#2a302d;--accent:#e7cba0;
+  --accent-soft:#3a3226;--ink:#f4f4f0;--dim:#c4c6c3;--faint:#8f948f;
   --mono:"Cascadia Mono","Cascadia Code",Consolas,monospace
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--mono);line-height:1.35}
-.skip-link{position:fixed;left:1rem;top:-5rem;z-index:100;padding:.55rem .75rem;background:#ffb72b;color:#16080e;font-weight:700}.skip-link:focus{top:1rem}
+.skip-link{position:fixed;left:1rem;top:-5rem;z-index:100;padding:.55rem .75rem;background:#e7cba0;color:#080b0b;font-weight:700}.skip-link:focus{top:1rem}
 .sheet{width:min(1100px,calc(100% - 2rem));margin:1rem auto;padding:1.1rem;border:1px solid var(--line);background:var(--panel)}
 header{display:grid;grid-template-columns:1fr auto;gap:1rem;border-bottom:2px solid var(--accent);padding-bottom:.7rem}
 .eyebrow,.source-key{color:var(--faint);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase}
@@ -59,58 +59,78 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
 }
 </style>
 <link rel="stylesheet" href="assets/site-v2.css" media="screen">
+<style>
+@media screen{
+body[data-reference-content].audit-page{background:#080b0b!important;color:#f4f4f0!important}
+body[data-reference-content].audit-page::before{display:none}
+body[data-reference-content].audit-page .sheet{border-color:rgba(215,221,214,.16)!important;border-radius:6px;background:#0d1110!important;box-shadow:0 30px 90px rgba(0,0,0,.45)}
+body[data-reference-content].audit-page .sheet::before{display:none}
+body[data-reference-content].audit-page header{border-bottom-color:#e7cba0!important}
+body[data-reference-content].audit-page h1{font-family:Arial,Helvetica,sans-serif;font-weight:500;letter-spacing:-.03em}
+body[data-reference-content].audit-page h1 span{color:#e7cba0!important}
+body[data-reference-content].audit-page :is(.eyebrow,.source-key){color:#a3a8a3!important}
+body[data-reference-content].audit-page .print{border:1px solid #e7cba0!important;background:linear-gradient(180deg,#f1dbb5,#d9b77f)!important;color:#15130f!important;border-radius:3px;font:600 14px/1.2 Arial,Helvetica,sans-serif}
+body[data-reference-content].audit-page :is(.field,.item,.outcome div,.capture-off){border-color:rgba(215,221,214,.14)!important;background:rgba(255,255,255,.015)}
+body[data-reference-content].audit-page .definition{border-left-color:#e7cba0!important;background:rgba(231,203,160,.05)}
+body[data-reference-content].audit-page .item::before{color:#e7cba0!important}
+body[data-reference-content].audit-page .outcome .stop{border-color:rgba(229,74,90,.55)!important;box-shadow:none}
+body[data-reference-content].audit-page main a{color:#e7cba0!important}
+body[data-reference-content].audit-page .site-nav .brand{color:#f4f4f0!important}
+body[data-reference-content].audit-page .site-nav .nav-links a{color:#c4c6c3!important}
+body[data-reference-content].audit-page .site-nav .nav-links a:hover{color:#e7cba0!important}
+}
+</style>
 <link data-reference-shell="style" rel="stylesheet" href="assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><!-- reference-print:start --><style>@media print{[data-reference-added-nav]{display:none!important}}</style><!-- reference-print:end --></head>
 <body class="audit-page" data-reference-content="true">
 <a class="skip-link" href="#main">Skip to content</a>
-<!-- reference-navigation:start --><nav class="site-nav" data-reference-added-nav aria-label="Primary"><div class="nav-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="docs/">Docs</a><a href="learn/">Learn</a><a href="methods/">Methods</a><a href="pricing/">Pricing</a><a href="support/">Support</a></div></div></nav><!-- reference-navigation:end --><main class="sheet" id="main" tabindex="-1">
+<!-- reference-navigation:start --><nav class="site-nav" data-reference-added-nav aria-label="Primary"><div class="nav-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="index.html#platform">Platform</a><a href="learn/">Learn</a><a href="research-lab.html">Research Lab</a><a href="docs/">Docs</a><a href="pricing/">Pricing</a><a href="support/">Support</a></div></div></nav><!-- reference-navigation:end --><main class="sheet" id="main" tabindex="-1">
   <header>
     <div>
-      <div class="eyebrow">TRADERCOCKPIT // TEST THE CLAIM</div>
+      <div class="eyebrow">TraderCockpit · free checklist</div>
       <h1>Strategy-Claim <span>Audit Checklist</span></h1>
-      <p class="promise">By the end, a viewer can tell whether a strategy claim is real: not whether it will make money, but whether its evidence is traceable, separated from discovery, and judged only by the authority declared before the result.</p>
+      <p class="promise">Use this checklist to judge whether a strategy claim can be checked: not whether it will make money, but whether its evidence is traceable, kept apart from the data used to find it, and judged by rules set before the results.</p>
     </div>
-    <button class="print" type="button" onclick="window.print()">PRINT / SAVE PDF</button>
+    <button class="print" type="button" onclick="window.print()">Print or save as PDF</button>
   </header>
 
   <section class="claim" aria-label="Claim details">
-    <div class="field"><strong>Claim / exact wording</strong></div>
-    <div class="field"><strong>Source / creator</strong></div>
-    <div class="field"><strong>Date encountered</strong></div>
+    <div class="field"><strong>Claim, in its exact words</strong></div>
+    <div class="field"><strong>Source or creator</strong></div>
+    <div class="field"><strong>Date seen</strong></div>
   </section>
 
-  <p class="definition"><strong>Use one rule:</strong> a polished chart is not a receipt. Check what was fixed before the result, which data was allowed to influence discovery, how many family-level looks occurred, and what evidence is still unburned.</p>
+  <p class="definition"><strong>One rule:</strong> a polished chart is not proof. Check what was fixed before the result, which data helped find the strategy, how many versions were tried, and which data has never been looked at.</p>
 
   <section class="checklist" aria-label="Strategy claim evidence checks">
-    <article class="item"><h2>Rules and gates were fixed first</h2><p>Can you see a preregistration made before results, hash-locked on first run, with failed or changed thresholds moved to a new program ID?</p><span class="receipt">DOCTRINE: F15–17</span></article>
-    <article class="item"><h2>Every number has a receipt</h2><p>Can each number be traced to its claims receipt, with the stated timeframe matching the chart and the shown symbol matching the discussed asset?</p><span class="receipt">DOCTRINE: M176–180</span></article>
-    <article class="item"><h2>The family had a lockbox</h2><p>Was a terminal holdout declared at the family’s first registration, unavailable to every program until one recorded final-judgment opening?</p><span class="receipt">DOCTRINE: F79–87</span></article>
-    <article class="item"><h2>Seen data was burned across the family</h2><p>After any verdict was seen, was that window barred from confirmation for every successor? Cross-validation inside the same window does not make it unseen.</p><span class="receipt">DOCTRINE: F27–38</span></article>
-    <article class="item"><h2>Every family look was counted</h2><p>Were PASS, FAIL, and sequential successor looks charged to one registered family alpha budget, with promotion refused when the budget was exhausted?</p><span class="receipt">DOCTRINE: F39–44, F88–91</span></article>
-    <article class="item"><h2>A same-size multiplicity null existed</h2><p>Was the thesis tested against its same-size multiplicity null chosen from day one, rather than judged against no control after selection?</p><span class="receipt">DOCTRINE: F20–22</span></article>
-    <article class="item"><h2>A burned PASS stayed candidate-grade</h2><p>Is any PASS from a previously inspected window still labeled candidate-grade, never upgraded later into deployment evidence?</p><span class="receipt">DOCTRINE: F92–95</span></article>
-    <article class="item"><h2>Only forward evidence can authorize deployment</h2><p>Does the authority come exclusively from post-registration bars, with frozen thresholds and gates declared before the first qualifying bar?</p><span class="receipt">DOCTRINE: F92–98</span></article>
-    <article class="item"><h2>Paper and live cannot change the strategy</h2><p>Do consumers read bars without branching on provenance, while metadata keeps lineage and TRADE_MATCH proves same-window replay identity?</p><span class="receipt">DOCTRINE: F99–103</span></article>
-    <article class="item"><h2>The mechanism is checkable</h2><p>If the claim offers a market mechanism, is each link observable, stated as a mechanism rather than correlation, and confirmed by a second related asset?</p><span class="receipt">DOCTRINE: M91–103</span></article>
-    <article class="item"><h2>The surface sells verification, never a result</h2><p>Does it avoid promises of alpha or performance, invented testimonials, and unverified product fields while clearly separating verification from outcome?</p><span class="receipt">DOCTRINE: O27–45</span></article>
+    <article class="item"><h2>The rules were set before the results</h2><p>Were the entry and exit rules, settings and pass/fail thresholds written down before testing, and not quietly changed afterwards?</p></article>
+    <article class="item"><h2>Every number can be traced</h2><p>Can each number be traced to a specific test, with the timeframe and symbol matching what is being discussed?</p></article>
+    <article class="item"><h2>Some data was held back</h2><p>Was a final test period set aside at the start and left untouched until the very end?</p></article>
+    <article class="item"><h2>Data that was looked at stays used</h2><p>Once results from a period have been seen, is that period kept out of any later “confirmation”? Re-slicing the same data does not make it new.</p></article>
+    <article class="item"><h2>Every attempt was counted</h2><p>Are all the versions that were tried disclosed, including the ones that failed, and not just the winner?</p></article>
+    <article class="item"><h2>It beats a fair comparison</h2><p>Was the result compared with what luck alone would produce after trying that many ideas?</p></article>
+    <article class="item"><h2>Early wins stay provisional</h2><p>Is a pass on data that had already been looked at still treated as a lead to investigate, not as proof?</p></article>
+    <article class="item"><h2>The deciding test looks forward</h2><p>Is any claim that the strategy is ready based on results collected after the rules were frozen?</p></article>
+    <article class="item"><h2>Paper and live use the same rules</h2><p>Does the strategy follow the same rules in paper and live trading, with trades that match when the same period is replayed?</p></article>
+    <article class="item"><h2>The explanation can be checked</h2><p>If the claim explains why it works, can each step be observed, and does the effect also show up in a related market?</p></article>
+    <article class="item"><h2>It is presented honestly</h2><p>Does it avoid profit promises, testimonials and unverifiable numbers, and keep “we checked this” separate from “this will make money”?</p></article>
   </section>
 
   <section class="outcome" aria-label="Audit outcome">
-    <div class="stop"><strong>STOP / UNVERIFIABLE</strong>A required receipt, lockbox, family count, or forward authority is missing.</div>
-    <div><strong>CANDIDATE ONLY</strong>The evidence comes from discovery or a window already exposed to the family.</div>
-    <div><strong>FORWARD-EVIDENCED</strong>A preregistered forward gate has receipts. This label still makes no performance promise.</div>
+    <div class="stop"><strong>Stop: cannot be checked</strong>Key information is missing: the original rules, the held-back data, the number of attempts, or forward results.</div>
+    <div><strong>A lead, not proof</strong>The evidence comes from data that was used to find or tune the strategy.</div>
+    <div><strong>Forward-tested</strong>Results collected after the rules were frozen are on record. This is still not a promise of future returns.</div>
   </section>
 
-  <section class="capture-off" aria-label="Where to get the daily market map">
-    <strong>WANT THE DAILY MARKET MAP?</strong>
-    <p>This checklist is free and stays free — no email needed for it. If you want the daily
-      market breakdowns and word when the app opens,
-      <a href="./?utm_source=checklist&amp;utm_medium=lead_magnet&amp;utm_campaign=welcome">sign up on the main page</a>.
-      Double opt-in; nothing is sent until you confirm.</p>
+  <section class="capture-off" aria-label="Hear when TraderCockpit opens">
+    <strong>Want to know when TraderCockpit opens?</strong>
+    <p>This checklist is free, with no email needed. To hear when subscriptions open,
+      <a href="./#public-status">join the waitlist on the main page</a>.
+      We only email you after you confirm your address.</p>
   </section>
 
   <footer>
-    <div class="source-key"><a href="./">tradercockpit</a> · the doctrine references beside each item identify the evidence standard used by this checklist</div>
-    <div class="disclaimer">Research tooling, not financial advice. No performance is promised or implied.</div>
+    <div class="source-key"><a href="./">TraderCockpit</a> · strategy-claim audit checklist</div>
+    <div class="disclaimer">Research education, not financial advice. No performance is promised or implied.</div>
   </footer>
 </main>
 <!-- reference-search:start --><script src="assets/site-search.js" defer></script><!-- reference-search:end --></body>

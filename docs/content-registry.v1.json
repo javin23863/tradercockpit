@@ -29,7 +29,7 @@
       "id": "docs",
       "kind": "landing",
       "path": "docs/",
-      "title": "Documentation",
+      "title": "Product guide",
       "status": "public"
     },
     {
@@ -43,7 +43,7 @@
       "id": "how-to",
       "kind": "landing",
       "path": "how-to/",
-      "title": "How-Tos and Academy",
+      "title": "How-to guides",
       "status": "public"
     },
     {
@@ -134,14 +134,14 @@
       "id": "reference.contextual-help",
       "kind": "reference",
       "path": "docs/#contextual-help",
-      "title": "Contextual help contract",
+      "title": "Help links from the desktop",
       "status": "public"
     },
     {
       "id": "help.resolver",
       "kind": "reference",
       "path": "help.html",
-      "title": "Contextual help resolver",
+      "title": "Open a help topic",
       "status": "public"
     },
     {
@@ -218,7 +218,7 @@
       "id": "method.evidence-chain",
       "kind": "method",
       "path": "methods/validation-foundations.html#evidence-chain",
-      "title": "Evidence and provenance chains",
+      "title": "Evidence chains",
       "status": "public"
     },
     {
@@ -267,7 +267,7 @@
       "id": "trust",
       "kind": "landing",
       "path": "trust/",
-      "title": "Trust",
+      "title": "How we present research",
       "status": "public"
     },
     {
@@ -309,14 +309,14 @@
       "id": "reference.site-privacy",
       "kind": "reference",
       "path": "trust/privacy.html",
-      "title": "Site privacy and third-party boundaries",
+      "title": "Privacy notice",
       "status": "public"
     },
     {
       "id": "commerce.pricing",
       "kind": "landing",
       "path": "pricing/index.html",
-      "title": "Pricing & Access",
+      "title": "Pricing",
       "status": "public"
     }
   ]

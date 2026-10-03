@@ -7,7 +7,7 @@
       "title": "Research Lab",
       "path": "research-lab.html",
       "kind": "lab",
-      "summary": "Interactive synthetic visualizations for quantitative research concepts.",
+      "summary": "Interactive diagrams, built from sample data, that make research ideas such as uncertainty and robustness visible.",
       "terms": [
         "visual atlas",
         "synthetic",
@@ -20,7 +20,7 @@
       "title": "Strategy Universe",
       "path": "research-lab.html#strategy-universe",
       "kind": "concept",
-      "summary": "A spatial synthetic candidate field that makes several analytical dimensions visible at once.",
+      "summary": "A 3D field of sample strategy candidates that shows several measurements at once.",
       "terms": [
         "candidate population",
         "dispersion",
@@ -34,7 +34,7 @@
       "title": "Monte Carlo uncertainty",
       "path": "learn/concepts/monte-carlo.html",
       "kind": "concept",
-      "summary": "Monte Carlo synthetic path distributions that illustrate sequence uncertainty rather than a single outcome.",
+      "summary": "How randomized paths show sequence uncertainty instead of a single outcome.",
       "terms": [
         "monte carlo",
         "bootstrap",
@@ -167,9 +167,9 @@
       "title": "Learn",
       "path": "learn/",
       "kind": "learning",
-      "summary": "Structured paths connecting concepts, methods, workflows, and reference material.",
+      "summary": "Free lessons connecting research concepts, methods, step-by-step guides and videos.",
       "terms": [
-        "academy",
+        "lessons",
         "curriculum",
         "start here",
         "education"
@@ -177,43 +177,45 @@
     },
     {
       "id": "how-to",
-      "title": "How-Tos and Academy",
+      "title": "How-to guides",
       "path": "how-to/",
       "kind": "how-to",
-      "summary": "Task-focused lessons with written steps, troubleshooting, concepts, and optional video.",
+      "summary": "Step-by-step guides to reading Monte Carlo results, metrics, staged validation and charts, with optional video.",
       "terms": [
         "tutorial",
         "video",
         "lesson",
         "workflow",
-        "academy"
+        "how-to",
+        "guide"
       ]
     },
     {
       "id": "docs",
-      "title": "Documentation",
+      "title": "Product guide",
       "path": "docs/",
       "kind": "reference",
-      "summary": "The public entry point for exact verified product reference and contextual help.",
+      "summary": "What each TraderCockpit workspace does, how to unlock the desktop with a product key, and which data sources it supports.",
       "terms": [
         "docs",
-        "reference",
-        "controls",
-        "fields",
+        "product guide",
+        "workspaces",
+        "product key",
+        "unlock",
+        "data sources",
         "help"
       ]
     },
     {
       "id": "docs.contextual-help",
-      "title": "Contextual help",
+      "title": "Help links from the desktop",
       "path": "docs/#contextual-help",
       "kind": "reference",
-      "summary": "Open the explanation that matches what you are viewing in the app.",
+      "summary": "How help links in the desktop open the matching explanation on this site.",
       "terms": [
         "what is this",
         "help id",
-        "deep link",
-        "registry"
+        "deep link"
       ]
     },
     {
@@ -234,7 +236,7 @@
       "title": "Research Examples",
       "path": "examples/",
       "kind": "example",
-      "summary": "Public-safe end-to-end research stories using synthetic or explicitly publishable evidence.",
+      "summary": "Complete research stories, built from synthetic data, from the question to the limitations.",
       "terms": [
         "case study",
         "example",
@@ -246,7 +248,7 @@
       "title": "Updates",
       "path": "updates/",
       "kind": "updates",
-      "summary": "Public release and availability updates without exposing private roadmap material.",
+      "summary": "Current availability and what is new on the site and in the product.",
       "terms": [
         "release notes",
         "status",
@@ -287,7 +289,7 @@
       "title": "How to read a Monte Carlo result",
       "path": "how-to/read-monte-carlo.html",
       "kind": "how-to",
-      "summary": "A task-focused sequence for interpreting a Monte Carlo distribution without treating a percentile as a forecast.",
+      "summary": "A step-by-step guide to reading a Monte Carlo distribution without treating a percentile as a forecast.",
       "terms": [
         "read monte carlo",
         "interpret percentile",
@@ -298,16 +300,15 @@
     },
     {
       "id": "help.resolver",
-      "title": "Open contextual help",
+      "title": "Open a help topic",
       "path": "help.html",
       "kind": "reference",
-      "summary": "Go directly from an in-app help link to the matching Concept, Method, How-To, or reference page.",
+      "summary": "Go from a desktop help link to the matching concept, method, how-to guide or product guide page.",
       "terms": [
         "what is this",
         "help id",
         "contextual help",
-        "deep link",
-        "resolver"
+        "deep link"
       ]
     },
     {
@@ -315,7 +316,7 @@
       "title": "Synthetic holdout selection example",
       "path": "examples/holdout-selection.html",
       "kind": "example",
-      "summary": "An end-to-end synthetic research story connecting selection, preserved holdout evidence, walk-forward checks, Monte Carlo interpretation, limitations, and next questions.",
+      "summary": "A synthetic research story connecting selection, a held-back test period, walk-forward checks, Monte Carlo, limitations and next questions.",
       "terms": [
         "research example",
         "holdout",
@@ -400,7 +401,7 @@
       "title": "Validation foundations",
       "path": "methods/validation-foundations.html",
       "kind": "method",
-      "summary": "Acceptance conditions, calendar-year consistency, and evidence provenance as separate validation controls.",
+      "summary": "Acceptance conditions, calendar-year consistency and research records as separate validation checks.",
       "terms": [
         "validation foundations",
         "acceptance criteria",
@@ -438,15 +439,14 @@
     },
     {
       "id": "research.evidence-chain",
-      "title": "Evidence and provenance chains",
+      "title": "Evidence chains",
       "path": "methods/validation-foundations.html#evidence-chain",
       "kind": "method",
-      "summary": "Immutable identity and lineage connecting the exact artifacts evaluated in a research conclusion.",
+      "summary": "Keeping a record of exactly which data, settings and test run a research conclusion refers to.",
       "terms": [
         "research proof",
         "evidence chain",
         "provenance",
-        "custody",
         "lineage"
       ]
     },
@@ -483,7 +483,7 @@
       "title": "How to read a staged validation chain",
       "path": "how-to/read-staged-validation.html",
       "kind": "how-to",
-      "summary": "A task-focused guide for interpreting a multi-stage validation process without treating stage count as proof.",
+      "summary": "A step-by-step guide to reading a multi-stage validation process without treating the number of checks as proof.",
       "terms": [
         "staged validation",
         "validation funnel",
@@ -501,7 +501,7 @@
       "title": "How to read backtest metrics together",
       "path": "how-to/read-result-metrics.html",
       "kind": "how-to",
-      "summary": "A task guide for interpreting result metrics together with sample, units, costs, trade count, path, and selection context.",
+      "summary": "A step-by-step guide to reading result metrics together with their sample, units, costs, trade count, drawdown and selection context.",
       "terms": [
         "backtest metrics",
         "net profit",
@@ -519,7 +519,7 @@
       "path": "methods/chart-evidence.html#ohlc-bars",
       "title": "OHLC bars",
       "kind": "method",
-      "summary": "Product-neutral interpretation guidance for OHLC bars.",
+      "summary": "How to read OHLC price bars, and what they do not show.",
       "terms": [
         "ohlc",
         "candlestick",
@@ -532,7 +532,7 @@
       "path": "methods/chart-evidence.html#profile-tpo",
       "title": "Volume Profile and TPO",
       "kind": "method",
-      "summary": "Product-neutral interpretation guidance for Volume Profile and TPO.",
+      "summary": "How to read Volume Profile and TPO, and why session and bin settings matter.",
       "terms": [
         "volume profile",
         "tpo",
@@ -545,7 +545,7 @@
       "path": "methods/chart-evidence.html#historical-replay",
       "title": "Historical replay",
       "kind": "method",
-      "summary": "Product-neutral interpretation guidance for Historical replay.",
+      "summary": "How historical replay should hide information that was not yet available.",
       "terms": [
         "historical replay",
         "chart replay",
@@ -558,7 +558,7 @@
       "title": "How to read chart evidence",
       "path": "how-to/read-chart-evidence.html",
       "kind": "how-to",
-      "summary": "A task guide for reading OHLC bars, profiles, events, and replay while preserving source and information context.",
+      "summary": "A step-by-step guide to reading bars, profiles, events and replay while keeping the data source and timing in view.",
       "terms": [
         "chart evidence",
         "ohlc bars",
@@ -574,7 +574,7 @@
       "title": "Support",
       "path": "support/",
       "kind": "support",
-      "summary": "Find the right route for exact documentation, task guidance, research explanations, troubleshooting, and current product status.",
+      "summary": "Find the product guide, common questions, step-by-step guides, research lessons and plan information.",
       "terms": [
         "support",
         "help",
@@ -587,18 +587,17 @@
     },
     {
       "id": "trust",
-      "title": "Trust",
+      "title": "How we present research",
       "path": "trust/",
       "kind": "trust",
-      "summary": "How TraderCockpit separates evidence provenance, synthetic examples, product availability, and research interpretation.",
+      "summary": "How TraderCockpit labels examples, avoids performance claims and keeps results traceable.",
       "terms": [
         "trust",
         "evidence",
-        "provenance",
         "synthetic data",
-        "product boundary",
         "performance claims",
-        "auditability"
+        "auditability",
+        "traceable results"
       ]
     },
     {
@@ -606,7 +605,7 @@
       "title": "Research Glossary",
       "path": "learn/glossary.html",
       "kind": "learn",
-      "summary": "Linked quantitative-research vocabulary for concepts, methods, metrics, chart evidence, validation, and uncertainty.",
+      "summary": "Short definitions of research terms, each linked to a fuller explanation.",
       "terms": [
         "glossary",
         "research terms",
@@ -625,7 +624,7 @@
       "title": "Frequently Asked Questions",
       "path": "support/faq.html",
       "kind": "support",
-      "summary": "Short public answers about product status, research examples, documentation, video privacy, and evidence interpretation.",
+      "summary": "Answers about plans, availability, the product key, data sources, Apollo, privacy and research examples.",
       "terms": [
         "faq",
         "frequently asked questions",
@@ -645,7 +644,7 @@
       "title": "Start Here",
       "path": "learn/start-here.html",
       "kind": "learn",
-      "summary": "Research-first orientation to questions, information boundaries, metrics, uncertainty, robustness, selection, and evidence identity.",
+      "summary": "A starting point for research: the question, the data, metrics, uncertainty, robustness and selection bias.",
       "terms": [
         "start here",
         "research foundations",
@@ -664,7 +663,7 @@
       "title": "Synthetic historical replay boundary",
       "path": "examples/replay-boundary.html",
       "kind": "example",
-      "summary": "Interactive synthetic example comparing information-safe replay with an explicitly leaky future-information view.",
+      "summary": "An interactive synthetic example comparing a correct replay chart with one that leaks future bars.",
       "terms": [
         "historical replay",
         "replay cutoff",
@@ -676,10 +675,10 @@
     },
     {
       "id": "reference.site-privacy",
-      "title": "Site privacy and third-party boundaries",
+      "title": "Privacy notice",
       "path": "trust/privacy.html",
       "kind": "reference",
-      "summary": "When the public site uses same-origin search, submits waitlist fields to Kit, or loads YouTube after an explicit action.",
+      "summary": "What this website stores, what goes to Kit when you join the waitlist, and when YouTube is contacted.",
       "terms": [
         "privacy",
         "third party",
@@ -696,7 +695,7 @@
       "title": "Video Lessons",
       "path": "learn/videos.html",
       "kind": "learn",
-      "summary": "Six long-form TraderCockpit research lessons plus published YouTube playlists, with an optional click-to-load player.",
+      "summary": "TraderCockpit research video lessons and YouTube playlists, each paired with a written guide.",
       "terms": [
         "video lessons",
         "youtube",
@@ -711,20 +710,50 @@
     },
     {
       "id": "commerce.pricing",
-      "title": "Pricing & Access",
+      "title": "Pricing",
       "path": "pricing/",
       "kind": "reference",
-      "summary": "Current monthly TraderCockpit billing record, public availability state, and checkout readiness.",
+      "summary": "Core, Trader, Quant and Apollo Pro monthly plans, Apollo usage credit and top-ups, and current availability.",
       "terms": [
         "pricing",
         "price",
+        "plans",
         "subscription",
         "monthly",
-        "150",
-        "checkout",
-        "billing",
-        "access",
-        "Stripe"
+        "core",
+        "trader",
+        "quant",
+        "apollo pro",
+        "top-up",
+        "usage credit",
+        "waitlist"
+      ]
+    },
+    {
+      "id": "checklist",
+      "title": "Strategy-Claim Audit Checklist",
+      "path": "strategy-claim-audit-checklist.html",
+      "kind": "reference",
+      "summary": "A free one-page checklist for judging whether a published strategy claim can be checked.",
+      "terms": [
+        "checklist",
+        "audit",
+        "strategy claim",
+        "printable",
+        "pdf"
+      ]
+    },
+    {
+      "id": "refund-policy",
+      "title": "Refunds & Cancellation",
+      "path": "refund-policy.html",
+      "kind": "reference",
+      "summary": "How cancellation and refunds will work once subscriptions open.",
+      "terms": [
+        "refund",
+        "cancel",
+        "cancellation",
+        "subscription"
       ]
     }
   ]

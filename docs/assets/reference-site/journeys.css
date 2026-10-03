@@ -133,3 +133,6 @@
  .j-access-notes{grid-template-columns:1fr;gap:25px}.j-access-notes article{padding-bottom:24px;border-bottom:1px solid #939b7c40}.j-access-notes h2{margin-bottom:10px}
 }
 @media(prefers-reduced-motion:reduce){.j-resource{transition:none}}
+.j-plan-notes{list-style:none;padding:0;margin:14px 0 20px;display:grid;gap:8px;color:#cfd6cb;font-size:14px;line-height:1.4}
+.j-plan-notes li{display:flex;gap:8px}
+.j-plan-notes li::before{content:"";flex:0 0 6px;height:6px;margin-top:7px;border-radius:50%;background:#e2c48f}

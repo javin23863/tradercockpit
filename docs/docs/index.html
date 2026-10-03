@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="data:,">
-  <title>Documentation — TraderCockpit</title>
-  <meta name="description" content="TraderCockpit documentation for exact answers, guided learning, contextual help, and product reference.">
+  <title>Product Guide — TraderCockpit</title>
+  <meta name="description" content="A guide to the TraderCockpit desktop app: the eight workspaces, how the app is unlocked with a product key, where your data comes from and how Apollo usage credit works.">
   <link rel="canonical" href="https://javin23863.github.io/tradercockpit/docs/">
   <link rel="stylesheet" href="../assets/site-v2.css">
 <link data-reference-shell="style" rel="stylesheet" href="../assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"></head>
@@ -15,87 +15,117 @@
     <div class="nav-inner">
       <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
       <div class="nav-links">
-        <a href="../research-lab.html">Research Lab</a>
+        <a href="../index.html#platform">Platform</a>
         <a href="../learn/">Learn</a>
-        <a href="./" aria-current="page">Docs</a>
-        <a href="../methods/">Methods</a>
-        <a href="../examples/">Examples</a>
-        <a href="../updates/">Updates</a>
+        <a href="../research-lab.html">Research Lab</a>
+        <a href="../docs/" aria-current="page">Docs</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../support/">Support</a>
       </div>
     </div>
   </nav>
 
   <main id="main" tabindex="-1">
-    <section class="page-hero landing-hero"><div class="shell landing-hero-grid"><div class="landing-hero-copy"><span class="eyebrow">Docs / exact reference</span><h1>Find the answer you need, fast.</h1><p class="lede">Use Docs for controls, settings, states, and product behavior. For step-by-step workflows, open How-Tos; for research concepts and assumptions, use Learn and Methods.</p><div class="notice">Product instructions on this page describe published behavior. For product availability and access, see Updates.</div></div><div role="group" class="landing-hero-visual visual-docs" aria-label="Contextual help route from an in-app question to the right Concept, Method, How-To, or exact reference page"><!-- reference-media:start --><figure class="reference-media"><a href="../#/platform/charts"><img src="../assets/reference-site/original-charts.png" width="1220" height="886" alt="Charts workspace with labelled synthetic development data"></a><figcaption>Charts · retained development capture · synthetic test data</figcaption></figure><!-- reference-media:end --><span class="visual-kicker">Find the right answer</span><div class="visual-orbit" aria-hidden="true"></div><div class="visual-core">WHAT DO<br>YOU NEED?</div><a class="visual-node n1" href="#contextual-help"><em>INPUT</em><strong>What is this?</strong>in-app question</a><a class="visual-node n2" href="../learn/concepts/monte-carlo.html"><em>ROUTE</em><strong>Concept</strong>intuition</a><a class="visual-node n3" href="../methods/monte-carlo.html"><em>ROUTE</em><strong>Method</strong>assumptions</a><a class="visual-node n4" href="../how-to/read-monte-carlo.html"><em>ROUTE</em><strong>How-To</strong>task</a><a class="visual-node n5" href="#contextual-help"><em>REFERENCE</em><strong>Exact answer</strong>product behavior</a></div></div></section>
+    <section class="page-hero landing-hero"><div class="shell landing-hero-grid"><div class="landing-hero-copy"><span class="eyebrow">Product guide</span><h1>Get to know the TraderCockpit desktop.</h1><p class="lede">TraderCockpit is a Windows desktop app for strategy research. This guide explains what each workspace is for, how the app is unlocked and where your data comes from.</p><div class="notice">TraderCockpit is on a waitlist and subscriptions are not open yet. See <a href="../pricing/">Pricing</a> for plans.</div></div><div role="group" class="landing-hero-visual visual-docs" aria-label="TraderCockpit desktop on a research desk"><figure class="reference-media"><a class="reference-photo" href="../index.html#platform"><img src="../assets/reference-site/room-scene.webp" width="1024" height="442" alt="Illustrative research desk with the TraderCockpit Charts workspace on the monitor"><img src="../assets/reference-site/room-screen.webp" width="1024" height="442" alt=""></a><figcaption>Charts · shown with sample data in an illustrative setting</figcaption></figure></div></div></section>
 
-    <section class="section">
+    <section class="section" id="workspaces">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">Documentation map</span>
-          <h2>Three kinds of answer.</h2>
-          <p>Users should not have to guess whether they need a definition, a workflow, or a control reference.</p>
+          <span class="eyebrow">Workspaces</span>
+          <h2>Eight workspaces, one left-hand menu.</h2>
+          <p>Everything lives in a single window. The menu on the left takes you to each workspace, and every tool is available in every plan.</p>
         </div>
-        <div class="card-grid">
-          <article class="depth-card">
-            <span class="kicker">Reference</span>
-            <h3>What does this control mean?</h3>
-            <p>Exact field names, allowed values, behavior, validation, errors, defaults, and related explanations—after the behavior has been verified.</p>
-          </article>
-          <article class="depth-card">
-            <span class="kicker">How-To</span>
-            <h3>How do I accomplish this task?</h3>
-            <p>Goal-oriented steps, prerequisites, expected results, common mistakes, troubleshooting, and optional video.</p>
-            <a class="deep-link" href="../how-to/">Open How-Tos →</a>
-          </article>
-          <article class="depth-card">
-            <span class="kicker">Concept / Method</span>
-            <h3>Why would I use this idea?</h3>
-            <p>Definitions, assumptions, visual explanations, mathematical reasoning, limitations, and what to inspect next.</p>
-            <a class="deep-link" href="../methods/">Open Methods →</a>
-          </article>
-        </div>
+        <div class="path-grid"><div class="path-card"><strong>Getting started</strong><span>Your starting point. Choose <em>Try a sample</em>, <em>Connect my data</em> or <em>Build my first strategy</em>. Progress follows what you actually complete in the app.</span></div><div class="path-card"><strong>Charts</strong><span>Chart your own market data with studies, drawing tools, saved views, multi-chart layouts and bar replay. Open a strategy result on the chart to see its trades.</span></div><div class="path-card"><strong>Builder</strong><span>Generate trading strategies automatically from the building blocks and rules you choose, test them on historical data and review the results. Progress, Full settings and Results keep each run and its exact settings together.</span></div><div class="path-card"><strong>Custom projects</strong><span>Chain tasks such as build, retest, optimization and walk-forward into a workflow you can run again. Each task keeps its own settings.</span></div><div class="path-card"><strong>Apollo</strong><span>The research assistant built into the app. Ask it to explain a result or help set up your next test. It works through the same controls you use and asks before acting.</span></div><div class="path-card"><strong>Models</strong><span>Run statistical and machine-learning studies on a saved copy of your data. Each result stays tied to the exact data it used.</span></div><div class="path-card"><strong>Data organization</strong><span>Add data and find it again in one searchable library. Import price files, connect MetaTrader 5, or download Kraken and Coinbase spot market data.</span></div><div class="path-card"><strong>Settings</strong><span>Your account and product key, plan and billing, desktop updates, appearance, Apollo, help and diagnostics.</span></div></div>
       </div>
     </section>
 
-    <section class="section" id="contextual-help">
+    <section class="section" id="unlock">
       <div class="shell content-grid">
-        <div class="content-panel">
-          <span class="eyebrow">Contextual help</span>
-          <h2>From “What is this?” to the exact explanation.</h2>
-          <p>In-app helper links can take you directly to the Concept, Method, How-To, or reference page that matches the thing you are looking at. You do not need to start at the documentation homepage or know where the page lives.</p>
-          <p>The destination can evolve as the documentation grows while the in-app link keeps opening the right topic.</p>
-          <p>In-app help links open the customer-facing guide, concept, or reference page for the task at hand.</p>
-          <div class="article-actions"><a class="deep-link" href="../help.html?id=research.monte-carlo">Try contextual help →</a><a class="deep-link" href="../learn/concepts/monte-carlo.html">See a concept page →</a></div>
-        </div>
+        <article class="content-panel">
+          <span class="eyebrow">Your account</span>
+          <h2>Unlock the app once with your product key.</h2>
+          <ol>
+            <li>Create your TraderCockpit account on this website. You sign in to the website with Google.</li>
+            <li>Choose a monthly plan. Your account then gives you a product key.</li>
+            <li>Open the desktop app and enter the key on its first screen. It is stored securely on your PC, so you only enter it once.</li>
+            <li>Everything in your plan opens straight away. There is no separate sign-in inside the app.</li>
+          </ol>
+          <p>The key works while your subscription is active. If the subscription ends, the app asks for a valid key again.</p>
+        </article>
         <aside class="side-panel">
-          <h3>What you can expect</h3>
+          <h3>Good to know</h3>
           <ul>
-            <li>One click from the app</li>
-            <li>A topic-matched explanation</li>
-            <li>Concept, Method, How-To, or reference depth</li>
-            <li>Only verified customer-facing information</li>
-            <li>Links that stay useful as Docs grow</li>
+            <li>Google sign-in is used only on this website, never inside the desktop app.</li>
+            <li>Your product key is linked to your account and subscription.</li>
+            <li>Subscriptions are not open yet. <a href="../index.html#public-status">Join the waitlist</a> to hear when they are.</li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="data">
+      <div class="shell content-grid">
+        <article class="content-panel">
+          <span class="eyebrow">Your data</span>
+          <h2>Bring your own market data.</h2>
+          <p>TraderCockpit works with data you bring through your own files and accounts:</p>
+          <ul>
+            <li><strong>Files:</strong> import price history from files on your computer.</li>
+            <li><strong>MetaTrader 5:</strong> connect your own MetaTrader 5 terminal.</li>
+            <li><strong>Kraken and Coinbase:</strong> download spot market data.</li>
+          </ul>
+          <p>Saved history stays on your computer. You can chart and test it offline, and it does not use Apollo credit.</p>
+          <p>Order-flow views such as footprint, delta and volume profile use the data your broker provides. If a connected source does not supply a data type, TraderCockpit tells you and suggests connecting one that does. It never fills the gap with estimated data.</p>
+        </article>
+        <aside class="side-panel">
+          <h3>More sources</h3>
+          <p class="micro">More brokers and data providers are planned. They appear in the app only once they are ready to use.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="apollo">
+      <div class="shell content-grid">
+        <article class="content-panel">
+          <span class="eyebrow">Apollo</span>
+          <h2>A research assistant that shows its work.</h2>
+          <p>Apollo can explain a result, summarize your research or help prepare the next test. It uses the same controls you do, asks for your approval before it changes anything, and tells you before any of your material is sent off your computer.</p>
+          <p>Apollo uses the usage credit included in your plan. Higher plans include more credit, and optional top-ups of $10.00 or $25.00 add more. Apollo’s per-run limits are the same on every plan.</p>
+        </article>
+        <aside class="side-panel">
+          <h3>Plans</h3>
+          <p class="micro">Every plan includes the same tools. Higher plans run more tasks at once and include more Apollo credit.</p>
+          <a class="deep-link" href="../pricing/">Compare plans →</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="contextual-help">
       <div class="shell">
         <div class="section-head">
-          <span class="eyebrow">Reference library</span>
-          <h2>Find help by the task in front of you.</h2>
-          <p>As product areas are verified, exact reference pages can be added here without mixing product instructions with research education.</p>
+          <span class="eyebrow">Help and learning</span>
+          <h2>Three kinds of answer.</h2>
+          <p>Help links inside the app open the matching page on this site, so the explanation is one click away from the screen you are using.</p>
         </div>
-        <div class="path-grid">
-          <div class="path-card"><strong>Getting Started</strong><span>Installation, first launch, navigation, and orientation.</span></div>
-          <div class="path-card"><strong>Navigation & Workspaces</strong><span>How to move through the application and understand each workspace.</span></div>
-          <div class="path-card"><strong>Visual Analysis Reference</strong><span>Chart and visual encodings, controls, and troubleshooting as they become available.</span></div>
-          <div class="path-card"><strong>Validation Reference</strong><span>Exact validation fields, result meanings, and interpretation notes after the behavior is verified.</span></div>
-          <div class="path-card"><strong>Settings</strong><span>Configuration reference, defaults, and platform notes.</span></div>
-          <div class="path-card"><strong>Errors & Recovery</strong><span>Exact public messages, causes, safe recovery steps, and escalation routes.</span></div>
-          <a class="path-card" href="../support/"><strong>Support</strong><span>Route a question to exact Docs, a task guide, research education, or current status.</span></a>
-          <a class="path-card" href="../trust/"><strong>Trust</strong><span>Understand evidence provenance, synthetic examples, product boundaries, and interpretation limits.</span></a>
+        <div class="card-grid">
+          <article class="depth-card">
+            <span class="kicker">Product</span>
+            <h3>What does this workspace do?</h3>
+            <p>This guide covers the workspaces, your account and your data.</p>
+            <a class="deep-link" href="#workspaces">Back to workspaces →</a>
+          </article>
+          <article class="depth-card">
+            <span class="kicker">How-to</span>
+            <h3>How do I read this result?</h3>
+            <p>Step-by-step guides for reading Monte Carlo results, metrics, validation stages and charts.</p>
+            <a class="deep-link" href="../how-to/">Open how-to guides →</a>
+          </article>
+          <article class="depth-card">
+            <span class="kicker">Concept / Method</span>
+            <h3>Why would I use this idea?</h3>
+            <p>Definitions, assumptions, visual explanations, limitations and what to inspect next.</p>
+            <a class="deep-link" href="../methods/">Open Methods →</a>
+          </article>
         </div>
       </div>
     </section>
@@ -103,8 +133,8 @@
 
   <footer>
     <div class="footer-inner">
-      <div>TraderCockpit documentation · exact answers when product behavior is verified.</div>
-      <div class="footer-links"><a href="../support/">Support</a><a href="../trust/">Trust</a><a href="../how-to/">How-Tos</a></div>
+      <div>TraderCockpit · research software, not financial advice.</div>
+      <div class="footer-links"><a href="../support/">Support</a><a href="../support/faq.html">FAQ</a><a href="../how-to/">How-to guides</a><a href="../trust/privacy.html">Privacy</a></div>
     </div>
   </footer>
   <script src="../assets/site-search.js" defer></script>
