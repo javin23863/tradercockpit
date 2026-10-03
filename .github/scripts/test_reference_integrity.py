@@ -19,7 +19,7 @@ class IntegrityTests(unittest.TestCase):
  def test_screen_layer_substitution_rejected(self):
   self.alter('docs/assets/reference-site/room-screen.webp',lambda b:b+b'unverified');self.assertTrue(module.validate(self.root))
  def test_screen_layer_source_downgrade_rejected(self):
-  p=self.root/'.github/reference-site/provenance/production-screen-layers.json';s=p.read_text(encoding='utf-8').replace('original-charts.png','product-charts.webp',1);p.write_text(s,encoding='utf-8');self.assertTrue(module.validate(self.root))
+  p=self.root/'.github/reference-site/provenance/production-screen-layers.json';s=p.read_text(encoding='utf-8').replace('original-data.png','product-data.webp',1);p.write_text(s,encoding='utf-8');self.assertTrue(module.validate(self.root))
  def test_homepage_noindex_rejected(self):
   self.alter('docs/index.html',lambda b:b.replace(b'<meta name="theme-color" content="#080b0b">',b'<meta name="theme-color" content="#080b0b"><meta name="robots" content="noindex,nofollow">'));self.assertTrue(module.validate(self.root))
  def test_internal_preview_copy_rejected(self):

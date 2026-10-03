@@ -921,3 +921,12 @@ html[data-research-renderer="three-webgl"] .visual-panel{border-color:rgba(22,72
   .site-search-trigger,.control-btn{min-width:var(--ux-touch-target)}
   button,input,select,textarea{min-height:var(--ux-touch-target)}
 }
+/* Reading pages: warm desktop palette for video lessons and learning paths (October 2026). */
+body[data-reference-content] .video-slot{border-color:rgba(215,221,214,.16);border-radius:6px;background:#0d1110}
+body[data-reference-content] .video-frame{background:#060908;border:1px solid rgba(215,221,214,.1)}
+body[data-reference-content] .control-btn{font:500 13px/1.2 Arial,Helvetica,sans-serif;border-radius:3px;background:transparent;border-color:rgba(215,221,214,.24);color:#f4f4f0}
+body[data-reference-content] .control-btn:hover{border-color:#e7cba0;color:#e7cba0}
+body[data-reference-content] .academy-step{border-color:rgba(215,221,214,.14);border-radius:6px;background:rgba(255,255,255,.02);box-shadow:none;backdrop-filter:none}
+body[data-reference-content] .academy-step b{color:#e7cba0;font:500 11px/1.3 Arial,Helvetica,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+body[data-reference-content] .academy-step:hover{border-color:rgba(231,203,160,.5)}
+body[data-reference-content] a.depth-card{text-decoration:none}body[data-reference-content] a.depth-card:hover h3{color:#e7cba0}

@@ -124,7 +124,7 @@
     {
       "id": "site.contextual-help",
       "path": "docs/#contextual-help",
-      "title": "Contextual help system",
+      "title": "Help links from the desktop",
       "kind": "reference",
       "status": "public",
       "aliases": [
@@ -275,14 +275,13 @@
     {
       "id": "research.evidence-chain",
       "path": "methods/validation-foundations.html#evidence-chain",
-      "title": "Evidence and provenance chains",
+      "title": "Evidence chains",
       "kind": "method",
       "status": "public",
       "aliases": [
         "research proof",
         "evidence chain",
-        "provenance",
-        "custody"
+        "provenance"
       ]
     },
     {

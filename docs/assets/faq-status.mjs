@@ -1,14 +1,14 @@
 import { loadProductManifest } from "../product-manifest.mjs";
 
 function statusText(status) {
-  if (status === "available") return "TraderCockpit access: Available";
-  if (status === "waitlist") return "TraderCockpit access: Waitlist";
-  return "TraderCockpit access: Unavailable";
+  if (status === "available") return "TraderCockpit is available";
+  if (status === "waitlist") return "TraderCockpit is on a waitlist";
+  return "TraderCockpit is currently unavailable";
 }
 
 function platformText(platforms) {
   return Array.isArray(platforms) && platforms.length
-    ? `Platform: ${platforms.join(" ? ")}.`
+    ? `Platform: ${platforms.join(" · ")}.`
     : "Platform information is not available right now.";
 }
 
@@ -21,12 +21,12 @@ export async function renderFaqStatus(root = document) {
     const manifest = await loadProductManifest("../product-manifest.v1.json");
     status.textContent = statusText(manifest.status);
     platform.textContent = platformText(manifest.platforms);
-    detail.textContent = "See Pricing and Updates for the latest subscription, download, and release information.";
+    detail.textContent = manifest.status === "available" ? "See Pricing for plans." : "Checkout is not open yet. See Pricing for plans and Updates for news.";
     return true;
   } catch {
-    status.textContent = "Availability could not be loaded right now";
+    status.textContent = "Availability could not be loaded";
     platform.textContent = "Platform information could not be loaded.";
-    detail.textContent = "Try Updates for the latest product information.";
+    detail.textContent = "Please try again later, or see Updates.";
     return false;
   }
 }

@@ -1,7 +1,7 @@
 import { loadProductManifest } from '../../product-manifest.mjs';
 import { activatePrelaunch, loadPrelaunchConfig } from '../../prelaunch-config.mjs';
 const root = new URL('../../', import.meta.url);
-const names = ['Core', 'Trader', 'Quant', 'ApolloPro'];
+const names = ['Core', 'Trader', 'Quant', 'Apollo Pro'];
 const $ = selector => document.querySelector(selector);
 
 // The static links retain meaningful, existing destinations without JavaScript.
@@ -34,7 +34,7 @@ function showCommerce(value) {
     const amount = accepted ? value.tiers[index].unitAmount : null;
     const node = article.querySelector('.price strong');
     if (node) node.textContent = amount === null ? 'Unavailable' : new Intl.NumberFormat('en-US', {
-      style:'currency',currency:'USD',minimumFractionDigits:amount%100?2:0,maximumFractionDigits:2
+      style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2
     }).format(amount/100);
   });
   document.querySelectorAll('[data-checkout]').forEach(control => control.disabled = true);
@@ -51,12 +51,13 @@ async function access() {
   let manifest;
   try {
     manifest = await loadProductManifest(new URL('product-manifest.v1.json',root));
-    $('#product-state').textContent = `Status: ${manifest.status}`;
-    const descriptions = {waitlist:'Public access is on waitlist. Checkout remains closed.',unavailable:'Product access is currently unavailable.',available:'Check the published release and access details. This page does not enable checkout.'};
+    const labels = {waitlist:'Waitlist open',unavailable:'Currently unavailable',available:'Subscriptions open'};
+    $('#product-state').textContent = labels[manifest.status];
+    const descriptions = {waitlist:'Join the waitlist and we will email you when subscriptions open. Checkout is not open yet.',unavailable:'TraderCockpit is not available right now. Check Updates for news.',available:'See Pricing for plans and current availability.'};
     $('#product-summary').textContent = manifest.product?.summary || descriptions[manifest.status];
     $('#manifest-detail').textContent = (manifest.platforms || []).join(' · ');
     const note = document.querySelector('.hero-note');
-    if (note) note.textContent = `${(manifest.platforms || []).join(' · ')} · Status: ${manifest.status}`;
+    if (note) note.textContent = [...(manifest.platforms || []), labels[manifest.status]].join(' · ');
     const cta = manifest.cta;
     if (cta) {
       $('#product-cta').textContent = cta.label;
@@ -73,11 +74,11 @@ async function access() {
     }
     caps.hidden = !manifest.verifiedCapabilities.length;
   } catch {
-    $('#product-state').textContent = 'Status unavailable';
+    $('#product-state').textContent = 'Availability unknown';
     const note = document.querySelector('.hero-note');
-    if (note) note.textContent = 'Product availability could not be verified.';
-    $('#product-summary').textContent = 'Access could not be verified. Check Updates before acting on availability.';
-    $('#manifest-detail').textContent = 'No checkout or signup has been enabled by this failed check.';
+    if (note) note.textContent = 'Windows desktop';
+    $('#product-summary').textContent = 'We could not load the current availability. Please try again later or check Updates.';
+    $('#manifest-detail').textContent = 'The waitlist form is hidden until availability loads.';
     $('#waitlist-form').hidden = true;
     $('#product-cta').hidden = true;
     return;
@@ -92,7 +93,7 @@ async function access() {
     form.removeAttribute('action');
     delete form.dataset.uid;
     const detail = $('#manifest-detail');
-    detail.textContent = [detail.textContent,'Waitlist signup unavailable; check Updates.'].filter(Boolean).join(' · ');
+    detail.textContent = [detail.textContent,'The waitlist form is unavailable right now. Please try again later.'].filter(Boolean).join(' · ');
   }
 }
 await Promise.all([commerce(),access()]);
