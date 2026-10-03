@@ -5,7 +5,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),data=p=>'data:i
 const placements=JSON.parse(fs.readFileSync(path.join(provDir,'screen-placement.json'),'utf8')).specs;
 const captures=Object.fromEntries(JSON.parse(fs.readFileSync(path.join(provDir,'product-captures.json'),'utf8')).captures.map(x=>[x.id,x]));
 const config={
- room:{capture:'charts',output:'room-screen.webp',css:[1024,442],viewport:[2048,884],planeScale:2,outputScale:2},
+ room:{capture:'data',output:'room-screen.webp',css:[1024,442],viewport:[2048,884],planeScale:2,outputScale:2},
  laptop:{capture:'models',output:'laptop-screen.webp',css:[1024,314],viewport:[2048,628],planeScale:2,outputScale:2}
 };
 function matrix(H,inputScale,outputScale){const [[a,b,c],[d,e,f],[g,h,i]]=H;return [outputScale*a/inputScale,outputScale*d/inputScale,0,g/inputScale,outputScale*b/inputScale,outputScale*e/inputScale,0,h/inputScale,0,0,1,0,outputScale*c,outputScale*f,0,i].map(x=>Number(x).toPrecision(17)).join(',');}

@@ -2,17 +2,17 @@
   "schema": "tradercockpit.production-screen-layers/v1",
   "quality": "FULL_RESOLUTION_CAPTURE_SOURCE",
   "generator": ".github/scripts/generate_reference_screen_layers.mjs",
-  "generator_sha256": "87e67b7eaf3dabf99745d2ddb67e9354c9e3f17fd3a3fd6c3b12ee3e7a1865ad",
-  "placement_sha256": "99fa555d00c267e60bd562d3d971ff36eb8071d1c7d448e4ea1fe65f27200ce0",
+  "generator_sha256": "833dd989ebb5cf8ae786066e04dc2b4a4c008f40bad96d70b377b978b59a9490",
+  "placement_sha256": "814f1adf5ecaf80d16e6d8c4a79b6b697990097e328886271ba476382a612403",
   "layers": [
     {
       "scene": "room",
-      "capture": "charts",
-      "source_asset": "docs/assets/reference-site/original-charts.png",
-      "source_sha256": "bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae",
+      "capture": "data",
+      "source_asset": "docs/assets/reference-site/original-data.png",
+      "source_sha256": "e5fa50188b251ba679b4881119deb73c1fabdd928a6b3ae8b50c3a18b796c566",
       "source_dimensions": [
-        1220,
-        886
+        2560,
+        1264
       ],
       "placement_source": ".github/reference-site/provenance/screen-placement.json",
       "plane_scale": 2,
@@ -26,26 +26,26 @@
         884
       ],
       "output_scale": 2,
-      "output_sha256": "7b0e120c44bb166fd849c7590809ff283bbcaa25fa501075b4d09b3aca7af0b5",
+      "output_sha256": "6287d76e55ce6b6dcdeb2af908c183b5d7c4340306df8c323ed34478d3640775",
       "alpha_bounds": [
-        917,
-        257,
-        1639,
-        673
+        918,
+        258,
+        1638,
+        672
       ],
-      "nontransparent_pixels": 258733,
+      "nontransparent_pixels": 257734,
       "generator": ".github/scripts/generate_reference_screen_layers.mjs",
-      "data_classification": "synthetic development test data",
+      "data_classification": "built-in synthetic learning sample",
       "release_approved": false
     },
     {
       "scene": "laptop",
       "capture": "models",
       "source_asset": "docs/assets/reference-site/original-models.png",
-      "source_sha256": "3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6",
+      "source_sha256": "1609ccbb8fb7947190af38b141a01ce52eec4b53fd81031748b9dd3465d52dd2",
       "source_dimensions": [
-        1440,
-        1000
+        2200,
+        1528
       ],
       "placement_source": ".github/reference-site/provenance/screen-placement.json",
       "plane_scale": 2,
@@ -59,16 +59,16 @@
         628
       ],
       "output_scale": 2,
-      "output_sha256": "560f85f0ce4301bd7e30c1d7cca2c39d399f920edc559d7c3d535f4d16610632",
+      "output_sha256": "6625d29db5353ca10805ca6d023f4e4f0b29fc0630cb84ae209c832bfca9afb2",
       "alpha_bounds": [
-        869,
-        55,
-        1711,
-        541
+        870,
+        56,
+        1710,
+        540
       ],
-      "nontransparent_pixels": 328317,
+      "nontransparent_pixels": 327190,
       "generator": ".github/scripts/generate_reference_screen_layers.mjs",
-      "data_classification": "synthetic development test data",
+      "data_classification": "built-in synthetic sample walkthrough",
       "release_approved": false
     }
   ]

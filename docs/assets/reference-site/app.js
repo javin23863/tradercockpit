@@ -38,19 +38,18 @@
   }
   const features = Object.freeze({
     builder:['Builder','Generate strategies from the building blocks and rules you choose, test them on historical data and review every result: trades, equity curve, statistics and robustness checks. Progress, Full settings and Results keep a run and its exact settings together.'],
-    charts:['Charts','Chart your own market data with studies, drawing tools, multi-chart layouts and bar replay. Order-flow views use the data your connected broker provides; if a broker does not supply a data type, TraderCockpit tells you instead of estimating it. The image shows the Charts workspace with sample data.'],
-    models:['Models','Run statistical and machine-learning studies on a saved copy of your data, such as feature structure, forecasts and diagnostics. Each result stays tied to the data it used. A fitted model is not a promise of future performance. The image shows the Models workspace with sample data.'],
+    charts:['Charts','Chart your own market data with studies, drawing tools, multi-chart layouts and bar replay. Order-flow views use the data your connected broker provides; if a broker does not supply a data type, TraderCockpit tells you instead of estimating it.'],
+    models:['Models','Run statistical and machine-learning studies on a saved copy of your data, such as feature structure, forecasts and diagnostics. Each result stays tied to the data it used. A fitted model is not a promise of future performance. The image shows the Models sample walkthrough with synthetic sample data.'],
     apollo:['Apollo','Apollo is the research assistant built into TraderCockpit. Ask it to explain a result, help set up your next test or draft research notes. It uses the same controls you do, asks before it runs anything, and tells you before any of your material leaves your computer. Apollo uses the usage credit included in your plan.'],
-    data:['Data organization','Import price files, connect MetaTrader 5, or download Kraken and Coinbase spot market data, then find everything in one searchable library. Saved history stays on your computer and remains available offline.'],
+    data:['Data organization','Import price files or connect MetaTrader 5, then find everything in one searchable library. Kraken and Coinbase spot market data are coming soon. Saved history stays on your computer and remains available offline. The image shows Data organization with the built-in learning sample.'],
     projects:['Custom projects','Chain tasks such as build, retest, optimization and walk-forward into a workflow you can run again. Each task keeps its own settings, and results stay with the project.']
   });
-  const images = Object.freeze({charts:['assets/reference-site/product-charts.webp',480,349], models:['assets/reference-site/product-models.webp',480,333]});
+  const images = Object.freeze({charts:['assets/reference-site/charts.svg',480,250,''], data:['assets/reference-site/product-data.webp',480,237,'Data organization workspace showing a saved sample dataset'], models:['assets/reference-site/product-models.webp',480,333,'Models sample walkthrough with synthetic trades']});
   document.querySelectorAll('[data-feature]').forEach(b => b.addEventListener('click', () => {
     const key = b.dataset.feature, entry = features[key];
     if (!entry) return;
-    const [src,width,height] = images[key] || [`assets/reference-site/${key}.webp`,450,230];
-    const alt = images[key] ? `${entry[0]} workspace shown with sample data` : '';
-    show(entry[0], 'TraderCockpit desktop', `<img class="detail-media" src="${src}" alt="${alt}" width="${width}" height="${height}"><p>${entry[1]}</p><a class="button glass" href="docs/#workspaces">Read the product guide →</a>`);
+    const [src,width,height,alt] = images[key] || [`assets/reference-site/${key}.webp`,450,230,''];
+    show(entry[0], 'TraderCockpit desktop', `<img class="detail-media${alt ? ' capture-media' : ''}" src="${src}" alt="${alt}" width="${width}" height="${height}"><p>${entry[1]}</p><a class="button glass" href="docs/#workspaces">Read the product guide →</a>`);
   }));
   document.addEventListener('click', event => {
     if (!event.target.closest('[data-video]')) return;
@@ -65,7 +64,7 @@
       $('.video-box').replaceChildren(frame);
     });
   });
-  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About the images', 'TraderCockpit', '<p>The room, mountains, furniture and laptop are illustrative artwork.</p><p>The Charts and Models screens are taken from the TraderCockpit desktop app running on synthetic sample data. They are not live markets, real accounts or trading results.</p><p>Scene motion is decorative. You can pause it, and it stays off if your system prefers reduced motion.</p>')));
+  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About the images', 'TraderCockpit', '<p>The room, mountains, furniture and laptop are illustrative artwork.</p><p>The Data organization and Models screens are taken from the current TraderCockpit desktop app running on its built-in synthetic sample data. They are not live markets, real accounts or trading results. The Charts picture is an illustration, not a screenshot.</p><p>Scene motion is decorative. You can pause it, and it stays off if your system prefers reduced motion.</p>')));
   const menu = $('.menu-toggle'), mobileNav = $('#mobile-nav');
   function closeMenu() { mobileNav.hidden = true; menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Open navigation'); }
   menu.addEventListener('click', () => {

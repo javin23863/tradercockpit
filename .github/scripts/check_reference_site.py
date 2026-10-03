@@ -16,7 +16,7 @@ def validate(root=ROOT):
  need(receipt['source_archive_sha256']=='0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c','Wrong input archive identity')
  content_manifest=json.loads(read('.github/reference-content-manifest.json'))
  errors.extend(validate_content(root))
- expected_files=set(receipt['unchanged']) | {p[5:] for p in receipt['outputs'] if p.startswith('docs/')} | {'assets/reference-site/original-charts.png','assets/reference-site/original-models.png','assets/reference-site/pricing.css','assets/reference-site/content.css'}
+ expected_files=set(receipt['unchanged']) | {p[5:] for p in receipt['outputs'] if p.startswith('docs/')} | {'assets/reference-site/original-data.png','assets/reference-site/original-models.png','assets/reference-site/pricing.css','assets/reference-site/content.css'}
  actual_files={p.relative_to(docs).as_posix() for p in docs.rglob('*') if p.is_file()}
  need(actual_files==expected_files,'Unlisted or missing publishing files: '+str(sorted(actual_files ^ expected_files)))
  for name,item in receipt['outputs'].items():
@@ -28,7 +28,7 @@ def validate(root=ROOT):
  need(production.get('schema')=='tradercockpit.production-screen-layers/v1' and production.get('quality')=='FULL_RESOLUTION_CAPTURE_SOURCE','Production screen-layer provenance missing or downgraded')
  need(hashlib.sha256((root/'.github/scripts/generate_reference_screen_layers.mjs').read_bytes()).hexdigest()==production.get('generator_sha256'),'Screen-layer generator identity changed')
  need(hashlib.sha256((root/'.github/reference-site/provenance/screen-placement.json').read_bytes()).hexdigest()==production.get('placement_sha256'),'Screen placement authority changed')
- expected_layers={'room':('charts','original-charts.png','room-screen.webp','bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae'),'laptop':('models','original-models.png','laptop-screen.webp','3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6')}
+ expected_layers={'room':('data','original-data.png','room-screen.webp','e5fa50188b251ba679b4881119deb73c1fabdd928a6b3ae8b50c3a18b796c566'),'laptop':('models','original-models.png','laptop-screen.webp','1609ccbb8fb7947190af38b141a01ce52eec4b53fd81031748b9dd3465d52dd2')}
  layers={item.get('scene'):item for item in production.get('layers',[])}
  need(set(layers)==set(expected_layers),'Production screen layers must be room and laptop only')
  for scene,(capture,source,output,source_hash) in expected_layers.items():

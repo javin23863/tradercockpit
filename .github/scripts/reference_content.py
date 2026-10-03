@@ -10,9 +10,9 @@ def wrap_html(html: str, relative: str) -> str:
     if 'name="theme-color"' not in html: additions+='<meta data-reference-shell="theme" name="theme-color" content="#080b0b">'
     html=html.replace('</head>',additions+'</head>',1)
     if relative=='docs/index.html':
-        media=f'<figure class="reference-media"><a href="{prefix}#/platform/charts"><img src="{assets}original-charts.png" width="1220" height="886" alt="Charts workspace with labelled synthetic development data"></a><figcaption>Charts · retained development capture · synthetic test data</figcaption></figure>'
+        media=f'<figure class="reference-media"><a class="reference-photo" href="{prefix}index.html#platform"><img src="{assets}room-scene.webp" width="1024" height="442" alt="Illustrative research desk with the TraderCockpit Data organization workspace on the monitor"><img src="{assets}room-screen.webp" width="1024" height="442" alt=""></a><figcaption>Data organization · shown with sample data in an illustrative setting</figcaption></figure>'
     elif relative=='learn/index.html':
-        media=f'<figure class="reference-media"><a class="reference-photo" href="{prefix}#/learn"><img src="{assets}laptop-scene.webp" width="1024" height="314" alt="Illustrative research workstation"><img src="{assets}laptop-screen.webp" width="1024" height="314" alt=""></a><figcaption>Models · synthetic development data in an illustrative setting</figcaption></figure>'
+        media=f'<figure class="reference-media"><a class="reference-photo" href="{prefix}#/learn"><img src="{assets}laptop-scene.webp" width="1024" height="314" alt="Illustrative research workstation showing the Models workspace"><img src="{assets}laptop-screen.webp" width="1024" height="314" alt=""></a><figcaption>Models · shown with sample data</figcaption></figure>'
     else: media=''
     if media:
         html,n=re.subn(r'(<div role="group" class="landing-hero-visual[^>]*>)',lambda m:m[1]+'<!-- reference-media:start -->'+media+'<!-- reference-media:end -->',html,count=1)

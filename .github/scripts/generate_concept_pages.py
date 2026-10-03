@@ -44,7 +44,7 @@ def render(entry: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="../../assets/reference-site/mark.svg" type="image/svg+xml">
   <title>{esc(title)} — TraderCockpit Learn</title>
   <meta name="description" content="{esc(entry['description'])}">
   <link rel="canonical" href="{esc(canonical)}">

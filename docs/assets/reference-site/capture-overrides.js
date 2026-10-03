@@ -1,2 +1,2 @@
-/* Verified retained development captures; synthetic test data, not release approval. */
-window.TRADERCOCKPIT_CAPTURE_OVERRIDES=Object.freeze({"charts":{"src":"assets/reference-site/original-charts.png","width":1220,"height":886,"hash":"bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae"},"models":{"src":"assets/reference-site/original-models.png","width":1440,"height":1000,"hash":"3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6"}});
+/* Verified retained development captures; synthetic sample data, not release approval. */
+window.TRADERCOCKPIT_CAPTURE_OVERRIDES=Object.freeze({"data":{"src":"assets/reference-site/original-data.png","width":2560,"height":1264,"hash":"e5fa50188b251ba679b4881119deb73c1fabdd928a6b3ae8b50c3a18b796c566"},"models":{"src":"assets/reference-site/original-models.png","width":2200,"height":1528,"hash":"1609ccbb8fb7947190af38b141a01ce52eec4b53fd81031748b9dd3465d52dd2"}});

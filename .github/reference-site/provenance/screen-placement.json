@@ -3,12 +3,12 @@
   "specs": [
     {
       "scene": "room",
-      "capture": "charts",
+      "capture": "data",
       "crop": [
         0,
-        96,
-        480,
-        333
+        0,
+        960,
+        474
       ],
       "plane": [
         640,
@@ -32,8 +32,8 @@
           322
         ]
       ],
-      "source_asset": "assets/product-charts.webp",
-      "screen_content": "actual retained product capture; synthetic test data",
+      "source_asset": "assets/product-data.webp",
+      "screen_content": "actual current product capture; built-in synthetic learning sample",
       "image_fit": "contain with dark letterboxing, then perspective transform",
       "letterbox_offset": [
         0,
@@ -92,7 +92,7 @@
         ]
       ],
       "source_asset": "assets/product-models.webp",
-      "screen_content": "actual retained product capture; synthetic test data",
+      "screen_content": "actual current product capture; built-in synthetic sample walkthrough",
       "image_fit": "contain with dark letterboxing, then perspective transform",
       "letterbox_offset": [
         31,

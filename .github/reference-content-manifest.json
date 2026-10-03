@@ -1,280 +1,280 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "344dd76937309e40a7896057df07be070a6953c4be91b2b80b753a64df2d4657",
+  "home_sha256": "ab3ec1349ea4b1845c8e4742e2cf6a72ac913e42d96ff3df2707446d50b2648b",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7a534afcded123790db17bd7eeae83996d2d62bbac3dc9213b598ed2fb123224",
-      "after_sha256": "18a8343c8acde7169df84b137a08858254548019708a0ac5fc97e281e27f7255",
+      "after_sha256": "010dbd999a0ba97a12136fdac9ca22663824e87cb0b1d6db739d42c5a43b3269",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "acb36a1f792795d7731fb22c94466799650262b5c515362eb5ec86caf0365f6d"
+      "corrected_unwrapped_sha256": "4b49c8137c79474d3fbc7cb0639ea9e0708598cb24b884a9c957d062f92294a0"
     },
     "confirmed.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "ce4cad2aea3c81c68c35f3bc2a4e4751c4d469d6af5efaccb6a35d078c385a3c",
-      "after_sha256": "54e7cc819a68128fd4ad79753e732832263ec0a6ee51a57ef43e2dd42c63576d",
+      "after_sha256": "7e98230c411575b4018d38a25ef622f77b0fb320c75ec4b4b2c9b4504a860924",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "97ffb1eb86f8ac7eb4383165457f9eb7c2e62fd999828220167322afadba6bb3"
+      "corrected_unwrapped_sha256": "d3459dbbc9601a00599ed5459fa666badb4c3e7883324ad363c5e80289cb8457"
     },
     "docs/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "f24f8660892730ab6ebb2edfa4158735cc2aec34c5bb20268b2e027b28a881d0",
-      "after_sha256": "785d37e04b39694e68d211e4fae1b320c67526c01a9e080ca55ec0d72c551d85",
+      "after_sha256": "3b625db45012ff6c8b735a2d3d79e289cf05a262b9ee8a8b5f364cb99958399b",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "8e5a4b921e0716003455337884e19ffd6a2d7044cd57fe8228d977c957732e38"
+      "corrected_unwrapped_sha256": "21bfab103e02e7ec0ab2bf0de322472914a3510db189eac60e3cd550de9d1d3d"
     },
     "examples/holdout-selection.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85",
-      "after_sha256": "9a56c001f05e5329774411302d43c8d73eb99366a92bc5785dec22df267c0a26",
+      "after_sha256": "3394f495c967ceb0daec3a57209075efd6771c481616e11f6e50e4442946e0d9",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "e51c13b0ec7bacd661079428a26662dbc130dca0c9e77bee2a3559947a1b8da4"
+      "corrected_unwrapped_sha256": "40dd48b7f708f2dc473c53a81d649c856529e9642bc1040dcf9dc8200fc2a7ba"
     },
     "examples/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "60ada0e34432da39ba418840da16ad33e64925f8e5caf43333754a2af1fe8668",
-      "after_sha256": "69e504fbfe63eb0a265d85be34a793da2c4b6871412fb10cd600537ef4fc5205",
+      "after_sha256": "721d7cbc2612c5dcce063f45e9a7dc2d6d26c2c20ef836e3c31289c8ae97d393",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "bab6a65f5f57c0967945816b9d82a042fc56ec9a51a257161c84501079b652a7"
+      "corrected_unwrapped_sha256": "816e9808676a35816c35eadbdc179dfd1ed7ed0db21c4b8343b793d114790692"
     },
     "examples/replay-boundary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79",
-      "after_sha256": "5b9e88e8920d7d9a4d2d3fe1bc504ad6485c264e72dd0fbfd3f9966431c69036",
+      "after_sha256": "bb0cbda7957eac3d9b236ffec39461e2070dab4d9afdcb0b47b8ccd8035ffcf6",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "b739b58d4a15df16f3a95c23a4ddac0529025650dc4b90a9df1626f965444fb2"
+      "corrected_unwrapped_sha256": "30a0090c22f99b183a7303d01ddab2dee9137585ce691468fa6a87259f5a2091"
     },
     "help.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3f6e4a64ff3340a5c191d0dd305c9ffebcafb2fba3cf575e3c42955f70a6f999",
-      "after_sha256": "1b57a88903dd0cbb062d920ce1992ca4bc2d1f1d53170b901405fbe7ed3f2ec5",
+      "after_sha256": "6064ef3b87a18b07e6a910d0d71aa1027ff04e52fb48ce03867655b1dfce9462",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "9fa95864eaf69e05524bdc4d190a3889b61e95a29e267323a52eb6be1fdd1ced"
+      "corrected_unwrapped_sha256": "1395a4c4ac9b657f1624bec2f52335030267b0cce104330674d027f1ba4c9275"
     },
     "how-to/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
-      "after_sha256": "a0ae02277461896fb22755f99018afd9b5232e1e2b5d7f045dc8b177c5ec2db5",
+      "after_sha256": "356866316e9c5c567d5f0dc0d164b4248932c793cce045a74c1664be9ae59c1a",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "360bd8e6cc262a080dbe685f7a3a7a8c7fda1afcae49f3584c16ef5624f66486"
+      "corrected_unwrapped_sha256": "37276e85a47d97a73f4b01767b56031912c257f176b74f062e98d10fe96dc6ad"
     },
     "how-to/read-chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3",
-      "after_sha256": "81a43e5abcd7af3f3f90e0c65d06b8b413c06b693557eb41526f0687d2594d2b",
+      "after_sha256": "04ed53166ac0538b44da95547c6e2045d767e9480ccafe1acdcb7196b579d1f3",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "d065f7e7b2d38d82ea3183828af77275233640dbc5841b4f4e5c9cb8223608f3"
+      "corrected_unwrapped_sha256": "e2ac1cc452eb42ac16e5194f358deb3fcdad473040e5100cb0c594f307e7092a"
     },
     "how-to/read-monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404",
-      "after_sha256": "98d5eeb6309ffd4998883bb18d3667dd30aa3500f785e909df528b9820196812",
+      "after_sha256": "6994d7b8674df3263c18a15022685b1a5efca2f2487de4ea7f5ed4f7e8f403da",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "bd00dadeb34958c65f71847b1b6110a665cae0cb8e5385e4a2d0cef02c9a7f11"
+      "corrected_unwrapped_sha256": "acc518986f1b5981d367271df0242479d9e96ba95787c2a3b8bb00bbffeab2b5"
     },
     "how-to/read-result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833",
-      "after_sha256": "bd62dd644ed7d24703a0da50954b7b0ca960196a2b9ca58a8204ac7357f5b6fe",
+      "after_sha256": "0b97477bc4e63e3156dfec0ffda49692e96082b56c2579ee0ab2893048d5e790",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "3b0a08c2fc92b62e079fbc50e34c7d8776308489e0027ef24418d26e46f6693f"
+      "corrected_unwrapped_sha256": "2db682e69b80fe667e358eae40d123c86afa85a1b238416ea8a8d61033a3f979"
     },
     "how-to/read-staged-validation.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5",
-      "after_sha256": "4e7165fb5c4fb8a9222929f733f20d44a3d8ed1fa3014fb8df57c0c9aa9640c1",
+      "after_sha256": "d11b63b6176e5901f0ec3168acc49d6330b1ed57a882a53f69d6ac69449306a4",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "d07f4fdd097a57f512f7b424af32811ae4b6b2ed8b6da448d0277bbae69a41b0"
+      "corrected_unwrapped_sha256": "e8cfe90dff3fac9ff9de581b8a435a5d93e15d5b1c8825a37713cdf39259ee39"
     },
     "learn/concepts/correlation-diversification.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
-      "after_sha256": "0e31673f52fcc1660ad3c66a3fd4877c450ccd1850ede3bde0772c7d00ceb0e0",
+      "after_sha256": "f488a1c5f0e89bfc0b939cc9e98ac3ad25e8062c31467bab16ac97c7b3d87283",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "d580aee7c04b8936b00fba453f99938b5341782748c71f23a2a5f99635406a5c"
+      "corrected_unwrapped_sha256": "23d269c4e2d1291d43dda0d00950dccc8516ec3230fb8a7ea8da197192d2ddf6"
     },
     "learn/concepts/distribution-shape.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
-      "after_sha256": "800ab896972f3a4d80b40d60a8043a1aa8888c70dd455864ad3cb9ef4d12cba0",
+      "after_sha256": "6f35a85a660c6472fbaa0561572ce7a28b5a2f5702d9ebf18ae61bc426e1e47e",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "1aa209c546f410ff310824fe8a9690d74bf47ce6d10e7f3bb95e4b3495746b2b"
+      "corrected_unwrapped_sha256": "124780fc7160a3db21c91740e295821a1b867101a42426520165f6f8be094296"
     },
     "learn/concepts/drawdown.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
-      "after_sha256": "dc51ceb7222a595df02241edc675d6ef243bea015e8dbee33fa656433d75e8ad",
+      "after_sha256": "7ab36b52639d7fad87a1fdac2f1bbed96a77317ab78438ffde12446ab7296c30",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "7d0d0fe249da0e2822b7460a4c576b691edcdc744fc05a4ec8bad77931efd17f"
+      "corrected_unwrapped_sha256": "6a9219c87f6074267b8ae37ac8358c5ca86903fa5d28be1500853d12fdf5d992"
     },
     "learn/concepts/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6e3f51c527177c355262b635824aa4a3ad3004686711081972a7fde552439fce",
-      "after_sha256": "314953b720ca17982237497319430151eef5c2ba7999b0826c35ce990c8cc4e6",
+      "after_sha256": "93c70ee347044a8d3baa25543370bd764f39c38f3f7bdee7b65460afb4202dec",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "b6a00ec0981b7883ade89580b215f5a79649fbca47fb8cb122e2fa0e50a98448"
+      "corrected_unwrapped_sha256": "04dfb9fe2fc14687eacd1adaeb37cc4d49387cae3470807b878f27982aa6d398"
     },
     "learn/concepts/out-of-sample.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b38d48b3ce6696868ee13396ac4a3f9afa0450abb32d28ace8742bd7e7cf7727",
-      "after_sha256": "057b7ba9e82764526c024e18e77b3dfc9269228e7e25c65e87d059162db111af",
+      "after_sha256": "4987313b717f5075ab77eb9e8501f41ba24b638be5cd6e83c53ce1b6ea81ea98",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "b77dd646cf7d4ab50651bad49e24b7f43ffaa0c216ec196b5250aa6a08878ccc"
+      "corrected_unwrapped_sha256": "ac4be5add218003e41eced8355f1a2a1d751f7da05f4480d768a731b44ad983c"
     },
     "learn/concepts/parameter-robustness.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
-      "after_sha256": "cc6d5d26193ef3139df3ded3cb17fc872a5e144d1156e3ea9559548bf24d128e",
+      "after_sha256": "2adbbc34a6e8ea0c40ddba6d0c28fe1418a8421f583764fe7711d1f9dac4e28b",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "1939517b869b7e87df68911dd3e240f8e8be0ab966640b01169c230df7696403"
+      "corrected_unwrapped_sha256": "1cee5b58c032bedaf89b1194dadb73a62e73f085963abe5c5f44b4d70c049ee6"
     },
     "learn/concepts/regime-map.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
-      "after_sha256": "99c48fe4a95fc46fb2012903a736a45a0db4f29246c4559438dd02a9579e7db4",
+      "after_sha256": "3056a738b14cc89453c8a49eecf100aeefd5f6c1279d3d31634af436712d71a4",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "8c638b8183f7c7423855283d7cb3d32361581b21239e8966c5c9e71e09cbbcb3"
+      "corrected_unwrapped_sha256": "7f723a68c1ab5253f73a3bb91a3151e01c31767b38608373b7b742c8e2683dbb"
     },
     "learn/concepts/selection-bias.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
-      "after_sha256": "086b94542f2b20153e16734d3b87294bb0bf85901dc1ce25685cfc6598782c43",
+      "after_sha256": "8a9002f2762a34cfa218531e725686f469133a09a2762711d906b328a181de6b",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "7a100975e4427755adb1cb0bec836e3f4c9ea70d5ecd03bae0121669f0cac948"
+      "corrected_unwrapped_sha256": "a3556e58ed5fc7970ecf08694c5011a6fcacdc3dc46b3a853697d1d95bf3f6ce"
     },
     "learn/concepts/walk-forward.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
-      "after_sha256": "89890616dbbe8318f3d4b012cb5af88a16585169a0c6215796b92173bad41bca",
+      "after_sha256": "86e5d4cf54fcacd71eb06541afcab90df0f14ea69cb7129f997d0c2e28523055",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "273819ed23a6223768c86675f831865970642b302f0793862b079c75a4d1150a"
+      "corrected_unwrapped_sha256": "922ac33abee60f232d08fef249cb17ea11a9b8a79ea5e554b50ca2c9c7e47d37"
     },
     "learn/glossary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335",
-      "after_sha256": "66037f38274e6b8016b8bc3c3b5d807bded012df66643e0fd40395b139df8368",
+      "after_sha256": "f0318684f6a3cf235670739e5001a99065606339bbdd0017efbe6ce4a619b14e",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "38f6228e84516a670df858660b5a01ac5ff6bc67d988c633df84b34cec9d80dc"
+      "corrected_unwrapped_sha256": "07a81b3576b97c7c36d33188ae55e0a88b6697f52cdf0cac948aa0f4f7ae367a"
     },
     "learn/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31",
-      "after_sha256": "1c732b37c25128bcef602654dbc59424860399686cb283f1dc3a180eb4548114",
+      "after_sha256": "0d9db27c223bd0e802951eb3d8d3d05edaa8a5a70cdbd2f9b93d96fe3aedc148",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "16c080348903229c1baedcb41548a3672dd73db05ca2c106ae32a44310e543e1"
+      "corrected_unwrapped_sha256": "d5102a4885a4b9fa4638ab3661c83e7b48c8afae8a16f36d3ee2476db79083dc"
     },
     "learn/start-here.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3",
-      "after_sha256": "5e4c3aa3741fda737a1c3884575c807b22fb76fd18c2d70220efe1bdab853857",
+      "after_sha256": "f61e8079287c1c21cb9ce96d95881a6c3ffe017416882be0dcd2a21eeddcb92e",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "54b80c1b14dc90b98b9ea290502b205f370f0a71e4021f1cb62b567045f32626"
+      "corrected_unwrapped_sha256": "72eac6b3036e267efe64c0978dd77c491e602da0ee42ad0af1792b9b53e25729"
     },
     "learn/videos.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "ac744ff241d35c402eac8e9a16a495d2a1f4895908e25899777b42b4f22b3a17",
-      "after_sha256": "d96bbd2b7748218b756cfcaba585d4ada6ad8c8712c17242570a6634770a2bce",
+      "after_sha256": "e3da9227b0e604c4793608a2d1870c0bf2526522e0c9ed3a8c268052be4668ed",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "d152dbfb84f134c20e4cc2a9ee76580043dd1bd9ff7a11bec3074dae5f3048f0"
+      "corrected_unwrapped_sha256": "3b1618317aa0fb4aa1d6066b7a61a94c168ddc1e9d7e209c6ef2dc4eb42c1071"
     },
     "methods/chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8",
-      "after_sha256": "9d4cef2c0dd690fefb781f151672a944602e90c1eacb625ca831b0929129d9fa",
+      "after_sha256": "10167473363a6df07fd48f4b971c6b1769d8ce21d935406997a4c962a0cada9f",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "78afe3e5896e4dd43bf9a89bfbf1ffdcb6bff3210ff16ff06465c291f5ecb5c6"
+      "corrected_unwrapped_sha256": "a8860b4bccfde729f49c65032d34311f8a36b1fc290ebd4e4da37f69b158511d"
     },
     "methods/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0689e1b3324eeef298f4ca4718b7e9818ec2efff791b0a4beffa222a59667553",
-      "after_sha256": "532f9739790f21cbaab9ec37ad17290cb34d8d23a4776960ccf17aac95402032",
+      "after_sha256": "f49b5b4f46f6a00e8b4767c2102b11f69c871866e78dbea311c0ee5184dbc3c6",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "5d215cc68677f7b61cdb0297855e425a519747a2f90e1c9fffcc9c1bb9a1e241"
+      "corrected_unwrapped_sha256": "7d91f05800d8cd17dd3c4e7f276d589aaa9d6861dcb1b371017ec78948974048"
     },
     "methods/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0",
-      "after_sha256": "add03a4e48b2db53cae6a4172fa3657bbc064e3c9885beb32d2af175ccbf3d1a",
+      "after_sha256": "43f998e6016050434faa8aa59c2b24e6bc07c5b9dcf5dbfbf60cbda38109552f",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "9345dfed59e5b3cdf6c6cac9215e021e87a0cf673c347d5c7a30df0a51f9a53d"
+      "corrected_unwrapped_sha256": "df5004829ab726b1893ed2406cf40975a32e6630cbe350f6b25cc9a2e9543deb"
     },
     "methods/result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1",
-      "after_sha256": "bf86ec833eb6c9ede90b7e388b6d45c1cdc13a9581ea313107d90ecbb702fb11",
+      "after_sha256": "fbbd10c0e7555fec9e7a9fb0e1cd5a29e0c1037546fac69f62b13bfcf08844f6",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "28f2f7cd45f6ca02a689144cf77d66fc2c822756aff9ca154607bfaa1a062037"
+      "corrected_unwrapped_sha256": "c870aa010a6959cdf26281eb01a2412ab496e4d7f3fb41a95b99952d79032d21"
     },
     "methods/validation-foundations.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa",
-      "after_sha256": "1d53c09a3b1d05d78cd58d1fda32c486bd439bb339079f1f33dfd19609a0a4d2",
+      "after_sha256": "6e25a952376522a045530033fb707db6c62dcdfa5708fad3c662f1f6d3840a30",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "73d718060473fdc81ce89bb272b78123922244bcf9961eae6e854458aafaa8b6"
+      "corrected_unwrapped_sha256": "5868b20a5c9a4b1cf81eeed6cef549b5ebd786b23642bf3922d5368a863f5674"
     },
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "63399d74f5e0e19fd23d5d74911fddb5aed3e36487ae3369b5e7fca491d89156",
+      "corrected_unwrapped_sha256": "2b54effcd41ee435125bc9fb1786a79b1039cbad2af5059113ed8f4099ce6072",
       "correction": "Plan access links retain the static waitlist as the no-JavaScript destination and progressively enhance to the selected plan journey when JavaScript is available. October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "after_sha256": "c9c9e71301163fd96f3320893cc20a153b339bc03614c561b050b8eb7a66384e"
+      "after_sha256": "d02267209cd13f328ac5c31bc9bfe3e2cbe22227d1fd4fe7ea197a8ba053807f"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "427dbd7d33a45c376dacee264f98169b33fe26aa7274cc40339b5ba91e856752",
-      "after_sha256": "783ecfae7898c0c54cc77e545c288ef4bd10ec74bca432f0012834b9d535a66d",
+      "after_sha256": "7c3321bc633d92e232b114edd96fbd0ee88211f57dc5e210a50cd4674510895c",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "6026aed734f2e999f5eef2d47b0865b4bd747c17898349b097aa224d0c53c955"
+      "corrected_unwrapped_sha256": "ff85559201d627e959caa2c8acdac87c91cbeb8c60e2091573bfaa1ea3906d62"
     },
     "strategy-claim-audit-checklist.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
-      "after_sha256": "bb79e8dd2b9fae7fce2cc711dac07a5792e3a47328139a4c15b4a2c947deae4e",
+      "after_sha256": "7c44770b55406d9ba6ca0cc38436b5da95fb5ead5a636b53a77ba7ff0c38ab4d",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "08f17d7a323c203e088ded5dd0a43e01862bad792fac992992b31bd69a5651cc"
+      "corrected_unwrapped_sha256": "570b1e89acc409bed57799491409ba50fc182fa1980bb0b84b033681bc733506"
     },
     "support/faq.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
-      "after_sha256": "77f0550a746a4cd2116c091e88ae5b9a962829b88d98292c8e5a2d9d28756526",
+      "after_sha256": "44c00cfdb76781f8fe8d5e54ae052c0cbb855189f00be82ede41360e1275c7bd",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "aff968ebee13123db6043eb1f5175d8067979b6041fa3b27eb4ecd4826256cc3"
+      "corrected_unwrapped_sha256": "054b25f0ec9b367dead06bbd310106a999420a9c0f0ea79a1cc940d0149d64a0"
     },
     "support/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0dceeb4d047f0ad782c443e1136877ea0343df00f5bb38dd5e74b3fc4c0f1bc0",
-      "after_sha256": "892659116b5f1fe7a9b8259a624a5449ce9e5da9012bb690832c5d60bc566d1f",
+      "after_sha256": "dd5b62f46dffda8bd338e1f9767225012e32a640717900f904dc81c398f2ac71",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "10a28eb7c89de7f1cd96ada744621faee1a7671a8671b71803e5cb99a7646090"
+      "corrected_unwrapped_sha256": "78018a04bbd3c230dd8bf60ac6cc5d699de28926ed2d16e1ce42efd95eb0d350"
     },
     "thanks.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7044bbe001264811706c0c3a3d72513c419b61b2314a7e3c97e19a8bedf4a077",
-      "after_sha256": "359639b124f2a88e27825151b347db467d79cde9f692d55946f681d8e5be9e05",
+      "after_sha256": "90f3a8c667e2fd2e2c7c3015d429ffd896d242d5e58d7c381070d2dbe3a7d3c2",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "85bc868b840bd2157d18bd62beaceab4fd5c7929a666f71f18fab1df616708a2"
+      "corrected_unwrapped_sha256": "75cbe56203f8dc340276625596bc9e70a891cc4f6daa788a44fe3149a65f9aab"
     },
     "trust/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
-      "after_sha256": "1911b030e6db51c0bbd26ae828c8103364e495de1c690a5f3cb97da857bc2f49",
+      "after_sha256": "15a0169e24027c2d77799b65c4887455db6af1db2f56e6a6f7eb11ea8e122b6f",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "cce6c43f9d6491dc8934adc1f519bb61729389403138725d4b68174a70fb40d8"
+      "corrected_unwrapped_sha256": "7b034d49800e7d8be0a052a739e3ce34420c162807bd66ab23b0e3cace9cf575"
     },
     "trust/privacy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-      "after_sha256": "a062a2b25196b7acf6c3a2b96abab9fbf638fdc64a38f325724d8e8af672d766",
-      "corrected_unwrapped_sha256": "5cfebc8ed8d727346d73c5efe31eb7a843a23c9da31aa4c0c07d5255f8f61c5a",
+      "after_sha256": "2455676c302c1b5b028aa800c06f934b679413ddd381d29521a096511231ab78",
+      "corrected_unwrapped_sha256": "8fc2182946c0e6dcc5230df2108cc4443d587dbe06b3e87f581cb5d7872b2912",
       "correction": "Privacy disclosure: document optional research-notes localStorage read/write behavior and local-only note storage. October 2026 public website polish: plain-language copy, current navigation, product facts and plan names."
     },
     "updates/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
-      "after_sha256": "f6d9305f5874a35330f00b5d42f57fb5edafcc54a73156e3d38d3295174556cf",
+      "after_sha256": "9ad02f9d0fa558e5735e4c13e8f0bc938c55d1a14b2983db256aa86a3dc434e6",
       "correction": "October 2026 public website polish: plain-language copy, current navigation, product facts and plan names.",
-      "corrected_unwrapped_sha256": "913f7844223e69f5f69dc253b0c15a95ec5415c68d6839a2075dd461cc20ef91"
+      "corrected_unwrapped_sha256": "c6a81520de8dfa2b8edacb04a023a033e77480f82043e9d95e3c8f76df698b68"
     },
     "assets/site-search.js": {
       "kind": "search_guard",

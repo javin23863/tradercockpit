@@ -68,7 +68,7 @@
       <div class="j-library-copy"><p class="eyebrow">Start here</p><h2 id="learning-feature-title">One result.<br>More questions.</h2><p>A convincing picture is not the same as traceable evidence. Use a short checklist to record what you know—and what is still missing.</p><a class="button gold" href="#/learn/checklist">Open research checklist ${arrow}</a></div>
     </section>
     <section class="j-library" aria-labelledby="resource-heading"><div class="j-section-line"><h2 id="resource-heading">Choose your next question</h2><span>Guides &amp; concepts</span></div>
-      <a class="j-resource" href="#/platform/charts"><span class="j-resource-number">01</span><img src="assets/reference-site/product-charts.webp" width="480" height="349" alt=""><div><small>Charts / overview</small><h3>What am I actually looking at?</h3><p>Read the price panel, studies and lower panes as separate pieces of evidence.</p></div>${arrow}</a>
+      <a class="j-resource" href="#/platform/charts"><span class="j-resource-number">01</span><img src="assets/reference-site/charts.svg" width="480" height="250" alt=""><div><small>Charts / overview</small><h3>What am I actually looking at?</h3><p>Read the price panel, studies and lower panes as separate pieces of evidence.</p></div>${arrow}</a>
       <a class="j-resource" href="#/platform/models"><span class="j-resource-number">02</span><img src="assets/reference-site/product-models.webp" width="480" height="333" alt=""><div><small>Models / overview</small><h3>What does this study describe?</h3><p>Read a model result without turning a diagnostic into a forecast.</p></div>${arrow}</a>
       <a class="j-resource j-resource-text" href="#/learn/monte-carlo"><span class="j-resource-number">03</span><div class="j-type-art" aria-hidden="true">MC<span>Paths ≠ predictions</span></div><div><small>Methods / concept</small><h3>How much does the path matter?</h3><p>Understand what resampling can—and cannot—tell you.</p></div>${arrow}</a>
     </section><p class="j-footnote">Product images in these guides show TraderCockpit running on synthetic sample data. They are not live markets or trading results.</p><p class="j-footnote"><a href="learn/">Browse the full learning library →</a></p>`;
@@ -88,18 +88,18 @@
     const charts = kind === 'charts';
     const title = charts ? 'Read the chart. Keep the context.' : 'Read the model. Keep the limits.';
     const regions = charts ? [
-      ['Context','Start with the symbol, timeframe and data source shown above the chart. The example uses synthetic sample data, not a live market.'],
+      ['Context','Start with the symbol, timeframe and data source shown above the chart. Check that they match the question you are asking.'],
       ['Price & studies','The main panel combines the price series with study overlays. The legend names each study and its settings.'],
       ['Separate panes','Lower panes keep oscillators such as Stochastic and ATR on their own scales. Do not read their values against the price axis.']
     ] : [
-      ['Selected study','Each Models result belongs to one study and the exact data it used. Keep that pairing with any conclusion you draw.'],
-      ['Loading map','A loading map shows how strongly each input feature contributes to each component. It describes structure in past data; it is not a probability of a future trade.'],
-      ['Next step','A diagnostic can suggest which features are redundant or worth testing further. Testing the idea is a separate step in Builder or a Custom project.']
+      ['The question','The sample walkthrough asks where the weaker entries occur. Each Models result belongs to one question and the exact data it used. Keep that pairing with any conclusion you draw.'],
+      ['Kept and untouched','The chart compares the recorded outcomes of the trades a model would keep with all of the held-out trades. It describes past records; it is not a probability of a future trade.'],
+      ['Next step','A difference like this is an idea to test, not a result. Testing it is a separate step in Builder or a Custom project.']
     ];
-    return `${header(`Platform / ${charts?'Charts':'Models'}`,title,charts?'How to read the Charts workspace, shown here with synthetic sample data.':'How to read a Models study, shown here with synthetic sample data.',crumb(charts?'Charts':'Models'))}
-      <figure class="j-product-capture"><img src="${charts?'assets/reference-site/product-charts.webp':'assets/reference-site/product-models.webp'}" width="480" height="${charts?349:333}" alt="${charts?'Charts workspace with price, study overlays and oscillator panes, shown with sample data':'Models workspace showing a feature loading map, shown with sample data'}"><figcaption><span>TraderCockpit ${charts?'Charts':'Models'} · synthetic sample data</span></figcaption></figure>
-      <section class="j-capture-reading" aria-label="How to read the screen">${regions.map(([name,text],i)=>`<article><span class="j-section-index">0${i+1}</span><h2>${name}</h2><p>${text}</p></article>`).join('')}</section>
-      <div class="j-callout"><strong>Keep in mind</strong><p>The screen is the real TraderCockpit app; the data is synthetic. It says nothing about live markets or future performance.</p></div>
+    return `${header(`Platform / ${charts?'Charts':'Models'}`,title,charts?'How to read the Charts workspace.':'How to read a Models study, shown here with the built-in sample walkthrough.',crumb(charts?'Charts':'Models'))}
+      ${charts?'':'<figure class="j-product-capture"><img src="assets/reference-site/product-models.webp" width="480" height="333" alt="Models sample walkthrough comparing kept and untouched trade outcomes, using synthetic trades"><figcaption><span>TraderCockpit Models · sample walkthrough with synthetic trades</span></figcaption></figure>'}
+      <section class="j-capture-reading" aria-label="${charts?'How to read the chart':'How to read the screen'}">${regions.map(([name,text],i)=>`<article><span class="j-section-index">0${i+1}</span><h2>${name}</h2><p>${text}</p></article>`).join('')}</section>
+      <div class="j-callout"><strong>Keep in mind</strong><p>${charts?'A chart shows what happened in your data. It says nothing on its own about future performance.':'The screen is the real TraderCockpit app; the trades are synthetic. It says nothing about live markets or future performance.'}</p></div>
       ${next('#/learn/checklist','Keep a record of what you found.','Your next step')}`;
   }
   function checklist() {
