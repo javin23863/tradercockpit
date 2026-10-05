@@ -1,6 +1,6 @@
 {
   "schema": "product-manifest/v1",
-  "status": "waitlist",
+  "status": "unavailable",
   "assistant": {
     "name": "Apollo",
     "status": "concept"
@@ -10,7 +10,11 @@
     "Windows desktop"
   ],
   "cta": {
-    "label": "Free: the strategy-claim audit checklist",
+    "label": "Open the backtest checklist",
     "url": "https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html"
+  },
+  "product": {
+    "name": "TraderCockpit",
+    "summary": "The TraderCockpit Windows desktop app is in development. We’ll release it when it’s ready."
   }
 }

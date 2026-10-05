@@ -37,12 +37,12 @@
     openDialog(detail);
   }
   const features = Object.freeze({
-    builder:['Strategy Builder','Construct strategy logic and research configurations. Keep the idea and the assumptions behind it explicit.'],
-    charts:['Charts','Inspect price, studies, trades, and retained research results. This retained development capture uses synthetic TC_PROBE test data, not live markets.'],
-    models:['Quant Models','Explore model diagnostics and retained analytical evidence. A fitted model is not a promise of future performance.'],
-    apollo:['Apollo','Keep the guided research assistant close to the work it helps you understand.'],
-    data:['Market Data','Organize the historical inputs used by your research. This page does not establish provider access or a live data connection.'],
-    projects:['Custom Projects','Use reusable research workflows while keeping their settings and underlying evidence inspectable.']
+    builder:['Strategy Builder','Development concept, not an available capability. Construct strategy logic and research configurations. Keep the idea and the assumptions behind it explicit.'],
+    charts:['Charts','Development concept, not an available capability. Inspect price, studies, trades, and retained research results. This retained development capture uses synthetic TC_PROBE test data, not live markets.'],
+    models:['Quant Models','Development concept, not an available capability. Explore model diagnostics and retained analytical evidence. A fitted model is not a promise of future performance.'],
+    apollo:['Apollo','Development concept, not an available capability. Keep the guided research assistant close to the work it helps you understand.'],
+    data:['Market Data','Development concept, not an available capability. Organize the historical inputs used by your research. This page does not establish provider access or a live data connection.'],
+    projects:['Custom Projects','Development concept, not an available capability. Use reusable research workflows while keeping their settings and underlying evidence inspectable.']
   });
   // Provenance is fixed local metadata. No network request is made to GitHub.
   const captures = Object.freeze({
@@ -112,7 +112,7 @@
       $('.video-box').replaceChildren(frame);
     });
   });
-  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Visual and data provenance', '<p>The room, mountains, furniture and laptop are illustrative artwork. The original fictional dashboards are masked out.</p><p>The embedded Charts and Models screens use <strong>retained TraderCockpit development captures</strong> from the product repository. Both contain synthetic test data. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture and its recorded source identity.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>Product access remains on waitlist and checkout is closed.</p>')));
+  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Visual and data provenance', '<p>The room, mountains, furniture and laptop are illustrative artwork. The original fictional dashboards are masked out.</p><p>The embedded Charts and Models screens use <strong>retained TraderCockpit development captures</strong> from the product repository. Both contain synthetic test data. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture and its recorded source identity.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>The Windows app is in development. We’ll release it when it’s ready. Checkout is closed.</p>')));
   const menu = $('.menu-toggle'), mobileNav = $('#mobile-nav');
   function closeMenu() { mobileNav.hidden = true; menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Open navigation'); }
   menu.addEventListener('click', () => {
@@ -127,7 +127,7 @@
   });
   const searchItems = [
     ['Platform','#platform','environment workflow'],['Features','#features','capabilities'],['Pricing','#pricing','plans core trader quant apollopro'],['Learning','#/learn','guides methods library'],
-    ['Monte Carlo uncertainty','#/learn/monte-carlo','methods resampling assumptions simulation'],['Research checklist','#/learn/checklist','notes evidence questions source'],['Access','#/access','waitlist plans checkout'],['Read Charts','#/platform/charts','capture guide price studies'],['Read Models','#/platform/models','PCA capture diagnostic guide'],
+    ['Monte Carlo uncertainty','#/learn/monte-carlo','methods resampling assumptions simulation'],['Research checklist','#/learn/checklist','notes evidence questions source'],['Development status','#public-status','development release status'],['Read Charts','#/platform/charts','capture guide price studies'],['Read Models','#/platform/models','PCA capture diagnostic guide'],
     ...Object.entries(features).map(([key,entry]) => [entry[0],`#${key}`,entry[1]])
   ];
   function search() {

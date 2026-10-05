@@ -158,17 +158,6 @@ def main() -> int:
         if payload > MAX_HOME_LOCAL_TEXT_BYTES:
             problems.append(f"homepage local text payload exceeds total budget: {payload} bytes")
 
-    # The product and prelaunch JSON remain authorities, not duplicated static claims.
-    manifest = json.loads((DOCS / "product-manifest.v1.json").read_text(encoding="utf-8"))
-    if manifest.get("status") == "waitlist":
-        home_text = home.read_text(encoding="utf-8")
-        if 'id="waitlist-form"' not in home_text or 'id="product-cta"' not in home_text:
-            problems.append("waitlist manifest state lacks fail-closed conversion surfaces")
-        if not re.search(r'id="waitlist-form"[^>]*hidden', home_text):
-            problems.append("waitlist form is not statically fail-closed")
-        if not re.search(r'id="product-cta"[^>]*hidden', home_text):
-            problems.append("product CTA is not statically fail-closed")
-
     if problems:
         print("SITE HARDENING: FAIL")
         for problem in problems: print(f"- {problem}")

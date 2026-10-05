@@ -45,21 +45,24 @@ def main() -> int:
     if not isinstance(plan.get("unitAmount"), int) or plan.get("unitAmount", 0) <= 0: problems.append("public commerce plan must expose a positive integer unitAmount")
     if not re.fullmatch(r"price_[A-Za-z0-9]+", str(plan.get("stripePriceId", ""))): problems.append("public commerce plan has invalid Stripe price id")
 
-    if manifest.get("status") != "waitlist":
-        problems.append(f"expected current public status waitlist, got {manifest.get('status')!r}")
+    if manifest.get("status") != "unavailable":
+        problems.append(f"expected current public status unavailable, got {manifest.get('status')!r}")
     if manifest.get("verifiedCapabilities") != []:
         problems.append("current public manifest unexpectedly exposes verified capabilities")
 
-    if 'id="product-state">STATUS: UNVERIFIED<' not in home:
-        problems.append("homepage static product state must fail closed as UNVERIFIED")
-    if not re.search(r'<form[^>]*id="waitlist-form"[^>]*hidden', home):
-        problems.append("homepage waitlist form must be hidden until manifest verification")
-    if not re.search(r'<a[^>]*id="product-cta"[^>]*hidden', home):
-        problems.append("homepage product CTA must be hidden until manifest verification")
+    if 'id="product-state" role="status">In development<' not in home:
+        problems.append("homepage static development status is missing")
+    if 'id="waitlist-form"' in home or 'type="email"' in home:
+        problems.append("public email capture must remain retired")
+    if 'href="strategy-claim-audit-checklist.html"' not in home:
+        problems.append("homepage must link to the educational checklist")
 
     public_files = [p for p in DOCS.rglob("*") if p.is_file() and p.suffix.lower() in {".html", ".json", ".js", ".mjs"}]
     for path in public_files:
         text = read(path).lower()
+        for retired in ('app.kit.com', 'email_address', 'trackconfirmedsignup', 'bindwaitlistsubmit', 'waitlist-form'):
+            if retired in text:
+                problems.append(f"retired signup wiring {retired!r}: {path.relative_to(REPO)}")
         for phrase in RISKY_PHRASES:
             if phrase in text:
                 problems.append(f"risky static public claim {phrase!r}: {path.relative_to(REPO)}")

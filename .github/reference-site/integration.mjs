@@ -51,21 +51,12 @@ async function access() {
   let manifest;
   try {
     manifest = await loadProductManifest(new URL('product-manifest.v1.json',root));
-    $('#product-state').textContent = `Status: ${manifest.status}`;
-    const descriptions = {waitlist:'Public access is on waitlist. Checkout remains closed.',unavailable:'Product access is currently unavailable.',available:'Check the published release and access details. This page does not enable checkout.'};
+    $('#product-state').textContent = manifest.status === 'unavailable' ? 'In development' : 'Status: ' + manifest.status;
+    const descriptions = {unavailable:'The TraderCockpit Windows desktop app is in development. We’ll release it when it’s ready.',available:'Check the published release and access details. This page does not enable checkout.',waitlist:'The product is not available. See Updates for development status.'};
     $('#product-summary').textContent = manifest.product?.summary || descriptions[manifest.status];
-    $('#manifest-detail').textContent = (manifest.platforms || []).join(' · ');
+    $('#manifest-detail').textContent = [(manifest.platforms || []).join(' · '), manifest.verifiedCapabilities.length ? 'Published capabilities below' : 'No product capabilities are published as available', 'Checkout is closed'].join(' · ');
     const note = document.querySelector('.hero-note');
-    if (note) note.textContent = `${(manifest.platforms || []).join(' · ')} · Status: ${manifest.status}`;
-    const cta = manifest.cta;
-    if (cta) {
-      $('#product-cta').textContent = cta.label;
-      const target = new URL(cta.url,root);
-      const publicPrefix = '/tradercockpit/';
-      $('#product-cta').href = target.hostname === 'javin23863.github.io' && target.pathname.startsWith(publicPrefix) ?
-        new URL(target.pathname.slice(publicPrefix.length)+target.search+target.hash,root).href : target.href;
-      $('#product-cta').hidden = false;
-    }
+    if (note) note.textContent = $('#product-summary').textContent;
     const caps = $('#manifest-capabilities');
     caps.replaceChildren();
     for (const item of manifest.verifiedCapabilities) {
@@ -77,22 +68,15 @@ async function access() {
     const note = document.querySelector('.hero-note');
     if (note) note.textContent = 'Product availability could not be verified.';
     $('#product-summary').textContent = 'Access could not be verified. Check Updates before acting on availability.';
-    $('#manifest-detail').textContent = 'No checkout or signup has been enabled by this failed check.';
-    $('#waitlist-form').hidden = true;
-    $('#product-cta').hidden = true;
-    return;
+    $('#manifest-detail').textContent = 'Product availability could not be verified. The educational guides remain available; checkout is closed.';
+
   }
   try {
     const config = await loadPrelaunchConfig(new URL('prelaunch-config.v1.json',root));
     activatePrelaunch(config,manifest);
   } catch {
     document.documentElement.dataset.prelaunch = 'fallback';
-    const form = $('#waitlist-form');
-    form.hidden = true;
-    form.removeAttribute('action');
-    delete form.dataset.uid;
-    const detail = $('#manifest-detail');
-    detail.textContent = [detail.textContent,'Waitlist signup unavailable; check Updates.'].filter(Boolean).join(' · ');
+
   }
 }
 await Promise.all([commerce(),access()]);

@@ -5,6 +5,7 @@ on:
     paths:
       - "docs/**"
       - ".github/scripts/**"
+      - ".github/reference-site/**"
       - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
       - "DESIGN.md"
@@ -12,6 +13,7 @@ on:
     paths:
       - "docs/**"
       - ".github/scripts/**"
+      - ".github/reference-site/**"
       - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
       - "DESIGN.md"
@@ -42,6 +44,10 @@ jobs:
         run: python .github/scripts/check_public_claims.py
       - name: Validate public UX contracts
         run: python .github/scripts/check_public_ux.py
+      - name: Validate analytics and custom-domain root routes
+        run: |
+          node .github/scripts/test_analytics.mjs
+          node .github/scripts/test_custom_domain.mjs
       - name: Validate all public JavaScript syntax
         shell: bash
         run: |

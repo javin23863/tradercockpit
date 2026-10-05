@@ -3,11 +3,11 @@
   "entries": [
     {
       "slug": "monte-carlo",
-      "title": "Monte Carlo uncertainty",
-      "description": "Understand what randomized or resampled paths can reveal about sequence sensitivity without treating a simulation percentile as a forecast.",
+      "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
+      "description": "Learn what Monte Carlo trade reshuffling and resampling can test, how to interpret simulated drawdowns, and why simulation does not prove a trading edge.",
       "question": "How sensitive is a result to the particular order or sample path that happened to be observed?",
-      "definition": "Monte Carlo is a family of simulation methods that repeatedly generate alternative outcomes under an explicitly chosen randomization or resampling rule. In trading research, the useful question is not whether one simulated path looks good, but how the distribution changes under defensible assumptions.",
-      "example": "The Research Lab starts 64 synthetic paths from the same zero level and lets path ordering produce a range of terminal values. The spread is an illustration of uncertainty, not a probability forecast for a market.",
+      "definition": "Monte Carlo simulation repeatedly generates alternative outcomes under a stated randomization rule. For trading strategies, shuffling or resampling recorded trades can illustrate path sensitivity and drawdown variation. The output describes the chosen model and sample; it does not validate the original trading edge or guarantee future profitability.",
+      "example": "Synthetic example: start from $1,000 and use four fixed-size net trade outcomes of +$60, −$40, +$60 and −$40. The ending balance is $1,040 and the largest peak-to-trough drawdown is $40. Reorder the same trades to +$60, +$60, −$40, −$40: the ending balance is still $1,040, but drawdown reaches $80. This additive calculation uses no compounding and already-net outcomes. Resampling with replacement is different: it can repeat or omit a trade and therefore change total profit. Neither operation creates evidence about trades absent from the sample.",
       "tells": [
         "Whether a reported result is unusually dependent on one path ordering under the chosen simulation rule.",
         "How a distribution of synthetic outcomes differs from a single headline path.",
@@ -34,15 +34,40 @@
           "path": "drawdown.html"
         }
       ],
-      "howTo": "../../how-to/read-monte-carlo.html"
+      "howTo": "../../how-to/read-monte-carlo.html",
+      "dateModified": "2026-10-05",
+      "exampleTitle": "Same trades, different drawdown.",
+      "assumptions": [
+        "State whether you shuffle without replacement, resample with replacement, resample blocks, perturb execution costs or rerun the strategy on altered inputs. These answer different questions.",
+        "Record the input period, trade count, random seed, number of runs, sizing, leverage, compounding, costs and the exact drawdown definition.",
+        "Independent trade resampling treats observations as exchangeable. It may erase serial dependence, volatility clusters and the ordering of regimes; block choices introduce their own assumptions.",
+        "A percentile of simulated drawdowns is conditional on the simulation rule and input sample. It is not a guaranteed loss limit or an unconditional probability of a future outcome."
+      ],
+      "references": [
+        {
+          "title": "StrategyQuant: Monte Carlo trades manipulation",
+          "url": "https://strategyquant.com/doc/strategyquant/monte-carlo-trades-manipulation/",
+          "scope": "Documents reshuffling trade order and other trade-level manipulations; this is a method reference, not a TraderCockpit capability claim."
+        },
+        {
+          "title": "NIST/SEMATECH: Bootstrap Plot",
+          "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/bootplot.htm",
+          "scope": "Describes resampling with replacement to estimate uncertainty for a statistic."
+        },
+        {
+          "title": "Bailey, Borwein, López de Prado and Zhu: The Probability of Backtest Overfitting",
+          "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf",
+          "scope": "Examines selection across many investment backtests and the limits of standard holdout evaluation."
+        }
+      ]
     },
     {
       "slug": "out-of-sample",
-      "title": "In-sample vs out-of-sample evidence",
-      "description": "See why evidence reserved from development has a different role from data repeatedly consulted during selection.",
+      "title": "In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage",
+      "description": "Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.",
       "question": "What evidence was genuinely withheld from the decisions that created or selected the candidate?",
-      "definition": "In-sample data participates in development, fitting, or selection. Out-of-sample data is reserved for later evaluation. The distinction is about information flow: once holdout results repeatedly steer choices, that holdout is no longer independent of those choices.",
-      "example": "The Research Lab shows 36 synthetic candidates converging on one selection point. Preserved-holdout mode crosses the information boundary once; repeated-peek mode draws four illustrative feedback loops back into selection.",
+      "definition": "In-sample backtesting uses data that helped develop, fit or select the strategy. Out-of-sample backtesting evaluates it on data withheld from those decisions. A holdout stops being unseen for a later decision when its results inform that decision, even if the file is still labelled out-of-sample.",
+      "example": "Synthetic example: a researcher develops a moving-average rule on 2020–2023 data and reserves 2024 for one final test. After seeing a losing month in 2024, the researcher changes the entry threshold and reruns 2024 until the result improves. The first test evaluated the frozen rule; the improved rerun now evaluates a rule selected with knowledge of 2024. Renaming that year OOS does not restore its independence. Record the original result and the change, then evaluate the revised rule on a genuinely untouched later period under a predeclared protocol.",
       "tells": [
         "Whether evaluation evidence was separated from the decisions being assessed.",
         "Where a research process risks feeding holdout information back into selection.",
@@ -67,6 +92,26 @@
         {
           "title": "Monte Carlo uncertainty",
           "path": "monte-carlo.html"
+        }
+      ],
+      "dateModified": "2026-10-05",
+      "exampleTitle": "A holdout becomes feedback.",
+      "assumptions": [
+        "Split time in order and freeze the strategy, parameter search, scoring rule, data preparation and execution assumptions before the final evaluation.",
+        "Indicators, universe membership, corporate-action data and features must use information actually available at each simulated decision time. Fit preprocessing on development data only.",
+        "Account for overlapping labels, trades crossing a split and temporal dependence. A chronological split alone does not remove every route for leakage.",
+        "Record every candidate tried and every consultation of validation data. Data used for model selection is validation data, not an untouched final test."
+      ],
+      "references": [
+        {
+          "title": "scikit-learn: data leakage",
+          "url": "https://scikit-learn.org/stable/common_pitfalls.html#data-leakage",
+          "scope": "Explains why fitting preprocessing and choosing models using test data can bias evaluation."
+        },
+        {
+          "title": "Bailey, Borwein, López de Prado and Zhu: The Probability of Backtest Overfitting",
+          "url": "https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf",
+          "scope": "Examines selection across many investment backtests and the limits of standard holdout evaluation."
         }
       ]
     },
