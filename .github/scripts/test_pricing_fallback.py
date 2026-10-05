@@ -9,7 +9,7 @@ class P(HTMLParser):
    a=dict(attrs)
    if 'data-access-plan' in a:self.links.append(a)
 class PricingFallbackTests(unittest.TestCase):
- def test_plan_links_have_static_waitlist_fallback(self):
+ def test_plan_links_have_static_development_fallback(self):
   p=P();p.feed((DOCS/'pricing/index.html').read_text(encoding='utf-8'))
   self.assertEqual([x['data-access-plan'] for x in p.links],['Core','Trader','Quant','ApolloPro'])
   for link in p.links:self.assertEqual(link.get('href'),'../#public-status')

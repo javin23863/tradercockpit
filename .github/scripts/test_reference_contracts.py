@@ -8,7 +8,7 @@ class ContractTests(unittest.TestCase):
   readiness=json.loads((ROOT/'.github/website-reference-readiness.json').read_text(encoding='utf-8'))
   self.assertIn('does not grant visual approval',value.get('audit_scope',''))
   self.assertEqual(readiness['gates']['owner_visual_acceptance_of_integrated_result'],'complete; owner approved exact integrated visual candidate on 2026-09-18')
-  expected={'status':'owner_visual_approved','visual_approval':True,'approved_at':'2026-09-18','source':'owner'}
+  expected={'status':'retained_visual_composition','visual_approval':True,'approved_at':'2026-09-18','source':'owner','scope':'Original composition; updated wording checked separately'}
   for row in value['pages']:self.assertEqual(row['audit'],expected)
  def test_structural_refresh_cannot_grant_visual_approval(self):
   baseline=json.loads((ROOT/'.github/reference-site/ux-contracts-before.json').read_text(encoding='utf-8'))

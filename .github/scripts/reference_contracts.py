@@ -3,17 +3,29 @@ import copy,json
 
 def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None):
     data=copy.deepcopy(original)
-    data['reviewed_at']='2026-09-18'
+    data['reviewed_at']='2026-10-05'
     data['audit_scope']='Structural contract generation does not grant visual approval. Current visual approval is owner-provided and recorded in .github/website-reference-readiness.json.'
     for row in data['pages']:
-        row['audit']=({'status':'owner_visual_approved','visual_approval':True,'approved_at':approved_at,'source':'owner'} if owner_visual_approval else {'status':'pending_visual_review','visual_approval':False})
+        row['audit']=({'status':'retained_visual_composition','visual_approval':True,'approved_at':approved_at,'source':'owner','scope':'Original composition; updated wording checked separately'} if owner_visual_approval else {'status':'pending_visual_review','visual_approval':False})
         if row['path']!='research-lab.html':
             row['visual_character']['color']='Warm dark surfaces, ivory text, restrained gold navigation and action accents. Analytical images retain their source colors.'
         if row['path']=='index.html':
-            row['title']='TraderCockpit — Quant research environment'
-            row['reviewed_h1']='A Complete Quant Research Environment'
+            row['title']='TraderCockpit | Backtesting & Strategy Validation Guides'
+            row['reviewed_h1']='Backtesting and strategy validation guides'
             row['hierarchy']['focal_point']=row['reviewed_h1']
-            row['hierarchy']['primary_action']='Explore access'
+            row['hierarchy']['primary_action']='Read the guides'
+            row['form_ux']['policy']='No public email capture. Search has a persistent label.'
+            row['intent']['primary_job']='Choose a useful backtesting or strategy validation guide and understand that the app is in development.'
+        titles={'learn/concepts/out-of-sample.html':'In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage','learn/concepts/monte-carlo.html':'Monte Carlo Simulation for Trading Strategies: Uses and Limitations','strategy-claim-audit-checklist.html':'Trading Strategy Backtest Checklist: How to Evaluate the Evidence'}
+        if row['path'] in titles:
+            row['reviewed_h1']=titles[row['path']]
+            row['title']=titles[row['path']]+' — TraderCockpit'
+            row['hierarchy']['focal_point']=row['reviewed_h1']
+        if row['path'] in {'confirmed.html','thanks.html'}:
+            row['title']='Development status · TraderCockpit'
+            row['reviewed_h1']='The app is in development.'
+            row['hierarchy']['focal_point']=row['reviewed_h1']
+            row['hierarchy']['primary_action']='Read the guides'
         if row['path']=='pricing/index.html':
             row['reviewed_h1']='Four monthly plans. One research environment.'
             row['hierarchy']['focal_point']=row['reviewed_h1']

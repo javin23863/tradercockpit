@@ -8,6 +8,7 @@ def wrap_html(html: str, relative: str) -> str:
     html=re.sub(r'(<body\b[^>]*)(>)',r'\1 data-reference-content="true"\2',html,count=1)
     additions=f'<link data-reference-shell="style" rel="stylesheet" href="{assets}content.css" media="screen">'
     if 'name="theme-color"' not in html: additions+='<meta data-reference-shell="theme" name="theme-color" content="#080b0b">'
+    additions+=f'<script data-reference-shell="analytics" type="module" src="{prefix}assets/analytics.mjs"></script>'
     html=html.replace('</head>',additions+'</head>',1)
     if relative=='docs/index.html':
         media=f'<figure class="reference-media"><a href="{prefix}#/platform/charts"><img src="{assets}original-charts.png" width="1220" height="886" alt="Charts workspace with labelled synthetic development data"></a><figcaption>Charts · retained development capture · synthetic test data</figcaption></figure>'
@@ -28,5 +29,5 @@ def unwrap_html(html: str) -> str:
     html=html.replace(' data-reference-content="true"','')
     for name in ['navigation','print','search']:
         html=re.sub(r'<!-- reference-'+name+r':start -->[\s\S]*?<!-- reference-'+name+r':end -->','',html)
-    html=re.sub(r'<(?:link|meta) data-reference-shell="[^"]*"[^>]*>','',html)
+    html=re.sub(r'<(?:link|meta|script) data-reference-shell="[^"]*"[^>]*>(?:</script>)?','',html)
     return re.sub(r'<!-- reference-media:start -->[\s\S]*?<!-- reference-media:end -->','',html)
