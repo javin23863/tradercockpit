@@ -90,23 +90,23 @@
     "learn/concepts/correlation-diversification.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
-      "after_sha256": "c3f932acb4f760f46f9269860b4cc0b273ecb6dd29a8dd695371b6b53842f60c",
+      "after_sha256": "4da6106249c194cd0edd443662f3c3cc8e45e0f130b02885ece75afe2cd2e8ae",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "34a768a4229a07d83169eb176897a7bef9fb3b6c2619ed216f901743e545e47f"
+      "corrected_unwrapped_sha256": "581f890e57ecaa55d1890cc1703b175b40255cea77cb7dd6f74e2172396da20d"
     },
     "learn/concepts/distribution-shape.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
-      "after_sha256": "4a2ebe47e1e503b8a55ff20fac42259c937448ac0e3fd0d7d1495fe17c03df4a",
+      "after_sha256": "3cc36ba8c8423cfe4722cb2817b30a46442695707f019a4c0e50aadc3765143b",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "b89081f45c4a29f1bc81c85783d55f348c4acefb087cecae2972e69eb7d05875"
+      "corrected_unwrapped_sha256": "691d3c37b81e1c6d4424df0b1bf2445d7cad667699e766298413af99f66a75ae"
     },
     "learn/concepts/drawdown.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
-      "after_sha256": "0d7fe78eea6a52ed4ee7da100812f9067f4febdb36315b8367dcec41aec1e813",
+      "after_sha256": "a50fdbb5eb206bf6d10b93ca193aa92d008f02d2a0783c5a85e419e99cd79e3d",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "8d73d7e0f944c1af693271e1f67b4fc2b4fca93f5c8a58a5f3957d1ddfacb29e"
+      "corrected_unwrapped_sha256": "39ca90c7b24ad9802ae1c0138457edcafb490125e0811d479da7b043488dbdf6"
     },
     "learn/concepts/monte-carlo.html": {
       "kind": "corrected_reading_shell",
@@ -125,30 +125,30 @@
     "learn/concepts/parameter-robustness.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
-      "after_sha256": "2e6046c9307cf94d34e321d18e7b1e33406b845e45214868589868dba753424a",
+      "after_sha256": "8f6cc9bfeb286a8e6506590e994db188956ce58b4293f8d2e7032c1eab77b73a",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "dbaecd4894605d35a1f2c3194cf478b1034763e9066a4741e8ed1ad1002ab310"
+      "corrected_unwrapped_sha256": "a324eb109add60ac94537b55351af7a2879a8b9d9e58a24bda29ead95a6970eb"
     },
     "learn/concepts/regime-map.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
-      "after_sha256": "081f3f94e5d5b2c7593840af17fc7c9f8e94aa910754565f66b5a0907a4189d3",
+      "after_sha256": "cbf7798d32694d14d94a748744883d3bd6b934d2745dc8dd2fec968de963d895",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "c17621e7538a7311c1697d6ac2bf646dbd8050b504529f86b588cf8eb11932e4"
+      "corrected_unwrapped_sha256": "dc3755cfbfc80043894bc33170aaec9371065b2a664acfcdde466d29b4d1151d"
     },
     "learn/concepts/selection-bias.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
-      "after_sha256": "2ed890a465140f2801412feac35e0ae56d162447eb0a31e4ee53681618d212ab",
+      "after_sha256": "4f0f723b4ed887bb40c7db2dcc22855be18e34c481957b0fcf62f073e7d50847",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "5ab8cedbd639fc885f75f2b40245f2046c7e02ff37b4cdb76a336b9aa3be9d80"
+      "corrected_unwrapped_sha256": "11c00743be71bba8d24b6833bb06ce761e41e44ee5587763709206730cf1fe65"
     },
     "learn/concepts/walk-forward.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
-      "after_sha256": "f12052cd29327441b8816fe3ad530bae56e094e3f47fe5dc5d47e6d96eab19e6",
+      "after_sha256": "7df98cc515720b0b7426b6f443981ebe072ac8d010b2c2e09109733847c7b7ef",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "db1723208d7eecba85cf9fbb55d63e2f6fdc48b98d833de40f8fe1aa57448faa"
+      "corrected_unwrapped_sha256": "5b50d7eb6c8f7c7fea3b90f7b71ec6d80a98c4429ce95f2d7f840bea12b8cbdd"
     },
     "learn/glossary.html": {
       "kind": "corrected_reading_shell",

@@ -1,8 +1,8 @@
 {
   "schema": "tradercockpit.website-reference-readiness/v1",
-  "status": "READY_FOR_CODEX_REVIEW",
-  "branch": "codex/website-reference-integration-20260918",
-  "integration_base": "d544de3f058d4541ab31441371ddb0656acf73a3",
+  "status": "SEARCH_PREPARATION_STAGED_DOMAIN_PENDING",
+  "branch": "codex/search-preparation-20261005",
+  "integration_base": "92d07031434f6522e626cbca035888f86b1a891f",
   "rejected_pr": 51,
   "source_archive": "TraderCockpit-homepage-proof-source.zip",
   "source_archive_sha256": "0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c",
@@ -37,5 +37,6 @@
   },
   "source_download_name": "TraderCockpit-homepage-proof-source(6).zip",
   "codex_review_required": true,
-  "codex_review_state_source": "github_pr_external"
+  "codex_review_state_source": "github_pr_external",
+  "served_browser_evidence_scope": "Historical reference integration; current search-preparation evidence is attached to its review and local implementation deliverables."
 }

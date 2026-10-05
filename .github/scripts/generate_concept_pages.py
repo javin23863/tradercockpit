@@ -45,7 +45,7 @@ def render(entry: dict) -> str:
     structured = '<script type="application/ld+json">'+json.dumps(article,ensure_ascii=False).replace('<','\\u003c')+'</script>' if modified else ''
     assumptions = '<section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>'+render_list(entry['assumptions'])+'</ul></section>' if entry.get('assumptions') else ''
     references = '<section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul>'+''.join(f'<li><a href="{esc(ref["url"])}">{esc(ref["title"])}</a> — {esc(ref["scope"])}</li>' for ref in entry.get('references',[]))+'</ul></section>' if entry.get('references') else ''
-    return f'''<!doctype html>
+    html = f'''<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -168,6 +168,7 @@ def render(entry: dict) -> str:
 </body>
 </html>
 '''
+    return '\n'.join(line.rstrip() for line in html.splitlines()) + '\n'
 
 
 def load_entries() -> list[dict]:
