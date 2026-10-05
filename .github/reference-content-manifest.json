@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "a35513c0681eed9e2b51e2f44bee2fd253d2382d47b84999d40601a00f23911d",
+  "home_sha256": "1ae28fd6c9cadd43d290e6a3c6f3a886fc8de47c7c0e766607ff0df0e278044a",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -20,233 +20,233 @@
     "docs/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "f24f8660892730ab6ebb2edfa4158735cc2aec34c5bb20268b2e027b28a881d0",
-      "after_sha256": "5a344ea26663c94256870d67d45461fad520e1c0a822bd97daec310c0be2dcd1",
+      "after_sha256": "2aa1255506df5c964841b6764db22015aafb1248f27ada993aba8e58a3b93287",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "f24f8660892730ab6ebb2edfa4158735cc2aec34c5bb20268b2e027b28a881d0"
+      "corrected_unwrapped_sha256": "be4c8eda714e4e87f937dd2a515ab047f1448e0c5d5d6b5febb50746683e16dc"
     },
     "examples/holdout-selection.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85",
-      "after_sha256": "812088295b2860610db3331bc4127711a22fe0d3fe9f71489ec35357376423ee",
+      "after_sha256": "0f7e22b2ec05a706ba0535f10e4f66c1100ffbba76354f76aa89f981783e6040",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85"
+      "corrected_unwrapped_sha256": "204e7fe4feb45642397241fcabe137e266063c4826ff84edd2055717eaf0a16b"
     },
     "examples/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "60ada0e34432da39ba418840da16ad33e64925f8e5caf43333754a2af1fe8668",
-      "after_sha256": "974101873c1d27f808b0dd63dd84148b9f5c053663ed43af790d193ac29a6028",
+      "after_sha256": "65ab87a5e1e9c85c0ae2f475ee41d05145b54b83ae7d365de3d032a21a8bab2a",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "60ada0e34432da39ba418840da16ad33e64925f8e5caf43333754a2af1fe8668"
+      "corrected_unwrapped_sha256": "3d73c92ddacd695d0672894574173d7c72613543a3f177e00d7bd5f3c0a408f6"
     },
     "examples/replay-boundary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79",
-      "after_sha256": "bdceab609a67493f944eb2b8545fc494fe781410a974931ff8b7f72fc68d7161",
+      "after_sha256": "e3d098ad3c35630794f87cb6a8dd071587a09bac148fc2522530bbbda4cd0b00",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79"
+      "corrected_unwrapped_sha256": "68f233be8362d458419dc0acc8360c6698adecb5f318b134b7c927727be1841d"
     },
     "help.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3f6e4a64ff3340a5c191d0dd305c9ffebcafb2fba3cf575e3c42955f70a6f999",
-      "after_sha256": "7c6066b39ccb00ecb0c815f46f4e69b2387afce520c179aff70139add27fe8f0",
+      "after_sha256": "9e4b6b3a9ed74e9d245d4a2308a8c977a6b4711f2bd459dff237704a95dc4b68",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "3f6e4a64ff3340a5c191d0dd305c9ffebcafb2fba3cf575e3c42955f70a6f999"
+      "corrected_unwrapped_sha256": "3fa03494155681f54d3872d0c4db92524b94050b2d7a9d8bf88ddbf0569751d9"
     },
     "how-to/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
-      "after_sha256": "9f2a998ff8c6e58a5548404f0d30b626f660801731973bd61adbd57f7dc3ec50",
+      "after_sha256": "e5cb87391f68642f7c358d750d8c4b9f82f4d15bebfec2b90f816e115fe740bb",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c"
+      "corrected_unwrapped_sha256": "2ff155a0fe06fcc845dc736688563524a0898a0af62df0c343e82d8c35e4a0be"
     },
     "how-to/read-chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3",
-      "after_sha256": "ad6c3151ed2c1a2c4879858ffc928027a6db5caadfc2e66c86a9a06fdc31d35a",
+      "after_sha256": "63d52ad01b7ff74ea1f6657b4b3934d775a85454a8b8f9b69138e27401490a29",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3"
+      "corrected_unwrapped_sha256": "ef7fd8a74bfc0a7d4e028e58ae7bc642c05418c477c8519d7b782b908aa530e0"
     },
     "how-to/read-monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404",
-      "after_sha256": "9bd599d9555f5ce43b3f4e3c337197787b833f8173208a6b259b268ea3db13a7",
+      "after_sha256": "ec088bd3128e227a596fc619ee1acafb19c34c43f82b898493d437f9793cc2ae",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404"
+      "corrected_unwrapped_sha256": "b690c789dcceb2ee3fb61179c16aabf4ec5f12fc805f812045555c4439958474"
     },
     "how-to/read-result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833",
-      "after_sha256": "bd2d961dabedd1529c3abb886521653ab72899aa770e73aba14bd1e3c76573a6",
+      "after_sha256": "aeecb5eb56f6ed66ec9e05721b2fd56ae66a17d191261c8d93ea0861b8f46a34",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833"
+      "corrected_unwrapped_sha256": "8e0ccbb6270e230e6584d7ab6ced147425ee8766950be6a1de5fe6f1885b5f2c"
     },
     "how-to/read-staged-validation.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5",
-      "after_sha256": "ca09b86225160a2ea568f167a3adcb46f6530e69419e5dd4709208a2f6c25c8f",
+      "after_sha256": "72f7d6a7e1447f5e4e10897a20f2592fbcddc67273e3219a0ee321eb90dc23de",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5"
+      "corrected_unwrapped_sha256": "704e06def3c1b5fc74785fa626b5d689dfd3220d59fb89387d4a007482d651f0"
     },
     "learn/concepts/correlation-diversification.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
-      "after_sha256": "7003ec8998e030965776592aefccf55a18c9bf7004048cc12cad6499197b4ede",
+      "after_sha256": "4da6106249c194cd0edd443662f3c3cc8e45e0f130b02885ece75afe2cd2e8ae",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "ab902515f2917139beb329d5a6325cfb96360f8ed5d25cf33d0474f25cdc7f8e"
+      "corrected_unwrapped_sha256": "581f890e57ecaa55d1890cc1703b175b40255cea77cb7dd6f74e2172396da20d"
     },
     "learn/concepts/distribution-shape.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
-      "after_sha256": "fab13e34df36acd0b59cb790da4537fb4c742db056823b519f8638220d0caeb3",
+      "after_sha256": "3cc36ba8c8423cfe4722cb2817b30a46442695707f019a4c0e50aadc3765143b",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "83d48dbc4017b00846e8c3779cfa4e5b377a232f1fb92f256a4d0dbc8235a095"
+      "corrected_unwrapped_sha256": "691d3c37b81e1c6d4424df0b1bf2445d7cad667699e766298413af99f66a75ae"
     },
     "learn/concepts/drawdown.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
-      "after_sha256": "9a37029af98dd2f71656f61cad78044326bdf98a66eb7ecc33d899be969f0b53",
+      "after_sha256": "a50fdbb5eb206bf6d10b93ca193aa92d008f02d2a0783c5a85e419e99cd79e3d",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "16798824da3da25b247e3ac2475326c327356f793e05acd9dcc7a86926ec61e7"
+      "corrected_unwrapped_sha256": "39ca90c7b24ad9802ae1c0138457edcafb490125e0811d479da7b043488dbdf6"
     },
     "learn/concepts/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6e3f51c527177c355262b635824aa4a3ad3004686711081972a7fde552439fce",
-      "after_sha256": "461f32a95e4f9e50c87ee7913ea776c12f05af526ef838d4cfd5002a1c48a400",
+      "after_sha256": "290e928b0b633c5ec076e387b896b456db622069013304c93611d712dc583269",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "8c361a7b45f8265794612ed2841c65c1590a47ea37059b3e6fe3b95a7a535da4"
+      "corrected_unwrapped_sha256": "23dc5a50696260d97e44377723c4a55376261691fa9b65cd47269e9be85eeb48"
     },
     "learn/concepts/out-of-sample.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b38d48b3ce6696868ee13396ac4a3f9afa0450abb32d28ace8742bd7e7cf7727",
-      "after_sha256": "0eb5d77433115e65d46e2e3f78d4e2cb088b21df3c960290e773c8a1c8810ce7",
+      "after_sha256": "77bb8fb01b3bfbed4dd577ef891d147b6faad16b42f385b134eb3ca3a3a9e515",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "221eb3731cf2d876787c8b96c0e43ceedd7c4b1d538848712f3ea760f390eec8"
+      "corrected_unwrapped_sha256": "7a22c7e978969943cb52169969a2c34b79303606033d0d0c327881d1712dde9c"
     },
     "learn/concepts/parameter-robustness.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
-      "after_sha256": "a34ada662331debc9d3361ba42e0ab8a2365b9198aa3de32f3a73ceff79eda3d",
+      "after_sha256": "8f6cc9bfeb286a8e6506590e994db188956ce58b4293f8d2e7032c1eab77b73a",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "057cbe3c7b35a6235477472097e746d8362a038f69c5505f788501541299a169"
+      "corrected_unwrapped_sha256": "a324eb109add60ac94537b55351af7a2879a8b9d9e58a24bda29ead95a6970eb"
     },
     "learn/concepts/regime-map.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
-      "after_sha256": "10b60f087743a17db53433762bfc260eb70e414bfaf209924dd8e30730004930",
+      "after_sha256": "cbf7798d32694d14d94a748744883d3bd6b934d2745dc8dd2fec968de963d895",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "87d351eacda7420a18b7fe3ccd44168a89ab1932c9279b520512e35a27baa7eb"
+      "corrected_unwrapped_sha256": "dc3755cfbfc80043894bc33170aaec9371065b2a664acfcdde466d29b4d1151d"
     },
     "learn/concepts/selection-bias.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
-      "after_sha256": "17551ac1cd16d864dbb5362363f550d9439f17de1d05b4ef102207b9751cab28",
+      "after_sha256": "4f0f723b4ed887bb40c7db2dcc22855be18e34c481957b0fcf62f073e7d50847",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "31894aeccff0e1fb0fce7100aa0884c564d6d94ce156271c55088b73413157c0"
+      "corrected_unwrapped_sha256": "11c00743be71bba8d24b6833bb06ce761e41e44ee5587763709206730cf1fe65"
     },
     "learn/concepts/walk-forward.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
-      "after_sha256": "cabbdbcbe2441ac93a53c58b7cc918ba76c70892a2ae7acb5559ca6dc2755cf7",
+      "after_sha256": "7df98cc515720b0b7426b6f443981ebe072ac8d010b2c2e09109733847c7b7ef",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "2e77ba67414f5c6ce6a5e76b21580b01bb4c643f6308c3ab1c46e8b50bf5988a"
+      "corrected_unwrapped_sha256": "5b50d7eb6c8f7c7fea3b90f7b71ec6d80a98c4429ce95f2d7f840bea12b8cbdd"
     },
     "learn/glossary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335",
-      "after_sha256": "86dfedc0c7eb48a31c4f5861112a815a799871c51b9486b78c0afb626f5b6368",
+      "after_sha256": "8fc122d38f215d4f33e7b96ba603213132aabe6aad44ac283b25ab9a53b24bda",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335"
+      "corrected_unwrapped_sha256": "4486b81c0f588aa1d06073acdb999645309f090360992ba5f1ce460c196ae7c5"
     },
     "learn/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31",
-      "after_sha256": "2a07b6c3e7c77f945390f13b50e161e2953e6d21853c06161197ddb5cf133303",
+      "after_sha256": "8434c4f17275c0eb7351bc0cffdca18a7c3b23e76a9619f9d107f48be1ffcad6",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31"
+      "corrected_unwrapped_sha256": "87dca7f578e4322d5423ec420ba6ea2c6fc3db408ff5ab0c5cddac83252286b8"
     },
     "learn/start-here.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3",
-      "after_sha256": "6697864aee2e4103c1a55c34dac2c48ef394a698d8c1fcd4c1f1e809b4495c4e",
+      "after_sha256": "e524404cde9178fd461c587ba39c5c5ec292de875179df557feaee2b3c94fa51",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3"
+      "corrected_unwrapped_sha256": "fc7845ee66a4be94bab916533029e9f0951a3e8f4c6a3a0160d9e7b02017f96e"
     },
     "learn/videos.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "ac744ff241d35c402eac8e9a16a495d2a1f4895908e25899777b42b4f22b3a17",
-      "after_sha256": "6af438b592a5d81c750381b1f623fd1e7480d5818e758cf0a492776d6aa5b91f",
+      "after_sha256": "887b070a1dc15710784a8a5057b56a882d23c54ec366e2c1e93ee2d36ac527c8",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "ac744ff241d35c402eac8e9a16a495d2a1f4895908e25899777b42b4f22b3a17"
+      "corrected_unwrapped_sha256": "fa00a83ab524fc0338754f273ab58658f183c1f3413fb5ec66273f9ed7d0f15a"
     },
     "methods/chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8",
-      "after_sha256": "999fbdeac78396b1651b8ef93fae91add6d7d7c0fc0a95c0d4a429e6c73b6d12",
+      "after_sha256": "5f030abb5501bcc7927ff36f9d9ac589d6e73775783b52f9d9aad0ec22001578",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8"
+      "corrected_unwrapped_sha256": "a1880f4673d6173a869702db36a915634e448d84430c1935174a9451de86a634"
     },
     "methods/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0689e1b3324eeef298f4ca4718b7e9818ec2efff791b0a4beffa222a59667553",
-      "after_sha256": "e781b7aa4c70cb522a7047b6981fca58d3f055b35053b2b7841787c024533a54",
+      "after_sha256": "c96b365a3060549276ca3764437a51620ffd428640fc1953e04d8ac2bf2fc7ad",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "0689e1b3324eeef298f4ca4718b7e9818ec2efff791b0a4beffa222a59667553"
+      "corrected_unwrapped_sha256": "28d27b946dfc85e7652f909dae093f9e384cc18ef1e5c1b44ec7d4d0c2041485"
     },
     "methods/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0",
-      "after_sha256": "669bda71e0b1f5316eaabc739db2c19d16d2bc18df324255e8646d5fd02244b4",
+      "after_sha256": "8e7df8856208fd504b405934615be06de00da31f06ed21b49c7a86dae644f7a7",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0"
+      "corrected_unwrapped_sha256": "0a6aa369b2eac05efa83c8fbe99d6386061b4231c010559c68089ec429398870"
     },
     "methods/result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1",
-      "after_sha256": "c79f72d458eb92d0f1919484355b002ad8903239b1d44b4816ad56dfc033ad0e",
+      "after_sha256": "abe366e42c6aca2fc3124c97d8080de1831a45f24cee360153114c89dd433358",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1"
+      "corrected_unwrapped_sha256": "b355ea1081bbb6a7e24ef0805441b90d208674b1ba40d1f1c2b382a767c2974a"
     },
     "methods/validation-foundations.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa",
-      "after_sha256": "a27ae245fdd5b81a22c1ea441e522796e0b60b7abb404ed2b46fbc905152a18f",
+      "after_sha256": "ea046e683b4181e2ad3ff06e5813cd2b92a6aecde8b5c145adbd02676a062ab6",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa"
+      "corrected_unwrapped_sha256": "b6ee6ebd2fed422cfcc97400122184a69460afe198c984dfa2e6759c1e9de4d3"
     },
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "8b0d6c640db4947f08763d32608a8a7c0253769921c2421ef54c0ae1ff2093e7",
+      "corrected_unwrapped_sha256": "35a148480c20ba41b3a68abd907462984849d07076cf833a1f6474434334b3ac",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "after_sha256": "11005451dddbd91b321493b943b686170316b308161c7b5d895e81bf55e6604d"
+      "after_sha256": "66a9b277732d6e45ccbae9f99f6e0a1fed742e32a07290ad4e6d1564ce9f9cf1"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "427dbd7d33a45c376dacee264f98169b33fe26aa7274cc40339b5ba91e856752",
-      "after_sha256": "56598edad68d5e3b4c91f60c0de28bc05dc6e8c83f34b05eb41832720aed1e72",
+      "after_sha256": "b5246439cc622ce3cbdad586418e930881dfabed89020cf75a100ddce3e4500b",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "427dbd7d33a45c376dacee264f98169b33fe26aa7274cc40339b5ba91e856752"
+      "corrected_unwrapped_sha256": "becdf4a823b89685443833beb032bf40a74bc90b7a1c5e62078c460c048c40d8"
     },
     "strategy-claim-audit-checklist.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
-      "after_sha256": "076df308733d0a743000fe5077b93ffdd23dac24c5842057c1e841b4a21a8bfe",
+      "after_sha256": "fccdba2aee9d45cf5cf703e00e6f78f038a279372f5e34c4695df417ab6af023",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "301fb8e857aee01670d18031e5358e9ca7e777df9f227317645c96d4fb43baf4"
+      "corrected_unwrapped_sha256": "38f7b2c9e84b80fa09d51c65acc55fb0d579751301b8c7d5da346f7de57e4d56"
     },
     "support/faq.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
-      "after_sha256": "78a6bf201efc311b94bc2d807237f8317e47ba5e105a4d6376b3e2164a6608d3",
+      "after_sha256": "1ed30a67daea4228eec83486b643c1764cdf25274954069c77b9f6ace3358c7a",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf"
+      "corrected_unwrapped_sha256": "67da65a2f17a7da3b8893f9bb7e6b46cd8644978ccb9230c5439b61172a1869a"
     },
     "support/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0dceeb4d047f0ad782c443e1136877ea0343df00f5bb38dd5e74b3fc4c0f1bc0",
-      "after_sha256": "81f58f024a827fb8ecb58c28f6e0931dfc54bb62f2cec2e52473c2cfea502720",
+      "after_sha256": "e25d4a69d68c003c864caba6555fd9c79acd7ca369f5779d747131bf734dce8b",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "931e570b089c741d8da9f16c78bffd9c986e3c79dfd9100a9757b397cb8b1d73"
+      "corrected_unwrapped_sha256": "8710f78bfed98c32cfa02dee00f53b4646b5b4a132ac78ea818b8cc94dd4b3cf"
     },
     "thanks.html": {
       "kind": "corrected_reading_shell",
@@ -258,23 +258,23 @@
     "trust/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
-      "after_sha256": "d1992c93877a8b9cf7bdf22b6cc2b33f0316a4ea0cae41b6edb07802ac25608d",
+      "after_sha256": "0e91ba5514379eda2c0c6b259afff7955c13bfdb08e74fd26f7b6a68629bbacc",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "1d5af433ba1f9b3d45dafb56636e21afee30de110b0018b6c82e7e3e205ef83a"
+      "corrected_unwrapped_sha256": "afd8dae9b577246436cbe5c306750aca760c2bcf618ac22ed04901cd09741f98"
     },
     "trust/privacy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-      "after_sha256": "bc3418fd9f20e7ddd868b8123287d227192ba44a6e23b69e0e2482a199fbd7eb",
-      "corrected_unwrapped_sha256": "482f42330da8ac27b375c3802778b33ccc4154ad5f04ee7fae61c7a7697d4d20",
+      "after_sha256": "f15b6d0f53f03b26860e99e2458d98b04a8ae3ace4c2e3b70e1511b6f7ab1d9a",
+      "corrected_unwrapped_sha256": "cb5ae6a40553b03f5e5f328b9dce58c0653e6030e0213dd559160b2b7f7ace12",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable."
     },
     "updates/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
-      "after_sha256": "5cc88201728ef337370743ba217fceb2274421835dd71bb1f643ba137dcb4d19",
+      "after_sha256": "3aa7df802cda3c9c82088ab610fbe6273096945bc16f0ca35f169b960fc80292",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "b3f9a384219b1cc851cd52dc0f2234d0d094cf8423115a989b011077b45d7279"
+      "corrected_unwrapped_sha256": "19540b7398fc7da6af17762c4895847a8d804671bb7deeb5374a08a2d5392eaa"
     },
     "assets/site-search.js": {
       "kind": "search_guard",
@@ -317,7 +317,7 @@
     },
     "help-registry.v1.json": {
       "before_sha256": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
-      "after_sha256": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
+      "after_sha256": "e25a4bd018c0ea7f01265977a628968bd9ed46a595798a14342674dd294cfab4",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained."
     },
     "prelaunch-config.mjs": {
@@ -327,22 +327,22 @@
     },
     "prelaunch-config.v1.json": {
       "before_sha256": "fe38da3122cfcd9ba7bdc220c98938dfe3cbcc4ef4413c06314e4c2d7b321cc6",
-      "after_sha256": "231269605c72459be196e6266d2556c85f15c8115135ade2e5d9372c1e268e60",
+      "after_sha256": "c50ac5ad1d423f5d5b38ab4d5e12202aeed459f2f3364783ad0ba4359e1df7ae",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained."
     },
     "product-manifest.v1.json": {
       "before_sha256": "58b96cd926cb5fa15bb7be0f55678fea5121626545872407df03f797d5a23820",
-      "after_sha256": "fb5225d55536994044a56776c2a254fa8af174ed7c74a89f68ccb1f3be3b8f8b",
+      "after_sha256": "3d7613da489a01dc0481877d2a5cd8bd4ce302617bf7ab5e3d042fe5a4a0f25b",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained."
     },
     "research-lab.html": {
       "before_sha256": "0c0883a01c84341928f261af0a890b91c581c506d25e19a7ee8a494ccc82aad3",
-      "after_sha256": "9b30c31865e10248bf2fcc924aab67a22cb39b908b33867e413653fe47342f67",
+      "after_sha256": "a1dc41df36d31a4697615d130af014005c62388d72e5ac9f8cfe31133563fa44",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained."
     },
     "robots.txt": {
       "before_sha256": "e86d231f2ec238989449c6b59cae81b8760a86100f4ceb21d693b62fcd1f36c5",
-      "after_sha256": "e86d231f2ec238989449c6b59cae81b8760a86100f4ceb21d693b62fcd1f36c5",
+      "after_sha256": "82d7b9b69a935e57758b82d820d4dad4b53c57bdc2f565262cb8dceb9dc78bd4",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained."
     },
     "search-index.v1.json": {
@@ -352,12 +352,13 @@
     },
     "sitemap.xml": {
       "before_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-      "after_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
+      "after_sha256": "bb0d89d3ac9f9aa90e46d9e45a23d7e6443a92e863dfb470bc26407493a701d8",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained."
     }
   },
   "added_files": {
     "assets/analytics.mjs": "b119f9825e54e34edc7542084c403ea7c6b0fb971a044a4cd0c41fc45b93a959",
-    "BingSiteAuth.xml": "a44787436e972d0fac6afbc2024ba31e31e066fbd622fa124e7cfd2d6fedb12d"
+    "BingSiteAuth.xml": "a44787436e972d0fac6afbc2024ba31e31e066fbd622fa124e7cfd2d6fedb12d",
+    "CNAME": "14c35121f3b587a1620ea49d179466c8efdeeae02ce6ab2bc6bb1fa8163be734"
   }
 }

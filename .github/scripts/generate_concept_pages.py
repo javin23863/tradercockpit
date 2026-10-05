@@ -12,7 +12,7 @@ REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 SOURCE = DOCS / "concepts.v1.json"
 OUTPUT = DOCS / "learn" / "concepts"
-SITE = "https://javin23863.github.io/tradercockpit/"
+SITE = "https://tradercockpit.app/"
 
 
 def esc(value: object) -> str:

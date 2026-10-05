@@ -93,7 +93,7 @@ def update_journeys(text: str) -> str:
 
 def transform_html(html: str, commerce: dict) -> str:
     html = html.replace('class="skip"', 'class="skip skip-link"',1)
-    html = html.replace('<title>', '<link rel="canonical" href="https://javin23863.github.io/tradercockpit/">\n  <title>',1)
+    html = html.replace('<title>', '<link rel="canonical" href="https://tradercockpit.app/">\n  <title>',1)
     html = html.replace('content="TraderCockpit homepage visual proof.', 'content="TraderCockpit quantitative research.')
     html = re.sub(r'(?P<prefix>\b(?:src|href)=")assets/',r'\g<prefix>assets/reference-site/',html)
     for name in RUNTIME:
