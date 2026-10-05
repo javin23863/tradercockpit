@@ -12,7 +12,7 @@ REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 SOURCE = DOCS / "concepts.v1.json"
 OUTPUT = DOCS / "learn" / "concepts"
-SITE = "https://javin23863.github.io/tradercockpit/"
+SITE = "https://tradercockpit.app/"
 
 
 def esc(value: object) -> str:
@@ -39,6 +39,12 @@ def render(entry: dict) -> str:
     how_to = entry.get("howTo")
     how_to_action = f'          <a class="deep-link" href="{esc(how_to)}">Open the How-To →</a>' if how_to else ""
     how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-To →</a>' if how_to else ""
+    modified = entry.get('dateModified')
+    authorship = f'<p class="micro">By <a href="../../trust/#authorship">TraderCockpit</a> · Updated <time datetime="{esc(modified)}">{esc(modified)}</time> · Educational material, not financial advice.</p>' if modified else ''
+    article = {'@context':'https://schema.org','@type':'Article','headline':title,'description':entry['description'],'mainEntityOfPage':canonical,'dateModified':modified,'author':{'@type':'Organization','@id':SITE+'#organization','name':'TraderCockpit','url':SITE+'trust/#authorship'}}
+    structured = '<script type="application/ld+json">'+json.dumps(article,ensure_ascii=False).replace('<','\\u003c')+'</script>' if modified else ''
+    assumptions = '<section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>'+render_list(entry['assumptions'])+'</ul></section>' if entry.get('assumptions') else ''
+    references = '<section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul>'+''.join(f'<li><a href="{esc(ref["url"])}">{esc(ref["title"])}</a> — {esc(ref["scope"])}</li>' for ref in entry.get('references',[]))+'</ul></section>' if entry.get('references') else ''
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -48,6 +54,7 @@ def render(entry: dict) -> str:
   <title>{esc(title)} — TraderCockpit Learn</title>
   <meta name="description" content="{esc(entry['description'])}">
   <link rel="canonical" href="{esc(canonical)}">
+  {structured}
   <link rel="stylesheet" href="../../assets/site-v2.css">
 </head>
 <body>
@@ -73,6 +80,7 @@ def render(entry: dict) -> str:
         <span class="eyebrow">Concept / research education</span>
         <h1>{esc(title)}</h1>
         <p>{esc(entry['description'])}</p>
+        {authorship}
         <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Research concept</span></div>
         <div class="article-actions">
           <a class="deep-link" href="{esc(entry['visual'])}">Open the visual explanation →</a>
@@ -111,14 +119,16 @@ def render(entry: dict) -> str:
           </section>
           <section class="article-section" id="synthetic-example">
             <span class="kicker">Synthetic example</span>
-            <h2>See the shape before reading the formula.</h2>
+            <h2>{esc(entry.get('exampleTitle','See the shape before reading the formula.'))}</h2>
             <p>{esc(entry['example'])}</p>
             <a class="deep-link" href="{esc(entry['visual'])}">Open this concept in Research Lab →</a>
           </section>
+          {assumptions}
+          {references}
           <section class="article-section" id="product-boundary">
             <span class="kicker">Apply the concept</span>
             <h2>Use the idea without turning it into a shortcut.</h2>
-            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For TraderCockpit controls and workflow details, open Docs.</div>
+            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For TraderCockpit controls and workflow details, open Docs. The app is in development; these examples are educational.</div>
           </section>
           <section class="article-section" id="related">
             <span class="kicker">Continue learning</span>

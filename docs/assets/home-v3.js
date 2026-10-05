@@ -166,7 +166,7 @@
     const formatted=new Intl.NumberFormat('en-US',{style:'currency',currency:data.plan.currency,maximumFractionDigits:0}).format(data.plan.unitAmount/100);
     if(price)price.textContent=formatted;
     if(plan)plan.textContent=data.plan.name;
-    if(state)state.textContent=data.checkout?.enabled?'Checkout available':'Waitlist open';
+    if(state)state.textContent=data.checkout?.enabled?'Checkout available':'In development';
     if(checkout&&data.checkout?.enabled&&/^https:\/\/[^\s]+$/.test(data.checkout.url||'')){checkout.hidden=false;checkout.removeAttribute('disabled');checkout.textContent='Continue to secure checkout';checkout.addEventListener('click',()=>location.assign(data.checkout.url),{once:true});}
   }catch{if(state)state.textContent='Billing status unavailable';}
 

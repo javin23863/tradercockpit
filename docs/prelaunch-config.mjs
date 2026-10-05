@@ -1,5 +1,4 @@
 const SERVICE_STATUSES = new Set(['pending_operator_account', 'active'])
-const SOURCES = new Set(['youtube', 'instagram', 'facebook', 'tiktok', 'direct'])
 
 function text(value, field) {
   if (typeof value !== 'string' || !value.trim()) throw new TypeError(`${field} must be a non-empty string`)
@@ -15,27 +14,6 @@ export function validatePrelaunchConfig(value) {
   if (!value || typeof value !== 'object' || value.schema !== 'prelaunch-config/v1') {
     throw new TypeError('unsupported prelaunch config schema')
   }
-  const waitlist = {
-    provider: text(value.waitlist?.provider, 'waitlist.provider'),
-    status: status(value.waitlist?.status, 'waitlist.status'),
-    formId: typeof value.waitlist?.formId === 'string' ? value.waitlist.formId.trim() : '',
-    uid: typeof value.waitlist?.uid === 'string' ? value.waitlist.uid.trim() : '',
-    allowedSources: value.waitlist?.allowedSources,
-  }
-  if (waitlist.provider !== 'kit') throw new TypeError('waitlist.provider must be kit')
-  if (!Array.isArray(waitlist.allowedSources) || !waitlist.allowedSources.length ||
-      waitlist.allowedSources.some((source) => !SOURCES.has(source))) {
-    throw new TypeError('waitlist.allowedSources contains an unsupported source')
-  }
-  // Fail closed on a half-configured live form: rendering a form that posts nowhere
-  // loses the address silently, which is worse than showing no form at all.
-  if (waitlist.status === 'active' && !/^[0-9]+$/.test(waitlist.formId)) {
-    throw new TypeError('an active Kit waitlist requires a numeric formId')
-  }
-  if (waitlist.status === 'active' && !/^[a-zA-Z0-9]+$/.test(waitlist.uid)) {
-    throw new TypeError('an active Kit waitlist requires an embed uid')
-  }
-
   const analytics = {
     provider: text(value.analytics?.provider, 'analytics.provider'),
     status: status(value.analytics?.status, 'analytics.status'),
@@ -51,18 +29,13 @@ export function validatePrelaunchConfig(value) {
       throw new TypeError('analytics.scriptSrc must be the HTTPS snippet supplied by Plausible')
     }
   }
-  return { schema: value.schema, waitlist, analytics }
+  return { schema: value.schema, analytics }
 }
 
 export async function loadPrelaunchConfig(url = 'prelaunch-config.v1.json') {
   const response = await fetch(url, { cache: 'no-store' })
   if (!response.ok) throw new Error(`prelaunch config HTTP ${response.status}`)
   return validatePrelaunchConfig(await response.json())
-}
-
-function sourceFromLocation(allowedSources) {
-  const candidate = new URLSearchParams(globalThis.location?.search ?? '').get('utm_source')
-  return allowedSources.includes(candidate) ? candidate : 'direct'
 }
 
 function enableAnalytics(analytics) {
@@ -75,75 +48,18 @@ function enableAnalytics(analytics) {
   script.src = analytics.scriptSrc
   script.dataset.domain = analytics.domain
   document.head.appendChild(script)
-  for (const [id, event] of [
-    ['waitlist-form', 'Waitlist+Submit'],
-    ['youtube-cta', 'YouTube+Click'],
-    ['product-cta', 'Product+CTA'],
-  ]) document.getElementById(id)?.classList.add(`plausible-event-name=${event}`)
-}
-
-export function activatePrelaunch(config, productManifest) {
-  enableAnalytics(config.analytics)
-  document.documentElement.dataset.prelaunch = 'configured'
-  if (productManifest.status === 'available' || config.waitlist.status !== 'active') return
-  const source = sourceFromLocation(config.waitlist.allowedSources)
-  const form = document.getElementById('waitlist-form')
-  form.action = `https://app.kit.com/forms/${config.waitlist.formId}/subscriptions`
-  form.dataset.uid = config.waitlist.uid
-  form.hidden = false
-  // The product CTA used to be hidden here. That made sense when it was a mailto: the
-  // waitlist replaced it. It is now the free strategy-claim audit checklist, which is the
-  // reason to join the waitlist rather than a competitor for it -- and hiding it left the
-  // checklist reachable from nowhere while conversion-status.json claimed it was linked.
-  bindWaitlistSubmit(form)
-  document.getElementById('waitlist-source').value = `source-${source}`
-  document.getElementById('waitlist-utm-source').value = source
-  for (const key of ['utm_medium', 'utm_campaign']) {
-    document.getElementById(`waitlist-${key.replace('_', '-')}`).value =
-      new URLSearchParams(globalThis.location.search).get(key) ?? ''
-  }
-  document.documentElement.dataset.prelaunch = 'waitlist-active'
-}
-
-export function trackConfirmedSignup(config) {
-  enableAnalytics(config.analytics)
-  if (config.analytics.status === 'active') globalThis.plausible('Confirmed Signup')
-}
-
-// Kit's own success redirect is broken: a normal browser POST to
-// app.kit.com/forms/<id>/subscriptions answers 302 -> app.kit.com/forms/success?form_id=<id>,
-// and that URL returns 404. The address IS accepted -- the same request with
-// `Accept: application/json` returns {"status":"success"} -- but the visitor is thrown onto a
-// Kit 404 page and concludes nothing happened. Reported by the operator on 2026-08-11 after two
-// attempts. The endpoint sends `access-control-allow-origin: *`, so we can submit it ourselves
-// and own the outcome instead of handing the visitor to a redirect we do not control.
-export function bindWaitlistSubmit(form, fetchImpl = globalThis.fetch) {
-  const note = form.querySelector('.waitlist-note')
-  const original = note ? note.textContent : ''
-  const say = (message, state) => {
-    if (!note) return
-    note.textContent = message
-    note.dataset.state = state
-  }
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault()
-    const button = form.querySelector('button[type="submit"]')
-    if (button) button.disabled = true
-    say('Sending…', 'pending')
-    try {
-      const response = await fetchImpl(form.action, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new URLSearchParams([...new FormData(form)]),
-      })
-      const result = await response.json()
-      if (!response.ok || result.status !== 'success') throw new Error(result.message || 'rejected')
-      globalThis.location.assign('confirmed.html')
-    } catch {
-      // Never swallow it. A silently dropped address is the failure we are fixing.
-      if (button) button.disabled = false
-      say('That did not go through. Check the address and try again — nothing was sent.', 'error')
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]')
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    const target = new URL(link.href)
+    if (target.origin !== location.origin || target.pathname === location.pathname) return
+    if (/\/(learn|methods|how-to|examples)\//.test(target.pathname) || target.pathname.endsWith('/strategy-claim-audit-checklist.html')) {
+      globalThis.plausible('Guide Click', {props: {destination: target.pathname}})
     }
   })
-  return () => say(original, '')
+}
+
+export function activatePrelaunch(config) {
+  enableAnalytics(config.analytics)
+  document.documentElement.dataset.prelaunch = 'configured'
 }

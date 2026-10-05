@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="data:,">
-  <title>In-sample vs out-of-sample evidence — TraderCockpit Learn</title>
-  <meta name="description" content="See why evidence reserved from development has a different role from data repeatedly consulted during selection.">
-  <link rel="canonical" href="https://javin23863.github.io/tradercockpit/learn/concepts/out-of-sample.html">
+  <title>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage — TraderCockpit Learn</title>
+  <meta name="description" content="Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.">
+  <link rel="canonical" href="https://tradercockpit.app/learn/concepts/out-of-sample.html">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage", "description": "Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.", "mainEntityOfPage": "https://tradercockpit.app/learn/concepts/out-of-sample.html", "dateModified": "2026-10-05", "author": {"@type": "Organization", "@id": "https://tradercockpit.app/#organization", "name": "TraderCockpit", "url": "https://tradercockpit.app/trust/#authorship"}}</script>
   <link rel="stylesheet" href="../../assets/site-v2.css">
-<link data-reference-shell="style" rel="stylesheet" href="../../assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"></head>
+<link data-reference-shell="style" rel="stylesheet" href="../../assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../assets/analytics.mjs"></script></head>
 <body data-reference-content="true">
   <a class="skip-link" href="#main">Skip to content</a>
   <nav class="site-nav" aria-label="Primary">
@@ -28,10 +29,11 @@
   <main id="main" tabindex="-1">
     <section class="article-hero">
       <div class="shell article-hero-inner">
-        <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>In-sample vs out-of-sample evidence</span></div>
+        <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage</span></div>
         <span class="eyebrow">Concept / research education</span>
-        <h1>In-sample vs out-of-sample evidence</h1>
-        <p>See why evidence reserved from development has a different role from data repeatedly consulted during selection.</p>
+        <h1>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage</h1>
+        <p>Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.</p>
+        <p class="micro">By <a href="../../trust/#authorship">TraderCockpit</a> · Updated <time datetime="2026-10-05">2026-10-05</time> · Educational material, not financial advice.</p>
         <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Research concept</span></div>
         <div class="article-actions">
           <a class="deep-link" href="../../research-lab.html#out-of-sample">Open the visual explanation →</a>
@@ -47,7 +49,7 @@
           <section class="article-section" id="definition">
             <span class="kicker">Plain-language definition</span>
             <h2>What is it?</h2>
-            <div class="definition-card"><strong>In-sample vs out-of-sample evidence:</strong> In-sample data participates in development, fitting, or selection. Out-of-sample data is reserved for later evaluation. The distinction is about information flow: once holdout results repeatedly steer choices, that holdout is no longer independent of those choices.</div>
+            <div class="definition-card"><strong>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage:</strong> In-sample backtesting uses data that helped develop, fit or select the strategy. Out-of-sample backtesting evaluates it on data withheld from those decisions. A holdout stops being unseen for a later decision when its results inform that decision, even if the file is still labelled out-of-sample.</div>
           </section>
           <section class="article-section" id="research-question">
             <span class="kicker">Research question</span>
@@ -74,14 +76,19 @@
           </section>
           <section class="article-section" id="synthetic-example">
             <span class="kicker">Synthetic example</span>
-            <h2>See the shape before reading the formula.</h2>
-            <p>The Research Lab shows 36 synthetic candidates converging on one selection point. Preserved-holdout mode crosses the information boundary once; repeated-peek mode draws four illustrative feedback loops back into selection.</p>
+            <h2>A holdout becomes feedback.</h2>
+            <p>Synthetic example: a researcher develops a moving-average rule on 2020–2023 data and reserves 2024 for one final test. After seeing a losing month in 2024, the researcher changes the entry threshold and reruns 2024 until the result improves. The first test evaluated the frozen rule; the improved rerun now evaluates a rule selected with knowledge of 2024. Renaming that year OOS does not restore its independence. Record the original result and the change, then evaluate the revised rule on a genuinely untouched later period under a predeclared protocol.</p>
             <a class="deep-link" href="../../research-lab.html#out-of-sample">Open this concept in Research Lab →</a>
           </section>
+          <section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>            <li>Split time in order and freeze the strategy, parameter search, scoring rule, data preparation and execution assumptions before the final evaluation.</li>
+            <li>Indicators, universe membership, corporate-action data and features must use information actually available at each simulated decision time. Fit preprocessing on development data only.</li>
+            <li>Account for overlapping labels, trades crossing a split and temporal dependence. A chronological split alone does not remove every route for leakage.</li>
+            <li>Record every candidate tried and every consultation of validation data. Data used for model selection is validation data, not an untouched final test.</li></ul></section>
+          <section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul><li><a href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">scikit-learn: data leakage</a> — Explains why fitting preprocessing and choosing models using test data can bias evaluation.</li><li><a href="https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf">Bailey, Borwein, López de Prado and Zhu: The Probability of Backtest Overfitting</a> — Examines selection across many investment backtests and the limits of standard holdout evaluation.</li></ul></section>
           <section class="article-section" id="product-boundary">
             <span class="kicker">Apply the concept</span>
             <h2>Use the idea without turning it into a shortcut.</h2>
-            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For TraderCockpit controls and workflow details, open Docs.</div>
+            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For TraderCockpit controls and workflow details, open Docs. The app is in development; these examples are educational.</div>
           </section>
           <section class="article-section" id="related">
             <span class="kicker">Continue learning</span>

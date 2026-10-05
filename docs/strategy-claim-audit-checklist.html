@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:,">
-<title>TraderCockpit — Strategy-Claim Audit Checklist</title>
-<link rel="canonical" href="https://javin23863.github.io/tradercockpit/strategy-claim-audit-checklist.html">
+<title>Trading Strategy Backtest Checklist: How to Evaluate the Evidence — TraderCockpit</title>
+<link rel="canonical" href="https://tradercockpit.app/strategy-claim-audit-checklist.html">
 <meta name="description" content="A one-page evidence checklist for auditing a published trading-strategy claim without making a performance claim.">
 <style>
 :root{
@@ -59,15 +59,15 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
 }
 </style>
 <link rel="stylesheet" href="assets/site-v2.css" media="screen">
-<link data-reference-shell="style" rel="stylesheet" href="assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><!-- reference-print:start --><style>@media print{[data-reference-added-nav]{display:none!important}}</style><!-- reference-print:end --></head>
+<link data-reference-shell="style" rel="stylesheet" href="assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><!-- reference-print:start --><style>@media print{[data-reference-added-nav]{display:none!important}}</style><!-- reference-print:end --><script data-reference-shell="analytics" type="module" src="assets/analytics.mjs"></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Trading Strategy Backtest Checklist: How to Evaluate the Evidence", "mainEntityOfPage": "https://tradercockpit.app/strategy-claim-audit-checklist.html", "dateModified": "2026-10-05", "author": {"@type": "Organization", "@id": "https://tradercockpit.app/#organization", "name": "TraderCockpit", "url": "https://tradercockpit.app/trust/#authorship"}}</script></head>
 <body class="audit-page" data-reference-content="true">
 <a class="skip-link" href="#main">Skip to content</a>
 <!-- reference-navigation:start --><nav class="site-nav" data-reference-added-nav aria-label="Primary"><div class="nav-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="docs/">Docs</a><a href="learn/">Learn</a><a href="methods/">Methods</a><a href="pricing/">Pricing</a><a href="support/">Support</a></div></div></nav><!-- reference-navigation:end --><main class="sheet" id="main" tabindex="-1">
   <header>
     <div>
       <div class="eyebrow">TRADERCOCKPIT // TEST THE CLAIM</div>
-      <h1>Strategy-Claim <span>Audit Checklist</span></h1>
-      <p class="promise">By the end, a viewer can tell whether a strategy claim is real: not whether it will make money, but whether its evidence is traceable, separated from discovery, and judged only by the authority declared before the result.</p>
+      <h1>Trading Strategy Backtest Checklist: How to Evaluate the Evidence</h1>
+      <p class="promise">A trading strategy backtest checklist should establish the rules, data, costs, selection history and genuinely withheld evaluation behind a performance claim. Request reproducible evidence and record missing assumptions before interpreting the headline return.</p><p class="promise">By <a href="trust/#authorship">TraderCockpit</a> · Updated <time datetime="2026-10-05">2026-10-05</time> · Educational material, not financial advice.</p>
     </div>
     <button class="print" type="button" onclick="window.print()">PRINT / SAVE PDF</button>
   </header>
@@ -100,13 +100,7 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
     <div><strong>FORWARD-EVIDENCED</strong>A preregistered forward gate has receipts. This label still makes no performance promise.</div>
   </section>
 
-  <section class="capture-off" aria-label="Where to get the daily market map">
-    <strong>WANT THE DAILY MARKET MAP?</strong>
-    <p>This checklist is free and stays free — no email needed for it. If you want the daily
-      market breakdowns and word when the app opens,
-      <a href="./?utm_source=checklist&amp;utm_medium=lead_magnet&amp;utm_campaign=welcome">sign up on the main page</a>.
-      Double opt-in; nothing is sent until you confirm.</p>
-  </section>
+  <section class="capture-off" aria-labelledby="worked-example"><strong id="worked-example">SYNTHETIC EXAMPLE: COSTS CHANGE THE CONCLUSION</strong><p>A backtest screenshot reports $1,000 gross profit across 100 trades. At an assumed $8 round-trip cost per trade, net profit is $200. Adding $3 of slippage per trade changes it to a $100 loss. These are illustrative fixed dollar costs, not a broker quote or product result. Request the trade list, fill assumptions and cost model before judging the screenshot.</p><strong>ASSUMPTIONS AND LIMITATIONS</strong><p>The checklist assumes the underlying rules, data and experiment history can be inspected. Missing evidence means the claim cannot be evaluated from the supplied material. Passing these checks does not establish future profitability. Trade count alone is not an adequacy test: dependence, risk, regimes and uncertainty matter.</p><strong>PRIMARY REFERENCES AND RELATED GUIDES</strong><p><a href="https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf">The Probability of Backtest Overfitting</a> examines selection across many trials. <a href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">scikit-learn’s data leakage guidance</a> explains evaluation contamination. Continue with <a href="learn/concepts/out-of-sample.html">in-sample vs out-of-sample backtesting</a>, <a href="learn/concepts/monte-carlo.html">Monte Carlo uses and limitations</a> and <a href="how-to/read-result-metrics.html">reading backtest metrics together</a>.</p></section>
 
   <footer>
     <div class="source-key"><a href="./">tradercockpit</a> · the doctrine references beside each item identify the evidence standard used by this checklist</div>

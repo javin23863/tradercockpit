@@ -16,13 +16,13 @@
     "full_served_website_browser_acceptance": "complete; exact source identity, acceptance counts, and failures are recorded only in the served-browser evidence checkpoint",
     "reference_visual_comparison_and_asset_quality": "owner-approved composition retained; full-resolution Charts/Models sources remain 2x, deterministic and geometry-locked; approval metadata reconciled",
     "public_capture_provenance_and_resolution": "complete; Charts 1220x886 and Models 1440x1000 source hashes verified; generated overlays deterministic and geometry-locked",
-    "privacy_access_notes_and_commerce_acceptance": "complete for current waitlist boundary; no real signup/payment submitted",
+    "privacy_access_notes_and_commerce_acceptance": "Funnel retirement requires current candidate runtime verification; original waitlist acceptance is historical.",
     "exact_candidate_repository_and_build_checks": "complete; exact implementation identity and current verification counts are recorded only in the served-browser evidence checkpoint",
     "owner_visual_acceptance_of_integrated_result": "complete; owner approved exact integrated visual candidate on 2026-09-18"
   },
   "baseline_checks": "Main baseline passed; NOT evidence for an integrated candidate.",
   "production_deployment_authorized": false,
-  "limitation": "Owner visual acceptance is recorded here; exact-source candidate identity and verification counts live only in the served-browser evidence checkpoint. Fresh Codex review must be requested and observed in GitHub PR #52 external state; mutable review-request status is not source-controlled. Merge still requires zero unresolved current-head findings. No deployment is authorized.",
+  "limitation": "Original visual-composition approval is historical. The search-preparation candidate requires fresh verification and review. Domain activation awaits registration, DNS, HTTPS and migration checks; no product launch is authorized.",
   "tooling_progress": {
     "importer": "Implemented; input SHA checked before writes; runtime assets explicitly allowlisted",
     "localExactArchiveFixture": "10 tests passed; temporary fixture only",

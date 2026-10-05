@@ -148,7 +148,7 @@ def main() -> int:
             problems.append(f"missing title: {page.relative_to(REPO)}")
         if not parser.description.strip():
             problems.append(f"missing description: {page.relative_to(REPO)}")
-        if not parser.canonical.startswith("https://javin23863.github.io/tradercockpit/"):
+        if not parser.canonical.startswith("https://tradercockpit.app/"):
             problems.append(f"bad canonical: {page.relative_to(REPO)}")
         # The measured homepage reference intentionally omits the search control; internal
         # content surfaces retain local search for navigation and documentation discovery.
@@ -170,13 +170,11 @@ def main() -> int:
     required_home_ids = {
         "product-state", "product-heading", "product-summary", "manifest-capabilities",
         "manifest-detail", "product-cta", "youtube-cta", "purchase-support",
-        "waitlist-form", "waitlist-email", "waitlist-first-name", "waitlist-source",
-        "waitlist-utm-source", "waitlist-utm-medium", "waitlist-utm-campaign",
     }
     if home_parser:
         missing_ids = required_home_ids.difference(home_parser.ids)
         if missing_ids:
-            problems.append(f"homepage missing manifest/waitlist contract IDs: {sorted(missing_ids)}")
+            problems.append(f"homepage missing manifest/education contract IDs: {sorted(missing_ids)}")
         if not any(src.endswith("assets/reference-site/app.js") for src in home_parser.scripts):
             problems.append("homepage scene/interaction script missing")
         if not any(src.endswith("assets/reference-site/integration.mjs") for src in home_parser.scripts):
@@ -215,13 +213,10 @@ def main() -> int:
     for marker in ("product-manifest.mjs", "prelaunch-config.mjs", "activatePrelaunch", "loadProductManifest"):
         if marker not in (DOCS / "assets/reference-site/integration.mjs").read_text(encoding="utf-8"):
             problems.append(f"homepage missing product/prelaunch contract: {marker}")
-    for marker in ('name="email_address"', 'name="fields[first_name]"', 'name="fields[source]"', 'name="fields[utm_source]"', 'name="fields[utm_medium]"', 'name="fields[utm_campaign]"'):
-        if marker not in home_text:
-            problems.append(f"homepage missing waitlist field contract: {marker}")
-    if not re.search(r'<form[^>]*id="waitlist-form"[^>]*hidden', home_text):
-        problems.append("homepage waitlist form must fail closed in static HTML")
-    if not re.search(r'<a[^>]*id="product-cta"[^>]*hidden', home_text):
-        problems.append("homepage product CTA must fail closed until manifest verification")
+    if 'id="waitlist-form"' in home_text or 'type="email"' in home_text:
+        problems.append("email capture must remain retired")
+    if not re.search(r'<a[^>]*id="product-cta"[^>]*href="strategy-claim-audit-checklist.html"', home_text):
+        problems.append("educational checklist must remain reachable without JavaScript")
     for legacy_id in ("initiate", "rungrid", "phases", "verdict", "chips"):
         if f'id="{legacy_id}"' in home_text:
             problems.append(f"legacy homepage simulation remains present: #{legacy_id}")

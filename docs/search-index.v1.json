@@ -31,7 +31,7 @@
     },
     {
       "id": "research.monte-carlo",
-      "title": "Monte Carlo uncertainty",
+      "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
       "path": "learn/concepts/monte-carlo.html",
       "kind": "concept",
       "summary": "Monte Carlo synthetic path distributions that illustrate sequence uncertainty rather than a single outcome.",
@@ -46,7 +46,7 @@
     },
     {
       "id": "research.out-of-sample",
-      "title": "In-sample vs out-of-sample",
+      "title": "In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage",
       "path": "learn/concepts/out-of-sample.html",
       "kind": "concept",
       "summary": "Why evaluation data should be separated from development and selection decisions.",
@@ -270,7 +270,7 @@
     },
     {
       "id": "method.monte-carlo",
-      "title": "Monte Carlo method",
+      "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
       "path": "methods/monte-carlo.html",
       "kind": "method",
       "summary": "Procedure, assumptions, interpretation, and failure modes for Monte Carlo and resampling research.",
@@ -679,16 +679,20 @@
       "title": "Site privacy and third-party boundaries",
       "path": "trust/privacy.html",
       "kind": "reference",
-      "summary": "When the public site uses same-origin search, submits waitlist fields to Kit, or loads YouTube after an explicit action.",
+      "summary": "Optional Plausible analytics, same-origin search, local research notes and click-to-load YouTube. No email capture.",
       "terms": [
         "privacy",
         "third party",
-        "Kit",
-        "waitlist data",
         "YouTube",
         "cookies",
         "local storage",
         "search privacy"
+      ],
+      "keywords": [
+        "privacy",
+        "analytics",
+        "research notes",
+        "YouTube"
       ]
     },
     {

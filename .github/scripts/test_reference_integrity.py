@@ -33,9 +33,9 @@ class IntegrityTests(unittest.TestCase):
  def test_internal_repository_journey_link_rejected(self):
   self.alter('docs/assets/reference-site/journeys.js',lambda b:b+b"\n// https://github.com/javin23863/tradercockpit/blob/stale/docs/\n");self.assertTrue(module.validate(self.root))
  def test_signup_fail_open_rejected(self):
-  self.alter('docs/index.html',lambda b:b.replace(b'class="reference-waitlist" method="post" hidden',b'class="reference-waitlist" method="post"'));self.assertTrue(module.validate(self.root))
+  self.alter('docs/index.html',lambda b:b.replace(b'</main>',b'<form><input type="email" name="email_address"></form></main>',1));self.assertTrue(module.validate(self.root))
  def test_runtime_signup_fail_open_rejected(self):
-  self.alter('docs/assets/reference-site/integration.mjs',lambda b:b.replace(b"$('#waitlist-form').hidden = true;",b"$('#waitlist-form').hidden = false;"));self.assertTrue(module.validate(self.root))
+  self.alter('docs/assets/reference-site/integration.mjs',lambda b:b+b"\nfetch('https://app.kit.com/forms/123/subscriptions');");self.assertTrue(module.validate(self.root))
  def test_unlisted_raw_artwork_rejected(self):
   (self.root/'docs/assets/reference-site/raw-mockup.png').write_bytes(b'unlisted artwork');self.assertTrue(module.validate(self.root))
  def test_article_text_change_rejected(self):

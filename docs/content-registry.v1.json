@@ -64,14 +64,14 @@
       "id": "concept.monte-carlo",
       "kind": "concept",
       "path": "learn/concepts/monte-carlo.html",
-      "title": "Monte Carlo uncertainty",
+      "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
       "status": "public"
     },
     {
       "id": "concept.out-of-sample",
       "kind": "concept",
       "path": "learn/concepts/out-of-sample.html",
-      "title": "In-sample vs out-of-sample evidence",
+      "title": "In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage",
       "status": "public"
     },
     {
@@ -120,7 +120,7 @@
       "id": "method.monte-carlo",
       "kind": "method",
       "path": "methods/monte-carlo.html",
-      "title": "Monte Carlo method",
+      "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
       "status": "public"
     },
     {
@@ -310,7 +310,14 @@
       "kind": "reference",
       "path": "trust/privacy.html",
       "title": "Site privacy and third-party boundaries",
-      "status": "public"
+      "status": "public",
+      "summary": "Optional Plausible analytics, same-origin search, local research notes and click-to-load YouTube. No email capture.",
+      "keywords": [
+        "privacy",
+        "analytics",
+        "research notes",
+        "YouTube"
+      ]
     },
     {
       "id": "commerce.pricing",

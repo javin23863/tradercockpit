@@ -135,7 +135,7 @@ def main() -> int:
             absent = REQUIRED_DIMENSIONS.difference(row)
             if absent:
                 problems.append(f"{rel} missing UX dimensions: {sorted(absent)}")
-            expected_audit = {"status":"owner_visual_approved","visual_approval":True,"approved_at":"2026-09-18","source":"owner"}
+            expected_audit = {"status":"retained_visual_composition","visual_approval":True,"approved_at":"2026-09-18","source":"owner","scope":"Original composition; updated wording checked separately"}
             if row.get("audit") != expected_audit:
                 problems.append(f"{rel} must record the owner visual approval separately from structural checks")
 
@@ -170,8 +170,8 @@ def main() -> int:
         hero = hero_match.group(1)
         if len(re.findall(r'class="[^"]*\bgold\b[^"]*"', hero)) != 1:
             problems.append("homepage hero must expose exactly one primary action")
-        if "Explore access" not in hero:
-            problems.append("homepage primary action must expose access")
+        if "Read the guides" not in hero:
+            problems.append("homepage primary action must expose the guides")
         if "button glass" not in hero:
             problems.append("homepage secondary hero action must be visually subordinate")
     if 'class="quant-path"' in home:
