@@ -57,6 +57,15 @@ function enableAnalytics(analytics) {
       globalThis.plausible('Guide Click', {props: {destination: target.pathname}})
     }
   })
+  window.addEventListener('hashchange', event => {
+    if (!event.oldURL || !event.newURL || !document.querySelector('#journey-main')) return
+    const target = new URL(event.newURL)
+    const route = target.hash.split('?')[0]
+    if (route === new URL(event.oldURL).hash.split('?')[0]) return
+    if (['#/learn', '#/learn/monte-carlo', '#/learn/checklist'].includes(route)) {
+      globalThis.plausible('Guide Click', {props: {destination: target.pathname + route}})
+    }
+  })
 }
 
 export function activatePrelaunch(config) {

@@ -322,8 +322,8 @@
     },
     "prelaunch-config.mjs": {
       "before_sha256": "970111ce96d32e56dcee429f55b3b9dea6673a30724d4db6ae5d51328f1207fe",
-      "after_sha256": "3cd9d643c2b707252691b8ac5ebbdd73e064c7be59b12900750a857cd93a986d",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained."
+      "after_sha256": "25b108c79ab74ab9f8cab86e2a4eb16a88a88aebf5de70690e03bbf7711c1bda",
+      "reason": "User-approved funnel retirement and search preparation, including AP-001 enhanced guide navigation measurement; historical initial-import identity retained."
     },
     "prelaunch-config.v1.json": {
       "before_sha256": "fe38da3122cfcd9ba7bdc220c98938dfe3cbcc4ef4413c06314e4c2d7b321cc6",
