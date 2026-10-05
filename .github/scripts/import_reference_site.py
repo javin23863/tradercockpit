@@ -74,8 +74,18 @@ def update_journeys(text: str) -> str:
   });
 '''
     text = text[:start]+new+text[end:]
-    text = text.replace('Preview snapshot · Prelaunch', "${validCommerce ? 'Prelaunch · Local record verified' : 'Availability unverified'}")
-    text = text.replace('href="https://tradercockpit.app/#public-status" target="_blank" rel="noopener noreferrer"', 'href="#public-status"')
+    text = text.replace('Preview snapshot · Prelaunch', "${validCommerce ? 'In development' : 'Availability unverified'}")
+    # Match the immutable archive's historical URLs, not the new publication origin.
+    text = text.replace('href="https://javin23863.github.io/tradercockpit/#public-status" target="_blank" rel="noopener noreferrer"', 'href="#public-status"')
+    text = re.sub(r"  const SOURCE = '[^']*';\n", '', text)
+    text = text.replace('${SOURCE+file}" target="_blank" rel="noopener noreferrer"', '${file}"')
+    text = text.replace('Explore four monthly plans and find your starting point. Checkout remains disabled in this preview.', 'Four planned monthly plans. The Windows app is in development and checkout is closed.')
+    text = text.replace('Explore now. Subscribe later.', 'Release follows readiness.')
+    text = text.replace('You can explore this preview without an account or payment.', 'You can explore TraderCockpit information without an account or payment.')
+    text = text.replace('This preview does not offer an annual discount or take payments.', 'This page does not offer an annual discount or take payments.')
+    text = text.replace('This preview does not contain the page at this address.', 'We could not find the page at this address.')
+    text = text.replace('480-pixel preview', '480-pixel image').replace('The preview does not establish current release approval', 'The image does not establish current release approval')
+    text = text.replace('TraderCockpit — Quant research environment', 'TraderCockpit | Backtesting & Strategy Validation Guides')
     text = text.replace('Visit official access page', 'Read development status')
     text = text.replace('External page. It may show the older public website design.', 'The Windows app is in development. We’ll release it when it’s ready.')
     text = text.replace('The prices in this saved preview are a snapshot, not a live quote.', 'Prices load from the local public commerce record. No payment service is enabled here.')
@@ -129,7 +139,8 @@ def make_plan(root: Path, archive: Path) -> dict:
             text=text.replace('assets/','assets/reference-site/')
         if name=='app.js':
             text=text.replace('The public website and PR #51 have not been changed.', 'The illustrative setting and development captures are not live-market views or evidence of trading performance.')
-            text=text.replace('href="https://tradercockpit.app/docs/" target="_blank" rel="noopener noreferrer"','href="docs/"')
+            text=text.replace('href="https://javin23863.github.io/tradercockpit/docs/" target="_blank" rel="noopener noreferrer"','href="docs/"')
+            text=text.replace("['Access','#/access','waitlist plans checkout']", "['Development status','#public-status','development release status']")
         text=text.replace('Product access remains on waitlist and checkout is closed.', 'The Windows app is in development. We’ll release it when it’s ready. Checkout is closed.')
         if name=='app.js':
             for key in ['builder','charts','models','apollo','data','projects']:

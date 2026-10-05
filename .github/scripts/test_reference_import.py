@@ -72,6 +72,13 @@ class ReferenceImportTests(unittest.TestCase):
         self.assertIn('href="learn/" data-journey="#/learn"',html)
         self.assertIn('href="support/"',html)
         self.assertNotIn('site-webgl-v1.js',html)
+        app=(root/'docs/assets/reference-site/app.js').read_text()
+        journeys=(root/'docs/assets/reference-site/journeys.js').read_text()
+        self.assertIn('href="docs/"',app)
+        self.assertIn('href="#public-status"',journeys)
+        self.assertIn("['Development status','#public-status','development release status']",app)
+        self.assertNotIn('javin23863.github.io/tradercockpit',app+journeys)
+        self.assertNotIn('waitlist',app+journeys)
         self.assertEqual(json.loads((root/'docs/commerce-public.v1.json').read_text())['tiers'][0]['unitAmount'],1999)
         self.assertTrue(self.mod.verify_installed(root,plan)['unchanged_existing_routes'])
 

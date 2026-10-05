@@ -230,9 +230,9 @@
     "strategy-claim-audit-checklist.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
-      "after_sha256": "8e5ec3f5ba67678d71b962957e73911e6264b7d268ba833a53f948f25bacf215",
+      "after_sha256": "fccdba2aee9d45cf5cf703e00e6f78f038a279372f5e34c4695df417ab6af023",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "5964ce54567dc63530bab78ba5b3e8b3b85d60cde2d9ca8d2522909120769f9d"
+      "corrected_unwrapped_sha256": "38f7b2c9e84b80fa09d51c65acc55fb0d579751301b8c7d5da346f7de57e4d56"
     },
     "support/faq.html": {
       "kind": "corrected_reading_shell",

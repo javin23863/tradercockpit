@@ -38,12 +38,9 @@ h1 span{color:var(--accent)}
 .outcome div{border:1px solid var(--line);padding:.42rem .5rem;color:var(--dim);font-size:.64rem}
 .outcome strong{display:block;color:var(--ink);font-size:.7rem}
 .outcome .stop{border-color:var(--accent)}
-.capture-off{margin-top:.7rem;border:1px solid var(--line);padding:.55rem;color:var(--dim);font-size:.64rem}
-.capture-off strong{display:block;color:var(--ink);font-size:.7rem;margin-bottom:.3rem}
-.capture-off form{display:flex;gap:.45rem;align-items:center;flex-wrap:wrap}
-.capture-off input{flex:1 1 16rem;border:1px solid var(--line);background:var(--ground);color:var(--dim);font:inherit;padding:.45rem}
-.capture-off button{border:1px solid var(--faint);background:transparent;color:var(--faint);font:inherit;padding:.45rem .65rem}
-.capture-off p{margin:.3rem 0 0;color:var(--faint)}
+.guide-context{margin-top:.7rem;border:1px solid var(--line);padding:.55rem;color:var(--dim);font-size:.64rem}
+.guide-context strong{display:block;color:var(--ink);font-size:.7rem;margin-bottom:.3rem}
+.guide-context p{margin:.3rem 0 0;color:var(--faint)}
 footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;padding-top:.55rem;border-top:1px solid var(--line);font-size:.58rem;color:var(--faint)}
 .disclaimer{color:var(--ink);font-size:.64rem}
 @media(max-width:720px){header,.claim,.checklist,.outcome,footer{grid-template-columns:1fr}.print{justify-self:start}}
@@ -52,7 +49,8 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
   :root{color-scheme:dark}
   html,body{width:210mm;min-height:297mm;background:var(--ground)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .sheet{width:auto;margin:0;padding:6mm;border:0}
-  .print,.capture-off{display:none}
+  .print,.skip-link{display:none}
+  .guide-context{break-before:page;font-size:8pt}.guide-context strong{font-size:9pt}.guide-context p{color:var(--dim)}
   h1{font-size:17pt}.promise{font-size:7.7pt}.claim{margin:4mm 0}.field{min-height:9mm}
   .definition{font-size:6.8pt;margin:3mm 0}.checklist{gap:2mm 3mm}.item{min-height:25mm;padding:.4rem .45rem .35rem 1.8rem}
   .item h2{font-size:6.8pt}.item p{font-size:5.9pt}.receipt,footer{font-size:5.2pt}.outcome div,.disclaimer{font-size:5.8pt}
@@ -100,7 +98,7 @@ footer{display:grid;grid-template-columns:1fr 1.2fr;gap:.75rem;margin-top:.7rem;
     <div><strong>FORWARD-EVIDENCED</strong>A preregistered forward gate has receipts. This label still makes no performance promise.</div>
   </section>
 
-  <section class="capture-off" aria-labelledby="worked-example"><strong id="worked-example">SYNTHETIC EXAMPLE: COSTS CHANGE THE CONCLUSION</strong><p>A backtest screenshot reports $1,000 gross profit across 100 trades. At an assumed $8 round-trip cost per trade, net profit is $200. Adding $3 of slippage per trade changes it to a $100 loss. These are illustrative fixed dollar costs, not a broker quote or product result. Request the trade list, fill assumptions and cost model before judging the screenshot.</p><strong>ASSUMPTIONS AND LIMITATIONS</strong><p>The checklist assumes the underlying rules, data and experiment history can be inspected. Missing evidence means the claim cannot be evaluated from the supplied material. Passing these checks does not establish future profitability. Trade count alone is not an adequacy test: dependence, risk, regimes and uncertainty matter.</p><strong>PRIMARY REFERENCES AND RELATED GUIDES</strong><p><a href="https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf">The Probability of Backtest Overfitting</a> examines selection across many trials. <a href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">scikit-learn’s data leakage guidance</a> explains evaluation contamination. Continue with <a href="learn/concepts/out-of-sample.html">in-sample vs out-of-sample backtesting</a>, <a href="learn/concepts/monte-carlo.html">Monte Carlo uses and limitations</a> and <a href="how-to/read-result-metrics.html">reading backtest metrics together</a>.</p></section>
+  <section class="guide-context" aria-labelledby="worked-example"><strong id="worked-example">SYNTHETIC EXAMPLE: COSTS CHANGE THE CONCLUSION</strong><p>A backtest screenshot reports $1,000 gross profit across 100 trades. At an assumed $8 round-trip cost per trade, net profit is $200. Adding $3 of slippage per trade changes it to a $100 loss. These are illustrative fixed dollar costs, not a broker quote or product result. Request the trade list, fill assumptions and cost model before judging the screenshot.</p><strong>ASSUMPTIONS AND LIMITATIONS</strong><p>The checklist assumes the underlying rules, data and experiment history can be inspected. Missing evidence means the claim cannot be evaluated from the supplied material. Passing these checks does not establish future profitability. Trade count alone is not an adequacy test: dependence, risk, regimes and uncertainty matter.</p><strong>PRIMARY REFERENCES AND RELATED GUIDES</strong><p><a href="https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf">The Probability of Backtest Overfitting</a> examines selection across many trials. <a href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">scikit-learn’s data leakage guidance</a> explains evaluation contamination. Continue with <a href="learn/concepts/out-of-sample.html">in-sample vs out-of-sample backtesting</a>, <a href="learn/concepts/monte-carlo.html">Monte Carlo uses and limitations</a> and <a href="how-to/read-result-metrics.html">reading backtest metrics together</a>.</p></section>
 
   <footer>
     <div class="source-key"><a href="./">tradercockpit</a> · the doctrine references beside each item identify the evidence standard used by this checklist</div>
