@@ -43,6 +43,8 @@ function enableAnalytics(analytics) {
   globalThis.plausible = globalThis.plausible || function plausible() {
     ;(globalThis.plausible.q = globalThis.plausible.q || []).push(arguments)
   }
+  globalThis.plausible.init = globalThis.plausible.init || function init(options) { globalThis.plausible.o = options || {} }
+  globalThis.plausible.init()
   const script = document.createElement('script')
   script.defer = true
   script.src = analytics.scriptSrc

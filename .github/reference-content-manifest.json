@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "7d46519ce27a78bb8e386152ef406152c69160962d22f8340b4294c86a13e041",
+  "home_sha256": "1ae28fd6c9cadd43d290e6a3c6f3a886fc8de47c7c0e766607ff0df0e278044a",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -322,7 +322,7 @@
     },
     "prelaunch-config.mjs": {
       "before_sha256": "970111ce96d32e56dcee429f55b3b9dea6673a30724d4db6ae5d51328f1207fe",
-      "after_sha256": "25b108c79ab74ab9f8cab86e2a4eb16a88a88aebf5de70690e03bbf7711c1bda",
+      "after_sha256": "8ccb827ef403817d3fcca8652dd3989bcd0a1f8fab472ae8e4e94d8a98b0a115",
       "reason": "User-approved funnel retirement and search preparation, including AP-001 enhanced guide navigation measurement; historical initial-import identity retained."
     },
     "prelaunch-config.v1.json": {
@@ -358,6 +358,7 @@
   },
   "added_files": {
     "assets/analytics.mjs": "b119f9825e54e34edc7542084c403ea7c6b0fb971a044a4cd0c41fc45b93a959",
+    "BingSiteAuth.xml": "a44787436e972d0fac6afbc2024ba31e31e066fbd622fa124e7cfd2d6fedb12d",
     "CNAME": "14c35121f3b587a1620ea49d179466c8efdeeae02ce6ab2bc6bb1fa8163be734"
   }
 }
