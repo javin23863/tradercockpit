@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "1ba22e6ab6d104b143e07b8fc759f77362e39af243ffbdfe9785a351b91c72dc",
+      "corrected_unwrapped_sha256": "77c4d671ed2b52827f71cfd347182d40f3cb8a87f7a53b00ae2cba46acd02322",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08).",
-      "after_sha256": "ea9224d036429e99f67ea47eb4930f9a4602e5be45453450ecb6a7c862c44af3"
+      "after_sha256": "4e9a1804c80ad779624e54caec8f7b540ac45da385fd014b6d35b3a0144ffb49"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -265,8 +265,8 @@
     "trust/privacy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-      "after_sha256": "55d2e085ad861ef5317b09c43ea0fda4dd19c0c6519f7e7e726d667f83be058a",
-      "corrected_unwrapped_sha256": "752c2f10cec9b435a628f0baca0917415e82f4fc9a844332974d9fe23897a99a",
+      "after_sha256": "0ea853778be91b886cc44aef2f1ee9adb5970ea7256e5e5ea8fb7c0ddcfcf017",
+      "corrected_unwrapped_sha256": "02c3ff00ac16ee316994c53cb4c34840a40a0b25305bddf84eed382f6907eaac",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08)."
     },
     "updates/index.html": {
@@ -284,7 +284,7 @@
     "ux-page-contracts.v1.json": {
       "kind": "ux_contracts",
       "before_sha256": "e4db5afe41a7109504ef74c3a0e5e4233b68899e2d635ba674bb7e9648699670",
-      "after_sha256": "f69e336b5212f6dbec7203aa427d7b2fbc23ec3a35b53c86567678e4f2367f1c"
+      "after_sha256": "e7f63ac20cebc44719f208be1d3c2cede4f8568cdb4e506a0bdf55b88866be76"
     }
   },
   "new_assets": {
@@ -347,7 +347,7 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "a9142d499b3409b6b1fb927b163f241ed2f2736025226d19a50ea8a9d210f670",
+      "after_sha256": "ce070190b25696ea5f0618be799adaf0fc19bf9812621dec3722cad5d33631b2",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08)."
     },
     "sitemap.xml": {

@@ -1,6 +1,10 @@
 """Keep structural page contracts separate from human visual approval."""
 import copy,json
 
+# Pages added after the owner's 2026-09-18 visual approval; each waits for its own review.
+PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html'})
+PENDING_AUDIT={'status':'pending_visual_review','visual_approval':False}
+
 def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None):
     data=copy.deepcopy(original)
     data['reviewed_at']='2026-10-05'
@@ -32,6 +36,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
             row['intent']['primary_job']='Compare the four published monthly plans and inspect access availability.'
             row['intent']['worst_mistake']='Believing checkout is open or treating a plan name as a verified feature entitlement.'
         if row['path']=='trust/privacy.html':
+            row['title']='Privacy Notice — TraderCockpit'
             row['reviewed_h1']='Your privacy at TraderCockpit'
             row['hierarchy']['focal_point']=row['reviewed_h1']
     privacy=next((row for row in data['pages'] if row['path']=='trust/privacy.html'),None)
@@ -43,6 +48,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
         terms['hierarchy']['primary_action']='Read the terms that apply to the website, app and account service'
         terms['intent']['primary_job']='Understand the terms for using TraderCockpit: not advice, your trades, broker connections and simulations.'
         terms['intent']['worst_mistake']='Treating TraderCockpit output as financial advice or a simulated result as a real one.'
+        terms['audit']=dict(PENDING_AUDIT)
         data['pages'].insert(data['pages'].index(privacy)+1,terms)
     data['page_count']=len(data['pages'])
     return data

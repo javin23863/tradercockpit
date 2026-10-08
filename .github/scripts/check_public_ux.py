@@ -6,6 +6,10 @@ from html.parser import HTMLParser
 from pathlib import Path
 import json
 import re
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from reference_contracts import PENDING_AUDIT, PENDING_OWNER_VISUAL_REVIEW  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
@@ -136,6 +140,8 @@ def main() -> int:
             if absent:
                 problems.append(f"{rel} missing UX dimensions: {sorted(absent)}")
             expected_audit = {"status":"retained_visual_composition","visual_approval":True,"approved_at":"2026-09-18","source":"owner","scope":"Original composition; updated wording checked separately"}
+            if rel in PENDING_OWNER_VISUAL_REVIEW:
+                expected_audit = PENDING_AUDIT
             if row.get("audit") != expected_audit:
                 problems.append(f"{rel} must record the owner visual approval separately from structural checks")
 
