@@ -312,7 +312,7 @@
     },
     "content-registry.v1.json": {
       "before_sha256": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
-      "after_sha256": "1967ec4bb6c3843594a187e8f1b79bbf1e3937855c21c9e957a8fc8dbed6e113",
+      "after_sha256": "8f6b0f545ad8b68d7cbf4b36da978e7880a63cf41d61db5f0c99e3709f948885",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08)."
     },
     "help-registry.v1.json": {
@@ -347,7 +347,7 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "ce070190b25696ea5f0618be799adaf0fc19bf9812621dec3722cad5d33631b2",
+      "after_sha256": "1c7fdd16bf5e5aeb0ea815de80b25f3d2af027694fe6fbeaa1d0b32c12ad31b6",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08)."
     },
     "sitemap.xml": {
