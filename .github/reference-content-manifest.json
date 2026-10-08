@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "12fce5f0c948389419886630a2442bda8c98e117f268780532f467313fe4a90d",
+      "corrected_unwrapped_sha256": "1ba22e6ab6d104b143e07b8fc759f77362e39af243ffbdfe9785a351b91c72dc",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08).",
-      "after_sha256": "d7ff04d8239b64a90a8bd7e58fdc75501a801203979cba4b1f77f5924583ef59"
+      "after_sha256": "ea9224d036429e99f67ea47eb4930f9a4602e5be45453450ecb6a7c862c44af3"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
