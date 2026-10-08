@@ -6,9 +6,9 @@
     "404.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7a534afcded123790db17bd7eeae83996d2d62bbac3dc9213b598ed2fb123224",
-      "after_sha256": "9332c61032ae24a1d6d66b66928bdd096b0dfcebe0029d06ad6a056eb8f47291",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable.",
-      "corrected_unwrapped_sha256": "7a534afcded123790db17bd7eeae83996d2d62bbac3dc9213b598ed2fb123224"
+      "after_sha256": "2e628e0ed90e2122dd773b57bdced36fb3a26fb7deef3dc938938b3dd27a67a8",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08).",
+      "corrected_unwrapped_sha256": "7fee2f93f194dcd3c7f23980260fa4e424127f2f1b4fd6476ff096d03fe77271"
     },
     "confirmed.html": {
       "kind": "corrected_reading_shell",

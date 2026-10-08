@@ -23,5 +23,11 @@ try {
   const stale=[];
   (function visit(dir){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,entry.name);if(entry.isDirectory())visit(p);else if(/\.(html|xml|json|txt|mjs|js|webmanifest)$/.test(entry.name)&&fs.readFileSync(p,'utf8').includes('javin23863.github.io'))stale.push(path.relative(docs,p));}})(docs);
   assert.deepEqual(stale,[],'No published file may point at the old github.io address');
+  const notFound=fs.readFileSync(path.join(docs,'404.html'),'utf8');
+  const relative=[...notFound.matchAll(/(?:href|src)="([^"]*)"/g)].map(m=>m[1]).filter(u=>!/^(#|data:|\/|https?:|mailto:)/.test(u));
+  assert.deepEqual(relative,[],'404.html is shown at any depth, so its links and assets must be root-absolute');
+  const deep=await fetch(new URL('learn/old/page',host.base));
+  assert.equal(deep.status,404);
+  for(const asset of ['assets/site-v2.css','assets/site-search.js','assets/analytics.mjs'])assert.equal((await fetch(new URL('/'+asset,host.base))).status,200,asset+' must load from the root for the 404 page');
   console.log(`PUBLICATION URLS: PASS (${urls.length} sitemap destinations served from the root of ${DOMAIN})`);
 } finally {await host.close();}
