@@ -78,6 +78,7 @@ class ReferenceImportTests(unittest.TestCase):
         self.assertIn('href="#public-status"',journeys)
         self.assertIn("['Development status','#public-status','development release status']",app)
         self.assertNotIn('javin23863.github.io/tradercockpit',app+journeys)
+        self.assertNotIn('trader-cockpit.com',app+journeys)
         self.assertNotIn('waitlist',app+journeys)
         self.assertEqual(json.loads((root/'docs/commerce-public.v1.json').read_text())['tiers'][0]['unitAmount'],1999)
         self.assertTrue(self.mod.verify_installed(root,plan)['unchanged_existing_routes'])

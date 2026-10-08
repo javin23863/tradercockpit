@@ -676,23 +676,50 @@
     },
     {
       "id": "reference.site-privacy",
-      "title": "Site privacy and third-party boundaries",
+      "title": "Privacy at TraderCockpit",
       "path": "trust/privacy.html",
       "kind": "reference",
-      "summary": "Optional Plausible analytics, same-origin search, local research notes and click-to-load YouTube. No email capture.",
+      "summary": "What the website, Windows app and account service collect: site analytics and YouTube boundaries, Google sign-in, product key, Apollo through OpenRouter, SnapTrade broker connections, Stripe, and data kept on your PC.",
       "terms": [
-        "privacy",
-        "third party",
-        "YouTube",
+        "account",
         "cookies",
         "local storage",
-        "search privacy"
+        "OpenRouter",
+        "privacy",
+        "product key",
+        "search privacy",
+        "SnapTrade",
+        "Stripe",
+        "third party",
+        "YouTube"
       ],
       "keywords": [
         "privacy",
         "analytics",
         "research notes",
         "YouTube"
+      ]
+    },
+    {
+      "id": "reference.terms-of-use",
+      "title": "Terms of use",
+      "path": "trust/terms.html",
+      "kind": "reference",
+      "summary": "Plain-language terms for the website, Windows app and account service: not financial advice, you confirm every order, broker connections through SnapTrade, and simulations are simulated.",
+      "terms": [
+        "terms of use",
+        "terms",
+        "not financial advice",
+        "broker",
+        "SnapTrade",
+        "paper trading",
+        "liability"
+      ],
+      "keywords": [
+        "terms",
+        "not financial advice",
+        "SnapTrade",
+        "paper trading"
       ]
     },
     {

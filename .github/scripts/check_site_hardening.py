@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 
 REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
-BASE = "https://javin23863.github.io/tradercockpit/"
+BASE = "https://trader-cockpit.com/"
 MAX_TEXT_ASSET_BYTES = 100_000
 GENERATED_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "site-webgl-v1.js"
 GENERATED_RESEARCH_VTK_BUNDLE = DOCS / "assets" / "generated" / "research-vtk-v1.js"
