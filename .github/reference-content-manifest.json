@@ -265,8 +265,8 @@
     "trust/privacy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-      "after_sha256": "0ea853778be91b886cc44aef2f1ee9adb5970ea7256e5e5ea8fb7c0ddcfcf017",
-      "corrected_unwrapped_sha256": "02c3ff00ac16ee316994c53cb4c34840a40a0b25305bddf84eed382f6907eaac",
+      "after_sha256": "0b815bcddb5be3c158a4d2348e911e1138b529d882429df600ef735909bcb832",
+      "corrected_unwrapped_sha256": "3d2ad8fff59c6a2f4cbc8ed0e70ba9175f6d6c5437cc3976c1368ea84cdc03d1",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08)."
     },
     "updates/index.html": {
@@ -360,6 +360,6 @@
     "assets/analytics.mjs": "b119f9825e54e34edc7542084c403ea7c6b0fb971a044a4cd0c41fc45b93a959",
     "BingSiteAuth.xml": "a44787436e972d0fac6afbc2024ba31e31e066fbd622fa124e7cfd2d6fedb12d",
     "CNAME": "9313e2519f057f2811630b279ade88b9ce8fdf31ab6f02f56e3f9f8be6335613",
-    "trust/terms.html": "45849fe544a7be90ccf720aca10d461bd2d2ff3924d9d53849bd6b050ae4ae96"
+    "trust/terms.html": "40cfa56799d5b1685326982fa839cd698d5ad9006891b9b06825560547d8c4f8"
   }
 }
