@@ -2,7 +2,7 @@
 
 This repository serves the public TraderCockpit landing page via GitHub Pages, and nothing else.
 
-- **Site:** <https://javin23863.github.io/tradercockpit/>
+- **Site:** <https://trader-cockpit.com/>
 - **Channel:** [@Thetradercockpit](https://youtube.com/@Thetradercockpit)
 
 Everything published here lives under `docs/`.
