@@ -314,6 +314,14 @@ def main() -> int:
         if generated.returncode != 0:
             detail = (generated.stdout + generated.stderr).strip().replace("\n", " | ")
             problems.append(f"generated concept pages are stale: {detail}")
+    # Link previews, structured data and sitemap dates must match each page's own title and description.
+    search_meta = subprocess.run(
+        [sys.executable, str(REPO / ".github" / "scripts" / "search_metadata.py"), "--check"],
+        cwd=REPO, text=True, capture_output=True, check=False,
+    )
+    if search_meta.returncode != 0:
+        detail = (search_meta.stdout + search_meta.stderr).strip().replace("\n", " | ")
+        problems.append(f"search metadata is stale: {detail}")
 
     content_entries: list[dict] = []
     if not CONTENT_REGISTRY.is_file():

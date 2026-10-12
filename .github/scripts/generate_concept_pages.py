@@ -40,9 +40,8 @@ def render(entry: dict) -> str:
     how_to_action = f'          <a class="deep-link" href="{esc(how_to)}">Open the How-To →</a>' if how_to else ""
     how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-To →</a>' if how_to else ""
     modified = entry.get('dateModified')
-    authorship = f'<p class="micro">By <a href="../../trust/#authorship">TraderCockpit</a> · Updated <time datetime="{esc(modified)}">{esc(modified)}</time> · Educational material, not financial advice.</p>' if modified else ''
-    article = {'@context':'https://schema.org','@type':'Article','headline':title,'description':entry['description'],'mainEntityOfPage':canonical,'dateModified':modified,'author':{'@type':'Organization','@id':SITE+'#organization','name':'TraderCockpit','url':SITE+'trust/#authorship'}}
-    structured = '<script type="application/ld+json">'+json.dumps(article,ensure_ascii=False).replace('<','\\u003c')+'</script>' if modified else ''
+    authorship = f'<p class="micro">By <a href="../../trust/#authorship">the TraderCockpit team</a> · Updated <time datetime="{esc(modified)}">{esc(modified)}</time> · Educational material, not financial advice.</p>' if modified else ''
+    about = '<section class="article-section" id="about-the-team"><span class="kicker">About the authors</span><h2>About the TraderCockpit team</h2><p>We build TraderCockpit, a Windows desktop app for trading strategy research that is in development, and we write these guides to explain the methods behind testing a strategy. <a href="../../trust/#authorship">How we write and correct the guides →</a></p><p class="micro">Educational material, not financial advice. No backtest or simulation guarantees future results.</p></section>' if modified else ''
     assumptions = '<section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>'+render_list(entry['assumptions'])+'</ul></section>' if entry.get('assumptions') else ''
     references = '<section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul>'+''.join(f'<li><a href="{esc(ref["url"])}">{esc(ref["title"])}</a> — {esc(ref["scope"])}</li>' for ref in entry.get('references',[]))+'</ul></section>' if entry.get('references') else ''
     html = f'''<!doctype html>
@@ -50,11 +49,10 @@ def render(entry: dict) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" href="data:,">
-  <title>{esc(title)} — TraderCockpit Learn</title>
+  <link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+  <title>{esc(entry.get('seoTitle', title))} — TraderCockpit Learn</title>
   <meta name="description" content="{esc(entry['description'])}">
   <link rel="canonical" href="{esc(canonical)}">
-  {structured}
   <link rel="stylesheet" href="../../assets/site-v2.css">
 </head>
 <body>
@@ -125,6 +123,7 @@ def render(entry: dict) -> str:
           </section>
           {assumptions}
           {references}
+          {about}
           <section class="article-section" id="product-boundary">
             <span class="kicker">Apply the concept</span>
             <h2>Use the idea without turning it into a shortcut.</h2>
@@ -193,7 +192,8 @@ def main() -> int:
         target = OUTPUT / f"{entry['slug']}.html"
         sys.path.insert(0,str(Path(__file__).resolve().parent))
         from reference_content import wrap_html
-        content = wrap_html(render(entry), f"learn/concepts/{entry['slug']}.html")
+        from search_metadata import apply as search_meta
+        content = search_meta(wrap_html(render(entry), f"learn/concepts/{entry['slug']}.html"), f"learn/concepts/{entry['slug']}.html")
         if args.check:
             if not target.is_file():
                 problems.append(f"missing generated concept page: {target.relative_to(REPO)}")

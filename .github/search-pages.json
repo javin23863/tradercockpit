@@ -1,0 +1,103 @@
+{
+  "schema": "tradercockpit.search-pages/v1",
+  "note": "Guides that get Article metadata beyond the learn/concepts, methods, how-to and examples folders, and the dates shown to search engines. published = first public release; modified = last change to the page's visible content (not URL, title or metadata changes).",
+  "articles": [
+    "learn/start-here.html",
+    "learn/glossary.html",
+    "strategy-claim-audit-checklist.html"
+  ],
+  "dates": {
+    "default": {
+      "published": "2026-09-10",
+      "modified": "2026-10-05"
+    },
+    "docs/index.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "examples/replay-boundary.html": {
+      "published": "2026-09-11",
+      "modified": "2026-10-05"
+    },
+    "how-to/index.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "how-to/read-chart-evidence.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "how-to/read-result-metrics.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "how-to/read-staged-validation.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "index.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "learn/concepts/monte-carlo.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "learn/concepts/out-of-sample.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "learn/glossary.html": {
+      "published": "2026-09-11",
+      "modified": "2026-10-05"
+    },
+    "learn/index.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "learn/start-here.html": {
+      "published": "2026-09-11",
+      "modified": "2026-10-12"
+    },
+    "methods/chart-evidence.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "methods/index.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "methods/result-metrics.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "methods/validation-foundations.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "pricing/index.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "strategy-claim-audit-checklist.html": {
+      "published": "2026-07-21",
+      "modified": "2026-10-12"
+    },
+    "support/faq.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "trust/index.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "trust/privacy.html": {
+      "published": "2026-09-10",
+      "modified": "2026-10-12"
+    },
+    "trust/terms.html": {
+      "published": "2026-10-12",
+      "modified": "2026-10-12"
+    }
+  }
+}
