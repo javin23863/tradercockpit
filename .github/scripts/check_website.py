@@ -148,7 +148,7 @@ def main() -> int:
             problems.append(f"missing title: {page.relative_to(REPO)}")
         if not parser.description.strip():
             problems.append(f"missing description: {page.relative_to(REPO)}")
-        if not parser.canonical.startswith("https://javin23863.github.io/tradercockpit/"):
+        if not parser.canonical.startswith("https://trader-cockpit.com/"):
             problems.append(f"bad canonical: {page.relative_to(REPO)}")
         # The measured homepage reference intentionally omits the search control; internal
         # content surfaces retain local search for navigation and documentation discovery.

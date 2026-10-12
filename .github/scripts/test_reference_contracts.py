@@ -1,7 +1,7 @@
 import json,sys,unittest
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];sys.path.insert(0,str(HERE))
-from reference_contracts import refresh_contracts
+from reference_contracts import PENDING_AUDIT,PENDING_OWNER_VISUAL_REVIEW,refresh_contracts
 class ContractTests(unittest.TestCase):
  def test_live_metadata_records_owner_visual_approval(self):
   value=json.loads((ROOT/'docs/ux-page-contracts.v1.json').read_text(encoding='utf-8'))
@@ -9,7 +9,8 @@ class ContractTests(unittest.TestCase):
   self.assertIn('does not grant visual approval',value.get('audit_scope',''))
   self.assertEqual(readiness['gates']['owner_visual_acceptance_of_integrated_result'],'complete; owner approved exact integrated visual candidate on 2026-09-18')
   expected={'status':'retained_visual_composition','visual_approval':True,'approved_at':'2026-09-18','source':'owner','scope':'Original composition; updated wording checked separately'}
-  for row in value['pages']:self.assertEqual(row['audit'],expected)
+  for row in value['pages']:self.assertEqual(row['audit'],PENDING_AUDIT if row['path'] in PENDING_OWNER_VISUAL_REVIEW else expected)
+  self.assertTrue(PENDING_OWNER_VISUAL_REVIEW<={row['path'] for row in value['pages']})
  def test_structural_refresh_cannot_grant_visual_approval(self):
   baseline=json.loads((ROOT/'.github/reference-site/ux-contracts-before.json').read_text(encoding='utf-8'))
   refreshed=refresh_contracts(baseline)

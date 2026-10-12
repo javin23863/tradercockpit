@@ -79,7 +79,7 @@ def update_journeys(text: str) -> str:
     text = text.replace('href="https://javin23863.github.io/tradercockpit/#public-status" target="_blank" rel="noopener noreferrer"', 'href="#public-status"')
     text = re.sub(r"  const SOURCE = '[^']*';\n", '', text)
     text = text.replace('${SOURCE+file}" target="_blank" rel="noopener noreferrer"', '${file}"')
-    text = text.replace('Explore four monthly plans and find your starting point. Checkout remains disabled in this preview.', 'Four planned monthly plans. The Windows app is in development and checkout is closed.')
+    text = text.replace('Explore four monthly plans and find your starting point. Checkout remains disabled in this preview.', 'Four planned monthly plans. Every plan includes every feature; plans differ only in included Apollo credit and how many jobs can run at the same time. The Windows app is in development and checkout is closed.')
     text = text.replace('Explore now. Subscribe later.', 'Release follows readiness.')
     text = text.replace('You can explore this preview without an account or payment.', 'You can explore TraderCockpit information without an account or payment.')
     text = text.replace('This preview does not offer an annual discount or take payments.', 'This page does not offer an annual discount or take payments.')
@@ -93,7 +93,7 @@ def update_journeys(text: str) -> str:
 
 def transform_html(html: str, commerce: dict) -> str:
     html = html.replace('class="skip"', 'class="skip skip-link"',1)
-    html = html.replace('<title>', '<link rel="canonical" href="https://javin23863.github.io/tradercockpit/">\n  <title>',1)
+    html = html.replace('<title>', '<link rel="canonical" href="https://trader-cockpit.com/">\n  <title>',1)
     html = html.replace('content="TraderCockpit homepage visual proof.', 'content="TraderCockpit quantitative research.')
     html = re.sub(r'(?P<prefix>\b(?:src|href)=")assets/',r'\g<prefix>assets/reference-site/',html)
     for name in RUNTIME:

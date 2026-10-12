@@ -14,9 +14,9 @@ on:
 # ---------------------------------------------------------------------------
 # ALLOWLIST — the only paths permitted in this public repo.
 # Entries ending in "/" allow the whole directory; others are exact files.
-#   docs/           GitHub Pages publishing source (site is served from /docs on main;
-#                   no CNAME and no .nojekyll exist — the site uses the default
-#                   javin23863.github.io/tradercockpit domain and needs neither)
+#   docs/           GitHub Pages publishing source (site is served from /docs on main
+#                   at the custom domain trader-cockpit.com, named by docs/CNAME;
+#                   no .nojekyll exists and none is needed)
 #   .github/        this workflow and any future repo plumbing
 #   .gitattributes  byte-contract ("* -text") — docs/ JSON manifests rely on stable bytes
 #   .gitignore      repo plumbing

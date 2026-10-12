@@ -309,14 +309,28 @@
       "id": "reference.site-privacy",
       "kind": "reference",
       "path": "trust/privacy.html",
-      "title": "Site privacy and third-party boundaries",
+      "title": "Privacy notice",
       "status": "public",
-      "summary": "Optional Plausible analytics, same-origin search, local research notes and click-to-load YouTube. No email capture.",
+      "summary": "What the website, Windows app and account service collect: site analytics and YouTube boundaries, Google sign-in, product key, Apollo through OpenRouter, SnapTrade broker connections, Stripe, and data kept on your PC.",
       "keywords": [
         "privacy",
         "analytics",
         "research notes",
         "YouTube"
+      ]
+    },
+    {
+      "id": "reference.terms-of-use",
+      "kind": "reference",
+      "path": "trust/terms.html",
+      "title": "Terms of use",
+      "status": "public",
+      "summary": "Plain-language terms for the website, Windows app and account service: not financial advice, you confirm every order, broker connections through SnapTrade, and simulations are simulated.",
+      "keywords": [
+        "terms",
+        "not financial advice",
+        "SnapTrade",
+        "paper trading"
       ]
     },
     {
