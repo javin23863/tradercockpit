@@ -83,7 +83,7 @@
     const title = charts ? 'Read the chart. Keep the context.' : 'Know what the assistant sees.';
     const date = '8 October 2026';
     const regions = charts ? [
-      ['Context','The header names the market, BTC/USD on Coinbase, the 15-minute timeframe and the bar under the cursor. These are historical bars, not a live market.'],
+      ['Context','The header names the market (BTC/USD), the 15-minute timeframe and the latest bar\u2019s prices. The bars are Coinbase history, not a live market.'],
       ['Price & overlays','The main panel combines the price series with study overlays. The legend identifies the displayed studies.'],
       ['Separate panes','Volume sits in its own pane with its own scale. Read it against the price move above it, not on the price scale.']
     ] : [

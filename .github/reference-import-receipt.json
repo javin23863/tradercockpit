@@ -144,24 +144,20 @@
       "bytes": 107906
     },
     "docs/assets/reference-site/laptop-screen.webp": {
-      "sha256": "87cb1568ddb9b5124bfb50e7e202945d461e64440728fd9e59c8fd868d6bf1ce",
-      "bytes": 64684
+      "sha256": "f34019243b9bcfb68df13918d5b0b63b3b6b7d0747370fb2855a306b9209373f",
+      "bytes": 64528
     },
     "docs/assets/reference-site/builder.webp": {
       "sha256": "2bcbee3371b2b1f426cb3c3546b4eeb618b9a5ce459e211960ef5472c5d284e4",
       "bytes": 31398
     },
-    "docs/assets/reference-site/projects.webp": {
-      "sha256": "62af6f50ccc2591e2a17f00dbf9b3428463ee1ece139a30f6eed729b31861c2f",
-      "bytes": 46282
-    },
     "docs/assets/reference-site/product-charts.webp": {
-      "sha256": "6a0333856987244f8370ae105d88a1a8a25444ada2f7f34f5cf4903f04faed5f",
-      "bytes": 12712
+      "sha256": "411d1661b83a2797acdbaa02b99f93899960e7f905b94708763821feb7744bf0",
+      "bytes": 12654
     },
     "docs/assets/reference-site/product-models.webp": {
-      "sha256": "314a7c090767065aee9d3c6d2be8300280b742e943425391e6efb57196fbb017",
-      "bytes": 13806
+      "sha256": "959b92028d1e2e7e7c43236b59b151d0563c0006606d970b85d380476ebbb97a",
+      "bytes": 13696
     },
     "docs/assets/reference-site/styles.css": {
       "sha256": "bca1e443507ec8fd75ed57d0762c8e2cc2ebbf125198f53e75d9fe096ea19c3e",
@@ -222,16 +218,17 @@
   "amendments": [
     {
       "date": "2026-10-12",
-      "reason": "Retired captures replaced with current development-build captures (BTC/USD Charts, Apollo beside Charts, Builder settings, a Models study on a synthetic sample, a custom project task list); the Market Data concept card had no real capture and was removed.",
+      "reason": "Retired captures replaced with current development-build captures (BTC/USD Charts, Apollo beside Charts, Builder settings, a Models study on a synthetic sample, and a Models study on a synthetic sample); the Market Data and Custom Projects concept cards had no capture free of internal labels and were removed. The data-library label in the chart toolbar is masked.",
       "changes": [
-        "replaced docs/assets/reference-site/room-screen.webp",
-        "replaced docs/assets/reference-site/laptop-screen.webp",
-        "replaced docs/assets/reference-site/builder.webp",
         "removed docs/assets/reference-site/apollo.webp",
         "removed docs/assets/reference-site/data.webp",
-        "replaced docs/assets/reference-site/projects.webp",
+        "removed docs/assets/reference-site/projects.webp",
+        "replaced docs/assets/reference-site/builder.webp",
+        "replaced docs/assets/reference-site/laptop-screen.webp",
         "replaced docs/assets/reference-site/product-charts.webp",
-        "replaced docs/assets/reference-site/product-models.webp"
+        "replaced docs/assets/reference-site/product-models.webp",
+        "replaced docs/assets/reference-site/projects.webp",
+        "replaced docs/assets/reference-site/room-screen.webp"
       ]
     }
   ]

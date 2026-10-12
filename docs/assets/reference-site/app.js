@@ -40,20 +40,19 @@
     builder:['Strategy Builder','A development-build capture of the Builder settings: the strategy type and the build options. The app is in development and not yet released.'],
     charts:['Charts','Development capture, not an available capability. Inspect price, studies and volume. This development build shows Coinbase BTC/USD 15-minute historical bars, not a live market or a trading result.'],
     models:['Apollo beside Charts','Development capture, not an available capability. Apollo, the research assistant, sits beside the chart and sends what is on screen only when you press Ask. Historical bars, not a trading result.'],
-    research:['Quant Models','A development-build capture of a Models study comparing exposure policies on a synthetic sample. It is not a trading result, and a fitted model is not a promise of future performance.'],
-    projects:['Custom Projects','A development-build capture of a custom project: a build task followed by retests on other markets. The app is in development and not yet released.']
+    research:['Quant Models','A development-build capture of a Models study comparing exposure policies on a synthetic sample. It is not a trading result, and a fitted model is not a promise of future performance.']
   });
   // Capture details are fixed local metadata. No network request is made.
   const captures = Object.freeze({
     charts: {title:'Charts — development build', date:'8 October 2026',
       src:'assets/reference-site/product-charts.webp', width:480, height:285,
       path:'assets/reference-site/original-charts.png',
-      hash:'a4e144ea5033c1a2f1819436edba43d8d7ac4abf3f66eef3399877ac6c699806',
+      hash:'e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0',
       note:'Coinbase BTC/USD 15-minute historical bars in a development build. The room display shows a crop of this chart workspace; this inspector shows the entire capture. It is not a trading result or a live market.'},
     models: {title:'Apollo beside Charts — development build', date:'8 October 2026',
       src:'assets/reference-site/product-models.webp', width:480, height:285,
       path:'assets/reference-site/original-models.png',
-      hash:'77ac201b2b4952a0900eaf6365566263bd82c6e6db5397eeb86ed3a218219a04',
+      hash:'ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e',
       note:'The same historical BTC/USD bars with the Apollo panel open in a development build. Apollo receives the on-screen summary only when you press Ask. It is not a trading result or a live market.'}
   });
   function inspectCapture(key, switching = false) {

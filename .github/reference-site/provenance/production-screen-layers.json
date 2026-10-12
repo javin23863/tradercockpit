@@ -9,7 +9,7 @@
       "scene": "room",
       "capture": "charts",
       "source_asset": "docs/assets/reference-site/original-charts.png",
-      "source_sha256": "a4e144ea5033c1a2f1819436edba43d8d7ac4abf3f66eef3399877ac6c699806",
+      "source_sha256": "e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0",
       "source_dimensions": [
         1600,
         950
@@ -42,7 +42,7 @@
       "scene": "laptop",
       "capture": "models",
       "source_asset": "docs/assets/reference-site/original-models.png",
-      "source_sha256": "77ac201b2b4952a0900eaf6365566263bd82c6e6db5397eeb86ed3a218219a04",
+      "source_sha256": "ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e",
       "source_dimensions": [
         1600,
         950
@@ -59,7 +59,7 @@
         628
       ],
       "output_scale": 2,
-      "output_sha256": "87cb1568ddb9b5124bfb50e7e202945d461e64440728fd9e59c8fd868d6bf1ce",
+      "output_sha256": "f34019243b9bcfb68df13918d5b0b63b3b6b7d0747370fb2855a306b9209373f",
       "alpha_bounds": [
         869,
         55,

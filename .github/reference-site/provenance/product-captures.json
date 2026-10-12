@@ -9,7 +9,7 @@
       "ref": "main (2026-10-12)",
       "path": "docs/handoffs/2026-10-08-apollo-docked/evidence/tradercockpit-apollo-chart-btcusd-m15-closed-1600.png",
       "capture_date": "2026-10-08",
-      "original_sha256": "a4e144ea5033c1a2f1819436edba43d8d7ac4abf3f66eef3399877ac6c699806",
+      "original_sha256": "e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0",
       "original_dimensions": [
         1600,
         950
@@ -19,7 +19,7 @@
         480,
         285
       ],
-      "asset_sha256": "6a0333856987244f8370ae105d88a1a8a25444ada2f7f34f5cf4903f04faed5f",
+      "asset_sha256": "411d1661b83a2797acdbaa02b99f93899960e7f905b94708763821feb7744bf0",
       "data_classification": "historical market bars in a development build",
       "release_approved": false,
       "description": "Charts in a development build: Coinbase BTC/USD 15-minute historical bars with Bollinger Bands and volume. Not a live market or performance result."
@@ -30,7 +30,7 @@
       "ref": "main (2026-10-12)",
       "path": "docs/handoffs/2026-10-08-apollo-docked/evidence/tradercockpit-apollo-chart-btcusd-m15-open-1600.png",
       "capture_date": "2026-10-08",
-      "original_sha256": "77ac201b2b4952a0900eaf6365566263bd82c6e6db5397eeb86ed3a218219a04",
+      "original_sha256": "ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e",
       "original_dimensions": [
         1600,
         950
@@ -40,7 +40,7 @@
         480,
         285
       ],
-      "asset_sha256": "314a7c090767065aee9d3c6d2be8300280b742e943425391e6efb57196fbb017",
+      "asset_sha256": "959b92028d1e2e7e7c43236b59b151d0563c0006606d970b85d380476ebbb97a",
       "data_classification": "historical market bars in a development build",
       "release_approved": false,
       "description": "Apollo beside Charts in a development build: the same BTC/USD 15-minute historical bars with the Apollo panel open. Not a live market or performance result."

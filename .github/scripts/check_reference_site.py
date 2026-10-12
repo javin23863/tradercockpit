@@ -28,7 +28,7 @@ def validate(root=ROOT):
  need(production.get('schema')=='tradercockpit.production-screen-layers/v1' and production.get('quality')=='FULL_RESOLUTION_CAPTURE_SOURCE','Production screen-layer provenance missing or downgraded')
  need(hashlib.sha256((root/'.github/scripts/generate_reference_screen_layers.mjs').read_bytes()).hexdigest()==production.get('generator_sha256'),'Screen-layer generator identity changed')
  need(hashlib.sha256((root/'.github/reference-site/provenance/screen-placement.json').read_bytes()).hexdigest()==production.get('placement_sha256'),'Screen placement authority changed')
- expected_layers={'room':('charts','original-charts.png','room-screen.webp','a4e144ea5033c1a2f1819436edba43d8d7ac4abf3f66eef3399877ac6c699806'),'laptop':('models','original-models.png','laptop-screen.webp','77ac201b2b4952a0900eaf6365566263bd82c6e6db5397eeb86ed3a218219a04')}
+ expected_layers={'room':('charts','original-charts.png','room-screen.webp','e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0'),'laptop':('models','original-models.png','laptop-screen.webp','ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e')}
  layers={item.get('scene'):item for item in production.get('layers',[])}
  need(set(layers)==set(expected_layers),'Production screen layers must be room and laptop only')
  for scene,(capture,source,output,source_hash) in expected_layers.items():

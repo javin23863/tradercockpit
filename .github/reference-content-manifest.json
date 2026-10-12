@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "11b1914ebca519dc43848df2bc9f35aa8e791e3e37ae8b8ccb016003945f48ac",
+  "home_sha256": "ab46cdf729322ff97782fc3f2e80ed9b65dd904b03034b435d56b8e079d798fd",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -230,9 +230,9 @@
     "strategy-claim-audit-checklist.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
-      "after_sha256": "55065f45d1f6d76094b54460d6b72124f941896c293b37a46bcc65a5145cca1a",
+      "after_sha256": "6ef8fc944bcc5cbc3596290342ebf4cf301182951e7958ffe10c7afea95d4aeb",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12).",
-      "corrected_unwrapped_sha256": "c9483aa9ea611295eec3872d70640c392d5a986cf5ae4258ffdabf30dc09c289"
+      "corrected_unwrapped_sha256": "30eee43137eaea8c596ce06e58bfd6987f106372e62ef323b43794fb40a0bb36"
     },
     "support/faq.html": {
       "kind": "corrected_reading_shell",
@@ -361,6 +361,6 @@
     "BingSiteAuth.xml": "a44787436e972d0fac6afbc2024ba31e31e066fbd622fa124e7cfd2d6fedb12d",
     "CNAME": "9313e2519f057f2811630b279ade88b9ce8fdf31ab6f02f56e3f9f8be6335613",
     "trust/terms.html": "40cfa56799d5b1685326982fa839cd698d5ad9006891b9b06825560547d8c4f8",
-    "assets/reference-site/research.webp": "36a986db199202f959351042c387e0724c598a27bbd078b2d97e16427da1b01f"
+    "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6"
   }
 }
