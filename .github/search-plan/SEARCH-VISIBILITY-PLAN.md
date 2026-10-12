@@ -59,6 +59,10 @@ The Instagram reels, Reddit threads and the Marketing Signals playbook in the or
 | Favicon (brand mark) on every page | **DONE** |
 | Google verification meta tag and `BingSiteAuth.xml` | Kept unchanged |
 
+## Planned: "free paper trading" as a search topic
+
+The owner decided on 12 Oct 2026 to add a $0 Free plan with Google sign-in. It includes unlimited paper trading, 1 chart layout, a few indicators per chart (the exact cap comes from the Free-tier lane) and live market data from free sources. Strategy Builder and backtests, real-broker trading, Apollo and exports stay paid. Once the app side has shipped and the Free card is live, add "free paper trading" (and "paper trading app for Windows") as a search topic: a guide to paper trading well (fills, costs, realistic sizing), linked from the Free card, plus a LinkedIn and Instagram angle. Check search volumes first (owner step 6). **OPEN**, blocked on the app shipping the Free plan. The Free card for Pricing and the homepage strip is ready on branch `claude/site-free-plan-20261012`, unpublished.
+
 ## Drafts for publishing (mike or the coordinator publishes; no agent posts)
 
 - `linkedin-articles.md`: three articles, each a different angle (a worked example, a common mistake, a case study), each linking to the full guide rather than condensing it. **DRAFT**

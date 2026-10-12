@@ -30,7 +30,7 @@ function validCommerce(value) {
 function showCommerce(value) {
   const accepted = validCommerce(value);
   document.documentElement.dataset.commerce = accepted ? 'verified' : 'unavailable';
-  document.querySelectorAll('.price-grid article').forEach((article,index) => {
+  document.querySelectorAll('.price-grid article:not(.free-tier)').forEach((article,index) => {
     const amount = accepted ? value.tiers[index].unitAmount : null;
     const node = article.querySelector('.price strong');
     if (node) node.textContent = amount === null ? 'Unavailable' : new Intl.NumberFormat('en-US', {

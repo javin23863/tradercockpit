@@ -1,7 +1,7 @@
 /* Pricing uses the reference site's quiet warm-metal palette; the homepage scene is untouched. */
 :root{color-scheme:dark}
 body.home-page{background:#080b0b;color:#ebece7}
-.reference-plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #64706466;border-bottom:1px solid #64706466}
+.reference-plans{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid #64706466;border-bottom:1px solid #64706466}
 .reference-plan{min-width:0;padding:36px 24px;border-right:1px solid #64706466}
 .reference-plan:last-child{border:0}
 .reference-plan h2{font-size:25px;font-weight:500;margin:0 0 56px}

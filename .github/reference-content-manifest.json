@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "2903816db239e2f3e80d9c2742f69b20749fc429fd9600e6573f585f27d27a5e",
+  "home_sha256": "219c61b375aa7298fee2c3e5a51fa89327b94a28cbca4d8b7727cc523ab1110a",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "3c92a594667415a88e78b63e956256eb98285758119562e193bef0670a097a98",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "after_sha256": "4bce6683e21610cf8de2a4a003823d9ba8f3b8d4b8dc66280e3492244fdedf40"
+      "corrected_unwrapped_sha256": "c28f9a882aa8a0abf8fcd665640d4962525dd1ce714f65349cd0cb33c9e4d516",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Planned Free plan card, held until the app ships it (2026-10-12).",
+      "after_sha256": "89081bad95ca1e6f0800f07776510f88145d33f5df1c4480548f2c3757c74c99"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -364,6 +364,6 @@
     "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6",
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
-    "llms.txt": "c0112cc01f291c2fca2aab9fb54820477b3737c652c44753b8f5e112e5d1b737"
+    "llms.txt": "6001062f6ecdf15176eb09effd4f104ec731120740349ed9a5c5562d4f32241d"
   }
 }
