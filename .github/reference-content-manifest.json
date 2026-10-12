@@ -217,7 +217,7 @@
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
       "corrected_unwrapped_sha256": "23b18e994068c702055f28cafd01639fbabbe41e4140c561f45fb48498433d4a",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Planned Free plan card, held until the app ships it (2026-10-12).",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12).",
       "after_sha256": "94a8067f1aec93133c27262be9880e62f506cee2c9f90658962b7713354bbdbc"
     },
     "refund-policy.html": {
