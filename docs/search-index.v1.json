@@ -400,7 +400,7 @@
       "title": "Validation foundations",
       "path": "methods/validation-foundations.html",
       "kind": "method",
-      "summary": "Acceptance conditions, calendar-year consistency, and evidence provenance as separate validation controls.",
+      "summary": "Acceptance conditions, calendar-year consistency, and evidence records as separate validation controls.",
       "terms": [
         "validation foundations",
         "acceptance criteria",
@@ -438,7 +438,7 @@
     },
     {
       "id": "research.evidence-chain",
-      "title": "Evidence and provenance chains",
+      "title": "Evidence and record chains",
       "path": "methods/validation-foundations.html#evidence-chain",
       "kind": "method",
       "summary": "Immutable identity and lineage connecting the exact artifacts evaluated in a research conclusion.",
@@ -590,7 +590,7 @@
       "title": "Trust",
       "path": "trust/",
       "kind": "trust",
-      "summary": "How TraderCockpit separates evidence provenance, synthetic examples, product availability, and research interpretation.",
+      "summary": "How TraderCockpit separates evidence records, synthetic examples, product availability, and research interpretation.",
       "terms": [
         "trust",
         "evidence",

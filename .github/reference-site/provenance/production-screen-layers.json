@@ -3,16 +3,16 @@
   "quality": "FULL_RESOLUTION_CAPTURE_SOURCE",
   "generator": ".github/scripts/generate_reference_screen_layers.mjs",
   "generator_sha256": "87e67b7eaf3dabf99745d2ddb67e9354c9e3f17fd3a3fd6c3b12ee3e7a1865ad",
-  "placement_sha256": "99fa555d00c267e60bd562d3d971ff36eb8071d1c7d448e4ea1fe65f27200ce0",
+  "placement_sha256": "06dc46da442be0488cd0a867e14c7d0c3bfd9dd89b60760308b9d90644a8eb94",
   "layers": [
     {
       "scene": "room",
       "capture": "charts",
       "source_asset": "docs/assets/reference-site/original-charts.png",
-      "source_sha256": "bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae",
+      "source_sha256": "a4e144ea5033c1a2f1819436edba43d8d7ac4abf3f66eef3399877ac6c699806",
       "source_dimensions": [
-        1220,
-        886
+        1600,
+        950
       ],
       "placement_source": ".github/reference-site/provenance/screen-placement.json",
       "plane_scale": 2,
@@ -26,7 +26,7 @@
         884
       ],
       "output_scale": 2,
-      "output_sha256": "7b0e120c44bb166fd849c7590809ff283bbcaa25fa501075b4d09b3aca7af0b5",
+      "output_sha256": "e718a6c762dfd2946127994b3f5021a04240cf01d637c91dbcb058f873b719d6",
       "alpha_bounds": [
         917,
         257,
@@ -35,17 +35,17 @@
       ],
       "nontransparent_pixels": 258733,
       "generator": ".github/scripts/generate_reference_screen_layers.mjs",
-      "data_classification": "synthetic development test data",
+      "data_classification": "historical market bars in a development build",
       "release_approved": false
     },
     {
       "scene": "laptop",
       "capture": "models",
       "source_asset": "docs/assets/reference-site/original-models.png",
-      "source_sha256": "3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6",
+      "source_sha256": "77ac201b2b4952a0900eaf6365566263bd82c6e6db5397eeb86ed3a218219a04",
       "source_dimensions": [
-        1440,
-        1000
+        1600,
+        950
       ],
       "placement_source": ".github/reference-site/provenance/screen-placement.json",
       "plane_scale": 2,
@@ -59,7 +59,7 @@
         628
       ],
       "output_scale": 2,
-      "output_sha256": "560f85f0ce4301bd7e30c1d7cca2c39d399f920edc559d7c3d535f4d16610632",
+      "output_sha256": "87cb1568ddb9b5124bfb50e7e202945d461e64440728fd9e59c8fd868d6bf1ce",
       "alpha_bounds": [
         869,
         55,
@@ -68,7 +68,7 @@
       ],
       "nontransparent_pixels": 328317,
       "generator": ".github/scripts/generate_reference_screen_layers.mjs",
-      "data_classification": "synthetic development test data",
+      "data_classification": "historical market bars in a development build",
       "release_approved": false
     }
   ]

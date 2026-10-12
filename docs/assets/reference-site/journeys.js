@@ -58,14 +58,14 @@
   function learning() {
     return `${header('TraderCockpit / learning','A clearer view of your research.','Start with a question. Understand the evidence. Keep the limitations in view.')}
     <section class="j-library-feature" aria-labelledby="learning-feature-title">
-      <div class="j-library-image"><img src="assets/reference-site/laptop-scene.webp" alt="Illustrative research workstation" width="1024" height="314"><img src="assets/reference-site/laptop-screen.webp" alt="" width="1024" height="314"><span>Models · synthetic development data</span></div>
+      <div class="j-library-image"><img src="assets/reference-site/laptop-scene.webp" alt="Illustrative research workstation" width="1024" height="314"><img src="assets/reference-site/laptop-screen.webp" alt="" width="1024" height="314"><span>Apollo beside Charts · development build</span></div>
       <div class="j-library-copy"><p class="eyebrow">Start here</p><h2 id="learning-feature-title">One result.<br>More questions.</h2><p>A convincing picture is not the same as traceable evidence. Use a short checklist to record what you know—and what is still missing.</p><a class="button gold" href="#/learn/checklist">Open research checklist ${arrow}</a></div>
     </section>
     <section class="j-library" aria-labelledby="resource-heading"><div class="j-section-line"><h2 id="resource-heading">Choose your next question</h2><span>Guides &amp; concepts</span></div>
-      <a class="j-resource" href="#/platform/charts"><span class="j-resource-number">01</span><img src="assets/reference-site/product-charts.webp" width="480" height="349" alt=""><div><small>Charts / guided reading</small><h3>What am I actually looking at?</h3><p>Distinguish the price panel, studies and test-data context.</p></div>${arrow}</a>
-      <a class="j-resource" href="#/platform/models"><span class="j-resource-number">02</span><img src="assets/reference-site/product-models.webp" width="480" height="333" alt=""><div><small>Models / guided reading</small><h3>What does this diagnostic describe?</h3><p>Read the selected record without turning a loading map into a forecast.</p></div>${arrow}</a>
+      <a class="j-resource" href="#/platform/charts"><span class="j-resource-number">01</span><img src="assets/reference-site/product-charts.webp" width="480" height="285" alt=""><div><small>Charts / guided reading</small><h3>What am I actually looking at?</h3><p>Distinguish the price panel, studies and volume pane.</p></div>${arrow}</a>
+      <a class="j-resource" href="#/platform/models"><span class="j-resource-number">02</span><img src="assets/reference-site/product-models.webp" width="480" height="285" alt=""><div><small>Apollo / guided reading</small><h3>What does the assistant see?</h3><p>Read what Apollo is given before you ask it anything.</p></div>${arrow}</a>
       <a class="j-resource j-resource-text" href="#/learn/monte-carlo"><span class="j-resource-number">03</span><div class="j-type-art" aria-hidden="true">MC<span>Paths ≠ predictions</span></div><div><small>Methods / concept</small><h3>How much does the path matter?</h3><p>Understand what resampling can—and cannot—tell you.</p></div>${arrow}</a>
-    </section><p class="j-footnote">The product images in these guides are retained development captures with synthetic test data. They are not live-market views or release approval.</p>`;
+    </section><p class="j-footnote">The product images in these guides are captures of a development build showing historical bars. They are not live-market views or release approval.</p>`;
   }
   function monteCarlo() {
     return `${header('Methods / Monte Carlo','A path is not a prediction.','A different ordering of observations can tell a different story. The assumptions behind the resampling matter as much as the picture.',crumb('Monte Carlo'))}
@@ -80,21 +80,21 @@
   }
   function captureGuide(kind) {
     const charts = kind === 'charts';
-    const title = charts ? 'Read the chart. Keep the context.' : 'Read the model. Keep the limits.';
-    const date = charts ? '16 September 2026' : '9 September 2026';
+    const title = charts ? 'Read the chart. Keep the context.' : 'Know what the assistant sees.';
+    const date = '8 October 2026';
     const regions = charts ? [
-      ['Context','The workspace identifies a historical result and the TC_PROBE test symbol. It is not a live market.'],
+      ['Context','The header names the market, BTC/USD on Coinbase, the 15-minute timeframe and the bar under the cursor. These are historical bars, not a live market.'],
       ['Price & overlays','The main panel combines the price series with study overlays. The legend identifies the displayed studies.'],
-      ['Separate panes','The lower panes separate the oscillator studies from the price scale. Their scales and units must not be confused.']
+      ['Separate panes','Volume sits in its own pane with its own scale. Read it against the price move above it, not on the price scale.']
     ] : [
-      ['Selected record','The captured view shows a retained PCA feature-structure diagnostic. Keep that record identity with any interpretation.'],
-      ['Loading map','The map describes component weights for the selected diagnostic. It is not a probability of a future trade outcome.'],
-      ['Connection state','The capture states that the provider is not configured. A completed diagnostic does not establish a live data connection.']
+      ['On screen','The panel lists what Apollo would receive: the symbol, timeframe, studies and the range of bars loaded.'],
+      ['Your choice','Nothing is sent until you press Ask, and you can untick the on-screen summary first.'],
+      ['The limit','An answer about a chart is an explanation of past bars. It is not a signal or a forecast.']
     ];
-    return `${header(`Platform / ${charts?'Charts':'Models'}`,title,'A guided reading of an actual development capture—not a substitute for running the product.',crumb(charts?'Charts':'Models'))}
-      <figure class="j-product-capture"><img src="${charts?'assets/reference-site/product-charts.webp':'assets/reference-site/product-models.webp'}" width="480" height="${charts?349:333}" alt="${charts?'Charts workspace using synthetic TC_PROBE data':'Models workspace showing a retained PCA loading map'}"><figcaption><span>${date} · Synthetic development test data · 480-pixel image</span><button class="button glass" data-capture="${kind}">Inspect source ${arrow}</button></figcaption></figure>
+    return `${header(`Platform / ${charts?'Charts':'Apollo'}`,title,'A guided reading of a development-build capture—not a substitute for running the product.',crumb(charts?'Charts':'Apollo'))}
+      <figure class="j-product-capture"><img src="${charts?'assets/reference-site/product-charts.webp':'assets/reference-site/product-models.webp'}" width="480" height="285" alt="${charts?'Charts workspace with Coinbase BTC/USD 15-minute historical bars':'Apollo panel open beside the same BTC/USD chart'}"><figcaption><span>${date} · Development build · historical bars · 480-pixel image</span><button class="button glass" data-capture="${kind}">Inspect source ${arrow}</button></figcaption></figure>
       <section class="j-capture-reading" aria-label="How to read the capture">${regions.map(([name,text],i)=>`<article><span class="j-section-index">0${i+1}</span><h2>${name}</h2><p>${text}</p></article>`).join('')}</section>
-      <div class="j-callout"><strong>Evidence boundary</strong><p>The captured software is real. The dataset is synthetic. The image does not establish current release approval, live connectivity or performance.</p></div>
+      <div class="j-callout"><strong>Evidence boundary</strong><p>The captured software is a development build. The bars are historical. The image does not establish current release approval, live connectivity or performance.</p></div>
       ${next('#/learn/checklist','Keep a record of what you found.','Your next step')}`;
   }
   function checklist() {
@@ -108,10 +108,10 @@
   function access(search) {
     const requested = new URLSearchParams(search).get('plan');
     const selected = plans.includes(requested) ? requested : 'Core';
-    const options = plans.map(name=>`<a class="j-plan" href="#/access?plan=${name}" ${name===selected?'aria-current="true"':''}><span>${name}</span><strong>${price(name)}</strong><small>USD / month</small></a>`).join('');
+    const options = plans.map(name=>`<a class="j-plan" href="#/access?plan=${name}" ${name===selected?'aria-current="true"':''}><span>${name==='ApolloPro'?'Apollo Pro':name}</span><strong>${price(name)}</strong><small>USD / month</small></a>`).join('');
     return `${header('Pricing & access','A plan for your research.','Four planned monthly plans. Every plan includes every feature; plans differ only in included Apollo credit and how many jobs can run at the same time. The Windows app is in development and checkout is closed.',`<nav class="j-breadcrumb" aria-label="Breadcrumb"><a href="#top">Home</a><span aria-hidden="true">/</span><span>Access</span></nav>`)}
       <nav class="j-plans" aria-label="Choose a monthly plan">${options}</nav>
-      <section class="j-access-summary" aria-labelledby="access-summary-title"><div class="j-access-selection"><p class="eyebrow">Selected plan</p><h2 id="access-summary-title" data-selected-plan>${selected}</h2><p class="j-selected-price"><strong data-selected-price>${price(selected)}</strong><span>USD / month</span></p><button class="button gold" data-checkout disabled aria-describedby="checkout-explanation">Checkout unavailable</button></div><div class="j-access-explanation"><span class="j-status">${validCommerce ? 'In development' : 'Availability unverified'}</span><h2>Release follows readiness.</h2><p id="checkout-explanation">You can explore TraderCockpit information without an account or payment. Choosing a plan here does not start a subscription.</p><p>Before subscribing, review the confirmed features for your chosen plan and check the official access page for current availability.</p><a class="button glass" href="#public-status">Read development status ${arrow}</a><p class="j-footnote">The Windows app is in development. We’ll release it when it’s ready.</p></div></section>
+      <section class="j-access-summary" aria-labelledby="access-summary-title"><div class="j-access-selection"><p class="eyebrow">Selected plan</p><h2 id="access-summary-title" data-selected-plan>${selected==='ApolloPro'?'Apollo Pro':selected}</h2><p class="j-selected-price"><strong data-selected-price>${price(selected)}</strong><span>USD / month</span></p><button class="button gold" data-checkout disabled aria-describedby="checkout-explanation">Checkout unavailable</button></div><div class="j-access-explanation"><span class="j-status">${validCommerce ? 'In development' : 'Availability unverified'}</span><h2>Release follows readiness.</h2><p id="checkout-explanation">You can explore TraderCockpit information without an account or payment. Choosing a plan here does not start a subscription.</p><p>Before subscribing, review the confirmed features for your chosen plan and check the official access page for current availability.</p><a class="button glass" href="#public-status">Read development status ${arrow}</a><p class="j-footnote">The Windows app is in development. We’ll release it when it’s ready.</p></div></section>
       <section class="j-access-notes"><article><h2>Monthly pricing.</h2><p>Prices are shown in US dollars per month. This page does not offer an annual discount or take payments.</p></article><article><h2>Plan details.</h2><p>Check the confirmed features and limits before choosing a subscription. Plan names alone do not describe everything included.</p></article><article><h2>Access updates.</h2><p>Follow the official access page for availability and account information. Prices load from the local public commerce record. No payment service is enabled here.</p></article></section>
       ${!validCommerce?'<p role="alert" class="j-callout">The local commerce record could not be verified. All checkout controls remain disabled.</p>':''}
       ${sourceLink('commerce-public.v1.json','Inspect the pinned commerce record')}`;

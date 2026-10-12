@@ -6,9 +6,9 @@
       "capture": "charts",
       "crop": [
         0,
-        96,
+        24,
         480,
-        333
+        285
       ],
       "plane": [
         640,
@@ -33,7 +33,7 @@
         ]
       ],
       "source_asset": "assets/product-charts.webp",
-      "screen_content": "actual retained product capture; synthetic test data",
+      "screen_content": "current development-build capture; historical market bars",
       "image_fit": "contain with dark letterboxing, then perspective transform",
       "letterbox_offset": [
         0,
@@ -92,15 +92,15 @@
         ]
       ],
       "source_asset": "assets/product-models.webp",
-      "screen_content": "actual retained product capture; synthetic test data",
+      "screen_content": "current development-build capture; historical market bars",
       "image_fit": "contain with dark letterboxing, then perspective transform",
       "letterbox_offset": [
-        31,
-        0
+        0,
+        10
       ],
       "letterbox_dimensions": [
-        577,
-        400
+        640,
+        380
       ],
       "plane_to_scene_matrix": [
         [

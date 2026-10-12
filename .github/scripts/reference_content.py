@@ -11,9 +11,9 @@ def wrap_html(html: str, relative: str) -> str:
     additions+=f'<script data-reference-shell="analytics" type="module" src="{prefix}assets/analytics.mjs"></script>'
     html=html.replace('</head>',additions+'</head>',1)
     if relative=='docs/index.html':
-        media=f'<figure class="reference-media"><a href="{prefix}#/platform/charts"><img src="{assets}original-charts.png" width="1220" height="886" alt="Charts workspace with labelled synthetic development data"></a><figcaption>Charts · retained development capture · synthetic test data</figcaption></figure>'
+        media=f'<figure class="reference-media"><a href="{prefix}#/platform/charts"><img src="{assets}original-charts.png" width="1600" height="950" alt="Charts workspace in a development build with historical BTC/USD bars"></a><figcaption>Charts · development build · historical bars</figcaption></figure>'
     elif relative=='learn/index.html':
-        media=f'<figure class="reference-media"><a class="reference-photo" href="{prefix}#/learn"><img src="{assets}laptop-scene.webp" width="1024" height="314" alt="Illustrative research workstation"><img src="{assets}laptop-screen.webp" width="1024" height="314" alt=""></a><figcaption>Models · synthetic development data in an illustrative setting</figcaption></figure>'
+        media=f'<figure class="reference-media"><a class="reference-photo" href="{prefix}#/learn"><img src="{assets}laptop-scene.webp" width="1024" height="314" alt="Illustrative research workstation"><img src="{assets}laptop-screen.webp" width="1024" height="314" alt=""></a><figcaption>Apollo beside Charts · development build in an illustrative setting</figcaption></figure>'
     else: media=''
     if media:
         html,n=re.subn(r'(<div role="group" class="landing-hero-visual[^>]*>)',lambda m:m[1]+'<!-- reference-media:start -->'+media+'<!-- reference-media:end -->',html,count=1)
