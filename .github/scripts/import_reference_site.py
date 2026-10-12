@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Import the exact owner-review archive without restyling its scene composition.
+"""Historical: reproduces the 2026-09-18 import from its source archive. Later artwork changes are recorded as
+amendments in .github/reference-import-receipt.json, not by rerunning this importer.
+
+Import the exact owner-review archive without restyling its scene composition.
 
 Default: plan only. --apply changes only the explicit paths in the plan, after
 all source and destination checks succeed. This does not enable review/release.

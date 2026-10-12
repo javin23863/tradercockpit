@@ -45,11 +45,6 @@
       ],
       "references": [
         {
-          "title": "StrategyQuant: Monte Carlo trades manipulation",
-          "url": "https://strategyquant.com/doc/strategyquant/monte-carlo-trades-manipulation/",
-          "scope": "Documents reshuffling trade order and other trade-level manipulations; this is a method reference, not a TraderCockpit capability claim."
-        },
-        {
           "title": "NIST/SEMATECH: Bootstrap Plot",
           "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/bootplot.htm",
           "scope": "Describes resampling with replacement to estimate uncertainty for a statistic."

@@ -1,2 +1,2 @@
-/* Verified retained development captures; synthetic test data, not release approval. */
-window.TRADERCOCKPIT_CAPTURE_OVERRIDES=Object.freeze({"charts":{"src":"assets/reference-site/original-charts.png","width":1220,"height":886,"hash":"bc2746d1fdda38c5cdcea0a74d9f82e78d0fb6cb9f98844023b4283f55aad9ae"},"models":{"src":"assets/reference-site/original-models.png","width":1440,"height":1000,"hash":"3a63057265cb14c7640883cbba1144907c7dd2e2e5419b8f37fcb5ca14ff3bc6"}});
+/* Current development-build captures; historical market bars, not release approval. */
+window.TRADERCOCKPIT_CAPTURE_OVERRIDES=Object.freeze({"charts":{"src":"assets/reference-site/original-charts.png","width":1600,"height":950,"hash":"e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0"},"models":{"src":"assets/reference-site/original-models.png","width":1600,"height":950,"hash":"ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e"}});
