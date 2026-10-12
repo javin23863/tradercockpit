@@ -1,0 +1,34 @@
+# TraderCockpit
+
+> Educational guides to backtesting and trading strategy validation: out-of-sample testing, Monte Carlo analysis, walk-forward analysis, drawdown and selection bias. TraderCockpit is also building a Windows desktop app for trading strategy research; the app is in development, not yet released, and checkout is closed. Nothing here is financial advice.
+
+The guides are written by the TraderCockpit team. Examples use synthetic data and are not performance results.
+
+## Start here
+
+- [In-Sample vs Out-of-Sample Backtesting](https://trader-cockpit.com/learn/concepts/out-of-sample.html): what counts as unseen data and how a holdout becomes part of the selection
+- [Monte Carlo Simulation for Trading Strategies](https://trader-cockpit.com/learn/concepts/monte-carlo.html): what reshuffling and resampling trades can test, and their limits
+- [Trading Strategy Backtest Checklist](https://trader-cockpit.com/strategy-claim-audit-checklist.html): questions to ask about any published backtest result
+
+## Concepts
+
+- [Walk-forward analysis](https://trader-cockpit.com/learn/concepts/walk-forward.html)
+- [Drawdown](https://trader-cockpit.com/learn/concepts/drawdown.html)
+- [Selection bias and multiple testing](https://trader-cockpit.com/learn/concepts/selection-bias.html)
+- [Parameter robustness](https://trader-cockpit.com/learn/concepts/parameter-robustness.html)
+- [Correlation and diversification](https://trader-cockpit.com/learn/concepts/correlation-diversification.html)
+- [Return distribution shape](https://trader-cockpit.com/learn/concepts/distribution-shape.html)
+- [Market regimes](https://trader-cockpit.com/learn/concepts/regime-map.html)
+- [Research glossary](https://trader-cockpit.com/learn/glossary.html)
+
+## Methods and how-tos
+
+- [Methods](https://trader-cockpit.com/methods/): assumptions and limits behind each calculation
+- [How-to guides](https://trader-cockpit.com/how-to/): reading backtest metrics, Monte Carlo results, staged validation and charts
+- [Examples](https://trader-cockpit.com/examples/): worked cases on synthetic data
+
+## About
+
+- [Development status](https://trader-cockpit.com/updates/)
+- [Planned pricing](https://trader-cockpit.com/pricing/)
+- [Trust and authorship](https://trader-cockpit.com/trust/)

@@ -1,0 +1,16 @@
+{
+  "schema": "tradercockpit.search-pages/v1",
+  "note": "Guides that get Article metadata beyond the learn/concepts, methods, how-to and examples folders, and the dates shown to search engines. published = first public release; modified = last change to the guide's content.",
+  "articles": [
+    "learn/start-here.html",
+    "learn/glossary.html",
+    "strategy-claim-audit-checklist.html"
+  ],
+  "dates": {
+    "default": {"published": "2026-09-10", "modified": "2026-10-12"},
+    "examples/replay-boundary.html": {"published": "2026-09-11", "modified": "2026-10-12"},
+    "learn/start-here.html": {"published": "2026-09-11", "modified": "2026-10-12"},
+    "learn/glossary.html": {"published": "2026-09-11", "modified": "2026-10-12"},
+    "strategy-claim-audit-checklist.html": {"published": "2026-07-21", "modified": "2026-10-12"}
+  }
+}

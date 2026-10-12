@@ -35,7 +35,7 @@
         }
       ],
       "howTo": "../../how-to/read-monte-carlo.html",
-      "dateModified": "2026-10-05",
+      "dateModified": "2026-10-12",
       "exampleTitle": "Same trades, different drawdown.",
       "assumptions": [
         "State whether you shuffle without replacement, resample with replacement, resample blocks, perturb execution costs or rerun the strategy on altered inputs. These answer different questions.",
@@ -89,7 +89,7 @@
           "path": "monte-carlo.html"
         }
       ],
-      "dateModified": "2026-10-05",
+      "dateModified": "2026-10-12",
       "exampleTitle": "A holdout becomes feedback.",
       "assumptions": [
         "Split time in order and freeze the strategy, parameter search, scoring rule, data preparation and execution assumptions before the final evaluation.",
@@ -142,7 +142,8 @@
           "title": "Selection bias",
           "path": "selection-bias.html"
         }
-      ]
+      ],
+      "seoTitle": "Walk-Forward Analysis for Trading Strategies"
     },
     {
       "slug": "parameter-robustness",
@@ -176,7 +177,8 @@
           "title": "Out-of-sample evidence",
           "path": "out-of-sample.html"
         }
-      ]
+      ],
+      "seoTitle": "Parameter Robustness: How Sensitive Is a Strategy?"
     },
     {
       "slug": "drawdown",
@@ -210,7 +212,8 @@
           "title": "Walk-forward analysis",
           "path": "walk-forward.html"
         }
-      ]
+      ],
+      "seoTitle": "Drawdown in Trading: Depth, Duration and Recovery"
     },
     {
       "slug": "selection-bias",
@@ -244,7 +247,8 @@
           "title": "Walk-forward analysis",
           "path": "walk-forward.html"
         }
-      ]
+      ],
+      "seoTitle": "Selection Bias and Multiple Testing in Backtests"
     },
     {
       "slug": "correlation-diversification",
@@ -278,7 +282,8 @@
           "title": "Walk-forward analysis",
           "path": "walk-forward.html"
         }
-      ]
+      ],
+      "seoTitle": "Correlation and Diversification Across Strategies"
     },
     {
       "slug": "distribution-shape",
@@ -312,7 +317,8 @@
           "title": "Correlation and diversification",
           "path": "correlation-diversification.html"
         }
-      ]
+      ],
+      "seoTitle": "Return Distribution Shape: Skew and Fat Tails"
     },
     {
       "slug": "regime-map",
@@ -346,7 +352,8 @@
           "title": "Walk-forward analysis",
           "path": "walk-forward.html"
         }
-      ]
+      ],
+      "seoTitle": "Market Regimes as Coordinates for Strategy Research"
     }
   ]
 }
