@@ -1,6 +1,6 @@
 {
   "schema": "tradercockpit.search-pages/v1",
-  "note": "Guides that get Article metadata beyond the learn/concepts, methods, how-to and examples folders, and the dates shown to search engines. published = first public release; modified = last change to the page's visible content (not URL, title or metadata changes).",
+  "note": "Guides that get Article metadata beyond the learn/concepts, methods, how-to and examples folders, and the dates shown to search engines. published = first public release; modified = last change to the page, not counting URL, title or metadata changes.",
   "articles": [
     "learn/start-here.html",
     "learn/glossary.html",

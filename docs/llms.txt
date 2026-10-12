@@ -30,5 +30,5 @@ The guides are written by the TraderCockpit team. Examples use synthetic data an
 ## About
 
 - [Development status](https://trader-cockpit.com/updates/)
-- [Planned pricing](https://trader-cockpit.com/pricing/)
+- [Planned pricing](https://trader-cockpit.com/pricing/): a planned Free plan (Google sign-in, unlimited paper trading) and four planned paid plans
 - [Trust and authorship](https://trader-cockpit.com/trust/)
