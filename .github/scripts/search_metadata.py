@@ -113,7 +113,7 @@ def block_for(rel: str, text: str, cfg: dict) -> str | None:
         tags.append(ld({'@context': 'https://schema.org', '@type': 'Article', 'headline': (h1 or title.split(' — ')[0])[:110], 'description': desc,
                         'mainEntityOfPage': url, 'url': url, 'image': IMAGE, 'inLanguage': 'en', 'isAccessibleForFree': True,
                         'datePublished': dates.get('published', dates['modified']), 'dateModified': dates['modified'],
-                        'author': {'@type': 'Organization', '@id': ORG_ID, 'name': TEAM, 'url': SITE + 'trust/#authorship'},
+                        'author': {'@type': 'Organization', 'name': TEAM, 'url': SITE + 'trust/#authorship', 'parentOrganization': {'@id': ORG_ID}},
                         'publisher': {'@type': 'Organization', '@id': ORG_ID, 'name': 'TraderCockpit', 'logo': {'@type': 'ImageObject', 'url': LOGO}}}))
     return START + ''.join(tags) + END
 

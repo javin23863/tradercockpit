@@ -27,9 +27,9 @@
     "examples/holdout-selection.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85",
-      "after_sha256": "dc92fb047fdd1b68dee6bf59dbdc504f9041625409e2038d359232f3dc2673bc",
+      "after_sha256": "83289336d1411708b70be4dacc158433840fd20708ae91f2eb3275a47f8c0039",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "afc8a7e747379f51928b4326f6e963568f8bc8ffb5121fd888de26fbde69059f"
+      "corrected_unwrapped_sha256": "6393876cd735f796c6b6de062cd75a75302c3596d4366dbc65c9187277656e3c"
     },
     "examples/index.html": {
       "kind": "corrected_reading_shell",
@@ -41,9 +41,9 @@
     "examples/replay-boundary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79",
-      "after_sha256": "199565b88da20f02639500979f13be89c61807a683a7ed33a22be2aea23cc093",
+      "after_sha256": "67fd81e1b17578552803fef659ac72096b70f0bfdaecf83a37ebe906f7d86645",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "c67e9bf5f50516daf773eda6e4531fd0d803b4b10e596ea64e8e11976ba9027e"
+      "corrected_unwrapped_sha256": "4cd14f763327f31dc28c5b09e4dc1665d36f1f86c47829214274e897235577d8"
     },
     "help.html": {
       "kind": "corrected_reading_shell",
@@ -62,100 +62,100 @@
     "how-to/read-chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3",
-      "after_sha256": "839cbae5dd9c9868f6add9e5f7696cd81ddddfc5474ab5de28ad487e77f43340",
+      "after_sha256": "6edd477003595b1eefb880a01f68d276377f49da3575416d76170088dee8b6b7",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "282040bb53896e45b213a36d624a4adf56ea2121dd7baf13cbeb77d13ae5f663"
+      "corrected_unwrapped_sha256": "c0a4ee2086edd94734f60b44fbafd6df572204a58c9fa048bda2e3dd65847460"
     },
     "how-to/read-monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404",
-      "after_sha256": "11e888c41890e2456c62c7450d7ec6a0db3a01eac97aa8a655de3757d2f9f383",
+      "after_sha256": "1f487a4c52dfed49b4939899dea60ec140cf356c6ea9f08a68e50d42f7f501f7",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "e862f4e2ce290a45ddebcd812c4a2df4fe7f7f62e16aa6265c62ebd12ca7eb57"
+      "corrected_unwrapped_sha256": "2effd6726a3362eafe09f1b9807d078277e123aca949199edab77b6e8d694db9"
     },
     "how-to/read-result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833",
-      "after_sha256": "cfb14f191290df2703bab3e9c01e939f03e73dfe4454bc95b5264d5991b1e356",
+      "after_sha256": "115ac1100f2020e597c271f087dbda68bee9d1ffaa89d32882d7a4960b7698c7",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "898846d9b8dac1f35845e873e1bfb1e127b059b8da2ff8028488b42a4cd7452e"
+      "corrected_unwrapped_sha256": "d4f37ae0cdf0c2cc07e177f9409ae8de7cdf7b9db40faf35c88a44d73313e974"
     },
     "how-to/read-staged-validation.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5",
-      "after_sha256": "2bd1c980205a6b6ed554491d5fe6650c953d188457c465c804749ea9cc08b54b",
+      "after_sha256": "fcf74d9eef7f2ea11e61e51b00a892f91cbc693780df0289b95435a9d5c75a05",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "a9b7616f2187aa5504af08ef8a4906fbcd0a226b411369af3310f7ca62be37d1"
+      "corrected_unwrapped_sha256": "3f3bdcb3dc843974a3d256fcd85cd1a0d33f56971d35e60d2b98dd81720c6918"
     },
     "learn/concepts/correlation-diversification.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
-      "after_sha256": "9a4280292f874674ac37eb3b7d73a2070061d2f41b0913dc482a74a70d60608a",
+      "after_sha256": "5bf605cd7da89251779e7074a5986244368076c0157f5f99f81d8ce061d57b62",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "8a0ef93ec0b131b129560ac78e2eb67be29668f68a366f0848d32fa264237bdb"
+      "corrected_unwrapped_sha256": "2593c072f2ecf63e8a3d10c330f9e736b881a44da1fd58af2b5191c910d22b0b"
     },
     "learn/concepts/distribution-shape.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
-      "after_sha256": "c4ceb8b82bbaa8418446c692375613d8d04078ea412081d0128b647f154692d3",
+      "after_sha256": "266df27caee25e7f5318e777e55ffd964dd955858d5e54514fe738384f5f53e7",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "276f6ed2343932df36b6f5841e90b0e63ffcc9f896f155e05756b25d69620c4b"
+      "corrected_unwrapped_sha256": "5bfed3545bbcfe5dcb0ec4783e65596def64d8d5386db9977a6aa2564343404a"
     },
     "learn/concepts/drawdown.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
-      "after_sha256": "f5e98c95f306f9598ff90aec2f7e30a526209a181f7858e6972407d2e32fdfa6",
+      "after_sha256": "8b61d899af2493587a542dd2aa2c3a16e4013917d1044aeae6f48e7ddaef6ae7",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "d9f9942f7b5cf23a140d66c4bb477e54a15654198273af8124dbaf07f223332c"
+      "corrected_unwrapped_sha256": "848efda5aaf117bdd5d824a8f772fc63731495d4a22274cd95cb3ef76bb5b300"
     },
     "learn/concepts/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6e3f51c527177c355262b635824aa4a3ad3004686711081972a7fde552439fce",
-      "after_sha256": "90b31eaac15ce14c9f2c24afa760b8bbdb51581891f805841864ee9ac8411693",
+      "after_sha256": "920707283fe34691a2f05a1458a3ea4116cf2f46fdba8883d082454b5a62d2d7",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "cb32cd8e8e0701f434ee132e06e713b51275c9bcc86d075f3600beaf5d7c0a45"
+      "corrected_unwrapped_sha256": "ccafb900246f73912fbbbbd9183aab31781e1ab26dc1c4beb15ae96f86395354"
     },
     "learn/concepts/out-of-sample.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b38d48b3ce6696868ee13396ac4a3f9afa0450abb32d28ace8742bd7e7cf7727",
-      "after_sha256": "05c8ed0a5e8970ac47d1584e076dde78895b89ed7608d1b59788032b8ade5d08",
+      "after_sha256": "34852c4805b50c6598847308d2f870b64ece13c9af447b0747c98b9947374494",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "5eee4d50656451987486fdfa3164593d8f6ecc3c8672d279cc9345e61e7517dc"
+      "corrected_unwrapped_sha256": "beeac71f65739b14c94590d2bc3fcc78ff22be6a708189b1119b7d7ace238e04"
     },
     "learn/concepts/parameter-robustness.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
-      "after_sha256": "672879c9a8db0d114dafd745d874306392464e72e7c5faf32a134a622b264414",
+      "after_sha256": "65a3d56a7a9412d85304766149e833c0f0e82949f278d26dcfbace8b8938cc65",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "4dc8c1cf92dc224a51848f76be425d120ff9438485522cc074e275c0e8df3804"
+      "corrected_unwrapped_sha256": "cd3e3ca7e56458c14d23e87ddb1bab3a1630c7ddcfdfd35a999076d89c37f2a1"
     },
     "learn/concepts/regime-map.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
-      "after_sha256": "b4ffdd0d2c7495d999fb24969a80f4714c1055ce694b234b8a2aa0a37da81e65",
+      "after_sha256": "b0491f9d679a81d6742ecb7779a1cff8b947b147e4928672b04b486c180fda32",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "88184e082fc5dfa28f562f164210fc7d700e5569a63328e82240372a83b05be7"
+      "corrected_unwrapped_sha256": "0ef63f5bc2fae6611b234c371ae104a327e8e2467f0ef7221dc5e1f64411484e"
     },
     "learn/concepts/selection-bias.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
-      "after_sha256": "a2f7d6c1564dc48f5bb5fdd3d8fd0f5bd0dd7099a70aedf87f98675b5b5fc7d2",
+      "after_sha256": "d36d6bc0ea86be2ff92e16620bd1371faacc38dbada56c2a76db0ac5e1907539",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "733bbd3737d72761d95870cd43f3591dce87555c573833faf2624b59568c8d25"
+      "corrected_unwrapped_sha256": "0f864c8c6d2a0232b746395981fa0b1b4e96956f19073f2bb8a93d21a3a58cd8"
     },
     "learn/concepts/walk-forward.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
-      "after_sha256": "5a253ca1f2b2bccff51a417c1f55a5e7ec416b51f6b7e38153119b9094d7e340",
+      "after_sha256": "ec11af658dd704991384100151cf26e97da60ef3ac73861e3d8e826347b28be6",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "1361b8245ea9253521d83e3637b93e1989bf01a776fe1ee755012c58f2f8cdd9"
+      "corrected_unwrapped_sha256": "fee3cf8e5e9ab875164f80983785c5a300079a3088595ab04f648c4e569ea11e"
     },
     "learn/glossary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335",
-      "after_sha256": "82ff41cffdc5ca0309975002eea8764a9eaad9fcb8438e52b10c2e8eaba9cc82",
+      "after_sha256": "4c2b81e5a0590f805442e837a6637c9ae256b4bf62156b2f1e4ff17f16f44a54",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "49e64ecdfd9d473f9d7837640be59443253c54cf4f64f52a5d15b2e23902410b"
+      "corrected_unwrapped_sha256": "7aa2aa5fd305d7a8d5af21c87f11d313f1f8fc42344278c2ae4e83daf04b23d3"
     },
     "learn/index.html": {
       "kind": "corrected_reading_shell",
@@ -167,9 +167,9 @@
     "learn/start-here.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3",
-      "after_sha256": "7f199e364d059cba215f23a8174ec0d8c9c3a15143daabfd3fef0f6e40440d66",
+      "after_sha256": "cde90b62f7ed131ae0de4448c8c5b6873a079d0045d3cc4af7f5c9e783e8cc49",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "0ebb3a3266e324f7d8ec1a2bdadaf252efe5bb7dccd71ed8d0605ba0069c11e2"
+      "corrected_unwrapped_sha256": "3e3742d7795b40297a53fc10eb7b4714d4ead6cb5e54e72d75ac48c7dc5948a5"
     },
     "learn/videos.html": {
       "kind": "corrected_reading_shell",
@@ -181,9 +181,9 @@
     "methods/chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8",
-      "after_sha256": "d5339715564cbba294b18fc09b98a014b5b005ab082f5c6067ef784f81ee5a7f",
+      "after_sha256": "9341bf9c9939ac57da29ded2e602a098be906ad3484b94e72ca02ff2f6b55da4",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "f83afcbece6f48c15d46bedd17430dd59df86d77349868631925fb5d0b633c71"
+      "corrected_unwrapped_sha256": "006caae4559c6bf0eea89b68420eb941ed3911f11d785965ae498584d300791d"
     },
     "methods/index.html": {
       "kind": "corrected_reading_shell",
@@ -195,23 +195,23 @@
     "methods/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0",
-      "after_sha256": "c427d48dfaa0f5c29c9d0cc296752ba4e4915dd165222d098923285b61ce0f9b",
+      "after_sha256": "56106e0d9987c8764f64a5b76e56151a102e8b87cf7c8ce5340a7ca6d8241465",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "56186db8f226571604e1170ca369ebc5d19bb6fe3cdb18b1957514274f1085d0"
+      "corrected_unwrapped_sha256": "89443e4d6a50f91c4e073e6648fcfc8e6bee7feb85a03c070ff75faa06acc844"
     },
     "methods/result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1",
-      "after_sha256": "4c80cc61f8b083bf6d7ee1353c8702bdd938f11c56e096a3b91d7348394d1b6d",
+      "after_sha256": "7b36f7b8da1938e9dcbf33eede1e314c212bf5c35a2b2610a909aba106a596fc",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "d32c804504e5ad207c96e07eee3b909d1091535192b6419befaec6bb4d4b89cf"
+      "corrected_unwrapped_sha256": "17a61f977a52c2c3fc096b21bf6843d7433126d0e296e6ca600c02ccd5c22884"
     },
     "methods/validation-foundations.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa",
-      "after_sha256": "deb2b6a2c9fa8165f9acbcc20183d52e6ab3e881ac30d3c17c39216f4a464f9e",
+      "after_sha256": "a82128e75c3cc2b634b8055d675655a3b4d524da2e22d8925c3c95fca49f3c22",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "29e85caab5b056aba39b4913b3bf7e1547e131700a65d8fe8555143eb3c3cddd"
+      "corrected_unwrapped_sha256": "b60e71cf12ae8b2f21efbee9117dc1246019481df3790fe06e4f1e28cdaeeb72"
     },
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
@@ -230,9 +230,9 @@
     "strategy-claim-audit-checklist.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
-      "after_sha256": "d4e37ca31bc29183d96bc56668903b1e1f3f4f0890f5a2128cf363ed6431f65e",
+      "after_sha256": "56e73a34f37714dd3d200d6764801c78e66a493401cc1ade05a1c8d0073503eb",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "1eedbc405350c750ef43d85f3ca9870b4ac7f1771bf820d559fe3795ef9c380b"
+      "corrected_unwrapped_sha256": "13116ab8ac6fbfecd349a8428fdfd5a5607bcfc24ea5dffa1c63c072723c9ed8"
     },
     "support/faq.html": {
       "kind": "corrected_reading_shell",
@@ -258,9 +258,9 @@
     "trust/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
-      "after_sha256": "98f8fe4fb6424e2129f2450057027bba776eb32b64611304938f63597cd3ade1",
+      "after_sha256": "aaa611c28d79eaf7db1822f011c2751fb75e803720793cb1c1c78afca3e167a3",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "cc545e99b6c7d1824cc20e3dcb9cf88e6f7b730c75591c12bbb299bdc1394c60"
+      "corrected_unwrapped_sha256": "2b79bee09d63d81b00bc206fb1695e46d872e687e065d6b4c19aebc89b2c4f74"
     },
     "trust/privacy.html": {
       "kind": "corrected_reading_shell",
@@ -272,9 +272,9 @@
     "updates/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
-      "after_sha256": "ce76a0f052bbbe8776b6a643a332d5673baa1e61be697c30650604bae6142748",
+      "after_sha256": "ac470adaecb3d43bce850c1f3629156a2202d81eedeb9997dacebfebfe54fdaa",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12).",
-      "corrected_unwrapped_sha256": "d89d821a73cb9c96734225edfd2d3c8b54c5d891ae2d2f656530e7b86128b401"
+      "corrected_unwrapped_sha256": "d7fdd6a347e05741324e43702cff9b0564ee7ada9b2ea418e1f6b1ceac9c5df3"
     },
     "assets/site-search.js": {
       "kind": "search_guard",
@@ -352,7 +352,7 @@
     },
     "sitemap.xml": {
       "before_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-      "after_sha256": "5f619af73693b4314d9a143bf9c6e714953cb9ed5f976e3e82021718d4a90c62",
+      "after_sha256": "6d8e2382acb672ef8a7de56ccc6d31b56e26081c564af1f99f611c076e26c127",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12)."
     }
   },
