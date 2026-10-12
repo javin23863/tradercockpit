@@ -37,12 +37,11 @@
     openDialog(detail);
   }
   const features = Object.freeze({
-    builder:['Strategy Builder','Development concept, not an available capability. Construct strategy logic and research configurations. Keep the idea and the assumptions behind it explicit.'],
+    builder:['Strategy Builder','A development-build capture of the Builder settings: the strategy type and the build options. The app is in development and not yet released.'],
     charts:['Charts','Development capture, not an available capability. Inspect price, studies and volume. This development build shows Coinbase BTC/USD 15-minute historical bars, not a live market or a trading result.'],
     models:['Apollo beside Charts','Development capture, not an available capability. Apollo, the research assistant, sits beside the chart and sends what is on screen only when you press Ask. Historical bars, not a trading result.'],
-    apollo:['Quant Models','Development concept, not an available capability. Explore model diagnostics and analytical evidence. A fitted model is not a promise of future performance.'],
-    data:['Market Data','Development concept, not an available capability. Organize the historical inputs used by your research. This page does not establish provider access or a live data connection.'],
-    projects:['Custom Projects','Development concept, not an available capability. Use reusable research workflows while keeping their settings and underlying evidence inspectable.']
+    research:['Quant Models','A development-build capture of a Models study comparing exposure policies on a synthetic sample. It is not a trading result, and a fitted model is not a promise of future performance.'],
+    projects:['Custom Projects','A development-build capture of a custom project: a build task followed by retests on other markets. The app is in development and not yet released.']
   });
   // Capture details are fixed local metadata. No network request is made.
   const captures = Object.freeze({
@@ -72,7 +71,7 @@
       `<div class="capture-switch" aria-label="Choose capture">${tabs}</div>
        <div class="capture-scale" aria-label="Image scale"><button class="capture-choice" data-capture-scale="fit" aria-pressed="true">Fit screen</button><button class="capture-choice" data-capture-scale="native" aria-pressed="false">100% size</button></div>
        <figure class="capture-evidence" tabindex="0" aria-label="Product capture; scroll horizontally at 100 percent size"><img class="detail-media capture-media" src="${record.src}" width="${record.width}" height="${record.height}" alt="${record.title}"><figcaption>${record.date} · ${sizeDescription}</figcaption></figure>
-       <p>${record.note}</p><a class="button glass" href="#/platform/${key}">Read this screen guide →</a><a class="button glass" href="${origin+record.path}" target="_blank" rel="noopener noreferrer">Full-size capture ↗</a><p class="capture-limit">The surrounding room is illustrative artwork. The screens are captures of a development build, not a live application. A reduced preview is used only if the full-size capture cannot be loaded.</p>`, true);
+       <p>${record.note}</p><a class="button glass" href="#/platform/${key}">Read this screen guide →</a><a class="button glass" href="${origin+record.path}" target="_blank" rel="noopener noreferrer">Full-size capture ↗</a><p class="capture-limit">The surrounding room is illustrative artwork. The screens are captures of a development build, not a live application or release approval. A reduced preview is used only if the full-size capture cannot be loaded.</p>`, true);
     const frame=body.querySelector('.capture-evidence'),image=body.querySelector('.capture-media');
     body.querySelectorAll('[data-capture-scale]').forEach(button=>button.addEventListener('click',()=>{
       const native=button.dataset.captureScale==='native';
@@ -96,7 +95,7 @@
     const key = b.dataset.feature, entry = features[key];
     if (!entry) return;
     if (Object.hasOwn(captures, key)) { inspectCapture(key); return; }
-    show(entry[0], 'Platform overview', `<img class="detail-media" src="assets/reference-site/${key}.webp" alt="Decorative illustration" width="450" height="230"><p>${entry[1]}</p><a class="button glass" href="docs/">Read product documentation ↗</a>`);
+    show(entry[0], 'Platform overview', `<img class="detail-media" src="assets/reference-site/${key}.webp" alt="Development-build capture" width="450" height="232"><p>${entry[1]}</p><a class="button glass" href="docs/">Read product documentation ↗</a>`);
   }));
   document.addEventListener('click', event => {
     if (!event.target.closest('[data-video]')) return;

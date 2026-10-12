@@ -136,40 +136,32 @@
       "bytes": 207814
     },
     "docs/assets/reference-site/room-screen.webp": {
-      "sha256": "aea227e6d88f261df6424930ba89395e52bdb78c2fe8f9ad120245a82c46edd9",
-      "bytes": 55408
+      "sha256": "e718a6c762dfd2946127994b3f5021a04240cf01d637c91dbcb058f873b719d6",
+      "bytes": 42516
     },
     "docs/assets/reference-site/laptop-scene.webp": {
       "sha256": "e14a9353f3bf83217db170c00dfdddd5ed405a246ad63a4729320b17f82402f2",
       "bytes": 107906
     },
     "docs/assets/reference-site/laptop-screen.webp": {
-      "sha256": "84f9709a6bc2649673b0dbf4ca1ac2e43193369a965c96e06306e909627ce016",
-      "bytes": 65628
+      "sha256": "87cb1568ddb9b5124bfb50e7e202945d461e64440728fd9e59c8fd868d6bf1ce",
+      "bytes": 64684
     },
     "docs/assets/reference-site/builder.webp": {
-      "sha256": "f68df6a4e549720a6b821c37d32d82de6107c652cc07b6cf33cb7ff45a7d6846",
-      "bytes": 1908
-    },
-    "docs/assets/reference-site/apollo.webp": {
-      "sha256": "c492b801d96d8161744558cbcf234d5730e42bae80e1ec419acde526b380139d",
-      "bytes": 3668
-    },
-    "docs/assets/reference-site/data.webp": {
-      "sha256": "4c2b08f48e4260db94e45362c7720b8be7f38708f30d9a84ce06b618adbe2302",
-      "bytes": 3378
+      "sha256": "2bcbee3371b2b1f426cb3c3546b4eeb618b9a5ce459e211960ef5472c5d284e4",
+      "bytes": 31398
     },
     "docs/assets/reference-site/projects.webp": {
-      "sha256": "c87de8618aad9f7e8d11ea92cae18e8e6ea54de4f5fd8d340abf00b6e8334484",
-      "bytes": 2280
+      "sha256": "62af6f50ccc2591e2a17f00dbf9b3428463ee1ece139a30f6eed729b31861c2f",
+      "bytes": 46282
     },
     "docs/assets/reference-site/product-charts.webp": {
-      "sha256": "ca0e0d9acbbdee23ef2f94d8531463026184c871cc076ebe2291c11d6773fa98",
-      "bytes": 10564
+      "sha256": "6a0333856987244f8370ae105d88a1a8a25444ada2f7f34f5cf4903f04faed5f",
+      "bytes": 12712
     },
     "docs/assets/reference-site/product-models.webp": {
-      "sha256": "d4905040d2e6354472885b6c9f0c8fc0d188429e736fac2e33b16a90795d6da7",
-      "bytes": 9966
+      "sha256": "314a7c090767065aee9d3c6d2be8300280b742e943425391e6efb57196fbb017",
+      "bytes": 13806
     },
     "docs/assets/reference-site/styles.css": {
       "sha256": "bca1e443507ec8fd75ed57d0762c8e2cc2ebbf125198f53e75d9fe096ea19c3e",
@@ -226,5 +218,21 @@
   },
   "visual_approval": false,
   "served_browser_acceptance": false,
-  "status": "NOT_READY_FOR_CODEX_REVIEW"
+  "status": "NOT_READY_FOR_CODEX_REVIEW",
+  "amendments": [
+    {
+      "date": "2026-10-12",
+      "reason": "Retired captures replaced with current development-build captures (BTC/USD Charts, Apollo beside Charts, Builder settings, a Models study on a synthetic sample, a custom project task list); the Market Data concept card had no real capture and was removed.",
+      "changes": [
+        "replaced docs/assets/reference-site/room-screen.webp",
+        "replaced docs/assets/reference-site/laptop-screen.webp",
+        "replaced docs/assets/reference-site/builder.webp",
+        "removed docs/assets/reference-site/apollo.webp",
+        "removed docs/assets/reference-site/data.webp",
+        "replaced docs/assets/reference-site/projects.webp",
+        "replaced docs/assets/reference-site/product-charts.webp",
+        "replaced docs/assets/reference-site/product-models.webp"
+      ]
+    }
+  ]
 }
