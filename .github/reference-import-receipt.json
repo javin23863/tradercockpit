@@ -53,7 +53,6 @@
   },
   "unchanged": {
     "404.html": "7a534afcded123790db17bd7eeae83996d2d62bbac3dc9213b598ed2fb123224",
-    "assets/desktop-current.png": "bf37da9aa22fcbe77dcf4668b6ccdb37c5eb8ff0b52a70c5a97d0ffb6f3ddcfa",
     "assets/faq-status.mjs": "60ef1485d6fc005893c67ed6ced932095cf4e5e5ad9dec6ddb68475ec0c0b736",
     "assets/generated/research-vtk-v1.js": "ed0025be8303dca7923bc0b1eda654c6c0ee0fa122fdcbaefb1901746e0408ea",
     "assets/generated/research-vtk-v1.LICENSE.txt": "975132688e5330fc9bef98cf3260af11d74f7ef2ffe8309b5d10bd73e212a5fc",
@@ -148,8 +147,8 @@
       "bytes": 64528
     },
     "docs/assets/reference-site/builder.webp": {
-      "sha256": "2bcbee3371b2b1f426cb3c3546b4eeb618b9a5ce459e211960ef5472c5d284e4",
-      "bytes": 31398
+      "sha256": "095d1f226e80246a82a5b577672a4a5a62b755fbb0ff372d3bbae0c852cde64c",
+      "bytes": 31700
     },
     "docs/assets/reference-site/product-charts.webp": {
       "sha256": "411d1661b83a2797acdbaa02b99f93899960e7f905b94708763821feb7744bf0",
@@ -229,6 +228,14 @@
         "replaced docs/assets/reference-site/product-models.webp",
         "replaced docs/assets/reference-site/projects.webp",
         "replaced docs/assets/reference-site/room-screen.webp"
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "reason": "The Builder card shows the current Builder Setup (What to search for) from a development build; an unused older app screenshot was removed.",
+      "changes": [
+        "replaced docs/assets/reference-site/builder.webp",
+        "removed docs/assets/desktop-current.png"
       ]
     }
   ]
