@@ -131,3 +131,27 @@ body[data-reference-content] .side-panel .deep-link+.deep-link{margin-left:14px}
 
 body[data-reference-content] .article-section::before,body[data-reference-content] .article-section::after,body[data-reference-content] .article-section h2::before{display:none}
 body[data-reference-content] .article-section{border-radius:0;box-shadow:none;background:none}
+
+/* Research Lab: same reading surface as the other pages; the analytical canvases keep their colors. */
+body[data-reference-content] .hero{padding:64px 0 56px;background:var(--rc-bg);border-bottom:1px solid var(--rc-line)}
+body[data-reference-content] .hero-grid{gap:64px;align-items:center}
+body[data-reference-content] .hero h1{max-width:20ch;font:500 clamp(34px,4vw,58px)/1.07 Arial,Helvetica,sans-serif;letter-spacing:-.038em;color:var(--rc-ink);text-wrap:balance;margin:16px 0 22px}
+body[data-reference-content] .gradient-text{background:none;-webkit-text-fill-color:currentColor;color:var(--rc-gold)}
+body[data-reference-content] .hero .lede{font:400 17px/1.65 Arial,Helvetica,sans-serif;color:var(--rc-muted);max-width:65ch}
+body[data-reference-content] :is(.scene-frame,.visual-panel,.lab-atlas-nav .atlas-shell){border:1px solid var(--rc-line);border-radius:0;background:#0b100f;box-shadow:none;backdrop-filter:none}
+body[data-reference-content] .scene-frame::before,body[data-reference-content] .scene-frame::after{display:none}
+body[data-reference-content] :is(.lab-canvas-stack>.scene-canvas,.lab-canvas-stack>#monte-carlo-canvas,.lab-canvas-stack>.lab-depth-canvas,.lab-depth-canvas){border-radius:0}
+body[data-reference-content] :is(.scene-label,.synthetic-badge){border:1px solid var(--rc-line);border-radius:3px;background:#121b17;color:var(--rc-gold);font:500 11px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:none}
+body[data-reference-content] .visual-topline h3{font:500 22px/1.2 Arial,Helvetica,sans-serif;letter-spacing:-.025em;color:var(--rc-ink)}
+body[data-reference-content] :is(.scene-frame,.visual-panel) .control-btn{min-height:44px;border:1px solid var(--rc-line);border-radius:3px;background:transparent;color:var(--rc-muted);font:400 13px/1.2 Arial,Helvetica,sans-serif;letter-spacing:0;box-shadow:none}
+body[data-reference-content] :is(.scene-frame,.visual-panel) .control-btn:hover{color:var(--rc-gold);background:#1b251f;border-color:var(--rc-line)}
+body[data-reference-content] :is(.scene-frame,.visual-panel) .control-btn[aria-pressed="true"]{color:#080b0b;background:var(--rc-gold);border-color:var(--rc-gold);box-shadow:none}
+body[data-reference-content] :is(.focus-readout,.metric span,.legend-item span){font-family:Arial,Helvetica,sans-serif;color:var(--rc-muted)}
+body[data-reference-content] :is(.metric b,.legend-item strong,.threshold-control output){font-family:Arial,Helvetica,sans-serif;color:var(--rc-ink)}
+body[data-reference-content] :is(.focus-readout,.metric,.legend-item,.threshold-control,.atlas-nav-item){border-color:var(--rc-line);border-radius:0;background:transparent;box-shadow:none}
+body[data-reference-content] .atlas-nav-item:is(:hover,:focus-visible){background:#151f19;border-color:var(--rc-line);transform:none}
+body[data-reference-content] .atlas-nav-item b{color:var(--rc-gold)}
+body[data-reference-content] .atlas-nav-head h2{font:500 clamp(25px,2.8vw,36px)/1.15 Arial,Helvetica,sans-serif;letter-spacing:-.03em;color:var(--rc-ink)}
+body[data-reference-content] :is(.atlas-nav-head p,.atlas-nav-item,.atlas-nav-item *){font-family:Arial,Helvetica,sans-serif;letter-spacing:0}
+body[data-reference-content] .atlas-nav-head p{font-size:14px;line-height:1.6;color:var(--rc-muted)}
+body[data-reference-content] .metric b{font-weight:500}

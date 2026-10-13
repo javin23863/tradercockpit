@@ -4,7 +4,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..'),do
 const puppeteer=(await import(process.env.TC_PUPPETEER_MODULE?pathToFileURL(process.env.TC_PUPPETEER_MODULE).href:'puppeteer')).default;
 const label=process.argv.includes('--before')?'before':'after';
 const out=process.env.TC_REFERENCE_EVIDENCE||path.join(root,'.github/evidence/reference-content',label);fs.mkdirSync(out,{recursive:true});
-const routes=process.argv.includes('--all') ? Object.keys(publicFiles(docs)).filter(p=>p.endsWith('.html')&&!['index.html','research-lab.html'].includes(p)).map(p=>p.endsWith('/index.html')?p.slice(0,-10):p) : ['docs/','learn/','how-to/','methods/','examples/','updates/','support/','trust/','learn/concepts/monte-carlo.html','pricing/'];
+const routes=process.argv.includes('--all') ? Object.keys(publicFiles(docs)).filter(p=>p.endsWith('.html')&&p!=='index.html').map(p=>p.endsWith('/index.html')?p.slice(0,-10):p) : ['docs/','learn/','how-to/','methods/','examples/','updates/','support/','trust/','learn/concepts/monte-carlo.html','pricing/'];
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex'),before=publicFiles(docs),host=await serve(docs),rows=[];let browser;
 try{browser=await puppeteer.launch({executablePath:process.env.TC_CHROME,headless:true});
  for(const route of routes)for(const width of [1440,390]){

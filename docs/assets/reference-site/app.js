@@ -37,7 +37,7 @@
     openDialog(detail);
   }
   const features = Object.freeze({
-    builder:['Strategy Builder','A development-build capture of the Builder settings: the strategy type and the build options. The app is in development and not yet released.'],
+    builder:['Strategy Builder','A development-build capture of the Builder Setup: where the search starts and its options. The app is in development and not yet released.'],
     charts:['Charts','Development capture, not an available capability. Inspect price, studies and volume. This development build shows Coinbase BTC/USD 15-minute historical bars, not a live market or a trading result.'],
     models:['Apollo beside Charts','Development capture, not an available capability. Apollo, the research assistant, sits beside the chart and sends what is on screen only when you press Ask. Historical bars, not a trading result.'],
     research:['Quant Models','A development-build capture of a Models study comparing exposure policies on a synthetic sample. It is not a trading result, and a fitted model is not a promise of future performance.']
