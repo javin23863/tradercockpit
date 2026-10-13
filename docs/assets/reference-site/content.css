@@ -143,10 +143,10 @@ body[data-reference-content] .scene-frame::before,body[data-reference-content] .
 body[data-reference-content] :is(.lab-canvas-stack>.scene-canvas,.lab-canvas-stack>#monte-carlo-canvas,.lab-canvas-stack>.lab-depth-canvas,.lab-depth-canvas){border-radius:0}
 body[data-reference-content] :is(.scene-label,.synthetic-badge){border:1px solid var(--rc-line);border-radius:3px;background:#121b17;color:var(--rc-gold);font:500 11px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;box-shadow:none}
 body[data-reference-content] .visual-topline h3{font:500 22px/1.2 Arial,Helvetica,sans-serif;letter-spacing:-.025em;color:var(--rc-ink)}
-body[data-reference-content] .control-btn{min-height:44px;border:1px solid var(--rc-line);border-radius:3px;background:transparent;color:var(--rc-muted);font:400 13px/1.2 Arial,Helvetica,sans-serif;letter-spacing:0;box-shadow:none}
-body[data-reference-content] .control-btn:hover{color:var(--rc-gold);background:#1b251f;border-color:var(--rc-line)}
-body[data-reference-content] .control-btn[aria-pressed="true"]{color:#080b0b;background:var(--rc-gold);border-color:var(--rc-gold);box-shadow:none}
-body[data-reference-content] :is(.focus-readout,.micro,.metric span,.legend-item span){font-family:Arial,Helvetica,sans-serif;color:var(--rc-muted)}
+body[data-reference-content] :is(.scene-frame,.visual-panel) .control-btn{min-height:44px;border:1px solid var(--rc-line);border-radius:3px;background:transparent;color:var(--rc-muted);font:400 13px/1.2 Arial,Helvetica,sans-serif;letter-spacing:0;box-shadow:none}
+body[data-reference-content] :is(.scene-frame,.visual-panel) .control-btn:hover{color:var(--rc-gold);background:#1b251f;border-color:var(--rc-line)}
+body[data-reference-content] :is(.scene-frame,.visual-panel) .control-btn[aria-pressed="true"]{color:#080b0b;background:var(--rc-gold);border-color:var(--rc-gold);box-shadow:none}
+body[data-reference-content] :is(.focus-readout,.metric span,.legend-item span){font-family:Arial,Helvetica,sans-serif;color:var(--rc-muted)}
 body[data-reference-content] :is(.metric b,.legend-item strong,.threshold-control output){font-family:Arial,Helvetica,sans-serif;color:var(--rc-ink)}
 body[data-reference-content] :is(.focus-readout,.metric,.legend-item,.threshold-control,.atlas-nav-item){border-color:var(--rc-line);border-radius:0;background:transparent;box-shadow:none}
 body[data-reference-content] .atlas-nav-item:is(:hover,:focus-visible){background:#151f19;border-color:var(--rc-line);transform:none}

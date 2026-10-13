@@ -11,8 +11,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
     data['audit_scope']='Structural contract generation does not grant visual approval. Current visual approval is owner-provided and recorded in .github/website-reference-readiness.json.'
     for row in data['pages']:
         row['audit']=({'status':'retained_visual_composition','visual_approval':True,'approved_at':approved_at,'source':'owner','scope':'Original composition; updated wording checked separately'} if owner_visual_approval else {'status':'pending_visual_review','visual_approval':False})
-        if row['path']!='research-lab.html':
-            row['visual_character']['color']='Warm dark surfaces, ivory text, restrained gold navigation and action accents. Analytical images retain their source colors.'
+        row['visual_character']['color']='Warm dark surfaces, ivory text, restrained gold navigation and action accents. Analytical images retain their source colors.'
         if row['path']=='index.html':
             row['title']='TraderCockpit | Backtesting & Strategy Validation Guides'
             row['reviewed_h1']='Backtesting and strategy validation guides'

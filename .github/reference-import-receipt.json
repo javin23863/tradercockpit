@@ -147,8 +147,8 @@
       "bytes": 64528
     },
     "docs/assets/reference-site/builder.webp": {
-      "sha256": "095d1f226e80246a82a5b577672a4a5a62b755fbb0ff372d3bbae0c852cde64c",
-      "bytes": 31700
+      "sha256": "ae2ad4eb01b938279525dca574543f74faa6d79727ead838fe7fb1af7ff5a527",
+      "bytes": 31254
     },
     "docs/assets/reference-site/product-charts.webp": {
       "sha256": "411d1661b83a2797acdbaa02b99f93899960e7f905b94708763821feb7744bf0",
@@ -232,11 +232,35 @@
     },
     {
       "date": "2026-10-13",
-      "reason": "The Builder card shows the current Builder Setup (What to search for) from a development build; an unused older app screenshot was removed.",
+      "reason": "The Builder card shows the current Builder Setup (What to search for) from a development build; the data-file name in the step list is masked. An unused older app screenshot was removed. Research Lab uses the same reading surface as the other pages.",
       "changes": [
         "replaced docs/assets/reference-site/builder.webp",
-        "removed docs/assets/desktop-current.png"
-      ]
+        "removed docs/assets/desktop-current.png",
+        "changed docs/research-lab.html",
+        "changed docs/assets/reference-site/content.css",
+        "changed docs/ux-page-contracts.v1.json"
+      ],
+      "builder_capture": {
+        "app_ref": "tradercockpitsq main @24d00eafa (2026-10-13)",
+        "screen": "/builder Setup, What to search for, editable (Save setup shown), development build on the engine",
+        "capture": ".github/evidence/research-lab-current-2026-10-13/builder-setup-development-build-1600.png",
+        "capture_sha256": "2393cbdfb472a2b00ce387f0527796f60a3f850072e041b162b3911b555c443f",
+        "capture_dimensions": [
+          1600,
+          950
+        ],
+        "card_crop": [
+          204,
+          0,
+          1352,
+          697
+        ],
+        "card_dimensions": [
+          900,
+          464
+        ],
+        "release_approved": false
+      }
     }
   ]
 }
