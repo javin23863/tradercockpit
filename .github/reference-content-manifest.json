@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "f2fada460de0443a8e0853a96d9731fbd62dcce13b083489d27e7499236de8fb",
+  "home_sha256": "efc183b6d9cb8d2f2463a007bc31a8a52b75f477667745b9e49abd3e9dad471f",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "5d065b3005c131cc7daa53ec59329e9d3c8f641c3b09c593058d85bf00c69a73",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file",
-      "after_sha256": "ba898b513ee90ec1be20ffa856c24a2ec7ef9157c175c7c3804349c2b4ef4265"
+      "corrected_unwrapped_sha256": "bde77b40e31c02a30225bb9a7b33c633c844d362721c18270d200e67fb23dd63",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note",
+      "after_sha256": "a0f2ba24ddcd8db9cd8fa4de5412ad044260b36fb7ba280364163ac5a52493d3"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -365,7 +365,7 @@
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "13d4f42c2084957678c643427530a4e166d86d5f96f07d76d6263ec6ccab66c1",
-    "features/index.html": "e82c62105722070ea6649c673e5d8da8ca09010b32b5164003b084f2c4cbfe3d",
+    "features/index.html": "1ab7f6283bcf62756da455d6bc4da26a4226d86a242d3064113bc6b96fb123b8",
     "early-access.html": "fcf281d32624a0e5ab272afc7bf6a4ff2f3b1fa85f265d136a047185368b1336",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
@@ -373,7 +373,7 @@
     "assets/features/results.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
     "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60",
     "brokers.v1.json": "7a8e6bc1552424375e51890a2cd8d05cad09849c9e23af72de15f6f126753049",
-    "capabilities.v1.json": "feed1f89134e43d079ca15922fabac87606e1c0d7538abff9ab799d5e9c3f6a8",
+    "capabilities.v1.json": "b76846891b701d3b290e6480ef6d42b0fd02a53cd3777f27b2279ea54e7baef8",
     "assets/product-pages.css": "0d52278eaf07a766f57acd332a22919331e6dfd69a04d24d710c3c7715bd4997",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",

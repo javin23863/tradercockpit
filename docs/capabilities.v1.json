@@ -154,7 +154,7 @@
       "how": [
         "You connect through SnapTrade: the app opens SnapTrade's page in your own browser and you sign in there. Your broker password goes on that page, never into TraderCockpit.",
         "Once connected, your positions, balances and orders show in the app, and your account activity comes into your Journal.",
-        "Alpaca Paper can also connect directly with your own Alpaca paper keys, with no SnapTrade step: stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only, and checked outside market hours so far.",
+        "Alpaca Paper can also connect directly with your own Alpaca paper keys, with no SnapTrade step: stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only.",
         "Paper Trading on every chart needs no broker at all."
       ]
     },
