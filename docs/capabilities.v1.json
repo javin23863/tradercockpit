@@ -150,11 +150,12 @@
       ]
     },
     {
-      "id": "brokers", "title": "Brokers", "kicker": "Connect",
-      "lead": "What's connected today, and nothing more.",
-      "items": [
-        "Alpaca Paper: your own Alpaca paper account, using your paper keys. Stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only, and checked outside market hours so far.",
-        "Real-broker connections aren't listed yet. We'll list each one once it's been checked in the app."
+      "id": "brokers", "title": "Connect your broker", "kicker": "Connect",
+      "how": [
+        "You connect through SnapTrade: the app opens SnapTrade's page in your own browser and you sign in there. Your broker password goes on that page, never into TraderCockpit.",
+        "Once connected, your positions, balances and orders show in the app, and your account activity comes into your Journal.",
+        "Alpaca Paper can also connect directly with your own Alpaca paper keys, with no SnapTrade step: stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only, and checked outside market hours so far.",
+        "Paper Trading on every chart needs no broker at all."
       ]
     },
     {
@@ -166,13 +167,13 @@
       ]
     }
   ],
-  "paidByArea": {"brokers": "Alpaca Paper"},
+  "paidByArea": {},
   "freeByArea": {"charts": "Part", "order-flow": "Part", "journal": "Yes", "data": "Part", "exports": "Part", "paper": "Yes", "save": "Part"},
   "plans": [
     {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a Google sign-in. No payment.",
      "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credits", "None"]],
      "included": ["Charts with live prices from the free sources", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
-     "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account (today: Alpaca Paper)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
+     "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account ({brokers} brokers)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
     {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
      "credits": 4000, "jobs": 1, "modelsBatch": 1},
     {"id": "trader", "commerce": "Trader", "name": "Trader", "summary": "Everything, with more Apollo credits and more jobs at once.",

@@ -2,8 +2,8 @@
 """Keep plan numbers honest. Public pages show what a person receives in credits, never dollars.
 
 Always checks every public file. With --app-repo PATH it also compares docs/capabilities.v1.json
-with commercial_catalog.py on that checkout's origin/main (the app repository is private, so CI
-can't read it). Run that form after any change to the catalog.
+with commercial_catalog.py, and docs/brokers.v1.json with deploy/snaptrade-brokerages.json, on
+that checkout's origin/main (the app repository is private, so CI can't read it). Run that form after any change to the catalog.
 """
 from pathlib import Path
 import json,re,subprocess,sys
@@ -40,7 +40,14 @@ def catalog_problems(repo):
     if data['runLimitCredits']!=to_credits(ceiling):problems.append('run limit differs from the catalog')
     packs=[{'priceCents':int(c),'credits':to_credits(int(d))} for c,d in re.findall(r'"price_cents": (\d+), "credit_nanos": (\d+) \* USD',text)]
     if data['creditPacks']!=packs:problems.append(f'credit packs differ: {packs}')
-    return problems
+    return problems+broker_problems(repo)
+
+def broker_problems(repo):
+    text=subprocess.run(['git','-C',repo,'show','origin/main:deploy/snaptrade-brokerages.json'],capture_output=True,text=True,encoding='utf-8',check=True).stdout
+    routes=lambda rows:{(k,r['name'],m,v['trading'] is True) for k,r in rows.items() for m,v in r['routes'].items()}
+    app=routes(json.loads(text)['institutions'])
+    site=routes(json.loads((DOCS/'brokers.v1.json').read_text(encoding='utf-8'))['institutions'])
+    return [f'broker route only on the site: {r}' for r in sorted(site-app)]+[f'broker route missing from the site: {r}' for r in sorted(app-site)]
 
 def main():
     problems=public_problems()

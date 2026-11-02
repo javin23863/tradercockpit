@@ -61,6 +61,11 @@
 .pp-plan-body h3{font-size:20px;font-weight:500;margin:22px 0 8px}
 .pp-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:18px 0 0}
 .pp-facts div{padding:12px;border:1px solid #ffffff14;border-radius:8px}.pp-facts dt{color:#a3a8a3;font-size:13px}.pp-facts dd{margin:4px 0 0;color:#f4f4f0;font-size:17px}
+.pp-brokers{padding:56px 0;border-top:1px solid #ffffff14}.pp-brokers h2{margin:8px 0 12px}
+.pp-broker-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:28px}
+.pp-broker-group h3{margin:0 0 6px;font-size:19px;font-weight:600}.pp-broker-group h3 span{color:#e7cba0;font-weight:500}
+.pp-broker-group p{margin:0 0 12px;color:#a3a8a3;font-size:14px}.pp-broker-group ul{list-style:none;margin:0;padding:0;columns:2;column-gap:20px}
+.pp-broker-group li{padding:3px 0;color:#f4f4f0;font-size:15px;break-inside:avoid}
 .pp-columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
 .pp-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:8px 36px}
 .pp-group h4{margin:16px 0 0;font-size:16px;font-weight:600}.pp-group h4 a{color:#e7cba0;text-decoration:none}

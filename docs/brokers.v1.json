@@ -1,0 +1,333 @@
+{
+ "about": "The brokers on the site. Names, modes and trading come from deploy/snaptrade-brokerages.json in the app repository; check_plan_catalog.py --app-repo compares them. enabled is what the production service offers.",
+ "enabledCheckedAt": "2026-10-29",
+ "institutions": {
+  "alpaca": {
+   "name": "Alpaca",
+   "routes": {
+    "paper": {
+     "trading": true,
+     "enabled": true
+    },
+    "live": {
+     "trading": true,
+     "enabled": false
+    }
+   }
+  },
+  "ajbell": {
+   "name": "AJ Bell",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "binance": {
+   "name": "Binance",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "bmo": {
+   "name": "BMO InvestorLine",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "bux": {
+   "name": "Bux",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "chase": {
+   "name": "Chase",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "cibc": {
+   "name": "CIBC Investor's Edge",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "coinbase": {
+   "name": "Coinbase",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "commsec": {
+   "name": "CommSec",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "degiro": {
+   "name": "DEGIRO",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "empower": {
+   "name": "Empower",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "etoro": {
+   "name": "eToro",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "etrade": {
+   "name": "E*TRADE",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "fidelity": {
+   "name": "Fidelity",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "ibkr": {
+   "name": "Interactive Brokers (reports)",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "ibkr-trading": {
+   "name": "Interactive Brokers (trading)",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": false
+    }
+   }
+  },
+  "kraken": {
+   "name": "Kraken",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "moomoo": {
+   "name": "Moomoo",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "public": {
+   "name": "Public.com",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "questrade": {
+   "name": "Questrade",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "robinhood": {
+   "name": "Robinhood",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "schwab": {
+   "name": "Charles Schwab",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": false
+    }
+   }
+  },
+  "stake": {
+   "name": "Stake Australia",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "tastytrade": {
+   "name": "tastytrade",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "td": {
+   "name": "TD Direct Investing",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "tradestation": {
+   "name": "TradeStation",
+   "routes": {
+    "paper": {
+     "trading": true,
+     "enabled": false
+    },
+    "live": {
+     "trading": true,
+     "enabled": false
+    }
+   }
+  },
+  "tradier": {
+   "name": "Tradier",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": false
+    }
+   }
+  },
+  "trading212": {
+   "name": "Trading 212",
+   "routes": {
+    "paper": {
+     "trading": true,
+     "enabled": true
+    },
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "upstox": {
+   "name": "Upstox",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "vanguard": {
+   "name": "Vanguard",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "wealthsimple": {
+   "name": "Wealthsimple Trade",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "webull": {
+   "name": "Webull",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "webull-canada": {
+   "name": "Webull Canada",
+   "routes": {
+    "live": {
+     "trading": true,
+     "enabled": true
+    }
+   }
+  },
+  "wells-fargo": {
+   "name": "Wells Fargo",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  },
+  "zerodha": {
+   "name": "Zerodha",
+   "routes": {
+    "live": {
+     "trading": false,
+     "enabled": true
+    }
+   }
+  }
+ }
+}

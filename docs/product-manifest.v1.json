@@ -68,8 +68,8 @@
     },
     {
       "id": "brokers",
-      "label": "Brokers",
-      "summary": "What's connected today, and nothing more."
+      "label": "Connect your broker",
+      "summary": "31 brokers connect to TraderCockpit today, so your real account sits beside your research."
     },
     {
       "id": "save",
@@ -87,5 +87,11 @@
   "product": {
     "name": "TraderCockpit",
     "summary": "TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens."
+  },
+  "brokers": {
+    "connectable": 31,
+    "tradeFromChart": 13,
+    "readAccount": 18,
+    "notOpenYet": 5
   }
 }
