@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "a355e5d48f473caa79545d1eecd2cf70150df38c9b6d9afc3585439742865b55",
+      "corrected_unwrapped_sha256": "952698721a41c6d5ccadc54aa444e38e242cebccfb2c944a28a7795fe32dfecc",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits.",
-      "after_sha256": "87c6e99cfaf844e802f6f33ced3688ad5fe9c4c8f0ba9add05fed3e0b5b72d62"
+      "after_sha256": "66b147d3fe5317399db8015aca5e584f41510137d9fc6c178f475cf080fc5fb5"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -372,7 +372,7 @@
     "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
     "assets/features/results.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
     "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60",
-    "capabilities.v1.json": "e4cceaf899f07f5888a17c5bce4a5006096c0d4dc829e4535ff364c1eb049739",
+    "capabilities.v1.json": "d41905062d3d4abda1d41c5492147ff63de5b83717a1ca764feaeaab33f9c4e3",
     "assets/product-pages.css": "534d442efc65daa53d5fac1900ebc23cf67b2758d7c207a96ad281a6759c53e8",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",

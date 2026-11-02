@@ -175,11 +175,11 @@
      "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account (today: Alpaca Paper)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
     {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
      "credits": 4000, "jobs": 1, "modelsBatch": 1},
-    {"id": "trader", "commerce": "Trader", "name": "Trader", "summary": "Everything, with more Apollo credit and more jobs at once.",
+    {"id": "trader", "commerce": "Trader", "name": "Trader", "summary": "Everything, with more Apollo credits and more jobs at once.",
      "credits": 10000, "jobs": 2, "modelsBatch": 5},
     {"id": "quant", "commerce": "Quant", "name": "Quant", "summary": "Everything, for heavier research.",
      "credits": 20000, "jobs": 4, "modelsBatch": 20},
-    {"id": "apollo-pro", "commerce": "ApolloPro", "name": "Apollo Pro", "summary": "Everything, with the most Apollo credit and jobs at once.",
+    {"id": "apollo-pro", "commerce": "ApolloPro", "name": "Apollo Pro", "summary": "Everything, with the most Apollo credits and jobs at once.",
      "credits": 30000, "jobs": 6, "modelsBatch": 50}
   ],
   "paidLimits": [["Workflow stages", "32"], ["Indicators per chart", "100"], ["Charts at once", "16"], ["Saved chart layouts", "16"], ["Chart alerts", "200"]],
