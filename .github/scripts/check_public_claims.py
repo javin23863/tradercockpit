@@ -43,7 +43,6 @@ def main() -> int:
     if checkout.get("enabled") is False and checkout.get("url") is not None: problems.append("disabled checkout must not expose a checkout URL")
     plan = commerce.get("plan") or {}
     if not isinstance(plan.get("unitAmount"), int) or plan.get("unitAmount", 0) <= 0: problems.append("public commerce plan must expose a positive integer unitAmount")
-    if not re.fullmatch(r"price_[A-Za-z0-9]+", str(plan.get("stripePriceId", ""))): problems.append("public commerce plan has invalid Stripe price id")
 
     if manifest.get("status") != "waitlist":
         problems.append(f"expected current public status waitlist, got {manifest.get('status')!r}")

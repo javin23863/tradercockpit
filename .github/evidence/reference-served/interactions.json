@@ -2,8 +2,8 @@
   "schema": "tradercockpit.served-interactions/v1",
   "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
   "browser": "Edg/156.0.4314.58",
-  "capturedAt": "2026-11-02T08:26:46.721Z",
-  "publicDigest": "7c9d4ea9bbc1673a955ee50bd544a5b0bf050b47e48c67c61b6e04dfa3ea3cb5",
+  "capturedAt": "2026-11-02T08:37:49.190Z",
+  "publicDigest": "6334b2a48339ce2d3cffbd25284a77c9a1673016c23a253d9bd58b83666f9cfa",
   "tests": [
     {
       "name": "approved homepage title survives enhanced navigation",

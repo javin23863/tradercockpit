@@ -1,10 +1,6 @@
 {
   "schema": "product-manifest/v1",
   "status": "waitlist",
-  "assistant": {
-    "name": "Apollo",
-    "status": "concept"
-  },
   "verifiedCapabilities": [
     {
       "id": "builder",
@@ -69,7 +65,7 @@
     {
       "id": "brokers",
       "label": "Connect your broker",
-      "summary": "31 brokers connect to TraderCockpit today, so your real account sits beside your research."
+      "summary": "31 brokers connect to TraderCockpit, and your account activity comes into your Journal."
     },
     {
       "id": "save",
@@ -91,7 +87,6 @@
   "brokers": {
     "connectable": 31,
     "tradeFromChart": 13,
-    "readAccount": 18,
-    "notOpenYet": 5
+    "seeAccount": 18
   }
 }

@@ -115,15 +115,14 @@
     "robots.txt": "e86d231f2ec238989449c6b59cae81b8760a86100f4ceb21d693b62fcd1f36c5",
     "search-index.v1.json": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
     "sitemap.xml": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-    "social-links.v1.json": "369008141a65b8557fb9520e4d69921f72191bdab6428921740708de48926eaf",
+    "social-links.v1.json": "0f4239ae64966544b52fef0bdf333da470148a2417790803e1d78f1daa55e990",
     "strategy-claim-audit-checklist.html": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
     "support/faq.html": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
     "support/index.html": "0dceeb4d047f0ad782c443e1136877ea0343df00f5bb38dd5e74b3fc4c0f1bc0",
     "thanks.html": "7044bbe001264811706c0c3a3d72513c419b61b2314a7e3c97e19a8bedf4a077",
     "trust/index.html": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
     "trust/privacy.html": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-    "updates/index.html": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
-    "ux-page-contracts.v1.json": "e4db5afe41a7109504ef74c3a0e5e4233b68899e2d635ba674bb7e9648699670"
+    "updates/index.html": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3"
   },
   "outputs": {
     "docs/assets/reference-site/mark.svg": {

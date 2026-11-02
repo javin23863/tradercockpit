@@ -14,7 +14,7 @@ from reference_contracts import PENDING_AUDIT, PENDING_OWNER_VISUAL_REVIEW  # no
 REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 DESIGN = REPO / "DESIGN.md"
-CONTRACTS = DOCS / "ux-page-contracts.v1.json"
+CONTRACTS = DOCS.parent / ".github/product/ux-page-contracts.v1.json"
 SITE_STYLE = DOCS / "assets" / "site-v2.css"
 HOME_STYLE = DOCS / "assets" / "reference-site" / "styles.css"
 HOME = DOCS / "index.html"
@@ -115,7 +115,7 @@ def main() -> int:
                 problems.append(f"DESIGN.md missing authority section: {marker}")
 
     if not CONTRACTS.is_file():
-        problems.append("missing docs/ux-page-contracts.v1.json")
+        problems.append("missing .github/product/ux-page-contracts.v1.json")
         contracts = {}
     else:
         try:

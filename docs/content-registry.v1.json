@@ -4,7 +4,7 @@
     "concept": "Plain-language definition, research question, visual intuition, and limitations.",
     "method": "Procedure, assumptions, interpretation, and failure modes independent of product UI.",
     "how-to": "Task-focused steps with expected result, mistakes, troubleshooting, and optional video.",
-    "reference": "Exact verified product/control/state documentation; publication-gated.",
+    "reference": "Exact product documentation.",
     "lab": "Interactive synthetic research visualization.",
     "landing": "Navigation and information-architecture entry point.",
     "example": "End-to-end public-safe research story.",
@@ -311,7 +311,7 @@
       "path": "trust/privacy.html",
       "title": "Privacy notice",
       "status": "public",
-      "summary": "What the website, Windows app and account service collect: site analytics and YouTube boundaries, Google sign-in, product key, Apollo through OpenRouter, SnapTrade broker connections, Stripe, and data kept on your PC.",
+      "summary": "What the website, Windows app and account service collect: site analytics, video privacy, sign-in, product key, Apollo, broker connections, payments, and data kept on your PC.",
       "keywords": [
         "privacy",
         "analytics",
@@ -325,12 +325,11 @@
       "path": "trust/terms.html",
       "title": "Terms of use",
       "status": "public",
-      "summary": "Plain-language terms for the website, Windows app and account service: not financial advice, you confirm every order, broker connections through SnapTrade, and simulations are simulated.",
+      "summary": "Plain-language terms for the website, Windows app and account service: not financial advice, you confirm every order, broker connections, and simulations are simulated.",
       "keywords": [
         "terms",
         "not financial advice",
-        "SnapTrade",
-        "paper trading"
+                "paper trading"
       ]
     },
     {

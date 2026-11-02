@@ -2,7 +2,7 @@
   "schema": "prelaunch-config/v1",
   "analytics": {
     "provider": "plausible",
-    "status": "pending_operator_account",
+    "status": "off",
     "domain": "trader-cockpit.com",
     "scriptSrc": ""
   }

@@ -194,7 +194,7 @@
       "title": "Documentation",
       "path": "docs/",
       "kind": "reference",
-      "summary": "The public entry point for exact verified product reference and contextual help.",
+      "summary": "The public entry point for exact product reference and contextual help.",
       "terms": [
         "docs",
         "reference",
@@ -246,7 +246,7 @@
       "title": "Updates",
       "path": "updates/",
       "kind": "updates",
-      "summary": "Public release and availability updates without exposing private roadmap material.",
+      "summary": "Public release and availability updates.",
       "terms": [
         "release notes",
         "status",
@@ -679,17 +679,14 @@
       "title": "Privacy notice",
       "path": "trust/privacy.html",
       "kind": "reference",
-      "summary": "What the website, Windows app and account service collect: site analytics and YouTube boundaries, Google sign-in, product key, Apollo through OpenRouter, SnapTrade broker connections, Stripe, and data kept on your PC.",
+      "summary": "What the website, Windows app and account service collect: site analytics and YouTube boundaries, sign-in, product key, Apollo, broker connections, payments, and data kept on your PC.",
       "terms": [
         "account",
         "cookies",
         "local storage",
-        "OpenRouter",
         "privacy",
         "product key",
         "search privacy",
-        "SnapTrade",
-        "Stripe",
         "third party",
         "YouTube"
       ],
@@ -705,20 +702,18 @@
       "title": "Terms of use",
       "path": "trust/terms.html",
       "kind": "reference",
-      "summary": "Plain-language terms for the website, Windows app and account service: not financial advice, you confirm every order, broker connections through SnapTrade, and simulations are simulated.",
+      "summary": "Plain-language terms for the website, Windows app and account service: not financial advice, you confirm every order, broker connections, and simulations are simulated.",
       "terms": [
         "terms of use",
         "terms",
         "not financial advice",
         "broker",
-        "SnapTrade",
         "paper trading",
         "liability"
       ],
       "keywords": [
         "terms",
         "not financial advice",
-        "SnapTrade",
         "paper trading"
       ]
     },
@@ -754,8 +749,7 @@
         "150",
         "checkout",
         "billing",
-        "access",
-        "Stripe"
+        "access"
       ]
     },
     {

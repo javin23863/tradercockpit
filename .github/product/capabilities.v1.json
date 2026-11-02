@@ -1,6 +1,5 @@
 {
   "schema": "tc.public-capabilities.v1",
-  "source": "Written from docs/CAPABILITIES.md and product/tradercockpit/commercial_catalog.py in the app repository. Features, Pricing and the homepage are generated from this file; prices come from commerce-public.v1.json.",
   "areas": [
     {
       "id": "builder", "title": "Strategy Builder", "kicker": "Build",
@@ -18,7 +17,7 @@
     {
       "id": "workflows", "title": "Workflows and robustness checks", "kicker": "Test",
       "lead": "Put a strategy through ordered steps, unattended, and see why strategies drop out.",
-      "image": "assets/features/workflows.webp", "alt": "A twelve-step Workflow on Dow Jones 4-hour bars: build, out-of-sample, other markets, timeframes, slippage and Monte Carlo", "caption": "A twelve-step Workflow on Dow Jones, 4 hour, imported from a real price file.",
+      "image": "assets/features/workflows.webp", "alt": "A twelve-step Workflow on Dow Jones 4-hour bars: build, out-of-sample, other markets, timeframes, slippage and Monte Carlo", "caption": "A twelve-step Workflow on Dow Jones, 4 hour.",
       "items": [
         "Ordered steps that run on their own: create, edit, save and reopen a workflow.",
         "A library of ready-made validation workflows and strategy recipes, with search by market and timeframe.",
@@ -30,7 +29,7 @@
     {
       "id": "results", "title": "Results", "kicker": "Read",
       "lead": "See how a strategy really traded, with a plain verdict that says so when it's weak.",
-      "image": "assets/features/results.webp", "alt": "A Results page on Coinbase BTC/USD daily bars, graded D: Weak, don't trade it as it is", "caption": "A real verdict on Coinbase BTC/USD, daily: graded D, weak, only 12 trades.",
+      "image": "assets/features/results.webp", "alt": "A Results page on Coinbase BTC/USD daily bars, graded D: Weak, don't trade it as it is", "caption": "A verdict on Coinbase BTC/USD, daily: graded D, weak, only 12 trades.",
       "items": [
         "One verdict for a strategy, with the reasons behind it.",
         "Summary, trades, equity, results by period and by market, and trade excursions.",
@@ -47,25 +46,22 @@
       "lead": "Combine your saved strategies and see their results together.",
       "items": [
         "Auto build: build portfolios from your saved strategies, and send strategies straight from Results.",
-        "Compose: pick strategies yourself, with a weight for each, and see the combined results.",
-        "Money management isn't applied to portfolios yet, and the page says so."
+        "Compose: pick strategies yourself, with a weight for each, and see the combined results."
       ]
     },
     {
       "id": "charts", "title": "Charts", "kicker": "See",
       "lead": "A full charting workspace on real market data, with indicators, drawings and your own Pine scripts.",
-      "image": "assets/features/tpo.webp", "alt": "A TPO market profile on Coinbase BTC/USD hourly bars with volume below", "caption": "TPO market profile on Coinbase BTC/USD, 1 hour. Charts by Vela.",
+      "image": "assets/features/tpo.webp", "alt": "A TPO market profile on Coinbase BTC/USD hourly bars with volume below", "caption": "TPO market profile on Coinbase BTC/USD, 1 hour.",
       "items": [
         "Chart types: bars, candles, hollow candles, volume candles, line, line with markers, step line, area, HLC area, baseline, columns, high-low, Heikin Ashi, Renko, line break, Kagi and range.",
         "One grouped indicator list: TradingView's built-ins at their defaults, the Builder's own indicators, patterns and profiles, and your own.",
         "Drawings: trend line, ray, extended line, rectangle, horizontal line and ray.",
         "VWAP with bands, anchored, rolling and from earnings dates; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
         "Machine-learning buy and sell signals with a read-out of how they would have done on the visible bars.",
-        "Your own Pine v5 or v6 indicators and strategies run on the chart, with a Strategy Tester. Lines that can't run yet are listed by line: for example another symbol or a lower timeframe in request.security, or alertcondition. Strategies are refused on saved-file charts.",
-        "Ten built-in strategies matched TradingView's own trade list, trade for trade, on Coinbase BTC/USD, 1 hour.",
+        "Your own Pine v5 or v6 indicators and strategies run on the chart, with a Strategy Tester. Anything that can't run is listed by line.",
         "Alerts on price, values, indicator lines and drawings, with notices and sounds.",
-        "Bar Replay, saved views, watchlists, compare charts, and up to 16 charts at once on a paid plan.",
-        "Charts by Vela, the charting engine from LuxAlgo, included under its licence."
+        "Bar Replay, saved views, watchlists, compare charts, and up to 16 charts at once on a paid plan."
       ]
     },
     {
@@ -77,7 +73,7 @@
         "TPO market profile, with letters, colours by time, volume, trades or delta, and trading hours.",
         "Volume profile: fixed range, session and periodic, with value area and point of control.",
         "Measured delta, cumulative delta, trade counts, volume tails and bar statistics.",
-        "An order book heatmap: resting bids and offers over time under the candles, from Kraken or Coinbase, with the largest walls named. It records from when a chart first shows it, with no earlier history.",
+        "An order book heatmap: resting bids and offers over time under the candles, from Kraken or Coinbase, with the largest walls named.",
         "Gamma exposure by strike, drawn from an option chain file you import."
       ]
     },
@@ -88,9 +84,9 @@
       "items": [
         "Describe an idea in plain words and get a Builder rule part, or a Pine script that's checked before you see it.",
         "It fills in Builder settings for you to review, and asks before it compiles or starts a run.",
-        "It recommends a validation workflow for your market and timeframe, though it doesn't set it up for you yet, and reads your strategy's results with you: the same figures and trades you see.",
+        "It recommends a validation workflow for your market and timeframe, and reads your strategy's results with you: the same figures and trades you see.",
         "It proposes one chart change at a time, shown as a card you apply yourself.",
-        "It writes custom indicators for your charts, and does the maths with checked calculations and 25 source-checked finance methods.",
+        "It writes custom indicators for your charts, and does the maths with 25 built-in finance methods.",
         "Attach a trade log, a PDF or a chart picture. Your chats are saved and can be exported.",
         "Web search runs only after you approve each one.",
         "Apollo never sends live broker orders. It runs on Apollo credits, included with each paid plan."
@@ -120,7 +116,7 @@
       "id": "data", "title": "Market data and import", "kicker": "Bring your data",
       "lead": "Free exchange data with no account, or your own files, checked row by row.",
       "items": [
-        "Coinbase and Kraken: free public history and live prices with no account, at any chart timeframe; Builder takes M2 to D5. Those the exchange doesn't send are built from its finer candles.",
+        "Coinbase and Kraken: free public history and live prices with no account, at any chart timeframe; Builder takes M2 to D5.",
         "Yahoo daily bars, free.",
         "Your own price files: CSV in common layouts and TradingView's chart export, checked row by row.",
         "MetaTrader 5 history and quotes from your own terminal.",
@@ -133,7 +129,7 @@
       "lead": "Take a strategy to your platform, or get a clear reason why it can't match.",
       "items": [
         "TradingView: retest a strategy on TradingView's bar-close timing, then export it as Pine. It refuses what can't match, with the reason.",
-        "MetaTrader 5: our own indicators, checked bar for bar, for use in experts. MetaTrader 4 files are rendered only, not checked.",
+        "MetaTrader 5: our own indicators, for use in experts.",
         "Trades as CSV or Excel, charts as PNG, a printable report and prop-firm results from Results.",
         "Chart data and chart images from any chart."
       ]
@@ -151,12 +147,7 @@
     },
     {
       "id": "brokers", "title": "Connect your broker", "kicker": "Connect",
-      "how": [
-        "You connect through SnapTrade: the app opens SnapTrade's page in your own browser and you sign in there. Your broker password goes on that page, never into TraderCockpit.",
-        "Once connected, your positions, balances and orders show in the app, and your account activity comes into your Journal.",
-        "Alpaca Paper can also connect directly with your own Alpaca paper keys, with no SnapTrade step: stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only.",
-        "Paper Trading on every chart needs no broker at all."
-      ]
+      "how": "You sign in with your broker in your own browser, and your password never goes into TraderCockpit."
     },
     {
       "id": "save", "title": "Save and restore", "kicker": "Keep your work",
@@ -170,7 +161,7 @@
   "paidByArea": {},
   "freeByArea": {"charts": "Part", "order-flow": "Part", "journal": "Yes", "data": "Part", "exports": "Part", "paper": "Yes", "save": "Part"},
   "plans": [
-    {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a Google sign-in. No payment.",
+    {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a free sign-in. No payment.",
      "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credits", "None"]],
      "included": ["Charts with live prices from the free sources", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
      "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account ({brokers} brokers)", "Pine and MetaTrader exports", "Builder indicators on charts"]},

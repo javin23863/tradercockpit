@@ -1,4 +1,4 @@
-const SERVICE_STATUSES = new Set(['pending_operator_account', 'active'])
+const SERVICE_STATUSES = new Set(['off', 'active'])
 
 function text(value, field) {
   if (typeof value !== 'string' || !value.trim()) throw new TypeError(`${field} must be a non-empty string`)

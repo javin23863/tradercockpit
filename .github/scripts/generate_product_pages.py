@@ -1,41 +1,37 @@
 #!/usr/bin/env python3
-"""Build Features, Pricing and the homepage body from docs/capabilities.v1.json.
+"""Build Features, Pricing and the homepage body from .github/product/capabilities.v1.json.
 
-Plan prices come from docs/commerce-public.v1.json and brokers from docs/brokers.v1.json, so the three pages can't disagree.
+Plan prices come from docs/commerce-public.v1.json and brokers from .github/product/brokers.v1.json, so the three pages can't disagree.
 usage: generate_product_pages.py [--check]
 """
 from html import escape as e
 from pathlib import Path
 import json,re,sys
 
-ROOT=Path(__file__).resolve().parents[2];DOCS=ROOT/'docs'
-DRAFT='Draft screen. Final screens follow the next build.'
+ROOT=Path(__file__).resolve().parents[2];DOCS=ROOT/'docs';PRODUCT=ROOT/'.github/product'
 ARROW=' →'
 
 def price_text(cents):
     return '$'+format(cents/100,'.2f').removesuffix('.00')
 
 def broker_groups():
-    """Trade from the chart, read your account, and not open yet, each A to Z."""
-    trade,read,closed=[],[],[]
-    for row in json.loads((DOCS/'brokers.v1.json').read_text(encoding='utf-8'))['institutions'].values():
+    """Trade from the chart and see your account, each A to Z."""
+    trade,read=[],[]
+    for row in json.loads((PRODUCT/'brokers.v1.json').read_text(encoding='utf-8'))['institutions'].values():
         routes=row['routes'];name=row['name']
-        on=[m for m in routes if routes[m]['enabled']];off=[m for m in routes if not routes[m]['enabled']]
-        if on:
-            label=f'{name} Paper' if on==['paper'] else f'{name} (with paper)' if 'paper' in on else name
-            (trade if any(routes[m]['trading'] for m in on) else read).append(label)
-        if off:closed.append(f'{name} ({" and ".join(off)})' if len(routes)>1 else name)
-    return [sorted(g,key=str.casefold) for g in (trade,read,closed)]
+        label=f'{name} Paper' if list(routes)==['paper'] else f'{name} (with paper)' if 'paper' in routes else name
+        (trade if any(r['trading'] for r in routes.values()) else read).append(label)
+    return [sorted(g,key=str.casefold) for g in (trade,read)]
 
 def load():
-    data=json.loads((DOCS/'capabilities.v1.json').read_text(encoding='utf-8'))
-    trade,read,closed=broker_groups()
+    data=json.loads((PRODUCT/'capabilities.v1.json').read_text(encoding='utf-8'))
+    trade,read=broker_groups()
     opened=len(trade)+len(read)
-    data['brokers']={'trade':trade,'read':read,'closed':closed,'open':opened}
+    data['brokers']={'trade':trade,'read':read,'open':opened}
     for area in data['areas']:
         if area['id']=='brokers':
-            area['lead']=f'{opened} brokers connect to TraderCockpit today, so your real account sits beside your research.'
-            area['items']=area['how']+[f'Trade from the chart: {", ".join(trade)}.',f'Read your account: {", ".join(read)}.',f'Not open yet: {", ".join(closed)}.']
+            area['lead']=f'{opened} brokers connect to TraderCockpit, and your account activity comes into your Journal.'
+            area['items']=[area['how'],f'Trade from the chart: {", ".join(trade)}.',f'See your account: {", ".join(read)}.']
     data['paidByArea']['brokers']=f'{opened} brokers'
     for plan in data['plans']:
         if 'excluded' in plan:plan['excluded']=[i.replace('{brokers}',str(opened)) for i in plan['excluded']]
@@ -51,16 +47,15 @@ def load():
 
 def figure(area,root):
     if not area.get('image'):return ''
-    return f'<figure class="pp-shot"><img src="{root}{e(area["image"])}" alt="{e(area["alt"])}" loading="lazy"><figcaption>{e(area["caption"])} {DRAFT}</figcaption></figure>'
+    return f'<figure class="pp-shot"><img src="{root}{e(area["image"])}" alt="{e(area["alt"])}" loading="lazy"><figcaption>{e(area["caption"])}</figcaption></figure>'
 
 def broker_list(title,names,note):
     return f'<div class="pp-broker-group"><h3>{e(title)} <span>{len(names)}</span></h3><p>{e(note)}</p><ul>'+''.join(f'<li>{e(n)}</li>' for n in names)+'</ul></div>'
 
 def broker_section(area,data):
     b=data['brokers']
-    how=''.join(f'<li>{e(i)}</li>' for i in area['how'])
-    lists=broker_list('Trade from the chart',b['trade'],'Positions and orders, and you can place orders from a chart when your connection allows it.')+broker_list('Read your account',b['read'],'Positions and history. These connections can’t place orders.')+broker_list('Not open yet',b['closed'],'SnapTrade lists these, but they aren’t enabled for our account yet, so you can’t connect them today.')
-    return f'<section class="pp-brokers" id="{a_id(area)}" aria-labelledby="h-{a_id(area)}"><span class="pp-kicker">{e(area["kicker"])}</span><h2 id="h-{a_id(area)}">{e(area["title"])}</h2><p class="pp-lead">{e(area["lead"])}</p><ul class="pp-list">{how}</ul><div class="pp-broker-groups">{lists}</div></section>'
+    lists=broker_list('Trade from the chart',b['trade'],'Place orders from the chart, and see your positions, balances and orders.')+broker_list('See your account',b['read'],'See your positions, balances and orders.')
+    return f'<section class="pp-brokers" id="{a_id(area)}" aria-labelledby="h-{a_id(area)}"><span class="pp-kicker">{e(area["kicker"])}</span><h2 id="h-{a_id(area)}">{e(area["title"])}</h2><p class="pp-lead">{e(area["lead"])}</p><p class="pp-broker-how">{e(area["how"])}</p><div class="pp-broker-groups">{lists}</div></section>'
 
 def features_main(data):
     index=''.join(f'<a href="#{a["id"]}">{e(a["title"])}</a>' for a in data['areas'])
@@ -114,7 +109,7 @@ def home_main(data):
     index=''.join(f'<a href="features/#{a_id(a)}">{e(a["title"])}</a>' for a in data['areas'])
     plans=''.join(f'<a class="pp-mini" href="pricing/#plan-{e(p["id"])}"><strong>{e(p["name"])}</strong><span>{plan_price(p)}</span></a>' for p in data['plans'])
     return f'''<main id="main" tabindex="-1">
-<section class="hero" id="top" aria-labelledby="hero-title"><div class="pp-hero-copy"><h1 id="hero-title" tabindex="-1">Build a trading strategy. Find out if it holds up.</h1><p class="pp-lead">TraderCockpit is a Windows research app. Search for strategies on real market data, put them through robustness checks, chart them, and practice on paper. Research tools, not financial advice, and no result is promised.</p><div class="actions"><a class="button gold" href="early-access.html">Join the early access list</a><a class="button glass" href="features/">See every feature</a></div></div><figure class="pp-hero-shot"><img src="assets/features/paper.webp" alt="TraderCockpit Charts on Coinbase BTC/USD hourly bars with a paper order ticket and trade history" fetchpriority="high"><figcaption>The app, on live Coinbase BTC/USD prices. {DRAFT}</figcaption></figure></section>
+<section class="hero" id="top" aria-labelledby="hero-title"><div class="pp-hero-copy"><h1 id="hero-title" tabindex="-1">Build a trading strategy. Find out if it holds up.</h1><p class="pp-lead">TraderCockpit is a Windows research app. Search for strategies on real market data, put them through robustness checks, chart them, and practice on paper. Research tools, not financial advice, and no result is promised.</p><div class="actions"><a class="button gold" href="early-access.html">Join the early access list</a><a class="button glass" href="features/">See every feature</a></div></div><figure class="pp-hero-shot"><img src="assets/features/paper.webp" alt="TraderCockpit Charts on Coinbase BTC/USD hourly bars with a paper order ticket and trade history" fetchpriority="high"><figcaption>The app, on live Coinbase BTC/USD prices.</figcaption></figure></section>
 <nav class="pp-index" aria-label="What TraderCockpit does">{index}</nav>
 <div class="pp-page">{sections}{broker_section(by['brokers'],data)}<section class="pp-tiles" aria-label="More of what it does">{cards}</section>
 <section class="pp-home-plans" id="pricing" aria-labelledby="pricing-title"><div><span class="pp-kicker">Pricing</span><h2 id="pricing-title">A Free plan and four monthly plans</h2><p class="pp-lead">Every paid plan includes every feature. Click a plan to see everything that comes with it. Checkout isn’t open yet.</p></div><div class="pp-minis">{plans}</div></section>
@@ -130,7 +125,7 @@ def build():
     out['pricing/index.html']=re.sub(r'<main id="main".*?</main>',lambda m:pricing_main(data),pricing,count=1,flags=re.S)
     manifest=json.loads((DOCS/'product-manifest.v1.json').read_text(encoding='utf-8'))
     manifest['verifiedCapabilities']=[{'id':a['id'],'label':a['title'],'summary':a['lead']} for a in data['areas']]
-    manifest['brokers']={'connectable':data['brokers']['open'],'tradeFromChart':len(data['brokers']['trade']),'readAccount':len(data['brokers']['read']),'notOpenYet':len(data['brokers']['closed'])}
+    manifest['brokers']={'connectable':data['brokers']['open'],'tradeFromChart':len(data['brokers']['trade']),'seeAccount':len(data['brokers']['read'])}
     out['product-manifest.v1.json']=json.dumps(manifest,indent=2,ensure_ascii=False)+'\n'
     home=(DOCS/'index.html').read_text(encoding='utf-8')
     out['index.html']=re.sub(r'<main id="main".*?</main>',lambda m:home_main(data),home,count=1,flags=re.S)

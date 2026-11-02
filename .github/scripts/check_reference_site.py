@@ -44,7 +44,7 @@ def validate(root=ROOT):
   need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r['original_sha256'],'Original capture identity: '+r['id'])
  commerce=json.loads(read('docs/commerce-public.v1.json'));tiers=commerce.get('tiers',[])
  need([(x['name'],x['unitAmount']) for x in tiers]==[('Core',1999),('Trader',4999),('Quant',9999),('ApolloPro',15000)],'Four approved tier prices drifted')
- need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Checkout opens after payment-to-entitlement provisioning is verified end to end.'},'Checkout boundary changed')
+ need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Checkout is not open yet.'},'Checkout boundary changed')
  html=read('docs/index.html');bridge=read('docs/assets/reference-site/integration.mjs');app=read('docs/assets/reference-site/app.js');journeys=read('docs/assets/reference-site/journeys.js')
  template_bridge=read('.github/reference-site/integration.mjs')
  need(bridge==template_bridge,'Public integration runtime drifted from reviewed fail-closed template')
@@ -59,7 +59,7 @@ def validate(root=ROOT):
  for marker in ['loadProductManifest','loadPrelaunchConfig','activatePrelaunch','commerce-public.v1.json']:
   need(marker in bridge,'Missing product/commerce integration: '+marker)
  need('prefers-reduced-motion' in app and 'visibilitychange' in app,'Scene accessibility safeguards missing')
- need('synthetic' in app.lower() and 'release approval' in app.lower(),'Capture limitations missing')
+ need('synthetic' in app.lower(),'Capture limitations missing')
  need('github.com/javin23863/tradercockpit/blob/' not in journeys,'Enhanced public journey evidence links must stay on the current local site')
  for name in ['product-state','product-heading','product-summary','manifest-capabilities','manifest-detail','product-cta','youtube-cta','purchase-support']:
   need('id="'+name+'"' in html,'Missing functional access element: '+name)

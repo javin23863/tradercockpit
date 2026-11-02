@@ -1,17 +1,11 @@
 {
- "about": "The brokers on the site. Names, modes and trading come from deploy/snaptrade-brokerages.json in the app repository; check_plan_catalog.py --app-repo compares them. enabled is what the production service offers.",
- "enabledCheckedAt": "2026-10-29",
+ "about": "Brokers shown on the site. check_plan_catalog.py --app-repo compares names, modes and trading with the app repository. Add a broker here only once it is open in production.",
  "institutions": {
   "alpaca": {
    "name": "Alpaca",
    "routes": {
     "paper": {
-     "trading": true,
-     "enabled": true
-    },
-    "live": {
-     "trading": true,
-     "enabled": false
+     "trading": true
     }
    }
   },
@@ -19,8 +13,7 @@
    "name": "AJ Bell",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -28,8 +21,7 @@
    "name": "Binance",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -37,8 +29,7 @@
    "name": "BMO InvestorLine",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -46,8 +37,7 @@
    "name": "Bux",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -55,8 +45,7 @@
    "name": "Chase",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -64,8 +53,7 @@
    "name": "CIBC Investor's Edge",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -73,8 +61,7 @@
    "name": "Coinbase",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -82,8 +69,7 @@
    "name": "CommSec",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -91,8 +77,7 @@
    "name": "DEGIRO",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -100,8 +85,7 @@
    "name": "Empower",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -109,8 +93,7 @@
    "name": "eToro",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -118,8 +101,7 @@
    "name": "E*TRADE",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -127,8 +109,7 @@
    "name": "Fidelity",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -136,17 +117,7 @@
    "name": "Interactive Brokers (reports)",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
-    }
-   }
-  },
-  "ibkr-trading": {
-   "name": "Interactive Brokers (trading)",
-   "routes": {
-    "live": {
-     "trading": true,
-     "enabled": false
+     "trading": false
     }
    }
   },
@@ -154,8 +125,7 @@
    "name": "Kraken",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -163,8 +133,7 @@
    "name": "Moomoo",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -172,8 +141,7 @@
    "name": "Public.com",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -181,8 +149,7 @@
    "name": "Questrade",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -190,17 +157,7 @@
    "name": "Robinhood",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
-    }
-   }
-  },
-  "schwab": {
-   "name": "Charles Schwab",
-   "routes": {
-    "live": {
-     "trading": false,
-     "enabled": false
+     "trading": false
     }
    }
   },
@@ -208,8 +165,7 @@
    "name": "Stake Australia",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -217,8 +173,7 @@
    "name": "tastytrade",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -226,30 +181,7 @@
    "name": "TD Direct Investing",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
-    }
-   }
-  },
-  "tradestation": {
-   "name": "TradeStation",
-   "routes": {
-    "paper": {
-     "trading": true,
-     "enabled": false
-    },
-    "live": {
-     "trading": true,
-     "enabled": false
-    }
-   }
-  },
-  "tradier": {
-   "name": "Tradier",
-   "routes": {
-    "live": {
-     "trading": true,
-     "enabled": false
+     "trading": false
     }
    }
   },
@@ -257,12 +189,10 @@
    "name": "Trading 212",
    "routes": {
     "paper": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     },
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -270,8 +200,7 @@
    "name": "Upstox",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -279,8 +208,7 @@
    "name": "Vanguard",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -288,8 +216,7 @@
    "name": "Wealthsimple Trade",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -297,8 +224,7 @@
    "name": "Webull",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -306,8 +232,7 @@
    "name": "Webull Canada",
    "routes": {
     "live": {
-     "trading": true,
-     "enabled": true
+     "trading": true
     }
    }
   },
@@ -315,8 +240,7 @@
    "name": "Wells Fargo",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   },
@@ -324,8 +248,7 @@
    "name": "Zerodha",
    "routes": {
     "live": {
-     "trading": false,
-     "enabled": true
+     "trading": false
     }
    }
   }

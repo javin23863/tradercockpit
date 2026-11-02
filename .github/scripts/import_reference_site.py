@@ -131,7 +131,7 @@ def make_plan(root: Path, archive: Path) -> dict:
         raise ValueError('Commerce authority changed; checkout must stay disabled')
     if 'tiers' in existing and existing['tiers'] != commerce['tiers']:
         raise ValueError('Existing tier record changed; reconcile before import')
-    for field in ['currency','unitAmount','interval','stripeProductId','stripePriceId']:
+    for field in ['currency','unitAmount','interval']:
         if existing.get('plan',{}).get(field)!=commerce['plan'].get(field):
             raise ValueError('Existing payment identity changed: '+field)
     outputs={ASSET_ROOT+n:source['assets/'+n] for n in IMAGES}

@@ -19,19 +19,18 @@ class DollarCreditTests(unittest.TestCase):
             self.assertFalse(flagged(text),text)
 
 class BrokerTests(unittest.TestCase):
+    def rows(self):
+        return json.loads((Path(__file__).resolve().parents[1]/'product/brokers.v1.json').read_text(encoding='utf-8'))['institutions']
     def test_every_broker_is_named_once_and_counted(self):
-        data=load();b=data['brokers']
-        rows=json.loads((Path(__file__).resolve().parents[2]/'docs/brokers.v1.json').read_text(encoding='utf-8'))['institutions']
-        opened=[r for r in rows.values() if any(v['enabled'] for v in r['routes'].values())]
-        self.assertEqual(b['open'],len(opened));self.assertEqual(len(b['trade'])+len(b['read']),len(opened))
-        self.assertEqual(len(set(b['trade']+b['read'])),len(opened))
-        self.assertEqual(data['paidByArea']['brokers'],f'{len(opened)} brokers')
-        named=' '.join(b['trade']+b['read']+b['closed'])
+        data=load();b=data['brokers'];rows=self.rows()
+        self.assertEqual(b['open'],len(rows));self.assertEqual(len(set(b['trade']+b['read'])),len(rows))
+        self.assertEqual(data['paidByArea']['brokers'],f'{len(rows)} brokers')
+        named=' '.join(b['trade']+b['read'])
         for row in rows.values():self.assertIn(row['name'],named)
-    def test_read_only_routes_never_show_as_trading(self):
-        rows=json.loads((Path(__file__).resolve().parents[2]/'docs/brokers.v1.json').read_text(encoding='utf-8'))['institutions']
-        for row in rows.values():
+    def test_view_only_routes_never_show_as_trading(self):
+        trade=load()['brokers']['trade']
+        for row in self.rows().values():
             if not any(v['trading'] for v in row['routes'].values()):
-                self.assertFalse(any(n.startswith(row['name']) for n in load()['brokers']['trade']),row['name'])
+                self.assertFalse(any(n.startswith(row['name']) for n in trade),row['name'])
 
 if __name__=='__main__':unittest.main()
