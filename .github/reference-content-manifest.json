@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "35a7b20048e78ae3dc01170a6efafa8794ebc776f38618dfc7cf91ce092ccd89",
+      "corrected_unwrapped_sha256": "ea95138814768f056bed7f636161abab127aa3b371285abff7b31a3472bf9123",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details.",
-      "after_sha256": "2e5645a783bb84fd65c381bd4291c57828358c7eaf25aebe1ce620ea9d713010"
+      "after_sha256": "318e8677d22849e9518a831e8c97c4957d2c8298f06cd3d281e8cf503916ba37"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",

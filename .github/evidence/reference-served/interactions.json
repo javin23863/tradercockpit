@@ -1,20 +1,36 @@
 {
   "schema": "tradercockpit.served-interactions/v1",
   "scope": "FULL_INTEGRATED_PUBLISHING_TREE_NAVIGATED_OVER_LOOPBACK_HTTP",
-  "browser": "Chrome/153.0.8010.50",
-  "capturedAt": "2026-09-18T03:18:58.162Z",
-  "publicDigest": "2fd3c1d67496f1275fbfc0e8c54134b91d165bb0861c6f7382675876ba2c567c",
+  "browser": "Edg/156.0.4314.58",
+  "capturedAt": "2026-11-02T06:26:41.182Z",
+  "publicDigest": "d5b100f9e23364ed3513caf6157cad96d61bac4b946b87ac40774fd7fd567959",
   "tests": [
+    {
+      "name": "approved homepage title survives enhanced navigation",
+      "pass": true
+    },
     {
       "name": "native Learning link opens enhanced view with selected navigation",
       "pass": true
     },
     {
-      "name": "plan selection comes from live local commerce",
+      "name": "active analytics counts enhanced and static guide navigation once",
       "pass": true
     },
     {
-      "name": "original Charts capture is local, full resolution, and labelled synthetic",
+      "name": "leaving a journey restores and focuses the requested homepage section",
+      "pass": true
+    },
+    {
+      "name": "malformed homepage fragment cannot break journey exit rendering",
+      "pass": true
+    },
+    {
+      "name": "journey evidence links resolve on the current public site",
+      "pass": true
+    },
+    {
+      "name": "the old plan address opens that plan on Pricing",
       "pass": true
     },
     {
@@ -42,19 +58,15 @@
       "pass": true
     },
     {
-      "name": "reduced motion keeps both scene layers aligned and static",
-      "pass": true
-    },
-    {
       "name": "ordinary browsing made no eager external request",
       "pass": true
     },
     {
-      "name": "video connects only after explicit consent and stops on close",
+      "name": "no-JavaScript homepage keeps documentation links and closed signup",
       "pass": true
     },
     {
-      "name": "no-JavaScript homepage keeps documentation links and closed signup",
+      "name": "a Pricing plan link opens everything in that plan",
       "pass": true
     },
     {
@@ -66,7 +78,7 @@
       "pass": true
     }
   ],
-  "passed": 15,
+  "passed": 18,
   "failed": 0,
   "visualApproval": false
 }
