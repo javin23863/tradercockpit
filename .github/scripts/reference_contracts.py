@@ -17,7 +17,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
             row['reviewed_h1']='Build trading strategies. Test them on real market data.'
             row['hierarchy']['focal_point']=row['reviewed_h1']
             row['hierarchy']['primary_action']='Join the early access list'
-            row['form_ux']['policy']='No public email capture. Search has a persistent label.'
+            row['form_ux']['policy']='The email form is on the early access page. Search has a persistent label.'
             row['intent']['primary_job']='Understand what TraderCockpit does and join the early access list.'
         titles={'learn/concepts/out-of-sample.html':'In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage','learn/concepts/monte-carlo.html':'Monte Carlo Simulation for Trading Strategies: Uses and Limitations','strategy-claim-audit-checklist.html':'Trading Strategy Backtest Checklist: How to Evaluate the Evidence'}
         if row['path'] in titles:
@@ -57,6 +57,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
             ('early-access.html','/early-access.html','Early access — TraderCockpit','Join the early access list.','Leave an email to hear when the app opens.','Believing the app is already on general release.','Join the list')):
             page=copy.deepcopy(pricing);page.update(path=path,route=route,title=title,reviewed_h1=h1,kind='landing')
             page['hierarchy'].update(focal_point=h1,primary_action=action);page['intent'].update(primary_job=job,worst_mistake=worst);page['audit']=dict(PENDING_AUDIT)
+            if path=='early-access.html':page['form_ux']['policy']='One labeled email field; errors are stated and the address stays in the field.'
             data['pages'].append(page)
     data['page_count']=len(data['pages'])
     return data

@@ -3,18 +3,18 @@
   "status": "waitlist",
   "assistant": {
     "name": "Apollo",
-    "status": "available"
+    "status": "concept"
   },
   "verifiedCapabilities": [
     {
       "id": "charts",
       "label": "Charts on real market data",
-      "summary": "Coinbase and Kraken history and live prices, with no account needed."
+      "summary": "Candlestick charts with indicators and volume on real BTC/USD history."
     },
     {
       "id": "builder",
       "label": "Strategy Builder",
-      "summary": "Search for strategies on the market you pick, with costs and rules you set."
+      "summary": "Run a strategy search on the market and dates you pick."
     },
     {
       "id": "workflows",
@@ -46,6 +46,6 @@
   },
   "product": {
     "name": "TraderCockpit",
-    "summary": "TraderCockpit for Windows is in early access. Join the list and we’ll tell you when it opens."
+    "summary": "TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens."
   }
 }

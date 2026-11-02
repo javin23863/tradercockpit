@@ -65,7 +65,7 @@
       <a class="j-resource" href="#/platform/charts"><span class="j-resource-number">01</span><img src="assets/reference-site/product-charts.webp" width="480" height="285" alt=""><div><small>Charts / guided reading</small><h3>What am I actually looking at?</h3><p>Distinguish the price panel, studies and volume pane.</p></div>${arrow}</a>
       <a class="j-resource" href="#/platform/models"><span class="j-resource-number">02</span><img src="assets/reference-site/product-models.webp" width="480" height="285" alt=""><div><small>Apollo / guided reading</small><h3>What does the assistant see?</h3><p>Read what Apollo is given before you ask it anything.</p></div>${arrow}</a>
       <a class="j-resource j-resource-text" href="#/learn/monte-carlo"><span class="j-resource-number">03</span><div class="j-type-art" aria-hidden="true">MC<span>Paths ≠ predictions</span></div><div><small>Methods / concept</small><h3>How much does the path matter?</h3><p>Understand what resampling can—and cannot—tell you.</p></div>${arrow}</a>
-    </section><p class="j-footnote">The product images in these guides are captures of a early access build showing historical bars. They are not live-market views or release approval.</p>`;
+    </section><p class="j-footnote">The product images in these guides are captures of an early access build showing historical bars. They are not live-market views or release approval.</p>`;
   }
   function monteCarlo() {
     return `${header('Methods / Monte Carlo','A path is not a prediction.','A different ordering of observations can tell a different story. The assumptions behind the resampling matter as much as the picture.',crumb('Monte Carlo'))}
@@ -94,7 +94,7 @@
     return `${header(`Platform / ${charts?'Charts':'Apollo'}`,title,'A guided reading of a development-build capture—not a substitute for running the product.',crumb(charts?'Charts':'Apollo'))}
       <figure class="j-product-capture"><img src="${charts?'assets/reference-site/product-charts.webp':'assets/reference-site/product-models.webp'}" width="480" height="285" alt="${charts?'Charts workspace with Coinbase BTC/USD 15-minute historical bars':'Apollo panel open beside the same BTC/USD chart'}"><figcaption><span>${date} · Early access build · historical bars · 480-pixel image</span><button class="button glass" data-capture="${kind}">Inspect source ${arrow}</button></figcaption></figure>
       <section class="j-capture-reading" aria-label="How to read the capture">${regions.map(([name,text],i)=>`<article><span class="j-section-index">0${i+1}</span><h2>${name}</h2><p>${text}</p></article>`).join('')}</section>
-      <div class="j-callout"><strong>Evidence boundary</strong><p>The captured software is a early access build. The bars are historical. The image does not establish current release approval, live connectivity or performance.</p></div>
+      <div class="j-callout"><strong>Evidence boundary</strong><p>The captured software is an early access build. The bars are historical. The image does not establish current release approval, live connectivity or performance.</p></div>
       ${next('#/learn/checklist','Keep a record of what you found.','Your next step')}`;
   }
   function checklist() {

@@ -48,12 +48,12 @@
       src:'assets/reference-site/product-charts.webp', width:480, height:285,
       path:'assets/reference-site/original-charts.png',
       hash:'e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0',
-      note:'Coinbase BTC/USD 15-minute historical bars in a early access build. The room display shows a crop of this chart workspace; this inspector shows the entire capture. It is not a trading result or a live market.'},
+      note:'Coinbase BTC/USD 15-minute historical bars in an early access build. The room display shows a crop of this chart workspace; this inspector shows the entire capture. It is not a trading result or a live market.'},
     models: {title:'Apollo beside Charts — early access build', date:'8 October 2026',
       src:'assets/reference-site/product-models.webp', width:480, height:285,
       path:'assets/reference-site/original-models.png',
       hash:'ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e',
-      note:'The same historical BTC/USD bars with the Apollo panel open in a early access build. Apollo receives the on-screen summary only when you press Ask. It is not a trading result or a live market.'}
+      note:'The same historical BTC/USD bars with the Apollo panel open in an early access build. Apollo receives the on-screen summary only when you press Ask. It is not a trading result or a live market.'}
   });
   function inspectCapture(key, switching = false) {
     const preview = captures[key];
@@ -70,7 +70,7 @@
       `<div class="capture-switch" aria-label="Choose capture">${tabs}</div>
        <div class="capture-scale" aria-label="Image scale"><button class="capture-choice" data-capture-scale="fit" aria-pressed="true">Fit screen</button><button class="capture-choice" data-capture-scale="native" aria-pressed="false">100% size</button></div>
        <figure class="capture-evidence" tabindex="0" aria-label="Product capture; scroll horizontally at 100 percent size"><img class="detail-media capture-media" src="${record.src}" width="${record.width}" height="${record.height}" alt="${record.title}"><figcaption>${record.date} · ${sizeDescription}</figcaption></figure>
-       <p>${record.note}</p><a class="button glass" href="#/platform/${key}">Read this screen guide →</a><a class="button glass" href="${origin+record.path}" target="_blank" rel="noopener noreferrer">Full-size capture ↗</a><p class="capture-limit">The surrounding room is illustrative artwork. The screens are captures of a early access build, not a live application or release approval. A reduced preview is used only if the full-size capture cannot be loaded.</p>`, true);
+       <p>${record.note}</p><a class="button glass" href="#/platform/${key}">Read this screen guide →</a><a class="button glass" href="${origin+record.path}" target="_blank" rel="noopener noreferrer">Full-size capture ↗</a><p class="capture-limit">The surrounding room is illustrative artwork. The screens are captures of an early access build, not a live application or release approval. A reduced preview is used only if the full-size capture cannot be loaded.</p>`, true);
     const frame=body.querySelector('.capture-evidence'),image=body.querySelector('.capture-media');
     body.querySelectorAll('[data-capture-scale]').forEach(button=>button.addEventListener('click',()=>{
       const native=button.dataset.captureScale==='native';

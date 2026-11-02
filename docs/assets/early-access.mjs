@@ -16,7 +16,7 @@ export function bindEarlyAccess(form, note, fetchImpl = globalThis.fetch, go = (
       go('thanks.html')
     } catch {
       if (button) button.disabled = false
-      note.textContent = 'That didn’t go through. Check the address and try again. Nothing was sent.'
+      note.textContent = 'That didn’t go through. Check the address and try again.'
     }
   })
 }

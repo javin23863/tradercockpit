@@ -52,7 +52,7 @@ async function access() {
   try {
     manifest = await loadProductManifest(new URL('product-manifest.v1.json',root));
     $('#product-state').textContent = ['unavailable','waitlist'].includes(manifest.status) ? 'Early access' : 'Status: ' + manifest.status;
-    const descriptions = {unavailable:'TraderCockpit for Windows is in early access. Join the list and we’ll tell you when it opens.',available:'Check the published release and access details. This page does not enable checkout.',waitlist:'The product is not available. See Updates for early access status.'};
+    const descriptions = {unavailable:'TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens.',available:'Check the published release and access details. This page does not enable checkout.',waitlist:'The product is not available. See Updates for early access status.'};
     $('#product-summary').textContent = manifest.product?.summary || descriptions[manifest.status];
     $('#manifest-detail').textContent = [(manifest.platforms || []).join(' · '), manifest.verifiedCapabilities.length ? 'Published capabilities below' : 'No product capabilities are published as available', 'Checkout is closed'].join(' · ');
     const note = document.querySelector('.hero-note');

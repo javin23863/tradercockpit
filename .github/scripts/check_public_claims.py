@@ -52,6 +52,8 @@ def main() -> int:
 
     if 'id="product-state" role="status">Early access<' not in home:
         problems.append("homepage static early access status is missing")
+    if 'action="https://app.kit.com/forms/9787408/subscriptions"' not in read(DOCS / "early-access.html"):
+        problems.append("early access form must post to the approved list only")
     if 'type="email"' in home:
         problems.append("the email form belongs on the early access page, not the homepage")
     if 'href="strategy-claim-audit-checklist.html"' not in home:
@@ -61,8 +63,8 @@ def main() -> int:
     for path in public_files:
         text = read(path).lower()
         for retired in ('app.kit.com', 'email_address', 'trackconfirmedsignup', 'bindwaitlistsubmit', 'waitlist-form'):
-            # Only the early access page may post to the email provider.
-            if retired in text and path != DOCS / "early-access.html":
+            # Only the early access page may post to the email provider, and only these two tokens.
+            if retired in text and not (path == DOCS / "early-access.html" and retired in ("app.kit.com", "email_address")):
                 problems.append(f"retired signup wiring {retired!r}: {path.relative_to(REPO)}")
         for phrase in RISKY_PHRASES:
             if phrase in text:
