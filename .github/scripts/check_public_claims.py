@@ -52,7 +52,7 @@ def main() -> int:
 
     if 'id="product-state" role="status">Early access<' not in home:
         problems.append("homepage static early access status is missing")
-    if 'action="https://app.kit.com/forms/9787408/subscriptions"' not in read(DOCS / "early-access.html"):
+    if 'action="https://app.kit.com/forms/10131311/subscriptions"' not in read(DOCS / "early-access.html"):
         problems.append("early access form must post to the approved list only")
     if 'type="email"' in home:
         problems.append("the email form belongs on the early access page, not the homepage")
