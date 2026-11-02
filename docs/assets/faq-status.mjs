@@ -2,8 +2,8 @@ import { loadProductManifest } from "../product-manifest.mjs";
 
 function statusText(status) {
   if (status === "available") return "TraderCockpit access: Available";
-  if (status === "waitlist") return "TraderCockpit: In development";
-  return "TraderCockpit: In development";
+  if (status === "waitlist") return "TraderCockpit: Early access";
+  return "TraderCockpit: Early access";
 }
 
 function platformText(platforms) {

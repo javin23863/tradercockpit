@@ -1,20 +1,51 @@
 {
   "schema": "product-manifest/v1",
-  "status": "unavailable",
+  "status": "waitlist",
   "assistant": {
     "name": "Apollo",
-    "status": "concept"
+    "status": "available"
   },
-  "verifiedCapabilities": [],
+  "verifiedCapabilities": [
+    {
+      "id": "charts",
+      "label": "Charts on real market data",
+      "summary": "Coinbase and Kraken history and live prices, with no account needed."
+    },
+    {
+      "id": "builder",
+      "label": "Strategy Builder",
+      "summary": "Search for strategies on the market you pick, with costs and rules you set."
+    },
+    {
+      "id": "workflows",
+      "label": "Workflows",
+      "summary": "Put a strategy through ordered steps: out-of-sample, other markets and timeframes, slippage and Monte Carlo."
+    },
+    {
+      "id": "results",
+      "label": "Results",
+      "summary": "Keep the strategies that pass, see their fitness and equity, and open them in Charts."
+    },
+    {
+      "id": "apollo",
+      "label": "Apollo assistant",
+      "summary": "An assistant in a panel beside your chart."
+    },
+    {
+      "id": "paper",
+      "label": "Paper trading",
+      "summary": "Practice orders against live Coinbase prices, with positions and trade history."
+    }
+  ],
   "platforms": [
     "Windows desktop"
   ],
   "cta": {
-    "label": "Open the backtest checklist",
-    "url": "https://trader-cockpit.com/strategy-claim-audit-checklist.html"
+    "label": "Join the early access list",
+    "url": "https://trader-cockpit.com/early-access.html"
   },
   "product": {
     "name": "TraderCockpit",
-    "summary": "The TraderCockpit Windows desktop app is in development. We’ll release it when it’s ready."
+    "summary": "TraderCockpit for Windows is in early access. Join the list and we’ll tell you when it opens."
   }
 }

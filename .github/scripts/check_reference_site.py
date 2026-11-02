@@ -64,7 +64,7 @@ def validate(root=ROOT):
  for name in ['product-state','product-heading','product-summary','manifest-capabilities','manifest-detail','product-cta','youtube-cta','purchase-support']:
   need('id="'+name+'"' in html,'Missing functional access element: '+name)
  need('<form' not in html and 'type="email"' not in html,'Email capture reintroduced')
- need(re.search(r'<a[^>]*id="product-cta"[^>]*href="strategy-claim-audit-checklist.html"',html) is not None,'Educational checklist missing')
+ need(re.search(r'<a[^>]*id="product-cta"[^>]*href="early-access.html"',html) is not None and 'href="strategy-claim-audit-checklist.html"' in html,'Early access link or educational checklist missing')
  need('href="learn/" data-journey="#/learn"' in html,'No-JavaScript learning route missing')
  need('href="docs/"' in html and 'href="trust/privacy.html"' in html,'No-JavaScript documents missing')
  pricing=read('docs/pricing/index.html')

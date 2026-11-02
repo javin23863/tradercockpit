@@ -213,10 +213,10 @@ def main() -> int:
     for marker in ("product-manifest.mjs", "prelaunch-config.mjs", "activatePrelaunch", "loadProductManifest"):
         if marker not in (DOCS / "assets/reference-site/integration.mjs").read_text(encoding="utf-8"):
             problems.append(f"homepage missing product/prelaunch contract: {marker}")
-    if 'id="waitlist-form"' in home_text or 'type="email"' in home_text:
-        problems.append("email capture must remain retired")
-    if not re.search(r'<a[^>]*id="product-cta"[^>]*href="strategy-claim-audit-checklist.html"', home_text):
-        problems.append("educational checklist must remain reachable without JavaScript")
+    if 'type="email"' in home_text:
+        problems.append("the email form belongs on the early access page, not the homepage")
+    if not re.search(r'<a[^>]*id="product-cta"[^>]*href="early-access.html"', home_text) or 'href="strategy-claim-audit-checklist.html"' not in home_text:
+        problems.append("early access and the educational checklist must remain reachable without JavaScript")
     for legacy_id in ("initiate", "rungrid", "phases", "verdict", "chips"):
         if f'id="{legacy_id}"' in home_text:
             problems.append(f"legacy homepage simulation remains present: #{legacy_id}")

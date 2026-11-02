@@ -339,6 +339,20 @@
       "path": "pricing/index.html",
       "title": "Pricing & Access",
       "status": "public"
+    },
+    {
+      "id": "product.features",
+      "kind": "landing",
+      "path": "features/index.html",
+      "title": "Features",
+      "status": "public"
+    },
+    {
+      "id": "product.early-access",
+      "kind": "landing",
+      "path": "early-access.html",
+      "title": "Early access",
+      "status": "public"
     }
   ]
 }

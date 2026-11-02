@@ -48,6 +48,7 @@ jobs:
         run: |
           node .github/scripts/test_analytics.mjs
           node .github/scripts/test_custom_domain.mjs
+          node .github/scripts/test_early_access.mjs
       - name: Validate all public JavaScript syntax
         shell: bash
         run: |

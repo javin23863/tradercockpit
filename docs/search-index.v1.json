@@ -757,6 +757,36 @@
         "access",
         "Stripe"
       ]
+    },
+    {
+      "id": "product.features",
+      "title": "Features",
+      "path": "features/",
+      "kind": "reference",
+      "summary": "What TraderCockpit does today, shown from the real app on real market data.",
+      "terms": [
+        "features",
+        "builder",
+        "workflows",
+        "results",
+        "charts",
+        "apollo",
+        "paper trading"
+      ]
+    },
+    {
+      "id": "product.early-access",
+      "title": "Early access",
+      "path": "early-access.html",
+      "kind": "reference",
+      "summary": "Join the early access list for the TraderCockpit Windows app.",
+      "terms": [
+        "early access",
+        "waitlist",
+        "sign up",
+        "list",
+        "join"
+      ]
     }
   ]
 }

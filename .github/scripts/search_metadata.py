@@ -20,7 +20,7 @@ SITE = 'https://trader-cockpit.com/'
 ORG_ID = SITE + '#organization'
 TEAM = 'TraderCockpit team'
 IMAGE = SITE + 'assets/social/tradercockpit-card.png'
-IMAGE_ALT = 'TraderCockpit: backtesting and strategy validation guides, beside a development-build Charts capture'
+IMAGE_ALT = 'TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture'
 LOGO = SITE + 'assets/social/tradercockpit-logo.png'
 SAME_AS = ['https://www.youtube.com/@Thetradercockpit']
 START, END = '<!-- search-meta:start -->', '<!-- search-meta:end -->'
@@ -101,7 +101,7 @@ def block_for(rel: str, text: str, cfg: dict) -> str | None:
             organization(),
             {'@type': 'WebSite', '@id': SITE + '#website', 'name': 'TraderCockpit', 'url': SITE, 'inLanguage': 'en', 'publisher': {'@id': ORG_ID}},
             {'@type': 'SoftwareApplication', '@id': SITE + '#app', 'name': 'TraderCockpit', 'applicationCategory': 'FinanceApplication', 'operatingSystem': 'Windows',
-             'description': 'A Windows desktop app for trading strategy research: charts, strategy building and testing, and validation. In development; not yet released.',
+             'description': 'A Windows desktop app for trading strategy research: charts, strategy building and testing, and validation. Early access; not yet released.',
              'url': SITE, 'publisher': {'@id': ORG_ID}, 'image': IMAGE},
         ]}
         tags.append(ld(graph))

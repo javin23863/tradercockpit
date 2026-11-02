@@ -45,15 +45,15 @@ def main() -> int:
     if not isinstance(plan.get("unitAmount"), int) or plan.get("unitAmount", 0) <= 0: problems.append("public commerce plan must expose a positive integer unitAmount")
     if not re.fullmatch(r"price_[A-Za-z0-9]+", str(plan.get("stripePriceId", ""))): problems.append("public commerce plan has invalid Stripe price id")
 
-    if manifest.get("status") != "unavailable":
-        problems.append(f"expected current public status unavailable, got {manifest.get('status')!r}")
-    if manifest.get("verifiedCapabilities") != []:
-        problems.append("current public manifest unexpectedly exposes verified capabilities")
+    if manifest.get("status") != "waitlist":
+        problems.append(f"expected current public status waitlist, got {manifest.get('status')!r}")
+    if not manifest.get("verifiedCapabilities"):
+        problems.append("early access manifest must list its verified capabilities")
 
-    if 'id="product-state" role="status">In development<' not in home:
-        problems.append("homepage static development status is missing")
-    if 'id="waitlist-form"' in home or 'type="email"' in home:
-        problems.append("public email capture must remain retired")
+    if 'id="product-state" role="status">Early access<' not in home:
+        problems.append("homepage static early access status is missing")
+    if 'type="email"' in home:
+        problems.append("the email form belongs on the early access page, not the homepage")
     if 'href="strategy-claim-audit-checklist.html"' not in home:
         problems.append("homepage must link to the educational checklist")
 
@@ -61,7 +61,8 @@ def main() -> int:
     for path in public_files:
         text = read(path).lower()
         for retired in ('app.kit.com', 'email_address', 'trackconfirmedsignup', 'bindwaitlistsubmit', 'waitlist-form'):
-            if retired in text:
+            # Only the early access page may post to the email provider.
+            if retired in text and path != DOCS / "early-access.html":
                 problems.append(f"retired signup wiring {retired!r}: {path.relative_to(REPO)}")
         for phrase in RISKY_PHRASES:
             if phrase in text:
@@ -102,7 +103,7 @@ def main() -> int:
             print(f"- {problem}")
         return 1
 
-    print(f"PUBLIC CLAIMS: PASS (status={manifest['status']}, verifiedCapabilities=0, files={len(public_files)})")
+    print(f"PUBLIC CLAIMS: PASS (status={manifest['status']}, verifiedCapabilities={len(manifest['verifiedCapabilities'])}, files={len(public_files)})")
     return 0
 
 
