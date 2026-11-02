@@ -93,7 +93,7 @@
         "It writes custom indicators for your charts, and does the maths with checked calculations and 25 source-checked finance methods.",
         "Attach a trade log, a PDF or a chart picture. Your chats are saved and can be exported.",
         "Web search runs only after you approve each one.",
-        "Apollo never sends live broker orders. It runs on Apollo credit, included with each paid plan."
+        "Apollo never sends live broker orders. It runs on Apollo credits, included with each paid plan."
       ]
     },
     {
@@ -170,17 +170,19 @@
   "freeByArea": {"charts": "Part", "order-flow": "Part", "journal": "Yes", "data": "Part", "exports": "Part", "paper": "Yes", "save": "Part"},
   "plans": [
     {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a Google sign-in. No payment.",
-     "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credit", "None"]],
+     "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credits", "None"]],
      "included": ["Charts with live prices from the free sources", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
      "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account (today: Alpaca Paper)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
     {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
-     "facts": [["Apollo credit included", "$4 a month"], ["Jobs at once", "1"], ["Models batch size", "1"]]},
+     "credits": 4000, "jobs": 1, "modelsBatch": 1},
     {"id": "trader", "commerce": "Trader", "name": "Trader", "summary": "Everything, with more Apollo credit and more jobs at once.",
-     "facts": [["Apollo credit included", "$10 a month"], ["Jobs at once", "2"], ["Models batch size", "5"]]},
+     "credits": 10000, "jobs": 2, "modelsBatch": 5},
     {"id": "quant", "commerce": "Quant", "name": "Quant", "summary": "Everything, for heavier research.",
-     "facts": [["Apollo credit included", "$20 a month"], ["Jobs at once", "4"], ["Models batch size", "20"]]},
+     "credits": 20000, "jobs": 4, "modelsBatch": 20},
     {"id": "apollo-pro", "commerce": "ApolloPro", "name": "Apollo Pro", "summary": "Everything, with the most Apollo credit and jobs at once.",
-     "facts": [["Apollo credit included", "$30 a month"], ["Jobs at once", "6"], ["Models batch size", "50"]]}
+     "credits": 30000, "jobs": 6, "modelsBatch": 50}
   ],
-  "paidLimits": [["Workflow stages", "32"], ["Indicators per chart", "100"], ["Charts at once", "16"], ["Saved chart layouts", "16"], ["Chart alerts", "200"], ["Apollo spending limit", "$2 a run"], ["Credit packs", "$10 buys $8 of Apollo credit, $25 buys $20"]]
+  "paidLimits": [["Workflow stages", "32"], ["Indicators per chart", "100"], ["Charts at once", "16"], ["Saved chart layouts", "16"], ["Chart alerts", "200"]],
+  "runLimitCredits": 2000,
+  "creditPacks": [{"priceCents": 1000, "credits": 8000}, {"priceCents": 2500, "credits": 20000}]
 }

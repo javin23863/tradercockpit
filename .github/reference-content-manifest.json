@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "ea95138814768f056bed7f636161abab127aa3b371285abff7b31a3472bf9123",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details.",
-      "after_sha256": "318e8677d22849e9518a831e8c97c4957d2c8298f06cd3d281e8cf503916ba37"
+      "corrected_unwrapped_sha256": "a355e5d48f473caa79545d1eecd2cf70150df38c9b6d9afc3585439742865b55",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits.",
+      "after_sha256": "87c6e99cfaf844e802f6f33ced3688ad5fe9c4c8f0ba9add05fed3e0b5b72d62"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -365,14 +365,14 @@
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "13d4f42c2084957678c643427530a4e166d86d5f96f07d76d6263ec6ccab66c1",
-    "features/index.html": "3a5b4f37336998a0d5fc437561d3eb51433ab713c41ff6188ea168ef7117bec4",
+    "features/index.html": "714dd016733d7dcb487590d7f74b76cdb953d2f9fda7a358e8aaf9be28017f74",
     "early-access.html": "d0bb7e681dbd506545658318a644c4308c6c4f669f97812f8a321467f758c3f1",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
     "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
     "assets/features/results.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
     "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60",
-    "capabilities.v1.json": "5a7be6f252a26969c6afdc3b8f9d97933e9b2498f74f34457de8c834f74e871d",
+    "capabilities.v1.json": "e4cceaf899f07f5888a17c5bce4a5006096c0d4dc829e4535ff364c1eb049739",
     "assets/product-pages.css": "534d442efc65daa53d5fac1900ebc23cf67b2758d7c207a96ad281a6759c53e8",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",
