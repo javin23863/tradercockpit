@@ -272,9 +272,9 @@
     "updates/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
-      "after_sha256": "8b939d774fddd67aee9cb3e7159f1d01c4c833f16a94d4abf9d6680d6996ec0d",
+      "after_sha256": "dc3fc68a4d32ecb141a118b17d12ac53045c3bc5af9efda9bf75724aef35707f",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages.",
-      "corrected_unwrapped_sha256": "c99e96fdec7ff3c3b967e1b3fdcfb4fd5b58d8c6f3d1bd62ed61690e122f2b60"
+      "corrected_unwrapped_sha256": "80eaa1327b76a7ce1a70896ac999388557c5e3945e69506d63f6fe823de4ac2a"
     },
     "assets/site-search.js": {
       "kind": "search_guard",

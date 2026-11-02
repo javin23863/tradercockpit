@@ -28,7 +28,7 @@
         if (!details) return;
         const safeText = (value) => value == null || value === '' ? 'Not published' : String(value);
         const rows = [
-          ['Status', manifest.status === 'unavailable' ? 'Early access' : safeText(manifest.status)],
+          ['Status', ['unavailable', 'waitlist'].includes(manifest.status) ? 'Early access' : safeText(manifest.status)],
           ['Platforms', platforms.length ? platforms.join(', ') : 'None published'],
           ['Product capabilities', capabilities.length ? capabilities.map(c=>c.label).join(', ') : 'None published'],
           ['Next step', safeText(manifest.cta && manifest.cta.label)]
