@@ -59,10 +59,10 @@
         "Chart types: bars, candles, hollow candles, volume candles, line, line with markers, step line, area, HLC area, baseline, columns, high-low, Heikin Ashi, Renko, line break, Kagi and range.",
         "One grouped indicator list: TradingView's built-ins at their defaults, the Builder's own indicators, patterns and profiles, and your own.",
         "Drawings: trend line, ray, extended line, rectangle, horizontal line and ray.",
-        "VWAP with bands, anchored and rolling; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
+        "VWAP with bands, anchored, rolling and from earnings dates; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
         "Machine-learning buy and sell signals with a read-out of how they would have done on the visible bars.",
-        "Your own Pine v5 or v6 indicators and strategies run on the chart, with a Strategy Tester. Lines that can't run yet are listed by line.",
-        "Ten built-in strategies, each checked trade for trade against TradingView on Coinbase BTC/USD.",
+        "Your own Pine v5 or v6 indicators and strategies run on the chart, with a Strategy Tester. Lines that can't run yet are listed by line: for example another symbol or a lower timeframe in request.security, or alertcondition. Strategies are refused on saved-file charts.",
+        "Ten built-in strategies matched TradingView's own trade list, trade for trade, on Coinbase BTC/USD, 1 hour.",
         "Alerts on price, values, indicator lines and drawings, with notices and sounds.",
         "Bar Replay, saved views, watchlists, compare charts, and up to 16 charts at once on a paid plan.",
         "Charts by Vela, the charting engine from LuxAlgo, included under its licence."
@@ -77,7 +77,7 @@
         "TPO market profile, with letters, colours by time, volume, trades or delta, and trading hours.",
         "Volume profile: fixed range, session and periodic, with value area and point of control.",
         "Measured delta, cumulative delta, trade counts, volume tails and bar statistics.",
-        "An order book heatmap: resting bids and offers over time under the candles, from Kraken or Coinbase, with the largest walls named.",
+        "An order book heatmap: resting bids and offers over time under the candles, from Kraken or Coinbase, with the largest walls named. It records from when a chart first shows it, with no earlier history.",
         "Gamma exposure by strike, drawn from an option chain file you import."
       ]
     },
@@ -88,9 +88,10 @@
       "items": [
         "Describe an idea in plain words and get a Builder rule part, or a Pine script that's checked before you see it.",
         "It fills in Builder settings for you to review, and asks before it compiles or starts a run.",
-        "It picks a validation workflow for your market and timeframe, and reads your strategy's results with you: the same figures and trades you see.",
+        "It recommends a validation workflow for your market and timeframe, though it doesn't set it up for you yet, and reads your strategy's results with you: the same figures and trades you see.",
         "It proposes one chart change at a time, shown as a card you apply yourself.",
-        "It writes custom indicators for your charts, and does the maths with checked calculations.",
+        "It writes custom indicators for your charts, and does the maths with checked calculations and 25 source-checked finance methods.",
+        "Attach a trade log, a PDF or a chart picture. Your chats are saved and can be exported.",
         "Web search runs only after you approve each one.",
         "Apollo never sends live broker orders. It runs on Apollo credit, included with each paid plan."
       ]
@@ -119,7 +120,7 @@
       "id": "data", "title": "Market data and import", "kicker": "Bring your data",
       "lead": "Free exchange data with no account, or your own files, checked row by row.",
       "items": [
-        "Coinbase and Kraken: free public history and live prices with no account, at any timeframe. Those the exchange doesn't send are built from its finer candles.",
+        "Coinbase and Kraken: free public history and live prices with no account, at any chart timeframe; Builder takes M2 to D5. Those the exchange doesn't send are built from its finer candles.",
         "Yahoo daily bars, free.",
         "Your own price files: CSV in common layouts and TradingView's chart export, checked row by row.",
         "MetaTrader 5 history and quotes from your own terminal.",
@@ -132,14 +133,14 @@
       "lead": "Take a strategy to your platform, or get a clear reason why it can't match.",
       "items": [
         "TradingView: retest a strategy on TradingView's bar-close timing, then export it as Pine. It refuses what can't match, with the reason.",
-        "MetaTrader 5: export experts with our own indicators, checked bar for bar. MetaTrader 4 files are rendered only, not checked.",
+        "MetaTrader 5: our own indicators, checked bar for bar, for use in experts. MetaTrader 4 files are rendered only, not checked.",
         "Trades as CSV or Excel, charts as PNG, a printable report and prop-firm results from Results.",
         "Chart data and chart images from any chart."
       ]
     },
     {
       "id": "paper", "title": "Paper trading", "kicker": "Practice",
-      "lead": "Practice on any chart without risking money, on live prices.",
+      "lead": "Practice on any chart without risking money, on live prices where the market has a live feed.",
       "image": "assets/features/paper.webp", "alt": "A paper order ticket and trade history on Coinbase BTC/USD hourly bars", "caption": "A paper trade on live Coinbase BTC/USD prices.",
       "items": [
         "Our own order simulator on every chart and market, with commission, leverage and shorting.",
@@ -152,7 +153,7 @@
       "id": "brokers", "title": "Brokers", "kicker": "Connect",
       "lead": "What's connected today, and nothing more.",
       "items": [
-        "Alpaca Paper: your own Alpaca paper account, using your paper keys. Stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only.",
+        "Alpaca Paper: your own Alpaca paper account, using your paper keys. Stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only, and checked outside market hours so far.",
         "Real-broker connections aren't listed yet. We'll list each one once it's been checked in the app."
       ]
     },
@@ -161,16 +162,17 @@
       "lead": "Your work stays on your PC, and you can back it up.",
       "items": [
         "Strategies, results, charts and data are saved in your own data folder.",
-        "Back up, restore and reopen projects, Results and chart views."
+        "Copy your data folder while the app is closed to back it up, and copy it back to restore."
       ]
     }
   ],
+  "paidByArea": {"brokers": "Alpaca Paper"},
   "freeByArea": {"charts": "Part", "order-flow": "Part", "journal": "Yes", "data": "Part", "exports": "Part", "paper": "Yes", "save": "Part"},
   "plans": [
     {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a Google sign-in. No payment.",
      "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credit", "None"]],
-     "included": ["Charts with live prices from the free sources", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading work you saved earlier on a paid plan"],
-     "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a brokerage and real-broker trading", "Pine and MetaTrader exports", "Builder indicators on charts"]},
+     "included": ["Charts with live prices from the free sources", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
+     "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account (today: Alpaca Paper)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
     {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
      "facts": [["Apollo credit included", "$4 a month"], ["Jobs at once", "1"], ["Models batch size", "1"]]},
     {"id": "trader", "commerce": "Trader", "name": "Trader", "summary": "Everything, with more Apollo credit and more jobs at once.",
@@ -180,5 +182,5 @@
     {"id": "apollo-pro", "commerce": "ApolloPro", "name": "Apollo Pro", "summary": "Everything, with the most Apollo credit and jobs at once.",
      "facts": [["Apollo credit included", "$30 a month"], ["Jobs at once", "6"], ["Models batch size", "50"]]}
   ],
-  "paidLimits": [["Workflow stages", "32"], ["Indicators per chart", "100"], ["Charts at once", "16"], ["Saved chart layouts", "16"], ["Chart alerts", "200"], ["Apollo spending limit", "$2 a run"], ["More Apollo credit", "$8 for $10, or $20 for $25"]]
+  "paidLimits": [["Workflow stages", "32"], ["Indicators per chart", "100"], ["Charts at once", "16"], ["Saved chart layouts", "16"], ["Chart alerts", "200"], ["Apollo spending limit", "$2 a run"], ["Credit packs", "$10 buys $8 of Apollo credit, $25 buys $20"]]
 }

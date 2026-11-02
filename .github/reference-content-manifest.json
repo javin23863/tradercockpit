@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "54906cfa4dac36ee7c64ceac474b2cd13373d399228c4e7b077a870641d3de40",
+  "home_sha256": "369896b61a5794beb5b76c43c50231232eed2580de29ae7594e95336fd914e34",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "ed5178288da48b62c34852c320b842f5eeeb799586197e3d8f416e89c93d833f",
+      "corrected_unwrapped_sha256": "35a7b20048e78ae3dc01170a6efafa8794ebc776f38618dfc7cf91ce092ccd89",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details.",
-      "after_sha256": "354c759d19f326417a0284fa851514792a5e05d79429ef4d855504fbb72f3218"
+      "after_sha256": "2e5645a783bb84fd65c381bd4291c57828358c7eaf25aebe1ce620ea9d713010"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -332,7 +332,7 @@
     },
     "product-manifest.v1.json": {
       "before_sha256": "58b96cd926cb5fa15bb7be0f55678fea5121626545872407df03f797d5a23820",
-      "after_sha256": "d786f4f33087691d4f1b591965eb5fabababa5038254296547cd09d018f39669",
+      "after_sha256": "60a166e5bb84f53d920a0b5935c0bb9d62ac1b11bb61007309729196189b99ec",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details."
     },
     "research-lab.html": {
@@ -365,14 +365,14 @@
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "13d4f42c2084957678c643427530a4e166d86d5f96f07d76d6263ec6ccab66c1",
-    "features/index.html": "94e9455b27e56e2431695166367ffd07a4811ac446769f556fea3ce6c19611be",
+    "features/index.html": "3a5b4f37336998a0d5fc437561d3eb51433ab713c41ff6188ea168ef7117bec4",
     "early-access.html": "d0bb7e681dbd506545658318a644c4308c6c4f669f97812f8a321467f758c3f1",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
     "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
     "assets/features/results.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
     "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60",
-    "capabilities.v1.json": "e8da8ed218d0b12ab10ac5e59c887be2aab0a1ce4776b608446ed15639a5277b",
+    "capabilities.v1.json": "5a7be6f252a26969c6afdc3b8f9d97933e9b2498f74f34457de8c834f74e871d",
     "assets/product-pages.css": "534d442efc65daa53d5fac1900ebc23cf67b2758d7c207a96ad281a6759c53e8",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",
