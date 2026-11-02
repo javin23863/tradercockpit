@@ -155,3 +155,4 @@ body[data-reference-content] .atlas-nav-head h2{font:500 clamp(25px,2.8vw,36px)/
 body[data-reference-content] :is(.atlas-nav-head p,.atlas-nav-item,.atlas-nav-item *){font-family:Arial,Helvetica,sans-serif;letter-spacing:0}
 body[data-reference-content] .atlas-nav-head p{font-size:14px;line-height:1.6;color:var(--rc-muted)}
 body[data-reference-content] .metric b{font-weight:500}
+[data-reference-content] .button.gold{background:linear-gradient(115deg,#eed7af,#c9a371);color:#11140f;border-color:#d8b780;display:inline-flex;align-items:center;padding:0 1rem;min-height:44px;font-weight:600;cursor:pointer}

@@ -31,7 +31,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
             row['hierarchy']['focal_point']=row['reviewed_h1']
             row['hierarchy']['primary_action']='Read the guides'
         if row['path']=='pricing/index.html':
-            row['reviewed_h1']='Four monthly plans. One research environment.'
+            row['reviewed_h1']='A Free plan and four monthly plans. One research environment.'
             row['hierarchy']['focal_point']=row['reviewed_h1']
             row['intent']['primary_job']='Compare the four published monthly plans and inspect access availability.'
             row['intent']['worst_mistake']='Believing checkout is open or treating a plan name as a verified feature entitlement.'

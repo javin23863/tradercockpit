@@ -18,7 +18,7 @@ class ContractTests(unittest.TestCase):
  def test_four_plan_metadata_is_current(self):
   value=json.loads((ROOT/'docs/ux-page-contracts.v1.json').read_text(encoding='utf-8'))
   pricing=next(row for row in value['pages'] if row['path']=='pricing/index.html')
-  self.assertEqual(pricing['reviewed_h1'],'Four monthly plans. One research environment.')
+  self.assertEqual(pricing['reviewed_h1'],'A Free plan and four monthly plans. One research environment.')
  def test_public_authority_contract_is_split_and_does_not_duplicate_mutable_counts(self):
   readme=(ROOT/'README.md').read_text(encoding='utf-8')
   reference_readme=(ROOT/'.github/reference-site/README.md').read_text(encoding='utf-8')

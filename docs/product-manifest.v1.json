@@ -24,7 +24,7 @@
     {
       "id": "results",
       "label": "Results",
-      "summary": "Keep the strategies that pass, see their fitness and equity, and open them in Charts."
+      "summary": "See how a strategy traded: profit factor, drawdown and a plain verdict, then show it on the chart."
     },
     {
       "id": "apollo",

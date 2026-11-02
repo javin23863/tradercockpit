@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "945fe0ca0baa4939e829f75742f6addcd28103844760d89a82bb18383934068f",
+  "home_sha256": "82dc3e7687ffb25f5ee2a61bed3cb4dfe7dfe56f38833faec2195640912d2413",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "9128fe82f839c0772fbde4d8f0941ecb132f16ad767df5c82252fcec5e4665f2",
+      "corrected_unwrapped_sha256": "c1e4685fee2816238e5aff0cfc91d7361c008ab8db6e8b8f0f212c81b86c264f",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages.",
-      "after_sha256": "5973a7a4aabd70bcd24bf529e5aa53672a50ef1f24bd7dd4da35b2695be1a45f"
+      "after_sha256": "84ed1a2459e925083c5483f2c04088777e7ca84f550c8fa20c5037d47d009a6a"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -284,11 +284,11 @@
     "ux-page-contracts.v1.json": {
       "kind": "ux_contracts",
       "before_sha256": "e4db5afe41a7109504ef74c3a0e5e4233b68899e2d635ba674bb7e9648699670",
-      "after_sha256": "e8aa4ab64a6a0298028af7acf679bdf75eb691e79df05f74194013cfde379216"
+      "after_sha256": "dc5bf0b41f250a47f1130176ca2408b538619305c7260ddaad692685a43cf341"
     }
   },
   "new_assets": {
-    "assets/reference-site/content.css": "ae925cb0d78b210b40a3f8c7aba2fdee5ed89c50cab25f1f8507d3aa206b60c8"
+    "assets/reference-site/content.css": "be658ba7b74ccdf456d9d24061e80e4e1efe45f713cf6afb33d734ad3390713d"
   },
   "content_preservation": "Removing only the declared additive shell and labelled media restores the exact previous HTML bytes. Search change only prevents decorative hero SVG insertion.",
   "visual_approval": true,
@@ -332,7 +332,7 @@
     },
     "product-manifest.v1.json": {
       "before_sha256": "58b96cd926cb5fa15bb7be0f55678fea5121626545872407df03f797d5a23820",
-      "after_sha256": "b69f1a9f92883b74d3a587560ea35be5f0a8fb0748ab2d86dc448b623e527bde",
+      "after_sha256": "71428e6359069f10ede8f95afd1bcb0aa80a0c69af387a25eabde129de24a1e3",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Owner plan 2 Nov 2026: early access wording, Features and early access pages."
     },
     "research-lab.html": {
@@ -365,12 +365,12 @@
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "13d4f42c2084957678c643427530a4e166d86d5f96f07d76d6263ec6ccab66c1",
-    "features/index.html": "8c84143ac1cd200554f30565008c1c4564f682d98b5682fe83984f7dbe89aff8",
-    "early-access.html": "7da701f921508cc045567dafa9b2b1cefc3cd21635d0d872316aa604824c2203",
+    "features/index.html": "2c4a118fe0ef0e4be35dbf85c5b74efaffa88f5924114e1ce85f7ef553e558b9",
+    "early-access.html": "d0bb7e681dbd506545658318a644c4308c6c4f669f97812f8a321467f758c3f1",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
-    "assets/features/builder.webp": "e1c7114347941723d889e3b6cd9c36a42ed12c05484ed76ea625c853dfbb5452",
+    "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
     "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
-    "assets/features/results.webp": "123120d8f7aa85d6bd9277e0dbeb8a533b1d5a2e4aea192ae60a69c05a564a40",
+    "assets/features/results.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
     "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60"
   }
 }
