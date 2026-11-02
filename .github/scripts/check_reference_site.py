@@ -55,7 +55,7 @@ def validate(root=ROOT):
  for phrase in ['search this preview','about this preview','homepage proof','not a release candidate','under visual review','in this preview','explore this preview','this preview does not offer','this preview does not contain','the preview does not establish']:
   need(phrase not in public_runtime,'Internal review wording leaked to public surface: '+phrase)
  need('assets/generated/site-webgl-v1.js' not in html and 'quant-universe' not in html,'Retired hero reintroduced')
- need('data-scene="room"' in html and 'data-scene="laptop"' in html,'Reference scenes missing')
+ need('assets/features/' in html,'Homepage must show real app screens')
  for marker in ['loadProductManifest','loadPrelaunchConfig','activatePrelaunch','commerce-public.v1.json']:
   need(marker in bridge,'Missing product/commerce integration: '+marker)
  need('prefers-reduced-motion' in app and 'visibilitychange' in app,'Scene accessibility safeguards missing')
@@ -72,9 +72,9 @@ def validate(root=ROOT):
   amount=('$'+format(tier['unitAmount']/100,'.2f')).removesuffix('.00')
   need(tier['name'] in pricing and amount in pricing,'Static pricing record disagrees: '+tier['name'])
  need('One plan, one access path' not in pricing,'Obsolete single-plan claim')
- need('href="../#/access?plan=' not in pricing,'Pricing plan links must retain meaningful static fallback')
+ need('#/access' not in pricing,'Pricing must keep one set of plan text')
  for plan in ['Core','Trader','Quant','ApolloPro']:
-  need(f'href="../#public-status" data-access-plan="{plan}"' in pricing,'Missing static pricing fallback: '+plan)
+  need(f'data-access-plan="{plan}"' in pricing and f'href="#plan-' in pricing,'Missing static pricing fallback: '+plan)
  return errors
 if __name__=='__main__':
  try: errors=validate()

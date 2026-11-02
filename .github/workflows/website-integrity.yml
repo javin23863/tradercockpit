@@ -49,6 +49,7 @@ jobs:
           node .github/scripts/test_analytics.mjs
           node .github/scripts/test_custom_domain.mjs
           node .github/scripts/test_early_access.mjs
+          python .github/scripts/generate_product_pages.py --check
       - name: Validate all public JavaScript syntax
         shell: bash
         run: |

@@ -14,7 +14,6 @@
         value.tiers[index]?.name===name && value.tiers[index].interval==='month' &&
         Number.isSafeInteger(value.tiers[index].unitAmount) && value.tiers[index].unitAmount>0);
     data = validCommerce ? value : {};
-    if (location.hash.startsWith('#/access')) render(false);
   });
   const price = name => {
     const item = validCommerce && data.tiers.find(t => t.name === name);
@@ -105,17 +104,6 @@
       <div class="j-note-actions"><button class="button gold" data-save-notes>Save on this device</button><button class="button glass" data-export-notes>Export notes</button><label class="button glass j-file-label">Import notes<input type="file" accept=".json,application/json" data-import-notes aria-label="Import research notes JSON"></label></div><p data-note-status role="status" aria-live="polite"></p></div>
       <aside class="j-notebook-side"><p class="eyebrow">Your record</p><p class="j-check-progress" data-check-progress aria-live="polite"></p><p>Notes stay in this session until you save or export them. Nothing is sent to a server.</p><p>Saving uses this browser’s local storage. Clearing browser data can remove it; an exported file is a separate copy.</p><button class="j-text-button" data-reset-notes>Reset this checklist</button><div data-reset-confirm hidden><p>Clear this checklist and its saved browser copy? Export anything you need first.</p><button class="button glass" data-confirm-reset>Clear notes</button><button class="j-text-button" data-cancel-reset>Keep notes</button></div>${sourceLink('strategy-claim-audit-checklist.html','Original evidence checklist')}</aside></div>`;
   }
-  function access(search) {
-    const requested = new URLSearchParams(search).get('plan');
-    const selected = plans.includes(requested) ? requested : 'Core';
-    const options = plans.map(name=>`<a class="j-plan" href="#/access?plan=${name}" ${name===selected?'aria-current="true"':''}><span>${name==='ApolloPro'?'Apollo Pro':name}</span><strong>${price(name)}</strong><small>USD / month</small></a>`).join('');
-    return `${header('Pricing & access','A plan for your research.','Four planned monthly plans. Every plan includes every feature; plans differ only in included Apollo credit and how many jobs can run at the same time. The Windows app is in early access and checkout is closed.',`<nav class="j-breadcrumb" aria-label="Breadcrumb"><a href="#top">Home</a><span aria-hidden="true">/</span><span>Access</span></nav>`)}
-      <nav class="j-plans" aria-label="Choose a monthly plan">${options}</nav>
-      <section class="j-access-summary" aria-labelledby="access-summary-title"><div class="j-access-selection"><p class="eyebrow">Selected plan</p><h2 id="access-summary-title" data-selected-plan>${selected==='ApolloPro'?'Apollo Pro':selected}</h2><p class="j-selected-price"><strong data-selected-price>${price(selected)}</strong><span>USD / month</span></p><button class="button gold" data-checkout disabled aria-describedby="checkout-explanation">Checkout unavailable</button></div><div class="j-access-explanation"><span class="j-status">${validCommerce ? 'Early access' : 'Availability unverified'}</span><h2>Join the early access list.</h2><p id="checkout-explanation">You can explore TraderCockpit information without an account or payment. Choosing a plan here does not start a subscription.</p><p>Before subscribing, review the confirmed features for your chosen plan and check the official access page for current availability.</p><a class="button glass" href="#public-status">Read early access status ${arrow}</a><p class="j-footnote">The Windows app is in early access. We’ll release it when it’s ready.</p></div></section>
-      <section class="j-access-notes"><article><h2>Monthly pricing.</h2><p>Prices are shown in US dollars per month. This page does not offer an annual discount or take payments.</p></article><article><h2>Plan details.</h2><p>Check the confirmed features and limits before choosing a subscription. Plan names alone do not describe everything included.</p></article><article><h2>Access updates.</h2><p>Follow the official access page for availability and account information. Prices load from the local public commerce record. No payment service is enabled here.</p></article></section>
-      ${!validCommerce?'<p role="alert" class="j-callout">The local commerce record could not be verified. All checkout controls remain disabled.</p>':''}
-      ${sourceLink('commerce-public.v1.json','Inspect the pinned commerce record')}`;
-  }
   function unknown() {return `${header('Navigation','Page not found.','We could not find the page at this address. Nothing has been submitted.')}<div class="j-recovery"><a class="button gold" href="#top">Return to homepage</a><a class="button glass" href="#/learn">Open learning library</a></div>`;}
 
   function notesBindings() {
@@ -175,7 +163,8 @@
       lastHash=hash;return;
     }
     const [route,search='']=hash.slice(1).split('?');
-    const pages={'/learn':learning,'/learn/monte-carlo':monteCarlo,'/learn/checklist':checklist,'/platform/charts':()=>captureGuide('charts'),'/platform/models':()=>captureGuide('models'),'/access':()=>access(search)};
+    if(route==='/access'){const plan=new URLSearchParams(search).get('plan');location.replace('pricing/'+(plan?'#plan-'+(plan==='ApolloPro'?'apollo-pro':plan.toLowerCase()):''));return;}
+    const pages={'/learn':learning,'/learn/monte-carlo':monteCarlo,'/learn/checklist':checklist,'/platform/charts':()=>captureGuide('charts'),'/platform/models':()=>captureGuide('models')};
     main.innerHTML=`<div class="j-shell">${(pages[route]||unknown)()}</div>`;
     const title=main.querySelector('h1');
     document.title=route==='/learn/monte-carlo'?'Monte Carlo — TraderCockpit Learn':`${title.textContent} — TraderCockpit`;

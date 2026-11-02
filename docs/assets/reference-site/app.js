@@ -171,6 +171,7 @@
     motionToggle.textContent = motionPreference.matches ? 'Reduced motion' : active ? 'Motion on' : 'Motion off';
     if (!active) { if (frameId) cancelAnimationFrame(frameId); frameId=0; resetScenes(); }
   }
+  if (!motionToggle) return; // No scenes on the current homepage.
   motionToggle.addEventListener('click', () => { motionRequested = !motionRequested; updateMotionControl(); if (motionRequested) scheduleMotion(); });
   scenes.forEach(scene => {
     const region = scene.closest('.hero, .platform-scene');

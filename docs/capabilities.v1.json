@@ -1,0 +1,184 @@
+{
+  "schema": "tc.public-capabilities.v1",
+  "source": "Written from docs/CAPABILITIES.md and product/tradercockpit/commercial_catalog.py in the app repository. Features, Pricing and the homepage are generated from this file; prices come from commerce-public.v1.json.",
+  "areas": [
+    {
+      "id": "builder", "title": "Strategy Builder", "kicker": "Build",
+      "lead": "Search thousands of rule combinations on the market you pick, with the costs and rules you set.",
+      "image": "assets/features/builder.webp", "alt": "Builder running a search on Coinbase SOL/USD hourly bars: 29,128 strategies tried, none passed the filters", "caption": "A search on Coinbase SOL/USD, 1 hour. It tried 29,128 strategies and none passed.",
+      "items": [
+        "Genetic, random or sequential search over the rule space, with progress you can watch as it runs.",
+        "Rule parts for conditions and price levels, built on the app's own indicator math.",
+        "Your own trading rules, costs and money management on each step, with a reset to default for any part.",
+        "Strategy templates and build recipes to start from, with a template's rules shown in plain lines before you use it.",
+        "Crypto markets get sensible starting exits and costs, and the app tells you what it changed.",
+        "Saved research ideas and candidates, and a retest of any strategy with its saved settings."
+      ]
+    },
+    {
+      "id": "workflows", "title": "Workflows and robustness checks", "kicker": "Test",
+      "lead": "Put a strategy through ordered steps, unattended, and see why strategies drop out.",
+      "image": "assets/features/workflows.webp", "alt": "A twelve-step Workflow on Dow Jones 4-hour bars: build, out-of-sample, other markets, timeframes, slippage and Monte Carlo", "caption": "A twelve-step Workflow on Dow Jones, 4 hour, imported from a real price file.",
+      "items": [
+        "Ordered steps that run on their own: create, edit, save and reopen a workflow.",
+        "A library of ready-made validation workflows and strategy recipes, with search by market and timeframe.",
+        "Robustness checks on your results: out-of-sample periods, other markets, higher and lower timeframes, slippage and Monte Carlo.",
+        "Walk-forward windows, with a recompute when you change them.",
+        "Move a copy of a workflow to your saved market in one click. Each step keeps its own timeframe where the bars allow, and tells you when it can't."
+      ]
+    },
+    {
+      "id": "results", "title": "Results", "kicker": "Read",
+      "lead": "See how a strategy really traded, with a plain verdict that says so when it's weak.",
+      "image": "assets/features/results.webp", "alt": "A Results page on Coinbase BTC/USD daily bars, graded D: Weak, don't trade it as it is", "caption": "A real verdict on Coinbase BTC/USD, daily: graded D, weak, only 12 trades.",
+      "items": [
+        "One verdict for a strategy, with the reasons behind it.",
+        "Summary, trades, equity, results by period and by market, and trade excursions.",
+        "A trade list with position value, P/L %, run-up and drawdown, a column chooser and CSV.",
+        "Monte Carlo tests and walk-forward results on a strategy's trades.",
+        "Prop-firm challenge and funded-phase simulators, with rules and payouts per symbol.",
+        "Compare two runs side by side, and analysis tools for drawdown, edge decay and news impact.",
+        "Show a strategy on its chart, with where each entry and exit rule was true and why it traded or didn't.",
+        "The strategy written as code in EasyLanguage, MetaTrader, Pine or Python."
+      ]
+    },
+    {
+      "id": "portfolio", "title": "Portfolio", "kicker": "Combine",
+      "lead": "Combine your saved strategies and see their results together.",
+      "items": [
+        "Auto build: build portfolios from your saved strategies, and send strategies straight from Results.",
+        "Compose: pick strategies yourself, with a weight for each, and see the combined results.",
+        "Money management isn't applied to portfolios yet, and the page says so."
+      ]
+    },
+    {
+      "id": "charts", "title": "Charts", "kicker": "See",
+      "lead": "A full charting workspace on real market data, with indicators, drawings and your own Pine scripts.",
+      "image": "assets/features/tpo.webp", "alt": "A TPO market profile on Coinbase BTC/USD hourly bars with volume below", "caption": "TPO market profile on Coinbase BTC/USD, 1 hour. Charts by Vela.",
+      "items": [
+        "Chart types: bars, candles, hollow candles, volume candles, line, line with markers, step line, area, HLC area, baseline, columns, high-low, Heikin Ashi, Renko, line break, Kagi and range.",
+        "One grouped indicator list: TradingView's built-ins at their defaults, the Builder's own indicators, patterns and profiles, and your own.",
+        "Drawings: trend line, ray, extended line, rectangle, horizontal line and ray.",
+        "VWAP with bands, anchored and rolling; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
+        "Machine-learning buy and sell signals with a read-out of how they would have done on the visible bars.",
+        "Your own Pine v5 or v6 indicators and strategies run on the chart, with a Strategy Tester. Lines that can't run yet are listed by line.",
+        "Ten built-in strategies, each checked trade for trade against TradingView on Coinbase BTC/USD.",
+        "Alerts on price, values, indicator lines and drawings, with notices and sounds.",
+        "Bar Replay, saved views, watchlists, compare charts, and up to 16 charts at once on a paid plan.",
+        "Charts by Vela, the charting engine from LuxAlgo, included under its licence."
+      ]
+    },
+    {
+      "id": "order-flow", "title": "Order flow and profiles", "kicker": "Look inside the bar",
+      "lead": "See what traded inside each bar, recorded from the exchange's public feed.",
+      "image": "assets/features/footprint.webp", "alt": "A footprint chart on Coinbase BTC/USD 5-minute bars with delta and volume in each cell, and a stacked imbalance alert", "caption": "Footprint on Coinbase BTC/USD, 5 minutes, with a stacked imbalance alert.",
+      "items": [
+        "Footprint with per-bar delta and volume, value area, stacked imbalance and row size in ticks.",
+        "TPO market profile, with letters, colours by time, volume, trades or delta, and trading hours.",
+        "Volume profile: fixed range, session and periodic, with value area and point of control.",
+        "Measured delta, cumulative delta, trade counts, volume tails and bar statistics.",
+        "An order book heatmap: resting bids and offers over time under the candles, from Kraken or Coinbase, with the largest walls named.",
+        "Gamma exposure by strike, drawn from an option chain file you import."
+      ]
+    },
+    {
+      "id": "apollo", "title": "Apollo assistant", "kicker": "Ask",
+      "lead": "An assistant beside your work that turns an idea into a strategy you can test. You confirm every change.",
+      "image": "assets/reference-site/original-models.png", "alt": "The Apollo panel beside a BTC/USD chart", "caption": "Apollo in a panel beside a BTC/USD chart.",
+      "items": [
+        "Describe an idea in plain words and get a Builder rule part, or a Pine script that's checked before you see it.",
+        "It fills in Builder settings for you to review, and asks before it compiles or starts a run.",
+        "It picks a validation workflow for your market and timeframe, and reads your strategy's results with you: the same figures and trades you see.",
+        "It proposes one chart change at a time, shown as a card you apply yourself.",
+        "It writes custom indicators for your charts, and does the maths with checked calculations.",
+        "Web search runs only after you approve each one.",
+        "Apollo never sends live broker orders. It runs on Apollo credit, included with each paid plan."
+      ]
+    },
+    {
+      "id": "models", "title": "Models", "kicker": "Research",
+      "lead": "Machine-learning research on your saved markets or a strategy's trades, judged on data held out from the fit.",
+      "items": [
+        "Studies with purged cross-validation, the deflated Sharpe ratio and triple-barrier labels.",
+        "Your chart indicators as features, or a strategy's own trades as the data.",
+        "Held-out forecasts shown on the chart, and a route from a model to a Builder strategy and a Library validation.",
+        "A sample study with clearly labelled made-up trades, so you can learn the page before using your own data."
+      ]
+    },
+    {
+      "id": "journal", "title": "Journal", "kicker": "Review",
+      "lead": "Review executions, research results, routines and decisions in one place, kept on your PC.",
+      "image": "assets/features/journal.webp", "alt": "The Journal's trade calendar and daily note", "caption": "The Journal's calendar and daily note.",
+      "items": [
+        "Trades, a calendar with daily notes, reports, a notebook, playbooks, routines and prop-firm tracking.",
+        "Import statements from many broker file formats.",
+        "Attach files to notes, use note templates, or draft a note with Apollo."
+      ]
+    },
+    {
+      "id": "data", "title": "Market data and import", "kicker": "Bring your data",
+      "lead": "Free exchange data with no account, or your own files, checked row by row.",
+      "items": [
+        "Coinbase and Kraken: free public history and live prices with no account, at any timeframe. Those the exchange doesn't send are built from its finer candles.",
+        "Yahoo daily bars, free.",
+        "Your own price files: CSV in common layouts and TradingView's chart export, checked row by row.",
+        "MetaTrader 5 history and quotes from your own terminal.",
+        "Option chain files with open interest, one per underlying.",
+        "A readiness check on your saved data, and saved history kept in your data folder."
+      ]
+    },
+    {
+      "id": "exports", "title": "Exports", "kicker": "Take it with you",
+      "lead": "Take a strategy to your platform, or get a clear reason why it can't match.",
+      "items": [
+        "TradingView: retest a strategy on TradingView's bar-close timing, then export it as Pine. It refuses what can't match, with the reason.",
+        "MetaTrader 5: export experts with our own indicators, checked bar for bar. MetaTrader 4 files are rendered only, not checked.",
+        "Trades as CSV or Excel, charts as PNG, a printable report and prop-firm results from Results.",
+        "Chart data and chart images from any chart."
+      ]
+    },
+    {
+      "id": "paper", "title": "Paper trading", "kicker": "Practice",
+      "lead": "Practice on any chart without risking money, on live prices.",
+      "image": "assets/features/paper.webp", "alt": "A paper order ticket and trade history on Coinbase BTC/USD hourly bars", "caption": "A paper trade on live Coinbase BTC/USD prices.",
+      "items": [
+        "Our own order simulator on every chart and market, with commission, leverage and shorting.",
+        "Buy and sell on the chart, with order and position lines, take profit and stop loss.",
+        "An account panel with positions, orders, order history, balance history, activity, trades and analytics, plus CSV.",
+        "Practice orders on saved bars in Bar Replay."
+      ]
+    },
+    {
+      "id": "brokers", "title": "Brokers", "kicker": "Connect",
+      "lead": "What's connected today, and nothing more.",
+      "items": [
+        "Alpaca Paper: your own Alpaca paper account, using your paper keys. Stocks, ETFs, options and crypto, with orders, brackets and order lines. Paper address only.",
+        "Real-broker connections aren't listed yet. We'll list each one once it's been checked in the app."
+      ]
+    },
+    {
+      "id": "save", "title": "Save and restore", "kicker": "Keep your work",
+      "lead": "Your work stays on your PC, and you can back it up.",
+      "items": [
+        "Strategies, results, charts and data are saved in your own data folder.",
+        "Back up, restore and reopen projects, Results and chart views."
+      ]
+    }
+  ],
+  "freeByArea": {"charts": "Part", "order-flow": "Part", "journal": "Yes", "data": "Part", "exports": "Part", "paper": "Yes", "save": "Part"},
+  "plans": [
+    {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a Google sign-in. No payment.",
+     "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credit", "None"]],
+     "included": ["Charts with live prices from the free sources", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading work you saved earlier on a paid plan"],
+     "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a brokerage and real-broker trading", "Pine and MetaTrader exports", "Builder indicators on charts"]},
+    {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
+     "facts": [["Apollo credit included", "$4 a month"], ["Jobs at once", "1"], ["Models batch size", "1"]]},
+    {"id": "trader", "commerce": "Trader", "name": "Trader", "summary": "Everything, with more Apollo credit and more jobs at once.",
+     "facts": [["Apollo credit included", "$10 a month"], ["Jobs at once", "2"], ["Models batch size", "5"]]},
+    {"id": "quant", "commerce": "Quant", "name": "Quant", "summary": "Everything, for heavier research.",
+     "facts": [["Apollo credit included", "$20 a month"], ["Jobs at once", "4"], ["Models batch size", "20"]]},
+    {"id": "apollo-pro", "commerce": "ApolloPro", "name": "Apollo Pro", "summary": "Everything, with the most Apollo credit and jobs at once.",
+     "facts": [["Apollo credit included", "$30 a month"], ["Jobs at once", "6"], ["Models batch size", "50"]]}
+  ],
+  "paidLimits": [["Workflow stages", "32"], ["Indicators per chart", "100"], ["Charts at once", "16"], ["Saved chart layouts", "16"], ["Chart alerts", "200"], ["Apollo spending limit", "$2 a run"], ["More Apollo credit", "$8 for $10, or $20 for $25"]]
+}

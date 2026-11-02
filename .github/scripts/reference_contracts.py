@@ -14,7 +14,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
         row['visual_character']['color']='Warm dark surfaces, ivory text, restrained gold navigation and action accents. Analytical images retain their source colors.'
         if row['path']=='index.html':
             row['title']='TraderCockpit | Build and Test Trading Strategies'
-            row['reviewed_h1']='Build trading strategies. Test them on real market data.'
+            row['reviewed_h1']='Build a trading strategy. Find out if it holds up.'
             row['hierarchy']['focal_point']=row['reviewed_h1']
             row['hierarchy']['primary_action']='Join the early access list'
             row['form_ux']['policy']='The email form is on the early access page. Search has a persistent label.'
