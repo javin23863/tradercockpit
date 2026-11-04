@@ -1,6 +1,7 @@
 {
- "about": "Brokers shown on the site. check_plan_catalog.py --app-repo compares names, modes and trading with the app repository. Add a broker here only once it is open in production. chartOrders lists the institutions with a real order proven from the chart; the rest show under See your account.",
- "chartOrders": ["alpaca"],
+ "about": "Brokers shown on the site. check_plan_catalog.py --app-repo compares names, modes and trading with the app repository. Add a broker here only once it is open in production. chartOrders lists the institutions named under Orders from the chart, and chartOrdersTested those tested with real orders; the rest show under See your account.",
+ "chartOrders": ["alpaca", "etrade", "moomoo", "public", "stake", "tastytrade", "trading212", "wealthsimple", "webull", "webull-canada"],
+ "chartOrdersTested": ["alpaca"],
  "institutions": {
   "alpaca": {
    "name": "Alpaca",

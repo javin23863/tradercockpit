@@ -30,6 +30,9 @@ class BrokerTests(unittest.TestCase):
     def test_chart_orders_name_trading_routes_only(self):
         data=json.loads((Path(__file__).resolve().parents[1]/'product/brokers.v1.json').read_text(encoding='utf-8'))
         for key in data['chartOrders']:self.assertTrue(any(v['trading'] for v in data['institutions'][key]['routes'].values()),key)
+    def test_tested_orders_are_on_the_list(self):
+        data=json.loads((Path(__file__).resolve().parents[1]/'product/brokers.v1.json').read_text(encoding='utf-8'))
+        self.assertLessEqual(set(data['chartOrdersTested']),set(data['chartOrders']))
     def test_view_only_routes_never_show_as_trading(self):
         trade=load()['brokers']['trade']
         for row in self.rows().values():

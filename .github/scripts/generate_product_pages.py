@@ -22,17 +22,23 @@ def broker_groups():
         routes=row['routes'];name=row['name']
         label=f'{name} Paper' if list(routes)==['paper'] else f'{name} (with paper)' if 'paper' in routes else name
         (trade if key in brokers['chartOrders'] else read).append(label)
-    return [sorted(g,key=str.casefold) for g in (trade,read)]
+    tested=[]
+    if set(brokers['chartOrders'])!=set(brokers['chartOrdersTested']):
+        tested=[f"{brokers['institutions'][k]['name']} Paper" for k in brokers['chartOrdersTested']]
+    return [sorted(g,key=str.casefold) for g in (trade,read,tested)]
+
+def orders_note(tested):
+    return (f'Tested with real orders on a paper account: {", ".join(tested)}. ' if tested else '')+'Paper trading with no broker account is on every chart.'
 
 def load():
     data=json.loads((PRODUCT/'capabilities.v1.json').read_text(encoding='utf-8'))
-    trade,read=broker_groups()
+    trade,read,tested=broker_groups()
     opened=len(trade)+len(read)
-    data['brokers']={'trade':trade,'read':read,'open':opened}
+    data['brokers']={'trade':trade,'read':read,'open':opened,'note':orders_note(tested)}
     for area in data['areas']:
         if area['id']=='brokers':
             area['lead']=f'{opened} brokers connect to TraderCockpit, and your account activity comes into your Journal.'
-            area['items']=[area['how'],f'Orders from the chart: {", ".join(trade)}. Paper trading with no broker account is on every chart.',f'See your account: {", ".join(read)}.']
+            area['items']=[area['how'],f'Orders from the chart: {", ".join(trade)}. {data["brokers"]["note"]}',f'See your account: {", ".join(read)}.']
     data['paidByArea']['brokers']=f'{opened} brokers'
     for plan in data['plans']:
         if 'excluded' in plan:plan['excluded']=[i.replace('{brokers}',str(opened)) for i in plan['excluded']]
@@ -55,7 +61,7 @@ def broker_list(title,names,note):
 
 def broker_section(area,data):
     b=data['brokers']
-    lists=broker_list('Orders from the chart',b['trade'],'Place orders from the chart, and see your positions, balances and orders. Paper trading with no broker account is on every chart.')+broker_list('See your account',b['read'],'See your positions, balances and orders.')
+    lists=broker_list('Orders from the chart',b['trade'],f'Place orders from the chart, and see your positions, balances and orders. {b["note"]}')+broker_list('See your account',b['read'],'See your positions, balances and orders.')
     return f'<section class="pp-brokers" id="{a_id(area)}" aria-labelledby="h-{a_id(area)}"><span class="pp-kicker">{e(area["kicker"])}</span><h2 id="h-{a_id(area)}">{e(area["title"])}</h2><p class="pp-lead">{e(area["lead"])}</p><p class="pp-broker-how">{e(area["how"])}</p><div class="pp-broker-groups">{lists}</div></section>'
 
 def features_main(data):
