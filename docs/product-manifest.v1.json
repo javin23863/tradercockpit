@@ -50,7 +50,7 @@
     {
       "id": "data",
       "label": "Market data and import",
-      "summary": "Free exchange data with no account, or your own files, checked row by row."
+      "summary": "Free exchange data with no exchange account, or your own files, checked row by row."
     },
     {
       "id": "exports",

@@ -32,7 +32,7 @@ def load():
     for area in data['areas']:
         if area['id']=='brokers':
             area['lead']=f'{opened} brokers connect to TraderCockpit, and your account activity comes into your Journal.'
-            area['items']=[area['how'],f'Orders from the chart: {", ".join(trade)}. Paper trading with no account is on every chart.',f'See your account: {", ".join(read)}.']
+            area['items']=[area['how'],f'Orders from the chart: {", ".join(trade)}. Paper trading with no broker account is on every chart.',f'See your account: {", ".join(read)}.']
     data['paidByArea']['brokers']=f'{opened} brokers'
     for plan in data['plans']:
         if 'excluded' in plan:plan['excluded']=[i.replace('{brokers}',str(opened)) for i in plan['excluded']]
@@ -55,7 +55,7 @@ def broker_list(title,names,note):
 
 def broker_section(area,data):
     b=data['brokers']
-    lists=broker_list('Orders from the chart',b['trade'],'Place orders from the chart, and see your positions, balances and orders. Paper trading with no account is on every chart.')+broker_list('See your account',b['read'],'See your positions, balances and orders.')
+    lists=broker_list('Orders from the chart',b['trade'],'Place orders from the chart, and see your positions, balances and orders. Paper trading with no broker account is on every chart.')+broker_list('See your account',b['read'],'See your positions, balances and orders.')
     return f'<section class="pp-brokers" id="{a_id(area)}" aria-labelledby="h-{a_id(area)}"><span class="pp-kicker">{e(area["kicker"])}</span><h2 id="h-{a_id(area)}">{e(area["title"])}</h2><p class="pp-lead">{e(area["lead"])}</p><p class="pp-broker-how">{e(area["how"])}</p><div class="pp-broker-groups">{lists}</div></section>'
 
 def features_main(data):

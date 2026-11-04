@@ -115,9 +115,9 @@
     },
     {
       "id": "data", "title": "Market data and import", "kicker": "Bring your data",
-      "lead": "Free exchange data with no account, or your own files, checked row by row.",
+      "lead": "Free exchange data with no exchange account, or your own files, checked row by row.",
       "items": [
-        "Coinbase and Kraken: free public history and live prices with no account, at any chart timeframe; Builder takes M2 to D5.",
+        "Coinbase and Kraken: free public history and live prices with no exchange account, at any chart timeframe; Builder takes M2 to D5.",
         "Yahoo daily bars, free.",
         "Your own price files: CSV in common layouts and TradingView's chart export, checked row by row.",
         "MetaTrader 5 history and quotes from your own terminal.",
