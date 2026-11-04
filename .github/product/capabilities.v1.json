@@ -56,6 +56,7 @@
       "items": [
         "Chart types: bars, candles, hollow candles, volume candles, line, line with markers, step line, area, HLC area, baseline, columns, high-low, Heikin Ashi, Renko, line break, Kagi and range.",
         "One grouped indicator list: TradingView's built-ins at their defaults, the Builder's own indicators, patterns and profiles, and your own.",
+        "1,014 open-source community indicators in the same list, by category and search. Each runs on the chart, shows its author and licence, and opens its code as a copy.",
         "Drawings: trend line, ray, extended line, rectangle, horizontal line and ray.",
         "VWAP with bands, anchored, rolling and from earnings dates; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
         "Machine-learning buy and sell signals with a read-out of how they would have done on the visible bars.",
@@ -140,7 +141,7 @@
       "image": "assets/features/paper.webp", "alt": "A paper order ticket and trade history on Coinbase BTC/USD hourly bars", "caption": "A paper trade on live Coinbase BTC/USD prices.",
       "items": [
         "Our own order simulator on every chart and market, with commission, leverage and shorting.",
-        "Buy and sell on the chart, with order and position lines, take profit and stop loss.",
+        "Buy and sell on the chart, with order and position lines, take profit and stop loss, and a mark on the bar for each fill.",
         "An account panel with positions, orders, order history, balance history, activity, trades and analytics, plus CSV.",
         "Practice orders on saved bars in Bar Replay."
       ]

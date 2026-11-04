@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "54f6cdd0e65f553be0c78b7ea2dac33a17129769cdb4e015d5c68ae407717a30",
+  "home_sha256": "91e47923e76afc2c3150c7c6bfd51b27cb896b6d01e15ef85009d536468a00a3",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "43e07d2baa78a0e89535467d56c885283c7c22042d232bd6e8acaa2e3815602e",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background",
-      "after_sha256": "861888ea713375af57c789d8df6b6aba8a3a43fa4e2a65fe35e56f5c41bb4326"
+      "corrected_unwrapped_sha256": "d7d325a191f78fdc381a7032d1e2d07b1bcab5e917e08abc2b143b81e384d6d1",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba",
+      "after_sha256": "0380004f23b3a1f31cdc5edda73258fd0fa9e9ace6aa1be11c3479dc5f00cab7"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -360,7 +360,7 @@
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "9bba67aa41e52af61addec25c78e1fe8fba4347fc530de85c34246b40066c384",
-    "features/index.html": "bf3bc14ad551381ca385340819750630b8c7c177cf843b4da11ef8934a736a58",
+    "features/index.html": "1b852530ceb62c137f0305b8d3109fdde5d5aaa292d24f32fc3717406160afae",
     "early-access.html": "fcf281d32624a0e5ab272afc7bf6a4ff2f3b1fa85f265d136a047185368b1336",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
