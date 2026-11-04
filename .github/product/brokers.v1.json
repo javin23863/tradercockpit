@@ -1,5 +1,6 @@
 {
- "about": "Brokers shown on the site. check_plan_catalog.py --app-repo compares names, modes and trading with the app repository. Add a broker here only once it is open in production.",
+ "about": "Brokers shown on the site. check_plan_catalog.py --app-repo compares names, modes and trading with the app repository. Add a broker here only once it is open in production. chartOrders lists the institutions with a real order proven from the chart; the rest show under See your account.",
+ "chartOrders": ["alpaca"],
  "institutions": {
   "alpaca": {
    "name": "Alpaca",

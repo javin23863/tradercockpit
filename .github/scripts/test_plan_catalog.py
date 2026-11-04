@@ -27,6 +27,9 @@ class BrokerTests(unittest.TestCase):
         self.assertEqual(data['paidByArea']['brokers'],f'{len(rows)} brokers')
         named=' '.join(b['trade']+b['read'])
         for row in rows.values():self.assertIn(row['name'],named)
+    def test_chart_orders_name_trading_routes_only(self):
+        data=json.loads((Path(__file__).resolve().parents[1]/'product/brokers.v1.json').read_text(encoding='utf-8'))
+        for key in data['chartOrders']:self.assertTrue(any(v['trading'] for v in data['institutions'][key]['routes'].values()),key)
     def test_view_only_routes_never_show_as_trading(self):
         trade=load()['brokers']['trade']
         for row in self.rows().values():

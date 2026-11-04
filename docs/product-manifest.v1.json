@@ -86,7 +86,7 @@
   },
   "brokers": {
     "connectable": 31,
-    "tradeFromChart": 13,
-    "seeAccount": 18
+    "tradeFromChart": 1,
+    "seeAccount": 30
   }
 }
