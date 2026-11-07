@@ -108,7 +108,7 @@ class ReferenceImportTests(unittest.TestCase):
             else:
                 target=root/'docs/commerce-public.v1.json'; data=json.loads(target.read_text())
                 if change=='checkout': data['checkout']['enabled']=True
-                else: data['plan']['stripePriceId']='a-different-price'
+                else: data['plan']['unitAmount']=1
                 target.write_text(json.dumps(data))
             with self.assertRaises(ValueError): self.mod.make_plan(root,ARCHIVE)
 

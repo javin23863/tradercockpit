@@ -48,6 +48,22 @@ jobs:
         run: |
           node .github/scripts/test_analytics.mjs
           node .github/scripts/test_custom_domain.mjs
+          node .github/scripts/test_early_access.mjs
+          python .github/scripts/generate_product_pages.py --check
+          python .github/scripts/generate_community_pages.py --check
+          python .github/scripts/test_community_import.py
+          python .github/scripts/check_plan_catalog.py
+          python .github/scripts/test_plan_catalog.py
+      - name: Run the browser tests on the served site
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+          npm install --prefix "$RUNNER_TEMP/pp" --no-save --no-audit --no-fund --ignore-scripts puppeteer-core@25.16.0
+          export TC_PUPPETEER_MODULE="$RUNNER_TEMP/pp/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js"
+          export TC_CHROME="$(command -v google-chrome)"
+          node .github/scripts/test_reference_bridge.mjs
+          node .github/scripts/test_reference_journeys.mjs
       - name: Validate all public JavaScript syntax
         shell: bash
         run: |

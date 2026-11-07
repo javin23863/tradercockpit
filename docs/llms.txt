@@ -1,6 +1,6 @@
 # TraderCockpit
 
-> Educational guides to backtesting and trading strategy validation: out-of-sample testing, Monte Carlo analysis, walk-forward analysis, drawdown and selection bias. TraderCockpit is also building a Windows desktop app for trading strategy research; the app is in development, not yet released, and checkout is closed. Nothing here is financial advice.
+> Educational guides to backtesting and trading strategy validation: out-of-sample testing, Monte Carlo analysis, walk-forward analysis, drawdown and selection bias. TraderCockpit is a Windows desktop app for trading strategy research, in early access. Nothing here is financial advice.
 
 The guides are written by the TraderCockpit team. Examples use synthetic data and are not performance results.
 
@@ -29,6 +29,8 @@ The guides are written by the TraderCockpit team. Examples use synthetic data an
 
 ## About
 
-- [Development status](https://trader-cockpit.com/updates/)
-- [Planned pricing](https://trader-cockpit.com/pricing/): a planned Free plan (Google sign-in, unlimited paper trading) and four planned paid plans
+- [Early access](https://trader-cockpit.com/updates/)
+- [Features](https://trader-cockpit.com/features/): what the app does today, shown from the real app on real market data
+- [Early access](https://trader-cockpit.com/early-access.html): join the list for the Windows app
+- [Pricing](https://trader-cockpit.com/pricing/): a Free plan with unlimited paper trading, and four monthly plans
 - [Trust and authorship](https://trader-cockpit.com/trust/)

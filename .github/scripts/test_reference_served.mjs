@@ -6,7 +6,7 @@ const output=process.env.TC_REFERENCE_EVIDENCE||path.join(root,'.github/evidence
 const before=publicFiles(docs),digest=x=>crypto.createHash('sha256').update(x).digest('hex');
 const git=(...args)=>cp.execFileSync('git',args,{cwd:root,encoding:'utf8'}).trim();
 const host=await serve(docs,process.argv.includes('--project-path')?{prefix:'/tradercockpit/'}:{});let browser;const rows=[];
-const views=['','#/learn','#/learn/monte-carlo','#/learn/checklist','#/platform/charts','#/platform/models','#/access?plan=Quant'];
+const views=['','#/learn','#/learn/monte-carlo','#/learn/checklist','#/platform/charts','#/platform/models',];
 const files=Object.keys(before).filter(p=>p.endsWith('.html'));
 const route=p=>p==='index.html'?'':p.endsWith('/index.html')?p.slice(0,-10):p;
 const slug=s=>s.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'')||'home';

@@ -14,7 +14,6 @@
         value.tiers[index]?.name===name && value.tiers[index].interval==='month' &&
         Number.isSafeInteger(value.tiers[index].unitAmount) && value.tiers[index].unitAmount>0);
     data = validCommerce ? value : {};
-    if (location.hash.startsWith('#/access')) render(false);
   });
   const price = name => {
     const item = validCommerce && data.tiers.find(t => t.name === name);
@@ -58,14 +57,14 @@
   function learning() {
     return `${header('TraderCockpit / learning','A clearer view of your research.','Start with a question. Understand the evidence. Keep the limitations in view.')}
     <section class="j-library-feature" aria-labelledby="learning-feature-title">
-      <div class="j-library-image"><img src="assets/reference-site/laptop-scene.webp" alt="Illustrative research workstation" width="1024" height="314"><img src="assets/reference-site/laptop-screen.webp" alt="" width="1024" height="314"><span>Apollo beside Charts · development build</span></div>
+      <div class="j-library-image"><img src="assets/reference-site/laptop-scene.webp" alt="Illustrative research workstation" width="1024" height="314"><img src="assets/reference-site/laptop-screen.webp" alt="" width="1024" height="314"><span>Apollo beside Charts</span></div>
       <div class="j-library-copy"><p class="eyebrow">Start here</p><h2 id="learning-feature-title">One result.<br>More questions.</h2><p>A convincing picture is not the same as traceable evidence. Use a short checklist to record what you know—and what is still missing.</p><a class="button gold" href="#/learn/checklist">Open research checklist ${arrow}</a></div>
     </section>
     <section class="j-library" aria-labelledby="resource-heading"><div class="j-section-line"><h2 id="resource-heading">Choose your next question</h2><span>Guides &amp; concepts</span></div>
       <a class="j-resource" href="#/platform/charts"><span class="j-resource-number">01</span><img src="assets/reference-site/product-charts.webp" width="480" height="285" alt=""><div><small>Charts / guided reading</small><h3>What am I actually looking at?</h3><p>Distinguish the price panel, studies and volume pane.</p></div>${arrow}</a>
       <a class="j-resource" href="#/platform/models"><span class="j-resource-number">02</span><img src="assets/reference-site/product-models.webp" width="480" height="285" alt=""><div><small>Apollo / guided reading</small><h3>What does the assistant see?</h3><p>Read what Apollo is given before you ask it anything.</p></div>${arrow}</a>
       <a class="j-resource j-resource-text" href="#/learn/monte-carlo"><span class="j-resource-number">03</span><div class="j-type-art" aria-hidden="true">MC<span>Paths ≠ predictions</span></div><div><small>Methods / concept</small><h3>How much does the path matter?</h3><p>Understand what resampling can—and cannot—tell you.</p></div>${arrow}</a>
-    </section><p class="j-footnote">The product images in these guides are captures of a development build showing historical bars. They are not live-market views or release approval.</p>`;
+    </section><p class="j-footnote">The product images in these guides show historical bars, not a live market.</p>`;
   }
   function monteCarlo() {
     return `${header('Methods / Monte Carlo','A path is not a prediction.','A different ordering of observations can tell a different story. The assumptions behind the resampling matter as much as the picture.',crumb('Monte Carlo'))}
@@ -92,9 +91,9 @@
       ['The limit','An answer about a chart is an explanation of past bars. It is not a signal or a forecast.']
     ];
     return `${header(`Platform / ${charts?'Charts':'Apollo'}`,title,'A guided reading of a development-build capture—not a substitute for running the product.',crumb(charts?'Charts':'Apollo'))}
-      <figure class="j-product-capture"><img src="${charts?'assets/reference-site/product-charts.webp':'assets/reference-site/product-models.webp'}" width="480" height="285" alt="${charts?'Charts workspace with Coinbase BTC/USD 15-minute historical bars':'Apollo panel open beside the same BTC/USD chart'}"><figcaption><span>${date} · Development build · historical bars · 480-pixel image</span><button class="button glass" data-capture="${kind}">Inspect source ${arrow}</button></figcaption></figure>
+      <figure class="j-product-capture"><img src="${charts?'assets/reference-site/product-charts.webp':'assets/reference-site/product-models.webp'}" width="480" height="285" alt="${charts?'Charts workspace with Coinbase BTC/USD 15-minute historical bars':'Apollo panel open beside the same BTC/USD chart'}"><figcaption><span>${date} · Historical bars</span><button class="button glass" data-capture="${kind}">Inspect source ${arrow}</button></figcaption></figure>
       <section class="j-capture-reading" aria-label="How to read the capture">${regions.map(([name,text],i)=>`<article><span class="j-section-index">0${i+1}</span><h2>${name}</h2><p>${text}</p></article>`).join('')}</section>
-      <div class="j-callout"><strong>Evidence boundary</strong><p>The captured software is a development build. The bars are historical. The image does not establish current release approval, live connectivity or performance.</p></div>
+      <div class="j-callout"><strong>Historical bars</strong><p>The image is not a performance result.</p></div>
       ${next('#/learn/checklist','Keep a record of what you found.','Your next step')}`;
   }
   function checklist() {
@@ -104,17 +103,6 @@
       <label for="research-notes">Notes, sources and unresolved questions</label><textarea id="research-notes" rows="7" maxlength="8000" placeholder="Record references and limitations here…"></textarea>
       <div class="j-note-actions"><button class="button gold" data-save-notes>Save on this device</button><button class="button glass" data-export-notes>Export notes</button><label class="button glass j-file-label">Import notes<input type="file" accept=".json,application/json" data-import-notes aria-label="Import research notes JSON"></label></div><p data-note-status role="status" aria-live="polite"></p></div>
       <aside class="j-notebook-side"><p class="eyebrow">Your record</p><p class="j-check-progress" data-check-progress aria-live="polite"></p><p>Notes stay in this session until you save or export them. Nothing is sent to a server.</p><p>Saving uses this browser’s local storage. Clearing browser data can remove it; an exported file is a separate copy.</p><button class="j-text-button" data-reset-notes>Reset this checklist</button><div data-reset-confirm hidden><p>Clear this checklist and its saved browser copy? Export anything you need first.</p><button class="button glass" data-confirm-reset>Clear notes</button><button class="j-text-button" data-cancel-reset>Keep notes</button></div>${sourceLink('strategy-claim-audit-checklist.html','Original evidence checklist')}</aside></div>`;
-  }
-  function access(search) {
-    const requested = new URLSearchParams(search).get('plan');
-    const selected = plans.includes(requested) ? requested : 'Core';
-    const options = plans.map(name=>`<a class="j-plan" href="#/access?plan=${name}" ${name===selected?'aria-current="true"':''}><span>${name==='ApolloPro'?'Apollo Pro':name}</span><strong>${price(name)}</strong><small>USD / month</small></a>`).join('');
-    return `${header('Pricing & access','A plan for your research.','Four planned monthly plans. Every plan includes every feature; plans differ only in included Apollo credit and how many jobs can run at the same time. The Windows app is in development and checkout is closed.',`<nav class="j-breadcrumb" aria-label="Breadcrumb"><a href="#top">Home</a><span aria-hidden="true">/</span><span>Access</span></nav>`)}
-      <nav class="j-plans" aria-label="Choose a monthly plan">${options}</nav>
-      <section class="j-access-summary" aria-labelledby="access-summary-title"><div class="j-access-selection"><p class="eyebrow">Selected plan</p><h2 id="access-summary-title" data-selected-plan>${selected==='ApolloPro'?'Apollo Pro':selected}</h2><p class="j-selected-price"><strong data-selected-price>${price(selected)}</strong><span>USD / month</span></p><button class="button gold" data-checkout disabled aria-describedby="checkout-explanation">Checkout unavailable</button></div><div class="j-access-explanation"><span class="j-status">${validCommerce ? 'In development' : 'Availability unverified'}</span><h2>Release follows readiness.</h2><p id="checkout-explanation">You can explore TraderCockpit information without an account or payment. Choosing a plan here does not start a subscription.</p><p>Before subscribing, review the confirmed features for your chosen plan and check the official access page for current availability.</p><a class="button glass" href="#public-status">Read development status ${arrow}</a><p class="j-footnote">The Windows app is in development. We’ll release it when it’s ready.</p></div></section>
-      <section class="j-access-notes"><article><h2>Monthly pricing.</h2><p>Prices are shown in US dollars per month. This page does not offer an annual discount or take payments.</p></article><article><h2>Plan details.</h2><p>Check the confirmed features and limits before choosing a subscription. Plan names alone do not describe everything included.</p></article><article><h2>Access updates.</h2><p>Follow the official access page for availability and account information. Prices load from the local public commerce record. No payment service is enabled here.</p></article></section>
-      ${!validCommerce?'<p role="alert" class="j-callout">The local commerce record could not be verified. All checkout controls remain disabled.</p>':''}
-      ${sourceLink('commerce-public.v1.json','Inspect the pinned commerce record')}`;
   }
   function unknown() {return `${header('Navigation','Page not found.','We could not find the page at this address. Nothing has been submitted.')}<div class="j-recovery"><a class="button gold" href="#top">Return to homepage</a><a class="button glass" href="#/learn">Open learning library</a></div>`;}
 
@@ -170,12 +158,13 @@
     const mobile=document.querySelector('#mobile-nav'), menu=document.querySelector('.menu-toggle');
     if(mobile){mobile.hidden=true;menu?.setAttribute('aria-expanded','false');menu?.setAttribute('aria-label','Open navigation');}
     if(!isJourney){
-      document.title='TraderCockpit | Backtesting & Strategy Validation Guides';
+      document.title='TraderCockpit | Build and Test Trading Strategies';
       if(lastHash?.startsWith('#/'))requestAnimationFrame(()=>{const target=homeHashTarget(hash); if(target && hash!=='#top' && hash!=='#main'){target.scrollIntoView({behavior:'instant',block:'start'});if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}else{if(hash==='#top'||!hash)scrollTo({top:0,behavior:'instant'});document.querySelector(hash==='#main'?'#main':'#hero-title')?.focus({preventScroll:true});}});
       lastHash=hash;return;
     }
     const [route,search='']=hash.slice(1).split('?');
-    const pages={'/learn':learning,'/learn/monte-carlo':monteCarlo,'/learn/checklist':checklist,'/platform/charts':()=>captureGuide('charts'),'/platform/models':()=>captureGuide('models'),'/access':()=>access(search)};
+    if(route==='/access'){const plan=new URLSearchParams(search).get('plan');location.replace('pricing/'+(plan?'#plan-'+(plan==='ApolloPro'?'apollo-pro':plan.toLowerCase()):''));return;}
+    const pages={'/learn':learning,'/learn/monte-carlo':monteCarlo,'/learn/checklist':checklist,'/platform/charts':()=>captureGuide('charts'),'/platform/models':()=>captureGuide('models')};
     main.innerHTML=`<div class="j-shell">${(pages[route]||unknown)()}</div>`;
     const title=main.querySelector('h1');
     document.title=route==='/learn/monte-carlo'?'Monte Carlo — TraderCockpit Learn':`${title.textContent} — TraderCockpit`;

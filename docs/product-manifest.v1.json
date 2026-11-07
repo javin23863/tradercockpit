@@ -1,20 +1,92 @@
 {
   "schema": "product-manifest/v1",
-  "status": "unavailable",
-  "assistant": {
-    "name": "Apollo",
-    "status": "concept"
-  },
-  "verifiedCapabilities": [],
+  "status": "waitlist",
+  "verifiedCapabilities": [
+    {
+      "id": "builder",
+      "label": "Strategy Builder",
+      "summary": "Search thousands of rule combinations on the market you pick, with the costs and rules you set."
+    },
+    {
+      "id": "workflows",
+      "label": "Workflows and robustness checks",
+      "summary": "Put a strategy through ordered steps, unattended, and see why strategies drop out."
+    },
+    {
+      "id": "results",
+      "label": "Results",
+      "summary": "See how a strategy really traded, with a plain verdict that says so when it's weak."
+    },
+    {
+      "id": "portfolio",
+      "label": "Portfolio",
+      "summary": "Combine your saved strategies and see their results together."
+    },
+    {
+      "id": "charts",
+      "label": "Charts",
+      "summary": "A full charting workspace on real market data, with indicators, drawings and your own Pine scripts."
+    },
+    {
+      "id": "order-flow",
+      "label": "Order flow and profiles",
+      "summary": "See what traded inside each bar, recorded from the exchange's public feed."
+    },
+    {
+      "id": "apollo",
+      "label": "Apollo assistant",
+      "summary": "An assistant beside your work that turns an idea into a strategy you can test. You confirm every change."
+    },
+    {
+      "id": "models",
+      "label": "Models",
+      "summary": "Machine-learning research on your saved markets or a strategy's trades, judged on data held out from the fit."
+    },
+    {
+      "id": "journal",
+      "label": "Journal",
+      "summary": "Review executions, research results, routines and decisions in one place, kept on your PC."
+    },
+    {
+      "id": "data",
+      "label": "Market data and import",
+      "summary": "Free exchange data with no exchange account, or your own files, checked row by row."
+    },
+    {
+      "id": "exports",
+      "label": "Exports",
+      "summary": "Take a strategy to your platform, or get a clear reason why it can't match."
+    },
+    {
+      "id": "paper",
+      "label": "Paper trading",
+      "summary": "Practice on any chart without risking money, on live prices where the market has a live feed."
+    },
+    {
+      "id": "brokers",
+      "label": "Connect your broker",
+      "summary": "31 brokers connect to TraderCockpit, and your account activity comes into your Journal."
+    },
+    {
+      "id": "save",
+      "label": "Save and restore",
+      "summary": "Your work stays on your PC, and you can back it up."
+    }
+  ],
   "platforms": [
     "Windows desktop"
   ],
   "cta": {
-    "label": "Open the backtest checklist",
-    "url": "https://trader-cockpit.com/strategy-claim-audit-checklist.html"
+    "label": "Join the early access list",
+    "url": "https://trader-cockpit.com/early-access.html"
   },
   "product": {
     "name": "TraderCockpit",
-    "summary": "The TraderCockpit Windows desktop app is in development. We’ll release it when it’s ready."
+    "summary": "TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens."
+  },
+  "brokers": {
+    "connectable": 31,
+    "tradeFromChart": 10,
+    "seeAccount": 21
   }
 }

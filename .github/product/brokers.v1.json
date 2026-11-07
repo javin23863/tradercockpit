@@ -1,0 +1,258 @@
+{
+ "about": "Brokers shown on the site. check_plan_catalog.py --app-repo compares names, modes and trading with the app repository. Add a broker here only once it is open in production. chartOrders lists the institutions named under Orders from the chart, and chartOrdersTested those tested with real orders; the rest show under See your account.",
+ "chartOrders": ["alpaca", "etrade", "moomoo", "public", "stake", "tastytrade", "trading212", "wealthsimple", "webull", "webull-canada"],
+ "chartOrdersTested": ["alpaca"],
+ "institutions": {
+  "alpaca": {
+   "name": "Alpaca",
+   "routes": {
+    "paper": {
+     "trading": true
+    }
+   }
+  },
+  "ajbell": {
+   "name": "AJ Bell",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "binance": {
+   "name": "Binance",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "bmo": {
+   "name": "BMO InvestorLine",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "bux": {
+   "name": "Bux",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "chase": {
+   "name": "Chase",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "cibc": {
+   "name": "CIBC Investor's Edge",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "coinbase": {
+   "name": "Coinbase",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "commsec": {
+   "name": "CommSec",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "degiro": {
+   "name": "DEGIRO",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "empower": {
+   "name": "Empower",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "etoro": {
+   "name": "eToro",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "etrade": {
+   "name": "E*TRADE",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "fidelity": {
+   "name": "Fidelity",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "ibkr": {
+   "name": "Interactive Brokers (reports)",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "kraken": {
+   "name": "Kraken",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "moomoo": {
+   "name": "Moomoo",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "public": {
+   "name": "Public.com",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "questrade": {
+   "name": "Questrade",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "robinhood": {
+   "name": "Robinhood",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "stake": {
+   "name": "Stake Australia",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "tastytrade": {
+   "name": "tastytrade",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "td": {
+   "name": "TD Direct Investing",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "trading212": {
+   "name": "Trading 212",
+   "routes": {
+    "paper": {
+     "trading": true
+    },
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "upstox": {
+   "name": "Upstox",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "vanguard": {
+   "name": "Vanguard",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "wealthsimple": {
+   "name": "Wealthsimple Trade",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "webull": {
+   "name": "Webull",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "webull-canada": {
+   "name": "Webull Canada",
+   "routes": {
+    "live": {
+     "trading": true
+    }
+   }
+  },
+  "wells-fargo": {
+   "name": "Wells Fargo",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  },
+  "zerodha": {
+   "name": "Zerodha",
+   "routes": {
+    "live": {
+     "trading": false
+    }
+   }
+  }
+ }
+}

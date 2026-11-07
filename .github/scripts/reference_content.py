@@ -19,7 +19,7 @@ def wrap_html(html: str, relative: str) -> str:
         html,n=re.subn(r'(<div role="group" class="landing-hero-visual[^>]*>)',lambda m:m[1]+'<!-- reference-media:start -->'+media+'<!-- reference-media:end -->',html,count=1)
         if n!=1:raise ValueError('Expected existing landing visual: '+relative)
     if relative=='strategy-claim-audit-checklist.html':
-        nav='<nav class="site-nav" data-reference-added-nav aria-label="Primary"><div class="nav-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="docs/">Docs</a><a href="learn/">Learn</a><a href="methods/">Methods</a><a href="pricing/">Pricing</a><a href="support/">Support</a></div></div></nav>'
+        nav='<nav class="site-nav" data-reference-added-nav aria-label="Primary"><div class="nav-inner"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="docs/">Docs</a><a href="learn/">Learn</a><a href="community/">Community</a><a href="methods/">Methods</a><a href="pricing/">Pricing</a><a href="support/">Support</a></div></div></nav>'
         html=html.replace('<main ', '<!-- reference-navigation:start -->'+nav+'<!-- reference-navigation:end --><main ',1)
         html=html.replace('</head>','<!-- reference-print:start --><style>@media print{[data-reference-added-nav]{display:none!important}}</style><!-- reference-print:end --></head>',1)
         html=html.replace('</body>','<!-- reference-search:start --><script src="assets/site-search.js" defer></script><!-- reference-search:end --></body>',1)
