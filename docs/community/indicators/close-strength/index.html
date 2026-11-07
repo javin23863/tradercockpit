@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+<title>Close Strength — TraderCockpit</title><meta name="description" content="Close Strength, a indicator by glenrutherford4 on TraderCockpit Community.">
+<link rel="canonical" href="https://trader-cockpit.com/community/indicators/close-strength/"><link rel="stylesheet" href="../../../assets/site-v2.css"><link data-reference-shell="style" rel="stylesheet" href="../../../assets/reference-site/content.css" media="screen"><link rel="stylesheet" href="../../../assets/product-pages.css"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Close Strength — TraderCockpit"><meta property="og:description" content="Close Strength, a indicator by glenrutherford4 on TraderCockpit Community."><meta property="og:url" content="https://trader-cockpit.com/community/indicators/close-strength/"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Close Strength — TraderCockpit"><meta name="twitter:description" content="Close Strength, a indicator by glenrutherford4 on TraderCockpit Community."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Community","item":"https://trader-cockpit.com/community/"},{"@type":"ListItem","position":3,"name":"Close Strength","item":"https://trader-cockpit.com/community/indicators/close-strength/"}]}</script><!-- search-meta:end --></head>
+<body class="home-page" data-reference-content="true"><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../../../features/">Features</a><a href="../../../research-lab.html">Research Lab</a><a href="../../../learn/">Learn</a><a href="../../../community/" aria-current="page">Community</a><a href="../../../docs/">Docs</a><a href="../../../methods/">Methods</a><a href="../../../pricing/">Pricing</a><a href="../../../support/">Support</a></div></div></nav>
+<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="../../../community/#indicators">Indicators</a><h1>Close Strength</h1><p class="cm-by">by <a href="../../../community/authors/glenrutherford4/">glenrutherford4</a></p><div class="article-meta"><span>15 Oct 2026</span></div><div class="pp-actions"><a class="pp-btn gold" href="../../../early-access.html">Get TraderCockpit →</a></div></header><p class="pp-lead">Oscillators indicator by glenrutherford4, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.</p><dl class="pp-facts"><div><dt>Licence</dt><dd>MPL-2.0</dd></div><div><dt>Version</dt><dd>5</dd></div></dl><p><a class="pp-more" href="https://github.com/glenr4/TradingScripts/blob/master/Pine%20scripts/Close%20Strength.pine">Original source →</a></p><h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © glenrutherford4
+
+//@version=5
+indicator(&quot;Close Strength&quot;, overlay = true)
+// *** Plot over black and white candles and use Visual order -&gt; Bring to front ***
+
+bullishColour = input.color(color.new(#2962ff, 0), &quot;Bullish colour&quot;)
+bearishColour = input.color(color.new(#ff9800, 0), &quot;Bearish colour&quot;)
+highlightTransparency = input.int(70, &quot;Highlight transparency&quot;)
+
+isBullishClose = close &gt;= high[1]
+isBearishClose = close &lt;= low[1]
+
+barColour = (isBullishClose ? bullishColour : (isBearishClose ? bearishColour : na))
+plotcandle(open, high, low, close, color = barColour, wickcolor = barColour, bordercolor = barColour, force_overlay = true)
+
+bullishOrBearish = isBullishClose ? 1 : (isBearishClose ? -1 : 0)
+bullishOrBearishColour = barColour
+
+// Background highlight
+// // Three in a row gives direction, two in a row breaks the opposite direction back to neutral, the third then gives direction again
+// // Single bars don&#x27;t change anything
+// var isBullish = false
+// var isBearish = false
+
+// var bullishCount = 0
+// var bearishCount = 0
+
+// if(isBullishClose)
+//     bullishCount := bullishCount + 1
+// if(isBearishClose)
+//     bearishCount := bearishCount + 1
+
+// // Three in a row changes from opposite bias to neutral to biased
+// if(bullishCount == 3 and bullishCount &gt; bullishCount[1])
+//     isBullish := true
+//     bearishCount := 0
+// if(bearishCount == 3 and bearishCount &gt; bearishCount[1])
+//     isBearish := true
+//     bullishCount := 0
+
+// // Two in a row from neutral to biased
+// if(not isBullish and not isBearish and bullishCount == 2 and bullishCount &gt; bullishCount[1])
+//     isBullish := true
+//     bearishCount := 0
+// if(not isBullish and not isBearish and bearishCount == 2 and bearishCount &gt; bearishCount[1])
+//     isBearish := true
+//     bullishCount := 0
+
+// // Two in a row cancels the bias back to neutral
+// if(isBearish and bullishCount == 2 and bullishCount &gt; bullishCount[1])
+//     isBearish := false
+//     bearishCount := 0
+// if(isBullish and bearishCount == 2 and bearishCount &gt; bearishCount[1])
+//     isBullish := false
+//     bullishCount := 0
+
+// // If biased and one in opposite direction, count but no action
+// // If 1 count to opposite bias and then 1 more in biased direction, then clear opposite count
+// if(isBearish and bearishCount &gt; bearishCount[1])
+//     bullishCount := 0
+// if(isBullish and bullishCount &gt; bullishCount[1])
+//     bearishCount := 0
+
+// // plot(isBullish ? 1 : (isBearish ? -1 : 0))
+// // plot(bullishCount, bullishColour)
+// // plot(bearishCount, bearishColour)
+
+// bgcolor(showHighlight ? (isBullish ? color.new(bullishColour, highlightTransparency) : (isBearish ? color.new(bearishColour, highlightTransparency) : na)) : na)</code></pre></div></main>
+<footer><div class="footer-inner"><div>TraderCockpit · research and education. Not financial advice.</div><div class="footer-links"><a href="../../../support/">Support</a><a href="../../../trust/privacy.html">Privacy</a><a href="../../../trust/terms.html">Terms</a></div></div></footer><script src="../../../assets/site-search.js" defer></script>
+</body></html>

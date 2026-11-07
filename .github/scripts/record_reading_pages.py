@@ -39,7 +39,10 @@ def main():
     added=m.setdefault('added_files',{})
     for name in args.drop:
         added.pop(name,None);m.get('new_assets',{}).pop(name,None);m.get('approved_updates',{}).pop(name,None)
-    for name in list(added)+args.add:
+    # Community files come and go with docs/community/items.v1.json, so they are listed from the folder.
+    community=[p.relative_to(DOCS).as_posix() for p in (DOCS/'community').rglob('*') if p.is_file()]
+    for name in [n for n in added if n.startswith('community/') and n not in community]:added.pop(name);changed.append(name)
+    for name in dict.fromkeys(list(added)+args.add+community):
         p=DOCS/name
         if not p.is_file():raise SystemExit('Missing added file: '+name)
         if added.get(name)!=sha(p.read_bytes()):changed.append(name)

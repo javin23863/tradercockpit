@@ -73,3 +73,18 @@
 .pp-group .pp-list{margin-top:4px}.pp-group .pp-list li{font-size:14px;padding:4px 0 4px 18px}.pp-group .pp-list li:before{top:11px;width:6px;height:6px}
 .pp-note p{color:#c4c6c3;line-height:1.5;max-width:720px}.pp-note a:not(.pp-btn){color:#e7cba0}
 @media(max-width:860px){.pp-area,.pp-home-plans,.pp-guides{grid-template-columns:minmax(0,1fr)}.pp-area.flip .pp-copy{order:0}.pp-text .pp-list{columns:1}.pp-plan summary{grid-template-columns:1fr 1fr}.pp-plan-sum{grid-column:1/-1;order:3}.pp-plan-open{grid-column:1/-1;order:4}.pp-groups{grid-template-columns:minmax(0,1fr)}.pp-hero-copy .actions .button{width:auto}}
+/* Community: cards, item pages and Pine code. */
+.cm-section{padding:clamp(28px,5vw,56px) 0;border-top:1px solid #ffffff14;scroll-margin-top:16px}
+.cm-section h2{font-size:clamp(24px,3vw,34px);font-weight:500;margin:0 0 18px}.cm-section h2 span{color:#e7cba0;font-size:.6em}
+.cm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.cm-card{display:flex;flex-direction:column;gap:6px;padding:12px 12px 16px;border:1px solid #ffffff1a;border-radius:10px;background:#0f1412;color:#a3a8a3;text-decoration:none;font-size:14px;line-height:1.4}
+.cm-card:hover{border-color:#e7cba0}.cm-card strong{color:#f4f4f0;font-size:17px;font-weight:500;margin-top:6px}
+.cm-card img,.cm-tile{display:block;width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:6px;background:#141a17}
+.cm-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#e7cba0;font-size:24px;letter-spacing:.06em;border:1px solid #ffffff12;box-sizing:border-box}.cm-tile small{color:#a3a8a3;font-size:12px;letter-spacing:.1em;margin-top:4px}
+.cm-item{max-width:980px}.cm-item .pp-head{max-width:none}.cm-item a.pp-kicker{text-decoration:none}
+.cm-by{color:#c4c6c3;margin:0 0 10px}.cm-by a,.cm-item .pp-lead a{color:#e7cba0}
+.cm-item .pp-shot{margin:8px 0 20px}.cm-item h2{font-size:clamp(22px,2.6vw,30px);font-weight:500;margin:32px 0 8px}
+.cm-item>p,.cm-item .micro{color:#c4c6c3;line-height:1.5}
+.cm-grade{display:flex;align-items:center;gap:12px;margin:20px 0 0;color:#f4f4f0;font-size:17px}.cm-grade span{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid #e7cba0;border-radius:6px;color:#e7cba0;font-weight:600}
+.cm-code{max-height:640px;overflow:auto;padding:16px;border:1px solid #ffffff1a;border-radius:8px;background:#0b0f0d;color:#dfe1dc;font-size:13px;line-height:1.5;white-space:pre;tab-size:4}
+.pp-page>.pp-index{padding-left:0;padding-right:0}

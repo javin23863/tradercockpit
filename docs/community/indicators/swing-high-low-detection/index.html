@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+<title>Swing High/Low Detection — TraderCockpit</title><meta name="description" content="Swing High/Low Detection, a indicator by mihakralj on TraderCockpit Community.">
+<link rel="canonical" href="https://trader-cockpit.com/community/indicators/swing-high-low-detection/"><link rel="stylesheet" href="../../../assets/site-v2.css"><link data-reference-shell="style" rel="stylesheet" href="../../../assets/reference-site/content.css" media="screen"><link rel="stylesheet" href="../../../assets/product-pages.css"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Swing High/Low Detection — TraderCockpit"><meta property="og:description" content="Swing High/Low Detection, a indicator by mihakralj on TraderCockpit Community."><meta property="og:url" content="https://trader-cockpit.com/community/indicators/swing-high-low-detection/"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Swing High/Low Detection — TraderCockpit"><meta name="twitter:description" content="Swing High/Low Detection, a indicator by mihakralj on TraderCockpit Community."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Community","item":"https://trader-cockpit.com/community/"},{"@type":"ListItem","position":3,"name":"Swing High/Low Detection","item":"https://trader-cockpit.com/community/indicators/swing-high-low-detection/"}]}</script><!-- search-meta:end --></head>
+<body class="home-page" data-reference-content="true"><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../../../features/">Features</a><a href="../../../research-lab.html">Research Lab</a><a href="../../../learn/">Learn</a><a href="../../../community/" aria-current="page">Community</a><a href="../../../docs/">Docs</a><a href="../../../methods/">Methods</a><a href="../../../pricing/">Pricing</a><a href="../../../support/">Support</a></div></div></nav>
+<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="../../../community/#indicators">Indicators</a><h1>Swing High/Low Detection</h1><p class="cm-by">by <a href="../../../community/authors/mihakralj/">mihakralj</a></p><div class="article-meta"><span>28 Sep 2026</span></div><div class="pp-actions"><a class="pp-btn gold" href="../../../early-access.html">Get TraderCockpit →</a></div></header><p class="pp-lead">Levels and structure indicator by mihakralj, shared as open-source Pine code under the Apache-2.0 licence. It draws on the price chart.</p><dl class="pp-facts"><div><dt>Licence</dt><dd>Apache-2.0</dd></div><div><dt>Version</dt><dd>6</dd></div></dl><p><a class="pp-more" href="https://github.com/mihakralj/QuanTAlib/blob/main/lib/reversals/swings/swings.pine">Original source →</a></p><h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>// Licensed under the Apache License, Version 2.0
+// © mihakralj
+//@version=6
+indicator(&quot;Swing High/Low Detection&quot;, &quot;SWINGS&quot;, overlay=true)
+
+//@function Detects swing highs and swing lows using lookback period
+//@param lookback Number of bars on each side to confirm swing point
+//@param source_high Price series for swing high detection (typically high)
+//@param source_low Price series for swing low detection (typically low)
+//@returns Tuple [swing_high, swing_low] with swing point values (na if no swing)
+swings(simple int lookback, series float source_high, series float source_low) =&gt;
+    if lookback &lt;= 0
+        runtime.error(&quot;Lookback must be greater than 0&quot;)
+    if lookback &gt; 100
+        runtime.error(&quot;Lookback exceeds maximum of 100&quot;)
+    bool is_swing_high = true
+    bool is_swing_low = true
+    if bar_index &lt; lookback * 2
+        is_swing_high := false
+        is_swing_low := false
+    else
+        float center_high = source_high[lookback]
+        float center_low = source_low[lookback]
+        for i = 1 to lookback
+            if source_high[lookback - i] &gt; center_high or source_high[lookback + i] &gt; center_high
+                is_swing_high := false
+            if source_low[lookback - i] &lt; center_low or source_low[lookback + i] &lt; center_low
+                is_swing_low := false
+    float swing_high_value = is_swing_high ? source_high[lookback] : na
+    float swing_low_value = is_swing_low ? source_low[lookback] : na
+    [swing_high_value, swing_low_value]
+
+// ---------- Main loop ----------
+
+// Inputs
+i_lookback = input.int(5, &quot;Lookback Period&quot;, minval=1, maxval=100, tooltip=&quot;Number of bars on each side to confirm swing point&quot;)
+i_source_high = input.source(high, &quot;Source High&quot;, tooltip=&quot;Price series for swing high detection&quot;)
+i_source_low = input.source(low, &quot;Source Low&quot;, tooltip=&quot;Price series for swing low detection&quot;)
+i_show_high = input.bool(true, &quot;Show Swing High Lines&quot;)
+i_show_low = input.bool(true, &quot;Show Swing Low Lines&quot;)
+i_color_high = input.color(color.red, &quot;Swing High Color&quot;)
+i_color_low = input.color(color.green, &quot;Swing Low Color&quot;)
+
+// Calculation
+[swing_high, swing_low] = swings(i_lookback, i_source_high, i_source_low)
+
+// Track last confirmed swing points
+var float last_swing_high = na
+var float last_swing_low = na
+
+// Update swing levels
+if not na(swing_high)
+    last_swing_high := swing_high
+
+if not na(swing_low)
+    last_swing_low := swing_low
+
+// Plot swing levels as continuous lines
+plot(i_show_high ? last_swing_high : na, &quot;Swing High&quot;, color=i_color_high, linewidth=2, style=plot.style_line)
+plot(i_show_low ? last_swing_low : na, &quot;Swing Low&quot;, color=i_color_low, linewidth=2, style=plot.style_line)
+</code></pre></div></main>
+<footer><div class="footer-inner"><div>TraderCockpit · research and education. Not financial advice.</div><div class="footer-links"><a href="../../../support/">Support</a><a href="../../../trust/privacy.html">Privacy</a><a href="../../../trust/terms.html">Terms</a></div></div></footer><script src="../../../assets/site-search.js" defer></script>
+</body></html>

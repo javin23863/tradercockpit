@@ -63,6 +63,7 @@ def render(entry: dict) -> str:
       <div class="nav-links">
         <a href="../../research-lab.html">Research Lab</a>
         <a href="../" aria-current="page">Learn</a>
+        <a href="../../community/">Community</a>
         <a href="../../docs/">Docs</a>
         <a href="../../methods/">Methods</a>
         <a href="../../examples/">Examples</a>
