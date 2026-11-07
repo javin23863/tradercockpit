@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+<title>SuperTrend + MACD + EMA — TraderCockpit</title><meta name="description" content="SuperTrend + MACD + EMA, a indicator by macmwz20 on TraderCockpit Community.">
+<link rel="canonical" href="https://trader-cockpit.com/community/indicators/supertrend-macd-ema/"><link rel="stylesheet" href="../../../assets/site-v2.css"><link data-reference-shell="style" rel="stylesheet" href="../../../assets/reference-site/content.css" media="screen"><link rel="stylesheet" href="../../../assets/product-pages.css"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="SuperTrend + MACD + EMA — TraderCockpit"><meta property="og:description" content="SuperTrend + MACD + EMA, a indicator by macmwz20 on TraderCockpit Community."><meta property="og:url" content="https://trader-cockpit.com/community/indicators/supertrend-macd-ema/"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="SuperTrend + MACD + EMA — TraderCockpit"><meta name="twitter:description" content="SuperTrend + MACD + EMA, a indicator by macmwz20 on TraderCockpit Community."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Community","item":"https://trader-cockpit.com/community/"},{"@type":"ListItem","position":3,"name":"SuperTrend + MACD + EMA","item":"https://trader-cockpit.com/community/indicators/supertrend-macd-ema/"}]}</script><!-- search-meta:end --></head>
+<body class="home-page" data-reference-content="true"><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../../../features/">Features</a><a href="../../../research-lab.html">Research Lab</a><a href="../../../learn/">Learn</a><a href="../../../community/" aria-current="page">Community</a><a href="../../../docs/">Docs</a><a href="../../../methods/">Methods</a><a href="../../../pricing/">Pricing</a><a href="../../../support/">Support</a></div></div></nav>
+<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="../../../community/#indicators">Indicators</a><h1>SuperTrend + MACD + EMA</h1><p class="cm-by">by <a href="../../../community/authors/macmwz20/">macmwz20</a></p><div class="article-meta"><span>22 May 2023</span></div><div class="pp-actions"><a class="pp-btn gold" href="../../../early-access.html">Open in TraderCockpit →</a></div></header><p class="pp-lead">Moving averages indicator by macmwz20, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.</p><dl class="pp-facts"><div><dt>Licence</dt><dd>MPL-2.0</dd></div><div><dt>Version</dt><dd>5</dd></div></dl><p><a class="pp-more" href="https://github.com/redm3/HYPERLIQUID/blob/main/pinescript.pine">Original source →</a></p><h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © macmwz20
+
+
+//@version=5
+indicator(&#x27;SuperTrend + MACD + EMA&#x27;, overlay=true)
+
+src = close
+fast_ema = ta.ema(src, 9)
+slow_ema = ta.ema(src, 18)
+
+fast_macd = ta.ema(src, 12)
+slow_macd = ta.ema(src, 26)
+macd = fast_macd - slow_macd
+signal = ta.ema(macd, 9)
+hist = macd - signal
+
+// Volume Filter
+volume_ma = ta.sma(volume, 20)
+volume_increase = volume &gt; volume_ma
+
+// Deternine if we are currently LONG
+isLong = false
+isLong := nz(isLong[1], false)
+
+// Determine if we are currently SHORT
+isShort = false
+isShort := nz(isShort[1], false)
+
+// Buy only if the buy signal is triggered, we are not already long, and volume is high
+LONG = not isLong and fast_ema &gt; slow_ema and macd &gt; signal and volume_increase
+
+// Sell only if the sell signal is triggered, we are not already short, and volume is high
+SHORT = not isShort and fast_ema &lt; slow_ema and macd &lt; signal and volume_increase
+
+if LONG
+    isLong := true
+    isShort := false
+    isShort
+
+if SHORT
+    isLong := false
+    isShort := true
+    isShort
+
+// Supertrend Calculation
+atr = 3 * ta.atr(10)
+longStop = hl2 - atr
+longStopPrev = nz(longStop[1], longStop)
+longStop := close[1] &gt; longStopPrev ? math.max(longStop, longStopPrev) : longStop
+shortStop = hl2 + atr
+shortStopPrev = nz(shortStop[1], shortStop)
+shortStop := close[1] &lt; shortStopPrev ? math.min(shortStop, shortStopPrev) : shortStop
+dir = 1
+dir := nz(dir[1], dir)
+dir := dir == -1 and close &gt; shortStopPrev ? 1 : dir == 1 and close &lt; longStopPrev ? -1 : dir
+
+
+// Line Plots
+bodyMiddle = plot((open + close) / 2, display=display.none)
+upTrend = plot(dir == 1 ? longStop : na, title=&#x27;Up Trend Line&#x27;, style=plot.style_linebr, linewidth=1, color=color.new(color.green, 0))
+downTrend = plot(dir != 1 ? shortStop : na, title=&#x27;Down Trend Line&#x27;, style=plot.style_linebr, linewidth=1, color=color.new(color.red, 0))
+
+//Fill Background
+fill(bodyMiddle, upTrend, color.new(color.green, 90), fillgaps=false, title=&#x27;Uptrend Background&#x27;)
+fill(bodyMiddle, downTrend, color.new(color.red, 90), fillgaps=false, title=&#x27;Downtrend Background&#x27;)
+
+//Bar Colour
+barcolor(dir == 1 and isLong ? color.green : dir != 1 and isShort ? color.red : color.blue)
+
+// Buy/Sell Label Plots
+confirmLONG = fast_ema &gt; slow_ema and macd &gt; signal and longStop
+confirmSHORT = fast_ema &gt; slow_ema and macd &gt; signal and longStop
+plotshape(not confirmLONG[1] and confirmLONG, title=&#x27;Buy Label&#x27;, style=shape.labelup, location=location.belowbar, size=size.normal, text=&#x27;Buy&#x27;, textcolor=color.new(color.white, 0), color=color.new(color.green, 0))
+plotshape(not confirmSHORT[1] and confirmSHORT, title=&#x27;Sell Label&#x27;, style=shape.labeldown, location=location.abovebar, size=size.normal, text=&#x27;Sell&#x27;, textcolor=color.new(color.white, 0), color=color.new(color.red, 0))</code></pre></div></main>
+<footer><div class="footer-inner"><div>TraderCockpit · research and education. Not financial advice.</div><div class="footer-links"><a href="../../../support/">Support</a><a href="../../../trust/privacy.html">Privacy</a><a href="../../../trust/terms.html">Terms</a></div></div></footer><script src="../../../assets/site-search.js" defer></script>
+</body></html>

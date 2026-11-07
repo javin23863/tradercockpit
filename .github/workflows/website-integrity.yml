@@ -50,6 +50,8 @@ jobs:
           node .github/scripts/test_custom_domain.mjs
           node .github/scripts/test_early_access.mjs
           python .github/scripts/generate_product_pages.py --check
+          python .github/scripts/generate_community_pages.py --check
+          python .github/scripts/test_community_import.py
           python .github/scripts/check_plan_catalog.py
           python .github/scripts/test_plan_catalog.py
       - name: Run the browser tests on the served site

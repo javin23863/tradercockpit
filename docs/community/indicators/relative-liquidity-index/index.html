@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+<title>Relative Liquidity Index — TraderCockpit</title><meta name="description" content="Relative Liquidity Index, a indicator by InNoobWeTrust on TraderCockpit Community.">
+<link rel="canonical" href="https://trader-cockpit.com/community/indicators/relative-liquidity-index/"><link rel="stylesheet" href="../../../assets/site-v2.css"><link data-reference-shell="style" rel="stylesheet" href="../../../assets/reference-site/content.css" media="screen"><link rel="stylesheet" href="../../../assets/product-pages.css"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Relative Liquidity Index — TraderCockpit"><meta property="og:description" content="Relative Liquidity Index, a indicator by InNoobWeTrust on TraderCockpit Community."><meta property="og:url" content="https://trader-cockpit.com/community/indicators/relative-liquidity-index/"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Relative Liquidity Index — TraderCockpit"><meta name="twitter:description" content="Relative Liquidity Index, a indicator by InNoobWeTrust on TraderCockpit Community."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Community","item":"https://trader-cockpit.com/community/"},{"@type":"ListItem","position":3,"name":"Relative Liquidity Index","item":"https://trader-cockpit.com/community/indicators/relative-liquidity-index/"}]}</script><!-- search-meta:end --></head>
+<body class="home-page" data-reference-content="true"><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../../../features/">Features</a><a href="../../../research-lab.html">Research Lab</a><a href="../../../learn/">Learn</a><a href="../../../community/" aria-current="page">Community</a><a href="../../../docs/">Docs</a><a href="../../../methods/">Methods</a><a href="../../../pricing/">Pricing</a><a href="../../../support/">Support</a></div></div></nav>
+<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="../../../community/#indicators">Indicators</a><h1>Relative Liquidity Index</h1><p class="cm-by">by <a href="../../../community/authors/innoobwetrust/">InNoobWeTrust</a></p><div class="article-meta"><span>1 Nov 2026</span></div><div class="pp-actions"><a class="pp-btn gold" href="../../../early-access.html">Open in TraderCockpit →</a></div></header><p class="pp-lead">Trend indicator by InNoobWeTrust, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.</p><dl class="pp-facts"><div><dt>Licence</dt><dd>MPL-2.0</dd></div><div><dt>Version</dt><dd>6</dd></div></dl><p><a class="pp-more" href="https://github.com/InNoobWeTrust/dotfiles/blob/master/.innoobwetrust/life_hacks/tradingview/relative_liquidity_index.pine">Original source →</a></p><h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © InNoobWeTrust
+
+//@version=6
+indicator(&quot;Relative Liquidity Index&quot;, overlay = false)
+
+//===============================================================================
+// Functions
+//===============================================================================
+relative_liquidity_index(int atr_len, int rli_len) =&gt;
+	atr = ta.atr(atr_len)
+	rli = ta.rsi(atr,rli_len)
+	// Return the RLI
+	rli
+
+//===============================================================================
+// Input
+//===============================================================================
+atr_len = input.int(34,&#x27;ATR length&#x27;)
+rli_len = input.int(14,&#x27;Relative Liquidity Index length&#x27;)
+low_liquidity_threshold = input.float(20,&#x27;Low liquidity threshold&#x27;,minval=0,maxval=50)
+high_liquidity_threshold = input.float(80,&#x27;High liquidity threshold&#x27;,minval=50,maxval=100)
+low_liquidity_color = input.color(color.new(color.maroon,80),&#x27;Low liquidity area color&#x27;)
+high_liquidity_color = input.color(color.new(color.teal,80),&#x27;High liquidity area color&#x27;)
+show_chart_background = input.bool(false,&#x27;Show gradient background on chart&#x27;)
+no_background_till_thresholds = input.bool(true, &quot;No background color until threshold exceeded&quot;)
+//===============================================================================
+// Calculation
+//===============================================================================
+rli = relative_liquidity_index(atr_len,rli_len)
+low_liquidity_area_color = rli &lt;= low_liquidity_threshold ? low_liquidity_color : na
+high_liquidity_area_color = rli &gt;= high_liquidity_threshold ? high_liquidity_color : na
+rli_color = color.from_gradient(rli,0,100,low_liquidity_color,high_liquidity_color)
+rli_bg_color = not no_background_till_thresholds or (rli &lt;= low_liquidity_threshold or rli &gt;= high_liquidity_threshold) ? rli_color : color(na)
+
+//===============================================================================
+// Plot
+//===============================================================================
+rli_plt = plot(rli, &#x27;Relative Liquidity Index&#x27;,color = color.new(rli_color,0),linewidth = 2,force_overlay = false)
+low_liquidity_plt = hline(low_liquidity_threshold,&#x27;Low liquidity threshold&#x27;,linestyle = hline.style_dashed,color=color.new(color.red,50))
+high_liquidity_plt = hline(high_liquidity_threshold,&#x27;High liquidity threshold&#x27;,linestyle = hline.style_dashed,color=color.new(color.green,50))
+
+plot(rli,&#x27;Time of low liquidity&#x27;,low_liquidity_area_color,style = plot.style_area,histbase = low_liquidity_threshold)
+plot(rli,&#x27;Time of high liquidity&#x27;,high_liquidity_area_color,style = plot.style_area,histbase = high_liquidity_threshold)
+
+bgcolor(show_chart_background ? rli_bg_color : color(na),force_overlay = true)</code></pre></div></main>
+<footer><div class="footer-inner"><div>TraderCockpit · research and education. Not financial advice.</div><div class="footer-links"><a href="../../../support/">Support</a><a href="../../../trust/privacy.html">Privacy</a><a href="../../../trust/terms.html">Terms</a></div></div></footer><script src="../../../assets/site-search.js" defer></script>
+</body></html>

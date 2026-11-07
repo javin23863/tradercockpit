@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+<title>Vaultfy Sentiment Apex — TraderCockpit</title><meta name="description" content="Vaultfy Sentiment Apex, a indicator by regalouisei on TraderCockpit Community.">
+<link rel="canonical" href="https://trader-cockpit.com/community/indicators/vaultfy-sentiment-apex/"><link rel="stylesheet" href="../../../assets/site-v2.css"><link data-reference-shell="style" rel="stylesheet" href="../../../assets/reference-site/content.css" media="screen"><link rel="stylesheet" href="../../../assets/product-pages.css"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Vaultfy Sentiment Apex — TraderCockpit"><meta property="og:description" content="Vaultfy Sentiment Apex, a indicator by regalouisei on TraderCockpit Community."><meta property="og:url" content="https://trader-cockpit.com/community/indicators/vaultfy-sentiment-apex/"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Vaultfy Sentiment Apex — TraderCockpit"><meta name="twitter:description" content="Vaultfy Sentiment Apex, a indicator by regalouisei on TraderCockpit Community."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Community","item":"https://trader-cockpit.com/community/"},{"@type":"ListItem","position":3,"name":"Vaultfy Sentiment Apex","item":"https://trader-cockpit.com/community/indicators/vaultfy-sentiment-apex/"}]}</script><!-- search-meta:end --></head>
+<body class="home-page" data-reference-content="true"><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../../../features/">Features</a><a href="../../../research-lab.html">Research Lab</a><a href="../../../learn/">Learn</a><a href="../../../community/" aria-current="page">Community</a><a href="../../../docs/">Docs</a><a href="../../../methods/">Methods</a><a href="../../../pricing/">Pricing</a><a href="../../../support/">Support</a></div></div></nav>
+<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="../../../community/#indicators">Indicators</a><h1>Vaultfy Sentiment Apex</h1><p class="cm-by">by <a href="../../../community/authors/regalouisei/">regalouisei</a></p><div class="article-meta"><span>25 Feb 2026</span></div><div class="pp-actions"><a class="pp-btn gold" href="../../../early-access.html">Open in TraderCockpit →</a></div></header><p class="pp-lead">Candles and sessions indicator by regalouisei, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.</p><dl class="pp-facts"><div><dt>Licence</dt><dd>MPL-2.0</dd></div><div><dt>Version</dt><dd>5</dd></div></dl><p><a class="pp-more" href="https://github.com/regalouisei/collect-tradingview/blob/main/pinescript/oscillators/vaultfy-sentiment-apex.pine">Original source →</a></p><h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// @vaultfy
+//@version=5
+
+indicator(&quot;Vaultfy Sentiment Apex&quot;, shorttitle=&quot;Vaultfy SA&quot;, overlay=false)
+
+tf        = input.timeframe(&quot;M&quot;, &quot;Base Timeframe&quot;)
+rsiLen    = input.int(14, &quot;RSI Length&quot;, minval=2)
+normLen   = input.int(42, &quot;Normalization Window&quot;, minval=12)
+smoothRSI = input.int(4, &quot;RSI Smoothing (EMA)&quot;, minval=1)
+smoothFin = input.int(5, &quot;Final Smoothing (EMA)&quot;, minval=1)
+
+mult      = input.float(1.10, &quot;Amplitude Multiplier&quot;, step=0.05)
+offset    = input.float(0.0, &quot;Offset (-2 to +2)&quot;, step=0.5, minval=-2.0, maxval=2.0)
+
+showFill         = input.bool(true,  &quot;Show Fill Between Lines&quot;)
+fillTransparency = input.int(70,     &quot;Line Fill Transparency&quot;, minval=0, maxval=90)
+zoneTransp       = input.int(85,     &quot;Static Zone Transparency&quot;, minval=0, maxval=100)
+
+rsiRaw = request.security(syminfo.tickerid, tf, ta.rsi(close, rsiLen))
+rsiSm  = ta.ema(rsiRaw, smoothRSI)
+
+lowR   = ta.lowest(rsiSm, normLen)
+highR  = ta.highest(rsiSm, normLen)
+
+val0   = 100 * (rsiSm - lowR) / math.max(highR - lowR, 1e-10)
+val1   = ta.ema(val0, smoothFin)
+val2   = 100 - val1
+
+lineRed   = math.max(0, math.min(100, val1 * mult + offset))
+lineGreen = math.max(0, math.min(100, val2 * mult + offset))
+
+plotRed   = plot(lineRed,   title=&quot;Red Line&quot;,   color=color.new(color.red,   0), linewidth=2)
+plotGreen = plot(lineGreen, title=&quot;Green Line&quot;, color=color.new(color.green, 0), linewidth=2)
+
+h100 = plot(100, &quot;Level 100&quot;, color=color.new(color.gray, 50), display=display.none)
+h95  = plot(95,  &quot;Level 95&quot;,  color=color.new(color.red, 50),  display=display.none)
+h5   = plot(5,   &quot;Level 5&quot;,   color=color.new(color.green, 50),display=display.none)
+h0   = plot(0,   &quot;Level 0&quot;,   color=color.new(color.gray, 50), display=display.none)
+
+fill(h100, h95, color=color.new(color.red, zoneTransp),   title=&quot;Top Red Zone&quot;)
+fill(h5, h0,    color=color.new(color.green, zoneTransp), title=&quot;Bottom Green Zone&quot;)
+
+hline(50, &quot;Middle&quot;, color=color.new(color.gray, 50), linestyle=hline.style_dotted)
+
+isExtreme = (lineRed &gt;= 95 or lineRed &lt;= 5 or lineGreen &gt;= 95 or lineGreen &lt;= 5)
+
+fillBaseColor = lineRed &gt; lineGreen ? color.red : color.green
+dynamicColor  = (showFill and isExtreme) ? color.new(fillBaseColor, fillTransparency) : color.new(color.white, 100)
+
+fill(plotRed, plotGreen, color=dynamicColor, title=&quot;Dynamic Fill&quot;)
+
+showZeroHist = input.bool(false, &quot;Show Net Histogram&quot;)
+net = lineRed - lineGreen
+plot(showZeroHist ? net : na, &quot;Net Value&quot;, color = net &gt; 0 ? color.new(color.red, 0) : color.new(color.green, 0), style=plot.style_histogram)
+</code></pre></div></main>
+<footer><div class="footer-inner"><div>TraderCockpit · research and education. Not financial advice.</div><div class="footer-links"><a href="../../../support/">Support</a><a href="../../../trust/privacy.html">Privacy</a><a href="../../../trust/terms.html">Terms</a></div></div></footer><script src="../../../assets/site-search.js" defer></script>
+</body></html>

@@ -1,0 +1,601 @@
+{
+ "schema": "tc.community-items.v1",
+ "items": [
+  {
+   "id": "1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46",
+   "kind": "strategy",
+   "title": "Rayner Teo's 200-day breakout, tested on ES",
+   "description": "Our test of Rayner Teo's public rules for his 200-day breakout, as we read them in his video A Simple Trend Following Strategy (Backed By Data): https://youtu.be/ggnIGZiDoFY\nNot affiliated with or endorsed by Rayner Teo.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. His own figures are for a basket of futures, so one market neither confirms nor refutes them. Costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
+   "author": {
+    "name": "TraderCockpit",
+    "handle": "tradercockpit"
+   },
+   "published_at": "2026-11-05T12:00:00Z",
+   "market": "ES-CME",
+   "timeframe": "D1",
+   "image": "img/1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46.png",
+   "strategy": {
+    "rules": [
+     "Daily bars.",
+     "Go long when the close is the highest close of the last 200 days.",
+     "Go short when the close is the lowest close of the last 200 days.",
+     "Enter at the next day's open.",
+     "Exit with a Chandelier Exit: 6 × ATR(20) from the 20-day extreme. A close through the line exits at the next day's open.",
+     "Size each trade to risk 2% of the account on the 6 × ATR(20) distance.",
+     "One position at a time: an opposite signal while in a trade waits for the exit.",
+     "Our choices: 100,000 starting capital, a 2-tick spread and $5 commission a contract, trading from 22 Apr 2004 so 200 daily closes come first."
+    ],
+    "grade": "D",
+    "headline": "Weak: don't trade it as it is.",
+    "trades": 18,
+    "net_pct": 16.3,
+    "profit_factor": 1.88,
+    "win_rate_pct": 38.89,
+    "max_drawdown_pct": 5.5,
+    "from": "2004-04-22",
+    "to": "2023-07-11"
+   }
+  },
+  {
+   "id": "0e9d01adfdd0378140b88f96c5732a70a66a1f5027f7c9439fe0a1078ae20f68",
+   "kind": "strategy",
+   "title": "Data Trader's 20/50 moving average cross, tested on ES",
+   "description": "Our test of Data Trader's public rules for his 20/50 moving average cross, as we read them in his video BEST Moving Average Strategy: https://youtu.be/k_kSCjdf8D0\nNot affiliated with or endorsed by Data Trader.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. His video gives the rules without results to compare. The moving average type, ATR settings, risk per trade, costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
+   "author": {
+    "name": "TraderCockpit",
+    "handle": "tradercockpit"
+   },
+   "published_at": "2026-11-02T21:00:00Z",
+   "market": "ES-CME",
+   "timeframe": "D1",
+   "image": "img/0e9d01adfdd0378140b88f96c5732a70a66a1f5027f7c9439fe0a1078ae20f68.png",
+   "strategy": {
+    "rules": [
+     "Daily bars.",
+     "Simple moving averages of 20 and 50 closes.",
+     "Go long when the 20 crosses above the 50.",
+     "Go short when the 20 crosses below the 50.",
+     "Enter at the next bar's open.",
+     "Exit with an ATR trailing stop: 3 × ATR(14).",
+     "Risk 1% of the balance a trade, sized on the first stop.",
+     "His step of first picking markets that reacted to the cross on past charts is left out.",
+     "Our choices: simple averages, ATR 14 × 3, 1% risk, 100,000 starting capital, a 2-tick spread and $5 commission a contract."
+    ],
+    "grade": "F",
+    "headline": "Fails: don't trade it.",
+    "trades": 92,
+    "net_pct": -17.9,
+    "profit_factor": 0.51,
+    "win_rate_pct": 32.61,
+    "max_drawdown_pct": 19.06,
+    "from": "2003-07-14",
+    "to": "2023-07-11"
+   }
+  },
+  {
+   "id": "3eb277e0d96318f3f6d1b284a444e5720f0f80e1fba54d4187cd281c4064cf17",
+   "kind": "indicator",
+   "title": "Relative Liquidity Index",
+   "description": "Trend indicator by InNoobWeTrust, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "InNoobWeTrust",
+    "handle": "innoobwetrust"
+   },
+   "published_at": "2026-11-01T22:25:47Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © InNoobWeTrust\n\n//@version=6\nindicator(\"Relative Liquidity Index\", overlay = false)\n\n//===============================================================================\n// Functions\n//===============================================================================\nrelative_liquidity_index(int atr_len, int rli_len) =>\n\tatr = ta.atr(atr_len)\n\trli = ta.rsi(atr,rli_len)\n\t// Return the RLI\n\trli\n\n//===============================================================================\n// Input\n//===============================================================================\natr_len = input.int(34,'ATR length')\nrli_len = input.int(14,'Relative Liquidity Index length')\nlow_liquidity_threshold = input.float(20,'Low liquidity threshold',minval=0,maxval=50)\nhigh_liquidity_threshold = input.float(80,'High liquidity threshold',minval=50,maxval=100)\nlow_liquidity_color = input.color(color.new(color.maroon,80),'Low liquidity area color')\nhigh_liquidity_color = input.color(color.new(color.teal,80),'High liquidity area color')\nshow_chart_background = input.bool(false,'Show gradient background on chart')\nno_background_till_thresholds = input.bool(true, \"No background color until threshold exceeded\")\n//===============================================================================\n// Calculation\n//===============================================================================\nrli = relative_liquidity_index(atr_len,rli_len)\nlow_liquidity_area_color = rli <= low_liquidity_threshold ? low_liquidity_color : na\nhigh_liquidity_area_color = rli >= high_liquidity_threshold ? high_liquidity_color : na\nrli_color = color.from_gradient(rli,0,100,low_liquidity_color,high_liquidity_color)\nrli_bg_color = not no_background_till_thresholds or (rli <= low_liquidity_threshold or rli >= high_liquidity_threshold) ? rli_color : color(na)\n\n//===============================================================================\n// Plot\n//===============================================================================\nrli_plt = plot(rli, 'Relative Liquidity Index',color = color.new(rli_color,0),linewidth = 2,force_overlay = false)\nlow_liquidity_plt = hline(low_liquidity_threshold,'Low liquidity threshold',linestyle = hline.style_dashed,color=color.new(color.red,50))\nhigh_liquidity_plt = hline(high_liquidity_threshold,'High liquidity threshold',linestyle = hline.style_dashed,color=color.new(color.green,50))\n\nplot(rli,'Time of low liquidity',low_liquidity_area_color,style = plot.style_area,histbase = low_liquidity_threshold)\nplot(rli,'Time of high liquidity',high_liquidity_area_color,style = plot.style_area,histbase = high_liquidity_threshold)\n\nbgcolor(show_chart_background ? rli_bg_color : color(na),force_overlay = true)",
+    "licence": "MPL-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/InNoobWeTrust/dotfiles/blob/master/.innoobwetrust/life_hacks/tradingview/relative_liquidity_index.pine"
+   }
+  },
+  {
+   "id": "ab9adca5c6dbb1603c47563052bcd69f3e17f1e17406563ed16bca13bcaf6132",
+   "kind": "indicator",
+   "title": "SMA 50 / 100 / 150 / 200 / SSMA 360",
+   "description": "Moving averages indicator by AbaddonPL, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "AbaddonPL",
+    "handle": "abaddonpl"
+   },
+   "published_at": "2026-10-30T16:42:04Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n\n// © AbaddonPL\n\n\n\n// @version=6\n\nindicator(\"SMA 50 / 100 / 150 / 200 / SSMA 360\", overlay=true)\n\n\n\n// TAGS: Divergence, Relative Strength, Crypto, Cryptocurrency, Crypto Scanner, Crypto Screener, Divergence Scanner, Multi Ticker Scanner, RSI, MACD, Stochastic, OBV, MFI, CCI, Awesome Oscillator, Bullish Divergence, Bearish Divergence, Market Scanner, Crypto Trading, Bitcoin, BTC, Altcoins, Momentum, Confluence, Trading Indicator, Crypto Indicator, Relative Strength Scanner\n\n\n\n// ─────────────────────────────────────────────\n\n// USTAWIENIA UŻYTKOWNIKA\n\n// ─────────────────────────────────────────────\n\n\n\n// SMA 50\n\nshow50   = input.bool(true,  \"Show SMA 50\")\n\ncolor50  = input.color(color.blue, \"Color SMA 50\")\n\nwidth50  = input.int(1, \"Width SMA 50\")\n\n\n\n// SMA 100\n\nshow100  = input.bool(true,  \"Show SMA 100\")\n\ncolor100 = input.color(color.orange, \"Color SMA 100\")\n\nwidth100 = input.int(2, \"Width SMA 100\")\n\n\n\n// SMA 150\n\nshow150  = input.bool(true,  \"Show SMA 150\")\n\ncolor150 = input.color(color.green, \"Color SMA 150\")\n\nwidth150 = input.int(3, \"Width SMA 150\")\n\n\n\n// SMA 200\n\nshow200  = input.bool(true,  \"Show SMA 200\")\n\ncolor200 = input.color(color.red, \"Color SMA 200\")\n\nwidth200 = input.int(4, \"Width SMA 200\")\n\n\n\n// SSMA 360\n\nshow360  = input.bool(true,  \"Show SSMA 360\")\n\ncolor360 = input.color(color.purple, \"Color SSMA 360\")\n\nwidth360 = input.int(5, \"Width SSMA 360\")\n\n\n\n// ─────────────────────────────────────────────\n\n// OBLICZENIA\n\n// ─────────────────────────────────────────────\n\n\n\nsma50  = ta.sma(close, 50)\n\nsma100 = ta.sma(close, 100)\n\nsma150 = ta.sma(close, 150)\n\nsma200 = ta.sma(close, 200)\n\n\n\n// Smoothed SMA 360 (SSMA)\n\nssma360 = ta.sma(ta.sma(close, 360), 360)\n\n\n\n// ─────────────────────────────────────────────\n\n// RYSOWANIE\n\n// ─────────────────────────────────────────────\n\n\n\nplot(show50  ? sma50  : na, title=\"SMA 50\",  color=color50,  linewidth=width50)\n\nplot(show100 ? sma100 : na, title=\"SMA 100\", color=color100, linewidth=width100)\n\nplot(show150 ? sma150 : na, title=\"SMA 150\", color=color150, linewidth=width150)\n\nplot(show200 ? sma200 : na, title=\"SMA 200\", color=color200, linewidth=width200)\n\nplot(show360 ? ssma360 : na, title=\"SSMA 360\", color=color360, linewidth=width360)\n\n",
+    "licence": "MPL-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/venkatalokeshanne/trading_strategies_indicators/blob/main/TradingView/indicators/XgFMoS4t.pine"
+   }
+  },
+  {
+   "id": "84ff605dd0d79807ed327ac4f77f2cd1b5e3ecb0245560449879a905d821c04c",
+   "kind": "indicator",
+   "title": "DIY Volume Profile",
+   "description": "Volume indicator by jayadevrana, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "jayadevrana",
+    "handle": "jayadevrana"
+   },
+   "published_at": "2026-10-26T11:00:19Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "//@version=6\nindicator(\"DIY Volume Profile\", overlay = true, max_bars_back = 500)\n\nlookback = input.int(150, \"Bars in the profile\", minval = 20, maxval = 400)\nrows = input.int(24, \"Price rows\", minval = 6, maxval = 40)\nvaPct = input.float(70, \"Value area %\", minval = 10, maxval = 95)\nmaxW = input.int(24, \"Widest row, in blocks\", minval = 4, maxval = 40)\n\nvar array<float> bins = array.new_float(rows, 0)\nfloat poc = na\nfloat vah = na\nfloat val = na\nint pocRow = na\nint vaLo = na\nint vaHi = na\n\nhiP = ta.highest(high, lookback)\nloP = ta.lowest(low, lookback)\nstep = (hiP - loP) / rows\ninWindow = bar_index >= last_bar_index - lookback + 1\nready = inWindow and step > 0\n\nif ready\n    array.fill(bins, 0)\n    for i = 0 to lookback - 1\n        h = high[i]\n        l = low[i]\n        v = nz(volume[i])\n        a = math.min(rows - 1, math.max(0, math.floor((l - loP) / step)))\n        b = math.min(rows - 1, math.max(0, math.floor((h - loP) / step)))\n        for r = a to b\n            rLo = loP + r * step\n            part = math.min(h, rLo + step) - math.max(l, rLo)\n            share = h > l ? math.max(0, part) / (h - l) : 1.0\n            array.set(bins, r, array.get(bins, r) + v * share)\n\nif ready\n    pocRow := array.indexof(bins, array.max(bins))\n    poc := loP + (pocRow + 0.5) * step\n\nif ready\n    target = array.sum(bins) * vaPct / 100\n    acc = array.get(bins, pocRow)\n    vaLo := pocRow\n    vaHi := pocRow\n    while acc < target and (vaLo > 0 or vaHi < rows - 1)\n        up = vaHi < rows - 1 ? array.get(bins, vaHi + 1) : -1.0\n        dn = vaLo > 0 ? array.get(bins, vaLo - 1) : -1.0\n        if up >= dn\n            vaHi += 1\n            acc += up\n        else\n            vaLo -= 1\n            acc += dn\n    vah := loP + (vaHi + 1) * step\n    val := loP + vaLo * step\n\npH = plot(vah, \"Value area high\", color.new(color.teal, 0), 1,\n  plot.style_linebr)\npL = plot(val, \"Value area low\", color.new(color.teal, 0), 1,\n  plot.style_linebr)\nfill(pH, pL, color.new(color.teal, 90), \"Value area\")\nplot(poc, \"POC\", color.new(color.orange, 0), 3, plot.style_linebr)\n\nvar table prof = table.new(position.top_right, 2, 40,\n  frame_width = 1, frame_color = color.gray)\nif barstate.islast and ready\n    top = array.max(bins)\n    for r = 0 to rows - 1\n        w = top > 0 ? math.round(array.get(bins, r) / top * maxW) : 0\n        blocks = str.repeat(\"█\", w)\n        inVA = r >= vaLo and r <= vaHi\n        c = r == pocRow ? color.orange : inVA ? color.teal : color.gray\n        px = str.tostring(loP + (r + 0.5) * step, format.mintick)\n        row = rows - 1 - r\n        table.cell(prof, 0, row, px, text_color = c,\n          text_size = size.tiny)\n        table.cell(prof, 1, row, blocks, text_color = c,\n          text_size = size.tiny, text_halign = text.align_left)\n",
+    "licence": "MPL-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/jayadevrana/free-pine-script-indicators/blob/main/scripts/volume-profile.pine.txt"
+   }
+  },
+  {
+   "id": "9f3ef803850cc213288481623b26667fe9de732e8bd85eac11b8acf95a983618",
+   "kind": "indicator",
+   "title": "Close Strength",
+   "description": "Oscillators indicator by glenrutherford4, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "glenrutherford4",
+    "handle": "glenrutherford4"
+   },
+   "published_at": "2026-10-15T03:57:23Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © glenrutherford4\n\n//@version=5\nindicator(\"Close Strength\", overlay = true)\n// *** Plot over black and white candles and use Visual order -> Bring to front ***\n\nbullishColour = input.color(color.new(#2962ff, 0), \"Bullish colour\")\nbearishColour = input.color(color.new(#ff9800, 0), \"Bearish colour\")\nhighlightTransparency = input.int(70, \"Highlight transparency\")\n\nisBullishClose = close >= high[1]\nisBearishClose = close <= low[1]\n\nbarColour = (isBullishClose ? bullishColour : (isBearishClose ? bearishColour : na))\nplotcandle(open, high, low, close, color = barColour, wickcolor = barColour, bordercolor = barColour, force_overlay = true)\n\nbullishOrBearish = isBullishClose ? 1 : (isBearishClose ? -1 : 0)\nbullishOrBearishColour = barColour\n\n// Background highlight\n// // Three in a row gives direction, two in a row breaks the opposite direction back to neutral, the third then gives direction again\n// // Single bars don't change anything\n// var isBullish = false\n// var isBearish = false\n\n// var bullishCount = 0\n// var bearishCount = 0\n\n// if(isBullishClose)\n//     bullishCount := bullishCount + 1\n// if(isBearishClose)\n//     bearishCount := bearishCount + 1\n\n// // Three in a row changes from opposite bias to neutral to biased\n// if(bullishCount == 3 and bullishCount > bullishCount[1])\n//     isBullish := true\n//     bearishCount := 0\n// if(bearishCount == 3 and bearishCount > bearishCount[1])\n//     isBearish := true\n//     bullishCount := 0\n\n// // Two in a row from neutral to biased\n// if(not isBullish and not isBearish and bullishCount == 2 and bullishCount > bullishCount[1])\n//     isBullish := true\n//     bearishCount := 0\n// if(not isBullish and not isBearish and bearishCount == 2 and bearishCount > bearishCount[1])\n//     isBearish := true\n//     bullishCount := 0\n\n// // Two in a row cancels the bias back to neutral\n// if(isBearish and bullishCount == 2 and bullishCount > bullishCount[1])\n//     isBearish := false\n//     bearishCount := 0\n// if(isBullish and bearishCount == 2 and bearishCount > bearishCount[1])\n//     isBullish := false\n//     bullishCount := 0\n\n// // If biased and one in opposite direction, count but no action\n// // If 1 count to opposite bias and then 1 more in biased direction, then clear opposite count\n// if(isBearish and bearishCount > bearishCount[1])\n//     bullishCount := 0\n// if(isBullish and bullishCount > bullishCount[1])\n//     bearishCount := 0\n\n// // plot(isBullish ? 1 : (isBearish ? -1 : 0))\n// // plot(bullishCount, bullishColour)\n// // plot(bearishCount, bearishColour)\n\n// bgcolor(showHighlight ? (isBullish ? color.new(bullishColour, highlightTransparency) : (isBearish ? color.new(bearishColour, highlightTransparency) : na)) : na)",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/glenr4/TradingScripts/blob/master/Pine%20scripts/Close%20Strength.pine"
+   }
+  },
+  {
+   "id": "0c9bb400da70a556beee82c378bf46b735428e7a436f3db10f0641c7ae340185",
+   "kind": "indicator",
+   "title": "Swing Levels",
+   "description": "Levels and structure indicator by gambcl, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "gambcl",
+    "handle": "gambcl"
+   },
+   "published_at": "2026-10-10T12:06:33Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script® code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © gambcl\n\n//@version=6\nindicator(\"Swing Levels\", overlay = true)\n\n////////////////////////////////////////////////////////////////////////////////////////////////////\n// Version History\n////////////////////////////////////////////////////////////////////////////////////////////////////\n// v1.0.0\n// - Initial release\n////////////////////////////////////////////////////////////////////////////////////////////////////\n// Replicates the Swing indicator from NinjaTrader.\n////////////////////////////////////////////////////////////////////////////////////////////////////\n\n\n////////////////////////////////////////////////////////////////////////////////\n// Inputs\n////////////////////////////////////////////////////////////////////////////////\n\ni_length = input.int(5, \"Length\", minval = 0)\n\n\n////////////////////////////////////////////////////////////////////////////////\n// Calculations\n////////////////////////////////////////////////////////////////////////////////\n\n// NOTE: The pivothigh/pivotlow functions return a value once the pivot has confirmed,\n// and we cannot back-fill plot values in pinescript, so we have to work ahead and then\n// display plot values with a negative offset, so that they start displaying at the actual pivot.\n// We also keep track of when the price intersects the pivot line, so we know when to stop plotting.\n\npivothigh = ta.pivothigh(i_length, i_length)\nvar int last_pivothigh_index = na\nif not na(pivothigh)\n    last_pivothigh_index := na\nelse\n    pivothigh := (na(last_pivothigh_index) or bar_index < last_pivothigh_index) ? pivothigh[1] : na\n    if high > pivothigh and na(last_pivothigh_index)\n        last_pivothigh_index := bar_index + i_length\n\n\npivotlow = ta.pivotlow(i_length, i_length)\nvar int last_pivotlow_index = na\nif not na(pivotlow)\n    last_pivotlow_index := na\nelse\n    pivotlow := (na(last_pivotlow_index) or bar_index < last_pivotlow_index) ? pivotlow[1] : na\n    if low < pivotlow and na(last_pivotlow_index)\n        last_pivotlow_index := bar_index + i_length\n\n\n////////////////////////////////////////////////////////////////////////////////\n// Plots\n////////////////////////////////////////////////////////////////////////////////\n\nplot(pivothigh, \"Swing High\", color.aqua, 2, plot.style_circles, offset = -i_length)\nplot(pivotlow, \"Swing Low\", color.yellow, 2, plot.style_circles, offset = -i_length)\n",
+    "licence": "MPL-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/lunarticktrading/TradingView/blob/main/Swing%20Levels.txt"
+   }
+  },
+  {
+   "id": "52766f55c13aa8fd692d84bb2c448885d2325e7b9c57c531fc04f725fead9b85",
+   "kind": "indicator",
+   "title": "Super Trend Bands (STBANDS)",
+   "description": "Volatility indicator by mihakralj, shared as open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "mihakralj",
+    "handle": "mihakralj"
+   },
+   "published_at": "2026-09-28T04:49:56Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// Licensed under the Apache License, Version 2.0\n// © mihakralj\n//@version=6\nindicator(\"Super Trend Bands (STBANDS)\", \"STBANDS\", overlay=true)\n\n//@function Calculates Super Trend Bands using ATR-based dynamic support/resistance\n//@param source Series to calculate bands from\n//@param period Lookback period for ATR calculation\n//@param multiplier ATR multiplier for band distance\n//@returns [upper_band, lower_band, trend] Super Trend band values and trend direction\n//@optimized for performance and dirty data\nstbands(series float source, simple int period, simple float multiplier) =>\n    if period <= 0 or multiplier <= 0.0\n        runtime.error(\"Period and multiplier must be greater than 0\")\n    var int p = math.max(1, period), var int head = 0, var int count = 0\n    var array<float> tr_buffer = array.new_float(p, na)\n    var float tr_sum = 0.0\n    float high_val = nz(high), float low_val = nz(low), float close_val = nz(source)\n    float prev_close = nz(source[1], source)\n    float tr = math.max(high_val - low_val, math.max(math.abs(high_val - prev_close), math.abs(low_val - prev_close)))\n    float oldest_tr = array.get(tr_buffer, head)\n    if not na(oldest_tr)\n        tr_sum -= oldest_tr\n        count -= 1\n    tr_sum += tr\n    count += 1\n    array.set(tr_buffer, head, tr)\n    head := (head + 1) % p\n    float atr = count > 0 ? tr_sum / count : tr\n    float hl2_val = (high_val + low_val) / 2\n    float basic_upper = hl2_val + multiplier * atr\n    float basic_lower = hl2_val - multiplier * atr\n    var float final_upper = na, var float final_lower = na\n    var int trend = 1\n    \n    // Initialize on first bar\n    if bar_index == 0\n        final_upper := basic_upper\n        final_lower := basic_lower\n        trend := 1\n    else\n        prev_upper = nz(final_upper[1], basic_upper)\n        prev_lower = nz(final_lower[1], basic_lower)\n        prev_close_val = nz(source[1], source)\n        \n        final_upper := basic_upper < prev_upper or prev_close_val > prev_upper ? basic_upper : prev_upper\n        final_lower := basic_lower > prev_lower or prev_close_val < prev_lower ? basic_lower : prev_lower\n        \n        prev_trend = nz(trend[1], 1)\n        trend := close_val <= prev_lower ? 1 : close_val >= prev_upper ? -1 : prev_trend\n    \n    [final_upper, final_lower, trend]\n\n// ---------- Main loop ----------\n\n// Inputs\ni_period = input.int(10, \"ATR Period\", minval=1)\ni_source = input.source(close, \"Source\")\ni_multiplier = input.float(3.0, \"ATR Multiplier\", minval=0.001)\n\n// Calculation\n[upper_band, lower_band, trend] = stbands(i_source, i_period, i_multiplier)\n\n// Plot\np_upper = plot(upper_band, \"Upper Band\", color=color.yellow, linewidth=2)\np_lower = plot(lower_band, \"Lower Band\", color=color.yellow, linewidth=2)\nfill(p_upper, p_lower, color=color.new(color.blue, 90), title=\"Band Fill\")\n",
+    "licence": "Apache-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/mihakralj/QuanTAlib/blob/main/lib/channels/stbands/stbands.pine"
+   }
+  },
+  {
+   "id": "3a4c47549f0f95ae5debca1cbede423534ee60db6d9a9c7780345d23f1f75098",
+   "kind": "indicator",
+   "title": "Swing High/Low Detection",
+   "description": "Levels and structure indicator by mihakralj, shared as open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "mihakralj",
+    "handle": "mihakralj"
+   },
+   "published_at": "2026-09-28T04:49:56Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// Licensed under the Apache License, Version 2.0\n// © mihakralj\n//@version=6\nindicator(\"Swing High/Low Detection\", \"SWINGS\", overlay=true)\n\n//@function Detects swing highs and swing lows using lookback period\n//@param lookback Number of bars on each side to confirm swing point\n//@param source_high Price series for swing high detection (typically high)\n//@param source_low Price series for swing low detection (typically low)\n//@returns Tuple [swing_high, swing_low] with swing point values (na if no swing)\nswings(simple int lookback, series float source_high, series float source_low) =>\n    if lookback <= 0\n        runtime.error(\"Lookback must be greater than 0\")\n    if lookback > 100\n        runtime.error(\"Lookback exceeds maximum of 100\")\n    bool is_swing_high = true\n    bool is_swing_low = true\n    if bar_index < lookback * 2\n        is_swing_high := false\n        is_swing_low := false\n    else\n        float center_high = source_high[lookback]\n        float center_low = source_low[lookback]\n        for i = 1 to lookback\n            if source_high[lookback - i] > center_high or source_high[lookback + i] > center_high\n                is_swing_high := false\n            if source_low[lookback - i] < center_low or source_low[lookback + i] < center_low\n                is_swing_low := false\n    float swing_high_value = is_swing_high ? source_high[lookback] : na\n    float swing_low_value = is_swing_low ? source_low[lookback] : na\n    [swing_high_value, swing_low_value]\n\n// ---------- Main loop ----------\n\n// Inputs\ni_lookback = input.int(5, \"Lookback Period\", minval=1, maxval=100, tooltip=\"Number of bars on each side to confirm swing point\")\ni_source_high = input.source(high, \"Source High\", tooltip=\"Price series for swing high detection\")\ni_source_low = input.source(low, \"Source Low\", tooltip=\"Price series for swing low detection\")\ni_show_high = input.bool(true, \"Show Swing High Lines\")\ni_show_low = input.bool(true, \"Show Swing Low Lines\")\ni_color_high = input.color(color.red, \"Swing High Color\")\ni_color_low = input.color(color.green, \"Swing Low Color\")\n\n// Calculation\n[swing_high, swing_low] = swings(i_lookback, i_source_high, i_source_low)\n\n// Track last confirmed swing points\nvar float last_swing_high = na\nvar float last_swing_low = na\n\n// Update swing levels\nif not na(swing_high)\n    last_swing_high := swing_high\n\nif not na(swing_low)\n    last_swing_low := swing_low\n\n// Plot swing levels as continuous lines\nplot(i_show_high ? last_swing_high : na, \"Swing High\", color=i_color_high, linewidth=2, style=plot.style_line)\nplot(i_show_low ? last_swing_low : na, \"Swing Low\", color=i_color_low, linewidth=2, style=plot.style_line)\n",
+    "licence": "Apache-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/mihakralj/QuanTAlib/blob/main/lib/reversals/swings/swings.pine"
+   }
+  },
+  {
+   "id": "2ff6fae5f462a126f8379e8ad676e2077883e233e45ecba1c686aa85d70b0a86",
+   "kind": "indicator",
+   "title": "Time Series Forecast (TSF)",
+   "description": "Statistics indicator by QuanTAlib, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "QuanTAlib",
+    "handle": "quantalib"
+   },
+   "published_at": "2026-09-28T04:49:56Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0\n// https://mozilla.org/MPL/2.0/\n// © QuanTAlib\n\n//@version=6\nindicator(\"Time Series Forecast (TSF)\", \"TSF\", overlay = true)\n\n//@function Time Series Forecast — fits a least-squares regression line to the\n//          lookback window and projects it one bar forward. Mathematically\n//          identical to LSMA(offset=1): TSF = intercept + slope, where\n//          intercept is the regression endpoint at the newest bar and slope\n//          is the per-bar rate of change. Uses reversed-x convention where\n//          x=0 is the newest bar.\n//@param source Series to forecast\n//@param period Lookback window (>= 2)\n//@returns Regression value projected one step ahead of the current bar\n//@reference Chande, T. (1994). The New Technical Trader. Wiley.\n//@reference TA-Lib: TA_TSF function\n//@optimized O(period) per bar via circular buffer; same linear regression as LSMA\ntsf(series float source, simple int period) =>\n    if period <= 1\n        runtime.error(\"Period must be greater than 1\")\n        source\n    else\n        int p = math.min(bar_index + 1, period)\n        if p <= 1\n            source\n        else\n            var array<float> buffer = array.new_float(period, na)\n            var int head = 0\n            array.set(buffer, head, source)\n            head := (head + 1) % period\n\n            float sum_y = 0.0\n            float sum_xy = 0.0\n            float sum_x = 0.0\n            float sum_x2 = 0.0\n            float count = 0.0\n\n            // Walk buffer: x=0 is newest, x increases going back\n            int idx = (head - 1 + period) % period\n            for i = 0 to p - 1\n                float val = array.get(buffer, idx)\n                if not na(val)\n                    sum_x += i\n                    sum_y += val\n                    sum_xy += i * val\n                    sum_x2 += i * i\n                    count += 1.0\n                idx := (idx - 1 + period) % period\n\n            if count <= 1.0\n                source\n            else\n                float denom = count * sum_x2 - sum_x * sum_x\n                if denom == 0.0\n                    source\n                else\n                    // slope: positive when price is falling (x=0=newest, higher x=older)\n                    float slope = (count * sum_xy - sum_x * sum_y) / denom\n                    float intercept = (sum_y - slope * sum_x) / count\n\n                    // LSMA = intercept (value at x=0, current bar)\n                    // TSF  = intercept - slope (project one step forward: x=-1)\n                    intercept - slope\n\n// ── Inputs ──\nint   p_period = input.int(14, \"Period\", minval = 2)\nfloat p_src    = input.source(close, \"Source\")\n\n// ── Calculation ──\nfloat out = tsf(p_src, p_period)\n\n// ── Plot ──\nplot(out, \"TSF\", color.yellow, 2)\n",
+    "licence": "MPL-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/mihakralj/QuanTAlib/blob/main/lib/trends_FIR/tsf/tsf.pine"
+   }
+  },
+  {
+   "id": "25057c246ab35c1b755f72fc6438b7363b9b61b901d69a133b8873174e6d5a9c",
+   "kind": "indicator",
+   "title": "MTF Bollinger Bands Trend Stop",
+   "description": "Volatility indicator by notprofessorgreen, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "notprofessorgreen",
+    "handle": "notprofessorgreen"
+   },
+   "published_at": "2026-09-04T12:15:57Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © notprofessorgreen\n\n//@version=5\nindicator(\"MTF Bollinger Bands Trend Stop\", overlay=true)\n\n// --- Input settings\ntf_input = input.timeframe(\"\", \"Resolution\", group=\"Timeframe Settings\")\nLength = input.int(20, 'Period', group = 'Settings')\nDeviation = input.int(2, 'Standard Deviation', group = 'Settings')\nMoneyRisk = input.float(1.00, 'Money Risk', group = 'Settings')\n\n// --- Security function calls for MTF\nhtf_close = request.security(syminfo.tickerid, tf_input, close)\nhtf_high = request.security(syminfo.tickerid, tf_input, high)\nhtf_low = request.security(syminfo.tickerid, tf_input, low)\n\n// --- Calculations on higher timeframe\nhtf_avg = request.security(syminfo.tickerid, tf_input, ta.sma(close, Length))\nhtf_dev = request.security(syminfo.tickerid, tf_input, ta.stdev(close, Length)) * Deviation\nhtf_smax = htf_avg + htf_dev\nhtf_smin = htf_avg - htf_dev\n\nvar trend = 0\n\nif (htf_close > htf_smax[1])\n    trend := 1\nelse if (htf_close < htf_smin[1])\n    trend := -1\n\n// Ensure bands don't retrace against trend\nif (trend > 0 and htf_smin < htf_smin[1])\n    htf_smin := htf_smin[1]\nif (trend < 0 and htf_smax > htf_smax[1])\n    htf_smax := htf_smax[1]\n\n// Calculate buffer bands with money risk\nhtf_bsmax = htf_smax + 0.5 * (MoneyRisk - 1) * (htf_smax - htf_smin)\nhtf_bsmin = htf_smin - 0.5 * (MoneyRisk - 1) * (htf_smax - htf_smin)\n\nif (trend > 0 and htf_bsmin < htf_bsmin[1])\n    htf_bsmin := htf_bsmin[1]\nif (trend < 0 and htf_bsmax > htf_bsmax[1])\n    htf_bsmax := htf_bsmax[1]\n\nvar float TrendLine = na\nvar color r = na\n\nif (trend > 0)\n    TrendLine := htf_bsmin\n    r := color.rgb(7, 124, 235)\n\nif (trend < 0)\n    TrendLine := htf_bsmax\n    r := color.rgb(172, 12, 221)\n\n// Trend calculations\nvar bool down = bool(na)\nvar bool up = bool(na)\nstop_line = float(na)\nline_color = color(na)\n\ncrossover_1 = ta.crossover(htf_high, htf_bsmax)\ncrossunder_1 = ta.crossunder(htf_low, htf_bsmin)\n\nif crossover_1\n    up := true\n    down := false\n    down\n    \nif crossunder_1\n    up := false\n    down := true\n    down\n\nchange_up = down[1] and up\nchange_down = up[1] and down\nstop_line := up ? htf_bsmin : down ? htf_bsmax : na\n\n// Plots\nline_color := stop_line == htf_bsmax ? color.rgb(172, 12, 221) : color.rgb(7, 124, 235)\np1 = plot(stop_line, style=plot.style_cross, linewidth=1, color=line_color)\n\nplotshape(change_down ? htf_bsmax : na, style=shape.circle, location=location.absolute, size=size.tiny, color=color.rgb(172, 12, 221), transp=20)\nplotshape(change_up ? htf_bsmin : na, style=shape.circle, location=location.absolute, size=size.tiny, color=color.rgb(7, 124, 235), transp=20)\n\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/TamaraKGreen/Pinescript-indicators-/blob/main/MTF%20Bollinger%20Bands%20Trend%20Stop.txt"
+   }
+  },
+  {
+   "id": "ca184eb07805a245d150dc556ea7e593d213fa0eb125fc648d121daf8e5ef80f",
+   "kind": "indicator",
+   "title": "Detrended CVD (Z-Score Oscillator)",
+   "description": "Volume indicator by Quantified Detrended CVD, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "Quantified Detrended CVD",
+    "handle": "quantified-detrended-cvd"
+   },
+   "published_at": "2026-07-15T06:36:44Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0\n// © Quantified Detrended CVD (Z-Score)\n\n//@version=5\nindicator(\"Detrended CVD (Z-Score Oscillator)\", format=format.price, precision=2)\n\n// 📊 1. THÔNG SỐ ĐẦU VÀO\ngrp_calc = \"=== CẤU HÌNH Z-SCORE ===\"\nlength = input.int(100, \"Chu kỳ chuẩn hóa (Window Size)\", minval=10, group=grp_calc, tooltip=\"Độ dài 'trí nhớ' của chỉ báo. Càng lớn, dữ liệu vĩ mô càng được giữ lại.\")\nlimit_std = input.float(2.0, \"Ngưỡng Cảnh báo (Standard Deviation)\", group=grp_calc)\n\n// 🧮 2. TÍNH TOÁN DELTA VÀ CVD THÔ (RAW CVD)\n// Lưu ý: Đây là thuật toán nội suy Delta cơ bản từ OHLC và Volume. \n// Trên thị trường Futures/Crypto chuẩn, bạn nên dùng dữ liệu Up/Down Volume thực tế của sàn.\nfloat tick_delta = 0.0\nif close > open\n    tick_delta := volume\nelse if close < open\n    tick_delta := -volume\nelse\n    tick_delta := 0\n\n// Tính Cumulative Delta vô hạn\nvar float raw_cvd = 0.0\nraw_cvd += tick_delta\n\n// 🚀 3. CHUẨN HÓA Z-SCORE (NORMALIZATION & DETRENDING)\n// Tính giá trị Trung bình (Mean) và Độ lệch chuẩn (StDev) của CVD trong N nến\nmean_cvd = ta.sma(raw_cvd, length)\nstd_cvd = ta.stdev(raw_cvd, length)\n\n// Công thức Z-Score: (Giá trị hiện tại - Giá trị trung bình) / Độ lệch chuẩn\n// Giới hạn lỗi chia cho 0 khi thị trường đóng băng\nfloat z_cvd = std_cvd != 0 ? (raw_cvd - mean_cvd) / std_cvd : 0.0\n\n// 🖌️ 4. TRỰC QUAN HÓA (VISUALIZATION)\n// Đổi màu Histogram dựa trên trạng thái Động lượng của CVD\ncolor hist_color = z_cvd > limit_std ? color.new(color.lime, 0) : \n                   z_cvd < -limit_std ? color.new(color.red, 0) : \n                   z_cvd > 0 ? color.new(color.teal, 40) : color.new(color.maroon, 40)\n\nplot(z_cvd, title=\"Z-Score CVD\", style=plot.style_histogram, color=hist_color, linewidth=2)\n\n// Vẽ các đường biên giới hạn (Bands)\nhline(0, \"Baseline\", color=color.gray, linestyle=hline.style_dotted)\nhline(limit_std, \"Upper Band (+2 Std)\", color=color.red, linestyle=hline.style_dashed)\nhline(-limit_std, \"Lower Band (-2 Std)\", color=color.lime, linestyle=hline.style_dashed)\n\n// Vẽ đường tín hiệu làm mượt (Signal Line)\nsignal_line = ta.ema(z_cvd, 9)\nplot(signal_line, title=\"Signal Line\", color=color.orange, linewidth=1)",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/tthanhvu002sgu/ea/blob/master/indicator/cvd.pine"
+   }
+  },
+  {
+   "id": "4617c9ea329cce35d5ffeae1333bb77683250f8036a9e2b62b844e58038b96df",
+   "kind": "indicator",
+   "title": "Day Trading Reversal System",
+   "description": "Candles and sessions indicator by goodgains, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "goodgains",
+    "handle": "goodgains"
+   },
+   "published_at": "2026-05-27T20:57:44Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © goodgains\n\n\n//@version=5\nindicator(\"Day Trading Reversal System\", overlay = true)\n\n// @keywords: day-reversal, rth-session, low-of-day, high-of-day, session-range, lod-tracker, hod-tracker, reversal-crossover, bullish-triangle, bearish-triangle, horizontal-lines, lod-high-line, hod-low-line, crossover-signal, crossunder-signal, intraday-levels, est-session-hours, bar-index-tracking, swing-reversal, price-breakout\n\n\nrth_timeinput = input.session(\"0900-1430\", title = 'RTH Hours (EST)') \nrth =  time(timeframe.period, rth_timeinput, \"America/New_York\")\n\nup_color = input.color(color.new(#19b419,10), title = 'Up Color')\ndown_color = input.color(color.new(#4b37af,10), title = 'Down Color')\n\n//  lod\nvar float lod = na\n\nif rth and not rth[1]\n    lod := low\nelse if rth and low < lod[1]\n    lod := low\nelse\n    lod := lod[1]\n\n\n// lod x\nvar float lod_x = na\n\nif low == lod and rth\n    lod_x := bar_index\nelse\n    lod_x := lod_x[1]\n\n\n// lod_h\nvar float lod_h = na\n\nif low == lod \n    lod_h := high\nelse\n    lod_h := lod_h[1]\n\n\n// lod_h_line\nvar line lod_h_line = na\n\nif lod != lod[1]\n    line.delete(lod_h_line[1])\n    lod_h_line := line.new(x1 = bar_index, y1 = lod_h, x2 = bar_index + 1, y2 = lod_h, extend = extend.right, color = up_color)\n    \n\n// upbar\nvar int upbar = na\n\n// arrow up\nvar label arrow_up = na\n\nif ta.crossover(close, lod_h)\n    upbar := bar_index\n    label.delete(arrow_up[1])\n    arrow_up := label.new(x = bar_index, y = low, xloc = xloc.bar_index, yloc = yloc.belowbar, color = up_color, style = label.style_triangleup, size = size.tiny)\nelse\n    upbar := upbar[1]\n\n\n\n\n//  hod\nvar float hod = na\n\nif rth and not rth[1]\n    hod := high\nelse if rth and high > hod[1]\n    hod := high\nelse\n    hod := hod[1]\n\n\n// hod x\nvar float hod_x = na\n\nif high == hod and rth\n    hod_x := bar_index\nelse\n    hod_x := hod_x[1]\n\n\n// hod_l\nvar float hod_l = na\n\nif high == hod \n    hod_l := low\nelse\n    hod_l := hod_l[1]\n\n\n// hod_l_line\nvar line hod_l_line = na\n\nif hod != hod[1]\n    line.delete(hod_l_line[1])\n    hod_l_line := line.new(x1 = bar_index, y1 = hod_l, x2 = bar_index + 1, y2 = hod_l, extend = extend.right, color = down_color)\n\n\n// downbar\nvar int downbar = na\n\n// arrow down\nvar label arrow_down = na\n\nif ta.crossunder(close, hod_l)\n    downbar := bar_index\n    label.delete(arrow_down[1])\n    arrow_down := label.new(x = bar_index, y = low, xloc = xloc.bar_index, yloc = yloc.abovebar, color = down_color, style = label.style_triangledown, size = size.tiny)\nelse\n    downbar := downbar[1]\n\n\n// delete arrows on new signal\nif hod != hod[1]\n    label.delete(arrow_down[1])  \n\nif lod != lod[1]\n    label.delete(arrow_up[1])\n\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/g-moe/Trading-Indicators/blob/main/Tradingview/day-trading-reversal-system.pine"
+   }
+  },
+  {
+   "id": "1d0055dd87406da0826e3e2af8bf92717caf754e11b4df9dd67ecb3c15705706",
+   "kind": "indicator",
+   "title": "S/R Levels",
+   "description": "Levels and structure indicator by Trade Confident, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "Trade Confident",
+    "handle": "trade-confident"
+   },
+   "published_at": "2026-03-16T14:33:19Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// ©Trade Confident\n\n// License Agreement: You are granted a personal license agreement to the following script for use on ONE TrdingView account. \n// You may NOT resell or distribute this script in any way, this is strictly prohibited and is tracked on TradingView.\n// PLEASE READ: We will take legal action if this script is shared with another TradingView account or modified and reposted on TradingView IN ANY WAY.\n\n//@version=5\nindicator('S/R Levels', overlay=true)\nclrup = input.color(#ee2323,\"\",inline = \"ree\")\nclrdown = input.color(#20e482,\"\",inline = \"ree\")\n\n// Inputs\nlen = input(12, title='Pivot Length')\ndist = input(0.5, title='Distance from price to labels')\n// Pivot Points\nph = ta.pivothigh(len, len)\npl = ta.pivotlow(len, len)\n// Continuous Pivot Points Values\nph_fix = ta.valuewhen(ph, high[len], 0)\npl_fix = ta.valuewhen(pl, low[len], 0)\n// ATR\natr = ta.atr(21)\n// Pivot Labels\nph_val = math.round_to_mintick(high[len])\npl_val = math.round_to_mintick(low[len])\n\nline linph = na,linph := linph[1]\nline linpl = na,linpl := linpl[1]\nvar arrLin = array.new_line(0)\nif ph\n    label.new(bar_index[len], high[len] + atr * dist, style=label.style_label_down, color=color.rgb(29, 42, 57), textcolor=color.rgb(255, 255, 255), size=size.normal, text=str.tostring(ph_val, format.mintick))\n    linph := line.new(bar_index[len],high[len],bar_index,high[len],width = 2, color = clrup)\n    array.insert(arrLin,0,linph)\n\nif pl\n    label.new(bar_index[len], low[len] - atr * dist, style=label.style_label_up, color=color.rgb(29, 42, 57), textcolor=color.rgb(255, 255, 255), size=size.normal, text=str.tostring(pl_val, format.mintick))\n    linpl := line.new(bar_index[len],low[len],bar_index,low[len],width = 2,color = clrdown)\n    array.insert(arrLin,0,linpl)\n\n// Pivot Lines Plots\n//plot(ph_fix, offset=-len, style=plot.style_circles, color=color.new(color.red, 0), linewidth=2, title='Resistance')\n//plot(pl_fix, offset=-len, style=plot.style_circles, color=color.new(color.green, 0), linewidth=2, title='Support')\nline.set_x2(linph,bar_index-len)    \nline.set_x2(linpl,bar_index-len)    \n\nif array.size(arrLin) > 0\n    for i = 0  to array.size(arrLin) -1 \n        p  = array.get(arrLin,i)\n        if line.get_y1(p) >= close  \n            line.set_color(p,clrup)\n        else\n            line.set_color(p,clrdown)\n        ",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/alboogycOdR/dev-projects/blob/main/tradingviewlabs/_SOURCECODES_/Pro_Indicator_Pack%20TradingView%2015%20indicators/Support-Resistance%20Levels.txt"
+   }
+  },
+  {
+   "id": "c638c5d26fc84a9436f2ecfdaa45ae4918d6829379f25a0e051bb252ded6e48e",
+   "kind": "indicator",
+   "title": "Vaultfy Sentiment Apex",
+   "description": "Candles and sessions indicator by regalouisei, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "regalouisei",
+    "handle": "regalouisei"
+   },
+   "published_at": "2026-02-25T08:23:03Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// @vaultfy\n//@version=5\n\nindicator(\"Vaultfy Sentiment Apex\", shorttitle=\"Vaultfy SA\", overlay=false)\n\ntf        = input.timeframe(\"M\", \"Base Timeframe\")\nrsiLen    = input.int(14, \"RSI Length\", minval=2)\nnormLen   = input.int(42, \"Normalization Window\", minval=12)\nsmoothRSI = input.int(4, \"RSI Smoothing (EMA)\", minval=1)\nsmoothFin = input.int(5, \"Final Smoothing (EMA)\", minval=1)\n\nmult      = input.float(1.10, \"Amplitude Multiplier\", step=0.05)\noffset    = input.float(0.0, \"Offset (-2 to +2)\", step=0.5, minval=-2.0, maxval=2.0)\n\nshowFill         = input.bool(true,  \"Show Fill Between Lines\")\nfillTransparency = input.int(70,     \"Line Fill Transparency\", minval=0, maxval=90)\nzoneTransp       = input.int(85,     \"Static Zone Transparency\", minval=0, maxval=100)\n\nrsiRaw = request.security(syminfo.tickerid, tf, ta.rsi(close, rsiLen))\nrsiSm  = ta.ema(rsiRaw, smoothRSI)\n\nlowR   = ta.lowest(rsiSm, normLen)\nhighR  = ta.highest(rsiSm, normLen)\n\nval0   = 100 * (rsiSm - lowR) / math.max(highR - lowR, 1e-10)\nval1   = ta.ema(val0, smoothFin)\nval2   = 100 - val1\n\nlineRed   = math.max(0, math.min(100, val1 * mult + offset))\nlineGreen = math.max(0, math.min(100, val2 * mult + offset))\n\nplotRed   = plot(lineRed,   title=\"Red Line\",   color=color.new(color.red,   0), linewidth=2)\nplotGreen = plot(lineGreen, title=\"Green Line\", color=color.new(color.green, 0), linewidth=2)\n\nh100 = plot(100, \"Level 100\", color=color.new(color.gray, 50), display=display.none)\nh95  = plot(95,  \"Level 95\",  color=color.new(color.red, 50),  display=display.none)\nh5   = plot(5,   \"Level 5\",   color=color.new(color.green, 50),display=display.none)\nh0   = plot(0,   \"Level 0\",   color=color.new(color.gray, 50), display=display.none)\n\nfill(h100, h95, color=color.new(color.red, zoneTransp),   title=\"Top Red Zone\")\nfill(h5, h0,    color=color.new(color.green, zoneTransp), title=\"Bottom Green Zone\")\n\nhline(50, \"Middle\", color=color.new(color.gray, 50), linestyle=hline.style_dotted)\n\nisExtreme = (lineRed >= 95 or lineRed <= 5 or lineGreen >= 95 or lineGreen <= 5)\n\nfillBaseColor = lineRed > lineGreen ? color.red : color.green\ndynamicColor  = (showFill and isExtreme) ? color.new(fillBaseColor, fillTransparency) : color.new(color.white, 100)\n\nfill(plotRed, plotGreen, color=dynamicColor, title=\"Dynamic Fill\")\n\nshowZeroHist = input.bool(false, \"Show Net Histogram\")\nnet = lineRed - lineGreen\nplot(showZeroHist ? net : na, \"Net Value\", color = net > 0 ? color.new(color.red, 0) : color.new(color.green, 0), style=plot.style_histogram)\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/regalouisei/collect-tradingview/blob/main/pinescript/oscillators/vaultfy-sentiment-apex.pine"
+   }
+  },
+  {
+   "id": "3b3d1998800945826e8e2528ca7c58c8650056b22c70835bf379de366b7856ac",
+   "kind": "indicator",
+   "title": "Volatility-Adjusted Momentum Oscillator (VAMO)",
+   "description": "Volatility indicator by TPTBusiness, shared as open-source Pine code under the MIT licence. It draws in its own pane.",
+   "author": {
+    "name": "TPTBusiness",
+    "handle": "tptbusiness"
+   },
+   "published_at": "2025-11-02T07:15:43Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "//@version=6\n// MIT License\n// Copyright (c) 2025 TPTBusiness\n// Permission is hereby granted, free of charge, to any person obtaining a copy\n// of this software and associated documentation files (the \"Software\"), to deal\n// in the Software without restriction, including without limitation the rights\n// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n// copies of the Software, and to permit persons to whom the Software is\n// furnished to do so, subject to the following conditions:\n// The above copyright notice and this permission notice shall be included in all\n// copies or substantial portions of the Software.\n// THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n// SOFTWARE.\n\nindicator(title=\"Volatility-Adjusted Momentum Oscillator (VAMO)\", shorttitle=\"VAMO\", overlay=false)\n\n// Inputs\nmomLength = input.int(14, title=\"Momentum Length\", minval=1)\nvolLength = input.int(14, title=\"Volatility Length (ATR)\", minval=1)\nsignalLength = input.int(9, title=\"Signal Line Length (EMA)\", minval=1)\nobLevel = input.float(70, title=\"Overbought Level\", minval=0)\nosLevel = input.float(30, title=\"Oversold Level\", minval=0)\n\n// Calculations\nmomentum = ta.roc(close, momLength) // Standard rate of change (momentum)\nvolatility = ta.atr(volLength) // Average True Range as volatility measure\nvamo = momentum / volatility * 100 // Adjust momentum by volatility and scale for readability\nsignal = ta.ema(vamo, signalLength) // EMA signal line for crossovers\n\n// Plots\nplot(vamo, color=color.blue, title=\"VAMO Oscillator\", linewidth=2)\nplot(signal, color=color.orange, title=\"Signal Line\", linewidth=1)\nhline(obLevel, \"Overbought\", color=color.red, linestyle=hline.style_dashed)\nhline(osLevel, \"Oversold\", color=color.green, linestyle=hline.style_dashed)\n\n// Background colors for overbought/oversold\nbgcolor(vamo > obLevel ? color.new(color.red, 90) : na)\nbgcolor(vamo < osLevel ? color.new(color.green, 90) : na)\n",
+    "licence": "MIT",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/TPTBusiness/VAMOStrategy/blob/main/Indicator.pine"
+   }
+  },
+  {
+   "id": "87c0f2e1e926dcc0fdc411f7ee88e188c4b668b42f59af52cb73ad9e9a9f8a76",
+   "kind": "indicator",
+   "title": "Standardized MA Difference",
+   "description": "Moving averages indicator by Zettt, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "Zettt",
+    "handle": "zettt"
+   },
+   "published_at": "2025-09-23T17:18:43Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © Zettt\n// Plots difference of price to the difference of two EMAs in percent. The idea is that if price is rallying strongly\n// it would naturally travel further away from a moving average. By calculating the percentage,\n// we can standardize trend strength.\n\n//@version=5\nindicator(title=\"Standardized MA Difference\", shorttitle=\"Standardized MA Diff\", timeframe=\"\", timeframe_gaps=true)\n// Getting inputs\nfastEMALength = input(title = \"Fast Length\", defval = 21)\nslowEMALength = input(title = \"Slow Length\", defval = 55)\nsrc = input(title = \"Source\", defval = close)\nlookback = input.int(defval = 50, title = \"Percentile Lookback\", minval = 1, group = \"Percentile Ranking\")\npercentileEMALength = input.int(defval = 20, title = \"EMA Length\", minval = 1, group = \"Percentile Ranking\")\npercentileRankExtreme = input.int(defval = 5, title = \"Percentile Extreme\", minval = 1, step = 1, group = \"Percentile Ranking\")\n\n// Calculating\nfastEMA = ta.ema(src, fastEMALength)\nslowEMA = ta.ema(src, slowEMALength)\nmacd = fastEMA - slowEMA\n\ndifferenceToPrice = macd / close * 100\n\n// Color gradient\nbottomColor = input.color(defval = color.rgb(255, 235, 59, 0), title = \"Bottom Color\", group = \"Gradient\")\ntopColor = input.color(defval = color.rgb(242, 54, 69, 0), title = \"Bottom Color\", group = \"Gradient\")\n// bottomColorCutoff = input.float(defval = 0, title = \"Bottom Color Cutoff\", minval = 0, step = 0.1, group = \"Gradient\", tooltip = \"Below this value, the gradient will not take effect, i.e. the color will stay constant.\")\n// topColorCutoff = input.float(defval = 100, title = \"Top Color Cutoff\", minval = 0, step = 0.1, group = \"Gradient\", tooltip = \"Above this value…\")\n\n// Calculations and plots\npercentileRank = ta.percentrank(differenceToPrice, lookback)\npercentileEMA = ta.ema(percentileRank, percentileEMALength)\n\n\n// Plotting\nhline(0, \"Zero Line\", color = color.new(#787B86, 50))\n\n// plot(macd,   title = \"MACD\",   color = #2962FF)\nplot(differenceToPrice,   title = \"Difference to Price in Percent\",   color = #2862ff)\n\n// plot percentile ranking\nplot(percentileRank, title = \"Diff to Price Percentile Rank\", color = color.from_gradient(percentileRank, 0, 100, bottomColor, topColor), display=display.none)\nplot(percentileEMA, title = \"Diff to Price Percentile EMA\", color = color.new(#64b5f6, 20), display=display.none)\nplot(percentileRank < percentileRankExtreme ? percentileRank : na, title=\"Lowest Rank\", color=color.rgb(255, 235, 59, 80), style=plot.style_columns, histbase=100, display=display.none)\nplot(percentileRank > 100-percentileRankExtreme ? percentileRank : na, title=\"Highest Rank\", color=color.rgb(242, 54, 69, 80), style=plot.style_columns, histbase=0, display=display.none)\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/Zettt/pinescripts/blob/main/Standardized%20MA%20Difference.pine"
+   }
+  },
+  {
+   "id": "2030942b677662e86195054e296e0cd2e97d4e05dcdd6ac86539534a832065e5",
+   "kind": "indicator",
+   "title": "John F. Ehlers - Zero Mean Roofing Filter",
+   "description": "Statistics indicator by palitoj_endthen, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "palitoj_endthen",
+    "handle": "palitoj-endthen"
+   },
+   "published_at": "2025-07-12T13:25:48Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © palitoj_endthen\n\n//@version=5\nindicator(title = 'John F. Ehlers - Zero Mean Roofing Filter', shorttitle = 'roofing_filter', overlay = false)\n\n\n// input\nhp_period = input.int(defval = 48, title = 'High-Pass Period', group = 'Value', tooltip = 'Determines the High-Pass period, default to 48')\nsrc = input.source(defval = ohlc4, title = 'Source', group = 'Options', tooltip = 'Detmerines the source of input data, default to ohlc4')\n\n\n// variable\nalpha1 = .00\nhp = .00\na1 = .00\nb1 = .00\nc1 = .00\nc2 = .00\nc3 = .00\nfilt = .00\nfilt2 = .00\n\n\n// roofing filter\n// high-pass filter cycling components whose periods are shorter than 48 bars\npi = 2*math.asin(1)\nalpha1 := (math.cos(360/hp_period) + math.sin(360/hp_period)-1)/math.cos(360/hp_period)\nhp := (1-alpha1/2)*(src-src[1])+(1-alpha1)*nz(hp[1])\n\n// smooth with super smoother filter\na1 := math.exp(-1.414*pi/10)\nb1 := 2*a1*math.cos(1.414*180/10)\nc2 := b1\nc3 := -a1*a1\nc1 := 1-c2-c3\nfilt := c1*(hp+hp[1])/2+c2*nz(filt[1])+c3*nz(filt[2])\nfilt2 := (1-alpha1/2)*(filt-filt[1])+(1-alpha1)*nz(filt2[1])\n\n\n// visualize\n_color = filt > filt[1] and filt > 0 ? color.green : filt > filt[1] and filt < 0 ? color.new(color.green, 80) : filt < filt[1] and filt > 0 ? color.new(color.red, 80) : color.red\ncolor_con = filt > filt2 ? color.green : color.red\n_color_con = filt > filt2\nplot(filt, color = _color, linewidth = 3)\nhline(0, color = color.gray, linestyle = hline.style_dashed)\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/palitojendthen/pinescript/blob/main/indicator/zero_mean_roofing_filter.pine"
+   }
+  },
+  {
+   "id": "14f19228df23ba0ac961d943db4297cd9043e9efb0af89527d19f20b56c28ffe",
+   "kind": "indicator",
+   "title": "Marubozu Candle",
+   "description": "Candles and sessions indicator by Rustyribcage, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "Rustyribcage",
+    "handle": "rustyribcage"
+   },
+   "published_at": "2025-06-09T22:29:53Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © Rustyribcage\n// A bullish marubozu candle is a candle that has no or very little upper wick, indicating strong bullish conviction in the market. \n//@version=5\n\nindicator(\"Marubozu Candle\")\n// Marubozu candle // -------------------------------------------------------------------------------------------------------------- {\n\n//USER INPUTS\n// Calculate the size of the candle's body\nbodySize = math.abs(close - open)\n\n// Calculate the size of the upper shadow\nupperShadow = high - math.max(open, close)\n\n// Calculate the size of the lower shadow\nlowerShadow = math.min(open, close) - low\n\n// Calculate the size of the upper body (excluding lower shadow)\nupperBody = math.abs(close - open) - lowerShadow\n//-----------------------------------------------------------------------------------\n\n\n// Calculate the total size of the candle (including both upper and lower body)\ntotalCandleSize = high - low\n\n// Calculate the close price of the current bar\ncurrentClose = close\n\n// Calculate the close price of the previous bar (shifted by 1)\npreviousClose = ta.sma(close, 1)\n\n// Condition: Check if the current bar's close is greater than the previous bar's close\nincreasedValue = currentClose > previousClose\n\n// Calculate the percentage of the lower shadow compared to the total candle size\nlowerShadowPercentage = lowerShadow / totalCandleSize * 100\nupperShadowPercentage = upperShadow / totalCandleSize * 100\n\n// Condition: Lower shadow is less than 5% of the total candle size\nsmallLowerWick = lowerShadowPercentage < 10 // was 5\nsmallUpperWick = upperShadowPercentage < 5 // was 5\nlargeUpperWick = upperShadowPercentage > 90\n\n// Calculate the body size of the current candle Already done?\n// bodySize = zen.getBodySize()\n\n// Calculate the percentage of the body size relative to the candle's total range\nbodyPercentage = bodySize / (high - low)\n\n// Define the threshold for the body percentage (e.g., 70%)\nthreshold = 0.7\n\n// Condition for Long Entry\nlargeBody = bodyPercentage >= threshold\n\nbullishMarubozu = smallLowerWick and smallUpperWick and close > open // and increasedValue//and open < close\n// bullishMarubozu2 = \nshootingStarCandle3 = bodySize < 0.05 * upperShadow and lowerShadow >= bodySize * 2 and largeUpperWick\n// and largeBody and close > open\n\n// Plot signals on the chart\nplotshape(bullishMarubozu, style=shape.triangleup, location=location.belowbar, color=color.rgb(76, 175, 79, 62), size=size.small)\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/Rustyribcage/Public_Trading_Indicators/blob/main/Marubozu_Candle.pine"
+   }
+  },
+  {
+   "id": "10e9fb1889ef6795a1a8380066f964688913eb1bdfb0cdc0b22b8af1e83a4a45",
+   "kind": "indicator",
+   "title": "Colored ADX & DI Crossings w/ Options - Llipe",
+   "description": "Oscillators indicator by budinweig, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "budinweig",
+    "handle": "budinweig"
+   },
+   "published_at": "2025-05-31T01:56:08Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © budinweig\n// This script signals DI crossings to provide a simple LONG/ SHORT signal and provides a value to the distance with multiple coloring options.\n\n//@version=5\nindicator(title=\"Colored ADX & DI Crossings w/ Options - Llipe\", shorttitle=\"Colored ADX & DI Crossing\", format=format.price, precision=4)\n\nsolidADX            = input.bool(false, \"Use solid color ADX?\")\nadxLineColor        = input.color(color.white, \"ADX Line Color\")\n\ncoloredBgColor      = input.bool(true, \"Colored BG Color?\")\nWASHEDRED           = color.new(color.red, 60)\nWASHEDGREEN         = color.new(color.green, 60)\nlongBgColor         = input.color(WASHEDGREEN, \"DI+ > DI- BG Color - Long\")\nshortBgColor        = input.color(WASHEDRED, \"DI+ < DI- BG Color - Short\")\n\nshowVerticalLines   = input.bool(true, \"Show Vertical Lines?\")\nvlineLongColor      = input.color(#006400, \"Vertical Line - Long\")\nvlineShortColor     = input.color(#8B0000, \"Vertical Line - Short\")\n\nshowSignals         = input.bool(true, \"Show Signals?\")\n\nlen                 = input.int(17, minval=1, title=\"DI Length\")\nlensig              = input.int(14, title=\"ADX Smoothing\", minval=1, maxval=50)\nadxBaseLevel        = input.int(23, title=\"ADX Base Level\", minval=1, maxval=100)\n\n[diplus, diminus, adx] = ta.dmi(len, lensig)\n\ndidiff = diplus > diminus ? diplus - diminus : diminus - diplus\ndiLongSignal = ta.crossover(diplus, diminus)\ndiShortSignal = ta.crossunder(diplus, diminus)\n\n// Background\nactiveBgColor = diplus >= diminus ? longBgColor : shortBgColor\nbgcolor(coloredBgColor ? activeBgColor : na)\n\n// Vertical Lines\nif (diLongSignal and showVerticalLines)\n    line.new(bar_index, adxBaseLevel, bar_index, adxBaseLevel * 1.01, extend = extend.both, color = vlineLongColor, style = line.style_solid, width = 2)\nif (diShortSignal and showVerticalLines)\n    line.new(bar_index, adxBaseLevel, bar_index, adxBaseLevel * 1.01, extend = extend.both, color = vlineShortColor, style = line.style_solid, width = 2)\n\n// ADX Line\nadxColor = diplus >= diminus ? color.green : color.red\nplot(adx, color=(solidADX ? adxLineColor : adxColor), title=\"Colored ADX\", linewidth=3)\nplot(adxBaseLevel, color = color.silver, title=\"Base Level\", linewidth=1)\n\n// Signal Shapes\nplotshape(diLongSignal and showSignals, title=\"Long\", location = location.bottom, style = shape.triangleup, size = size.tiny, color = color.green, textcolor = color.white)\nplotshape(diShortSignal and showSignals, title=\"Short\", location = location.top, style = shape.triangledown, size = size.tiny, color = color.red, textcolor = color.white)\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/llipe/tradingview-scripts/blob/main/colored-adx-di-crossings.pine"
+   }
+  },
+  {
+   "id": "036e404da562b14435af944ebc7c7c60775d820a1d9f2daacb11f43bc12caeee",
+   "kind": "indicator",
+   "title": "PriceCatch Volume Analysis Fixed Range",
+   "description": "Volume indicator by PriceCatch, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "PriceCatch",
+    "handle": "pricecatch"
+   },
+   "published_at": "2025-04-25T01:31:08Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © PriceCatch\n//@version=5\nindicator(\"PriceCatch Volume Analysis Fixed Range\", shorttitle='PriceCatch Volume Analysis Fixed Range', overlay=true, max_bars_back=500)\nlbp = input.int(20,title=\"Lookback period\", minval = 3, maxval=498, display=display.none, tooltip=\"Lookback period from current bar for Volume analysis\")\nupvolbg = input.color(#0098b3, title=\"Up Volume\", group=\"Volume Box Background Color\", inline=\"xx0\", display=display.none)\ndnvolbg = input.color(#e9b60d, title=\"Down Volume\", group=\"Volume Box Background Color\", inline=\"xx0\", display=display.none)\n\nvar float volprcnt = na \nvar startBar = 0\nvar endBar = 0\n\nif barstate.islast\n    startBar := bar_index[lbp-1]\n    endBar := bar_index\n\n    float upvol = 0\n    float dnvol = 0\n    int upcount = 0 \n    int dncount = 0\n\n    var label lbl_vpfvol = na \n    var line connectline = na \n    for i = 0 to lbp-1\n\t\tbuy_distance = high[i] - low[i]\n\t\tsell_distance = (open[i] - low[i]) + (high[i] - close[i])\n\t\ttot_distance = buy_distance + sell_distance\n\t\tbuy_volume = buy_distance / tot_distance * volume[i]\n\t\tsell_volume = sell_distance / tot_distance * volume[i]\n\t\tupvol += buy_volume\n\t\tdnvol += sell_volume\n\t\t\t\n        if close[i] > open[i]\n            upcount += 1\n        if close[i] <= open[i]\n            dncount += 1\n\n    volprcnt := (100 * upvol / dnvol) - 100 \n    _volan_bx_color = volprcnt > 0 ? upvolbg : dnvolbg\n    _volan_ln_color = _volan_bx_color\n\n    _txt0 = \"LAST \" + str.tostring(lbp) + \" BARS VOLUME (Vol) \\n\"\n    volstrength = upvol > dnvol ? \"Up Vol > Down Vol \" : \"Up Vol < Down Vol \"    \n    _txt1 = \"by: \" + str.tostring(volprcnt,format.percent)  + \"\\n\" \n\t_txt2 = \"(\" + str.tostring(upcount)  + \")  Up Vol   : \" + str.tostring(upvol, format.volume) + \"\\n\"\n\t_txt3 = \"(\" + str.tostring(dncount)  + \")  Down Vol : \" + str.tostring(dnvol, format.volume)\n\n    finaltxt = _txt0 + volstrength + _txt1 + _txt2 + _txt3\n\typos = math.min(low[lbp], low)\n    lbl_vpfvol := label.new(x=bar_index+1, y=ypos, text=finaltxt, color=_volan_bx_color,textcolor = #1b1b1b,text_font_family = font.family_monospace, style = label.style_label_left, textalign = text.align_left) \n    label.delete(lbl_vpfvol[1]) \n    connectline := line.new(startBar, ypos, endBar,ypos, style=line.style_arrow_both, color=color.new(_volan_ln_color,60))\n    line.delete(connectline[1])\n\n// eof",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/PriceCatch/AdvantEdge-TA/blob/main/Pinescripts/PriceCatch%20Volume%20Analysis%20Fixed%20Range.pinescript"
+   }
+  },
+  {
+   "id": "957fd85b50ede7b5246b204af46fa0f0b0374dd92efa75b02c6755c5ea772334",
+   "kind": "indicator",
+   "title": "Custom Session OHL",
+   "description": "Candles and sessions indicator by ryangaraygay, shared as open-source Pine code under the MIT licence. It draws on the price chart.",
+   "author": {
+    "name": "ryangaraygay",
+    "handle": "ryangaraygay"
+   },
+   "published_at": "2025-04-10T17:36:41Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "//@version=5\nindicator(\"Custom Session OHL\", shorttitle = \"CUST OHL\", overlay=true)\n\nmy_session = input.session(\"0830-0930\", title='Custom Session')\n\n\nvar color color_open = input.color(color.yellow, \"Open\", inline = \"O\")\nvar bool extend_open = input.bool(true, \"Extend\", inline = \"O\")\nvar string text_open = input.string(\"Open\", \"\", inline = \"O\")\n\nvar color color_high = input.color(color.blue, \"High\", inline = \"H\")\nvar bool extend_high = input.bool(true, \"Extend\", inline = \"H\")\nvar string text_high = input.string(\"High\", \"\", inline = \"H\")\n\nvar color color_low = input.color(color.orange, \"Low\", inline = \"L\")\nvar bool extend_low = input.bool(true, \"Extend\", inline = \"L\")\nvar string text_low = input.string(\"Low\", \"\", inline = \"L\")\n\nvar int label_offset = input.int(50, \"Label Offset\")\n\nin_session = time(timeframe.period, my_session)\n\nis_new_session(res, sess) =>\n    t = time(res, sess)\n    na(t[1]) and not na(t) or t[1] < t\n\nnew_session = is_new_session(\"1440\", my_session)\n\nis_newbar(res,sess) =>\n    t = time(res,sess)\n    not na(t) and (na(t[1]) or t > t[1])\nnew = (is_newbar(\"1440\", my_session) ? 1 : 0)\n\nvar float reg_open = na\nreg_open := new_session ? open : in_session ? reg_open[1] : (extend_open ? reg_open[1] : na)\nplot_open = plot(reg_open, style = plot.style_circles, linewidth=1, color=color_open, title=\"open\")\n\nvar float reg_high = close\nvar float reg_low = close\nreg_high := new_session ? high : in_session ? math.max(high, reg_high[1]) : (extend_high ? reg_high[1] : na)\nreg_low := new_session ? low : in_session ? math.min(low, reg_low[1]) : (extend_low ? reg_low[1] : na)\nplot(reg_high, style=plot.style_circles, color=color_high, linewidth=1, title=\"high\")\nplot(reg_low, style=plot.style_circles, color=color_low, linewidth=1, title=\"low\")\n\nvar label_open = label.new(na, na, text = text_open, style = label.style_none, textcolor = color_open)\nlabel.set_x(label_open, bar_index + label_offset)\nlabel.set_y(label_open, reg_open[0])\n\nvar label_high = label.new(na, na, text = text_high, style = label.style_none, textcolor = color_high)\nlabel.set_x(label_high, bar_index + label_offset)\nlabel.set_y(label_high, reg_high[0])\n\nvar label_low = label.new(na, na, text = text_low, style = label.style_none, textcolor = color_low)\nlabel.set_x(label_low, bar_index + label_offset)\nlabel.set_y(label_low, reg_low[0])",
+    "licence": "MIT",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/ryangaraygay/tradingview-indicators/blob/main/custom-session-ohlc.pine"
+   }
+  },
+  {
+   "id": "33d6d4c3c2dc4df3502237035c48b28400b47510eec76dbc2d6c2d708ef4b841",
+   "kind": "indicator",
+   "title": "trend-line and res-line",
+   "description": "Trend indicator by kaneda_cocoroto_co, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "kaneda_cocoroto_co",
+    "handle": "kaneda-cocoroto-co"
+   },
+   "published_at": "2025-02-05T02:11:33Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © kaneda_cocoroto_co\n\n//@version=6\nindicator(title = \"trend-line and res-line\", overlay = true)\n\n// input 値を取得するバーの場所\nforward = input.int(defval = 5, title = \"点1：最近のローソク足のポイント\", minval = 1, maxval = 31)\nback = input.int(defval = 25, title = \"点2：過去のローソク足のポイント\", minval = 1, maxval = 62)\nhigh_y_offset = input.int(defval = 200, title = \"トレンドライン上：オフセット\", minval = -10000, maxval = 10000)\nlow_y_offset = input.int(defval = 200, title = \"トレンドライン下：オフセット\", minval = -10000, maxval = 10000)\n\n// トレンドライン上\nvar line1 = line.new(bar_index[0], high[0], bar_index, low, extend = extend.right, color = color.blue)\nline.set_xy1(line1, bar_index[back], high[back])\nline.set_xy2(line1, bar_index[forward], high[forward])\n// var label1 = label.new(bar_index, high, text = \"トレンドライン[high]\",\n//  style = label.style_label_lower_right, size = size.small)\n// label.set_xy(label1,bar_index, line.get_price(line1, bar_index))\n\n// highを上下にずらしたラインを描画\nvar line1_offset = line.new(bar_index[0], high[0], bar_index, low, extend = extend.right,\n color = color.blue, style = line.style_dotted)\nline.set_xy1(line1_offset, bar_index[back], high[back] - high_y_offset)\nline.set_xy2(line1_offset, bar_index[forward], high[forward] - high_y_offset)\n// var label1_offset = label.new(bar_index, high, text = \"トレンドライン[high-offset]\",\n//  style = label.style_label_lower_right, size = size.small)\n// label.set_xy(label1_offset,bar_index, line.get_price(line1_offset, bar_index))\n\n// トレンドライン下\nvar line2 = line.new(bar_index[0], high[0], bar_index, low, extend = extend.right, color = color.orange)\nline.set_xy1(line2, bar_index[back], low[back])\nline.set_xy2(line2, bar_index[forward], low[forward])\n// var label2 = label.new(bar_index, low, text = \"トレンドライン[low]\",\n//  style = label.style_label_lower_right, size = size.small)\n// label.set_xy(label2,bar_index, line.get_price(line2, bar_index))\n\n// lowを上下にずらしたラインを描画\nvar line2_offset = line.new(bar_index[0], high[0], bar_index, low, extend = extend.right,\n color = color.orange, style = line.style_dotted)\nline.set_xy1(line2_offset, bar_index[back], low[back] + low_y_offset)\nline.set_xy2(line2_offset, bar_index[forward], low[forward] + low_y_offset)\n// var label2_offset = label.new(bar_index, high, text = \"トレンドライン[low-offset]\",\n//  style = label.style_label_lower_right, size = size.small)\n// label.set_xy(label2_offset,bar_index, line.get_price(line2_offset, bar_index))\n",
+    "licence": "MPL-2.0",
+    "version": "6",
+    "use_count": 0,
+    "code_link": "https://github.com/koji-mizumoto/Pine-Script-Trial/blob/main/kaneda/20250129_/trend-res-line_ind.pine"
+   }
+  },
+  {
+   "id": "ec906ec780e8c1675a7dc132e9d2e4b46a5820cc2173813c86faac0d8a3e86c6",
+   "kind": "indicator",
+   "title": "Parabolic Stop and Reverse (Trend Following)",
+   "description": "Trend indicator by AugustoErni, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "AugustoErni",
+    "handle": "augustoerni"
+   },
+   "published_at": "2024-08-09T12:11:44Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © AugustoErni\n\n//@version=5\nindicator(title=\"Parabolic Stop and Reverse (Trend Following)\", shorttitle=\"PSAR (Trend Following)\", overlay=true)\n\nstartTooltip = \"It defines how sensitive the PSAR is at the beginning of a new trend.\"\nstartAccelerationFactor = input.float(defval=0.02, title=\"start Acceleration Factor (AF)\", step=0.01, tooltip=startTooltip)\n\nincrementTooltip = \"This is the value by which the AF increases each time a new extreme point (EP) is recorded. An EP is the highest high of the current uptrend or the lowest low of the current downtrend. Each time a new EP is recorded, the AF increases by the increment value.\"\nincrementAccelerationFactor = input.float(defval=0.02, title=\"Increment (AF) for Extreme Point (EP)\", step=0.01, tooltip=incrementTooltip)\n\nmaximumTooltip = \"Even if new EPs continue to be recorded, the AF will not increase beyond this maximum value. It acts as a control on the AF to prevent it from becoming too large, which would cause the PSAR to become too sensitive to minor price changes and flip too often.\"\nmaximumAccelerationFactor = input.float(defval=0.2, title=\"Maximum Value (AF) Reaches\", step=0.1, tooltip=incrementTooltip)\n\nvar bool isLong = na\nvar float accelerationFactor = na\nvar float extremePoint = na\nvar float stopAndReverse = na\nif (na(stopAndReverse[1]))\n    isLong := true\n    accelerationFactor := startAccelerationFactor\n    extremePoint := high\n    stopAndReverse := close\nelse if (isLong[1])\n    if (low < stopAndReverse[1])\n        isLong := false\n        accelerationFactor := startAccelerationFactor\n        extremePoint := low\n        stopAndReverse := extremePoint[1]\n    else\n        isLong := true\n        stopAndReverse := stopAndReverse[1] + accelerationFactor[1] * (extremePoint[1] - stopAndReverse[1])\n        if (high > extremePoint[1])\n            accelerationFactor := math.min(maximumAccelerationFactor, accelerationFactor[1] + incrementAccelerationFactor)\n            extremePoint := high\nelse if (high > stopAndReverse[1])\n    isLong := true\n    accelerationFactor := startAccelerationFactor\n    extremePoint := high\n    stopAndReverse := extremePoint[1]\nelse\n    isLong := false\n    stopAndReverse := stopAndReverse[1] + accelerationFactor[1] * (extremePoint[1] - stopAndReverse[1])\n    if (low < extremePoint[1])\n        accelerationFactor := math.min(maximumAccelerationFactor, accelerationFactor[1] + incrementAccelerationFactor)\n        extremePoint := low\n\nplot(isLong ? stopAndReverse : na, \"ParabolicSAR\", style=plot.style_cross, linewidth=2, color=color.teal)\nplot(not isLong ? stopAndReverse : na, \"ParabolicSAR\", style=plot.style_cross, linewidth=2, color=color.maroon)",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/augustoerni/pinescript/blob/main/indicators/psar.pine"
+   }
+  },
+  {
+   "id": "2dd637a75ec8bcc24db9165126d4923c657754efe740a0d6cbf3112da0670b48",
+   "kind": "indicator",
+   "title": "R2-Adaptive Regression",
+   "description": "Statistics indicator by bjr117, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "bjr117",
+    "handle": "bjr117"
+   },
+   "published_at": "2023-08-06T19:46:45Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © bjr117, alexgrover\n\n//@version=5\nindicator(title = \"R2-Adaptive Regression\", shorttitle = \"R2AR\", overlay = true)\n\n//==============================================================================\n// Inputs\n//==============================================================================\nr2ar_length = input.int(title = \"R2AR Length\", defval = 100, minval = 1)\nr2ar_src    = input.source(title = \"R2AR Source\", defval = close)\n//==============================================================================\n\n\n//==============================================================================\n// Mathematical Functions\n//==============================================================================\na(x) => ta.stdev(r2ar_src, r2ar_length) * ta.correlation(r2ar_src, x, r2ar_length) / ta.stdev(x, r2ar_length)\nb(x) => ta.sma(r2ar_src, r2ar_length) - a(x)*ta.sma(x, r2ar_length)\nr(x) => math.pow(ta.correlation(r2ar_src, x, r2ar_length), 2)\n//==============================================================================\n\n\n//==============================================================================\n// Calculating the R2-Adaptive Regression line\n//==============================================================================\nout  = float(0.0)\nx2   = nz(out[1], r2ar_src)\ny1   = ta.linreg(r2ar_src, r2ar_length, 0)\ny2   = a(x2)*x2 + b(x2)\nout := r(y1)*y1 + r(y2)*y2 + (1 - (r(y1) + r(y2)))*x2\n//==============================================================================\n\n\n//==============================================================================\n// Plotting the R2-Adaptive Regression line\n//==============================================================================\nplot(out, title = \"R2AR\", color = color.new(#000000, 0))\n//==============================================================================",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/UndauntedFish/tradingview-scripts/blob/main/technical-indicators/moving-averages/r2-adaptive-regression.pine"
+   }
+  },
+  {
+   "id": "e23c91515a509bd1efcf7722817a77d56727a842cb50e3f879e4a6eec5648d94",
+   "kind": "indicator",
+   "title": "SuperTrend + MACD + EMA",
+   "description": "Moving averages indicator by macmwz20, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "author": {
+    "name": "macmwz20",
+    "handle": "macmwz20"
+   },
+   "published_at": "2023-05-22T01:36:05Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © macmwz20\n\n\n//@version=5\nindicator('SuperTrend + MACD + EMA', overlay=true)\n\nsrc = close\nfast_ema = ta.ema(src, 9)\nslow_ema = ta.ema(src, 18)\n\nfast_macd = ta.ema(src, 12)\nslow_macd = ta.ema(src, 26)\nmacd = fast_macd - slow_macd\nsignal = ta.ema(macd, 9)\nhist = macd - signal\n\n// Volume Filter\nvolume_ma = ta.sma(volume, 20)\nvolume_increase = volume > volume_ma\n\n// Deternine if we are currently LONG\nisLong = false\nisLong := nz(isLong[1], false)\n\n// Determine if we are currently SHORT\nisShort = false\nisShort := nz(isShort[1], false)\n\n// Buy only if the buy signal is triggered, we are not already long, and volume is high\nLONG = not isLong and fast_ema > slow_ema and macd > signal and volume_increase\n\n// Sell only if the sell signal is triggered, we are not already short, and volume is high\nSHORT = not isShort and fast_ema < slow_ema and macd < signal and volume_increase\n\nif LONG\n    isLong := true\n    isShort := false\n    isShort\n\nif SHORT\n    isLong := false\n    isShort := true\n    isShort\n\n// Supertrend Calculation\natr = 3 * ta.atr(10)\nlongStop = hl2 - atr\nlongStopPrev = nz(longStop[1], longStop)\nlongStop := close[1] > longStopPrev ? math.max(longStop, longStopPrev) : longStop\nshortStop = hl2 + atr\nshortStopPrev = nz(shortStop[1], shortStop)\nshortStop := close[1] < shortStopPrev ? math.min(shortStop, shortStopPrev) : shortStop\ndir = 1\ndir := nz(dir[1], dir)\ndir := dir == -1 and close > shortStopPrev ? 1 : dir == 1 and close < longStopPrev ? -1 : dir\n\n\n// Line Plots\nbodyMiddle = plot((open + close) / 2, display=display.none)\nupTrend = plot(dir == 1 ? longStop : na, title='Up Trend Line', style=plot.style_linebr, linewidth=1, color=color.new(color.green, 0))\ndownTrend = plot(dir != 1 ? shortStop : na, title='Down Trend Line', style=plot.style_linebr, linewidth=1, color=color.new(color.red, 0))\n\n//Fill Background\nfill(bodyMiddle, upTrend, color.new(color.green, 90), fillgaps=false, title='Uptrend Background')\nfill(bodyMiddle, downTrend, color.new(color.red, 90), fillgaps=false, title='Downtrend Background')\n\n//Bar Colour\nbarcolor(dir == 1 and isLong ? color.green : dir != 1 and isShort ? color.red : color.blue)\n\n// Buy/Sell Label Plots\nconfirmLONG = fast_ema > slow_ema and macd > signal and longStop\nconfirmSHORT = fast_ema > slow_ema and macd > signal and longStop\nplotshape(not confirmLONG[1] and confirmLONG, title='Buy Label', style=shape.labelup, location=location.belowbar, size=size.normal, text='Buy', textcolor=color.new(color.white, 0), color=color.new(color.green, 0))\nplotshape(not confirmSHORT[1] and confirmSHORT, title='Sell Label', style=shape.labeldown, location=location.abovebar, size=size.normal, text='Sell', textcolor=color.new(color.white, 0), color=color.new(color.red, 0))",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/redm3/HYPERLIQUID/blob/main/pinescript.pine"
+   }
+  },
+  {
+   "id": "63d0eb9f2d83f4eb1d1a7b7095df70389c3da91835e61515181b1f5f92fa9562",
+   "kind": "indicator",
+   "title": "RSI+EMAs for Bootsie Strategy",
+   "description": "Oscillators indicator by RajeshMoriyani, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "author": {
+    "name": "RajeshMoriyani",
+    "handle": "rajeshmoriyani"
+   },
+   "published_at": "2022-10-18T17:24:06Z",
+   "market": null,
+   "timeframe": null,
+   "image": null,
+   "indicator": {
+    "code": "// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/\n// © RajeshMoriyani\n//@version=5\nindicator(\"RSI+EMAs for Bootsie Strategy\", shorttitle=\"RSI+EMAs - Boostie Strat.\")\n\nRSI_SETTINGS = \"RSI Settings\"\nrsiLengthInput = input.int(500, minval=1, title=\"RSI Length\", group=RSI_SETTINGS)\nrsiSourceInput = input.source(close, title=\"Source for RSI\", group=RSI_SETTINGS)\n\nEMA_SETTINGS = \"EMA Settings\"\nmaSourceInput = input.source(hlcc4, title=\"Source for EMAs\", group=EMA_SETTINGS)\nmaLengthInput1 = input.int(1, title=\"EMA1\", group=EMA_SETTINGS)\nmaLengthInput2 = input.int(2, title=\"EMA2\", group=EMA_SETTINGS)\nmaLengthInput3 = input.int(3, title=\"EMA3\", group=EMA_SETTINGS)\nmaLengthInput4 = input.int(4, title=\"EMA4\", group=EMA_SETTINGS)\nmaLengthInput5 = input.int(5, title=\"EMA5\", group=EMA_SETTINGS)\n\nPRICE_PIVOTS = \"Price High Low Pivots\"\nlookbackLength  = input.int(150, \"Lookback Period\", minval = 10, maxval = 500, group = PRICE_PIVOTS) // max bars to lookback\n\nH_LINES = \"Threshold Levels\"\nh_line_color = input(color.new(color.white, 70), \"\", inline=\"HLines\", group=H_LINES)\nhLine1 = input(85, \"Level-1\", inline=\"HLines1\", group=H_LINES)\nhLine2 = input(70, \"Level-2\", inline=\"HLines2\", group=H_LINES)\nhLine3 = input(50, \"Level-3\", inline=\"HLines3\", group=H_LINES)\nhLine4 = input(20, \"Level-4\", inline=\"HLines4\", group=H_LINES)\nhLine5 = input(10, \"Level-5\", inline=\"HLines5\", group=H_LINES)\n\nline1 = hline(hLine1, \"\", color=(hLine1 > 0) ? h_line_color : na, linestyle=hline.style_dashed)\nline2 = hline(hLine2, \"\", color=(hLine2 > 0) ? h_line_color : na, linestyle=hline.style_dashed)\nline3 = hline(hLine3, \"\", color=(hLine3 > 0) ? h_line_color : na, linestyle=hline.style_dashed)\nline4 = hline(hLine4, \"\", color=(hLine4 > 0) ? h_line_color : na, linestyle=hline.style_dashed)\nline5 = hline(hLine5, \"\", color=(hLine5 > 0) ? h_line_color : na, linestyle=hline.style_dashed)\n\n//RSI\nrsi = ta.rsi(rsiSourceInput, rsiLengthInput)\nplot(rsi,\"RSI\", color= color.yellow, linewidth=2)\n\n//High+Low Pivot Levels for finding Price Range\npivotHigh    = ta.highest(maSourceInput, lookbackLength)\npivotLow     = ta.lowest(maSourceInput , lookbackLength)\n\n//Scaling for EMAs\nvar scaleLow = 0.0\nvar scaleHigh = 100.0\nscaledValue = scaleLow + (maSourceInput - pivotLow) * (scaleHigh - scaleLow) / (pivotHigh - pivotLow)\n\n//EMAs (scaled)\nma1 = ta.ema(scaledValue, maLengthInput1)\nma2 = ta.ema(scaledValue, maLengthInput2)\nma3 = ta.ema(scaledValue, maLengthInput3)\nma4 = ta.ema(scaledValue, maLengthInput4)\nma5 = ta.ema(scaledValue, maLengthInput5)\n\nplot(ma1, \"Scaled EMA\", color= color.lime)\nplot(ma2, \"Scaled EMA2\", color= color.teal)\nplot(ma3, \"Scaled EMA3\", color= color.orange)\nplot(ma4, \"Scaled EMA4\", color= color.fuchsia)\nplot(ma5, \"Scaled EMA5\", color= color.red)\n\n",
+    "licence": "MPL-2.0",
+    "version": "5",
+    "use_count": 0,
+    "code_link": "https://github.com/rajatjpatel/pine/blob/main/RSIEMAs_for_Bootsie_Strategy.txt"
+   }
+  }
+ ]
+}

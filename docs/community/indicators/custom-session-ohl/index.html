@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+<title>Custom Session OHL — TraderCockpit</title><meta name="description" content="Custom Session OHL, a indicator by ryangaraygay on TraderCockpit Community.">
+<link rel="canonical" href="https://trader-cockpit.com/community/indicators/custom-session-ohl/"><link rel="stylesheet" href="../../../assets/site-v2.css"><link data-reference-shell="style" rel="stylesheet" href="../../../assets/reference-site/content.css" media="screen"><link rel="stylesheet" href="../../../assets/product-pages.css"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Custom Session OHL — TraderCockpit"><meta property="og:description" content="Custom Session OHL, a indicator by ryangaraygay on TraderCockpit Community."><meta property="og:url" content="https://trader-cockpit.com/community/indicators/custom-session-ohl/"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Custom Session OHL — TraderCockpit"><meta name="twitter:description" content="Custom Session OHL, a indicator by ryangaraygay on TraderCockpit Community."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Community","item":"https://trader-cockpit.com/community/"},{"@type":"ListItem","position":3,"name":"Custom Session OHL","item":"https://trader-cockpit.com/community/indicators/custom-session-ohl/"}]}</script><!-- search-meta:end --></head>
+<body class="home-page" data-reference-content="true"><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../../../features/">Features</a><a href="../../../research-lab.html">Research Lab</a><a href="../../../learn/">Learn</a><a href="../../../community/" aria-current="page">Community</a><a href="../../../docs/">Docs</a><a href="../../../methods/">Methods</a><a href="../../../pricing/">Pricing</a><a href="../../../support/">Support</a></div></div></nav>
+<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="../../../community/#indicators">Indicators</a><h1>Custom Session OHL</h1><p class="cm-by">by <a href="../../../community/authors/ryangaraygay/">ryangaraygay</a></p><div class="article-meta"><span>10 Apr 2025</span></div><div class="pp-actions"><a class="pp-btn gold" href="../../../early-access.html">Open in TraderCockpit →</a></div></header><p class="pp-lead">Candles and sessions indicator by ryangaraygay, shared as open-source Pine code under the MIT licence. It draws on the price chart.</p><dl class="pp-facts"><div><dt>Licence</dt><dd>MIT</dd></div><div><dt>Version</dt><dd>5</dd></div></dl><p><a class="pp-more" href="https://github.com/ryangaraygay/tradingview-indicators/blob/main/custom-session-ohlc.pine">Original source →</a></p><h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>//@version=5
+indicator(&quot;Custom Session OHL&quot;, shorttitle = &quot;CUST OHL&quot;, overlay=true)
+
+my_session = input.session(&quot;0830-0930&quot;, title=&#x27;Custom Session&#x27;)
+
+
+var color color_open = input.color(color.yellow, &quot;Open&quot;, inline = &quot;O&quot;)
+var bool extend_open = input.bool(true, &quot;Extend&quot;, inline = &quot;O&quot;)
+var string text_open = input.string(&quot;Open&quot;, &quot;&quot;, inline = &quot;O&quot;)
+
+var color color_high = input.color(color.blue, &quot;High&quot;, inline = &quot;H&quot;)
+var bool extend_high = input.bool(true, &quot;Extend&quot;, inline = &quot;H&quot;)
+var string text_high = input.string(&quot;High&quot;, &quot;&quot;, inline = &quot;H&quot;)
+
+var color color_low = input.color(color.orange, &quot;Low&quot;, inline = &quot;L&quot;)
+var bool extend_low = input.bool(true, &quot;Extend&quot;, inline = &quot;L&quot;)
+var string text_low = input.string(&quot;Low&quot;, &quot;&quot;, inline = &quot;L&quot;)
+
+var int label_offset = input.int(50, &quot;Label Offset&quot;)
+
+in_session = time(timeframe.period, my_session)
+
+is_new_session(res, sess) =&gt;
+    t = time(res, sess)
+    na(t[1]) and not na(t) or t[1] &lt; t
+
+new_session = is_new_session(&quot;1440&quot;, my_session)
+
+is_newbar(res,sess) =&gt;
+    t = time(res,sess)
+    not na(t) and (na(t[1]) or t &gt; t[1])
+new = (is_newbar(&quot;1440&quot;, my_session) ? 1 : 0)
+
+var float reg_open = na
+reg_open := new_session ? open : in_session ? reg_open[1] : (extend_open ? reg_open[1] : na)
+plot_open = plot(reg_open, style = plot.style_circles, linewidth=1, color=color_open, title=&quot;open&quot;)
+
+var float reg_high = close
+var float reg_low = close
+reg_high := new_session ? high : in_session ? math.max(high, reg_high[1]) : (extend_high ? reg_high[1] : na)
+reg_low := new_session ? low : in_session ? math.min(low, reg_low[1]) : (extend_low ? reg_low[1] : na)
+plot(reg_high, style=plot.style_circles, color=color_high, linewidth=1, title=&quot;high&quot;)
+plot(reg_low, style=plot.style_circles, color=color_low, linewidth=1, title=&quot;low&quot;)
+
+var label_open = label.new(na, na, text = text_open, style = label.style_none, textcolor = color_open)
+label.set_x(label_open, bar_index + label_offset)
+label.set_y(label_open, reg_open[0])
+
+var label_high = label.new(na, na, text = text_high, style = label.style_none, textcolor = color_high)
+label.set_x(label_high, bar_index + label_offset)
+label.set_y(label_high, reg_high[0])
+
+var label_low = label.new(na, na, text = text_low, style = label.style_none, textcolor = color_low)
+label.set_x(label_low, bar_index + label_offset)
+label.set_y(label_low, reg_low[0])</code></pre></div></main>
+<footer><div class="footer-inner"><div>TraderCockpit · research and education. Not financial advice.</div><div class="footer-links"><a href="../../../support/">Support</a><a href="../../../trust/privacy.html">Privacy</a><a href="../../../trust/terms.html">Terms</a></div></div></footer><script src="../../../assets/site-search.js" defer></script>
+</body></html>

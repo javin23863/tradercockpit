@@ -1,8 +1,14 @@
 """Keep structural page contracts separate from human visual approval."""
-import copy,json
+import copy,json,re
+from pathlib import Path
+DOCS=Path(__file__).resolve().parents[2]/'docs'
+
+def community_pages():
+    """Community pages are generated from docs/community/items.v1.json, so their rows follow the files."""
+    return sorted(p.relative_to(DOCS).as_posix() for p in (DOCS/'community').rglob('index.html'))
 
 # Pages added after the owner's 2026-09-18 visual approval; each waits for its own review.
-PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html','features/index.html','early-access.html'})
+PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html','features/index.html','early-access.html',*community_pages()})
 PENDING_AUDIT={'status':'pending_visual_review','visual_approval':False}
 
 def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None):
@@ -59,6 +65,14 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
             page['hierarchy'].update(focal_point=h1,primary_action=action);page['intent'].update(primary_job=job,worst_mistake=worst);page['audit']=dict(PENDING_AUDIT)
             if path=='early-access.html':page['form_ux']['policy']='One labeled email field; errors are stated and the address stays in the field.'
             data['pages'].append(page)
+    features=next((row for row in data['pages'] if row['path']=='features/index.html'),None)
+    for path in community_pages() if features is not None else []:
+        text=(DOCS/path).read_text(encoding='utf-8')
+        title=re.sub(r'<[^>]+>','',re.search(r'<title>(.*?)</title>',text,re.S)[1]);h1=re.sub(r'<[^>]+>','',re.search(r'<h1[^>]*>(.*?)</h1>',text,re.S)[1])
+        page=copy.deepcopy(features);page.update(path=path,route='/'+path.removesuffix('index.html'),title=title,reviewed_h1=h1,kind='landing')
+        page['hierarchy'].update(focal_point=h1,primary_action='Open in TraderCockpit' if path.count('/')==3 and '/authors/' not in path else 'Open a community item')
+        page['intent'].update(primary_job='Study shared strategies, indicators and ideas, and open them in TraderCockpit.',worst_mistake='Treating a shared backtest as a promise of results.')
+        page['audit']=dict(PENDING_AUDIT);data['pages'].append(page)
     data['page_count']=len(data['pages'])
     return data
 

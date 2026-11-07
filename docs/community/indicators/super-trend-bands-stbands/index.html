@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
+<title>Super Trend Bands (STBANDS) — TraderCockpit</title><meta name="description" content="Super Trend Bands (STBANDS), a indicator by mihakralj on TraderCockpit Community.">
+<link rel="canonical" href="https://trader-cockpit.com/community/indicators/super-trend-bands-stbands/"><link rel="stylesheet" href="../../../assets/site-v2.css"><link data-reference-shell="style" rel="stylesheet" href="../../../assets/reference-site/content.css" media="screen"><link rel="stylesheet" href="../../../assets/product-pages.css"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="website"><meta property="og:site_name" content="TraderCockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Super Trend Bands (STBANDS) — TraderCockpit"><meta property="og:description" content="Super Trend Bands (STBANDS), a indicator by mihakralj on TraderCockpit Community."><meta property="og:url" content="https://trader-cockpit.com/community/indicators/super-trend-bands-stbands/"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Super Trend Bands (STBANDS) — TraderCockpit"><meta name="twitter:description" content="Super Trend Bands (STBANDS), a indicator by mihakralj on TraderCockpit Community."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Community","item":"https://trader-cockpit.com/community/"},{"@type":"ListItem","position":3,"name":"Super Trend Bands (STBANDS)","item":"https://trader-cockpit.com/community/indicators/super-trend-bands-stbands/"}]}</script><!-- search-meta:end --></head>
+<body class="home-page" data-reference-content="true"><a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a><div class="nav-links"><a href="../../../features/">Features</a><a href="../../../research-lab.html">Research Lab</a><a href="../../../learn/">Learn</a><a href="../../../community/" aria-current="page">Community</a><a href="../../../docs/">Docs</a><a href="../../../methods/">Methods</a><a href="../../../pricing/">Pricing</a><a href="../../../support/">Support</a></div></div></nav>
+<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="../../../community/#indicators">Indicators</a><h1>Super Trend Bands (STBANDS)</h1><p class="cm-by">by <a href="../../../community/authors/mihakralj/">mihakralj</a></p><div class="article-meta"><span>28 Sep 2026</span></div><div class="pp-actions"><a class="pp-btn gold" href="../../../early-access.html">Open in TraderCockpit →</a></div></header><p class="pp-lead">Volatility indicator by mihakralj, shared as open-source Pine code under the Apache-2.0 licence. It draws on the price chart.</p><dl class="pp-facts"><div><dt>Licence</dt><dd>Apache-2.0</dd></div><div><dt>Version</dt><dd>6</dd></div></dl><p><a class="pp-more" href="https://github.com/mihakralj/QuanTAlib/blob/main/lib/channels/stbands/stbands.pine">Original source →</a></p><h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>// Licensed under the Apache License, Version 2.0
+// © mihakralj
+//@version=6
+indicator(&quot;Super Trend Bands (STBANDS)&quot;, &quot;STBANDS&quot;, overlay=true)
+
+//@function Calculates Super Trend Bands using ATR-based dynamic support/resistance
+//@param source Series to calculate bands from
+//@param period Lookback period for ATR calculation
+//@param multiplier ATR multiplier for band distance
+//@returns [upper_band, lower_band, trend] Super Trend band values and trend direction
+//@optimized for performance and dirty data
+stbands(series float source, simple int period, simple float multiplier) =&gt;
+    if period &lt;= 0 or multiplier &lt;= 0.0
+        runtime.error(&quot;Period and multiplier must be greater than 0&quot;)
+    var int p = math.max(1, period), var int head = 0, var int count = 0
+    var array&lt;float&gt; tr_buffer = array.new_float(p, na)
+    var float tr_sum = 0.0
+    float high_val = nz(high), float low_val = nz(low), float close_val = nz(source)
+    float prev_close = nz(source[1], source)
+    float tr = math.max(high_val - low_val, math.max(math.abs(high_val - prev_close), math.abs(low_val - prev_close)))
+    float oldest_tr = array.get(tr_buffer, head)
+    if not na(oldest_tr)
+        tr_sum -= oldest_tr
+        count -= 1
+    tr_sum += tr
+    count += 1
+    array.set(tr_buffer, head, tr)
+    head := (head + 1) % p
+    float atr = count &gt; 0 ? tr_sum / count : tr
+    float hl2_val = (high_val + low_val) / 2
+    float basic_upper = hl2_val + multiplier * atr
+    float basic_lower = hl2_val - multiplier * atr
+    var float final_upper = na, var float final_lower = na
+    var int trend = 1
+    
+    // Initialize on first bar
+    if bar_index == 0
+        final_upper := basic_upper
+        final_lower := basic_lower
+        trend := 1
+    else
+        prev_upper = nz(final_upper[1], basic_upper)
+        prev_lower = nz(final_lower[1], basic_lower)
+        prev_close_val = nz(source[1], source)
+        
+        final_upper := basic_upper &lt; prev_upper or prev_close_val &gt; prev_upper ? basic_upper : prev_upper
+        final_lower := basic_lower &gt; prev_lower or prev_close_val &lt; prev_lower ? basic_lower : prev_lower
+        
+        prev_trend = nz(trend[1], 1)
+        trend := close_val &lt;= prev_lower ? 1 : close_val &gt;= prev_upper ? -1 : prev_trend
+    
+    [final_upper, final_lower, trend]
+
+// ---------- Main loop ----------
+
+// Inputs
+i_period = input.int(10, &quot;ATR Period&quot;, minval=1)
+i_source = input.source(close, &quot;Source&quot;)
+i_multiplier = input.float(3.0, &quot;ATR Multiplier&quot;, minval=0.001)
+
+// Calculation
+[upper_band, lower_band, trend] = stbands(i_source, i_period, i_multiplier)
+
+// Plot
+p_upper = plot(upper_band, &quot;Upper Band&quot;, color=color.yellow, linewidth=2)
+p_lower = plot(lower_band, &quot;Lower Band&quot;, color=color.yellow, linewidth=2)
+fill(p_upper, p_lower, color=color.new(color.blue, 90), title=&quot;Band Fill&quot;)
+</code></pre></div></main>
+<footer><div class="footer-inner"><div>TraderCockpit · research and education. Not financial advice.</div><div class="footer-links"><a href="../../../support/">Support</a><a href="../../../trust/privacy.html">Privacy</a><a href="../../../trust/terms.html">Terms</a></div></div></footer><script src="../../../assets/site-search.js" defer></script>
+</body></html>

@@ -25,7 +25,7 @@ LOGO = SITE + 'assets/social/tradercockpit-logo.png'
 SAME_AS = ['https://www.youtube.com/@Thetradercockpit']
 START, END = '<!-- search-meta:start -->', '<!-- search-meta:end -->'
 SECTIONS = {'learn': 'Learn', 'methods': 'Methods', 'how-to': 'How-to guides', 'examples': 'Examples', 'docs': 'Documentation',
-            'support': 'Support', 'trust': 'Trust', 'pricing': 'Pricing', 'updates': 'Updates'}
+            'support': 'Support', 'trust': 'Trust', 'pricing': 'Pricing', 'updates': 'Updates', 'community': 'Community'}
 SKIP = {'404.html', 'confirmed.html', 'thanks.html', 'help.html'}
 
 
@@ -127,9 +127,9 @@ def apply(text: str, rel: str, cfg: dict | None = None) -> str:
     return text.replace('</head>', block + '</head>', 1)
 
 
-def sitemap(cfg: dict) -> str:
+def sitemap(cfg: dict, text: str | None = None) -> str:
     """The sitemap with a <lastmod> for every URL, from the same dates the pages declare."""
-    text = (DOCS / 'sitemap.xml').read_text(encoding='utf-8')
+    text = (DOCS / 'sitemap.xml').read_text(encoding='utf-8') if text is None else text
     def date_for(url: str) -> str:
         rel = url[len(SITE):] or 'index.html'
         if rel.endswith('/'):

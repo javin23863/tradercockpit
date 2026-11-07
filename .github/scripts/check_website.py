@@ -28,7 +28,7 @@ PAGES = [
     DOCS / "examples" / "holdout-selection.html",
     DOCS / "updates" / "index.html",
     DOCS / "help.html",
-] + sorted((DOCS / "learn" / "concepts").glob("*.html"))
+] + sorted((DOCS / "learn" / "concepts").glob("*.html")) + sorted((DOCS / "community").rglob("index.html"))
 REGISTRY = DOCS / "help-registry.v1.json"
 SEARCH_INDEX = DOCS / "search-index.v1.json"
 CONTENT_REGISTRY = DOCS / "content-registry.v1.json"
