@@ -37,14 +37,22 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(calls[1],f'https://accounts.example.com/v1/community/items/{B}/image')
         self.assertEqual(next(r for r in self.items() if r['id']==B)['image'],f'img/{B}.jpg')
 
-    def test_bad_rows_and_types_are_refused(self):
+    def test_bad_rows_and_types_are_skipped(self):
         bad=self.tmp/'bad.json'
-        for row in (item('A'*64),item(B,kind='video'),{**item(B),'author':{'name':'Pat','handle':'Pat!'}},item(B,kind='strategy',strategy={'rules':[1]})):
-            bad.write_bytes(response(row))
-            with self.assertRaises(ValueError):g.import_items(str(bad))
+        for row in (item('A'*64),item(B,kind='video'),{**item(B),'author':{'name':'Pat','handle':'Pat!'}},item(B,kind='strategy',strategy={'rules':[1]}),item(B,market='m'*81)):
+            bad.write_bytes(response(row,item('c'*64,market='m'*80)))
+            self.assertEqual(g.import_items(str(bad)),1)
         g.fetch=lambda url,limit:(response(item(B,image=f'/v1/community/items/{B}/image')),'') if url.endswith('/items') else (b'<svg>','image/svg+xml')
-        with self.assertRaises(ValueError):g.import_items('https://accounts.example.com/v1/community/items')
+        self.assertEqual(g.import_items('https://accounts.example.com/v1/community/items'),0)
         with self.assertRaises(SystemExit):g.import_items('http://accounts.example.com/v1/community/items')
-        self.assertEqual([r['title'] for r in self.items()],['Old title'])
+        self.assertNotIn(B,[r['id'] for r in self.items()])
+
+    def test_remote_import_drops_unpublished_service_items_and_keeps_seeds(self):
+        g.fetch=lambda url,limit:(response(item(B)),'application/json')
+        g.import_items('https://accounts.example.com/v1/community/items')
+        self.assertEqual({r['id'] for r in self.items()},{A,B})
+        g.fetch=lambda url,limit:(response(),'application/json')
+        g.import_items('https://accounts.example.com/v1/community/items')
+        self.assertEqual([r['id'] for r in self.items()],[A])
 
 if __name__=='__main__':unittest.main(verbosity=2)

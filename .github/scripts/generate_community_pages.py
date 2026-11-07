@@ -17,7 +17,7 @@ import search_metadata
 ROOT=HERE.parents[1];DOCS=ROOT/'docs';COMMUNITY=DOCS/'community';ITEMS=COMMUNITY/'items.v1.json'
 SITE='https://trader-cockpit.com/';ARROW=' →';SCHEMA='tc.community-items.v1'
 KINDS={'strategy':'Strategies','indicator':'Indicators','idea':'Ideas'};FOLDER={'strategy':'strategies','indicator':'indicators','idea':'ideas'}
-BACKTEST_NOTE='Hypothetical backtest on historical data. Past results don’t predict future ones. Not financial advice.'
+BACKTEST_NOTE='Hypothetical backtest, not actual trading. Past results don’t predict future ones. Not financial advice.'
 ID=re.compile(r'[0-9a-f]{64}');HANDLE=re.compile(r'[a-z0-9-]{1,40}');IMAGE_TYPES={'image/png':'png','image/jpeg':'jpg'}
 MAX_IMAGE=5_000_000
 
@@ -43,7 +43,7 @@ def url_of(rel):return rel.removesuffix('index.html')
 
 def link_text(text):
     """Plain text with newlines kept; https links become links."""
-    return re.sub(r'https://[^\s<>"]+',lambda m:f'<a href="{m[0]}">{m[0]}</a>',e(text)).replace('\n','<br>')
+    return re.sub(r'https://[^\s<>"]+',lambda m:f'<a href="{m[0]}" rel="nofollow ugc noopener">{m[0]}</a>',e(text)).replace('\n','<br>')
 
 def where(i):return ' · '.join(x for x in (i.get('market'),i.get('timeframe')) if x)
 
@@ -107,7 +107,7 @@ def item_page(i):
     meta=''.join(f'<span>{e(v)}</span>' for v in (day(i['published_at']),where(i)) if v)
     main=(f'<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="{root}community/#{FOLDER[i["kind"]]}">{KINDS[i["kind"]]}</a><h1>{e(i["title"])}</h1>'
           f'<p class="cm-by">by <a href="{href(rel,author_rel(a))}">{e(a["name"])}</a></p><div class="article-meta">{meta}</div>'
-          f'<div class="pp-actions"><a class="pp-btn gold" href="{root}early-access.html">Open in TraderCockpit{ARROW}</a></div></header>{pic}'
+          f'<div class="pp-actions"><a class="pp-btn gold" href="{root}early-access.html">Get TraderCockpit{ARROW}</a></div></header>{pic}'
           f'<p class="pp-lead">{link_text(i.get("description",""))}</p>{body(i)}</div></main>')
     desc=f'{i["title"]}, a {i["kind"]} by {a["name"]} on TraderCockpit Community.'
     return rel,shell(rel,i['title'],desc,main)
@@ -143,7 +143,8 @@ def contracts():
     base=json.loads((ROOT/'.github/reference-site/ux-contracts-before.json').read_text(encoding='utf-8'))
     return serialize_contracts(refresh_contracts(base,owner_visual_approval=ok,approved_at='2026-09-18' if ok else None))
 
-# --import: the account service's GET /v1/community/items response, merged by id.
+# --import: the account service's GET /v1/community/items response, merged by id. A remote import is the service's whole
+# approved list, so service items missing from it (unpublished) leave the site; our own seed items stay.
 def check_item(i):
     """Validate one service item at the trust boundary; returns the item as the site stores it."""
     def need(ok,why):
@@ -155,13 +156,13 @@ def check_item(i):
     a=i.get('author') or {}
     need(isinstance(a.get('name'),str) and 0<len(a['name'])<=60 and isinstance(a.get('handle'),str) and HANDLE.fullmatch(a['handle']),'author')
     need(isinstance(i.get('published_at'),str) and re.fullmatch(r'\d{4}-\d\d-\d\dT[0-9:.]+Z',i['published_at']),'published_at')
-    for k in ('market','timeframe'):need(i.get(k) is None or isinstance(i[k],str) and len(i[k])<=40,k)
+    for k in ('market','timeframe'):need(i.get(k) is None or isinstance(i[k],str) and len(i[k])<=(80 if k=='market' else 40),k)
     need(isinstance(i.get(i['kind']),dict),'missing '+i['kind']+' block')
     if i['kind']=='idea':need(isinstance(i['idea'].get('note'),str) and len(i['idea']['note'])<=2000,'note')
     if i['kind']=='indicator':need(isinstance(i['indicator'].get('code'),str),'code')
     if i['kind']=='strategy':need(isinstance(i['strategy'].get('rules',[]),list) and all(isinstance(r,str) for r in i['strategy'].get('rules',[])),'rules')
     keep={k:i.get(k) for k in ('id','kind','title','description','author','published_at','market','timeframe')}
-    keep['author']={'name':a['name'],'handle':a['handle']};keep[i['kind']]=i[i['kind']]
+    keep['author']={'name':a['name'],'handle':a['handle']};keep[i['kind']]=i[i['kind']];keep['from_service']=True
     return keep
 
 def fetch(url,limit):
@@ -176,21 +177,24 @@ def import_items(source):
     raw=fetch(source,20_000_000)[0] if remote else Path(source).read_bytes()
     data=json.loads(raw.decode('utf-8'))
     if data.get('schema')!=SCHEMA or not isinstance(data.get('items'),list):raise SystemExit('Not a '+SCHEMA+' response')
-    current={i['id']:i for i in load()};img=COMMUNITY/'img';img.mkdir(exist_ok=True)
+    current={i['id']:i for i in load() if not (remote and i.get('from_service'))};img=COMMUNITY/'img';img.mkdir(exist_ok=True)
+    imported=0
     for row in data['items']:
-        item=check_item(row);path=row.get('image');item['image']=None
+        try:item=check_item(row)
+        except ValueError as why:print(f'COMMUNITY: skipped {why}');continue
+        path=row.get('image');item['image']=None
         if remote and isinstance(path,str) and path==f'/v1/community/items/{item["id"]}/image':
             s=urlsplit(source);blob,kind=fetch(f'{s.scheme}://{s.netloc}{path}',MAX_IMAGE)
-            if kind not in IMAGE_TYPES:raise ValueError(f'item {item["id"]}: image type {kind}')
+            if kind not in IMAGE_TYPES:print(f'COMMUNITY: skipped item {item["id"]!r}: image type {kind}');continue
             name=f'img/{item["id"]}.{IMAGE_TYPES[kind]}';(COMMUNITY/name).write_bytes(blob);item['image']=name
         elif not remote and isinstance(path,str) and re.fullmatch(r'img/[0-9a-f]{64}\.(png|jpg)',path) and (Path(source).parent/path).is_file():
             # shortcut: a local file keeps its image only when it sits beside an img/ folder, as the site's own file does
             if (Path(source).parent/path).resolve()!=(COMMUNITY/path).resolve():shutil.copyfile(Path(source).parent/path,COMMUNITY/path)
             item['image']=path
-        current[item['id']]=item
+        current[item['id']]=item;imported+=1
     items=[{k:v for k,v in i.items() if not k.startswith('_')} for i in ordered(list(current.values()))]
     ITEMS.write_text(json.dumps({'schema':SCHEMA,'items':items},indent=1,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
-    return len(data['items'])
+    return imported
 
 def main(argv=sys.argv[1:]):
     if '--import' in argv:
