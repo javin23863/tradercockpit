@@ -55,7 +55,7 @@
   const next = (href,title,description) => `<a class="j-next" href="${href}"><span><small>${description}</small><strong>${title}</strong></span>${arrow}</a>`;
 
   function learning() {
-    return `${header('TraderCockpit / learning','A clearer view of your research.','Start with a question. Understand the evidence. Keep the limitations in view.')}
+    return `${header('Trader Cockpit / learning','A clearer view of your research.','Start with a question. Understand the evidence. Keep the limitations in view.')}
     <section class="j-library-feature" aria-labelledby="learning-feature-title">
       <div class="j-library-image"><img src="assets/reference-site/laptop-scene.webp" alt="Illustrative research workstation" width="1024" height="314"><img src="assets/reference-site/laptop-screen.webp" alt="" width="1024" height="314"><span>Apollo beside Charts</span></div>
       <div class="j-library-copy"><p class="eyebrow">Start here</p><h2 id="learning-feature-title">One result.<br>More questions.</h2><p>A convincing picture is not the same as traceable evidence. Use a short checklist to record what you know—and what is still missing.</p><a class="button gold" href="#/learn/checklist">Open research checklist ${arrow}</a></div>
@@ -158,7 +158,7 @@
     const mobile=document.querySelector('#mobile-nav'), menu=document.querySelector('.menu-toggle');
     if(mobile){mobile.hidden=true;menu?.setAttribute('aria-expanded','false');menu?.setAttribute('aria-label','Open navigation');}
     if(!isJourney){
-      document.title='TraderCockpit | Build and Test Trading Strategies';
+      document.title='Trader Cockpit | Build and Test Trading Strategies';
       if(lastHash?.startsWith('#/'))requestAnimationFrame(()=>{const target=homeHashTarget(hash); if(target && hash!=='#top' && hash!=='#main'){target.scrollIntoView({behavior:'instant',block:'start'});if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}else{if(hash==='#top'||!hash)scrollTo({top:0,behavior:'instant'});document.querySelector(hash==='#main'?'#main':'#hero-title')?.focus({preventScroll:true});}});
       lastHash=hash;return;
     }
@@ -167,7 +167,7 @@
     const pages={'/learn':learning,'/learn/monte-carlo':monteCarlo,'/learn/checklist':checklist,'/platform/charts':()=>captureGuide('charts'),'/platform/models':()=>captureGuide('models')};
     main.innerHTML=`<div class="j-shell">${(pages[route]||unknown)()}</div>`;
     const title=main.querySelector('h1');
-    document.title=route==='/learn/monte-carlo'?'Monte Carlo — TraderCockpit Learn':`${title.textContent} — TraderCockpit`;
+    document.title=route==='/learn/monte-carlo'?'Monte Carlo — Trader Cockpit Learn':`${title.textContent} — Trader Cockpit`;
     notesBindings();
     if(focus)requestAnimationFrame(()=>{scrollTo({top:0,behavior:'instant'});title.focus({preventScroll:true});});
     lastHash=hash;

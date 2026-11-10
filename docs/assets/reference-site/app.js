@@ -109,7 +109,7 @@
       $('.video-box').replaceChildren(frame);
     });
   });
-  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Where the pictures come from', '<p>The room, mountains, furniture and laptop are illustrative artwork.</p><p>The screens on the monitor and the laptop are <strong>screens from TraderCockpit</strong> showing historical Coinbase BTC/USD bars. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>The Windows app is in early access. We’ll release it when it’s ready. Checkout is closed.</p>')));
+  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Where the pictures come from', '<p>The room, mountains, furniture and laptop are illustrative artwork.</p><p>The screens on the monitor and the laptop are <strong>screens from Trader Cockpit</strong> showing historical Coinbase BTC/USD bars. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>The Windows app is in early access. We’ll release it when it’s ready. Checkout is closed.</p>')));
   const menu = $('.menu-toggle'), mobileNav = $('#mobile-nav');
   function closeMenu() { mobileNav.hidden = true; menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Open navigation'); }
   menu.addEventListener('click', () => {

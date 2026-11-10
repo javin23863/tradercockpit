@@ -1,4 +1,4 @@
-# TraderCockpit Public Site Visual Authority - Cinematic Quant System v5
+# Trader Cockpit Public Site Visual Authority - Cinematic Quant System v5
 
 Status: site-wide authority derived from the owner-provided 2026-09-11 demo image and the approved homepage Quant Universe direction.
 Normative measured authority: `.github/visual-authority-demo-measured-v6.md`.
@@ -35,7 +35,7 @@ Reading remains primary. Each article gets a subject-specific research scene plu
 Screen presentation belongs to the cinematic system, while print/PDF output remains compact and evidence-first. Screen styling must not degrade print legibility or the one-page audit purpose.
 
 ### Pricing & Access
-Only verified commerce data may populate a tier. The current public record is TraderCockpit Monthly at $150/month. Pricing must retain a tier-navigation rail with one active verified tier plus disabled reserved expansion slots. Reserved slots are structural only: no future tier name, price, entitlement, discount, or benefit may be invented before a verified record exists.
+Only verified commerce data may populate a tier. The current public record is Trader Cockpit Monthly at $150/month. Pricing must retain a tier-navigation rail with one active verified tier plus disabled reserved expansion slots. Reserved slots are structural only: no future tier name, price, entitlement, discount, or benefit may be invented before a verified record exists.
 
 ## Interaction and motion
 - Decorative motion is slow and subordinate to comprehension.

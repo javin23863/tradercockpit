@@ -150,7 +150,7 @@
     },
     {
       "id": "brokers", "title": "Connect your broker", "kicker": "Connect",
-      "how": "You sign in with your broker in your own browser, and your password never goes into TraderCockpit."
+      "how": "You sign in with your broker in your own browser, and your password never goes into Trader Cockpit."
     },
     {
       "id": "save", "title": "Save and restore", "kicker": "Keep your work",

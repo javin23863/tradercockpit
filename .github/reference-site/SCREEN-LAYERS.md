@@ -4,7 +4,7 @@ Status: integrated quality improvement; not a release or owner visual approval.
 
 ## Purpose
 
-The room and laptop artwork are unchanged. Only the screen pixels placed inside the existing monitor/laptop quadrilaterals are regenerated from the verified full-resolution TraderCockpit development captures.
+The room and laptop artwork are unchanged. Only the screen pixels placed inside the existing monitor/laptop quadrilaterals are regenerated from the verified full-resolution Trader Cockpit development captures.
 
 ## Sources
 

@@ -83,7 +83,7 @@
     kicker.textContent = 'Local documentation search';
     const title = document.createElement('h2');
     title.id = 'site-search-title';
-    title.textContent = 'Search public TraderCockpit knowledge';
+    title.textContent = 'Search public Trader Cockpit knowledge';
     headingWrap.append(kicker, title);
 
     const close = document.createElement('button');
@@ -327,7 +327,7 @@
     trigger.className = 'site-search-trigger';
     trigger.textContent = 'Search';
     trigger.setAttribute('aria-haspopup', 'dialog');
-    trigger.setAttribute('aria-label', 'Search public TraderCockpit knowledge');
+    trigger.setAttribute('aria-label', 'Search public Trader Cockpit knowledge');
     trigger.addEventListener('click', searchUi.openDialog);
     nav.append(trigger);
 

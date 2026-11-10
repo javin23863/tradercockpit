@@ -1,4 +1,4 @@
-# TraderCockpit Measured Demo Visual Authority — v6
+# Trader Cockpit Measured Demo Visual Authority — v6
 
 Status: measured from the owner-supplied 2026-09-11 demo image. This file is the dimensional and palette authority for public-site presentation. Earlier visual specs remain semantic constraints, but where spacing, density, scale, or color differ, this measured reference wins.
 

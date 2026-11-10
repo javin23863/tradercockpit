@@ -87,7 +87,7 @@ def main() -> int:
 
     for page in sorted((DOCS / "learn" / "concepts").glob("*.html")):
         text = read(page).lower()
-        if "keep the context:" not in text or "for tradercockpit controls and workflow details, open docs." not in text:
+        if "keep the context:" not in text or "for trader cockpit controls and workflow details, open docs." not in text:
             problems.append(f"concept page missing customer-facing context disclosure: {page.relative_to(REPO)}")
 
     for page in sorted((DOCS / "examples").glob("*.html")):

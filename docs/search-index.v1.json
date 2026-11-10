@@ -590,7 +590,7 @@
       "title": "Trust",
       "path": "trust/",
       "kind": "trust",
-      "summary": "How TraderCockpit separates evidence records, synthetic examples, product availability, and research interpretation.",
+      "summary": "How Trader Cockpit separates evidence records, synthetic examples, product availability, and research interpretation.",
       "terms": [
         "trust",
         "evidence",
@@ -722,7 +722,7 @@
       "title": "Video Lessons",
       "path": "learn/videos.html",
       "kind": "learn",
-      "summary": "Six long-form TraderCockpit research lessons plus published YouTube playlists, with an optional click-to-load player.",
+      "summary": "Six long-form Trader Cockpit research lessons plus published YouTube playlists, with an optional click-to-load player.",
       "terms": [
         "video lessons",
         "youtube",
@@ -740,7 +740,7 @@
       "title": "Pricing & Access",
       "path": "pricing/",
       "kind": "reference",
-      "summary": "Current monthly TraderCockpit billing record, public availability state, and checkout readiness.",
+      "summary": "Current monthly Trader Cockpit billing record, public availability state, and checkout readiness.",
       "terms": [
         "pricing",
         "price",
@@ -757,7 +757,7 @@
       "title": "Features",
       "path": "features/",
       "kind": "reference",
-      "summary": "What TraderCockpit does today, shown from the real app on real market data.",
+      "summary": "What Trader Cockpit does today, shown from the real app on real market data.",
       "terms": [
         "features",
         "builder",
@@ -773,7 +773,7 @@
       "title": "Early access",
       "path": "early-access.html",
       "kind": "reference",
-      "summary": "Join the early access list for the TraderCockpit Windows app.",
+      "summary": "Join the early access list for the Trader Cockpit Windows app.",
       "terms": [
         "early access",
         "waitlist",

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Focused integrity checks for the TraderCockpit public-site architecture."""
+"""Focused integrity checks for the Trader Cockpit public-site architecture."""
 from __future__ import annotations
 
 from html.parser import HTMLParser

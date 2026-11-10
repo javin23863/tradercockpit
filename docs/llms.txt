@@ -1,8 +1,8 @@
-# TraderCockpit
+# Trader Cockpit
 
-> Educational guides to backtesting and trading strategy validation: out-of-sample testing, Monte Carlo analysis, walk-forward analysis, drawdown and selection bias. TraderCockpit is a Windows desktop app for trading strategy research, in early access. Nothing here is financial advice.
+> Educational guides to backtesting and trading strategy validation: out-of-sample testing, Monte Carlo analysis, walk-forward analysis, drawdown and selection bias. Trader Cockpit is a Windows desktop app for trading strategy research, in early access. Nothing here is financial advice.
 
-The guides are written by the TraderCockpit team. Examples use synthetic data and are not performance results.
+The guides are written by the Trader Cockpit team. Examples use synthetic data and are not performance results.
 
 ## Start here
 
