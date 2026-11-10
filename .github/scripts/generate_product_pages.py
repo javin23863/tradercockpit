@@ -110,20 +110,19 @@ def pricing_main(data):
 def cta(data,root=''):
     return (f'{root}download/','Download for Windows') if data['live'] else (f'{root}early-access.html','Join the early access list')
 
-# Home's four bands: what the app is best at, each with one screen. (title, text, area the link opens, image, alt)
+# Home's bands: what the app is best at, each with one screen. (title, text, area the link opens)
 HOME_BANDS=[
-    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies and keeps the ones that pass your rules.','builder','assets/features/builder.webp','Builder’s setup: a market, its costs and the rules a strategy must pass'),
-    ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows','assets/features/workflows.webp','A workflow’s steps, each with the strategies it kept and dropped'),
-    ('It runs on your PC','Your strategies, results and data stay in your own folder. Searches and backtests run on your computer, with no meter on them.','results','assets/features/results.webp','A strategy’s results: verdict, equity and trades'),
-    ('Take it with you','Export a strategy as Pine for TradingView, or as MetaTrader, EasyLanguage or Python code.','exports','assets/features/export.webp','A strategy’s code, ready to export'),
+    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies and keeps the ones that pass your rules.','builder'),
+    ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows'),
+    ('A straight verdict','Every strategy gets one grade and the reasons behind it. When it has only been tested on the data it was built on, the verdict says so.','results'),
 ]
 
 def home_main(data):
     by={a['id']:a for a in data['areas']}
     href,label=cta(data)
     def band(i,row):
-        title,text,area,image,alt=row
-        return f'<section class="pp-band{" flip" if i%2 else ""}" aria-labelledby="band-{area}"><div class="pp-copy"><h2 id="band-{area}">{e(title)}</h2><p class="pp-lead">{e(text)}</p><a class="pp-more" href="features/#{area}">{e(by[area]["title"])}{ARROW}</a></div><figure class="pp-shot"><img src="{image}" alt="{e(alt)}" loading="lazy"></figure></section>'
+        title,text,area=row;a=by[area]
+        return f'<section class="pp-band{" flip" if i%2 else ""}" aria-labelledby="band-{area}"><div class="pp-copy"><h2 id="band-{area}">{e(title)}</h2><p class="pp-lead">{e(text)}</p><a class="pp-more" href="features/#{area}">{e(a["title"])}{ARROW}</a></div><figure class="pp-shot"><img src="{e(a["image"])}" alt="{e(a["alt"])}" loading="lazy"></figure></section>'
     bands=''.join(band(i,row) for i,row in enumerate(HOME_BANDS))
     def pair(area,title,text):
         a=by[area]
@@ -132,8 +131,9 @@ def home_main(data):
     index=''.join(f'<a href="features/#{a_id(a)}">{e(a["title"])}</a>' for a in data['areas'])
     plans=''.join(f'<a class="pp-mini" href="pricing/#plan-{e(p["id"])}"><strong>{e(p["name"])}</strong><span>{plan_price(p)}</span></a>' for p in data['plans'])
     return f'''<main id="main" tabindex="-1">
-<section class="hero" id="top" aria-labelledby="hero-title"><div class="pp-hero-copy"><h1 id="hero-title" tabindex="-1">Find strategies that hold up.</h1><p class="pp-lead">Trader Cockpit searches thousands of rule combinations on your market, then tries to break the ones it keeps. On your PC, with no code.</p><div class="actions"><a class="button gold" href="{href}">{label}</a><a class="button glass" href="features/">See every feature</a></div></div><figure class="pp-hero-shot"><img src="assets/features/hero.webp" alt="Trader Cockpit’s Builder during a strategy search, with the strategies it has kept so far" fetchpriority="high"></figure></section>
+<section class="hero" id="top" aria-labelledby="hero-title"><div class="pp-hero-copy"><h1 id="hero-title" tabindex="-1">Find strategies that hold up.</h1><p class="pp-lead">Trader Cockpit searches thousands of rule combinations on your market, then tries to break the ones it keeps. On your PC, with no code.</p><div class="actions"><a class="button gold" href="{href}">{label}</a><a class="button glass" href="features/">See every feature</a></div></div><figure class="pp-hero-shot"><img src="assets/features/hero.webp" alt="Builder’s list of the strategies a search kept, each with its equity curve, net profit, trades and profit factor" fetchpriority="high"></figure></section>
 <div class="pp-page">{bands}
+<section class="pp-say" aria-labelledby="say-pc"><h2 id="say-pc">It runs on your PC</h2><p class="pp-lead">Your strategies, results and data stay in your own folder. Searches and backtests run on your computer, with no meter on them.</p></section>
 <section class="pp-duos" aria-label="Charts and Apollo">{duo}</section>
 <section class="pp-guides" id="community"><div><h2>Community</h2><p>Indicators, strategies and ideas other traders have published. Open one in the app with a click.</p></div><div class="pp-actions"><a class="pp-btn" href="community/">Browse the community{ARROW}</a></div></section>
 <section class="pp-home-plans" id="pricing" aria-labelledby="pricing-title"><div><h2 id="pricing-title">A Free plan and four monthly plans</h2><p class="pp-lead">Every paid plan includes every feature.{"" if data["live"] else " Checkout isn’t open yet."}</p></div><div class="pp-minis">{plans}</div></section>

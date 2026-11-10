@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "05f6c41a03e65c5e581922c90fdac85a40831e0162f0ca755207ee4d773866bc",
+  "home_sha256": "7fa29966b8b2aab1f0e25f3625a857afb570bdaa96c772b1ae504443384501e6",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -365,14 +365,14 @@
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "a4b397837cae7c1d209f04c08d6da2fab4a83806d2521064f5265ea4b8bd2fab",
-    "features/index.html": "b1fbc0499aaa7fc6809cf1dda898bb01fb8a2e5497e933cb7ef16eda24e1f0b2",
+    "features/index.html": "bb2bbb1d22a4474fde84dd1f759b85e5a6a73776b0aac0a3a343fc7a474708d5",
     "early-access.html": "6a98fbbb322340cfa1af0ddddcc3bd392b52602934cfcb4f82828ac4d134d14e",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
-    "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
+    "assets/features/builder.webp": "8ab87ad969e2974e3db0c47363728e587f28e9efd0b6785c09c0046f9a7e0048",
     "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
-    "assets/features/results.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
+    "assets/features/results.webp": "8a76037ef359925afbcb1c9c7dc6e8c4caf8d9c5461c817307000334f049294b",
     "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60",
-    "assets/product-pages.css": "e408f25096bb93387a5b0c6390dd4d45f03241727ff5567f7fc40cea8a2e0661",
+    "assets/product-pages.css": "14f3c7087e889777d4e60e3600e87805a7bd8d739dc991c1b919ae467b81ca31",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",
     "assets/features/journal.webp": "f2af3b581c57e450030b52e10a8a2524d7fc6d2965943b9fe4bbe0f991a04326",
@@ -405,8 +405,7 @@
     "community/indicators/trend-line-and-res-line/index.html": "2affc3cb62b573de806a02dee2fb1836f6baac7ecb8b1e4c3308d6e67141d0d5",
     "community/indicators/vaultfy-sentiment-apex/index.html": "3e1aa5b967027ae558140e865eb3195068277ad152216465cfae57896419e627",
     "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "782ef2b56d11675b29f8b11ecda6a7f2075d30e52e8d082b36816bab53759906",
-    "assets/features/export.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
-    "assets/features/hero.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
+    "assets/features/hero.webp": "e6b2767d80d65d8c207e947350897b4a3e2bbc710e4a01600bf78cbaa2ad26a5",
     "community/indicators/volume-analysis-fixed-range/index.html": "eec3b9254c0b6758943e08218ca6ac3f0896c9a2d837bb7e27bc12eccbeace5b",
     "community/strategies/20-50-moving-average-cross-tested-on-es/index.html": "747bd2f67ea86a4e2b1b401d91b976a034a8195f5bef71febc90062b7ba8dc77",
     "community/strategies/200-day-breakout-tested-on-es/index.html": "b464ba41fa7a4c4a6228a476b1dda29784461c0c2cd37acfcb7e8cf843a33e51"
