@@ -31,6 +31,7 @@ The guides are written by the TraderCockpit team. Examples use synthetic data an
 
 - [Updates](https://trader-cockpit.com/updates/)
 - [Features](https://trader-cockpit.com/features/): what the app does today, shown from the real app on real market data
+- [Compare](https://trader-cockpit.com/compare/): what TraderCockpit and three other platforms are each strongest at
 - [Download](https://trader-cockpit.com/download/): the Windows installer, how to install and sign in
 - [Product news](https://trader-cockpit.com/early-access.html): get news of new versions by email
 - [Pricing](https://trader-cockpit.com/pricing/): a Free plan with unlimited paper trading, and four monthly plans

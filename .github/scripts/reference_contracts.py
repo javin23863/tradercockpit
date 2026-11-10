@@ -8,7 +8,7 @@ def community_pages():
     return sorted(p.relative_to(DOCS).as_posix() for p in (DOCS/'community').rglob('index.html'))
 
 # Pages added after the owner's 2026-09-18 visual approval; each waits for its own review.
-PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html','features/index.html','early-access.html','download/index.html',*community_pages()})
+PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html','features/index.html','early-access.html','download/index.html','compare/index.html',*community_pages()})
 PENDING_AUDIT={'status':'pending_visual_review','visual_approval':False}
 
 def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None):
@@ -61,6 +61,7 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
         for path,route,title,h1,job,worst,action in (
             ('features/index.html','/features/','Features — TraderCockpit','What TraderCockpit does today.','See what the app does today, each item shown from the real app on real market data.','Treating a screen as a promise of results.','Download for Windows'),
             ('download/index.html','/download/','Download — TraderCockpit','Download TraderCockpit for Windows.','Download the installer, install it and sign in.','Running a file that is not ours.','Download for Windows'),
+            ('compare/index.html','/compare/','Compare — TraderCockpit','TraderCockpit beside TradingView, LuxAlgo and QuantPad.','See what each product is strongest at and where TraderCockpit is not the best choice.','Reading a comparison as a promise of results.','Download for Windows'),
             ('early-access.html','/early-access.html','Product news — TraderCockpit','Get product news by email.','Leave an email to hear about new versions.','Expecting trading advice by email.','Join the list')):
             page=copy.deepcopy(pricing);page.update(path=path,route=route,title=title,reviewed_h1=h1,kind='landing')
             page['hierarchy'].update(focal_point=h1,primary_action=action);page['intent'].update(primary_job=job,worst_mistake=worst);page['audit']=dict(PENDING_AUDIT)
