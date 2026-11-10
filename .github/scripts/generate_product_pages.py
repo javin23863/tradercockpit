@@ -32,6 +32,7 @@ def orders_note(tested):
 
 def load():
     data=json.loads((PRODUCT/'capabilities.v1.json').read_text(encoding='utf-8'))
+    data['live']=json.loads((DOCS/'product-manifest.v1.json').read_text(encoding='utf-8'))['status']=='available'
     trade,read,tested=broker_groups()
     opened=len(trade)+len(read)
     data['brokers']={'trade':trade,'read':read,'open':opened,'note':orders_note(tested)}
@@ -105,22 +106,39 @@ def pricing_main(data):
     heads=''.join(f'<th scope="col">{e(p["name"])}</th>' for p in data['plans'])
     return f'''<main id="main" tabindex="-1"><div class="pp-page"><header class="pp-head"><span class="pp-kicker">Pricing</span><h1>A Free plan and four monthly plans. One research environment.</h1><p class="pp-lead">Every paid plan includes everything listed here. They differ only in included Apollo credits and how many jobs run at once. TraderCockpit is in early access, so checkout isn’t open yet.</p><div class="article-meta"><span>Monthly USD</span><span>Windows desktop</span><span id="pricing-product-state">Checking availability</span></div></header><div class="pp-cards" id="pricing-current-tier">{cards}</div><section class="pp-compare" aria-labelledby="compare-title"><h2 id="compare-title">Compare plans</h2><div class="pp-table"><table><thead><tr><th scope="col">Area</th>{heads}</tr></thead><tbody>{rows}</tbody></table></div><p class="micro">“Part” means some of that area is in the Free plan; open Free below for exactly what’s in it.</p></section><section class="pp-details" aria-label="What each plan includes"><h2>What each plan includes</h2>{details}</section><section class="pp-note"><h2>Before you choose</h2><p>TraderCockpit is research software. No plan can make a historical result predict the future or guarantee returns. <a href="../trust/">Trust and evidence{ARROW}</a></p><a class="pp-btn gold" href="../early-access.html">Join the early access list{ARROW}</a></section></div></main>'''
 
+# The one action on every product page: the download once the app is out, the early access list until then.
+def cta(data,root=''):
+    return (f'{root}download/','Download for Windows') if data['live'] else (f'{root}early-access.html','Join the early access list')
+
+# Home's four bands: what the app is best at, each with one screen. (title, text, area the link opens, image, alt)
+HOME_BANDS=[
+    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies and keeps the ones that pass your rules.','builder','assets/features/builder.webp','Builder’s setup: a market, its costs and the rules a strategy must pass'),
+    ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows','assets/features/workflows.webp','A workflow’s steps, each with the strategies it kept and dropped'),
+    ('It runs on your PC','Your strategies, results and data stay in your own folder. Searches and backtests run on your computer, with no meter on them.','results','assets/features/results.webp','A strategy’s results: verdict, equity and trades'),
+    ('Take it with you','Export a strategy as Pine for TradingView, or as MetaTrader, EasyLanguage or Python code.','exports','assets/features/export.webp','A strategy’s code, ready to export'),
+]
+
 def home_main(data):
     by={a['id']:a for a in data['areas']}
-    def split(a,flip):
-        items=''.join(f'<li>{e(i)}</li>' for i in a['items'][:4])
-        return f'<section class="pp-area{" flip" if flip else ""}" id="{a_id(a)}" aria-labelledby="h-{a_id(a)}"><div class="pp-copy"><span class="pp-kicker">{e(a["kicker"])}</span><h2 id="h-{a_id(a)}">{e(a["title"])}</h2><p class="pp-lead">{e(a["lead"])}</p><ul class="pp-list">{items}</ul><a class="pp-more" href="features/#{a_id(a)}">All of {e(a["title"])}{ARROW}</a></div>{figure(a,"")}</section>'
-    shown=[a for a in data['areas'] if a.get('image')]
-    sections=''.join(split(a,i%2==1) for i,a in enumerate(shown))
-    cards=''.join(f'<a class="pp-tile" href="features/#{a_id(a)}"><span class="pp-kicker">{e(a["kicker"])}</span><strong>{e(a["title"])}</strong><span>{e(a["lead"])}</span></a>' for a in data['areas'] if not a.get('image') and a['id']!='brokers')
+    href,label=cta(data)
+    def band(i,row):
+        title,text,area,image,alt=row
+        return f'<section class="pp-band{" flip" if i%2 else ""}" aria-labelledby="band-{area}"><div class="pp-copy"><h2 id="band-{area}">{e(title)}</h2><p class="pp-lead">{e(text)}</p><a class="pp-more" href="features/#{area}">{e(by[area]["title"])}{ARROW}</a></div><figure class="pp-shot"><img src="{image}" alt="{e(alt)}" loading="lazy"></figure></section>'
+    bands=''.join(band(i,row) for i,row in enumerate(HOME_BANDS))
+    def pair(area,title,text):
+        a=by[area]
+        return f'<a class="pp-duo" href="features/#{area}"><img src="{e(a["image"])}" alt="{e(a["alt"])}" loading="lazy"><strong>{e(title)}</strong><span>{e(text)}</span></a>'
+    duo=pair('charts','Charts','Seventeen chart types, more than a thousand indicators, drawings, footprint and profiles, and your own Pine scripts.')+pair('apollo','Apollo','Describe an idea. Apollo turns it into a strategy you can test, and asks before it changes anything.')
     index=''.join(f'<a href="features/#{a_id(a)}">{e(a["title"])}</a>' for a in data['areas'])
     plans=''.join(f'<a class="pp-mini" href="pricing/#plan-{e(p["id"])}"><strong>{e(p["name"])}</strong><span>{plan_price(p)}</span></a>' for p in data['plans'])
     return f'''<main id="main" tabindex="-1">
-<section class="hero" id="top" aria-labelledby="hero-title"><div class="pp-hero-copy"><h1 id="hero-title" tabindex="-1">Build a trading strategy. Find out if it holds up.</h1><p class="pp-lead">TraderCockpit is a Windows research app. Search for strategies on real market data, put them through robustness checks, chart them, and practice on paper. Research tools, not financial advice, and no result is promised.</p><div class="actions"><a class="button gold" href="early-access.html">Join the early access list</a><a class="button glass" href="features/">See every feature</a></div></div><figure class="pp-hero-shot"><img src="assets/features/paper.webp" alt="TraderCockpit Charts on Coinbase BTC/USD hourly bars with a paper order ticket and trade history" fetchpriority="high"><figcaption>The app, on live Coinbase BTC/USD prices.</figcaption></figure></section>
-<nav class="pp-index" aria-label="What TraderCockpit does">{index}</nav>
-<div class="pp-page">{sections}{broker_section(by['brokers'],data)}<section class="pp-tiles" aria-label="More of what it does">{cards}</section>
-<section class="pp-home-plans" id="pricing" aria-labelledby="pricing-title"><div><span class="pp-kicker">Pricing</span><h2 id="pricing-title">A Free plan and four monthly plans</h2><p class="pp-lead">Every paid plan includes every feature. Click a plan to see everything that comes with it. Checkout isn’t open yet.</p></div><div class="pp-minis">{plans}</div></section>
-<section class="pp-guides" id="learning"><div><span class="pp-kicker">Keep learning</span><h2>Guides to testing a strategy honestly</h2><p>Out-of-sample testing, Monte Carlo, walk-forward and the ways a backtest can mislead you.</p></div><div class="pp-actions"><a class="pp-btn" href="learn/" data-journey="#/learn">Read the guides{ARROW}</a><a class="pp-btn" href="strategy-claim-audit-checklist.html">Open the backtest checklist{ARROW}</a></div></section></div>
+<section class="hero" id="top" aria-labelledby="hero-title"><div class="pp-hero-copy"><h1 id="hero-title" tabindex="-1">Find strategies that hold up.</h1><p class="pp-lead">Trader Cockpit searches thousands of rule combinations on your market, then tries to break the ones it keeps. On your PC, with no code.</p><div class="actions"><a class="button gold" href="{href}">{label}</a><a class="button glass" href="features/">See every feature</a></div></div><figure class="pp-hero-shot"><img src="assets/features/hero.webp" alt="Trader Cockpit’s Builder during a strategy search, with the strategies it has kept so far" fetchpriority="high"></figure></section>
+<div class="pp-page">{bands}
+<section class="pp-duos" aria-label="Charts and Apollo">{duo}</section>
+<section class="pp-guides" id="community"><div><h2>Community</h2><p>Indicators and strategies other traders have published. Open one on your chart or in Builder with a click.</p></div><div class="pp-actions"><a class="pp-btn" href="community/">Browse the community{ARROW}</a></div></section>
+<section class="pp-home-plans" id="pricing" aria-labelledby="pricing-title"><div><h2 id="pricing-title">A Free plan and four monthly plans</h2><p class="pp-lead">Every paid plan includes every feature.{"" if data["live"] else " Checkout isn’t open yet."}</p></div><div class="pp-minis">{plans}</div></section>
+<section class="pp-all" aria-labelledby="all-title"><h2 id="all-title">Everything in the app</h2><nav class="pp-index" aria-label="What Trader Cockpit does">{index}</nav></section>
+<section class="pp-guides" id="learning"><div><h2>Guides to testing a strategy honestly</h2><p>Out-of-sample testing, Monte Carlo, walk-forward and the ways a backtest can mislead you.</p></div><div class="pp-actions"><a class="pp-btn" href="learn/" data-journey="#/learn">Read the guides{ARROW}</a><a class="pp-btn" href="strategy-claim-audit-checklist.html">Open the backtest checklist{ARROW}</a></div></section></div>
 </main>'''
 
 def build():
