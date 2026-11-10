@@ -4,10 +4,10 @@
   {
    "id": "1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46",
    "kind": "strategy",
-   "title": "Rayner Teo's 200-day breakout, tested on ES",
-   "description": "Our test of Rayner Teo's public rules for his 200-day breakout, as we read them in his video A Simple Trend Following Strategy (Backed By Data): https://youtu.be/ggnIGZiDoFY\nNot affiliated with or endorsed by Rayner Teo.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. His own figures are for a basket of futures, so one market neither confirms nor refutes them. Costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
+   "title": "200-day breakout, tested on ES",
+   "description": "A well-known trend-following rule set: buy a 200-day high, sell a 200-day low.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. The rules are usually shown on a basket of futures, so one market neither confirms nor refutes them. Costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
    "author": {
-    "name": "TraderCockpit",
+    "name": "Trader Cockpit",
     "handle": "tradercockpit"
    },
    "published_at": "2026-11-05T12:00:00Z",
@@ -39,10 +39,10 @@
   {
    "id": "0e9d01adfdd0378140b88f96c5732a70a66a1f5027f7c9439fe0a1078ae20f68",
    "kind": "strategy",
-   "title": "Data Trader's 20/50 moving average cross, tested on ES",
-   "description": "Our test of Data Trader's public rules for his 20/50 moving average cross, as we read them in his video BEST Moving Average Strategy: https://youtu.be/k_kSCjdf8D0\nNot affiliated with or endorsed by Data Trader.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. His video gives the rules without results to compare. The moving average type, ATR settings, risk per trade, costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
+   "title": "20/50 moving average cross, tested on ES",
+   "description": "A common moving average rule set: trade the cross of the 20 and 50 day averages.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. The moving average type, ATR settings, risk per trade, costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
    "author": {
-    "name": "TraderCockpit",
+    "name": "Trader Cockpit",
     "handle": "tradercockpit"
    },
    "published_at": "2026-11-02T21:00:00Z",
@@ -76,10 +76,10 @@
    "id": "3eb277e0d96318f3f6d1b284a444e5720f0f80e1fba54d4187cd281c4064cf17",
    "kind": "indicator",
    "title": "Relative Liquidity Index",
-   "description": "Trend indicator by InNoobWeTrust, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Trend indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "InNoobWeTrust",
-    "handle": "innoobwetrust"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-11-01T22:25:47Z",
    "market": null,
@@ -97,10 +97,10 @@
    "id": "ab9adca5c6dbb1603c47563052bcd69f3e17f1e17406563ed16bca13bcaf6132",
    "kind": "indicator",
    "title": "SMA 50 / 100 / 150 / 200 / SSMA 360",
-   "description": "Moving averages indicator by AbaddonPL, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Moving averages indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "AbaddonPL",
-    "handle": "abaddonpl"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-10-30T16:42:04Z",
    "market": null,
@@ -118,10 +118,10 @@
    "id": "84ff605dd0d79807ed327ac4f77f2cd1b5e3ecb0245560449879a905d821c04c",
    "kind": "indicator",
    "title": "DIY Volume Profile",
-   "description": "Volume indicator by jayadevrana, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Volume indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "jayadevrana",
-    "handle": "jayadevrana"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-10-26T11:00:19Z",
    "market": null,
@@ -139,10 +139,10 @@
    "id": "9f3ef803850cc213288481623b26667fe9de732e8bd85eac11b8acf95a983618",
    "kind": "indicator",
    "title": "Close Strength",
-   "description": "Oscillators indicator by glenrutherford4, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Oscillators indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "glenrutherford4",
-    "handle": "glenrutherford4"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-10-15T03:57:23Z",
    "market": null,
@@ -160,10 +160,10 @@
    "id": "0c9bb400da70a556beee82c378bf46b735428e7a436f3db10f0641c7ae340185",
    "kind": "indicator",
    "title": "Swing Levels",
-   "description": "Levels and structure indicator by gambcl, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Levels and structure indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "gambcl",
-    "handle": "gambcl"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-10-10T12:06:33Z",
    "market": null,
@@ -181,10 +181,10 @@
    "id": "52766f55c13aa8fd692d84bb2c448885d2325e7b9c57c531fc04f725fead9b85",
    "kind": "indicator",
    "title": "Super Trend Bands (STBANDS)",
-   "description": "Volatility indicator by mihakralj, shared as open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
+   "description": "Volatility indicator. Open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "mihakralj",
-    "handle": "mihakralj"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-09-28T04:49:56Z",
    "market": null,
@@ -202,10 +202,10 @@
    "id": "3a4c47549f0f95ae5debca1cbede423534ee60db6d9a9c7780345d23f1f75098",
    "kind": "indicator",
    "title": "Swing High/Low Detection",
-   "description": "Levels and structure indicator by mihakralj, shared as open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
+   "description": "Levels and structure indicator. Open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "mihakralj",
-    "handle": "mihakralj"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-09-28T04:49:56Z",
    "market": null,
@@ -223,10 +223,10 @@
    "id": "2ff6fae5f462a126f8379e8ad676e2077883e233e45ecba1c686aa85d70b0a86",
    "kind": "indicator",
    "title": "Time Series Forecast (TSF)",
-   "description": "Statistics indicator by QuanTAlib, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Statistics indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "QuanTAlib",
-    "handle": "quantalib"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-09-28T04:49:56Z",
    "market": null,
@@ -244,10 +244,10 @@
    "id": "25057c246ab35c1b755f72fc6438b7363b9b61b901d69a133b8873174e6d5a9c",
    "kind": "indicator",
    "title": "MTF Bollinger Bands Trend Stop",
-   "description": "Volatility indicator by notprofessorgreen, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Volatility indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "notprofessorgreen",
-    "handle": "notprofessorgreen"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-09-04T12:15:57Z",
    "market": null,
@@ -265,10 +265,10 @@
    "id": "ca184eb07805a245d150dc556ea7e593d213fa0eb125fc648d121daf8e5ef80f",
    "kind": "indicator",
    "title": "Detrended CVD (Z-Score Oscillator)",
-   "description": "Volume indicator by Quantified Detrended CVD, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Volume indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "Quantified Detrended CVD",
-    "handle": "quantified-detrended-cvd"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-07-15T06:36:44Z",
    "market": null,
@@ -286,10 +286,10 @@
    "id": "4617c9ea329cce35d5ffeae1333bb77683250f8036a9e2b62b844e58038b96df",
    "kind": "indicator",
    "title": "Day Trading Reversal System",
-   "description": "Candles and sessions indicator by goodgains, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Candles and sessions indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "goodgains",
-    "handle": "goodgains"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-05-27T20:57:44Z",
    "market": null,
@@ -307,10 +307,10 @@
    "id": "1d0055dd87406da0826e3e2af8bf92717caf754e11b4df9dd67ecb3c15705706",
    "kind": "indicator",
    "title": "S/R Levels",
-   "description": "Levels and structure indicator by Trade Confident, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Levels and structure indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "Trade Confident",
-    "handle": "trade-confident"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-03-16T14:33:19Z",
    "market": null,
@@ -328,10 +328,10 @@
    "id": "c638c5d26fc84a9436f2ecfdaa45ae4918d6829379f25a0e051bb252ded6e48e",
    "kind": "indicator",
    "title": "Vaultfy Sentiment Apex",
-   "description": "Candles and sessions indicator by regalouisei, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Candles and sessions indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "regalouisei",
-    "handle": "regalouisei"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2026-02-25T08:23:03Z",
    "market": null,
@@ -349,10 +349,10 @@
    "id": "3b3d1998800945826e8e2528ca7c58c8650056b22c70835bf379de366b7856ac",
    "kind": "indicator",
    "title": "Volatility-Adjusted Momentum Oscillator (VAMO)",
-   "description": "Volatility indicator by TPTBusiness, shared as open-source Pine code under the MIT licence. It draws in its own pane.",
+   "description": "Volatility indicator. Open-source Pine code under the MIT licence. It draws in its own pane.",
    "author": {
-    "name": "TPTBusiness",
-    "handle": "tptbusiness"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-11-02T07:15:43Z",
    "market": null,
@@ -370,10 +370,10 @@
    "id": "87c0f2e1e926dcc0fdc411f7ee88e188c4b668b42f59af52cb73ad9e9a9f8a76",
    "kind": "indicator",
    "title": "Standardized MA Difference",
-   "description": "Moving averages indicator by Zettt, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Moving averages indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "Zettt",
-    "handle": "zettt"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-09-23T17:18:43Z",
    "market": null,
@@ -391,10 +391,10 @@
    "id": "2030942b677662e86195054e296e0cd2e97d4e05dcdd6ac86539534a832065e5",
    "kind": "indicator",
    "title": "John F. Ehlers - Zero Mean Roofing Filter",
-   "description": "Statistics indicator by palitoj_endthen, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Statistics indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "palitoj_endthen",
-    "handle": "palitoj-endthen"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-07-12T13:25:48Z",
    "market": null,
@@ -412,10 +412,10 @@
    "id": "14f19228df23ba0ac961d943db4297cd9043e9efb0af89527d19f20b56c28ffe",
    "kind": "indicator",
    "title": "Marubozu Candle",
-   "description": "Candles and sessions indicator by Rustyribcage, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Candles and sessions indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "Rustyribcage",
-    "handle": "rustyribcage"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-06-09T22:29:53Z",
    "market": null,
@@ -433,10 +433,10 @@
    "id": "10e9fb1889ef6795a1a8380066f964688913eb1bdfb0cdc0b22b8af1e83a4a45",
    "kind": "indicator",
    "title": "Colored ADX & DI Crossings w/ Options - Llipe",
-   "description": "Oscillators indicator by budinweig, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Oscillators indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "budinweig",
-    "handle": "budinweig"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-05-31T01:56:08Z",
    "market": null,
@@ -453,11 +453,11 @@
   {
    "id": "036e404da562b14435af944ebc7c7c60775d820a1d9f2daacb11f43bc12caeee",
    "kind": "indicator",
-   "title": "PriceCatch Volume Analysis Fixed Range",
-   "description": "Volume indicator by PriceCatch, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "title": "Volume Analysis Fixed Range",
+   "description": "Volume indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "PriceCatch",
-    "handle": "pricecatch"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-04-25T01:31:08Z",
    "market": null,
@@ -475,10 +475,10 @@
    "id": "957fd85b50ede7b5246b204af46fa0f0b0374dd92efa75b02c6755c5ea772334",
    "kind": "indicator",
    "title": "Custom Session OHL",
-   "description": "Candles and sessions indicator by ryangaraygay, shared as open-source Pine code under the MIT licence. It draws on the price chart.",
+   "description": "Candles and sessions indicator. Open-source Pine code under the MIT licence. It draws on the price chart.",
    "author": {
-    "name": "ryangaraygay",
-    "handle": "ryangaraygay"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-04-10T17:36:41Z",
    "market": null,
@@ -496,10 +496,10 @@
    "id": "33d6d4c3c2dc4df3502237035c48b28400b47510eec76dbc2d6c2d708ef4b841",
    "kind": "indicator",
    "title": "trend-line and res-line",
-   "description": "Trend indicator by kaneda_cocoroto_co, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Trend indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "kaneda_cocoroto_co",
-    "handle": "kaneda-cocoroto-co"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2025-02-05T02:11:33Z",
    "market": null,
@@ -517,10 +517,10 @@
    "id": "ec906ec780e8c1675a7dc132e9d2e4b46a5820cc2173813c86faac0d8a3e86c6",
    "kind": "indicator",
    "title": "Parabolic Stop and Reverse (Trend Following)",
-   "description": "Trend indicator by AugustoErni, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Trend indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "AugustoErni",
-    "handle": "augustoerni"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2024-08-09T12:11:44Z",
    "market": null,
@@ -538,10 +538,10 @@
    "id": "2dd637a75ec8bcc24db9165126d4923c657754efe740a0d6cbf3112da0670b48",
    "kind": "indicator",
    "title": "R2-Adaptive Regression",
-   "description": "Statistics indicator by bjr117, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Statistics indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "bjr117",
-    "handle": "bjr117"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2023-08-06T19:46:45Z",
    "market": null,
@@ -559,10 +559,10 @@
    "id": "e23c91515a509bd1efcf7722817a77d56727a842cb50e3f879e4a6eec5648d94",
    "kind": "indicator",
    "title": "SuperTrend + MACD + EMA",
-   "description": "Moving averages indicator by macmwz20, shared as open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
+   "description": "Moving averages indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
-    "name": "macmwz20",
-    "handle": "macmwz20"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2023-05-22T01:36:05Z",
    "market": null,
@@ -580,10 +580,10 @@
    "id": "63d0eb9f2d83f4eb1d1a7b7095df70389c3da91835e61515181b1f5f92fa9562",
    "kind": "indicator",
    "title": "RSI+EMAs for Bootsie Strategy",
-   "description": "Oscillators indicator by RajeshMoriyani, shared as open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
+   "description": "Oscillators indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
-    "name": "RajeshMoriyani",
-    "handle": "rajeshmoriyani"
+    "name": "Trader Cockpit",
+    "handle": "tradercockpit"
    },
    "published_at": "2022-10-18T17:24:06Z",
    "market": null,

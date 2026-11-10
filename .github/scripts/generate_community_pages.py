@@ -97,8 +97,7 @@ def body(i):
     if i['kind']=='indicator':
         x=i['indicator']
         rows=[('Licence',x.get('licence')),('Version',x.get('version')),('Uses',str(x['use_count']) if x.get('use_count') else None)]
-        src=f'<p><a class="pp-more" href="{e(x["code_link"])}">Original source{ARROW}</a></p>' if str(x.get('code_link','')).startswith('https://') else ''
-        return f'{facts(rows)}{src}<h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>{e(x["code"])}</code></pre>'
+        return f'{facts(rows)}<h2>Pine code</h2><p>Paste this code into the Pine editor in TraderCockpit to add it to a chart.</p><pre class="cm-code"><code>{e(x["code"])}</code></pre>'
     return f'<h2>Note</h2><p>{link_text(i["idea"]["note"])}</p>'
 
 def item_page(i):
