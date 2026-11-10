@@ -41,7 +41,7 @@ def render(entry: dict) -> str:
     how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-To →</a>' if how_to else ""
     modified = entry.get('dateModified')
     authorship = f'<p class="micro">By <a href="../../trust/#authorship">the TraderCockpit team</a> · Updated <time datetime="{esc(modified)}">{esc(modified)}</time> · Educational material, not financial advice.</p>' if modified else ''
-    about = '<section class="article-section" id="about-the-team"><span class="kicker">About the authors</span><h2>About the TraderCockpit team</h2><p>We build TraderCockpit, a Windows desktop app for trading strategy research that is in early access, and we write these guides to explain the methods behind testing a strategy. <a href="../../trust/#authorship">How we write and correct the guides →</a></p><p class="micro">Educational material, not financial advice. No backtest or simulation guarantees future results.</p></section>' if modified else ''
+    about = '<section class="article-section" id="about-the-team"><span class="kicker">About the authors</span><h2>About the TraderCockpit team</h2><p>We build TraderCockpit, a Windows desktop app for trading strategy research, and we write these guides to explain the methods behind testing a strategy. <a href="../../trust/#authorship">How we write and correct the guides →</a></p><p class="micro">Educational material, not financial advice. No backtest or simulation guarantees future results.</p></section>' if modified else ''
     assumptions = '<section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>'+render_list(entry['assumptions'])+'</ul></section>' if entry.get('assumptions') else ''
     references = '<section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul>'+''.join(f'<li><a href="{esc(ref["url"])}">{esc(ref["title"])}</a> — {esc(ref["scope"])}</li>' for ref in entry.get('references',[]))+'</ul></section>' if entry.get('references') else ''
     html = f'''<!doctype html>
@@ -128,7 +128,7 @@ def render(entry: dict) -> str:
           <section class="article-section" id="product-boundary">
             <span class="kicker">Apply the concept</span>
             <h2>Use the idea without turning it into a shortcut.</h2>
-            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For TraderCockpit controls and workflow details, open Docs. The app is in early access; these examples are educational.</div>
+            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For TraderCockpit controls and workflow details, open Docs. These examples are educational.</div>
           </section>
           <section class="article-section" id="related">
             <span class="kicker">Continue learning</span>

@@ -215,8 +215,8 @@ def main() -> int:
             problems.append(f"homepage missing product/prelaunch contract: {marker}")
     if 'type="email"' in home_text:
         problems.append("the email form belongs on the early access page, not the homepage")
-    if not re.search(r'<a[^>]*id="product-cta"[^>]*href="early-access.html"', home_text) or 'href="strategy-claim-audit-checklist.html"' not in home_text:
-        problems.append("early access and the educational checklist must remain reachable without JavaScript")
+    if not re.search(r'<a[^>]*id="product-cta"[^>]*href="download/"', home_text) or 'href="strategy-claim-audit-checklist.html"' not in home_text:
+        problems.append("the download and the educational checklist must remain reachable without JavaScript")
     for legacy_id in ("initiate", "rungrid", "phases", "verdict", "chips"):
         if f'id="{legacy_id}"' in home_text:
             problems.append(f"legacy homepage simulation remains present: #{legacy_id}")

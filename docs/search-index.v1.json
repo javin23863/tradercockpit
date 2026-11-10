@@ -769,15 +769,31 @@
       ]
     },
     {
+      "id": "product.download",
+      "title": "Download",
+      "path": "download/",
+      "kind": "reference",
+      "summary": "Download TraderCockpit for Windows, install it and sign in.",
+      "terms": [
+        "download",
+        "install",
+        "windows",
+        "installer",
+        "setup",
+        "product key",
+        "sign in"
+      ]
+    },
+    {
       "id": "product.early-access",
-      "title": "Early access",
+      "title": "Product news",
       "path": "early-access.html",
       "kind": "reference",
-      "summary": "Join the early access list for the TraderCockpit Windows app.",
+      "summary": "Get news of new TraderCockpit versions by email.",
       "terms": [
-        "early access",
-        "waitlist",
-        "sign up",
+        "product news",
+        "email",
+        "newsletter",
         "list",
         "join"
       ]

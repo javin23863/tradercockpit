@@ -37,7 +37,7 @@
     openDialog(detail);
   }
   const features = Object.freeze({
-    builder:['Strategy Builder','A development-build capture of the Builder Setup: where the search starts and its options. The app is in early access and not yet released.'],
+    builder:['Strategy Builder','A development-build capture of the Builder Setup: where the search starts and its options.'],
     charts:['Charts','Inspect price, studies and volume. It shows Coinbase BTC/USD 15-minute historical bars, not a live market or a trading result.'],
     models:['Apollo beside Charts','Apollo, the research assistant, sits beside the chart and sends what is on screen only when you press Ask. Historical bars, not a trading result.'],
     research:['Quant Models','A development-build capture of a Models study comparing exposure policies on a synthetic sample. It is not a trading result, and a fitted model is not a promise of future performance.']
@@ -109,7 +109,7 @@
       $('.video-box').replaceChildren(frame);
     });
   });
-  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Where the pictures come from', '<p>The room, mountains, furniture and laptop are illustrative artwork.</p><p>The screens on the monitor and the laptop are <strong>screens from TraderCockpit</strong> showing historical Coinbase BTC/USD bars. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>The Windows app is in early access. We’ll release it when it’s ready. Checkout is closed.</p>')));
+  document.querySelectorAll('[data-provenance]').forEach(b => b.addEventListener('click', () => show('About this page', 'Where the pictures come from', '<p>The room, mountains, furniture and laptop are illustrative artwork.</p><p>The screens on the monitor and the laptop are <strong>screens from TraderCockpit</strong> showing historical Coinbase BTC/USD bars. They are not live feeds or evidence of trading performance.</p><p>Use the screen inspectors to view each complete capture.</p><p>Scene motion is decorative, can be paused, and respects reduced-motion preferences.</p><p>The Windows app is available to download. Paid plans start inside the app.</p>')));
   const menu = $('.menu-toggle'), mobileNav = $('#mobile-nav');
   function closeMenu() { mobileNav.hidden = true; menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Open navigation'); }
   menu.addEventListener('click', () => {
@@ -124,7 +124,7 @@
   });
   const searchItems = [
     ['Platform','#platform','environment workflow'],['Features','#features','capabilities'],['Pricing','#pricing','plans core trader quant apollopro'],['Learning','#/learn','guides methods library'],
-    ['Monte Carlo uncertainty','#/learn/monte-carlo','methods resampling assumptions simulation'],['Research checklist','#/learn/checklist','notes evidence questions source'],['Early access','#public-status','early access status'],['Read Charts','#/platform/charts','capture guide price studies'],['Read Apollo','#/platform/models','assistant capture guide on screen'],
+    ['Monte Carlo uncertainty','#/learn/monte-carlo','methods resampling assumptions simulation'],['Research checklist','#/learn/checklist','notes evidence questions source'],['Availability','#public-status','download availability status'],['Read Charts','#/platform/charts','capture guide price studies'],['Read Apollo','#/platform/models','assistant capture guide on screen'],
     ...Object.entries(features).map(([key,entry]) => [entry[0],`#${key}`,entry[1]])
   ];
   function search() {

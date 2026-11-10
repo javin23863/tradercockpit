@@ -44,13 +44,13 @@ def main() -> int:
     plan = commerce.get("plan") or {}
     if not isinstance(plan.get("unitAmount"), int) or plan.get("unitAmount", 0) <= 0: problems.append("public commerce plan must expose a positive integer unitAmount")
 
-    if manifest.get("status") != "waitlist":
-        problems.append(f"expected current public status waitlist, got {manifest.get('status')!r}")
+    if manifest.get("status") != "available":
+        problems.append(f"expected current public status available, got {manifest.get('status')!r}")
     if not manifest.get("verifiedCapabilities"):
-        problems.append("early access manifest must list its verified capabilities")
+        problems.append("the manifest must list its verified capabilities")
 
-    if 'id="product-state" role="status">Early access<' not in home:
-        problems.append("homepage static early access status is missing")
+    if 'id="product-state" role="status">Available for Windows<' not in home:
+        problems.append("homepage static availability status is missing")
     if 'action="https://app.kit.com/forms/10131311/subscriptions"' not in read(DOCS / "early-access.html"):
         problems.append("early access form must post to the approved list only")
     if 'type="email"' in home:

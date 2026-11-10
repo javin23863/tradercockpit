@@ -1,2 +1,2 @@
-/* Current early access captures; historical market bars, not release approval. */
+/* Current app captures; historical market bars, not release approval. */
 window.TRADERCOCKPIT_CAPTURE_OVERRIDES=Object.freeze({"charts":{"src":"assets/reference-site/original-charts.png","width":1600,"height":950,"hash":"e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0"},"models":{"src":"assets/reference-site/original-models.png","width":1600,"height":950,"hash":"ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e"}});

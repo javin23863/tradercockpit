@@ -1,6 +1,6 @@
 {
   "schema": "product-manifest/v1",
-  "status": "waitlist",
+  "status": "available",
   "verifiedCapabilities": [
     {
       "id": "builder",
@@ -77,12 +77,12 @@
     "Windows desktop"
   ],
   "cta": {
-    "label": "Join the early access list",
-    "url": "https://trader-cockpit.com/early-access.html"
+    "label": "Download for Windows",
+    "url": "https://trader-cockpit.com/download/"
   },
   "product": {
     "name": "TraderCockpit",
-    "summary": "TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens."
+    "summary": "TraderCockpit for Windows is available. Download it, start on the Free plan, and choose a paid plan inside the app."
   },
   "brokers": {
     "connectable": 31,
