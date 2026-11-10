@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "b1639024f4e17a69e7d26618d2c4b2b807ec777355083c97e2967318bf7634a7",
+  "home_sha256": "05f6c41a03e65c5e581922c90fdac85a40831e0162f0ca755207ee4d773866bc",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "c5e08f5cfded0416ecd23cff10dfb82c5a53958dab1983d69ba7c372cfa38059",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba Broker section: orders from the chart lists what is proven Market data: no exchange account Paper trading: no broker account Orders from the chart names supported brokers; which are tested Community tab 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "after_sha256": "2661f2a5df6bfc12cb63a6ae2a800596671769b39e200666de163d08724c263f"
+      "corrected_unwrapped_sha256": "41b73bf5c8018b42de5a26866e1ce966413a6282b4d6c254ae43d5682c9e7844",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba Broker section: orders from the chart lists what is proven Market data: no exchange account Paper trading: no broker account Orders from the chart names supported brokers; which are tested Community tab 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Features and Pricing headers shortened; the legal line stays in the footer.",
+      "after_sha256": "4c53561685090793a2837f4102f86348d0caf4ebb33ca14081def7edd7b459a7"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -365,14 +365,14 @@
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "a4b397837cae7c1d209f04c08d6da2fab4a83806d2521064f5265ea4b8bd2fab",
-    "features/index.html": "1781d2bf27486d46289560280f135923e894850b75944f2fe39f2de10ed14fb9",
+    "features/index.html": "b1fbc0499aaa7fc6809cf1dda898bb01fb8a2e5497e933cb7ef16eda24e1f0b2",
     "early-access.html": "6a98fbbb322340cfa1af0ddddcc3bd392b52602934cfcb4f82828ac4d134d14e",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
     "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
     "assets/features/results.webp": "79b19824db45334a430fbc1ca86ce7b333799107c4671f17ef8f26f0d8b65429",
     "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60",
-    "assets/product-pages.css": "6d599146690eada1cd6e13ac49a5212b19877eca96a4249f8db643381dcdc426",
+    "assets/product-pages.css": "e408f25096bb93387a5b0c6390dd4d45f03241727ff5567f7fc40cea8a2e0661",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",
     "assets/features/journal.webp": "f2af3b581c57e450030b52e10a8a2524d7fc6d2965943b9fe4bbe0f991a04326",
