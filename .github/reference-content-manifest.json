@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "c0c18588962a667ac43bd2f7710801a2dd30416cb404ca50b8fde2a5bb00d457",
+  "home_sha256": "4f7edd686aa37a1340db59ef1e05e3e7a1f60549f624ea973c778038e3244ac1",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -13,37 +13,37 @@
     "confirmed.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "ce4cad2aea3c81c68c35f3bc2a4e4751c4d469d6af5efaccb6a35d078c385a3c",
-      "after_sha256": "1533ca90ff873f5ce0fdcac34ed0cf5a4555a10f81b45c89193561932febee14",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "c7bbb82022c8f64aade81d4fd8a54ea7567d2fd40024a079353fbdd19a5c64d9"
+      "after_sha256": "2ff6f938d901cc4f7d07192436ccb0376aa117336a4355ffaee997efd57802e5",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "ee09f1f6b3da7a55688cd4c14d02f92fc8f6f199f84407d8714ab0ac5aa4148b"
     },
     "docs/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "f24f8660892730ab6ebb2edfa4158735cc2aec34c5bb20268b2e027b28a881d0",
-      "after_sha256": "4998a607c304731f07cfa9fa4c3297b08504505e93b34f2d188ff9b86e849c09",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab",
-      "corrected_unwrapped_sha256": "a9ae4edf6b5712f9866298a17c7b12191ed711b06652d4a152faf02521e51ab5"
+      "after_sha256": "325aced797303c9b9a3a623a2ad5689661e9be8ce8a80ba81a31f90e8549fe59",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "7b897284dde6056d7928d2c633193c9ee864c5779a41edd53879c55e02dca8ae"
     },
     "examples/holdout-selection.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85",
-      "after_sha256": "6a8bb0350bed153e937ce96195792dd60d81333162e56e0b34e5c3f416369957",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "9dbdd6a1fd5fdbe83188ed3bb307fe310c48e1c05ddd7c44e3ccd62fcbc1b9ed"
+      "after_sha256": "96991b7ec6fd86b61e8406265005f9832f5af01881066cdcdb4e09cfd984b654",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "4a445de47464f676f00f1e5b977e3db879d7881f08eedbfd452d536f3ce46f52"
     },
     "examples/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "60ada0e34432da39ba418840da16ad33e64925f8e5caf43333754a2af1fe8668",
-      "after_sha256": "1062fcc328b490344b2b5a3e842736b6a7a55075911faf127dd1694544916db3",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "96d9db626ac14c2c1dcf0854c80240d13fdd0dd809bd377bb483000837990417"
+      "after_sha256": "27381a025a420d1aab956abaa34d3c7a6ce3af259ea855c8be551fd0e27999e7",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "f517abdb2fea38412485dd9be7126464802b15da85894149aa5df98bfb214ca0"
     },
     "examples/replay-boundary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79",
-      "after_sha256": "25c3fefd6d86a014d9a5b1be9373cc37b0da3fbfa46dd79e277752055a62faff",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "a0de06111f6e6a58a1f5af1c2cdda7c169c2c725e919cb81b94efb2b2e45b41c"
+      "after_sha256": "46be1c5688ccfebce5d1f99219482c5b95bcf1ff45bf2b4868bd0d8d4322c42f",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "64754ec6a0d6691bc166fc7c7e3b391590a8c8eb69e5c0b14d9ebf9ec0f46c4d"
     },
     "help.html": {
       "kind": "corrected_reading_shell",
@@ -55,226 +55,226 @@
     "how-to/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
-      "after_sha256": "d27fc4a8b89c2df871ed8557f77cf57ab18b4a64b6673885f84975852fec7319",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "1c526335b1523861fe8cd20f8dffe7144f1e641031e0c3686d95b8cfe8be503e"
+      "after_sha256": "3b95852ab91009c8d64b2cf40dba067c6f9280abd8c9b245daf9f695e4871f78",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "1286424f8e43f05e17b19484b3b087aae0d980dc0075a19153947cba1d6028d9"
     },
     "how-to/read-chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3",
-      "after_sha256": "13253d3b5359914c5b69607909579adc3e6783e2cd084e6d5f0cb5927662fc98",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "5685339280557c0a4667de7123a7008576c1da2a84e074beccba90bb18558fdf"
+      "after_sha256": "1658f36946895787631b9b4218e174b7462bb9760a929a7e7298c3dc0be33be0",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "ee10948d021bb6d1e5befa46b1192f6ec8709068b78c2e8820189512216052f1"
     },
     "how-to/read-monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404",
-      "after_sha256": "a5dd5bbfe2c098e0927b24f7a1a2434d1a1df6fc722e9d71d6300aff27183b37",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "9fc4d1e86864cf63808657287347e194b1936e871a3f34bf63650f34047de122"
+      "after_sha256": "8156312d4eaa8bec24e453a9ee1f4188b72cd734c619957105495d17a2875564",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "8905a2129acb1c026c86ba308137a5c6fe2f45107bec1890917d4c02716f44db"
     },
     "how-to/read-result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833",
-      "after_sha256": "669b9d3a02ad120aeb68f19ff0f400328dffba3c028a72403fc84c9a152c7e39",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "b41901b285181213d66acc521701a87e5532a6a827b9776637fe43f12d6be906"
+      "after_sha256": "5283fe2804ef69784206533befc51e70c48b7c13abd46d3c3f5f7b5b681e3f6d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "9ba59c4ddb63ea7c9b350b396375b6abbb09af03c78c7e2095a7f616c76a35c1"
     },
     "how-to/read-staged-validation.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5",
-      "after_sha256": "d6b5fafe1b996d931f303eab8d938d58bfa5b87ee28c4f1ec3974b1871e81248",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "dabfc46d6f09103fb6b12794a64912be72129f9fd6eef2c44508398bb216bf2d"
+      "after_sha256": "0beaee5b51f61c4d2f1b5b9475bd7af23aca726f17edf06695a97a1e6ebf374a",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "f6eabc3cbbff6f289ddb9230b7c94e800d6583ae38c899a21c390e65e27d79e8"
     },
     "learn/concepts/correlation-diversification.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
-      "after_sha256": "ef2364a26fe397409aff5104d9848ce5f967652c9bee81ba574732a96dd80840",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "ed788c184a9bd1408af613218c3b16f5accd9c922d99b103fdba4304d351abf5"
+      "after_sha256": "ad42ea2d2db51f1c983e54334de851e59c861c5e653a4d9e64f79ad1fde5e174",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "902175018d4e05183ad6492c632090c6b242544949d215d9b249be754158e3e7"
     },
     "learn/concepts/distribution-shape.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
-      "after_sha256": "47e436f0cb3dd8aa816b5b34b3c9703ba069893f5f8f10cb4dc2d2717d5b19b0",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "9486f8f44b80a1a04458cc0fa8cb2bccd4db742d7f6b48d9fddb871bae0e47e1"
+      "after_sha256": "45ac666aa6eb71b8b81019030adb7058703956aa0679641182d6c3b9315b5a65",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "1f223c8495ac4ebbc644de56bbb67a1ae48d6e9804f0716c7afae3f17d0c6487"
     },
     "learn/concepts/drawdown.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
-      "after_sha256": "8301dd2ab3d59a2638b45785878efe8ab3f3c1216cd742ca9521f068bd3c6dd9",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "0e5c25c08322ebec39c6a23ea478c2775f73a85259f8119a5c5292982391f35f"
+      "after_sha256": "b0760c4781548cb8c7294f281a536ebbfab31b2ff397d0369d2238cb0f3c8fff",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "3044b08b670c661f31ba871e8d39ad040db327b1fdcb0a5c3d45d8645c94da5b"
     },
     "learn/concepts/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6e3f51c527177c355262b635824aa4a3ad3004686711081972a7fde552439fce",
-      "after_sha256": "6db02b8872bacd2bcc939947b5c4f4d07dd54c1ff1a3dff967bad45364ea68f6",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "6bca7c3f366930ff1f56c975ef4f6a1debcc52dbee0527c503ac3f8fb543b0c4"
+      "after_sha256": "06c5148f80bea9c4d810b23ca5d00b2876602d4051e7b39c97436c2b80108af7",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "ebc63e3036302161c62220d65b626ecfaddab53203621a82221c3b1364ccd6cd"
     },
     "learn/concepts/out-of-sample.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b38d48b3ce6696868ee13396ac4a3f9afa0450abb32d28ace8742bd7e7cf7727",
-      "after_sha256": "b57b8ff903268877f573cc221fe5a556d60cd415ebb533b40a0c9ea78b547fe4",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "50e40c9142ff677ceba4890d942785ad7a86c30c71dd5876ea2842c87a23032f"
+      "after_sha256": "6523517eeff49934933ce5b957af77546bd58db15987383671a3975560aee544",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "b635dde7b16f71a0176f1beeca0ea8ab1bd7c7f1463b109d8b6d4ef98f6cc3c6"
     },
     "learn/concepts/parameter-robustness.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
-      "after_sha256": "ceaac5eb910f7b137f18c94557f69548a68a4f406c952d18be29d5f0678ad436",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "1f983bce445e03c57649ff96a1da4ece8093086370decea41de268e302b1692d"
+      "after_sha256": "9eb747cc3078bb58b3c0e6bf70f4c7b070ddb274f36ee5d3111b6219fb817b0c",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "7c6bdc412a2eb161f97a5243a2f8dece08e7632b9d463b12fe24f1778440b498"
     },
     "learn/concepts/regime-map.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
-      "after_sha256": "f1df68dd1b855fed52321ae7a5a170b58b35648cda310c42cb70d1c89618021d",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "f145fa519d92a5d90b34fed865fcaa8d413af6693154fac6b718c481ceca1a7a"
+      "after_sha256": "18554f19cbd0ddb16975f487d23bf24eea2e2e25c776b2ce27cdd16627fd6db9",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "53142056f3444e60bc7b9ad06b52a2ae9b0d35e9b19ae2980a3cd8181a44a4e4"
     },
     "learn/concepts/selection-bias.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
-      "after_sha256": "60dd13f8000e201debeedcb2ba38c428c3ca77f55fe223430514f4ffa556b2a4",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "3c14ad063fc83fec2e5ece0ba991117a403451463bb7bb50e5008cf4d56dd6b8"
+      "after_sha256": "d7fbeeb3c54afcf53b6a3467447fc6ded6eab2b29417c77d5489b32f13327362",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "b1e53e98408389d2267af4b07e42d0deff810ac4e6d407dc3fe780b10990a206"
     },
     "learn/concepts/walk-forward.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
-      "after_sha256": "4a29bc12f23638576270ea3d54f038cc9f21ba58e3ab27e441137e745acabd64",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "c2827cb2e7262f05ca892aab40d64621f56e21303514bf38f5f0bf53ac9580b5"
+      "after_sha256": "41af2649aa1b9440682d834344d2468f5256768d1a7f2b9b727b6ccf4c1a59fa",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "fd293e6ce1f0115d0bf2891124dcd13ffbf3fed80de6a215ea63bd3203be2e5b"
     },
     "learn/glossary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335",
-      "after_sha256": "02deb74e32c8054219898f1982d0faaa5f8f58dfe7c1efacbdbfef11f45e11e9",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "6feaf4ed9ff5e790427e52bfd6922142ebce1c21b3571acd98560e7bfe0f7f86"
+      "after_sha256": "10ad741eb25053b668b3297b2b76f0ce5dfe5fdec749298374748a06187b64f3",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "852a30c4f3a7fb32017de7be5786440840834df33c82d07451473e3e5d8eef8b"
     },
     "learn/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31",
-      "after_sha256": "485ea65d38e07f4ae2d2452475c8249c65e9a853a2272ee380740165b439261e",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab",
-      "corrected_unwrapped_sha256": "5c5d9cd3307df5f3ccb9efa9e5b004231be83dda69943337b34d6fbbc7bce3cb"
+      "after_sha256": "a5dc3cde25a1f8e42cf1820bdbcdbcc562cd2db25435f5faca578416d937250e",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "857ec56ccc587e7ae420adcbf080c9fe71ad2b7b58eb5f57cd09462256ace330"
     },
     "learn/start-here.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3",
-      "after_sha256": "709f6f4d82b3d36dd2781c7cc53ffe4a1ddf78c836e9d2bc96da419bce799a4d",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "10940a1d941faaec10ced35a0b147ac97a3584392b5e31e7f98512d96812ae9a"
+      "after_sha256": "2c3f223033ba770377d3c5539cc47e7497c2c1224b0cb51550af622c036212c3",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "dbc62b4e12905c492f195e623cc2b6f8c256d3f7c6563d8990efd2c61a839255"
     },
     "learn/videos.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "ac744ff241d35c402eac8e9a16a495d2a1f4895908e25899777b42b4f22b3a17",
-      "after_sha256": "0493f62a5c7e21c071a2038ecd116498e47cc90b943184a21ec47ba658e1211d",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "c96df13e23e84a9558f21385ac5f48da2043707d658c38d9a65ae95a7fd28e9c"
+      "after_sha256": "f1d773b9c58d8009d92f7ad4c6d3d5c064c0693bcf26a1d81d8b2d2c5340ddd0",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "dd36388e2f8075b92510c0a2ed97a933f23827a2953e9235aa3c2b004ce6ade9"
     },
     "methods/chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8",
-      "after_sha256": "aba94f0fa9fc8b98747a9b17d82588b939611a65afc62313e01e061135f11142",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "526d6a6620e77f373e23cb736a1d29329fdbf95ef5afed3f106514c3c5e4267b"
+      "after_sha256": "f7191d97c240e607d3a4c0ef7369c8809e08659df3994f704f6a8f41f123a73d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "53177bcde09a8a6e2a49cd699bdc56504a4586d51db23efee36290a86cef9bcd"
     },
     "methods/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0689e1b3324eeef298f4ca4718b7e9818ec2efff791b0a4beffa222a59667553",
-      "after_sha256": "e4fe906b5c7154620cb6d43a6c5c64f8200640541443a5ac07fb6e649522b6ca",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "3bc8357bb316d7e6e74ed6e08712b46c39e0a1493f08440e4f49abd97d33a335"
+      "after_sha256": "f6663d049d7beee95d70ecea925839ee2eb4309d21a1fb6d2855057606918ea5",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "67cb9e97b439acb99e66ba4cd2a6e1bbe8922d3a3134911833a52f3ecdb499e8"
     },
     "methods/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0",
-      "after_sha256": "f1a83501658e2241e50dcc457be2cc4cbd067f7435d4e9b9684a48f1e80595c4",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "e4f1704a0e3b326759165b8dec4a21a9bff6b295e25b1bb8b7e3ccb47ee701d4"
+      "after_sha256": "1f1ac44556a6ef9c8ee8a5d324f1ff80a7790cb97fba49331f92fe5fbd90564a",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "04c02d91bd151f55fb0366912a2730a6829b070f54bd3d4178acaa624c99f3f1"
     },
     "methods/result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1",
-      "after_sha256": "0344efedc67091a6b146a05b01cc535b9f34231cca0628b440c29376c72c96de",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "ab7eabd6b8bb537a1dbe3828e0ab5f20c949a6e77aa827c3e371a380a6269976"
+      "after_sha256": "86ab4ee6520eb3b658f18c7beebd2d3970b0d2a9290da9c07c875f4ea5547504",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "178adfe172afe8ea98b7206dce6f716d6be5db75c2f4efb372d826acd0c15433"
     },
     "methods/validation-foundations.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa",
-      "after_sha256": "1b23d8c85c74cf7926ca94795c7020818f8d4e5a0dbce6e43bdd17c73a81322b",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "63af22681ef9223c945fec9c1a4f76053a1921ae9e696b819506e5ecaa5d290b"
+      "after_sha256": "b83c360490f3c915a209a6c7ce641248c2b26b700ee88215e3fc394377ffde1c",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "2e108e0a97e58989e8179c61cd719b300dc4a1da7c210ba0f20a4dcb6a4a20e7"
     },
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "ba246867c3d4df5f2accf640ff949c21cc00931a08325df6d104ad6a4d6ee21d",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba Broker section: orders from the chart lists what is proven Market data: no exchange account Paper trading: no broker account Orders from the chart names supported brokers; which are tested Community tab 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block",
-      "after_sha256": "b4d9f220d898fe7e6f9f21f88db1b3b0e232760f06999e3a98fd61acae79bc2e"
+      "corrected_unwrapped_sha256": "60ddfaac00525c231530dba08328083b5c129606dd1f5bdb3d116cfdab79324c",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba Broker section: orders from the chart lists what is proven Market data: no exchange account Paper trading: no broker account Orders from the chart names supported brokers; which are tested Community tab 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "after_sha256": "11638aebe17bbf2b05ef5abe52a3df0f5d223853f70f550fdf27d167ce649b34"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "427dbd7d33a45c376dacee264f98169b33fe26aa7274cc40339b5ba91e856752",
-      "after_sha256": "9e9278eb8c0ccfbf61774b9afb894f7ce5025ee90bbdb1af01f3247b961eb62d",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "d5dcf167bbcde6dae53050d118a3a749e9a742b50a2cc79e144c8f96bd299b88"
+      "after_sha256": "6e6e82af0003fb1c95ba29b4da25d3dcb83c3b741f578d4e3ad2ec1700c94070",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "68a54dc6b1ff3371e821d5290742ba223c97185f2bdd91885794f083ececf68e"
     },
     "strategy-claim-audit-checklist.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
-      "after_sha256": "5d412951b8511d007f549efb32b53f192f0354c4633a385ca974dc4212313449",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "452abb5cf37e3c3bd71a7b3636b997fe42bcc5610128a3d036b20884c2ebf73c"
+      "after_sha256": "8bf2ed7ddb836ef66954bcfe74cd53f673e563f9d0a9ce4c737d0a496bee6593",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "724dd32566cbc7e7e210620fd9aa884dfbaa4097ca57d0264cce4c02b69c9023"
     },
     "support/faq.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
-      "after_sha256": "13b18fac509f43e64ca9c86443bed15e1306a4dbc269d6198680108e4734d5c6",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "41b37998bfbcbaca24c4f908a7e0d719788be1025b05a21c52637c7323f97ca6"
+      "after_sha256": "52173c3fb8ade967cd151c2d751c44d972d9128529ceef1c77da56b3386cd42e",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "a2f7269784e4acde55d9a5dfdc25519ea7674d22b078bcb79690204ff0bd9b9b"
     },
     "support/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0dceeb4d047f0ad782c443e1136877ea0343df00f5bb38dd5e74b3fc4c0f1bc0",
-      "after_sha256": "d358dc1297ecfbaf9972bb947ae9fd3cf4df99d6eafadf0c62a0558de30d5c1b",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab",
-      "corrected_unwrapped_sha256": "a3b0bfd92078b1db9cdbf4464a040063b85cc3e052831efab584d66f48500dfa"
+      "after_sha256": "c7ef2977752ca8fc58efc4a3536b755ea6f92e4c36372cb39cae4fab38f8e11d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "ce48fe00ca3c0e14c6d38432b68433d00366cf09aa403865902fb8f1ab547140"
     },
     "thanks.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7044bbe001264811706c0c3a3d72513c419b61b2314a7e3c97e19a8bedf4a077",
-      "after_sha256": "73798dbc353ee5a927f4d3b4e6443138b295768bd1240f4a67cbd742db5401e7",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "f5a71c569a46669d15024fefb90b96253b324aa7cdaa47602026367f50a9693c"
+      "after_sha256": "a5ea24c5a396f7c932caba78e1529546283e63510ff99dc0f73545078a418057",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "dc1b4868850d625323d7c6f0c5c78acdee998dce7d6b80da751f157702ae7c0b"
     },
     "trust/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
-      "after_sha256": "b415e143f9ee7423ef36cab5e82f3f70c59171e94013a4911811e90fad117d3b",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab",
-      "corrected_unwrapped_sha256": "64d3b60bc3802af92d907268e2e00dfb5e29039dba325109779509c882b3e59e"
+      "after_sha256": "9ffc1b8e734c8dc0363ef8ffcc0254de02f4da503cce473ff3eaa1a13b30eaf1",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "0373d5059076a30a3c2a48b6fae05faa44290f590e3f60de7b291bd8e63c02a9"
     },
     "trust/privacy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-      "after_sha256": "5321a9f3dc44c00e4a758961cbb866465c8f58576b9ba29b4135515fcdb70f5f",
-      "corrected_unwrapped_sha256": "4f481f2c9ac0990c98e28c6738eb26488b62e0330bea630c266b75528af57fc1",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab"
+      "after_sha256": "a27975c6263820994d69bbe00d6982481ca38c8fe76bf57556a24b7993682e6c",
+      "corrected_unwrapped_sha256": "aa2c7f775270376602ef886682598857cb4896e3b0ec56d7352ac8fe9d670b8c",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "updates/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
-      "after_sha256": "7d79d84b1e93779044e61d2e84c89163a9fb8015eb3f259c8146a866638e3378",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab",
-      "corrected_unwrapped_sha256": "43a526369db08afc2b3a2343d52cc93cf4726eaa5bf19076166bd071504da955"
+      "after_sha256": "a15d164a3ec6caf0270e950559c4b3bdb5e0802b7e3bed89e8c35f0c7bcd7a98",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed.",
+      "corrected_unwrapped_sha256": "b202437b5f2f8fd76282028dc77d6740ebe55245b6088f748f19740acdcfa284"
     },
     "assets/site-search.js": {
       "kind": "search_guard",
@@ -292,8 +292,8 @@
   "approved_updates": {
     "assets/faq-status.mjs": {
       "before_sha256": "60ef1485d6fc005893c67ed6ced932095cf4e5e5ad9dec6ddb68475ec0c0b736",
-      "after_sha256": "2311659e75a4a521c323f10d8d33f7810ca31a9ba9fa517e580830ac8a9b3cb9",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Owner plan 2 Nov 2026: early access wording, Features and early access pages."
+      "after_sha256": "7a95cc78aa816d203976a1874ad966f25bfb10c3b4baaa290551e47369726cbe",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Owner plan 2 Nov 2026: early access wording, Features and early access pages. Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "assets/home-v3.js": {
       "before_sha256": "4085ebcdf6ec42014e85cb1db50e76b8c76279da66155ccede768a0224326a08",
@@ -307,8 +307,8 @@
     },
     "content-registry.v1.json": {
       "before_sha256": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
-      "after_sha256": "c851a1e6caf7dadc717b1d2d3abba531fda405652fe6a8a4e533bfffc2c51f8e",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background"
+      "after_sha256": "5002e1e0326322fb7b683e5bbd3463d286ed2702449bd62ed85b7ff4fd71f1a4",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "help-registry.v1.json": {
       "before_sha256": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
@@ -327,13 +327,13 @@
     },
     "product-manifest.v1.json": {
       "before_sha256": "58b96cd926cb5fa15bb7be0f55678fea5121626545872407df03f797d5a23820",
-      "after_sha256": "b77f2b5ddaeed4482c696a72d2fc93a7a2e71ec7a1c23665b544c0ef6a7f8707",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Connect your broker section: brokers from one file Public wording sweep: no suppliers or background Broker section: orders from the chart lists what is proven Market data: no exchange account Orders from the chart names supported brokers; which are tested 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block"
+      "after_sha256": "65cf1590809f51a360e37aca3c748f57bb5958bc0cc46b20b5e7713ec402fc3c",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Connect your broker section: brokers from one file Public wording sweep: no suppliers or background Broker section: orders from the chart lists what is proven Market data: no exchange account Orders from the chart names supported brokers; which are tested 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "research-lab.html": {
       "before_sha256": "0c0883a01c84341928f261af0a890b91c581c506d25e19a7ee8a494ccc82aad3",
-      "after_sha256": "6545eb0be19fecb54eea2346e0566c249a6b55a3ed951ed28c0bbe7c46c88987",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Same reading surface as the other pages: the site navigation, type and panels; the synthetic diagrams keep their colors (2026-10-13). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab"
+      "after_sha256": "0a8c8d08e6e1bc177e85d0d022e237fb6b2d15547d319c11abcfbead351794a4",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Same reading surface as the other pages: the site navigation, type and panels; the synthetic diagrams keep their colors (2026-10-13). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "robots.txt": {
       "before_sha256": "e86d231f2ec238989449c6b59cae81b8760a86100f4ceb21d693b62fcd1f36c5",
@@ -342,26 +342,26 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "f8ed79c158e4e489079e3f7cd768481ff5bc07665391e37f18add65ec1adccd6",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background"
+      "after_sha256": "e68812c69090abd02f8604da072811f5ee976e76f9c43f04f28d8aa7006c63a9",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "sitemap.xml": {
       "before_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-      "after_sha256": "fcdc9c5b08de7b5e5c75e340b1830498e20743e8909428fe591232ac78ee549f",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab"
+      "after_sha256": "e127da44560b8c7a7ca58752e3812a8c667c914b01c10501d9b3745c5f3bf6e5",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     }
   },
   "added_files": {
     "assets/analytics.mjs": "b119f9825e54e34edc7542084c403ea7c6b0fb971a044a4cd0c41fc45b93a959",
     "BingSiteAuth.xml": "a44787436e972d0fac6afbc2024ba31e31e066fbd622fa124e7cfd2d6fedb12d",
     "CNAME": "9313e2519f057f2811630b279ade88b9ce8fdf31ab6f02f56e3f9f8be6335613",
-    "trust/terms.html": "84f08fae5ead31d665602fcfb8cb97bbd5b79751b53b45a98da6af38e36e6e2a",
+    "trust/terms.html": "23365bfc78e4c2a9a0ec47265ec59e3aea1712dd6af8bb97b5cad488a6d3d768",
     "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6",
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
-    "llms.txt": "9bba67aa41e52af61addec25c78e1fe8fba4347fc530de85c34246b40066c384",
-    "features/index.html": "53db56d5cbf89578570201e6b2bbd015b780a0c6f94b9b0b10d93d78692a6ed5",
-    "early-access.html": "4ef9d122ebadc0b345961450eb9e16f61530a5931b3fe67c3d497714b6aa8e69",
+    "llms.txt": "f2322e68681583b1eb8b0fbfbeb9b1a85c0875b9040e265552bd4b3a05c7ef0c",
+    "features/index.html": "9c78b4bddd3c4f6e492543fc1eb81d253fdfd34087765902a5d42e3eb9c89734",
+    "early-access.html": "fe567ca16bb8cbff18a1dd4068cbc71f1f7af7abfa50ffe31dbe8e5df6c672c9",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/builder.webp": "58e37ec78cab6cdcb4c57342bb4f2fb1b369f0e0741ee0da10c1f28af10bc21a",
     "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
@@ -371,61 +371,62 @@
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",
     "assets/features/journal.webp": "f2af3b581c57e450030b52e10a8a2524d7fc6d2965943b9fe4bbe0f991a04326",
-    "community/index.html": "2aebec6032af811d82b413e679366121821d3386096f301c6a33b5720ed14174",
+    "community/index.html": "7e4ab6df3ab99cff94e96d4f40e73a1091699481e79606405542d98256085791",
     "community/items.v1.json": "3949afb710f7cc59312c93d0c5a6b0655c05460114ac6949525b7bb74e020d10",
     "community/img/0e9d01adfdd0378140b88f96c5732a70a66a1f5027f7c9439fe0a1078ae20f68.png": "1c8b832b7f1139f41b9d1121b68be92f5f6e2ae066a507bb804ff6f2ba532308",
     "community/img/1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46.png": "8628503364585e8a8d6ea5d0244c9c3284a04f30bd2c6096f7b60d3d93b43f4a",
-    "community/authors/abaddonpl/index.html": "f138651bde9744ae6a4363a5300b7dc18040c4c8d736c0a3dc76c334082ba6b5",
-    "community/authors/augustoerni/index.html": "5f7ccbdf7f17f5ddc3ee66c3f23c1dd6af638942544cb2fc0762844100931c21",
-    "community/authors/bjr117/index.html": "8f33d24cd1cd42988444b484709bbddf4e82782e830c0bfe04a4f51fd2f712ee",
-    "community/authors/budinweig/index.html": "aad0ab8eba42be8159cd93365e354f0919f1ef920964ad5ef65616933c958268",
-    "community/authors/gambcl/index.html": "7896746bd5d2b84d4296046b4647f0dfce8016b22d69ef283680b9da0c7f29cf",
-    "community/authors/glenrutherford4/index.html": "bb7398f664e6001025cf32fa1b8e6ed85b7245a24bc9e8aa3f13d638c8d19924",
-    "community/authors/goodgains/index.html": "659df62d2cf1f1dc11924f3e2787bd2a3de93dd394ea76885ebcc2a99b0a287d",
-    "community/authors/innoobwetrust/index.html": "808d0235d53d1c0838a86a102767c18a26db9694a42fdee50b2932e9d9d72d7a",
-    "community/authors/jayadevrana/index.html": "bb8924a7424db903c1909b2442b503e4527deff04406ec430d18802c12f9169c",
-    "community/authors/kaneda-cocoroto-co/index.html": "3283084cb345af01b9a0874b3b836f13ed97e5699ecfba9ce7d454c4838f5fac",
-    "community/authors/macmwz20/index.html": "ecdeb43a548dc539d027f67895190fcd1a0db20a37712862e047907095c75cfa",
-    "community/authors/mihakralj/index.html": "f1ce4fcebd6a949505d0e625af37ae941b68ec4c2f884d5dc447353d71560282",
-    "community/authors/notprofessorgreen/index.html": "32b58b50c3c2dfec111b8f864da09bd0c82f187c7ad5d6984b0a5e2113740b0b",
-    "community/authors/palitoj-endthen/index.html": "358162a4e902e2c85c20b4ebad269d0745b6cda4e7009e78bf56baa757fb6886",
-    "community/authors/pricecatch/index.html": "6ae7a8fecf55ed2f266d141a60ec07961a0cd4fa1761bf42b77c688433acd993",
-    "community/authors/quantalib/index.html": "9710010b32df443a5f9581115a9156b90b78d146bc674233afac4adeefd9f7a5",
-    "community/authors/quantified-detrended-cvd/index.html": "8c56547e13558a3dcb09e6cc8da0bc82e2affa8353a4c2f047fcc6215bd82fe3",
-    "community/authors/rajeshmoriyani/index.html": "a3bed145ddef5051521b4a65589ce75ea1ba5a15c5fb1adbc28f503b068cf2b4",
-    "community/authors/regalouisei/index.html": "31233c05afae24f1eaa7162ff522bfc20db5d9f0e47bc3aa0af2c6c0506d764c",
-    "community/authors/rustyribcage/index.html": "e7d7fa51a81771a9c408124e5b0041c583fbdb01e202816d211b80c43758a27e",
-    "community/authors/ryangaraygay/index.html": "ae00c8f6068a4176657f6414806aa4eb303cd07b7f2889d35370dd661ff00739",
-    "community/authors/tptbusiness/index.html": "08c2118b671917ceef300862defcd2a9b0ec624f34cd009d60d01df502fc4a1c",
-    "community/authors/trade-confident/index.html": "ce000513cd4e879a70fad3d458b6b346d41b9db2080dedf2e9c0aba451413c9b",
-    "community/authors/tradercockpit/index.html": "8d678e1e0185f55b681446a197e1dff9fc295134863b5f0e920b5833f5e97ab4",
-    "community/authors/zettt/index.html": "80c21aed8f327bf01395be589829bc58694d5242def25616de2b1c736fbc0310",
-    "community/indicators/close-strength/index.html": "a9a3578a0baca9a99dc69158ea6bce7787dcbe2a7ef1a0891ab87810ce52a691",
-    "community/indicators/colored-adx-di-crossings-w-options-llipe/index.html": "c09b56f39e2973cf44d68bf7a5b1cf7ed5fe846e4e89ef6553888998ec3519c7",
-    "community/indicators/custom-session-ohl/index.html": "09b0a37d33944a978f525821479804a93168ce0359fa7497aa91a8845adab6b0",
-    "community/indicators/day-trading-reversal-system/index.html": "b250333d1c621794c5f232c4614da136aeae3e60cb1eabf00af55e66b3b961a2",
-    "community/indicators/detrended-cvd-z-score-oscillator/index.html": "349f749238e914039b47b7fe4e6edd437cd90348ebb937817f1a443e28612633",
-    "community/indicators/diy-volume-profile/index.html": "c53705ba246b1b54a743a5ab4cab9e572099fc8ce0fff35d28961ad839f68702",
-    "community/indicators/john-f-ehlers-zero-mean-roofing-filter/index.html": "abbca151c7d128e961db128fa71767e8cbbc25686bc22548b3b3605f849ef080",
-    "community/indicators/marubozu-candle/index.html": "b123fe0cdcdd02c36d6abd7f79287db0b10e287b12f7c3b30fe5dd3d13b02c9d",
-    "community/indicators/mtf-bollinger-bands-trend-stop/index.html": "a8bd40938b7f067eb7cb84fc6c89cf3f71d67af83701746c10d726c6ab5fd74d",
-    "community/indicators/parabolic-stop-and-reverse-trend-following/index.html": "477b66232cc73481bd0804f096283b570205420b7c3f0216b60b83ba70e75ea4",
-    "community/indicators/pricecatch-volume-analysis-fixed-range/index.html": "465e9a002213e880cef16c632e754a18a47248cfd95f4b3358790ae8daa3207e",
-    "community/indicators/r2-adaptive-regression/index.html": "c0467c4e9a27d11cf67673e8cec5f2425508a23b6166d9f9c4177aaf0a68ac8a",
-    "community/indicators/relative-liquidity-index/index.html": "b9153622d3b23d1045c670b3f67bfc05989b830edc12cd50094db21799fe2947",
-    "community/indicators/rsi-emas-for-bootsie-strategy/index.html": "b84de3367cb9c25843af990b7533b5d1215a817ee0c2efff1e07b7ce905eefc4",
-    "community/indicators/s-r-levels/index.html": "55295f09043ed2ff01112daee997aff0d3aa251404c20d9eac6c9d891cc485b5",
-    "community/indicators/sma-50-100-150-200-ssma-360/index.html": "6013c163f0196df7e83754bc05683b1ad7bc7af5b88adddd9fb4fdb5767fe7ec",
-    "community/indicators/standardized-ma-difference/index.html": "c8c14a7e0e9d4c68768a206089301adeb8802677226d66ace3b423894dd66898",
-    "community/indicators/super-trend-bands-stbands/index.html": "98c6c295316d3cd54721a2d107d92ce0f78bebea7c0d94192f9431fede0e9d65",
-    "community/indicators/supertrend-macd-ema/index.html": "38c9a6573f7a8e731f7495f6d93eeaea95ee24415364962006f210cf235c85dd",
-    "community/indicators/swing-high-low-detection/index.html": "de4a2d607ef18ec465054f7418f12be7d76114a20c09770fc2a7435d6612200c",
-    "community/indicators/swing-levels/index.html": "aec0b158b3363db41ae26c0189a9244ba305ea5d2d1068a5cdca1b5c17f66dc4",
-    "community/indicators/time-series-forecast-tsf/index.html": "a847b4b28052cbd905695fa0bf40a2906b6d20fc6e3026419c0960de279d1998",
-    "community/indicators/trend-line-and-res-line/index.html": "0bba2405b863ccffdcd7f6d36db1337e75bb5f1d39b70a3279c6ed4aaf03bfdf",
-    "community/indicators/vaultfy-sentiment-apex/index.html": "347324405f1b99f5061731aace40387e96351207f04263e14ca1e923dce23270",
-    "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "46509b64ee711e3216475ee923cd17c62f27c7c29f8fea5963323b2f861975c2",
-    "community/strategies/data-trader-s-20-50-moving-average-cross-tested-on-es/index.html": "142eea707f222a776c5fa64e6dbe7c8e44ff8b44af4d34e670235174044a0399",
-    "community/strategies/rayner-teo-s-200-day-breakout-tested-on-es/index.html": "b903536f130f9dd792106e35040e232a8e6831f8f223edce4d7dd810e7f1b504"
+    "community/authors/abaddonpl/index.html": "146e6aca2efbc066f1729e9c6073a3213dd18b16aec350b3a1707819031a889b",
+    "community/authors/augustoerni/index.html": "20ab8a61287f488834eba98ba007d34459a4ae107dfdf74f6e4e208bd8c83c89",
+    "community/authors/bjr117/index.html": "3be8693bafb7c7a2b24bb8ae2c0893e738a3074c739111f417f38e1fbf8cfca1",
+    "community/authors/budinweig/index.html": "38fd2d951374e5f9e37d57b9128c0d5fce05cad8d856b088f1217ddfb067e1d4",
+    "community/authors/gambcl/index.html": "1910e284851f404f9d9cbdfe9437a7057fec589ce82fe1b0982f53f371e27ca5",
+    "community/authors/glenrutherford4/index.html": "e3b64a6b784b92a05a3fb4cdd9fc2001d606536ea3830b05df25a0450acba5d8",
+    "community/authors/goodgains/index.html": "499ec3aef2844a4543126304c0d8e921b60250f85ec9dc9f94b3c8ef3e4d0d69",
+    "community/authors/innoobwetrust/index.html": "2dadc5ee6bdcb3c81fbe2d2eb0aad29ed5b7371131109f3c9f82aa2db34e2172",
+    "community/authors/jayadevrana/index.html": "3405d42a1726461ef149090e5c3da516062707c02d9d8d34d620184c3fed2ad3",
+    "community/authors/kaneda-cocoroto-co/index.html": "b7102925af278459e9aaed8323e5afb45da712815095423b526811de1e810009",
+    "community/authors/macmwz20/index.html": "b04839fb1628381696b6203a44314f23d02068105f6572d8bf130213736ea006",
+    "community/authors/mihakralj/index.html": "dfcf093c38b6daa3febb39c2ee6e5fbc683a6c38b2319760302268f88172bbc0",
+    "community/authors/notprofessorgreen/index.html": "7c72f60f629a2bed5507cb888c33217ffa48dfe9c03d068d48fd6a30f6e823c6",
+    "community/authors/palitoj-endthen/index.html": "fd8e398f1e576d06a065a2951eaf0db928eb0d15f302870743148b00c0b39b5e",
+    "community/authors/pricecatch/index.html": "1d4f34f1f6dee324e75a6a037986b44d82abf65eee2ee737b51f9f7e8b86393a",
+    "community/authors/quantalib/index.html": "a64bd02deed3190b49dbf515e62d53fe9772e5687b878a411d6cecd206b4e42e",
+    "community/authors/quantified-detrended-cvd/index.html": "0d792fd552ba146f53cfbc499a3544cf2b13e365949343e5b846dd14e5f19808",
+    "community/authors/rajeshmoriyani/index.html": "a9b42347004420e97b762b7dc87eb1e26f4a5fba1fc4d980df77c2e2f0a457b6",
+    "community/authors/regalouisei/index.html": "88db35ea401e8bb14ec77fbdc75150cc69aefbfdfbe9f517c4517de6019fd4c6",
+    "community/authors/rustyribcage/index.html": "afab4acd81327cfc4d72a31d77baa00942bf59b0fc5849283a5e7f78cdd3e081",
+    "community/authors/ryangaraygay/index.html": "8da428daea5491081da07d250f2410aa8ea8d580c8982539a3e9e81156429fc0",
+    "community/authors/tptbusiness/index.html": "6b3129963b43209c7e33d5cb452a5b80369fa9533d01f319fcd9db2daab87750",
+    "community/authors/trade-confident/index.html": "2ebfd22b0f23f657dea12a06685cde22c08259f093fe2da23d8c4aea64a3fb03",
+    "community/authors/tradercockpit/index.html": "5deeebeeadef8fcdd8f4b125c324e6c4bb6c92fd2e17723bf97714bf499cb2d5",
+    "community/authors/zettt/index.html": "a428ab59d44280fc13a791db9652f7eebd1d5d9f60cb664ccbab2bacb66c9a70",
+    "community/indicators/close-strength/index.html": "93caabe8b689755cb3259e21d4a5018ea153c1b3423007958a97993a8a7d8144",
+    "community/indicators/colored-adx-di-crossings-w-options-llipe/index.html": "3551b7bacbe1ae6909cfa574fe17391263d1c091ad00392a9bee51223b139d62",
+    "community/indicators/custom-session-ohl/index.html": "f6a6ddab87338bebc14f14769013f3e462eb6fab6acc3037479dc4d0c45d73b1",
+    "community/indicators/day-trading-reversal-system/index.html": "662f2084a1075d664c596b535587649d14c362723e131c50eb9102c0bbffc228",
+    "community/indicators/detrended-cvd-z-score-oscillator/index.html": "94ac5ac5f3486566cbcf0e7ca94eb7602a6e37ce548bcf1f4086e410c4936b3b",
+    "community/indicators/diy-volume-profile/index.html": "c7b632da52ae3efdfc91473ce718c3731380ec83bbc5530975e6c2401dc540aa",
+    "community/indicators/john-f-ehlers-zero-mean-roofing-filter/index.html": "a409eba8a35b46054651149c4e87cec1f579ef0b8594898285a54136fc6fa79b",
+    "community/indicators/marubozu-candle/index.html": "8aadb7a7945615df27850974b2fdf2a8138ebbef9ff13a5b8735ecc5d43400b5",
+    "community/indicators/mtf-bollinger-bands-trend-stop/index.html": "5764f20163d23a49a9cca34d0d8967a185dc5c249ab3f895093b3971bf27f41e",
+    "community/indicators/parabolic-stop-and-reverse-trend-following/index.html": "567162f456fe20d6688f00dd06f320a92e2d92fb47c09b08d77fd0e6ad6135d1",
+    "community/indicators/pricecatch-volume-analysis-fixed-range/index.html": "8867fa9438bfed1b912c10b435493124665e6f50e9732449abd661be2f86a55a",
+    "community/indicators/r2-adaptive-regression/index.html": "5d1202aad68e5b84d0a0d0b2f3a20e0cfdbe864462bce129702aca682f0a9064",
+    "community/indicators/relative-liquidity-index/index.html": "69efeb141c45f54be91f2291a778bcacf08ca8bc3db8c550b8d005df31350b35",
+    "community/indicators/rsi-emas-for-bootsie-strategy/index.html": "16698a0f2139c47c28f4a20330e7184eece5d7ad36982ddc4de003f319fefd8b",
+    "community/indicators/s-r-levels/index.html": "f6eb872f9eacf22e17ac044dc61138c9ef94227100c86f865529a661549852e3",
+    "community/indicators/sma-50-100-150-200-ssma-360/index.html": "a74313d6b7a4dbc0d477baef462dbebee4c8223802653bc191444c24f1b34ab4",
+    "community/indicators/standardized-ma-difference/index.html": "64f4e535bd8167e2566807c73ef72559e24372c64f7e73bab471aab67d3adcb9",
+    "community/indicators/super-trend-bands-stbands/index.html": "f0d18af0591411282a56d4cba3cf3c93195ae2c0594e057fb3a9a6aa0743897b",
+    "community/indicators/supertrend-macd-ema/index.html": "cd92196788db9e47b43cae47b26879b9c7076b201374214f4794f691420c5e2f",
+    "community/indicators/swing-high-low-detection/index.html": "48641fd2fb0b4952ddbd6cbcec6a10600b41918bdb415d0c7127a591e00ab6ed",
+    "community/indicators/swing-levels/index.html": "e5f82f9879ee7d6234ff1dcf45e38539c879d0b9d872dac4ff8f6ad69da85d05",
+    "community/indicators/time-series-forecast-tsf/index.html": "fd8e94f3e907e6b246e33c4715299f7f639194fd669e73f0f379c83db00b7052",
+    "community/indicators/trend-line-and-res-line/index.html": "5790c575cabcf862cf4b6dd486926fc17ad322c4522963943f94ef0d24446fe6",
+    "community/indicators/vaultfy-sentiment-apex/index.html": "c37d1cbfe0ad519210c7175adf8bf3f1cb7aded42fd25a4c57c66248196c6338",
+    "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "ebab15acd4799abfbde064632794b8d8c095c031948c088ac0b5ef134873a969",
+    "community/strategies/data-trader-s-20-50-moving-average-cross-tested-on-es/index.html": "12e9e1aef6389d37c7feebefe5d293d6827776632bd63df0d07ec8fdbc47a20d",
+    "community/strategies/rayner-teo-s-200-day-breakout-tested-on-es/index.html": "4ad87eb3e37730610c9a30377589517bed50c1b22deaad1b61ca4424617285f2",
+    "download/index.html": "d541564c90656ac257c0a5edf0ee3aba0612dc03af2619a9e600b596cad79e8d"
   }
 }

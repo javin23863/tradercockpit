@@ -32,6 +32,6 @@
   "checkout": {
     "enabled": false,
     "url": null,
-    "reason": "Checkout is not open yet."
+    "reason": "Paid plans start inside the app."
   }
 }

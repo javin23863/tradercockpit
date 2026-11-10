@@ -347,10 +347,17 @@
       "status": "public"
     },
     {
+      "id": "product.download",
+      "kind": "landing",
+      "path": "download/index.html",
+      "title": "Download",
+      "status": "public"
+    },
+    {
       "id": "product.early-access",
       "kind": "landing",
       "path": "early-access.html",
-      "title": "Early access",
+      "title": "Product news",
       "status": "public"
     }
   ]

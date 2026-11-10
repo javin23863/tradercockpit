@@ -44,7 +44,7 @@ def validate(root=ROOT):
   need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r['original_sha256'],'Original capture identity: '+r['id'])
  commerce=json.loads(read('docs/commerce-public.v1.json'));tiers=commerce.get('tiers',[])
  need([(x['name'],x['unitAmount']) for x in tiers]==[('Core',1999),('Trader',4999),('Quant',9999),('ApolloPro',15000)],'Four approved tier prices drifted')
- need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Checkout is not open yet.'},'Checkout boundary changed')
+ need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Paid plans start inside the app.'},'Checkout boundary changed')
  html=read('docs/index.html');bridge=read('docs/assets/reference-site/integration.mjs');app=read('docs/assets/reference-site/app.js');journeys=read('docs/assets/reference-site/journeys.js')
  template_bridge=read('.github/reference-site/integration.mjs')
  need(bridge==template_bridge,'Public integration runtime drifted from reviewed fail-closed template')
@@ -64,7 +64,7 @@ def validate(root=ROOT):
  for name in ['product-state','product-heading','product-summary','manifest-capabilities','manifest-detail','product-cta','youtube-cta','purchase-support']:
   need('id="'+name+'"' in html,'Missing functional access element: '+name)
  need('<form' not in html and 'type="email"' not in html,'Email capture reintroduced')
- need(re.search(r'<a[^>]*id="product-cta"[^>]*href="early-access.html"',html) is not None and 'href="strategy-claim-audit-checklist.html"' in html,'Early access link or educational checklist missing')
+ need(re.search(r'<a[^>]*id="product-cta"[^>]*href="download/"',html) is not None and 'href="strategy-claim-audit-checklist.html"' in html,'Download link or educational checklist missing')
  need('href="learn/" data-journey="#/learn"' in html,'No-JavaScript learning route missing')
  need('href="docs/"' in html and 'href="trust/privacy.html"' in html,'No-JavaScript documents missing')
  pricing=read('docs/pricing/index.html')

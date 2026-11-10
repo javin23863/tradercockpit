@@ -51,10 +51,10 @@ async function access() {
   let manifest;
   try {
     manifest = await loadProductManifest(new URL('product-manifest.v1.json',root));
-    $('#product-state').textContent = ['unavailable','waitlist'].includes(manifest.status) ? 'Early access' : 'Status: ' + manifest.status;
-    const descriptions = {unavailable:'TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens.',available:'Check the published release and access details. This page does not enable checkout.',waitlist:'The product is not available. See Updates for early access status.'};
+    $('#product-state').textContent = manifest.status === 'available' ? 'Available for Windows' : 'Early access';
+    const descriptions = {unavailable:'TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens.',available:'TraderCockpit for Windows is available. Download it, start on the Free plan, and choose a paid plan inside the app.',waitlist:'The product is not available. See Updates for early access status.'};
     $('#product-summary').textContent = manifest.product?.summary || descriptions[manifest.status];
-    $('#manifest-detail').textContent = [(manifest.platforms || []).join(' · '), manifest.verifiedCapabilities.length ? 'Published capabilities below' : 'No product capabilities are published as available', 'Checkout is closed'].join(' · ');
+    $('#manifest-detail').textContent = [(manifest.platforms || []).join(' · '), manifest.verifiedCapabilities.length ? 'Published capabilities below' : 'No product capabilities are published as available', manifest.status === 'available' ? 'Plans start inside the app' : 'Checkout is closed'].join(' · ');
     const note = document.querySelector('.hero-note');
     if (note) note.textContent = $('#product-summary').textContent;
     const caps = $('#manifest-capabilities');

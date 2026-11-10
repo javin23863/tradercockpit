@@ -78,7 +78,7 @@ def sections(items,frm,level='h2'):
 def index_page(items):
     rel='community/index.html'
     jump=''.join(f'<a href="#{FOLDER[k]}">{n}</a>' for k,n in KINDS.items() if any(i['kind']==k for i in items))
-    main=f'<main id="main" tabindex="-1"><div class="pp-page"><header class="pp-head"><span class="pp-kicker">Community</span><h1>Strategies, indicators and ideas.</h1><p class="pp-lead">Study the rules and backtest behind a strategy, read an indicator’s Pine code, and open them in TraderCockpit. Research, not financial advice, and no result is promised.</p><div class="pp-actions"><a class="pp-btn gold" href="../early-access.html">Get TraderCockpit{ARROW}</a></div></header><nav class="pp-index" aria-label="Community sections">{jump}</nav>{sections(items,rel)}</div></main>'
+    main=f'<main id="main" tabindex="-1"><div class="pp-page"><header class="pp-head"><span class="pp-kicker">Community</span><h1>Strategies, indicators and ideas.</h1><p class="pp-lead">Study the rules and backtest behind a strategy, read an indicator’s Pine code, and open them in TraderCockpit. Research, not financial advice, and no result is promised.</p><div class="pp-actions"><a class="pp-btn gold" href="../download/">Get TraderCockpit{ARROW}</a></div></header><nav class="pp-index" aria-label="Community sections">{jump}</nav>{sections(items,rel)}</div></main>'
     return rel,shell(rel,'Community','Trading strategies with their rules and backtests, open-source Pine indicators, and ideas, to study and open in TraderCockpit.',main)
 
 def facts(rows):return '<dl class="pp-facts">'+''.join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k,v in rows if v is not None)+'</dl>'
@@ -107,7 +107,7 @@ def item_page(i):
     meta=''.join(f'<span>{e(v)}</span>' for v in (day(i['published_at']),where(i)) if v)
     main=(f'<main id="main" tabindex="-1"><div class="pp-page cm-item"><header class="pp-head"><a class="pp-kicker" href="{root}community/#{FOLDER[i["kind"]]}">{KINDS[i["kind"]]}</a><h1>{e(i["title"])}</h1>'
           f'<p class="cm-by">by <a href="{href(rel,author_rel(a))}">{e(a["name"])}</a></p><div class="article-meta">{meta}</div>'
-          f'<div class="pp-actions"><a class="pp-btn gold" href="{root}early-access.html">Get TraderCockpit{ARROW}</a></div></header>{pic}'
+          f'<div class="pp-actions"><a class="pp-btn gold" href="{root}download/">Get TraderCockpit{ARROW}</a></div></header>{pic}'
           f'<p class="pp-lead">{link_text(i.get("description",""))}</p>{body(i)}</div></main>')
     desc=f'{i["title"]}, a {i["kind"]} by {a["name"]} on TraderCockpit Community.'
     return rel,shell(rel,i['title'],desc,main)
