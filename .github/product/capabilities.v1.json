@@ -4,7 +4,7 @@
     {
       "id": "builder", "title": "Strategy Builder", "kicker": "Build",
       "lead": "Search thousands of rule combinations on the market you pick, with the costs and rules you set.",
-      "image": "assets/features/builder.webp", "alt": "Builder running a search on Coinbase SOL/USD hourly bars: 29,128 strategies tried, none passed the filters", "caption": "A search on Coinbase SOL/USD, 1 hour. It tried 29,128 strategies and none passed.",
+      "image": "assets/features/builder.webp", "alt": "Builder’s setup: the market list, trading rules, money management, what to search for, scoring and filters", "caption": "Builder’s setup: pick the market, then the rules a strategy must pass.",
       "items": [
         "Genetic, random or sequential search over the rule space, with progress you can watch as it runs.",
         "Rule parts for conditions and price levels, built on the app's own indicator math.",
@@ -29,7 +29,7 @@
     {
       "id": "results", "title": "Results", "kicker": "Read",
       "lead": "See how a strategy really traded, with a plain verdict that says so when it's weak.",
-      "image": "assets/features/results.webp", "alt": "A Results page on Coinbase BTC/USD daily bars, graded D: Weak, don't trade it as it is", "caption": "A verdict on Coinbase BTC/USD, daily: graded D, weak, only 12 trades.",
+      "image": "assets/features/results.webp", "alt": "A strategy’s results on GBP/USD hourly bars, graded C: Mixed, test it more before you trade it", "caption": "A verdict on GBP/USD, 1 hour: graded C, capped because nothing has tested it outside the data it was built on.",
       "items": [
         "One verdict for a strategy, with the reasons behind it.",
         "Summary, trades, equity, results by period and by market, and trade excursions.",
@@ -150,7 +150,7 @@
     },
     {
       "id": "brokers", "title": "Connect your broker", "kicker": "Connect",
-      "how": "You sign in with your broker in your own browser, and your password never goes into TraderCockpit."
+      "how": "You sign in with your broker in your own browser, and your password never goes into Trader Cockpit."
     },
     {
       "id": "save", "title": "Save and restore", "kicker": "Keep your work",

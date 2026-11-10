@@ -2,9 +2,9 @@
 
 Company tagline: **Trading strategy research and education for systematic traders.**
 
-About: *We're building TraderCockpit, a Windows desktop app for trading strategy research, and we publish free guides to backtesting, out-of-sample testing and Monte Carlo analysis. The app is in development and not yet released. Our guides are educational, not financial advice.* Website: https://trader-cockpit.com/?utm_source=linkedin&utm_medium=social&utm_campaign=company-page
+About: *We're building Trader Cockpit, a Windows desktop app for trading strategy research, and we publish free guides to backtesting, out-of-sample testing and Monte Carlo analysis. The app is in development and not yet released. Our guides are educational, not financial advice.* Website: https://trader-cockpit.com/?utm_source=linkedin&utm_medium=social&utm_campaign=company-page
 
-Each article takes a different angle from its guide and links to the full guide for the method. Byline: the TraderCockpit company page. Every article ends with the same note: *Educational material, not financial advice. Examples use made-up numbers.*
+Each article takes a different angle from its guide and links to the full guide for the method. Byline: the Trader Cockpit company page. Every article ends with the same note: *Educational material, not financial advice. Examples use made-up numbers.*
 
 ---
 

@@ -1,4 +1,4 @@
-# TraderCockpit: wording and search visibility plan (updated 2026-10-12)
+# Trader Cockpit: wording and search visibility plan (updated 2026-10-12)
 
 This file updates Codex's 5 October "research-backed wording and search visibility plan" to match the repo as it is now. It applies the fixes from mike's outside review and adds the gaps that review found. It lives under `.github/` so GitHub Pages does not publish it.
 
@@ -10,8 +10,8 @@ Status labels: **DONE**: live on the site once its PR merges. **DRAFT**: written
 |---|---|
 | Site at `javin23863.github.io/tradercockpit/`, robots file under the project path | The domain is decided: **https://trader-cockpit.com** (PR 56). Every canonical URL, `og:url`, JSON-LD id, sitemap entry and `llms.txt` link uses it. `robots.txt` is at the root and names the sitemap. **DONE** |
 | Homepage supporting line "Explore trading strategies, charts, models, and repeatable research workflows." | Dropped: it implies shipped features. The homepage says what is true: guides to backtesting, out-of-sample testing and Monte Carlo analysis, plus a Windows desktop app in development. **DONE** (already live from PR 55; kept) |
-| "Join the TraderCockpit waitlist" as the primary action; meta description "…desktop access is on waitlist" | The waitlist was retired in PR 55: there is no email capture and checkout is closed. The primary action is "Read the guides"; the description says "Our Windows desktop app is in development." **DONE** |
-| Author or reviewer "when available" | Byline **"By the TraderCockpit team"**, an Organization author in Article JSON-LD, an "About the TraderCockpit team" note and an "Educational material, not financial advice" note on the three upgraded guides. Under Google's guidance on "Your Money or Your Life" topics, an organization byline is weaker than a named, credentialed author or reviewer. It can be upgraded later to a named author or reviewer with a bio. **DONE** (team byline); named author **OWNER** (optional) |
+| "Join the Trader Cockpit waitlist" as the primary action; meta description "…desktop access is on waitlist" | The waitlist was retired in PR 55: there is no email capture and checkout is closed. The primary action is "Read the guides"; the description says "Our Windows desktop app is in development." **DONE** |
+| Author or reviewer "when available" | Byline **"By the Trader Cockpit team"**, an Organization author in Article JSON-LD, an "About the Trader Cockpit team" note and an "Educational material, not financial advice" note on the three upgraded guides. Under Google's guidance on "Your Money or Your Life" topics, an organization byline is weaker than a named, credentialed author or reviewer. It can be upgraded later to a named author or reviewer with a bio. **DONE** (team byline); named author **OWNER** (optional) |
 | Bing help URL `…/ai-performance-9f8e7d6c` | Removed: the page renders no content without a browser session, so it could not be confirmed. Replaced with Bing's announcement post (confirmed). |
 | "Google's Search generative AI inclusion control" | The page's actual title is "Search generative AI control". Kept with that name. |
 | Google's generative AI report "is rolling out" | Updated: Search Console says it had rolled out to all sites as of 31 August 2026. |
@@ -51,7 +51,7 @@ The Instagram reels, Reddit threads and the Marketing Signals playbook in the or
 | Open Graph and Twitter cards on every indexable page (title, description, URL, 1200×630 image with alt text) | **DONE**: `.github/scripts/search_metadata.py` writes one managed block per page from the page's own title, description and canonical URL, and `--check` keeps them in sync |
 | JSON-LD: Organization (logo, `sameAs` YouTube only, the one verified profile), WebSite and SoftwareApplication (Windows, "in development; not yet released", no offers or prices) on the homepage; BreadcrumbList on inner pages; Article (team author, publisher, published/modified dates) on every guide | **DONE** |
 | `sitemap.xml` with `<lastmod>` from the same dates the pages declare; `robots.txt` at the root | **DONE** |
-| Titles lead with the specific topic, pattern "Topic — TraderCockpit" (homepage "TraderCockpit \| Backtesting & Strategy Validation Guides"); meta descriptions ≤155 characters, topics first; page URLs unchanged | **DONE** for the pages with vague or long text (Learn, How-to, Research Lab, Docs, Pricing, Updates, Support, Terms, Refunds, two Methods pages, seven concept pages via `seoTitle`). Search volumes are **not** checked, see below. |
+| Titles lead with the specific topic, pattern "Topic — Trader Cockpit" (homepage "Trader Cockpit \| Backtesting & Strategy Validation Guides"); meta descriptions ≤155 characters, topics first; page URLs unchanged | **DONE** for the pages with vague or long text (Learn, How-to, Research Lab, Docs, Pricing, Updates, Support, Terms, Refunds, two Methods pages, seven concept pages via `seoTitle`). Search volumes are **not** checked, see below. |
 | Three upgraded guides: answer first, method, assumptions, limits, descriptive links, byline, date, About note | **DONE**: out-of-sample, Monte Carlo and the backtest checklist. The checklist was rewritten in plain trader language in PR 57. |
 | Vary "Explore" | **DONE** on the homepage and pricing buttons |
 | FAQ sections | Kept for readers only. No FAQ rich results are expected (Google retired them in May 2026), so no FAQPage markup. |
@@ -85,12 +85,12 @@ The owner decided on 12 Oct 2026 to add a $0 Free plan with Google sign-in. It i
 
 ### Brand search and name collisions
 
-- Track impressions and clicks for "TraderCockpit" and "Trader Cockpit" separately from non-brand queries in Search Console (filter by query). **OWNER**, from the baseline onwards.
+- Track impressions and clicks for "Trader Cockpit" and "Trader Cockpit" separately from non-brand queries in Search Console (filter by query). **OWNER**, from the baseline onwards.
 - Check for products with similar names: search "Trader Cockpit", "TradeCockpit" and "Trading Cockpit" on Google, Bing, app stores, LinkedIn and Instagram. Note any brokerage or app feature with the same name, and whether results mix them up with us. **OPEN** (first pass at baseline, again at week 8)
 
 ### AI answer baseline (week 0, 4 and 8)
 
-Ask each question in ChatGPT (search on), Perplexity, Gemini and Copilot, signed out or in a clean profile. Record the date, engine, the full answer, every cited URL, and whether TraderCockpit is mentioned or cited. Use free tiers only; no paid tracking tools.
+Ask each question in ChatGPT (search on), Perplexity, Gemini and Copilot, signed out or in a clean profile. Record the date, engine, the full answer, every cited URL, and whether Trader Cockpit is mentioned or cited. Use free tiers only; no paid tracking tools.
 
 1. What is the difference between in-sample and out-of-sample backtesting?
 2. How do I know if my trading strategy backtest is overfit?
@@ -108,7 +108,7 @@ Ask each question in ChatGPT (search on), Perplexity, Gemini and Copilot, signed
 14. How do I test whether my strategy's parameters are robust?
 15. What is data leakage in trading strategy research?
 16. What software can I use to backtest and validate trading strategies on Windows?
-17. What is TraderCockpit?
+17. What is Trader Cockpit?
 18. Are there free guides that explain strategy validation methods?
 
 ### Week-8 decisions per channel (written now)
@@ -117,7 +117,7 @@ Ask each question in ChatGPT (search on), Perplexity, Gemini and Copilot, signed
 |---|---|---|---|
 | Google organic | Non-brand impressions for the three guides rise week over week, and at least one guide ranks on page 1–2 for its topic | Impressions rise but CTR stays under 1%: rewrite titles and descriptions | Still not indexed after Search Console requests: fix crawl or indexing before any content work |
 | Bing / Copilot | Pages indexed and any AI Performance citations appear | Indexed but never cited: improve tables, examples and sources on the guides | Not indexed: resubmit; no content changes until indexed |
-| AI answers (question set) | TraderCockpit is cited for ≥2 of the 18 questions in any engine | Cited only for the brand questions (17–18): publish one more guide on the most-asked uncovered question | No citation in any engine after 8 weeks, and the LinkedIn articles have no reach: put effort into earned mentions in communities |
+| AI answers (question set) | Trader Cockpit is cited for ≥2 of the 18 questions in any engine | Cited only for the brand questions (17–18): publish one more guide on the most-asked uncovered question | No citation in any engine after 8 weeks, and the LinkedIn articles have no reach: put effort into earned mentions in communities |
 | LinkedIn articles | ≥1 article gets measurable referral visits (UTM) or appears in an AI answer's citations | Views but no clicks: put the guide link higher and make the angle more specific | No views or clicks after 3 articles: pause and reuse the material elsewhere |
 | Instagram tutorials | Profile visits or link clicks (UTM) from tutorials | Reach but no clicks: change the hook or format | No reach after 6 posts: stop |
 | Community answers (Reddit and forums, only where self-links are allowed) | Answers get upvotes or referral visits | — | Any moderation removal: stop on that community |

@@ -1,4 +1,4 @@
-# TraderCockpit Site Depth Appraisal — 2026-09-11
+# Trader Cockpit Site Depth Appraisal — 2026-09-11
 
 Authority: `visual-authority-demo-measured-v6.md`, `visual-authority-site-v5.md`, and `visual-authority-home-v4.md`.
 

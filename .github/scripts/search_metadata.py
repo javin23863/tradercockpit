@@ -18,9 +18,9 @@ DOCS = ROOT / 'docs'
 PAGES = ROOT / '.github' / 'search-pages.json'
 SITE = 'https://trader-cockpit.com/'
 ORG_ID = SITE + '#organization'
-TEAM = 'TraderCockpit team'
+TEAM = 'Trader Cockpit team'
 IMAGE = SITE + 'assets/social/tradercockpit-card.png'
-IMAGE_ALT = 'TraderCockpit: backtesting and strategy validation guides, beside an early access Charts capture'
+IMAGE_ALT = 'Trader Cockpit: backtesting and strategy validation guides, beside an early access Charts capture'
 LOGO = SITE + 'assets/social/tradercockpit-logo.png'
 SAME_AS = ['https://www.youtube.com/@Thetradercockpit']
 START, END = '<!-- search-meta:start -->', '<!-- search-meta:end -->'
@@ -69,8 +69,8 @@ def breadcrumbs(rel: str, title: str, url: str):
 
 
 def organization():
-    return {'@type': 'Organization', '@id': ORG_ID, 'name': 'TraderCockpit', 'url': SITE, 'logo': {'@type': 'ImageObject', 'url': LOGO, 'width': 512, 'height': 512}, 'sameAs': SAME_AS,
-            'description': 'TraderCockpit publishes educational guides to backtesting and strategy validation and is building a Windows desktop app for trading strategy research.'}
+    return {'@type': 'Organization', '@id': ORG_ID, 'name': 'Trader Cockpit', 'url': SITE, 'logo': {'@type': 'ImageObject', 'url': LOGO, 'width': 512, 'height': 512}, 'sameAs': SAME_AS,
+            'description': 'Trader Cockpit publishes educational guides to backtesting and strategy validation and is building a Windows desktop app for trading strategy research.'}
 
 
 def block_for(rel: str, text: str, cfg: dict) -> str | None:
@@ -82,7 +82,7 @@ def block_for(rel: str, text: str, cfg: dict) -> str | None:
     article = is_article(rel, cfg)
     tags = [
         f'<meta property="og:type" content="{"article" if article else "website"}">',
-        '<meta property="og:site_name" content="TraderCockpit">',
+        '<meta property="og:site_name" content="Trader Cockpit">',
         '<meta property="og:locale" content="en_US">',
         f'<meta property="og:title" content="{attr(title)}">',
         f'<meta property="og:description" content="{attr(desc)}">',
@@ -99,8 +99,8 @@ def block_for(rel: str, text: str, cfg: dict) -> str | None:
     if rel == 'index.html':
         graph = {'@context': 'https://schema.org', '@graph': [
             organization(),
-            {'@type': 'WebSite', '@id': SITE + '#website', 'name': 'TraderCockpit', 'url': SITE, 'inLanguage': 'en', 'publisher': {'@id': ORG_ID}},
-            {'@type': 'SoftwareApplication', '@id': SITE + '#app', 'name': 'TraderCockpit', 'applicationCategory': 'FinanceApplication', 'operatingSystem': 'Windows',
+            {'@type': 'WebSite', '@id': SITE + '#website', 'name': 'Trader Cockpit', 'url': SITE, 'inLanguage': 'en', 'publisher': {'@id': ORG_ID}},
+            {'@type': 'SoftwareApplication', '@id': SITE + '#app', 'name': 'Trader Cockpit', 'applicationCategory': 'FinanceApplication', 'operatingSystem': 'Windows',
              'description': 'A Windows desktop app for trading strategy research: charts, strategy building and testing, and validation. Early access; not yet released.',
              'url': SITE, 'publisher': {'@id': ORG_ID}, 'image': IMAGE},
         ]}
@@ -114,7 +114,7 @@ def block_for(rel: str, text: str, cfg: dict) -> str | None:
                         'mainEntityOfPage': url, 'url': url, 'image': IMAGE, 'inLanguage': 'en', 'isAccessibleForFree': True,
                         'datePublished': dates.get('published', dates['modified']), 'dateModified': dates['modified'],
                         'author': {'@type': 'Organization', 'name': TEAM, 'url': SITE + 'trust/#authorship', 'parentOrganization': {'@id': ORG_ID}},
-                        'publisher': {'@type': 'Organization', '@id': ORG_ID, 'name': 'TraderCockpit', 'logo': {'@type': 'ImageObject', 'url': LOGO}}}))
+                        'publisher': {'@type': 'Organization', '@id': ORG_ID, 'name': 'Trader Cockpit', 'logo': {'@type': 'ImageObject', 'url': LOGO}}}))
     return START + ''.join(tags) + END
 
 

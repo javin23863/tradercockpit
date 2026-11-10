@@ -1,4 +1,4 @@
-# TraderCockpit Reference Theme Measurements v6
+# Trader Cockpit Reference Theme Measurements v6
 
 Authority: owner-provided 2026-09-11 reference image, measured at 935×1683 px.
 
@@ -52,7 +52,7 @@ Bright accents are sparse. The authority image is overwhelmingly black/navy; cya
 
 ## Graphic density requirements
 - Hero: dominant globe/planet, orbital geometry, finance terrain/candles, 3–4 floating data HUDs, stars/particles, and at least one foreground overlap plane.
-- Product showcase: real TraderCockpit capture is the visual anchor; it must be large enough to inspect and may use perspective/frame lighting.
+- Product showcase: real Trader Cockpit capture is the visual anchor; it must be large enough to inspect and may use perspective/frame lighting.
 - Learning/video: one featured card plus multiple smaller thumbnails; avoid a plain text list.
 - Pricing: one visually emphasized active card and reserved expansion capacity. Future tiers remain structurally empty until verified.
 - Docs: icon-led tiles with distinct silhouettes and enough contrast to read as navigable objects.

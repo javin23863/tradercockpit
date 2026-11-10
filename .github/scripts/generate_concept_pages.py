@@ -40,8 +40,8 @@ def render(entry: dict) -> str:
     how_to_action = f'          <a class="deep-link" href="{esc(how_to)}">Open the How-To →</a>' if how_to else ""
     how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-To →</a>' if how_to else ""
     modified = entry.get('dateModified')
-    authorship = f'<p class="micro">By <a href="../../trust/#authorship">the TraderCockpit team</a> · Updated <time datetime="{esc(modified)}">{esc(modified)}</time> · Educational material, not financial advice.</p>' if modified else ''
-    about = '<section class="article-section" id="about-the-team"><span class="kicker">About the authors</span><h2>About the TraderCockpit team</h2><p>We build TraderCockpit, a Windows desktop app for trading strategy research that is in early access, and we write these guides to explain the methods behind testing a strategy. <a href="../../trust/#authorship">How we write and correct the guides →</a></p><p class="micro">Educational material, not financial advice. No backtest or simulation guarantees future results.</p></section>' if modified else ''
+    authorship = f'<p class="micro">By <a href="../../trust/#authorship">the Trader Cockpit team</a> · Updated <time datetime="{esc(modified)}">{esc(modified)}</time> · Educational material, not financial advice.</p>' if modified else ''
+    about = '<section class="article-section" id="about-the-team"><span class="kicker">About the authors</span><h2>About the Trader Cockpit team</h2><p>We build Trader Cockpit, a Windows desktop app for trading strategy research that is in early access, and we write these guides to explain the methods behind testing a strategy. <a href="../../trust/#authorship">How we write and correct the guides →</a></p><p class="micro">Educational material, not financial advice. No backtest or simulation guarantees future results.</p></section>' if modified else ''
     assumptions = '<section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>'+render_list(entry['assumptions'])+'</ul></section>' if entry.get('assumptions') else ''
     references = '<section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul>'+''.join(f'<li><a href="{esc(ref["url"])}">{esc(ref["title"])}</a> — {esc(ref["scope"])}</li>' for ref in entry.get('references',[]))+'</ul></section>' if entry.get('references') else ''
     html = f'''<!doctype html>
@@ -50,7 +50,7 @@ def render(entry: dict) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
-  <title>{esc(entry.get('seoTitle', title))} — TraderCockpit Learn</title>
+  <title>{esc(entry.get('seoTitle', title))} — Trader Cockpit Learn</title>
   <meta name="description" content="{esc(entry['description'])}">
   <link rel="canonical" href="{esc(canonical)}">
   <link rel="stylesheet" href="../../assets/site-v2.css">
@@ -59,7 +59,7 @@ def render(entry: dict) -> str:
   <a class="skip-link" href="#main">Skip to content</a>
   <nav class="site-nav" aria-label="Primary">
     <div class="nav-inner">
-      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"></span>TraderCockpit</a>
+      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"></span>Trader Cockpit</a>
       <div class="nav-links">
         <a href="../../research-lab.html">Research Lab</a>
         <a href="../" aria-current="page">Learn</a>
@@ -128,7 +128,7 @@ def render(entry: dict) -> str:
           <section class="article-section" id="product-boundary">
             <span class="kicker">Apply the concept</span>
             <h2>Use the idea without turning it into a shortcut.</h2>
-            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For TraderCockpit controls and workflow details, open Docs. The app is in early access; these examples are educational.</div>
+            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For Trader Cockpit controls and workflow details, open Docs. The app is in early access; these examples are educational.</div>
           </section>
           <section class="article-section" id="related">
             <span class="kicker">Continue learning</span>
@@ -163,7 +163,7 @@ def render(entry: dict) -> str:
     </section>
   </main>
 
-  <footer><div class="footer-inner"><div>TraderCockpit · evidence-first research education · no performance promised.</div><div class="footer-links"><a href="../../index.html">Home</a><a href="../">Learn</a><a href="../../methods/">Methods</a></div></div></footer>
+  <footer><div class="footer-inner"><div>Trader Cockpit · evidence-first research education · no performance promised.</div><div class="footer-links"><a href="../../index.html">Home</a><a href="../">Learn</a><a href="../../methods/">Methods</a></div></div></footer>
   <script src="../../assets/site-search.js" defer></script>
 </body>
 </html>

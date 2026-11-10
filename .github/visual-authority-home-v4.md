@@ -1,4 +1,4 @@
-# TraderCockpit Homepage Visual Authority — Cinematic Quant Universe v4
+# Trader Cockpit Homepage Visual Authority — Cinematic Quant Universe v4
 
 Status: approved visual-direction correction based on the owner-provided 2026-09-11 reference image.
 

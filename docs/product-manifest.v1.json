@@ -65,7 +65,7 @@
     {
       "id": "brokers",
       "label": "Connect your broker",
-      "summary": "31 brokers connect to TraderCockpit, and your account activity comes into your Journal."
+      "summary": "31 brokers connect to Trader Cockpit, and your account activity comes into your Journal."
     },
     {
       "id": "save",
@@ -81,8 +81,8 @@
     "url": "https://trader-cockpit.com/early-access.html"
   },
   "product": {
-    "name": "TraderCockpit",
-    "summary": "TraderCockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens."
+    "name": "Trader Cockpit",
+    "summary": "Trader Cockpit for Windows isn’t on general release yet. Join the early access list and we’ll tell you when it opens."
   },
   "brokers": {
     "connectable": 31,

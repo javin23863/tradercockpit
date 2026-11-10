@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enforce the TraderCockpit public-page UX authority."""
+"""Enforce the Trader Cockpit public-page UX authority."""
 from __future__ import annotations
 
 from html.parser import HTMLParser

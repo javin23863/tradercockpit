@@ -1,4 +1,4 @@
-# TraderCockpit Public Website Plan
+# Trader Cockpit Public Website Plan
 
 Status: **Phases A–F complete / appraisal-adversarial visual and customer-language passes complete**
 Repository: `javin23863/tradercockpit`
@@ -7,7 +7,7 @@ Last adversarial review: 2026-09-10
 
 ## 1. Goal
 
-Build a public TraderCockpit website that feels like an explorable quantitative-research environment rather than a conventional SaaS brochure. The site must combine marketing, education, documentation, how-to/video learning, research-method explanations, examples, and contextual in-app help without overstating product capability.
+Build a public Trader Cockpit website that feels like an explorable quantitative-research environment rather than a conventional SaaS brochure. The site must combine marketing, education, documentation, how-to/video learning, research-method explanations, examples, and contextual in-app help without overstating product capability.
 
 The visual identity should use meaningful depth and motion to explain uncertainty, selection, distributions, regimes, correlations, drawdowns, robustness, and validation. Decorative 3D is not enough: every significant visual encoding must have a defined analytical meaning or be clearly marked as atmosphere.
 
@@ -17,7 +17,7 @@ These are non-negotiable:
 
 1. Keep public website assets under `docs/` and governance material under `.github/` so the public-surface allowlist remains satisfied.
 2. `docs/product-manifest.v1.json` remains the sole authority for product availability, verified capabilities, platform support, pricing/checkout state, and commercial CTA state.
-3. Current manifest state is treated as a waitlist/prelaunch boundary. New educational pages must not imply that a research concept is already a verified TraderCockpit feature.
+3. Current manifest state is treated as a waitlist/prelaunch boundary. New educational pages must not imply that a research concept is already a verified Trader Cockpit feature.
 4. No performance promises, guaranteed edge, investment advice, or misleading backtest claims.
 5. Public research demonstrations use clearly labeled synthetic/illustrative data unless a specific publishable dataset has been approved.
 6. Never publish secrets, proprietary backend architecture, private research datasets, unreleased UI contracts, private roadmaps, credentials, or internal operational details in this public repository.
@@ -552,7 +552,7 @@ The walk-forward and holdout-boundary slice was reviewed for false precision, mi
 
 | Severity | Finding | Resolution |
 |---|---|---|
-| High | A repeated-peek diagram could look like measured leakage from a real TraderCockpit run. | The page states that the 36 candidates and four feedback loops are illustrative, shows no measured strategy result, and links the diagram to the independent Methods explanation. |
+| High | A repeated-peek diagram could look like measured leakage from a real Trader Cockpit run. | The page states that the 36 candidates and four feedback loops are illustrative, shows no measured strategy result, and links the diagram to the independent Methods explanation. |
 | Medium | The OOS canvas labeled the selection point “selected once” in both modes, which became misleading after holdout feedback was enabled. | The label now changes to “selection + feedback” in repeated-peek mode while remaining “selected once” only in the preserved-holdout case. |
 | Medium | The first OOS notice update used static `innerHTML` even though markup injection was unnecessary. | Replaced it with `createElement`, `textContent`, and `replaceChildren`; the integrity checker now rejects `innerHTML` in the validation visual script. |
 | Medium | Replacing placeholder cards with real sections could leave duplicate `id` values and ambiguous help/deep-link targets. | Removed the placeholder IDs and upgraded the integrity checker to detect duplicate HTML IDs and require both validation anchors and the lazy validation script. |
@@ -584,7 +584,7 @@ The documentation-system slice was adversarially reviewed for content drift, bri
 |---|---|---|
 | High | If the desktop application deep-links directly to page paths, later documentation reorganization could break released in-app help. | Added `help.html?id=...` plus a versioned public help registry. Browser acceptance covers valid, unknown, and invalid IDs; the resolver only accepts public knowledge IDs and same-origin registry destinations. |
 | High | Concept pages could drift independently and quietly contradict their shared taxonomy. | Added `concepts.v1.json` as the versioned source and `generate_concept_pages.py --check`; the integrity gate now fails if any generated Concept page differs from source. |
-| High | Public Concept/How-To content could be mistaken for proof that a corresponding TraderCockpit feature ships today. | Every generated Concept page carries explicit public-research/product-boundary copy, while the full How-To is product-neutral. Product availability remains governed by `product-manifest.v1.json`. |
+| High | Public Concept/How-To content could be mistaken for proof that a corresponding Trader Cockpit feature ships today. | Every generated Concept page carries explicit public-research/product-boundary copy, while the full How-To is product-neutral. Product availability remains governed by `product-manifest.v1.json`. |
 | Medium | The first Monte Carlo Concept hero exposed the visual and Method but not the completed How-To, leaving the learning chain incomplete. | Added optional data-driven How-To handoffs in both the Concept hero and page guide; Monte Carlo now exposes visual, Method, and How-To continuations. |
 | Medium | A stable resolver could become an open-redirect surface if registry paths were trusted without origin validation. | Resolver logic accepts the versioned public registry only and rejects destinations that resolve outside the current site origin; the integrity checker also validates all registry/content paths. |
 | Medium | Rich Academy video could reintroduce third-party requests inside the detailed How-To layer. | The detailed How-To reuses the click-to-load privacy-enhanced loader; browser interception confirms no YouTube request occurs before explicit user action. |
@@ -762,7 +762,7 @@ The additive first milestone is complete when:
 - 2026-09-10: Browser interaction checks passed for keyboard candidate selection, Monte Carlo regeneration, reduced-motion suppression of continuous motion, and no-JavaScript Docs navigation.
 - 2026-09-10: Tracked-tree public-surface allowlist check passed with 31 tracked files; homepage, product manifest, and prelaunch config remained unchanged; publishable-content sensitive-pattern and unreleased-product-term scans passed.
 - 2026-09-10: Added same-origin local documentation search with 18 public-safe entries and an accessible Search dialog available from every additive page.
-- 2026-09-10: Added the first click-to-load Academy video using the public TraderCockpit Monte Carlo lesson; no third-party iframe exists before explicit user action.
+- 2026-09-10: Added the first click-to-load Academy video using the public Trader Cockpit Monte Carlo lesson; no third-party iframe exists before explicit user action.
 - 2026-09-10: Browser acceptance passed across all seven additive pages at 320px and under 200% text-size stress; fixed the video aspect-ratio/min-height overflow found by that review.
 - 2026-09-10: Built the first Phase B visual-depth slice: a three-mode parameter surface, an 18-node synthetic correlation network, and a three-family distribution/tail explorer.
 - 2026-09-10: Phase B adversarial review fixed synthetic-badge reflow, deep-link sticky-nav occlusion, correlation toggle labeling, and the heavy-tail summary statistic.

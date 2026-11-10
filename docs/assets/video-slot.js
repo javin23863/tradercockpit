@@ -5,7 +5,7 @@
     const button = slot.querySelector('[data-video-load]');
     const frameHost = slot.querySelector('[data-video-frame]');
     const videoId = slot.dataset.videoId;
-    const title = slot.dataset.videoTitle || 'TraderCockpit video lesson';
+    const title = slot.dataset.videoTitle || 'Trader Cockpit video lesson';
     if (!button || !frameHost || !/^[A-Za-z0-9_-]{11}$/.test(videoId || '')) return;
 
     button.addEventListener('click', () => {

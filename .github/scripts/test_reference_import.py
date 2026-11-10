@@ -32,7 +32,7 @@ class ReferenceImportTests(unittest.TestCase):
         (root/'docs/index.html').write_text('<!doctype html><title>Existing site</title>\n')
         (root/'docs/learn/index.html').write_bytes(b'Historical route: preserve exact bytes.\n')
         (root/'docs/product-manifest.v1.json').write_text(json.dumps({'schema':'product-manifest/v1','status':'unavailable','verifiedCapabilities':[]}))
-        commerce = {'schema':'public-commerce/v1','status':'prelaunch','plan':{'name':'TraderCockpit Monthly','currency':'USD','unitAmount':15000,'interval':'month','stripeProductId':'prod_V6DR67MaZGMMH4','stripePriceId':'price_1U610SQtj95EgxLw0cdceJ4d'},'checkout':{'enabled':False,'url':None,'reason':'Checkout opens after payment-to-entitlement provisioning is verified end to end.'}}
+        commerce = {'schema':'public-commerce/v1','status':'prelaunch','plan':{'name':'Trader Cockpit Monthly','currency':'USD','unitAmount':15000,'interval':'month','stripeProductId':'prod_V6DR67MaZGMMH4','stripePriceId':'price_1U610SQtj95EgxLw0cdceJ4d'},'checkout':{'enabled':False,'url':None,'reason':'Checkout opens after payment-to-entitlement provisioning is verified end to end.'}}
         (root/'docs/commerce-public.v1.json').write_text(json.dumps(commerce))
         (root/'docs/prelaunch-config.v1.json').write_text('{"schema":"prelaunch-config/v1"}')
         return root
