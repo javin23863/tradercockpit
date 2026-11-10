@@ -377,7 +377,7 @@
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",
     "assets/features/journal.webp": "f2af3b581c57e450030b52e10a8a2524d7fc6d2965943b9fe4bbe0f991a04326",
     "community/index.html": "70deca12d6e13d8e38b4a1fef4ec1a2cfe16484a7e64b272067eda6f434647e1",
-    "community/items.v1.json": "98451ef6c28fdee02fee0bb494368f265d78befb2c9ee32750ce56087bbfb792",
+    "community/items.v1.json": "f67ba0a64d129355c2e0fd3f198c363eb41976c09feb59ac915b9848fab5f6e7",
     "community/img/0e9d01adfdd0378140b88f96c5732a70a66a1f5027f7c9439fe0a1078ae20f68.png": "1c8b832b7f1139f41b9d1121b68be92f5f6e2ae066a507bb804ff6f2ba532308",
     "community/img/1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46.png": "8628503364585e8a8d6ea5d0244c9c3284a04f30bd2c6096f7b60d3d93b43f4a",
     "community/authors/tradercockpit/index.html": "12f3d150bdff1d772bf7c3a007f128bad5cb4a1e5c54db50e02ea4cf225f0214",
@@ -407,7 +407,7 @@
     "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "782ef2b56d11675b29f8b11ecda6a7f2075d30e52e8d082b36816bab53759906",
     "assets/features/hero.webp": "e6b2767d80d65d8c207e947350897b4a3e2bbc710e4a01600bf78cbaa2ad26a5",
     "community/indicators/volume-analysis-fixed-range/index.html": "eec3b9254c0b6758943e08218ca6ac3f0896c9a2d837bb7e27bc12eccbeace5b",
-    "community/strategies/20-50-moving-average-cross-tested-on-es/index.html": "747bd2f67ea86a4e2b1b401d91b976a034a8195f5bef71febc90062b7ba8dc77",
+    "community/strategies/20-50-moving-average-cross-tested-on-es/index.html": "d3a2a8f41eaa71549bacee44249288122d4c3c42b32419933a9d52a153dfa1cd",
     "community/strategies/200-day-breakout-tested-on-es/index.html": "b464ba41fa7a4c4a6228a476b1dda29784461c0c2cd37acfcb7e8cf843a33e51"
   }
 }
