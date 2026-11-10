@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "c1f73242c9dbb14e7dbf87f29228fc9ad26bb6bcac793b88bd6dc622004e6701",
+  "home_sha256": "4f7edd686aa37a1340db59ef1e05e3e7a1f60549f624ea973c778038e3244ac1",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -307,8 +307,8 @@
     },
     "content-registry.v1.json": {
       "before_sha256": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
-      "after_sha256": "0e384d64207a69c72d6fa6f6d6df9d31cf2bc8a70675f0e34e81a302e441f7c8",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed. Strengths section on Home and the Compare page, 10 Nov 2026."
+      "after_sha256": "5002e1e0326322fb7b683e5bbd3463d286ed2702449bd62ed85b7ff4fd71f1a4",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "help-registry.v1.json": {
       "before_sha256": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
@@ -342,13 +342,13 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "a8a4ba1793d6d80226e815078779b8f7d4b741ed67b1a385d8cc9a03b1dc2d59",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed. Strengths section on Home and the Compare page, 10 Nov 2026."
+      "after_sha256": "e68812c69090abd02f8604da072811f5ee976e76f9c43f04f28d8aa7006c63a9",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     },
     "sitemap.xml": {
       "before_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-      "after_sha256": "4e3347444b5a198bc0229184f79ce2c800e7410625c7235b8b45d80eca9774b3",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed. Strengths section on Home and the Compare page, 10 Nov 2026."
+      "after_sha256": "e127da44560b8c7a7ca58752e3812a8c667c914b01c10501d9b3745c5f3bf6e5",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Launch wording, 10 Nov 2026: the Windows app is available to download; early access wording removed."
     }
   },
   "added_files": {
@@ -359,7 +359,7 @@
     "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6",
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
-    "llms.txt": "cf35a298c30e216dd1d36e7cad4f4867e2afa96295629ea7d4601c7844d0d1f9",
+    "llms.txt": "f2322e68681583b1eb8b0fbfbeb9b1a85c0875b9040e265552bd4b3a05c7ef0c",
     "features/index.html": "9c78b4bddd3c4f6e492543fc1eb81d253fdfd34087765902a5d42e3eb9c89734",
     "early-access.html": "fe567ca16bb8cbff18a1dd4068cbc71f1f7af7abfa50ffe31dbe8e5df6c672c9",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
@@ -427,7 +427,6 @@
     "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "ebab15acd4799abfbde064632794b8d8c095c031948c088ac0b5ef134873a969",
     "community/strategies/data-trader-s-20-50-moving-average-cross-tested-on-es/index.html": "12e9e1aef6389d37c7feebefe5d293d6827776632bd63df0d07ec8fdbc47a20d",
     "community/strategies/rayner-teo-s-200-day-breakout-tested-on-es/index.html": "4ad87eb3e37730610c9a30377589517bed50c1b22deaad1b61ca4424617285f2",
-    "download/index.html": "d541564c90656ac257c0a5edf0ee3aba0612dc03af2619a9e600b596cad79e8d",
-    "compare/index.html": "26181b94ce9fc5a2127e62dea47bad01c0fb6c3bc06c9bd9df39af10d5eec3e6"
+    "download/index.html": "d541564c90656ac257c0a5edf0ee3aba0612dc03af2619a9e600b596cad79e8d"
   }
 }

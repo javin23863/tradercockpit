@@ -347,13 +347,6 @@
       "status": "public"
     },
     {
-      "id": "product.compare",
-      "kind": "landing",
-      "path": "compare/index.html",
-      "title": "Compare",
-      "status": "public"
-    },
-    {
       "id": "product.download",
       "kind": "landing",
       "path": "download/index.html",

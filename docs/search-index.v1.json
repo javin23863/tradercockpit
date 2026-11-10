@@ -769,22 +769,6 @@
       ]
     },
     {
-      "id": "product.compare",
-      "title": "Compare",
-      "path": "compare/",
-      "kind": "reference",
-      "summary": "TraderCockpit beside three other platforms: what each is strongest at.",
-      "terms": [
-        "compare",
-        "comparison",
-        "tradingview",
-        "quantpad",
-        "alternative",
-        "versus",
-        "strengths"
-      ]
-    },
-    {
       "id": "product.download",
       "title": "Download",
       "path": "download/",
