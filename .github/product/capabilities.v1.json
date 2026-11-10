@@ -56,13 +56,14 @@
       "items": [
         "Chart types: bars, candles, hollow candles, volume candles, line, line with markers, step line, area, HLC area, baseline, columns, high-low, Heikin Ashi, Renko, line break, Kagi and range.",
         "One grouped indicator list: TradingView's built-ins at their defaults, the Builder's own indicators, patterns and profiles, and your own.",
-        "1,014 open-source community indicators in the same list, by category and search. Each runs on the chart, shows its author and licence, and opens its code as a copy.",
+        "1,014 open-source community indicators in the same list, by category and search. Each runs on the chart and opens its code as a copy.",
         "Drawings: trend line, ray, extended line, rectangle, horizontal line and ray.",
         "VWAP with bands, anchored, rolling and from earnings dates; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
         "Machine-learning buy and sell signals with a read-out of how they would have done on the visible bars.",
         "Your own Pine v5 or v6 indicators and strategies run on the chart, with a Strategy Tester. Anything that can't run is listed by line.",
         "Alerts on price, values, indicator lines and drawings, with notices and sounds.",
-        "Bar Replay, saved views, watchlists, compare charts, and up to 16 charts at once on a paid plan."
+        "Watchlists for any market: drag to reorder, flags, notes, several lists, an alert on a whole list, and hotlists that rank a whole exchange.",
+        "Bar Replay, saved views, compare charts, and up to 16 charts at once on a paid plan."
       ]
     },
     {
@@ -75,6 +76,7 @@
         "Volume profile: fixed range, session and periodic, with value area and point of control.",
         "Measured delta, cumulative delta, trade counts, volume tails and bar statistics.",
         "An order book heatmap: resting bids and offers over time under the candles, from Kraken or Coinbase, with the largest walls named.",
+        "A liquidation heatmap on crypto charts: real liquidation prints, and an estimate of the price levels where leveraged positions would be liquidated.",
         "Gamma exposure by strike, drawn from an option chain file you import."
       ]
     },
@@ -89,7 +91,7 @@
         "It proposes one chart change at a time, shown as a card you apply yourself.",
         "It writes custom indicators for your charts, and does the maths with 25 built-in finance methods.",
         "Attach a trade log, a PDF or a chart picture. Your chats are saved and can be exported.",
-        "Web search runs only after you approve each one.",
+        "Turn an open-source Pine indicator into a Builder building block. Apollo checks it against the original bar for bar on your saved bars before you save it.",
         "Apollo never sends live broker orders. It runs on Apollo credits, included with each paid plan."
       ]
     },
@@ -115,10 +117,10 @@
     },
     {
       "id": "data", "title": "Market data and import", "kicker": "Bring your data",
-      "lead": "Free exchange data with no exchange account, or your own files, checked row by row.",
+      "lead": "Connect a broker or exchange, or bring your own files, checked row by row.",
       "items": [
         "Coinbase and Kraken: free public history and live prices with no exchange account, at any chart timeframe; Builder takes M2 to D5.",
-        "Yahoo daily bars, free.",
+        "Forex, metals and index history downloaded inside the app, at no charge, with every timeframe built from it.",
         "Your own price files: CSV in common layouts and TradingView's chart export, checked row by row.",
         "MetaTrader 5 history and quotes from your own terminal.",
         "Option chain files with open interest, one per underlying.",
@@ -164,7 +166,7 @@
   "plans": [
     {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a free sign-in. No payment.",
      "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credits", "None"]],
-     "included": ["Charts with live prices from the free sources", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
+     "included": ["Charts with live crypto prices, with no exchange account", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
      "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account ({brokers} brokers)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
     {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
      "credits": 4000, "jobs": 1, "modelsBatch": 1},
