@@ -165,8 +165,8 @@
   "freeByArea": {"charts": "Part", "order-flow": "Part", "journal": "Yes", "data": "Part", "exports": "Part", "paper": "Yes", "save": "Part"},
   "plans": [
     {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a free sign-in. No payment.",
-     "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credits", "None"]],
-     "included": ["Charts with live crypto prices, with no exchange account", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
+     "facts": [["Charts at once", "4"], ["Indicators per chart", "10"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credits", "None"]],
+     "included": ["Charts with live crypto prices, with no exchange account", "Daily prices for stocks, indices, forex and futures", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
      "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account ({brokers} brokers)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
     {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
      "credits": 4000, "jobs": 1, "modelsBatch": 1},
