@@ -257,6 +257,76 @@
       "status": "public"
     },
     {
+      "id": "how-to.backtest-a-strategy-without-code",
+      "kind": "how-to",
+      "path": "how-to/backtest-a-strategy-without-code.html",
+      "title": "How to Backtest a Strategy Without Code",
+      "status": "public"
+    },
+    {
+      "id": "how-to.robustness-test-a-trading-strategy",
+      "kind": "how-to",
+      "path": "how-to/robustness-test-a-trading-strategy.html",
+      "title": "How to Robustness Test a Trading Strategy",
+      "status": "public"
+    },
+    {
+      "id": "how-to.walk-forward-test-a-strategy",
+      "kind": "how-to",
+      "path": "how-to/walk-forward-test-a-strategy.html",
+      "title": "How to Walk-Forward Test a Trading Strategy",
+      "status": "public"
+    },
+    {
+      "id": "how-to.backtest-pine-script-on-your-own-data",
+      "kind": "how-to",
+      "path": "how-to/backtest-pine-script-on-your-own-data.html",
+      "title": "How to Backtest Pine Script on Your Own Data",
+      "status": "public"
+    },
+    {
+      "id": "how-to.export-a-strategy-to-pine-script",
+      "kind": "how-to",
+      "path": "how-to/export-a-strategy-to-pine-script.html",
+      "title": "How to Export a Strategy to Pine Script",
+      "status": "public"
+    },
+    {
+      "id": "how-to.test-a-strategy-against-prop-firm-rules",
+      "kind": "how-to",
+      "path": "how-to/test-a-strategy-against-prop-firm-rules.html",
+      "title": "How to Test a Strategy Against Prop Firm Rules",
+      "status": "public"
+    },
+    {
+      "id": "how-to.read-a-footprint-chart",
+      "kind": "how-to",
+      "path": "how-to/read-a-footprint-chart.html",
+      "title": "How to Read a Footprint Chart",
+      "status": "public"
+    },
+    {
+      "id": "how-to.paper-trade-crypto",
+      "kind": "how-to",
+      "path": "how-to/paper-trade-crypto.html",
+      "title": "How to Paper Trade Crypto on Live Prices",
+      "status": "public"
+    },
+    {
+      "id": "how-to.import-price-data-from-csv",
+      "kind": "how-to",
+      "path": "how-to/import-price-data-from-csv.html",
+      "title": "How to Import CSV Price Data for Backtesting",
+      "status": "public"
+    },
+    {
+      "id": "how-to.turn-a-trading-idea-into-a-strategy",
+      "kind": "how-to",
+      "path": "how-to/turn-a-trading-idea-into-a-strategy.html",
+      "title": "How to Turn a Trading Idea Into a Strategy",
+      "status": "public"
+    },
+    {
       "id": "support",
       "kind": "landing",
       "path": "support/",

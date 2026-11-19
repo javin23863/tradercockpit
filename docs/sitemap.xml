@@ -235,6 +235,66 @@
     <lastmod>2026-10-05</lastmod>
   </url>
   <url>
+    <loc>https://trader-cockpit.com/how-to/backtest-a-strategy-without-code.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/robustness-test-a-trading-strategy.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/walk-forward-test-a-strategy.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/backtest-pine-script-on-your-own-data.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/export-a-strategy-to-pine-script.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/test-a-strategy-against-prop-firm-rules.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/read-a-footprint-chart.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/paper-trade-crypto.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/import-price-data-from-csv.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/how-to/turn-a-trading-idea-into-a-strategy.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://trader-cockpit.com/community/</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>

@@ -570,6 +570,156 @@
       ]
     },
     {
+      "id": "how-to.backtest-a-strategy-without-code",
+      "title": "How to Backtest a Strategy Without Code",
+      "path": "how-to/backtest-a-strategy-without-code.html",
+      "kind": "how-to",
+      "summary": "Backtest without writing code: save a market, enter your real costs, let Builder search rule combinations, then read every trade before you trust a result.",
+      "terms": [
+        "backtest without coding",
+        "no code backtest",
+        "strategy builder",
+        "backtest a trading strategy",
+        "no-code"
+      ]
+    },
+    {
+      "id": "how-to.robustness-test-a-trading-strategy",
+      "title": "How to Robustness Test a Trading Strategy",
+      "path": "how-to/robustness-test-a-trading-strategy.html",
+      "kind": "how-to",
+      "summary": "Run a strategy through held-back dates, other markets, other timeframes, worse slippage and Monte Carlo, in order, and see why each weak one dropped out.",
+      "terms": [
+        "robustness test",
+        "overfitting",
+        "curve fitting",
+        "out-of-sample",
+        "monte carlo",
+        "stress test a strategy",
+        "validation workflow"
+      ]
+    },
+    {
+      "id": "how-to.walk-forward-test-a-strategy",
+      "title": "How to Walk-Forward Test a Trading Strategy",
+      "path": "how-to/walk-forward-test-a-strategy.html",
+      "kind": "how-to",
+      "summary": "Walk-forward testing re-fits a strategy on one window and trades it on the next, over and over. How to set the windows, run it and read the score.",
+      "terms": [
+        "walk-forward analysis",
+        "walk forward optimization",
+        "walk-forward matrix",
+        "in-sample out-of-sample windows",
+        "walk forward test"
+      ]
+    },
+    {
+      "id": "how-to.backtest-pine-script-on-your-own-data",
+      "title": "How to Backtest Pine Script on Your Own Data",
+      "path": "how-to/backtest-pine-script-on-your-own-data.html",
+      "kind": "how-to",
+      "summary": "Run a Pine strategy on your own bars: put the data on a chart, open the Pine Script panel, paste the script and read the Strategy Tester’s list of trades.",
+      "terms": [
+        "pine script backtest",
+        "run pine script outside tradingview",
+        "pine strategy tester",
+        "pine on own data",
+        "pine script desktop"
+      ]
+    },
+    {
+      "id": "how-to.export-a-strategy-to-pine-script",
+      "title": "How to Export a Strategy to Pine Script",
+      "path": "how-to/export-a-strategy-to-pine-script.html",
+      "kind": "how-to",
+      "summary": "Take a strategy you built without code to TradingView: retest it on bar-close timing, save it as Pine Script v6, and see why an export can be refused.",
+      "terms": [
+        "export strategy to pine script",
+        "pine script without coding",
+        "builder to tradingview",
+        "convert strategy to pine",
+        "pine v6 export"
+      ]
+    },
+    {
+      "id": "how-to.test-a-strategy-against-prop-firm-rules",
+      "title": "How to Test a Strategy Against Prop Firm Rules",
+      "path": "how-to/test-a-strategy-against-prop-firm-rules.html",
+      "kind": "how-to",
+      "summary": "Replay your backtested trades against a futures prop firm challenge: profit target, maximum loss, daily loss limit and days to pass, with a pass chance.",
+      "terms": [
+        "prop firm challenge",
+        "prop firm simulator",
+        "daily loss limit",
+        "trailing drawdown",
+        "funded account",
+        "pass a prop firm challenge"
+      ]
+    },
+    {
+      "id": "how-to.read-a-footprint-chart",
+      "title": "How to Read a Footprint Chart",
+      "path": "how-to/read-a-footprint-chart.html",
+      "kind": "how-to",
+      "summary": "A footprint chart shows what traded at each price inside a bar, split into selling and buying. Turn one on for Bitcoin and other crypto and read it row by row.",
+      "terms": [
+        "footprint chart",
+        "order flow",
+        "delta",
+        "stacked imbalance",
+        "value area",
+        "point of control",
+        "bitcoin footprint"
+      ]
+    },
+    {
+      "id": "how-to.paper-trade-crypto",
+      "title": "How to Paper Trade Crypto on Live Prices",
+      "path": "how-to/paper-trade-crypto.html",
+      "kind": "how-to",
+      "summary": "Paper trade Bitcoin and other crypto on live prices with simulated money and no exchange account: market, limit and stop orders, exits, and an account record.",
+      "terms": [
+        "paper trading",
+        "paper trade crypto",
+        "crypto trading simulator",
+        "demo trading",
+        "bar replay",
+        "practice trading",
+        "paper trade bitcoin"
+      ]
+    },
+    {
+      "id": "how-to.import-price-data-from-csv",
+      "title": "How to Import CSV Price Data for Backtesting",
+      "path": "how-to/import-price-data-from-csv.html",
+      "kind": "how-to",
+      "summary": "Bring your own price history into the app: import a CSV, TSV or TradingView chart export, set the time zone, save it and use it in charts and backtests.",
+      "terms": [
+        "import csv",
+        "csv price data",
+        "historical data",
+        "tradingview export",
+        "own data backtest",
+        "time zone",
+        "free historical data"
+      ]
+    },
+    {
+      "id": "how-to.turn-a-trading-idea-into-a-strategy",
+      "title": "How to Turn a Trading Idea Into a Strategy",
+      "path": "how-to/turn-a-trading-idea-into-a-strategy.html",
+      "kind": "how-to",
+      "summary": "Describe a trading idea in plain words and get a strategy you can backtest. Apollo drafts the rules and fills in Builder’s settings. You approve every change.",
+      "terms": [
+        "ai strategy builder",
+        "trading idea to strategy",
+        "plain english backtest",
+        "apollo",
+        "ai pine script",
+        "idea to code"
+      ]
+    },
+    {
       "id": "support",
       "title": "Support",
       "path": "support/",
