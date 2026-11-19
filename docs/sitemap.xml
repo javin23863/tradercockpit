@@ -253,18 +253,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://trader-cockpit.com/community/strategies/200-day-breakout-tested-on-es/</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://trader-cockpit.com/community/strategies/20-50-moving-average-cross-tested-on-es/</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://trader-cockpit.com/community/indicators/relative-liquidity-index/</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>

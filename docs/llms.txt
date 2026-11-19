@@ -16,9 +16,9 @@
 - [Journal](https://trader-cockpit.com/features/#journal): Review executions, research results, routines and decisions in one place, kept on your PC.
 - [Market data and import](https://trader-cockpit.com/features/#data): Connect a broker or exchange, or bring your own files, checked row by row.
 - [Exports](https://trader-cockpit.com/features/#exports): Take a strategy to your platform, or get a clear reason why it can't match.
-- [Paper trading](https://trader-cockpit.com/features/#paper): Practice with simulated money: live on crypto charts, on US stocks with your broker account connected, and on saved history in Bar Replay.
+- [Paper trading](https://trader-cockpit.com/features/#paper): Practice with simulated money: live on crypto charts, on US stocks with an Alpaca paper account connected, and on saved history in Bar Replay.
 - [Connect your broker](https://trader-cockpit.com/features/#brokers): 31 brokers connect to Trader Cockpit, and your account activity comes into your Journal.
-- [Your work stays on your PC](https://trader-cockpit.com/features/#save): Strategies, results, charts and data are saved in your own data folder.
+- [Your work stays on your PC](https://trader-cockpit.com/features/#save): Your work stays on your PC, in a folder you own.
 
 ## Guides: start here
 

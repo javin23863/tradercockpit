@@ -15,6 +15,7 @@ import json,re,shutil,sys,urllib.request
 HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE))
 import search_metadata
 from site_chrome import apply as chrome,cta
+from generate_product_pages import facts as product_facts,fill
 ROOT=HERE.parents[1];DOCS=ROOT/'docs';COMMUNITY=DOCS/'community';ITEMS=COMMUNITY/'items.v1.json'
 SITE='https://trader-cockpit.com/';SCHEMA='tc.community-items.v1'
 KINDS={'strategy':'Strategies','indicator':'Indicators','idea':'Ideas'};FOLDER={'strategy':'strategies','indicator':'indicators','idea':'ideas'}
@@ -67,11 +68,16 @@ def card(i,frm):
     meta=where(i) or (f'Pine indicator, {i["indicator"]["licence"]}' if i['kind']=='indicator' and i.get('indicator',{}).get('licence') else '')
     return f'<li><a href="{href(frm,i["_rel"])}">{pic}<strong>{e(i["title"])}</strong><span>by {e(i["author"]["name"])}'+(f'. {e(meta)}' if meta else '')+'</span></a></li>'
 
+def note(kind,frm):
+    """The web shows a few of the app's indicators; the count of all of them comes from capabilities.v1.json."""
+    if kind!='indicator' or frm!='community/index.html':return ''
+    return '<p class="measure">'+e(fill('The Community inside the app has {communityIndicators} open-source indicators, each with a picture of what it draws. These are a few to read on the web.',product_facts()))+'</p>'
+
 def sections(items,frm,level='h2'):
     out=''
     for kind,name in KINDS.items():
         rows=[i for i in items if i['kind']==kind]
-        if rows:out+=f'<section class="guide-group" id="{FOLDER[kind]}" aria-labelledby="h-{FOLDER[kind]}"><{level} id="h-{FOLDER[kind]}">{name} ({len(rows)})</{level}><ul class="guide-list{" pictures" if rows[0].get("image") else ""}">'+''.join(card(i,frm) for i in rows)+'</ul></section>'
+        if rows:out+=f'<section class="guide-group" id="{FOLDER[kind]}" aria-labelledby="h-{FOLDER[kind]}"><{level} id="h-{FOLDER[kind]}">{name} ({len(rows)})</{level}>{note(kind,frm)}<ul class="guide-list{" pictures" if rows[0].get("image") else ""}">'+''.join(card(i,frm) for i in rows)+'</ul></section>'
     return out
 
 def index_page(items):
@@ -100,13 +106,19 @@ def body(i):
         return f'{facts(rows)}<h2>Pine code</h2><p>In Trader Cockpit, open Community and press Add to chart. This is the code it runs.</p><pre><code>{e(x["code"])}</code></pre>'
     return f'<h2>Note</h2><p>{link_text(i["idea"]["note"])}</p>'
 
+def described(i):
+    text=i.get('description','')
+    if 'micro index futures' in text and '. The picture shows' in text:
+        text=text.replace('. The picture shows','. Micro contracts began trading in 2019, so the years before that are not the micro contracts’ own prices. The picture shows',1)
+    return text
+
 def item_page(i):
     rel=i['_rel'];root='../'*rel.count('/')
     a=i['author'];pic=f'<figure class="shot"><img src="{root}community/{e(i["image"])}" alt="{e(i["title"])}"></figure>' if i.get('image') else ''
     meta=''.join(f'<span>{e(v)}</span>' for v in (day(i['published_at']),where(i)) if v)
     go,label=cta(root)
     main=(f'<main id="main" tabindex="-1"><div class="wrap"><header class="page-head"><p class="breadcrumb"><a href="{root}community/#{FOLDER[i["kind"]]}">{KINDS[i["kind"]]}</a></p><h1>{e(i["title"])}</h1>'
-          f'<p class="lead">{link_text(i.get("description",""))}</p><p class="article-meta"><span>by <a href="{href(rel,author_rel(a))}">{e(a["name"])}</a></span>{meta}</p>'
+          f'<p class="lead">{link_text(described(i))}</p><p class="article-meta"><span>by <a href="{href(rel,author_rel(a))}">{e(a["name"])}</a></span>{meta}</p>'
           f'<div class="actions"><a class="btn primary" href="{go}">{label}</a></div></header><div class="prose">{pic}{body(i)}</div></div></main>')
     # The description is the item's own first sentence, so each page's preview says what it is.
     first=re.split(r'(?<=[.!?])\s',i.get('description','').replace('\n',' ').strip())[0][:155] or f'{i["title"]} on Trader Cockpit Community.'

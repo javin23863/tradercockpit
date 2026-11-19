@@ -65,7 +65,7 @@
     {
       "id": "paper",
       "label": "Paper trading",
-      "summary": "Practice with simulated money: live on crypto charts, on US stocks with your broker account connected, and on saved history in Bar Replay."
+      "summary": "Practice with simulated money: live on crypto charts, on US stocks with an Alpaca paper account connected, and on saved history in Bar Replay."
     },
     {
       "id": "brokers",
@@ -75,7 +75,7 @@
     {
       "id": "save",
       "label": "Your work stays on your PC",
-      "summary": "Strategies, results, charts and data are saved in your own data folder."
+      "summary": "Your work stays on your PC, in a folder you own."
     }
   ],
   "platforms": [

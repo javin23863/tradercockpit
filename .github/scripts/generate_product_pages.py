@@ -27,8 +27,17 @@ def broker_groups():
 
 ORDERS_NOTE='Paper trading on live crypto prices needs no broker account.'
 
+def facts():
+    """Shared numbers and phrases: {name} in any text of capabilities.v1.json; {Name} gives it a capital."""
+    return json.loads(read(PRODUCT/'capabilities.v1.json'))['facts']
+
+def fill(text,f):
+    for k,v in f.items():text=text.replace('{'+k+'}',v).replace('{'+k[0].upper()+k[1:]+'}',v[0].upper()+v[1:])
+    return text
+
 def load():
-    data=json.loads(read(PRODUCT/'capabilities.v1.json'))
+    f=facts()
+    data=json.loads(fill(read(PRODUCT/'capabilities.v1.json'),f))
     data['live']=json.loads(read(DOCS/'product-manifest.v1.json'))['status']=='available'
     trade,seen=broker_groups()
     opened=len(trade)+len(seen)
@@ -50,19 +59,21 @@ def load():
     if tiers:raise SystemExit('Plans missing from capabilities.v1.json: '+', '.join(tiers))
     return data
 
-def shot(s,root,first=False,link=False):
+def shot(s,root,first=False,link=False,caption=''):
     """One app screen. A phone gets its own tighter crop when there is one, so the words stay readable.
     On Features a screen opens at full size."""
     load_attr=' fetchpriority="high"' if first else ' loading="lazy"'
     img=f'<img src="{root}{e(s["src"])}" alt="{e(s["alt"])}" width="{s["w"]}" height="{s["h"]}"{load_attr}>'
     if s.get('phone'):
         ph=s['phone'];img=f'<picture><source media="(max-width:600px)" srcset="{root}{e(ph["src"])}" width="{ph["w"]}" height="{ph["h"]}">{img}</picture>'
-    return f'<figure class="shot">'+(f'<a href="{root}{e(s["src"])}">{img}</a>' if link else img)+'</figure>'
+    cap=f'<figcaption>{e(caption)}</figcaption>' if caption else ''
+    return f'<figure class="shot">'+(f'<a href="{root}{e(s["src"])}">{img}</a>' if link else img)+cap+'</figure>'
 
 def find_shot(data,src):
     for a in data['areas']:
         for s in a.get('shots',[]):
             if s['src']==src:return s
+            if s.get('phone',{}).get('src')==src:return {'src':src,'alt':s['alt'],'w':s['phone']['w'],'h':s['phone']['h']}
     raise SystemExit('No shot in capabilities.v1.json: '+src)
 
 def shots(area,root):
@@ -124,31 +135,21 @@ def pricing_main(data):
     heads=''.join(f'<th scope="col">{e(p["name"])}</th>' for p in data['plans'])
     href,label=cta('../')
     closed='' if data['live'] else ' Checkout isn’t open yet.'
-    return f'''<main id="main" tabindex="-1"><div class="wrap"><header class="page-head"><h1>A Free plan and four monthly plans.</h1><p class="lead">Every paid plan includes every feature. They differ in Apollo credits a month, Apollo tasks at a time and Models batch size.{closed}</p><p class="facts">Prices in US dollars, billed monthly. For Windows.</p></header>{plan_cards(data,"",2)}<section class="band" aria-label="What each plan includes"><h2>What each plan includes</h2><div class="plan-list">{details}</div></section><section class="band" aria-labelledby="compare-title"><h2 id="compare-title">Compare plans</h2><div class="table-scroll"><table><thead><tr><th scope="col">Area</th>{heads}</tr></thead><tbody>{rows}</tbody></table></div></section><section class="band stack loose"><h2>Before you choose</h2><p class="lead">Trader Cockpit is research software. No plan can make a historical result predict the future or guarantee returns.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="../features/">See every feature</a></div></section></div></main>'''
+    return f'''<main id="main" tabindex="-1"><div class="wrap"><header class="page-head split"><div class="stack"><h1>A Free plan and four monthly plans.</h1><p class="lead">Every paid plan includes every feature. They differ in Apollo credits a month, Apollo tasks at a time and Models batch size.{closed}</p><p class="facts">Prices in US dollars, billed monthly. For Windows.</p></div>{shot(find_shot(data,"assets/features/charts-multi.webp"),"../",caption=f"Free includes {dict(data['plans'][0]['facts'])['Charts at once']} charts at once and {dict(data['plans'][0]['facts'])['Indicators per chart']} indicators on each.")}</header>{plan_cards(data,"",2)}<section class="band" aria-label="What each plan includes"><h2>What each plan includes</h2><div class="plan-list">{details}</div></section><section class="band" aria-labelledby="compare-title"><h2 id="compare-title">Compare plans</h2><p class="micro scroll-cue">The table scrolls sideways: every plan has a column.</p><div class="table-scroll"><table><thead><tr><th scope="col">Area</th>{heads}</tr></thead><tbody>{rows}</tbody></table></div></section><section class="band stack loose"><h2>Before you choose</h2><p class="lead">Trader Cockpit is research software. No plan can make a historical result predict the future or guarantee returns.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="../features/">See every feature</a></div></section></div></main>'''
 
 # Home's bands: what the app is best at, each with the part of a real screen its sentence is about.
 # (title, text, area the link opens, screen, layout: "wide" stacks the screen under the text, "split" sets them side by side)
 HOME_BANDS=[
-    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies and keeps the ones that pass your rules.','builder','assets/features/run-search.webp','wide'),
+    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies on your own PC, with no meter on them, and keeps the ones that pass your rules.','builder','assets/features/builder-setup.webp','wide'),
     ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows','assets/features/workflow-steps.webp','wide'),
     ('A straight verdict','Every strategy gets one grade and the reasons behind it. When it has only been tested on the data it was built on, the verdict says so.','results','assets/features/verdict.webp','wide'),
     ('Take it with you','Your own Pine scripts run on the chart. Strategies go out the other way: retest on TradingView’s bar-close timing and export as Pine, or take the rules as MetaTrader, EasyLanguage or Python code.','exports','assets/features/pine-editor.webp','split'),
 ]
 HOME_TRIO=[
-    ('order-flow','assets/features/footprint.webp','Order flow','Footprint, TPO and volume profiles and an order book heatmap, on crypto charts.'),
-    ('paper','assets/features/paper.webp','Paper trading','Buy and sell from the chart with simulated money, at live crypto prices or in Bar Replay.'),
+    ('order-flow','assets/features/footprint-crop.webp','Order flow','Footprint, TPO and volume profiles and an order book heatmap, on crypto charts.'),
+    ('paper','assets/features/paper-crop.webp','Paper trading','Buy and sell from the chart with simulated money, at live crypto prices or in Bar Replay.'),
     ('charts','assets/features/watchlist.webp','Watchlists','Several lists, flags and notes, the day’s change at a glance, and one click to the chart.'),
 ]
-
-def proof(data):
-    """Numbers from one real Builder run, set large. The loop slot plays a real recording of the app when one is listed."""
-    r=data['proofRun']
-    figs=''.join(f'<div><dt>{e(label)}</dt><dd{" class=\"kept\"" if key=="kept" else ""}>{e(r[key])}</dd></div>' for key,label in (('tried','strategies built and backtested'),('kept','passed the filters'),('time','minutes and seconds for the whole search'),('perStrategy','per strategy')))
-    loop=data.get('homeLoop')
-    media=(f'<figure class="shot"><video controls muted loop playsinline preload="none" poster="{e(loop["poster"])}" width="{loop["w"]}" height="{loop["h"]}"><source src="{e(loop["src"])}" type="video/mp4"></video></figure>' if loop else '')
-    return (f'<section class="band proof" aria-labelledby="proof-title"><div class="wrap stack loose"><div class="stack"><h2 id="proof-title">It runs on your PC</h2>'
-            f'<p class="lead">One Builder search on {e(r["market"])}. Searches and backtests run on your own computer, with no meter on them, and your strategies, results and data stay in your own folder.</p></div>'
-            f'<dl class="figures">{figs}</dl>{media}<a class="more" href="features/#save">Where your work is kept</a></div></section>')
 
 def home_main(data):
     by={a['id']:a for a in data['areas']}
@@ -157,30 +158,56 @@ def home_main(data):
     stage=data['homeStage']
     radios=''.join(f'<input type="radio" name="stage" id="stage-{i+1}" aria-label="{e(st["label"])}"{"" if i else " checked"}>' for i,st in enumerate(stage))
     tabs=''.join(f'<label for="stage-{i+1}">{e(st["label"])}</label>' for i,st in enumerate(stage))
-    frames=''.join(shot(st,'',first=not i) for i,st in enumerate(stage))
+    frames=''.join(shot(st,'') for st in stage)
     def band(i,row):
         title,text,area,src,layout=row;a=by[area]
         copy=f'<div class="stack"><h2 id="band-{area}">{e(title)}</h2><p class="lead">{e(text)}</p><a class="more" href="features/#{area}">{e(a["title"])}</a></div>'
         inner=f'<div class="wrap split">{copy}{shot(find_shot(data,src),"")}</div>' if layout=='split' else f'<div class="wrap stack loose">{copy}{shot(find_shot(data,src),"")}</div>'
-        return f'<section class="band{"" if i%2 else " tint"}" aria-labelledby="band-{area}">{inner}</section>'
+        return f'<section class="band{" tint" if i%2 else ""}" aria-labelledby="band-{area}">{inner}</section>'
     bands=''.join(band(i,row) for i,row in enumerate(HOME_BANDS))
     trio=''.join(f'<a class="tile" href="features/#{a}">{shot(find_shot(data,src),"")}<strong>{e(t)}</strong><span>{e(x)}</span></a>' for a,src,t,x in HOME_TRIO)
     index=''.join(f'<a href="features/#{a_id(a)}"><strong>{e(a["title"])}</strong><span>{e(a["lead"])}</span></a>' for a in data['areas'])
     b=data['brokers']
     return f'''<main id="main" tabindex="-1">
-<section class="hero" aria-labelledby="hero-title"><div class="wrap"><h1 id="hero-title">Find strategies that hold up.</h1><p class="lead">Trader Cockpit searches thousands of rule combinations on your market, backtests each one, then tries to break the ones it keeps. It runs on your PC and needs no code.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="features/">See every feature</a></div><p class="facts">For Windows. A Free plan, and paid plans from {price_text(low)} a month.</p><div class="stage" role="group" aria-label="Screens of the app">{radios}<div class="stage-tabs">{tabs}</div>{frames}</div></div></section>
-{proof(data)}
+<section class="hero" aria-labelledby="hero-title"><div class="wrap hero-grid"><div class="stack loose"><h1 id="hero-title">Find strategies that hold up.</h1><p class="lead">Trader Cockpit searches thousands of rule combinations on your market, backtests each one, then tries to break the ones it keeps. It runs on your PC and needs no code.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="features/">See every feature</a></div><p class="facts">For Windows. A Free plan, and paid plans from {price_text(low)} a month.</p></div>{shot(find_shot(data,"assets/features/run-hero.webp"),"",first=True,caption=data["proofRun"]["caption"])}</div></section>
+<section class="band tint" aria-labelledby="inside-title"><div class="wrap stack loose"><h2 id="inside-title">Inside Trader Cockpit</h2><div class="stage" role="group" aria-label="Screens of the app">{radios}<div class="stage-tabs">{tabs}</div>{frames}</div></div></section>
 {bands}
-<section class="band" aria-labelledby="band-charts"><div class="wrap stack loose"><div class="stack"><h2 id="band-charts">Charts that keep up</h2><p class="lead">Seventeen chart types, nearly a thousand community indicators beside the built-ins, drawings, alerts, watchlists, Bar Replay and your own Pine scripts. Up to sixteen charts at once.</p><a class="more" href="features/#charts">Charts</a></div>{shot(find_shot(data,"assets/features/charts.webp"),"")}<div class="tiles">{trio}</div></div></section>
+<section class="band" aria-labelledby="band-charts"><div class="wrap stack loose"><div class="stack"><h2 id="band-charts">Charts that keep up</h2><p class="lead">Seventeen chart types, {fill("{communityIndicators}",facts())} community indicators beside the built-ins, drawings, alerts, watchlists, Bar Replay and your own Pine scripts. Up to sixteen charts at once.</p><a class="more" href="features/#charts">Charts</a></div>{shot(find_shot(data,"assets/features/charts.webp"),"")}<div class="tiles">{trio}</div></div></section>
 <section class="band tint" aria-labelledby="band-brokers"><div class="wrap stack loose"><div class="stack"><h2 id="band-brokers">Connect your broker</h2><p class="lead">{b["open"]} brokers connect to Trader Cockpit. You sign in with your broker in your own browser, and your password never goes into the app.</p></div><div class="cols-2">{broker_lists(data)}</div></div></section>
 <section class="band" aria-labelledby="pricing-title"><div class="wrap stack loose"><div class="stack"><h2 id="pricing-title">A Free plan and four monthly plans</h2><p class="lead">Every paid plan includes every feature. Searches and backtests are never metered.</p></div>{plan_cards(data,"pricing/",3)}</div></section>
 <section class="band tint" aria-labelledby="all-title"><div class="wrap"><h2 id="all-title">Everything in the app</h2><nav class="index-list" aria-label="What Trader Cockpit does">{index}</nav></div></section>
-<section class="band last" aria-label="Community and guides"><div class="wrap cols-2"><div class="stack"><h2>Community</h2><p class="lead">Strategies with their rules and backtests, and open-source Pine indicators. Open one in the app with a click, and publish your own.</p><a class="more" href="community/">Browse the Community</a></div><div class="stack"><h2>Guides</h2><p class="lead">Out-of-sample testing, Monte Carlo, walk-forward and the ways a backtest can mislead you.</p><p class="actions"><a class="more" href="learn/">Read the guides</a><a class="more" href="strategy-claim-audit-checklist.html">Open the backtest checklist</a></p></div></div></section>
+<section class="band last" aria-label="Community and guides"><div class="wrap cols-2"><div class="stack"><h2>Community</h2><p class="lead">Strategies with their rules and backtests, and open-source Pine indicators. Open one in the app with a click, and publish your own.</p>{shot(find_shot(data,data["communityPicture"]),"")}<a class="more" href="community/">Browse the Community</a></div><div class="stack"><h2>Guides</h2><p class="lead">Out-of-sample testing, Monte Carlo, walk-forward and the ways a backtest can mislead you.</p><p class="actions"><a class="more" href="learn/">Read the guides</a><a class="more" href="strategy-claim-audit-checklist.html">Open the backtest checklist</a></p></div></div></section>
 </main>'''
+
+def faq_main(data):
+    by={a['id']:a for a in data['areas']};f=facts();b=data['brokers']
+    free=data['plans'][0];paid=data['plans'][1:];ff=dict(free['facts'])
+    def money(p):return price_text(p['price'])
+    def lst(xs):return ', '.join(xs[:-1])+' and '+xs[-1]
+    qa=[
+     ('What is Trader Cockpit?','Trader Cockpit is a Windows app for building and testing trading strategies. It searches thousands of rule combinations on your market, backtests each one, then tries to break the ones it keeps. It also has charts, order flow, paper trading, broker connections, a Community, a journal and the Apollo assistant.','../features/','See every feature'),
+     ('Do I need to code?','No. Strategy Builder builds and backtests strategies from the market, costs and rules you set. Apollo turns an idea in plain words into a Builder rule part or a Pine script. If you write Pine, your own v5 and v6 scripts run on the chart.',None,None),
+     ('Which markets and data can I use?','Crypto from Coinbase and Kraken comes with free public history and live prices, with no exchange account. Daily history for stocks, indices, forex pairs and futures downloads inside the app, and so does forex and metals history. You can also import your own price files, and use MetaTrader 5 history and quotes from your own terminal.','../features/#data','Market data and import'),
+     ('Does it run my Pine scripts?',fill('Yes. Your own Pine v5 and v6 indicators and strategies run on the chart, and anything that can’t run is listed by line. The chart’s indicator list also has {communityIndicators} open-source community indicators, and each one opens its code as a copy.',f),None,None),
+     ('Is there a free plan, and what is in it?',f'Yes, after a free sign-in and with no payment. Free has {ff["Charts at once"]} charts at once and {ff["Indicators per chart"]} indicators on each. It includes: '+'; '.join(i[0].lower()+i[1:] for i in free['included'])+'. '+lst(free['excluded'][:6])+' are on the paid plans.','../pricing/#plan-free','See what Free includes'),
+     ('What do the paid plans cost and how do they differ?',f'{lst([f"{p["name"]} is {money(p)} a month" for p in paid])}. Every paid plan includes every feature. They differ in Apollo credits a month ({lst([f"{p["credits"]:,}" for p in paid])}), Apollo tasks at a time ({lst([str(p["jobs"]) for p in paid])}) and Models batch size. Searches and backtests are never metered. Prices are in US dollars, billed monthly.','../pricing/','Compare the plans'),
+     ('Can I connect my broker, and does it place live orders?',f'{b["open"]} brokers connect on a paid plan. You sign in with your broker in your own browser, and your password never goes into Trader Cockpit. With {len(b["trade"])} of them you place orders from the chart yourself, and with the other {len(b["read"])} you see your positions, balances and orders. Apollo never sends live broker orders. {b["note"]}','../features/#brokers','See the broker list'),
+     ('Does it run on Mac?','No. Trader Cockpit is a Windows app.',None,None),
+     ('Where is my data kept?',' '.join(by['save']['items'])+' '+by['save']['lead'],None,None),
+     ('What is Apollo and what are credits?',f'Apollo is the assistant inside the app. Describe an idea in plain words and it turns it into a strategy you can test, and you confirm every change. Apollo runs on Apollo credits. Each paid plan includes them every month, from {paid[0]["credits"]:,} on {paid[0]["name"]} to {paid[-1]["credits"]:,} on {paid[-1]["name"]}, and a credit pack adds more ('+', '.join(f'{price_text(p["priceCents"])} buys {p["credits"]:,} credits' for p in data['creditPacks'])+').','../features/#apollo','Apollo assistant'),
+     ('Can I take a strategy to another platform?','Yes. Retest a strategy on TradingView’s bar-close timing and export it as Pine. Anything that can’t match is refused, with the reason. Results also writes the strategy as EasyLanguage, MetaTrader or Python code, and trades export as CSV or Excel.','../features/#exports','Exports'),
+     ('Is a backtest a promise of profit?','No. Trader Cockpit is research software and does not give financial advice. No backtest or simulation predicts future results. The guides explain what each test can and cannot tell you.','../learn/','Read the guides'),
+    ]
+    href,label=cta('../')
+    items=''.join(f'<details class="qa"><summary>{e(q)}</summary><div><p>{e(a)}</p>'+(f'<p><a href="{l}">{e(t)}</a></p>' if l else '')+'</div></details>' for q,a,l,t in qa)
+    items+=f'<details class="qa"><summary>How do I get it?</summary><div><p>{"Download it for Windows." if data["live"] else "The Windows app is in early access. Leave your email on the early access list and we tell you when it opens."}</p><p><a href="{href}">{label}</a></p></div></details>'
+    return f'<main id="main" tabindex="-1"><div class="wrap"><header class="page-head"><h1>Trader Cockpit FAQ</h1><p class="lead">Short answers about the app, the plans and how to get it.</p></header><div class="measure">{items}</div><section class="band stack"><h2>Ask us</h2><p>Write to <a href="mailto:support@trader-cockpit.com">support@trader-cockpit.com</a>.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="../pricing/">See the plans</a></div></section></div></main>'
 
 def build():
     data=load()
     out={}
+    faq=read(DOCS/'support/faq.html')
+    out['support/faq.html']=re.sub(r'<main id="main".*?</main>',lambda m:faq_main(data),faq,count=1,flags=re.S)
     features=read(DOCS/'features/index.html')
     out['features/index.html']=re.sub(r'<main id="main".*?</main>',lambda m:features_main(data),features,count=1,flags=re.S)
     pricing=read(DOCS/'pricing/index.html')

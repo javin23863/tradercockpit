@@ -16,10 +16,32 @@
       ],
       "shots": [
         {
+          "src": "assets/features/run-hero.webp",
+          "alt": "A Builder search on GBPUSD hourly bars: 1,626 strategies built and backtested, 66 passed the filters, 1,560 dropped",
+          "w": 882,
+          "h": 250,
+          "phone": {
+            "src": "assets/features/run-phone.webp",
+            "w": 592,
+            "h": 247
+          }
+        },
+        {
+          "src": "assets/features/builder-setup.webp",
+          "alt": "Builder’s setup: the market, the trading rules, money management and what to search for",
+          "w": 1410,
+          "h": 485,
+          "phone": {
+            "src": "assets/features/builder-phone.webp",
+            "w": 505,
+            "h": 370
+          }
+        },
+        {
           "src": "assets/features/run-search.webp",
-          "alt": "A Builder search on GBPUSD hourly bars: 1,626 strategies built and backtested, 66 passed the filters, 98 ms per strategy",
+          "alt": "The search’s figures: tried, passed the filters, dropped, tried per hour and time per strategy",
           "w": 1480,
-          "h": 430,
+          "h": 250,
           "phone": {
             "src": "assets/features/run-phone.webp",
             "w": 592,
@@ -83,20 +105,14 @@
       "shots": [
         {
           "src": "assets/features/verdict.webp",
-          "alt": "A strategy verdict: grade C, “Mixed: test it more before you trade it”, with the checks behind it and the strategy’s figures",
+          "alt": "A strategy verdict: grade C, “Mixed: test it more before you trade it”, with the checks behind it",
           "w": 1156,
-          "h": 346,
+          "h": 263,
           "phone": {
             "src": "assets/features/verdict-phone.webp",
             "w": 438,
             "h": 128
           }
-        },
-        {
-          "src": "assets/features/results.webp",
-          "alt": "The whole Results page for one strategy",
-          "w": 1600,
-          "h": 788
         }
       ]
     },
@@ -118,7 +134,7 @@
       "items": [
         "Chart types: bars, candles, hollow candles, volume candles, line, line with markers, step line, area, HLC area, baseline, columns, high-low, Heikin Ashi, Renko, line break, Kagi and range.",
         "One grouped indicator list: the standard built-in indicators at their usual settings, the Builder's own indicators, patterns and profiles, and your own.",
-        "Nearly 1,000 open-source community indicators in the same list, by category and search. Each runs on the chart and opens its code as a copy.",
+        "{CommunityIndicators} open-source community indicators in the same list, by category and search. Each runs on the chart and opens its code as a copy.",
         "Drawings: trend line, ray, extended line, rectangle, horizontal line and ray.",
         "VWAP with bands, anchored, rolling and from earnings dates; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
         "Machine-learning buy and sell signals with a read-out of how they would have done on the visible bars.",
@@ -140,49 +156,53 @@
           "src": "assets/features/charts.webp",
           "alt": "A BTC/USD hourly chart in Trader Cockpit with VWAP bands, a moving average and volume",
           "w": 1800,
-          "h": 1125
+          "h": 1125,
+          "phone": {
+            "src": "assets/features/chart-phone.webp",
+            "w": 1170,
+            "h": 1030
+          }
         },
         {
           "src": "assets/features/charts-multi.webp",
           "alt": "Four charts at once: ETH, BTC, SOL and XRP on hourly candles",
           "w": 1800,
-          "h": 1125
+          "h": 1125,
+          "phone": {
+            "src": "assets/features/multi-phone.webp",
+            "w": 960,
+            "h": 630
+          }
         },
         {
-          "src": "assets/features/charts-indicators.webp",
+          "src": "assets/features/indicators-crop.webp",
           "alt": "The indicator list, grouped into built-in and community categories with search",
-          "w": 1800,
-          "h": 1125
+          "w": 1200,
+          "h": 996
         },
         {
           "src": "assets/features/watchlist.webp",
           "alt": "A watchlist of crypto markets with last price and the day’s change beside the chart",
-          "w": 1030,
+          "w": 1120,
           "h": 800
         },
         {
-          "src": "assets/features/charts-drawings.webp",
+          "src": "assets/features/drawings-crop.webp",
           "alt": "A trend line, a rectangle and a horizontal line drawn on a BTC/USD chart",
           "w": 1800,
-          "h": 1125
+          "h": 900
         },
         {
-          "src": "assets/features/charts-alerts.webp",
+          "src": "assets/features/alerts-crop.webp",
           "alt": "The alert dialog for a price alert on BTC/USD",
-          "w": 1800,
-          "h": 1125
-        },
-        {
-          "src": "assets/features/charts-replay.webp",
-          "alt": "Bar Replay stepping through BTC/USD one bar at a time",
-          "w": 1800,
-          "h": 1125
+          "w": 715,
+          "h": 1260
         },
         {
           "src": "assets/features/pine-editor.webp",
-          "alt": "The Pine editor with a strategy added to the chart: it ran on 8,781 bars in 114 ms",
+          "alt": "A Pine strategy in the editor",
           "w": 768,
-          "h": 756
+          "h": 425
         }
       ]
     },
@@ -205,7 +225,12 @@
           "src": "assets/features/footprint.webp",
           "alt": "A BTC/USD footprint chart with bid and ask volume inside each bar and stacked imbalances marked",
           "w": 1540,
-          "h": 690
+          "h": 690,
+          "phone": {
+            "src": "assets/features/footprint-crop.webp",
+            "w": 890,
+            "h": 380
+          }
         },
         {
           "src": "assets/features/tpo.webp",
@@ -224,7 +249,7 @@
         "It fills in Builder settings for you to review, and asks before it compiles or starts a run.",
         "It recommends a validation workflow for your market and timeframe, and reads your strategy's results with you: the same figures and trades you see.",
         "It proposes one chart change at a time, shown as a card you apply yourself.",
-        "It writes custom indicators for your charts, and does the maths with more than 50 built-in finance methods: position size, margin, risk of ruin, option Greeks and more.",
+        "It writes custom indicators for your charts, and does the maths with {financeMethods} built-in finance methods: position size, margin, risk of ruin, option Greeks and more.",
         "Attach a trade log, a PDF or a chart picture. Your chats are saved and can be exported.",
         "Turn an open-source Pine indicator into a Builder building block. Apollo checks it against the original bar for bar on your saved bars before you save it.",
         "Apollo never sends live broker orders. It runs on Apollo credits, included with each paid plan."
@@ -256,6 +281,14 @@
         "Star an item to keep it under Saved. A saved indicator also shows under Favorites in the chart’s indicator list.",
         "Publish your own indicator, chart idea or tested strategy. Each is reviewed before it goes public, and you can update it later.",
         "On a paid plan, publish a tested strategy straight from Results, or build a community strategy with Apollo."
+      ],
+      "shots": [
+        {
+          "src": "community/img/063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413.png",
+          "alt": "Account curves of a Community strategy on the three micro index futures",
+          "w": 960,
+          "h": 540
+        }
       ]
     },
     {
@@ -269,10 +302,10 @@
       ],
       "shots": [
         {
-          "src": "assets/features/journal.webp",
-          "alt": "The Journal’s calendar with a daily note",
-          "w": 1440,
-          "h": 790
+          "src": "assets/features/journal-crop.webp",
+          "alt": "The Journal’s tabs and its trade calendar",
+          "w": 795,
+          "h": 552
         }
       ]
     },
@@ -305,10 +338,10 @@
     {
       "id": "paper",
       "title": "Paper trading",
-      "lead": "Practice with simulated money: live on crypto charts, on US stocks with your broker account connected, and on saved history in Bar Replay.",
+      "lead": "Practice with simulated money: live on crypto charts, on US stocks with an Alpaca paper account connected, and on saved history in Bar Replay.",
       "items": [
         "Our own order simulator, with commission, leverage and shorting. Orders fill at the live bid and ask on crypto charts with no broker account.",
-        "US stocks at the live bid and ask while the market is open, with your Alpaca account connected. The ticket shows how old its price is and won't open a position on a stale one.",
+        "US stocks at the live bid and ask while the market is open, with an Alpaca paper account connected. The ticket shows how old its price is and won't open a position on a stale one.",
         "Buy and sell on the chart, with order and position lines, take profit and stop loss, and a mark on the bar for each fill.",
         "A price ladder beside the chart: click a price to place a limit or a stop, and buy or sell at market from the top.",
         "Right-click the chart or the price scale to buy or sell at that price.",
@@ -320,10 +353,10 @@
       ],
       "shots": [
         {
-          "src": "assets/features/paper.webp",
-          "alt": "A paper trade on a BTC/USD chart with the order ticket and the account panel",
-          "w": 1440,
-          "h": 900
+          "src": "assets/features/paper-crop.webp",
+          "alt": "A BTC/USD chart with the paper order ticket: bid, ask, market, limit and stop orders",
+          "w": 1135,
+          "h": 650
         }
       ]
     },
@@ -335,10 +368,10 @@
     {
       "id": "save",
       "title": "Your work stays on your PC",
-      "lead": "Strategies, results, charts and data are saved in your own data folder.",
+      "lead": "Your work stays on your PC, in a folder you own.",
       "items": [
-        "Nothing you build is uploaded: searches and backtests run on your computer.",
-        "Results and chart layouts you saved on a paid plan stay readable on Free."
+        "Searches and backtests run on your computer, and your strategies, results, charts and data are saved in your own folder.",
+        "What you publish to the Community and what you ask Apollo are sent to our service."
       ]
     }
   ],
@@ -486,7 +519,8 @@
     "tried": "1,626",
     "kept": "66",
     "time": "2:41",
-    "perStrategy": "98 ms"
+    "perStrategy": "98 ms",
+    "caption": "A Builder search on six years of GBPUSD hourly bars, 2 minutes 41 seconds in: 1,626 strategies built and backtested, 66 kept, 1,560 dropped with their reasons."
   },
   "homeStage": [
     {
@@ -494,28 +528,53 @@
       "src": "assets/features/charts-multi.webp",
       "alt": "Four charts at once in Trader Cockpit: ETH, BTC, SOL and XRP on hourly candles",
       "w": 1800,
-      "h": 1125
+      "h": 1125,
+      "phone": {
+        "src": "assets/features/multi-phone.webp",
+        "w": 960,
+        "h": 630
+      }
     },
     {
       "label": "Strategy search",
       "src": "assets/features/run-full.webp",
-      "alt": "Builder searching GBPUSD hourly bars: 1,626 strategies built and backtested and 66 passed the filters after 2 minutes 41 seconds",
+      "alt": "Builder searching GBPUSD hourly bars: 1,626 strategies built and backtested and 66 kept after 2 minutes 41 seconds",
       "w": 1800,
-      "h": 938
+      "h": 938,
+      "phone": {
+        "src": "assets/features/run-phone.webp",
+        "w": 592,
+        "h": 247
+      }
     },
     {
       "label": "Results",
-      "src": "assets/features/results.webp",
-      "alt": "Results for one strategy: grade C with its reasons, net profit, win rate, profit factor and drawdown",
-      "w": 1600,
-      "h": 788
+      "src": "assets/features/verdict.webp",
+      "alt": "A strategy verdict: grade C, “Mixed: test it more before you trade it”, with the checks behind it",
+      "w": 1156,
+      "h": 263,
+      "phone": {
+        "src": "assets/features/verdict-phone.webp",
+        "w": 438,
+        "h": 128
+      }
     },
     {
       "label": "Order flow",
       "src": "assets/features/footprint.webp",
       "alt": "A BTC/USD footprint chart with bid and ask volume inside each bar and stacked imbalances marked",
       "w": 1540,
-      "h": 690
+      "h": 690,
+      "phone": {
+        "src": "assets/features/footprint-crop.webp",
+        "w": 890,
+        "h": 380
+      }
     }
-  ]
+  ],
+  "facts": {
+    "communityIndicators": "nearly 1,000",
+    "financeMethods": "more than 50"
+  },
+  "communityPicture": "community/img/063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413.png"
 }
