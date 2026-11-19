@@ -168,5 +168,8 @@
   "title": "Example: Bar Replay and Look-Ahead | Trader Cockpit",
   "description": "A worked example of what must disappear from a chart when you move a replay cut-off back in time.",
   "h1": "Example: bar replay and look-ahead"
+ },
+ "refund-policy.html": {
+  "description": "Refund and cancellation terms for Trader Cockpit subscriptions appear here before plans go on sale."
  }
 }

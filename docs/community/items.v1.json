@@ -2,13 +2,109 @@
  "schema": "tc.community-items.v1",
  "items": [
   {
+   "id": "063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413",
+   "kind": "strategy",
+   "title": "Seven-day low in an uptrend",
+   "description": "This buys a pullback while the market is above its 200-day average. US stock indices have drifted upward over the long run, helped by growth, inflation and monetary policy, and that drift is what a dip-buying strategy leans on. The trend filter keeps it out of a market that is falling for months.\n\nMES (Micro E-mini S&P 500): 213 trades, net 20.9%, profit factor 1.83, win rate 76.5%, max drawdown 2.6%, grade A.\nMNQ (Micro E-mini Nasdaq-100): 215 trades, net 21.8%, profit factor 1.65, win rate 76.3%, max drawdown 4.3%, grade A.\nMYM (Micro E-mini Dow): 214 trades, net 11.9%, profit factor 1.4, win rate 74.8%, max drawdown 4.3%, grade D.\n\nIt was run by the app's own strategy tester on daily bars of the three micro index futures, starting from $100,000, risking 1% of the account on each trade, with 0.01% of each trade's value in costs and a 10% margin. No slippage is taken off. Tested periods: MES 2003-07-13 to 2023-07-11; MNQ 2003-07-13 to 2023-07-11; MYM 2003-07-06 to 2023-07-06. The picture shows the account curve of each market in percent of the starting balance.",
+   "author": {
+    "name": "Trader Cockpit",
+    "handle": "trader-cockpit-b2cfa4"
+   },
+   "published_at": "2026-11-16T12:05:30.841709Z",
+   "market": "MES",
+   "timeframe": "D1",
+   "strategy": {
+    "win_rate_pct": 76.5,
+    "grade": "A",
+    "from": "2003-07-13",
+    "net_pct": 20.9,
+    "trades": 213,
+    "headline": "",
+    "profit_factor": 1.83,
+    "rules": [
+     "Daily bars. Trade only when the close is above its 200-day average.",
+     "Buy at the next day's open after a close that is the lowest close of the last 7 days.",
+     "Sell at the next day's open after a close that is the highest close of the last 7 days.",
+     "Stop: 4 ATR below the close of the signal day. Size: 1% of the account at risk, never less than the market's smallest order."
+    ],
+    "to": "2023-07-11",
+    "max_drawdown_pct": 2.6
+   },
+   "from_service": true,
+   "image": "img/063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413.png"
+  },
+  {
+   "id": "3644b0e48067969c2ccaf1d72009ef96394e93bbfa9791856c8ee795cd70c926",
+   "kind": "strategy",
+   "title": "Bottom of the 10-day range",
+   "description": "This buys a pullback while the market is above its 200-day average. US stock indices have drifted upward over the long run, helped by growth, inflation and monetary policy, and that drift is what a dip-buying strategy leans on. The trend filter keeps it out of a market that is falling for months.\n\nMES (Micro E-mini S&P 500): 99 trades, net 20.1%, profit factor 3.12, win rate 77.8%, max drawdown 2.0%, grade A.\nMNQ (Micro E-mini Nasdaq-100): 103 trades, net 15.7%, profit factor 2.04, win rate 74.8%, max drawdown 3.3%, grade A.\nMYM (Micro E-mini Dow): 97 trades, net 11.7%, profit factor 1.92, win rate 70.1%, max drawdown 2.1%, grade A.\n\nIt was run by the app's own strategy tester on daily bars of the three micro index futures, starting from $100,000, risking 1% of the account on each trade, with 0.01% of each trade's value in costs and a 10% margin. No slippage is taken off. Tested periods: MES 2003-07-13 to 2023-07-11; MNQ 2003-07-13 to 2023-07-11; MYM 2003-07-06 to 2023-07-06. The picture shows the account curve of each market in percent of the starting balance.",
+   "author": {
+    "name": "Trader Cockpit",
+    "handle": "trader-cockpit-b2cfa4"
+   },
+   "published_at": "2026-11-16T12:05:05.151028Z",
+   "market": "MES",
+   "timeframe": "D1",
+   "strategy": {
+    "max_drawdown_pct": 2.0,
+    "to": "2023-07-11",
+    "grade": "A",
+    "trades": 99,
+    "from": "2003-07-13",
+    "rules": [
+     "Daily bars. Trade only when the close is above its 200-day average.",
+     "Buy at the next day's open after a close in the bottom tenth of the last 10 days' range.",
+     "Sell at the next day's open once the close is back in the top 30% of that range, or after 10 days.",
+     "Stop: 4 ATR below the close of the signal day. Size: 1% of the account at risk, never less than the market's smallest order."
+    ],
+    "headline": "",
+    "net_pct": 20.1,
+    "profit_factor": 3.12,
+    "win_rate_pct": 77.8
+   },
+   "from_service": true,
+   "image": "img/3644b0e48067969c2ccaf1d72009ef96394e93bbfa9791856c8ee795cd70c926.png"
+  },
+  {
+   "id": "18dd2fabd8e3e2758e816a5515e2c519b12f4bd43f76059fb8f16d2515fcf8cb",
+   "kind": "strategy",
+   "title": "Sharp drop rebound",
+   "description": "This buys a pullback while the market is above its 200-day average. US stock indices have drifted upward over the long run, helped by growth, inflation and monetary policy, and that drift is what a dip-buying strategy leans on. The trend filter keeps it out of a market that is falling for months.\n\nMES (Micro E-mini S&P 500): 72 trades, net 6.5%, profit factor 1.94, win rate 73.6%, max drawdown 1.6%, grade A.\nMNQ (Micro E-mini Nasdaq-100): 76 trades, net 7.2%, profit factor 1.82, win rate 77.6%, max drawdown 2.3%, grade D.\nMYM (Micro E-mini Dow): 60 trades, net 2.8%, profit factor 1.4, win rate 66.7%, max drawdown 2.0%, grade D.\n\nIt was run by the app's own strategy tester on daily bars of the three micro index futures, starting from $100,000, risking 1% of the account on each trade, with 0.01% of each trade's value in costs and a 10% margin. No slippage is taken off. Tested periods: MES 2003-07-13 to 2023-07-11; MNQ 2003-07-13 to 2023-07-11; MYM 2003-07-06 to 2023-07-06. The picture shows the account curve of each market in percent of the starting balance.",
+   "author": {
+    "name": "Trader Cockpit",
+    "handle": "trader-cockpit-b2cfa4"
+   },
+   "published_at": "2026-11-16T12:04:45.575476Z",
+   "market": "MES",
+   "timeframe": "D1",
+   "strategy": {
+    "grade": "A",
+    "trades": 72,
+    "net_pct": 6.5,
+    "profit_factor": 1.94,
+    "to": "2023-07-11",
+    "max_drawdown_pct": 1.6,
+    "from": "2003-07-13",
+    "rules": [
+     "Daily bars. Trade only when the close is above its 200-day average.",
+     "Buy at the next day's open after a day that falls more than 1.5 ATR from the day before.",
+     "Sell at the next day's open after the first close above the 5-day average, or after 10 days.",
+     "Stop: 4 ATR below the close of the signal day. Size: 1% of the account at risk, never less than the market's smallest order."
+    ],
+    "headline": "",
+    "win_rate_pct": 73.6
+   },
+   "from_service": true,
+   "image": "img/18dd2fabd8e3e2758e816a5515e2c519b12f4bd43f76059fb8f16d2515fcf8cb.png"
+  },
+  {
    "id": "1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46",
    "kind": "strategy",
    "title": "200-day breakout, tested on ES",
    "description": "A well-known trend-following rule set: buy a 200-day high, sell a 200-day low.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. The rules are usually shown on a basket of futures, so one market neither confirms nor refutes them. Costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-11-05T12:00:00Z",
    "market": "ES-CME",
@@ -43,7 +139,7 @@
    "description": "A common moving average rule set: trade the cross of the 20 and 50 day averages.\nWe tested the E-mini S&P (ES) alone, on hourly bars grouped into CME trade days. The moving average type, ATR settings, risk per trade, costs and the 100,000 starting capital are our choices.\nThe picture is the account balance after each closed trade, with the drawdown below it.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-11-02T21:00:00Z",
    "market": "ES-CME",
@@ -79,7 +175,7 @@
    "description": "Trend indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-11-01T22:25:47Z",
    "market": null,
@@ -100,7 +196,7 @@
    "description": "Moving averages indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-10-30T16:42:04Z",
    "market": null,
@@ -121,7 +217,7 @@
    "description": "Volume indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-10-26T11:00:19Z",
    "market": null,
@@ -142,7 +238,7 @@
    "description": "Oscillators indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-10-15T03:57:23Z",
    "market": null,
@@ -163,7 +259,7 @@
    "description": "Levels and structure indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-10-10T12:06:33Z",
    "market": null,
@@ -184,7 +280,7 @@
    "description": "Volatility indicator. Open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-09-28T04:49:56Z",
    "market": null,
@@ -205,7 +301,7 @@
    "description": "Levels and structure indicator. Open-source Pine code under the Apache-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-09-28T04:49:56Z",
    "market": null,
@@ -226,7 +322,7 @@
    "description": "Statistics indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-09-28T04:49:56Z",
    "market": null,
@@ -247,7 +343,7 @@
    "description": "Volatility indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-09-04T12:15:57Z",
    "market": null,
@@ -268,7 +364,7 @@
    "description": "Volume indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-07-15T06:36:44Z",
    "market": null,
@@ -289,7 +385,7 @@
    "description": "Candles and sessions indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-05-27T20:57:44Z",
    "market": null,
@@ -310,7 +406,7 @@
    "description": "Levels and structure indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-03-16T14:33:19Z",
    "market": null,
@@ -331,7 +427,7 @@
    "description": "Candles and sessions indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2026-02-25T08:23:03Z",
    "market": null,
@@ -352,7 +448,7 @@
    "description": "Volatility indicator. Open-source Pine code under the MIT licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-11-02T07:15:43Z",
    "market": null,
@@ -373,7 +469,7 @@
    "description": "Moving averages indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-09-23T17:18:43Z",
    "market": null,
@@ -394,7 +490,7 @@
    "description": "Statistics indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-07-12T13:25:48Z",
    "market": null,
@@ -415,7 +511,7 @@
    "description": "Candles and sessions indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-06-09T22:29:53Z",
    "market": null,
@@ -436,7 +532,7 @@
    "description": "Oscillators indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-05-31T01:56:08Z",
    "market": null,
@@ -457,7 +553,7 @@
    "description": "Volume indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-04-25T01:31:08Z",
    "market": null,
@@ -478,7 +574,7 @@
    "description": "Candles and sessions indicator. Open-source Pine code under the MIT licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-04-10T17:36:41Z",
    "market": null,
@@ -499,7 +595,7 @@
    "description": "Trend indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2025-02-05T02:11:33Z",
    "market": null,
@@ -520,7 +616,7 @@
    "description": "Trend indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2024-08-09T12:11:44Z",
    "market": null,
@@ -541,7 +637,7 @@
    "description": "Statistics indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2023-08-06T19:46:45Z",
    "market": null,
@@ -562,7 +658,7 @@
    "description": "Moving averages indicator. Open-source Pine code under the MPL-2.0 licence. It draws on the price chart.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2023-05-22T01:36:05Z",
    "market": null,
@@ -583,7 +679,7 @@
    "description": "Oscillators indicator. Open-source Pine code under the MPL-2.0 licence. It draws in its own pane.",
    "author": {
     "name": "Trader Cockpit",
-    "handle": "tradercockpit"
+    "handle": "trader-cockpit-b2cfa4"
    },
    "published_at": "2022-10-18T17:24:06Z",
    "market": null,

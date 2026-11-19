@@ -235,6 +235,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trader-cockpit.com/community/strategies/seven-day-low-in-an-uptrend/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/community/strategies/bottom-of-the-10-day-range/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trader-cockpit.com/community/strategies/sharp-drop-rebound/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trader-cockpit.com/community/strategies/200-day-breakout-tested-on-es/</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -397,7 +415,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://trader-cockpit.com/community/authors/tradercockpit/</loc>
+    <loc>https://trader-cockpit.com/community/authors/trader-cockpit-b2cfa4/</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

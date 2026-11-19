@@ -16,16 +16,15 @@
       ],
       "shots": [
         {
-          "src": "assets/features/hero.webp",
-          "alt": "Builder’s list of the strategies a search kept, each with its equity curve, net profit, trades and profit factor",
-          "w": 1800,
-          "h": 654
-        },
-        {
-          "src": "assets/features/builder.webp",
-          "alt": "Builder’s setup page with the market list and the rules a search will use",
-          "w": 1600,
-          "h": 834
+          "src": "assets/features/run-search.webp",
+          "alt": "A Builder search on GBPUSD hourly bars: 1,626 strategies built and backtested, 66 passed the filters, 98 ms per strategy",
+          "w": 1480,
+          "h": 430,
+          "phone": {
+            "src": "assets/features/run-phone.webp",
+            "w": 592,
+            "h": 247
+          }
         }
       ]
     },
@@ -43,10 +42,26 @@
       ],
       "shots": [
         {
-          "src": "assets/features/workflows.webp",
-          "alt": "A workflow with twelve ordered steps: build, out-of-sample, other markets, timeframes, slippage and Monte Carlo",
-          "w": 1440,
-          "h": 1000
+          "src": "assets/features/workflow-steps.webp",
+          "alt": "A workflow’s twelve steps: build, out-of-sample, other markets, higher and lower timeframes, slippage, Monte Carlo and a final out-of-sample test",
+          "w": 1190,
+          "h": 360,
+          "phone": {
+            "src": "assets/features/workflow-phone.webp",
+            "w": 565,
+            "h": 310
+          }
+        },
+        {
+          "src": "assets/features/stress-tests.webp",
+          "alt": "Builder’s stress tests: finer price data, Monte Carlo, leave-out, other markets, walk-forward optimization and matrix, settings sweep",
+          "w": 1450,
+          "h": 1000,
+          "phone": {
+            "src": "assets/features/stress-phone.webp",
+            "w": 680,
+            "h": 1000
+          }
         }
       ]
     },
@@ -67,8 +82,19 @@
       ],
       "shots": [
         {
+          "src": "assets/features/verdict.webp",
+          "alt": "A strategy verdict: grade C, “Mixed: test it more before you trade it”, with the checks behind it and the strategy’s figures",
+          "w": 1156,
+          "h": 346,
+          "phone": {
+            "src": "assets/features/verdict-phone.webp",
+            "w": 438,
+            "h": 128
+          }
+        },
+        {
           "src": "assets/features/results.webp",
-          "alt": "Results for one strategy: a grade with its reasons, net profit, win rate, profit factor and drawdown",
+          "alt": "The whole Results page for one strategy",
           "w": 1600,
           "h": 788
         }
@@ -101,7 +127,8 @@
         "Run a strategy on the daily chart of a future, a forex pair or a US share. Futures use the contract's own tick size and point value.",
         "Live US stock charts with your Alpaca account connected: today's daily candle as it forms, and 1, 5, 15 and 30 minute charts through the trading day.",
         "Symbol search across markets: type a stock, future, forex pair, index or coin, including micro and mini futures by name.",
-        "Watchlists for any market: your own columns, grouping, flags, notes, several lists, an alert on a whole list, and hotlists that rank a whole exchange. Import, export or copy a list as text.",
+        "Watchlists for any market: your own columns, grouping by exchange or kind of market, flags, notes, several lists, an alert on a whole list, and hotlists that rank a whole exchange. Right-click a row to add it to another list, and move with the arrow keys. Import, export or copy a list as text.",
+        "Live stock prices in the watchlist with your Alpaca account connected: the last price and the day’s change.",
         "A ready-made Markets list of stocks, indices, forex pairs and futures. One click opens the daily chart with up to twenty years of history.",
         "Alerts on price, values, indicator lines and drawings, with notices and sounds, and a log of what fired.",
         "Side panels that drag wider or fold away: a data window and an object tree for your drawings and indicators.",
@@ -128,10 +155,10 @@
           "h": 1125
         },
         {
-          "src": "assets/features/charts-watchlist.webp",
-          "alt": "A watchlist of crypto markets with last price and the day's change beside the chart",
-          "w": 1800,
-          "h": 1125
+          "src": "assets/features/watchlist.webp",
+          "alt": "A watchlist of crypto markets with last price and the day’s change beside the chart",
+          "w": 1030,
+          "h": 800
         },
         {
           "src": "assets/features/charts-drawings.webp",
@@ -150,6 +177,12 @@
           "alt": "Bar Replay stepping through BTC/USD one bar at a time",
           "w": 1800,
           "h": 1125
+        },
+        {
+          "src": "assets/features/pine-editor.webp",
+          "alt": "The Pine editor with a strategy added to the chart: it ran on 8,781 bars in 114 ms",
+          "w": 768,
+          "h": 756
         }
       ]
     },
@@ -195,14 +228,6 @@
         "Attach a trade log, a PDF or a chart picture. Your chats are saved and can be exported.",
         "Turn an open-source Pine indicator into a Builder building block. Apollo checks it against the original bar for bar on your saved bars before you save it.",
         "Apollo never sends live broker orders. It runs on Apollo credits, included with each paid plan."
-      ],
-      "shots": [
-        {
-          "src": "assets/reference-site/original-models.png",
-          "alt": "Apollo open beside a BTC/USD chart",
-          "w": 1600,
-          "h": 950
-        }
       ]
     },
     {
@@ -226,9 +251,11 @@
         "Tested strategies come with their rules, a results table per market and an A to F grade that says so when a result is weak.",
         "Test a community strategy on your own chart, or re-run its published test on your PC and see your numbers under the published ones.",
         "Every community indicator shows a picture of what it draws and one line saying what it does.",
-        "Editors' picks, and sorts for trending, most liked, most used and newest. Every author has a page.",
-        "Like an item, follow its author, comment and reply. Star an item to keep it under Saved.",
-        "Publish your own indicator, chart idea or tested strategy. Each is reviewed before it goes public, and you can update it later."
+        "Editors’ picks, “Used by” counts on every card, and sorts for trending this week, most liked, most used and newest. Every author has a page.",
+        "Like an item, follow its author, comment and reply. Comments stay on markets and trading: insults, sales pitches and links are refused before they post, and anyone can report a comment.",
+        "Star an item to keep it under Saved. A saved indicator also shows under Favorites in the chart’s indicator list.",
+        "Publish your own indicator, chart idea or tested strategy. Each is reviewed before it goes public, and you can update it later.",
+        "On a paid plan, publish a tested strategy straight from Results, or build a community strategy with Apollo."
       ]
     },
     {
@@ -285,7 +312,7 @@
         "Buy and sell on the chart, with order and position lines, take profit and stop loss, and a mark on the bar for each fill.",
         "A price ladder beside the chart: click a price to place a limit or a stop, and buy or sell at market from the top.",
         "Right-click the chart or the price scale to buy or sell at that price.",
-        "Take profit and stop loss as a price, a distance, a percent or an amount of money. Save your own exit sets per market.",
+        "Take profit and stop loss as a price, a distance, a percent or an amount of money. Save your own exit sets per market and apply one with a click. Four quick sizes, and the ticket remembers your last size per market.",
         "Order lifetimes: good till cancelled, day, week, month, good till a date, immediate or cancel, fill or kill.",
         "A plain warning before you confirm when an order would fill at once, when the bid and ask are wide, or when a stop is on the wrong side of the price.",
         "An account panel with positions, orders, order history, balance history, activity, trades and analytics, plus CSV.",
@@ -335,11 +362,11 @@
       "facts": [
         [
           "Charts at once",
-          "1"
+          "4"
         ],
         [
           "Indicators per chart",
-          "3"
+          "10"
         ],
         [
           "Saved chart layouts",
@@ -454,10 +481,41 @@
       "credits": 20000
     }
   ],
+  "proofRun": {
+    "market": "six years of GBPUSD hourly bars",
+    "tried": "1,626",
+    "kept": "66",
+    "time": "2:41",
+    "perStrategy": "98 ms"
+  },
   "homeStage": [
-    "builder",
-    "charts",
-    "results",
-    "order-flow"
+    {
+      "label": "Charts",
+      "src": "assets/features/charts-multi.webp",
+      "alt": "Four charts at once in Trader Cockpit: ETH, BTC, SOL and XRP on hourly candles",
+      "w": 1800,
+      "h": 1125
+    },
+    {
+      "label": "Strategy search",
+      "src": "assets/features/run-full.webp",
+      "alt": "Builder searching GBPUSD hourly bars: 1,626 strategies built and backtested and 66 passed the filters after 2 minutes 41 seconds",
+      "w": 1800,
+      "h": 938
+    },
+    {
+      "label": "Results",
+      "src": "assets/features/results.webp",
+      "alt": "Results for one strategy: grade C with its reasons, net profit, win rate, profit factor and drawdown",
+      "w": 1600,
+      "h": 788
+    },
+    {
+      "label": "Order flow",
+      "src": "assets/features/footprint.webp",
+      "alt": "A BTC/USD footprint chart with bid and ask volume inside each bar and stacked imbalances marked",
+      "w": 1540,
+      "h": 690
+    }
   ]
 }

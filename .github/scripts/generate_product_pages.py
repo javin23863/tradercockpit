@@ -51,14 +51,19 @@ def load():
     return data
 
 def shot(s,root,first=False,link=False):
-    """One app screen. On Features it opens at full size, so a phone reader can zoom in."""
+    """One app screen. A phone gets its own tighter crop when there is one, so the words stay readable.
+    On Features a screen opens at full size."""
     load_attr=' fetchpriority="high"' if first else ' loading="lazy"'
     img=f'<img src="{root}{e(s["src"])}" alt="{e(s["alt"])}" width="{s["w"]}" height="{s["h"]}"{load_attr}>'
+    if s.get('phone'):
+        ph=s['phone'];img=f'<picture><source media="(max-width:600px)" srcset="{root}{e(ph["src"])}" width="{ph["w"]}" height="{ph["h"]}">{img}</picture>'
     return f'<figure class="shot">'+(f'<a href="{root}{e(s["src"])}">{img}</a>' if link else img)+'</figure>'
 
-def second(area):
-    """An area's first screen is on Home's stage; its band shows the next one when there is one."""
-    return area['shots'][min(1,len(area['shots'])-1)]
+def find_shot(data,src):
+    for a in data['areas']:
+        for s in a.get('shots',[]):
+            if s['src']==src:return s
+    raise SystemExit('No shot in capabilities.v1.json: '+src)
 
 def shots(area,root):
     rows=''.join(shot(s,root,link=True) for s in area.get('shots',[]))
@@ -121,48 +126,56 @@ def pricing_main(data):
     closed='' if data['live'] else ' Checkout isn’t open yet.'
     return f'''<main id="main" tabindex="-1"><div class="wrap"><header class="page-head"><h1>A Free plan and four monthly plans.</h1><p class="lead">Every paid plan includes every feature. They differ in Apollo credits a month, Apollo tasks at a time and Models batch size.{closed}</p><p class="facts">Prices in US dollars, billed monthly. For Windows.</p></header>{plan_cards(data,"",2)}<section class="band" aria-label="What each plan includes"><h2>What each plan includes</h2><div class="plan-list">{details}</div></section><section class="band" aria-labelledby="compare-title"><h2 id="compare-title">Compare plans</h2><div class="table-scroll"><table><thead><tr><th scope="col">Area</th>{heads}</tr></thead><tbody>{rows}</tbody></table></div></section><section class="band stack loose"><h2>Before you choose</h2><p class="lead">Trader Cockpit is research software. No plan can make a historical result predict the future or guarantee returns.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="../features/">See every feature</a></div></section></div></main>'''
 
-# Home's bands: what the app is best at, each with one screen. (title, text, area the link opens)
+# Home's bands: what the app is best at, each with the part of a real screen its sentence is about.
+# (title, text, area the link opens, screen, layout: "wide" stacks the screen under the text, "split" sets them side by side)
 HOME_BANDS=[
-    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies and keeps the ones that pass your rules.','builder'),
-    ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows'),
-    ('A straight verdict','Every strategy gets one grade and the reasons behind it. When it has only been tested on the data it was built on, the verdict says so.','results'),
-]
-# Two strengths with no screen of their own. (title, text, area, link text)
-HOME_SAYS=[
-    ('It runs on your PC','Your strategies, results and data stay in your own folder. Searches and backtests run on your computer, with no meter on them.','save','Where your work is kept'),
-    ('Take it with you','Retest a strategy on TradingView’s bar-close timing and export it as Pine. Results also writes the rules as MetaTrader, EasyLanguage or Python code.','exports','Exports'),
+    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies and keeps the ones that pass your rules.','builder','assets/features/run-search.webp','wide'),
+    ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows','assets/features/workflow-steps.webp','wide'),
+    ('A straight verdict','Every strategy gets one grade and the reasons behind it. When it has only been tested on the data it was built on, the verdict says so.','results','assets/features/verdict.webp','wide'),
+    ('Take it with you','Your own Pine scripts run on the chart. Strategies go out the other way: retest on TradingView’s bar-close timing and export as Pine, or take the rules as MetaTrader, EasyLanguage or Python code.','exports','assets/features/pine-editor.webp','split'),
 ]
 HOME_TRIO=[
-    ('order-flow','Order flow','Footprint, TPO and volume profiles and an order book heatmap, on crypto charts.'),
-    ('paper','Paper trading','Buy and sell from the chart with simulated money, at live crypto prices or in Bar Replay.'),
-    ('apollo','Apollo','Describe an idea. Apollo turns it into a strategy you can test, and asks before it changes anything.'),
+    ('order-flow','assets/features/footprint.webp','Order flow','Footprint, TPO and volume profiles and an order book heatmap, on crypto charts.'),
+    ('paper','assets/features/paper.webp','Paper trading','Buy and sell from the chart with simulated money, at live crypto prices or in Bar Replay.'),
+    ('charts','assets/features/watchlist.webp','Watchlists','Several lists, flags and notes, the day’s change at a glance, and one click to the chart.'),
 ]
+
+def proof(data):
+    """Numbers from one real Builder run, set large. The loop slot plays a real recording of the app when one is listed."""
+    r=data['proofRun']
+    figs=''.join(f'<div><dt>{e(label)}</dt><dd{" class=\"kept\"" if key=="kept" else ""}>{e(r[key])}</dd></div>' for key,label in (('tried','strategies built and backtested'),('kept','passed the filters'),('time','minutes and seconds for the whole search'),('perStrategy','per strategy')))
+    loop=data.get('homeLoop')
+    media=(f'<figure class="shot"><video controls muted loop playsinline preload="none" poster="{e(loop["poster"])}" width="{loop["w"]}" height="{loop["h"]}"><source src="{e(loop["src"])}" type="video/mp4"></video></figure>' if loop else '')
+    return (f'<section class="band proof" aria-labelledby="proof-title"><div class="wrap stack loose"><div class="stack"><h2 id="proof-title">It runs on your PC</h2>'
+            f'<p class="lead">One Builder search on {e(r["market"])}. Searches and backtests run on your own computer, with no meter on them, and your strategies, results and data stay in your own folder.</p></div>'
+            f'<dl class="figures">{figs}</dl>{media}<a class="more" href="features/#save">Where your work is kept</a></div></section>')
 
 def home_main(data):
     by={a['id']:a for a in data['areas']}
     href,label=cta()
     low=min(p['price'] for p in data['plans'] if p['price'])
-    stage=[by[k] for k in data['homeStage']]
-    radios=''.join(f'<input type="radio" name="stage" id="stage-{i+1}" aria-label="{e(a["title"])}"{"" if i else " checked"}>' for i,a in enumerate(stage))
-    tabs=''.join(f'<label for="stage-{i+1}">{e(a["title"])}</label>' for i,a in enumerate(stage))
-    frames=''.join(shot(a['shots'][0],'',first=not i) for i,a in enumerate(stage))
+    stage=data['homeStage']
+    radios=''.join(f'<input type="radio" name="stage" id="stage-{i+1}" aria-label="{e(st["label"])}"{"" if i else " checked"}>' for i,st in enumerate(stage))
+    tabs=''.join(f'<label for="stage-{i+1}">{e(st["label"])}</label>' for i,st in enumerate(stage))
+    frames=''.join(shot(st,'',first=not i) for i,st in enumerate(stage))
     def band(i,row):
-        title,text,area=row;a=by[area]
-        return f'<section class="band{"" if i%2 else " tint"}" aria-labelledby="band-{area}"><div class="wrap split"><div class="stack"><h2 id="band-{area}">{e(title)}</h2><p class="lead">{e(text)}</p><a class="more" href="features/#{area}">{e(a["title"])}</a></div>{shot(second(a),"")}</div></section>'
+        title,text,area,src,layout=row;a=by[area]
+        copy=f'<div class="stack"><h2 id="band-{area}">{e(title)}</h2><p class="lead">{e(text)}</p><a class="more" href="features/#{area}">{e(a["title"])}</a></div>'
+        inner=f'<div class="wrap split">{copy}{shot(find_shot(data,src),"")}</div>' if layout=='split' else f'<div class="wrap stack loose">{copy}{shot(find_shot(data,src),"")}</div>'
+        return f'<section class="band{"" if i%2 else " tint"}" aria-labelledby="band-{area}">{inner}</section>'
     bands=''.join(band(i,row) for i,row in enumerate(HOME_BANDS))
-    says=''.join(f'<div class="stack"><h2>{e(t)}</h2><p class="lead">{e(x)}</p><a class="more" href="features/#{a}">{e(l)}</a></div>' for t,x,a,l in HOME_SAYS)
-    trio=''.join(f'<a class="tile" href="features/#{a}">{shot(by[a]["shots"][0],"")}<strong>{e(t)}</strong><span>{e(x)}</span></a>' for a,t,x in HOME_TRIO)
+    trio=''.join(f'<a class="tile" href="features/#{a}">{shot(find_shot(data,src),"")}<strong>{e(t)}</strong><span>{e(x)}</span></a>' for a,src,t,x in HOME_TRIO)
     index=''.join(f'<a href="features/#{a_id(a)}"><strong>{e(a["title"])}</strong><span>{e(a["lead"])}</span></a>' for a in data['areas'])
     b=data['brokers']
     return f'''<main id="main" tabindex="-1">
 <section class="hero" aria-labelledby="hero-title"><div class="wrap"><h1 id="hero-title">Find strategies that hold up.</h1><p class="lead">Trader Cockpit searches thousands of rule combinations on your market, backtests each one, then tries to break the ones it keeps. It runs on your PC and needs no code.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="features/">See every feature</a></div><p class="facts">For Windows. A Free plan, and paid plans from {price_text(low)} a month.</p><div class="stage" role="group" aria-label="Screens of the app">{radios}<div class="stage-tabs">{tabs}</div>{frames}</div></div></section>
+{proof(data)}
 {bands}
-<section class="band" aria-label="Your PC and your platform"><div class="wrap cols-2">{says}</div></section>
-<section class="band tint" aria-labelledby="band-charts"><div class="wrap stack loose"><div class="stack"><h2 id="band-charts">Charts that keep up</h2><p class="lead">Seventeen chart types, nearly a thousand community indicators beside the built-ins, drawings, alerts, watchlists, Bar Replay and your own Pine scripts. Up to sixteen charts at once.</p><a class="more" href="features/#charts">Charts</a></div>{shot(second(by["charts"]),"")}<div class="tiles">{trio}</div></div></section>
-<section class="band" aria-labelledby="band-brokers"><div class="wrap stack loose"><div class="stack"><h2 id="band-brokers">Connect your broker</h2><p class="lead">{b["open"]} brokers connect to Trader Cockpit. You sign in with your broker in your own browser, and your password never goes into the app.</p></div><div class="cols-2">{broker_lists(data)}</div></div></section>
-<section class="band tint" aria-labelledby="pricing-title"><div class="wrap stack loose"><div class="stack"><h2 id="pricing-title">A Free plan and four monthly plans</h2><p class="lead">Every paid plan includes every feature. Searches and backtests are never metered.</p></div>{plan_cards(data,"pricing/",3)}</div></section>
-<section class="band" aria-labelledby="all-title"><div class="wrap"><h2 id="all-title">Everything in the app</h2><nav class="index-list" aria-label="What Trader Cockpit does">{index}</nav></div></section>
-<section class="band tint" aria-label="Community and guides"><div class="wrap cols-2"><div class="stack"><h2>Community</h2><p class="lead">Strategies with their rules and backtests, and open-source Pine indicators. Open one in the app with a click, and publish your own.</p><a class="more" href="community/">Browse the Community</a></div><div class="stack"><h2>Guides</h2><p class="lead">Out-of-sample testing, Monte Carlo, walk-forward and the ways a backtest can mislead you.</p><p class="actions"><a class="more" href="learn/">Read the guides</a><a class="more" href="strategy-claim-audit-checklist.html">Open the backtest checklist</a></p></div></div></section>
+<section class="band" aria-labelledby="band-charts"><div class="wrap stack loose"><div class="stack"><h2 id="band-charts">Charts that keep up</h2><p class="lead">Seventeen chart types, nearly a thousand community indicators beside the built-ins, drawings, alerts, watchlists, Bar Replay and your own Pine scripts. Up to sixteen charts at once.</p><a class="more" href="features/#charts">Charts</a></div>{shot(find_shot(data,"assets/features/charts.webp"),"")}<div class="tiles">{trio}</div></div></section>
+<section class="band tint" aria-labelledby="band-brokers"><div class="wrap stack loose"><div class="stack"><h2 id="band-brokers">Connect your broker</h2><p class="lead">{b["open"]} brokers connect to Trader Cockpit. You sign in with your broker in your own browser, and your password never goes into the app.</p></div><div class="cols-2">{broker_lists(data)}</div></div></section>
+<section class="band" aria-labelledby="pricing-title"><div class="wrap stack loose"><div class="stack"><h2 id="pricing-title">A Free plan and four monthly plans</h2><p class="lead">Every paid plan includes every feature. Searches and backtests are never metered.</p></div>{plan_cards(data,"pricing/",3)}</div></section>
+<section class="band tint" aria-labelledby="all-title"><div class="wrap"><h2 id="all-title">Everything in the app</h2><nav class="index-list" aria-label="What Trader Cockpit does">{index}</nav></div></section>
+<section class="band last" aria-label="Community and guides"><div class="wrap cols-2"><div class="stack"><h2>Community</h2><p class="lead">Strategies with their rules and backtests, and open-source Pine indicators. Open one in the app with a click, and publish your own.</p><a class="more" href="community/">Browse the Community</a></div><div class="stack"><h2>Guides</h2><p class="lead">Out-of-sample testing, Monte Carlo, walk-forward and the ways a backtest can mislead you.</p><p class="actions"><a class="more" href="learn/">Read the guides</a><a class="more" href="strategy-claim-audit-checklist.html">Open the backtest checklist</a></p></div></div></section>
 </main>'''
 
 def build():
