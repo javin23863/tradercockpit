@@ -55,9 +55,9 @@
     "how-to/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
-      "after_sha256": "01824e831671efd66d60d5096add673bcdeb3ab87ccb64c16949caf52419c5fe",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "5ae24b59f6a708edc4a9f4a63cb8d71c747753131be01cbc44fd84d307c2a4d0"
+      "after_sha256": "002bb9e6351cd75b2411e63f1d0a7fa95c329beb1ee965cd2178479e553c574f",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten more how-to guides for doing a job in the app, with their search, sitemap and registry rows; How-Tos lists every guide by task and Learn links three (19 Nov 2026).",
+      "corrected_unwrapped_sha256": "aeb2c4cd6e2350e62eacffe2e524136c0019338d0833b45a67306a34477ecdb7"
     },
     "how-to/read-chart-evidence.html": {
       "kind": "corrected_reading_shell",
@@ -160,9 +160,9 @@
     "learn/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31",
-      "after_sha256": "4d7adc27ae6e1cc19660d2b74515b524dc3900c235d363852d1659f179653fd5",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "d0b961b4a778edc2881a48da489afd7ba7f398fed6624460ddeea7f1db2641a7"
+      "after_sha256": "72640e4a356e0a5af75cecc5d99875320a4a36a390edf01f4700f34402fc2d79",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten more how-to guides for doing a job in the app, with their search, sitemap and registry rows; How-Tos lists every guide by task and Learn links three (19 Nov 2026).",
+      "corrected_unwrapped_sha256": "00e96acdded5aaac6f7204d71ee0a7731dc2e74e4ecb8d0e986fe0895089d90f"
     },
     "learn/start-here.html": {
       "kind": "corrected_reading_shell",
@@ -302,8 +302,8 @@
     },
     "content-registry.v1.json": {
       "before_sha256": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
-      "after_sha256": "775bff46951cc09e539bab233663eb65e65011f990cfa107b97c5b60bc61715a",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Ten how-to guides for doing a job in the app"
+      "after_sha256": "a8f94e5794e89d5b4a4641714f382a7840afabbfc7cc2ff2d82ceeb9277ba35d",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Ten how-to guides for doing a job in the app Ten more how-to guides for doing a job in the app, with their search, sitemap and registry rows; How-Tos lists every guide by task and Learn links three (19 Nov 2026)."
     },
     "help-registry.v1.json": {
       "before_sha256": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
@@ -337,13 +337,13 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "fd00e12d47920b3431ef5a39173a83604dd891ca188d0595f2bbc8d338b22b55",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app"
+      "after_sha256": "f007e44d92838ed3acd15e684d3c579e173968c6ba9e41157a6c449d88abd89d",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app Ten more how-to guides for doing a job in the app, with their search, sitemap and registry rows; How-Tos lists every guide by task and Learn links three (19 Nov 2026)."
     },
     "sitemap.xml": {
       "before_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-      "after_sha256": "1ee0eacdc671bba71d7e4de3c2b5517a89afc69ab7e11543c3651074c016f986",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app"
+      "after_sha256": "15938353d9a0cb62a892ad669733af56ea43cf1cf3bc51ca297ff8c3d11ff557",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app Ten more how-to guides for doing a job in the app, with their search, sitemap and registry rows; How-Tos lists every guide by task and Learn links three (19 Nov 2026)."
     },
     "assets/site-search.js": {
       "before_sha256": "4bc0d26ee9e1e6f3bd35aaecb279c052573d213cf056b01a7d62b430d06ba486",
@@ -364,7 +364,7 @@
     "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6",
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
-    "llms.txt": "751142769575d71d78c72bfeb54d031139d3aadfeb70fd053a314c33e17a0768",
+    "llms.txt": "6e36c73fed8f7b9879df121ce09a463fde38ab9b398b46cac532b6370cc0dbc7",
     "features/index.html": "bb2bbb1d22a4474fde84dd1f759b85e5a6a73776b0aac0a3a343fc7a474708d5",
     "early-access.html": "6a98fbbb322340cfa1af0ddddcc3bd392b52602934cfcb4f82828ac4d134d14e",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
@@ -418,6 +418,16 @@
     "how-to/read-a-footprint-chart.html": "0060012092c022f1639e2a5daca28b140919ce1f9270ab3f54847f90b629b712",
     "how-to/paper-trade-crypto.html": "4c22bea41265c52b21837087cda34b4922d7679fc2de73a2e4d533153f4cb8c5",
     "how-to/import-price-data-from-csv.html": "73e4c134da943c4f2fd7f5acbecaf6946f8bd035662924f9542a37887a347b4b",
-    "how-to/turn-a-trading-idea-into-a-strategy.html": "1af9e73d8caecc458f667f4119226bad4bfb0577d5d3dcd75acabd3af40597ba"
+    "how-to/turn-a-trading-idea-into-a-strategy.html": "1af9e73d8caecc458f667f4119226bad4bfb0577d5d3dcd75acabd3af40597ba",
+    "how-to/practise-trading-with-bar-replay.html": "eec05f175a29e88be7d4d91bd21546f559b0867411b0073a6a3d6f52f296a35c",
+    "how-to/volume-profile-vs-tpo-market-profile.html": "fc47e5764ac0fa61b88988398996f6f6a88151483034f712b036159689c735a7",
+    "how-to/add-open-source-pine-indicators-to-a-chart.html": "87797fc5fb94b86b1a9586f9c45b4cd22fd002fbb898c357487ff02cd6fbe502",
+    "how-to/download-free-crypto-historical-data.html": "7896e807bde965c830f48fbad1d05127f61c33994a5d0e679d4fe73f7e2b2b0a",
+    "how-to/read-an-order-book-heatmap.html": "bd0d8f6bfe80d08d5fafdc0ca2d91c806b3486fd437187fc795ac3c599e64e66",
+    "how-to/cumulative-volume-delta-explained.html": "ee822d354ad6f195a2d7f6c11e97fdca16f076d83f8cc3429cffaac550d7f034",
+    "how-to/build-a-portfolio-of-trading-strategies.html": "95d780ba62ac25a1d39befba0751b0012ed365ad9c7de53e76c700e6218651a2",
+    "how-to/keep-a-trading-journal.html": "a6be50f4452d65c50dc9179c2b399981872769c94693cdc7bda993c2f4dea549",
+    "how-to/genetic-algorithm-strategy-search.html": "9ea10ceb52913b6c3d2cb885465d0edcb770fc5c0c522d9fb5b5ae983521f187",
+    "how-to/set-commission-spread-and-slippage.html": "6ad2c89554a3521c1ff673c6431cb41da8e54a0ebad383790c1850014a6f5df8"
   }
 }

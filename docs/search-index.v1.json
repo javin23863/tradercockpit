@@ -720,6 +720,160 @@
       ]
     },
     {
+      "id": "how-to.practise-trading-with-bar-replay",
+      "title": "Bar Replay: Practise on Historical Data",
+      "path": "how-to/practise-trading-with-bar-replay.html",
+      "kind": "how-to",
+      "summary": "Replay a chart bar by bar and place paper orders that fill only on bars you have already seen. The steps, the fill rules, and how to pick a practice back up.",
+      "terms": [
+        "bar replay",
+        "practice trading on historical data",
+        "replay trading",
+        "trading simulator",
+        "backtest by hand",
+        "chart replay paper trading"
+      ]
+    },
+    {
+      "id": "how-to.volume-profile-vs-tpo-market-profile",
+      "title": "Volume Profile vs TPO Market Profile",
+      "path": "how-to/volume-profile-vs-tpo-market-profile.html",
+      "kind": "how-to",
+      "summary": "Volume profile counts what traded at each price; TPO counts the time spent there. Add both to a chart, set the value area, and read where they disagree.",
+      "terms": [
+        "volume profile",
+        "tpo",
+        "market profile",
+        "point of control",
+        "value area",
+        "fixed range volume profile",
+        "session volume profile",
+        "initial balance"
+      ]
+    },
+    {
+      "id": "how-to.add-open-source-pine-indicators-to-a-chart",
+      "title": "How to Add Open-Source Pine Indicators",
+      "path": "how-to/add-open-source-pine-indicators-to-a-chart.html",
+      "kind": "how-to",
+      "summary": "Nearly 1,000 open-source Pine indicators come with Trader Cockpit. Find one in Community or the Indicators dialog, add it to your chart, and edit its code.",
+      "terms": [
+        "open source pine indicators",
+        "pine script indicators list",
+        "free tradingview indicators desktop",
+        "community indicators",
+        "pine indicator library"
+      ]
+    },
+    {
+      "id": "how-to.download-free-crypto-historical-data",
+      "title": "How to Download Free Crypto Historical Data",
+      "path": "how-to/download-free-crypto-historical-data.html",
+      "kind": "how-to",
+      "summary": "Save Coinbase or Kraken candles at any timeframe with no exchange account, then chart them, download them as CSV or backtest them. Steps and the real limits.",
+      "terms": [
+        "free crypto historical data",
+        "bitcoin historical data download",
+        "coinbase historical candles",
+        "kraken ohlc download",
+        "crypto csv data",
+        "backtest crypto"
+      ]
+    },
+    {
+      "id": "how-to.read-an-order-book-heatmap",
+      "title": "How to Read an Order Book Heatmap",
+      "path": "how-to/read-an-order-book-heatmap.html",
+      "kind": "how-to",
+      "summary": "Add an order book heatmap to a Coinbase or Kraken chart: resting bids and offers at each price over time, executed volume dots, walls, pulls and sweeps.",
+      "terms": [
+        "order book heatmap",
+        "liquidity heatmap",
+        "bitcoin order book",
+        "depth of market heatmap",
+        "liquidity walls",
+        "resting orders",
+        "order flow crypto"
+      ]
+    },
+    {
+      "id": "how-to.cumulative-volume-delta-explained",
+      "title": "Cumulative Volume Delta (CVD) Explained",
+      "path": "how-to/cumulative-volume-delta-explained.html",
+      "kind": "how-to",
+      "summary": "Delta is buying minus selling inside a bar; CVD adds it up through the session. How to get the trade prints, add delta and CVD to a chart, and read them.",
+      "terms": [
+        "cumulative volume delta",
+        "cvd",
+        "volume delta",
+        "order flow delta",
+        "buying vs selling volume",
+        "cvd indicator",
+        "trade delta"
+      ]
+    },
+    {
+      "id": "how-to.build-a-portfolio-of-trading-strategies",
+      "title": "How to Build a Portfolio of Trading Strategies",
+      "path": "how-to/build-a-portfolio-of-trading-strategies.html",
+      "kind": "how-to",
+      "summary": "Combine saved strategies into one portfolio: let Auto build search for low-correlation sets, or set each weight in Compose and find the best weights.",
+      "terms": [
+        "portfolio of trading strategies",
+        "strategy portfolio",
+        "combine trading strategies",
+        "portfolio backtest",
+        "strategy correlation",
+        "portfolio weights"
+      ]
+    },
+    {
+      "id": "how-to.keep-a-trading-journal",
+      "title": "How to Keep a Trading Journal",
+      "path": "how-to/keep-a-trading-journal.html",
+      "kind": "how-to",
+      "summary": "Record every trade in a journal on your PC: paper fills land by themselves, statements import, and each trade gets a rating, tags, mistakes and notes.",
+      "terms": [
+        "trading journal",
+        "trade journal app",
+        "import broker statement",
+        "trade review",
+        "trading mistakes log",
+        "trading playbook",
+        "prop firm payouts"
+      ]
+    },
+    {
+      "id": "how-to.genetic-algorithm-strategy-search",
+      "title": "How to Run a Genetic Algorithm Strategy Search",
+      "path": "how-to/genetic-algorithm-strategy-search.html",
+      "kind": "how-to",
+      "summary": "Set Builder’s search to Genetic evolution, choose the rule parts and keep rules, and run it. Each generation crosses and mutates the fittest strategies.",
+      "terms": [
+        "genetic algorithm trading",
+        "genetic strategy search",
+        "automatic strategy generator",
+        "strategy builder",
+        "evolve trading strategies",
+        "islands generations population"
+      ]
+    },
+    {
+      "id": "how-to.set-commission-spread-and-slippage",
+      "title": "Commission, Spread and Slippage in a Backtest",
+      "path": "how-to/set-commission-spread-and-slippage.html",
+      "kind": "how-to",
+      "summary": "Where to set commission, spread, slippage and swap for a backtest, what Use this market fills in, and how to stress-test a strategy against worse costs.",
+      "terms": [
+        "backtest commission",
+        "backtest slippage",
+        "spread in backtest",
+        "trading costs backtest",
+        "swap fee backtest",
+        "realistic backtest"
+      ]
+    },
+    {
       "id": "support",
       "title": "Support",
       "path": "support/",
