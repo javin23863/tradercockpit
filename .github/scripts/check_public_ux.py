@@ -176,8 +176,8 @@ def main() -> int:
         hero = hero_match.group(1)
         if len(re.findall(r'class="[^"]*\bprimary\b[^"]*"', hero)) != 1:
             problems.append("homepage hero must expose exactly one primary action")
-        if 'fetchpriority="high"' not in hero:
-            problems.append("homepage hero must show a real app screen that loads first")
+        if 'fetchpriority="high"' not in hero and 'class="run-proof"' not in hero:
+            problems.append("homepage hero must show the product: a real app screen or a recorded run's figures")
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
 

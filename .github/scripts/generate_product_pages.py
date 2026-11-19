@@ -140,7 +140,7 @@ def pricing_main(data):
 # Home's bands: what the app is best at, each with the part of a real screen its sentence is about.
 # (title, text, area the link opens, screen, layout: "wide" stacks the screen under the text, "split" sets them side by side)
 HOME_BANDS=[
-    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies on your own PC and keeps the ones that pass your rules.','builder','assets/features/builder-setup.webp','wide'),
+    ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies on your own PC, keeps the ones that pass your rules, and shows why the rest were dropped.','builder','assets/features/run-reasons.webp','split'),
     ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows','assets/features/workflow-steps.webp','wide'),
     ('A straight verdict','Every strategy gets one grade and the reasons behind it. When it has only been tested on the data it was built on, the verdict says so.','results','assets/features/verdict.webp','wide'),
     ('Take it with you','Your own Pine scripts run on the chart. Strategies go out the other way: retest on TradingView’s bar-close timing and export as Pine, or take the rules as MetaTrader, EasyLanguage or Python code.','exports','assets/features/pine-editor.webp','split'),
@@ -150,6 +150,13 @@ HOME_TRIO=[
     ('paper','assets/features/paper-crop.webp','Paper trading','Buy and sell from the chart with simulated money, at live crypto prices or in Bar Replay.'),
     ('charts','assets/features/watchlist.webp','Watchlists','Several lists, flags and notes, the day’s change at a glance, and one click to the chart.'),
 ]
+
+def run_proof(r):
+    """The recorded search's own figures and drop reasons, as text, so they read at any width."""
+    figs=''.join(f'<div><dt>{e(label)}</dt><dd{" class=\"kept\"" if key=="kept" else ""}>{e(r[key])}</dd></div>' for key,label in (('tried','built and backtested'),('kept','kept'),('dropped','dropped')))
+    rows=''.join(f'<li><span>{e(label)}</span><span class="bar" aria-hidden="true"><i style="width:{share}%"></i></span><b>{share}%</b></li>' for label,share in r['reasons'])
+    return (f'<figure class="run-proof"><dl class="run-figures">{figs}</dl><p class="run-why">Why the {e(r["dropped"])} were dropped</p>'
+            f'<ul class="run-reasons">{rows}</ul><figcaption>{e(r["caption"])}</figcaption></figure>')
 
 def home_main(data):
     by={a['id']:a for a in data['areas']}
@@ -169,7 +176,7 @@ def home_main(data):
     index=''.join(f'<a href="features/#{a_id(a)}"><strong>{e(a["title"])}</strong><span>{e(a["lead"])}</span></a>' for a in data['areas'])
     b=data['brokers']
     return f'''<main id="main" tabindex="-1">
-<section class="hero" aria-labelledby="hero-title"><div class="wrap hero-grid"><div class="stack loose"><h1 id="hero-title">Find strategies that hold up.</h1><p class="lead">Trader Cockpit searches thousands of rule combinations on your market, backtests each one, then tries to break the ones it keeps. It runs on your PC and needs no code.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="features/">See every feature</a></div><p class="facts">For Windows. A Free plan, and paid plans from {price_text(low)} a month.</p></div><div class="stack">{shot(find_shot(data,"assets/features/run-hero.webp"),"",first=True)}{shot(find_shot(data,"assets/features/run-reasons.webp"),"",caption=data["proofRun"]["caption"])}</div></div></section>
+<section class="hero" aria-labelledby="hero-title"><div class="wrap hero-grid"><div class="stack loose"><h1 id="hero-title">Find strategies that hold up.</h1><p class="lead">Trader Cockpit searches thousands of rule combinations on your market, backtests each one, then tries to break the ones it keeps. It runs on your PC and needs no code.</p><div class="actions"><a class="btn primary" href="{href}">{label}</a><a class="more" href="features/">See every feature</a></div><p class="facts">For Windows. A Free plan, and paid plans from {price_text(low)} a month.</p></div>{run_proof(data["proofRun"])}</div></section>
 <section class="band tint" aria-labelledby="inside-title"><div class="wrap stack loose"><h2 id="inside-title">Inside Trader Cockpit</h2><div class="stage" role="group" aria-label="Screens of the app">{radios}<div class="stage-tabs">{tabs}</div>{frames}</div></div></section>
 {bands}
 <section class="band" aria-labelledby="band-charts"><div class="wrap stack loose"><div class="stack"><h2 id="band-charts">Charts that keep up</h2><p class="lead">Seventeen chart types, {fill("{communityIndicators}",facts())} community indicators beside the built-ins, drawings, alerts, watchlists, Bar Replay and your own Pine scripts. Up to sixteen charts at once.</p><a class="more" href="features/#charts">Charts</a></div>{shot(find_shot(data,"assets/features/charts.webp"),"")}<div class="tiles">{trio}</div></div></section>
