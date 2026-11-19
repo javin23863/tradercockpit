@@ -142,7 +142,7 @@ def pricing_main(data):
 HOME_BANDS=[
     ('Search without code','Pick a market and set your costs. Builder builds and backtests thousands of strategies on your own PC, keeps the ones that pass your rules, and shows why the rest were dropped.','builder','assets/features/run-reasons.webp','split'),
     ('Break it before you trade it','Ready-made workflows run out-of-sample periods, other markets, slippage, Monte Carlo and walk-forward on their own. You see why each strategy dropped out.','workflows','assets/features/workflow-steps.webp','wide'),
-    ('A straight verdict','Every strategy gets one grade and the reasons behind it. When it has only been tested on the data it was built on, the verdict says so.','results','assets/features/verdict.webp','wide'),
+    ('A straight verdict','Every strategy gets one grade and the reasons behind it. A backtest can look strong and still fail out of sample or under Monte Carlo, and the verdict says so.','results','assets/features/verdict.webp','wide'),
     ('Take it with you','Your own Pine scripts run on the chart. Strategies go out the other way: retest on TradingView’s bar-close timing and export as Pine, or take the rules as MetaTrader, EasyLanguage or Python code.','exports','assets/features/pine-editor.webp','split'),
 ]
 HOME_TRIO=[

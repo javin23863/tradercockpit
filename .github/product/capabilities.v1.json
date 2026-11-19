@@ -49,13 +49,13 @@
       "shots": [
         {
           "src": "assets/features/workflow-steps.webp",
-          "alt": "A workflow’s twelve steps: build, out-of-sample, other markets, higher and lower timeframes, slippage, Monte Carlo and a final out-of-sample test",
-          "w": 1190,
-          "h": 360,
+          "alt": "A workflow after its run on SOL/USD hourly candles: build strategies, then a Monte Carlo retest, one pass each",
+          "w": 1216,
+          "h": 318,
           "phone": {
             "src": "assets/features/workflow-phone.webp",
-            "w": 565,
-            "h": 310
+            "w": 526,
+            "h": 252
           }
         },
         {
@@ -89,13 +89,13 @@
       "shots": [
         {
           "src": "assets/features/verdict.webp",
-          "alt": "A strategy verdict: grade C, “Mixed: test it more before you trade it”, with the checks behind it",
-          "w": 1156,
-          "h": 263,
+          "alt": "A strategy verdict after out-of-sample and Monte Carlo tests: grade D, “Weak: don't trade it as it is”, because its Monte Carlo retest fails even with a profit factor of 7.85",
+          "w": 1694,
+          "h": 562,
           "phone": {
             "src": "assets/features/verdict-phone.webp",
-            "w": 438,
-            "h": 128
+            "w": 757,
+            "h": 562
           }
         }
       ]
@@ -542,13 +542,13 @@
     {
       "label": "Results",
       "src": "assets/features/verdict.webp",
-      "alt": "A strategy verdict: grade C, “Mixed: test it more before you trade it”, with the checks behind it",
-      "w": 1156,
-      "h": 263,
+      "alt": "A strategy verdict after out-of-sample and Monte Carlo tests: grade D, “Weak: don't trade it as it is”, because its Monte Carlo retest fails even with a profit factor of 7.85",
+      "w": 1694,
+      "h": 562,
       "phone": {
         "src": "assets/features/verdict-phone.webp",
-        "w": 438,
-        "h": 128
+        "w": 757,
+        "h": 562
       }
     },
     {
