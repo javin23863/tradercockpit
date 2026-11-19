@@ -574,7 +574,7 @@
       "title": "How to Backtest a Trading Strategy Without Code",
       "path": "how-to/backtest-a-strategy-without-code.html",
       "kind": "how-to",
-      "summary": "Backtest without writing code: pick a market, set your real costs, let Builder search rule combinations, then read the trades before you trust a number.",
+      "summary": "Backtest without writing code: save a market, enter your real costs, let Builder search rule combinations, then read every trade before you trust a result.",
       "terms": [
         "backtest without coding",
         "no code backtest",
@@ -588,7 +588,7 @@
       "title": "How to Robustness Test a Trading Strategy",
       "path": "how-to/robustness-test-a-trading-strategy.html",
       "kind": "how-to",
-      "summary": "Run a strategy through held-back dates, other markets, other timeframes, worse slippage and Monte Carlo, in order, and see exactly why the weak ones drop out.",
+      "summary": "Run a strategy through held-back dates, other markets, other timeframes, worse slippage and Monte Carlo, in order, and see why each weak one dropped out.",
       "terms": [
         "robustness test",
         "overfitting",
@@ -615,10 +615,10 @@
     },
     {
       "id": "how-to.backtest-pine-script-on-your-own-data",
-      "title": "How to Backtest a Pine Script Strategy on Your Own Data",
+      "title": "How to Backtest Pine Script on Your Own Data",
       "path": "how-to/backtest-pine-script-on-your-own-data.html",
       "kind": "how-to",
-      "summary": "Run a Pine v5 or v6 strategy on your own bars: import the data, paste the script, and read the Strategy Tester’s trade list. Lines that can’t run are listed.",
+      "summary": "Run a Pine strategy on your own bars: put the data on a chart, open the Pine Script panel, paste the script and read the Strategy Tester’s list of trades.",
       "terms": [
         "pine script backtest",
         "run pine script outside tradingview",
@@ -629,10 +629,10 @@
     },
     {
       "id": "how-to.export-a-strategy-to-pine-script",
-      "title": "How to Export a Backtested Strategy to Pine Script",
+      "title": "How to Export a Strategy to Pine Script",
       "path": "how-to/export-a-strategy-to-pine-script.html",
       "kind": "how-to",
-      "summary": "Take a strategy you built without code to TradingView: retest it on bar-close timing, export it as Pine Script v6, and know why a strategy is refused.",
+      "summary": "Take a strategy you built without code to TradingView: retest it on bar-close timing, save it as Pine Script v6, and see why an export can be refused.",
       "terms": [
         "export strategy to pine script",
         "pine script without coding",
@@ -643,7 +643,7 @@
     },
     {
       "id": "how-to.test-a-strategy-against-prop-firm-rules",
-      "title": "How to Test a Strategy Against Prop Firm Challenge Rules",
+      "title": "How to Test a Strategy Against Prop Firm Rules",
       "path": "how-to/test-a-strategy-against-prop-firm-rules.html",
       "kind": "how-to",
       "summary": "Replay your backtested trades against a futures prop firm challenge: profit target, maximum loss, daily loss limit and days to pass, with a pass chance.",
@@ -658,10 +658,10 @@
     },
     {
       "id": "how-to.read-a-footprint-chart",
-      "title": "How to Read a Footprint Chart: Delta, Imbalance, Value Area",
+      "title": "How to Read a Footprint Chart",
       "path": "how-to/read-a-footprint-chart.html",
       "kind": "how-to",
-      "summary": "A footprint shows what traded at each price inside a bar, split into buying and selling. Turn one on for Bitcoin and other crypto and read it row by row.",
+      "summary": "A footprint chart shows what traded at each price inside a bar, split into selling and buying. Turn one on for Bitcoin and other crypto and read it row by row.",
       "terms": [
         "footprint chart",
         "order flow",
@@ -673,19 +673,19 @@
       ]
     },
     {
-      "id": "how-to.paper-trade-crypto-and-stocks",
-      "title": "How to Paper Trade Crypto and Stocks Without a Broker Account",
-      "path": "how-to/paper-trade-crypto-and-stocks.html",
+      "id": "how-to.paper-trade-crypto",
+      "title": "How to Paper Trade Crypto on Live Prices",
+      "path": "how-to/paper-trade-crypto.html",
       "kind": "how-to",
-      "summary": "Practise on the chart with simulated money: market, limit and stop orders, take profit and stop loss, and a full account history. No broker account needed.",
+      "summary": "Paper trade Bitcoin and other crypto on live prices with simulated money and no exchange account: market, limit and stop orders, exits, and an account record.",
       "terms": [
         "paper trading",
         "paper trade crypto",
-        "paper trade stocks",
-        "trading simulator",
+        "crypto trading simulator",
         "demo trading",
         "bar replay",
-        "practice trading"
+        "practice trading",
+        "paper trade bitcoin"
       ]
     },
     {
@@ -693,7 +693,7 @@
       "title": "How to Import CSV Price Data for Backtesting",
       "path": "how-to/import-price-data-from-csv.html",
       "kind": "how-to",
-      "summary": "Bring your own price history into a backtest: CSV, TSV or a TradingView chart export, checked row by row, with the time zone set right before you save.",
+      "summary": "Bring your own price history into the app: import a CSV, TSV or TradingView chart export, set the time zone, save it and use it in charts and backtests.",
       "terms": [
         "import csv",
         "csv price data",
@@ -706,10 +706,10 @@
     },
     {
       "id": "how-to.turn-a-trading-idea-into-a-strategy",
-      "title": "How to Turn a Trading Idea Into a Strategy You Can Test",
+      "title": "How to Turn a Trading Idea Into a Strategy",
       "path": "how-to/turn-a-trading-idea-into-a-strategy.html",
       "kind": "how-to",
-      "summary": "Describe a trading idea in plain words and get a strategy you can backtest. Apollo drafts the rules and fills in the settings. You confirm every change.",
+      "summary": "Describe a trading idea in plain words and get a strategy you can backtest. Apollo drafts the rules and fills in Builder’s settings. You approve every change.",
       "terms": [
         "ai strategy builder",
         "trading idea to strategy",

@@ -302,8 +302,8 @@
     },
     "content-registry.v1.json": {
       "before_sha256": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
-      "after_sha256": "69a78f836970233bff76f5ab9b6a4037e45b2957d84a303210755ed0b4b6684b",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Ten how-to guides for doing a job in the app, with their search, sitemap and registry rows (19 Nov 2026)."
+      "after_sha256": "45e9a4b59e53ac028ee4728ff3a98d8c4ea9a60f3eae1038429757bdbdc4d0a7",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Ten how-to guides for doing a job in the app"
     },
     "help-registry.v1.json": {
       "before_sha256": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
@@ -337,13 +337,13 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "40f6e3465852822cd48d8c3bc0291d73183000cf117b77b6d581c9c0e5634ffc",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app, with their search, sitemap and registry rows (19 Nov 2026)."
+      "after_sha256": "6aa91798d2929ad1941b1ac30a5315c2c3f0c698a793544bf708ff00bd81de5b",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app"
     },
     "sitemap.xml": {
       "before_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-      "after_sha256": "18cd5da0b273991da86dca3c3ea4b75aedb6c8ece888a5d64765284ed4de6b2d",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app, with their search, sitemap and registry rows (19 Nov 2026)."
+      "after_sha256": "1ee0eacdc671bba71d7e4de3c2b5517a89afc69ab7e11543c3651074c016f986",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app"
     },
     "assets/site-search.js": {
       "before_sha256": "4bc0d26ee9e1e6f3bd35aaecb279c052573d213cf056b01a7d62b430d06ba486",
@@ -364,7 +364,7 @@
     "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6",
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
-    "llms.txt": "fce92ab0c554d09e238b217c06b17e0a73d40b167ec697584f10ee9d1ed3a88f",
+    "llms.txt": "ec99de57d695dffdcb95d093b2fdcb840bdbd76ef368def9da8662b3e6f43ce1",
     "features/index.html": "bb2bbb1d22a4474fde84dd1f759b85e5a6a73776b0aac0a3a343fc7a474708d5",
     "early-access.html": "6a98fbbb322340cfa1af0ddddcc3bd392b52602934cfcb4f82828ac4d134d14e",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
@@ -409,15 +409,15 @@
     "community/indicators/volume-analysis-fixed-range/index.html": "eec3b9254c0b6758943e08218ca6ac3f0896c9a2d837bb7e27bc12eccbeace5b",
     "community/strategies/20-50-moving-average-cross-tested-on-es/index.html": "d3a2a8f41eaa71549bacee44249288122d4c3c42b32419933a9d52a153dfa1cd",
     "community/strategies/200-day-breakout-tested-on-es/index.html": "b464ba41fa7a4c4a6228a476b1dda29784461c0c2cd37acfcb7e8cf843a33e51",
-    "how-to/backtest-a-strategy-without-code.html": "37f582a7f1f56b6fbb0299ecd110409996fa1f12df98f3c82ecfc02101085fc6",
-    "how-to/backtest-pine-script-on-your-own-data.html": "85f1cc1c85d539d579715e09c4c10ea38097ffcd06c702292748df2a126f240d",
-    "how-to/export-a-strategy-to-pine-script.html": "84d3e060ac9701bf64fb594f5107ae4bdb5f38ca2283398b84fbfc4f3787e59d",
-    "how-to/import-price-data-from-csv.html": "c26e486e758bd3228ee728bbdc7b3fbb8c9243747e87c1866ca707c81a14069a",
-    "how-to/paper-trade-crypto-and-stocks.html": "cd3118e24dca3d8798b84136ac0652c8793434bc5ad2a16aab384ee73faa1c61",
-    "how-to/read-a-footprint-chart.html": "78583f895673010fe4936e84721096958e329093e71904597beda1058edaeadc",
-    "how-to/robustness-test-a-trading-strategy.html": "4fe27c3f5d2ca2d1a8eaf461c113c1ade441e31b950fd387ae9ff7eaf32ec448",
-    "how-to/test-a-strategy-against-prop-firm-rules.html": "0a5d229682d1c6a2f8c86d3d46aa4235f84b8a763d26b7bd4a63b71b8b110d3a",
-    "how-to/turn-a-trading-idea-into-a-strategy.html": "28347969f3f2387cd7d117779dd9fd2a5fb63c4be59337705ac83832b367a5cb",
-    "how-to/walk-forward-test-a-strategy.html": "eb058b6a903663c99a46060a058363f2c11b42dbb8dfcb9cbc4e17b325804e5c"
+    "how-to/backtest-a-strategy-without-code.html": "7081009038e81d98296adfb96109b7deeaa293043a22be82c2738d38034843b2",
+    "how-to/robustness-test-a-trading-strategy.html": "01ee8a81bad50dfb706f42914173e731374ca103d4775b79fd6f741913d9411a",
+    "how-to/walk-forward-test-a-strategy.html": "4aad7550f79cad964d7a62bc787eee2e72fbacd020fd3680be34754bca6bc691",
+    "how-to/backtest-pine-script-on-your-own-data.html": "df83c05a7c390c9cae82d7a2ff805bfdf4ca816ad8f983d5318c0b3243322681",
+    "how-to/export-a-strategy-to-pine-script.html": "8fc559f35e2422a25b9338adb0a21b017a921e87b044594402cb59c1232d7c26",
+    "how-to/test-a-strategy-against-prop-firm-rules.html": "ca24b5f632b997271652bc9a0aed929082c273285d22d2b6c5dbd08aaacc9b91",
+    "how-to/read-a-footprint-chart.html": "0060012092c022f1639e2a5daca28b140919ce1f9270ab3f54847f90b629b712",
+    "how-to/paper-trade-crypto.html": "4c22bea41265c52b21837087cda34b4922d7679fc2de73a2e4d533153f4cb8c5",
+    "how-to/import-price-data-from-csv.html": "73e4c134da943c4f2fd7f5acbecaf6946f8bd035662924f9542a37887a347b4b",
+    "how-to/turn-a-trading-idea-into-a-strategy.html": "fe01a7785c722895479fc0d7b0449712f89293b23183107d60459e16120adbc8"
   }
 }
