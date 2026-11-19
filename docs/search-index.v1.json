@@ -571,7 +571,7 @@
     },
     {
       "id": "how-to.backtest-a-strategy-without-code",
-      "title": "How to Backtest a Trading Strategy Without Code",
+      "title": "How to Backtest a Strategy Without Code",
       "path": "how-to/backtest-a-strategy-without-code.html",
       "kind": "how-to",
       "summary": "Backtest without writing code: save a market, enter your real costs, let Builder search rule combinations, then read every trade before you trust a result.",

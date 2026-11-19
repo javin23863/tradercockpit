@@ -302,7 +302,7 @@
     },
     "content-registry.v1.json": {
       "before_sha256": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
-      "after_sha256": "45e9a4b59e53ac028ee4728ff3a98d8c4ea9a60f3eae1038429757bdbdc4d0a7",
+      "after_sha256": "775bff46951cc09e539bab233663eb65e65011f990cfa107b97c5b60bc61715a",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Ten how-to guides for doing a job in the app"
     },
     "help-registry.v1.json": {
@@ -337,7 +337,7 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "6aa91798d2929ad1941b1ac30a5315c2c3f0c698a793544bf708ff00bd81de5b",
+      "after_sha256": "fd00e12d47920b3431ef5a39173a83604dd891ca188d0595f2bbc8d338b22b55",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Ten how-to guides for doing a job in the app"
     },
     "sitemap.xml": {
@@ -364,7 +364,7 @@
     "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6",
     "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
-    "llms.txt": "ec99de57d695dffdcb95d093b2fdcb840bdbd76ef368def9da8662b3e6f43ce1",
+    "llms.txt": "751142769575d71d78c72bfeb54d031139d3aadfeb70fd053a314c33e17a0768",
     "features/index.html": "bb2bbb1d22a4474fde84dd1f759b85e5a6a73776b0aac0a3a343fc7a474708d5",
     "early-access.html": "6a98fbbb322340cfa1af0ddddcc3bd392b52602934cfcb4f82828ac4d134d14e",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
@@ -409,8 +409,8 @@
     "community/indicators/volume-analysis-fixed-range/index.html": "eec3b9254c0b6758943e08218ca6ac3f0896c9a2d837bb7e27bc12eccbeace5b",
     "community/strategies/20-50-moving-average-cross-tested-on-es/index.html": "d3a2a8f41eaa71549bacee44249288122d4c3c42b32419933a9d52a153dfa1cd",
     "community/strategies/200-day-breakout-tested-on-es/index.html": "b464ba41fa7a4c4a6228a476b1dda29784461c0c2cd37acfcb7e8cf843a33e51",
-    "how-to/backtest-a-strategy-without-code.html": "7081009038e81d98296adfb96109b7deeaa293043a22be82c2738d38034843b2",
-    "how-to/robustness-test-a-trading-strategy.html": "01ee8a81bad50dfb706f42914173e731374ca103d4775b79fd6f741913d9411a",
+    "how-to/backtest-a-strategy-without-code.html": "a7105b72ea42a926a7da5eecabd43cdf31fe1893d5e5c362e17d04acc790a751",
+    "how-to/robustness-test-a-trading-strategy.html": "656e1fb7216e0ca59dd2554685bd99ceb76f88a8420b31cb6351b20ff31818ea",
     "how-to/walk-forward-test-a-strategy.html": "4aad7550f79cad964d7a62bc787eee2e72fbacd020fd3680be34754bca6bc691",
     "how-to/backtest-pine-script-on-your-own-data.html": "df83c05a7c390c9cae82d7a2ff805bfdf4ca816ad8f983d5318c0b3243322681",
     "how-to/export-a-strategy-to-pine-script.html": "8fc559f35e2422a25b9338adb0a21b017a921e87b044594402cb59c1232d7c26",
@@ -418,6 +418,6 @@
     "how-to/read-a-footprint-chart.html": "0060012092c022f1639e2a5daca28b140919ce1f9270ab3f54847f90b629b712",
     "how-to/paper-trade-crypto.html": "4c22bea41265c52b21837087cda34b4922d7679fc2de73a2e4d533153f4cb8c5",
     "how-to/import-price-data-from-csv.html": "73e4c134da943c4f2fd7f5acbecaf6946f8bd035662924f9542a37887a347b4b",
-    "how-to/turn-a-trading-idea-into-a-strategy.html": "fe01a7785c722895479fc0d7b0449712f89293b23183107d60459e16120adbc8"
+    "how-to/turn-a-trading-idea-into-a-strategy.html": "1af9e73d8caecc458f667f4119226bad4bfb0577d5d3dcd75acabd3af40597ba"
   }
 }

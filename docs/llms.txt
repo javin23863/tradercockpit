@@ -29,7 +29,7 @@ The guides are written by the Trader Cockpit team. Examples use synthetic data a
 
 ## How to do it in the app
 
-- [How to Backtest a Trading Strategy Without Code](https://trader-cockpit.com/how-to/backtest-a-strategy-without-code.html): Backtest without writing code: save a market, enter your real costs, let Builder search rule combinations, then read every trade before you trust a result.
+- [How to Backtest a Strategy Without Code](https://trader-cockpit.com/how-to/backtest-a-strategy-without-code.html): Backtest without writing code: save a market, enter your real costs, let Builder search rule combinations, then read every trade before you trust a result.
 - [How to Robustness Test a Trading Strategy](https://trader-cockpit.com/how-to/robustness-test-a-trading-strategy.html): Run a strategy through held-back dates, other markets, other timeframes, worse slippage and Monte Carlo, in order, and see why each weak one dropped out.
 - [How to Walk-Forward Test a Trading Strategy](https://trader-cockpit.com/how-to/walk-forward-test-a-strategy.html): Walk-forward testing re-fits a strategy on one window and trades it on the next, over and over. How to set the windows, run it and read the score.
 - [How to Backtest Pine Script on Your Own Data](https://trader-cockpit.com/how-to/backtest-pine-script-on-your-own-data.html): Run a Pine strategy on your own bars: put the data on a chart, open the Pine Script panel, paste the script and read the Strategy Tester’s list of trades.
