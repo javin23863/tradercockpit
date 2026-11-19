@@ -13,7 +13,6 @@ def validate_content(root):
         receipt=json.loads((root/'.github/reference-import-receipt.json').read_text(encoding='utf-8'))
         if m.get('schema')!='tradercockpit.reference-reading-shell/v1':errors.append('Unknown reading-shell manifest')
         if sha((docs/'index.html').read_bytes())!=m['home_sha256']:errors.append('Homepage changed during content migration')
-        if (root/'.github/reference-site/homepage.html').exists() and (root/'.github/reference-site/homepage.html').read_bytes()!=(docs/'index.html').read_bytes():errors.append('Homepage differs from the publication template')
         for name,row in m['files'].items():
             p=docs/name
             if not p.resolve().is_relative_to(docs.resolve()):raise ValueError('Unsafe reading-shell path')
@@ -42,6 +41,6 @@ def validate_content(root):
             if not p.resolve().is_relative_to(docs.resolve()) or sha(p.read_bytes())!=digest:
                 errors.append('Added public file differs: '+name)
         for name,digest in m['new_assets'].items():
-            if name!='assets/reference-site/content.css' or sha((docs/name).read_bytes())!=digest:errors.append('Reading stylesheet changed: '+name)
+            if sha((docs/name).read_bytes())!=digest:errors.append('Reading stylesheet changed: '+name)
     except (OSError,ValueError,KeyError,TypeError) as exc:errors.append(str(exc))
     return errors

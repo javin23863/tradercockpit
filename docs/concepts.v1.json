@@ -18,7 +18,6 @@
         "A percentile is only meaningful relative to the simulation assumptions that generated it.",
         "Naive resampling can destroy serial dependence, volatility clustering, regime structure, or other features that matter."
       ],
-      "visual": "../../research-lab.html#monte-carlo",
       "method": "../../methods/monte-carlo.html",
       "related": [
         {
@@ -73,7 +72,6 @@
         "One successful holdout result does not guarantee stability in later regimes.",
         "Calling a dataset OOS does not make it independent if it influenced the process indirectly."
       ],
-      "visual": "../../research-lab.html#out-of-sample",
       "method": "../../methods/#out-of-sample",
       "related": [
         {
@@ -116,7 +114,7 @@
       "description": "Understand repeated time-ordered train and evaluation windows instead of relying on one static split.",
       "question": "Does the research conclusion persist when the development/evaluation boundary moves through time?",
       "definition": "Walk-forward analysis repeats a time-aware development and evaluation process across ordered windows. Rolling windows keep training length approximately fixed; anchored windows keep the initial start while training history grows.",
-      "example": "The Research Lab displays seven synthetic folds over 100 time units. Each blue training block is followed immediately by a gold held-out evaluation block, and the reader can compare rolling with anchored geometry.",
+      "example": "",
       "tells": [
         "How a conclusion behaves across multiple chronological evaluation periods.",
         "Whether evidence is concentrated in one favorable interval or appears across several folds.",
@@ -127,7 +125,6 @@
         "Window lengths, retraining rules, costs, and selection performed inside each fold still matter.",
         "A stable historical walk-forward result does not guarantee future stability."
       ],
-      "visual": "../../research-lab.html#walk-forward",
       "method": "../../methods/#walk-forward",
       "related": [
         {
@@ -151,7 +148,7 @@
       "description": "Learn why a broad neighborhood of similar behavior is usually more informative than one isolated optimized point.",
       "question": "Does the observed behavior persist when nearby parameter choices change, or does it depend on one narrow setting?",
       "definition": "Parameter robustness examines how a measured response changes across a neighborhood of parameter values. A broad plateau suggests lower local sensitivity than a narrow spike, but the interpretation still depends on the metric, data, search process, and parameter meaning.",
-      "example": "The Research Lab offers three deterministic synthetic surfaces: a broad plateau, a narrow spike, and a ridge. Their height is an illustrative response score, not profit or a product result.",
+      "example": "",
       "tells": [
         "Whether nearby parameter values produce similar or sharply different measured behavior.",
         "Where a selected point sits relative to broader surface geometry.",
@@ -162,7 +159,6 @@
         "A plateau can arise from an insensitive or uninformative metric.",
         "Parameter searches can still introduce selection bias even when the chosen region looks broad."
       ],
-      "visual": "../../research-lab.html#parameter-robustness",
       "method": "../../methods/#parameter-robustness",
       "related": [
         {
@@ -186,7 +182,7 @@
       "description": "Understand drawdown as a path-dependent decline from a prior running peak, including depth, duration, and recovery context.",
       "question": "How far and how long did a path remain below its prior peak, and what does one maximum number hide?",
       "definition": "Drawdown measures the decline from a running peak to a later value. Maximum drawdown captures the deepest observed decline, while duration and recovery describe how long the path remained underwater and how it returned to a new peak.",
-      "example": "The Research Lab compares deep-shock, long-valley, and repeated-valley synthetic index paths. One mode has greater depth, another remains underwater longer, and the repeated path has several recoveries.",
+      "example": "",
       "tells": [
         "The depth of losses relative to prior peaks in the observed path.",
         "How long an observed path remained below its previous high-water mark.",
@@ -197,7 +193,6 @@
         "Drawdown depends on the path, sample period, valuation frequency, and starting point.",
         "One drawdown statistic does not describe liquidity, tail gaps, leverage, or all forms of risk."
       ],
-      "visual": "../../research-lab.html#drawdown",
       "method": "../../methods/#drawdown",
       "related": [
         {
@@ -221,7 +216,7 @@
       "description": "See why the best-looking result from a large search deserves different interpretation from a result specified before the search.",
       "question": "How much of the selected result could be explained by searching many candidates and keeping only the most impressive one?",
       "definition": "Selection bias appears when the same evidence helps choose which result to report. Multiple testing intensifies the problem: as more candidates are compared, extreme-looking results can arise from noise even when no candidate has a true advantage.",
-      "example": "The Research Lab draws independent synthetic Normal scores under a no-signal assumption. As the family expands from 64 to 1,024 candidates, the approximate typical maximum under that null rises even though the generating process contains no edge.",
+      "example": "",
       "tells": [
         "Why the number and dependence of tried candidates matter when interpreting the selected result.",
         "Why a maximum should be compared with a selection-aware reference rather than treated like a prespecified observation.",
@@ -232,7 +227,6 @@
         "Counting visible trials alone can miss hidden researcher degrees of freedom.",
         "A correction method is only as defensible as its assumptions and accounting of the search process."
       ],
-      "visual": "../../research-lab.html#selection-bias",
       "method": "../../methods/#selection-bias",
       "related": [
         {
@@ -256,7 +250,7 @@
       "description": "Understand why co-movement, clustering, and dependence matter more than simply counting how many series are in a portfolio or research set.",
       "question": "Which series tend to move together, and how stable is that dependence across the conditions that matter?",
       "definition": "Correlation summarizes linear co-movement over a chosen sample. Diversification depends on the structure of relationships among exposures, not merely on the number of names. Correlations can change through time and can behave differently in stressed conditions.",
-      "example": "The Research Lab arranges 18 synthetic series into three labeled families and draws only strong illustrative relationships. Node distance supports readability; the line strength, not geometric distance, carries the relationship encoding.",
+      "example": "",
       "tells": [
         "Where exposures cluster under the chosen dependence measure and sample.",
         "Which individual series have many strong relationships with others.",
@@ -267,7 +261,6 @@
         "Zero linear correlation does not imply independence.",
         "A correlation matrix alone does not capture nonlinear dependence, tail dependence, liquidity, or all portfolio risks."
       ],
-      "visual": "../../research-lab.html#correlation",
       "method": "../../methods/#correlation",
       "related": [
         {
@@ -291,7 +284,7 @@
       "description": "Learn why mean and dispersion can miss skew, tail mass, multimodality, and other features that change how an outcome distribution should be interpreted.",
       "question": "What information disappears when a distribution is reduced to one average and one dispersion statistic?",
       "definition": "A distribution describes how observations are spread across possible values. Shape includes symmetry or skew, concentration, multiple modes, and the behavior of tails. Tail estimates are especially sensitive to sample size and modeling assumptions.",
-      "example": "The Research Lab compares symmetric, skewed, and heavy-tail deterministic synthetic samples after standardization. A keyboard-operable threshold shows how much generated mass lies in the selected lower tail.",
+      "example": "",
       "tells": [
         "Whether observations are symmetric, skewed, concentrated, multimodal, or unusually heavy in the tails.",
         "How threshold exceedance can differ even when headline scale measures are similar.",
@@ -302,7 +295,6 @@
         "Tail frequencies are unstable when the sample contains few extreme observations.",
         "Standardization can make scale comparable while hiding economically important differences in units or regime."
       ],
-      "visual": "../../research-lab.html#distribution",
       "method": "../../methods/#distribution-shape",
       "related": [
         {
@@ -326,7 +318,7 @@
       "description": "Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight.",
       "question": "Which state variables define the regime, how were thresholds chosen, and does the label remain useful outside the sample that suggested it?",
       "definition": "A regime is a grouping of observations that share defined market-state characteristics. Useful regime analysis starts with explicit variables and rules or a documented model; the label itself is only a compressed description of those coordinates.",
-      "example": "The Research Lab places 96 deterministic synthetic observations in a three-dimensional cube whose axes are directional tendency, volatility, and liquidity stress. Simple thresholds assign descriptive labels only to make the information compression visible.",
+      "example": "",
       "tells": [
         "How several state variables can be viewed jointly instead of one at a time.",
         "Which observations occupy similar regions under the chosen variables and thresholds.",
@@ -337,7 +329,6 @@
         "Thresholds discovered after viewing outcomes can introduce hindsight and selection bias.",
         "Three variables cannot represent every relevant feature of liquidity, volatility, trend, or market structure."
       ],
-      "visual": "../../research-lab.html#regime-map",
       "method": "../../methods/#regime-map",
       "related": [
         {

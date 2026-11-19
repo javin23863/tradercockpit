@@ -16,7 +16,6 @@ REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 PAGES = [
     DOCS / "index.html",
-    DOCS / "research-lab.html",
     DOCS / "docs" / "index.html",
     DOCS / "learn" / "index.html",
     DOCS / "how-to" / "index.html",
@@ -38,22 +37,7 @@ HELP_PAGE = DOCS / "help.html"
 HELP_RESOLVER = DOCS / "assets" / "help-resolver.js"
 SITE_SEARCH = DOCS / "assets" / "site-search.js"
 VIDEO_SCRIPT = DOCS / "assets" / "video-slot.js"
-LAB_DEPTH = DOCS / "assets" / "research-lab-depth.js"
-LAB_VALIDATION = DOCS / "assets" / "research-lab-validation.js"
-LAB_RISK = DOCS / "assets" / "research-lab-risk.js"
-LAB_REGIME = DOCS / "assets" / "research-lab-regime.js"
 HOME_PAGE = DOCS / "index.html"
-HOME_SCRIPT = DOCS / "assets" / "home-v3.js"
-HOME_WEBGL_SOURCE = REPO / ".github" / "site-build" / "src" / "site-webgl.js"
-RESEARCH_VTK_SOURCE = REPO / ".github" / "site-build" / "src" / "research-vtk.js"
-RESEARCH_VTK_BUNDLE = DOCS / "assets" / "generated" / "research-vtk-v1.js"
-HOME_WEBGL_BUNDLE = DOCS / "assets" / "generated" / "site-webgl-v1.js"
-HOME_STYLE = DOCS / "assets" / "home-v3.css"
-SITE_STYLE = DOCS / "assets" / "site-v2.css"
-HOME_VISUAL_SPEC = REPO / ".github" / "visual-authority-home-v4.md"
-SITE_VISUAL_SPEC = REPO / ".github" / "visual-authority-site-v5.md"
-MEASURED_VISUAL_SPEC = REPO / ".github" / "visual-authority-demo-measured-v6.md"
-SITE_APPRAISAL = REPO / ".github" / "site-depth-appraisal-2026-09-11.md"
 PUBLIC_HTML = sorted(DOCS.rglob("*.html"))
 SITEMAP = DOCS / "sitemap.xml"
 
@@ -150,155 +134,39 @@ def main() -> int:
             problems.append(f"missing description: {page.relative_to(REPO)}")
         if not parser.canonical.startswith("https://trader-cockpit.com/"):
             problems.append(f"bad canonical: {page.relative_to(REPO)}")
-        # The measured homepage reference intentionally omits the search control; internal
-        # content surfaces retain local search for navigation and documentation discovery.
-        if page != HOME_PAGE and not any(src.endswith("assets/site-search.js") for src in parser.scripts):
+        if not any(src.endswith("assets/site-search.js") for src in parser.scripts):
             problems.append(f"missing local search script: {page.relative_to(REPO)}")
 
-    visual_landings = [DOCS / name / "index.html" for name in ("learn", "docs", "methods", "how-to", "examples", "updates")]
-    for landing in visual_landings:
-        if not landing.is_file():
-            continue
-        landing_text = landing.read_text(encoding="utf-8")
-        if 'class="page-hero landing-hero"' not in landing_text or 'class="landing-hero-visual' not in landing_text:
-            problems.append(f"primary landing page missing appraisal visual hero: {landing.relative_to(REPO)}")
-        if 'role="group" class="landing-hero-visual' not in landing_text:
-            problems.append(f"landing visual group missing accessible role: {landing.relative_to(REPO)}")
-
     home_text = HOME_PAGE.read_text(encoding="utf-8") if HOME_PAGE.is_file() else ""
-    home_parser = parsers.get(HOME_PAGE)
-    required_home_ids = {
-        "product-state", "product-heading", "product-summary", "manifest-capabilities",
-        "manifest-detail", "product-cta", "youtube-cta", "purchase-support",
-    }
-    if home_parser:
-        missing_ids = required_home_ids.difference(home_parser.ids)
-        if missing_ids:
-            problems.append(f"homepage missing manifest/education contract IDs: {sorted(missing_ids)}")
-        if not any(src.endswith("assets/reference-site/app.js") for src in home_parser.scripts):
-            problems.append("homepage scene/interaction script missing")
-        if not any(src.endswith("assets/reference-site/integration.mjs") for src in home_parser.scripts):
-            problems.append("homepage product/commerce integration missing")
-    # Reference integrity is not a visual sign-off. Historical theme marker tests
-    # are replaced by exact source-art preservation and functional surface checks.
     result = subprocess.run([sys.executable, str(REPO / '.github/scripts/check_reference_site.py')], cwd=REPO, capture_output=True, text=True)
     if result.returncode:
-        problems.append('Reference integration integrity failed: ' + (result.stdout + result.stderr).strip())
-    if not SITE_STYLE.is_file():
-        problems.append("missing shared cinematic site stylesheet")
-    else:
-        site_style = SITE_STYLE.read_text(encoding="utf-8")
-        for marker in ("Site-wide cinematic appraisal pass - 2026-09-11", ".utility-stage", ".pricing-tier-tabs", "Research Lab palette authority", "Subject-specific article research scenes"):
-            if marker not in site_style:
-                problems.append(f"site-wide cinematic style missing authority marker: {marker}")
-    if SITE_SEARCH.is_file():
-        site_search = SITE_SEARCH.read_text(encoding="utf-8")
-        for marker in ("function depthSceneKind", "function buildDepthGraphic", "article-depth-scene", "depth-scene-${kind}"):
-            if marker not in site_search:
-                problems.append(f"site-wide subject visual system missing authority marker: {marker}")
+        problems.append('Page record integrity failed: ' + (result.stdout + result.stderr).strip())
+    # One header, one footer and one stylesheet on every page: site_chrome.py owns all three.
+    chrome = subprocess.run([sys.executable, str(REPO / '.github/scripts/site_chrome.py'), '--check'], cwd=REPO, capture_output=True, text=True)
+    if chrome.returncode:
+        problems.append('shared header, footer or stylesheet is stale: ' + (chrome.stdout + chrome.stderr).strip())
     for page in PUBLIC_HTML:
         text = page.read_text(encoding="utf-8")
-        if page != HOME_PAGE and "assets/site-v2.css" not in text and "../assets/site-v2.css" not in text:
-            problems.append(f"public page missing shared cinematic stylesheet: {page.relative_to(REPO)}")
+        if 'http-equiv="refresh"' in text:
+            continue
+        sheets = re.findall(r'<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"', text)
+        if not any(sheet.endswith("assets/site.css") for sheet in sheets) or any(not sheet.endswith(("assets/site.css", "assets/replay-boundary-example.css")) for sheet in sheets):
+            problems.append(f"public page must load the one shared stylesheet: {page.relative_to(REPO)}")
+        if "research-lab.html" in text:
+            problems.append(f"public page links the removed Research Lab: {page.relative_to(REPO)}")
     pricing_text = (DOCS / "pricing" / "index.html").read_text(encoding="utf-8")
     if "pricing-tier-tab" in pricing_text or ">+ Future tier<" in pricing_text or "Reserved future pricing tier" in pricing_text or "Reserved pricing expansion slot" in pricing_text:
         problems.append("pricing must expose only the verified current plan, with no unfinished expansion controls")
-    for utility in (DOCS / "confirmed.html", DOCS / "thanks.html", DOCS / "refund-policy.html"):
-        if 'class="utility-page"' not in utility.read_text(encoding="utf-8"):
-            problems.append(f"utility page missing cinematic stage contract: {utility.relative_to(REPO)}")
-    lab_palette = "\n".join(path.read_text(encoding="utf-8") for path in (DOCS / "assets").glob("research-lab*.js"))
-    for marker in ("[73, 239, 154]", "[255, 82, 110]", "[61, 232, 255]"):
-        if marker not in lab_palette:
-            problems.append(f"Research Lab missing semantic palette marker: {marker}")
-    for marker in ("product-manifest.mjs", "prelaunch-config.mjs", "activatePrelaunch", "loadProductManifest"):
-        if marker not in (DOCS / "assets/reference-site/integration.mjs").read_text(encoding="utf-8"):
-            problems.append(f"homepage missing product/prelaunch contract: {marker}")
     if 'type="email"' in home_text:
         problems.append("the email form belongs on the early access page, not the homepage")
-    if not re.search(r'<a[^>]*id="product-cta"[^>]*href="early-access.html"', home_text) or 'href="strategy-claim-audit-checklist.html"' not in home_text:
-        problems.append("early access and the educational checklist must remain reachable without JavaScript")
+    if 'href="strategy-claim-audit-checklist.html"' not in home_text or 'href="features/"' not in home_text or 'href="pricing/' not in home_text:
+        problems.append("the homepage must link Features, Pricing and the backtest checklist without JavaScript")
     for legacy_id in ("initiate", "rungrid", "phases", "verdict", "chips"):
         if f'id="{legacy_id}"' in home_text:
             problems.append(f"legacy homepage simulation remains present: #{legacy_id}")
-
-    lab_page = DOCS / "research-lab.html"
-    lab_parser = parsers.get(lab_page)
-    lab_text_for_nav = lab_page.read_text(encoding="utf-8") if lab_page.is_file() else ""
-    if 'id="atlas"' not in lab_text_for_nav or lab_text_for_nav.count('class="atlas-nav-item"') != 10:
-        problems.append("Research Lab must expose the complete 10-module visual-atlas navigator")
-    required_lab_ids = {"parameter-robustness", "correlation", "distribution", "walk-forward", "out-of-sample", "drawdown", "selection-bias", "regime-map"}
-    if lab_parser:
-        missing_ids = required_lab_ids.difference(lab_parser.ids)
-        if missing_ids:
-            problems.append(f"Research Lab missing Phase B anchors: {sorted(missing_ids)}")
-        if not any(src.endswith("assets/research-lab-depth.js") for src in lab_parser.scripts):
-            problems.append("Research Lab Phase B script missing")
-        if not any(src.endswith("assets/research-lab-validation.js") for src in lab_parser.scripts):
-            problems.append("Research Lab validation script missing")
-        if not any(src.endswith("assets/research-lab-risk.js") for src in lab_parser.scripts):
-            problems.append("Research Lab risk script missing")
-        if not any(src.endswith("assets/research-lab-regime.js") for src in lab_parser.scripts):
-            problems.append("Research Lab regime script missing")
-        if not any(src.endswith("assets/generated/research-vtk-v1.js") for src in lab_parser.scripts):
-            problems.append("Research Lab scientific VTK bundle missing")
-    if not RESEARCH_VTK_SOURCE.is_file():
-        problems.append("missing production Research Lab VTK source")
-    else:
-        research_vtk = RESEARCH_VTK_SOURCE.read_text(encoding="utf-8")
-        if "http://" in research_vtk or "https://" in research_vtk:
-            problems.append("Research Lab VTK source contains an external network target")
-        for marker in (
-            "mountAnalytical3D",
-            "window.__tcResearchVTK",
-            "vtk-webgl",
-            "strategy-universe-canvas",
-            "monte-carlo-canvas",
-            "robustness-canvas",
-            "correlation-canvas",
-            "distribution-canvas",
-            "regime-canvas",
-            "walk-forward-canvas",
-            "oos-canvas",
-            "drawdown-canvas",
-            "selection-canvas",
-            "#3cfad2",
-            "#e54a5a",
-            "#3daed3",
-        ):
-            if marker not in research_vtk:
-                problems.append(f"Research Lab VTK renderer missing contract marker: {marker}")
-        if research_vtk.count("prepare('") != 10:
-            problems.append("Research Lab VTK renderer must initialize exactly 10 atlas canvases")
-    if not RESEARCH_VTK_BUNDLE.is_file():
-        problems.append("missing generated Research Lab VTK bundle")
-    if not LAB_DEPTH.is_file():
-        problems.append("missing docs/assets/research-lab-depth.js")
-    else:
-        depth_script = LAB_DEPTH.read_text(encoding="utf-8")
-        if "IntersectionObserver" not in depth_script:
-            problems.append("Research Lab depth modules are not lazy-initialized")
-        if "http://" in depth_script or "https://" in depth_script:
-            problems.append("Research Lab depth script contains an external network target")
-    if not LAB_VALIDATION.is_file():
-        problems.append("missing docs/assets/research-lab-validation.js")
-    else:
-        validation_script = LAB_VALIDATION.read_text(encoding="utf-8")
-        if "IntersectionObserver" not in validation_script:
-            problems.append("Research Lab validation modules are not lazy-initialized")
-        if "http://" in validation_script or "https://" in validation_script:
-            problems.append("Research Lab validation script contains an external network target")
-        if "innerHTML" in validation_script:
-            problems.append("Research Lab validation script should not use innerHTML")
-    if not LAB_RISK.is_file():
-        problems.append("missing docs/assets/research-lab-risk.js")
-    else:
-        risk_script = LAB_RISK.read_text(encoding="utf-8")
-        if "IntersectionObserver" not in risk_script:
-            problems.append("Research Lab risk modules are not lazy-initialized")
-        if "http://" in risk_script or "https://" in risk_script:
-            problems.append("Research Lab risk script contains an external network target")
-        if "innerHTML" in risk_script:
-            problems.append("Research Lab risk script should not use innerHTML")
+    for gone in ("assets/reference-site/app.js", "assets/reference-site/journeys.js", "assets/generated", "assets/site-v2.css"):
+        if (DOCS / gone).exists():
+            problems.append(f"file of the removed design is back: docs/{gone}")
     if not CONCEPT_SOURCE.is_file():
         problems.append("missing docs/concepts.v1.json")
     elif not CONCEPT_GENERATOR.is_file():
@@ -358,16 +226,6 @@ def main() -> int:
         registered_concepts = {entry.get("path") for entry in content_entries if entry.get("kind") == "concept"}
         if concept_paths != registered_concepts:
             problems.append("content registry concept paths do not exactly match generated concept source")
-    if not LAB_REGIME.is_file():
-        problems.append("missing docs/assets/research-lab-regime.js")
-    else:
-        regime_script = LAB_REGIME.read_text(encoding="utf-8")
-        if "IntersectionObserver" not in regime_script:
-            problems.append("Research Lab regime module is not lazy-initialized")
-        if "http://" in regime_script or "https://" in regime_script:
-            problems.append("Research Lab regime script contains an external network target")
-        if "innerHTML" in regime_script:
-            problems.append("Research Lab regime script should not use innerHTML")
     registry_entries: list[dict] = []
     if not REGISTRY.is_file():
         problems.append("missing docs/help-registry.v1.json")
@@ -453,26 +311,11 @@ def main() -> int:
             if marker not in search_script:
                 problems.append(f"site search missing bounded URL-prefill contract: {marker}")
 
-    academy_text = (DOCS / "how-to" / "index.html").read_text(encoding="utf-8")
-    for academy_marker in ("validation-path", "path-risk-path", "../examples/holdout-selection.html", "../learn/concepts/selection-bias.html", "../learn/concepts/drawdown.html", "../learn/concepts/distribution-shape.html", "../methods/monte-carlo.html", "read-monte-carlo.html"):
-        if academy_marker not in academy_text:
-            problems.append(f"Academy connected path missing: {academy_marker}")
     example_text = (DOCS / "examples" / "holdout-selection.html").read_text(encoding="utf-8")
     for example_marker in ("256 synthetic candidates", "Reserved holdout", "No performance claim", "limitations", "next-question"):
         if example_marker not in example_text:
             problems.append(f"synthetic example contract missing: {example_marker}")
 
-    how_to = DOCS / "how-to" / "index.html"
-    how_text = how_to.read_text(encoding="utf-8") if how_to.is_file() else ""
-    if "data-video-slot" not in how_text or "data-video-load" not in how_text:
-        problems.append("How-To click-to-load video slot missing")
-    if not re.search(r'data-video-id="[A-Za-z0-9_-]{11}"', how_text):
-        problems.append("How-To video slot missing valid public video ID")
-    if "<iframe" in how_text.lower():
-        problems.append("How-To page eagerly embeds a third-party iframe")
-    how_parser = parsers.get(how_to)
-    if how_parser and not any(src.endswith("assets/video-slot.js") for src in how_parser.scripts):
-        problems.append("How-To video loader script missing")
     if not VIDEO_SCRIPT.is_file():
         problems.append("missing docs/assets/video-slot.js")
     else:
@@ -518,10 +361,6 @@ def main() -> int:
     for marker in ("api_key", "secret_key", "password=", "C:\\Users\\"):
         if marker.lower() in public_text.lower():
             problems.append(f"public-disclosure marker detected: {marker}")
-
-    lab_text = (DOCS / "research-lab.html").read_text(encoding="utf-8").lower() if (DOCS / "research-lab.html").is_file() else ""
-    if "synthetic" not in lab_text or "not trading recommendations" not in lab_text:
-        problems.append("Research Lab synthetic-data disclaimer missing")
 
     if problems:
         print("WEBSITE INTEGRITY: FAIL")

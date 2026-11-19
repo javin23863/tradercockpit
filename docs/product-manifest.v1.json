@@ -25,12 +25,12 @@
     {
       "id": "charts",
       "label": "Charts",
-      "summary": "A full charting workspace on real market data, with indicators, drawings and your own Pine scripts."
+      "summary": "A full charting workspace on real market data, with indicators, drawings, watchlists and your own Pine scripts."
     },
     {
       "id": "order-flow",
       "label": "Order flow and profiles",
-      "summary": "See what traded inside each bar, recorded from the exchange's public feed."
+      "summary": "See what traded inside each bar on crypto charts, recorded from the exchange's public feed."
     },
     {
       "id": "apollo",
@@ -41,6 +41,11 @@
       "id": "models",
       "label": "Models",
       "summary": "Machine-learning research on your saved markets or a strategy's trades, judged on data held out from the fit."
+    },
+    {
+      "id": "community",
+      "label": "Community",
+      "summary": "Indicators, strategies and ideas inside the app. Use one with a click, and publish your own."
     },
     {
       "id": "journal",
@@ -60,7 +65,7 @@
     {
       "id": "paper",
       "label": "Paper trading",
-      "summary": "Practice on any chart without risking money, on live prices where the market has a live feed."
+      "summary": "Practice with simulated money: live on crypto charts, on US stocks with your broker account connected, and on saved history in Bar Replay."
     },
     {
       "id": "brokers",
@@ -69,8 +74,8 @@
     },
     {
       "id": "save",
-      "label": "Save and restore",
-      "summary": "Your work stays on your PC, and you can back it up."
+      "label": "Your work stays on your PC",
+      "summary": "Strategies, results, charts and data are saved in your own data folder."
     }
   ],
   "platforms": [

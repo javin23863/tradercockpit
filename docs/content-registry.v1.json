@@ -12,13 +12,6 @@
   },
   "entries": [
     {
-      "id": "research-lab",
-      "kind": "lab",
-      "path": "research-lab.html",
-      "title": "Research Lab",
-      "status": "public"
-    },
-    {
       "id": "learn",
       "kind": "landing",
       "path": "learn/",
@@ -329,7 +322,7 @@
       "keywords": [
         "terms",
         "not financial advice",
-                "paper trading"
+        "paper trading"
       ]
     },
     {

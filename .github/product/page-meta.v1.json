@@ -1,0 +1,172 @@
+{
+ "index.html": {
+  "title": "Trader Cockpit: No-Code Strategy Backtesting for Windows",
+  "description": "Build trading strategies without code, backtest them on real market data and stress-test the ones that pass. Charts, order flow and paper trading. A Windows app."
+ },
+ "features/index.html": {
+  "title": "Trader Cockpit Features: Builder, Backtests, Charts, Order Flow",
+  "description": "Everything in the app: no-code Strategy Builder, robustness workflows, results with a plain verdict, charts, footprint and profiles, Pine scripts, paper trading."
+ },
+ "pricing/index.html": {
+  "title": "Trader Cockpit Pricing: Free Plan and Plans from $19.99",
+  "description": "A Free plan with unlimited paper trading, and four monthly plans from $19.99. Every paid plan includes every feature."
+ },
+ "community/index.html": {
+  "title": "Trading Strategies and Pine Indicators | Trader Cockpit Community",
+  "description": "Strategies with their rules and backtests, and open-source Pine indicators. Study them here and open them in Trader Cockpit."
+ },
+ "learn/index.html": {
+  "title": "Backtesting Guides: Out-of-Sample, Monte Carlo, Walk-Forward",
+  "description": "Free guides to what a backtest can and cannot tell you: out-of-sample testing, Monte Carlo, walk-forward, drawdown and selection bias.",
+  "h1": "Learn to test a strategy honestly."
+ },
+ "how-to/index.html": {
+  "title": "How-To Guides: Backtest, Stress-Test and Read a Strategy",
+  "description": "Step-by-step guides: backtest without code, robustness tests, Pine scripts on your own data, prop firm rules, footprint charts and paper trading.",
+  "h1": "How-to guides"
+ },
+ "methods/index.html": {
+  "title": "Backtesting Methods: Assumptions and Limits | Trader Cockpit",
+  "description": "What each test assumes and where it stops: Monte Carlo, validation stages, result metrics and chart evidence, in plain language.",
+  "h1": "Methods: what each test can and cannot tell you"
+ },
+ "examples/index.html": {
+  "title": "Worked Backtesting Examples | Trader Cockpit",
+  "description": "Worked examples that follow one research question from the first result to its limits.",
+  "h1": "Worked examples"
+ },
+ "docs/index.html": {
+  "title": "Trader Cockpit Documentation",
+  "description": "Where to find each answer: guides, methods, how-tos, examples and help for the Windows app."
+ },
+ "support/index.html": {
+  "title": "Trader Cockpit Support",
+  "description": "Help with Trader Cockpit: guides, FAQ and how to reach us."
+ },
+ "support/faq.html": {
+  "title": "Trader Cockpit FAQ",
+  "description": "Answers about Trader Cockpit: what it does, what it runs on, plans, data and how to read a result.",
+  "h1": "Trader Cockpit FAQ"
+ },
+ "trust/index.html": {
+  "title": "About Trader Cockpit",
+  "description": "Who makes Trader Cockpit, how our guides are written and how to reach us.",
+  "h1": "About Trader Cockpit"
+ },
+ "updates/index.html": {
+  "title": "Trader Cockpit Updates",
+  "description": "What's new in Trader Cockpit."
+ },
+ "early-access.html": {
+  "title": "Get Early Access | Trader Cockpit",
+  "description": "Join the Trader Cockpit early access list and hear when the Windows app opens."
+ },
+ "learn/start-here.html": {
+  "title": "Start Here: How to Judge a Backtest | Trader Cockpit",
+  "description": "The order to ask questions of any backtest: the claim, the sample, the metrics, the uncertainty, and what was tried before it.",
+  "h1": "How to judge a backtest: start here"
+ },
+ "learn/glossary.html": {
+  "title": "Backtesting Glossary | Trader Cockpit",
+  "description": "Backtesting and strategy-testing terms in plain language, each linked to its full guide.",
+  "h1": "Backtesting glossary"
+ },
+ "learn/videos.html": {
+  "title": "Backtesting Video Lessons | Trader Cockpit",
+  "description": "Short video lessons on backtesting and strategy testing, each paired with a written guide.",
+  "h1": "Video lessons"
+ },
+ "learn/concepts/monte-carlo.html": {
+  "title": "Monte Carlo Simulation for Trading Strategies | Trader Cockpit"
+ },
+ "learn/concepts/out-of-sample.html": {
+  "title": "In-Sample vs Out-of-Sample Backtesting | Trader Cockpit"
+ },
+ "learn/concepts/walk-forward.html": {
+  "title": "Walk-Forward Analysis Explained | Trader Cockpit",
+  "description": "Walk-forward analysis re-fits a strategy on one window and tests it on the next, again and again. What it shows, and what it can't.",
+  "h1": "Walk-forward analysis for trading strategies"
+ },
+ "learn/concepts/parameter-robustness.html": {
+  "title": "Parameter Robustness: Is Your Strategy Curve-Fit? | Trader Cockpit",
+  "description": "A strategy that only works at one exact setting is fragile. How to read a parameter map and tell a plateau from a spike.",
+  "h1": "Parameter robustness: how sensitive is a strategy?"
+ },
+ "learn/concepts/drawdown.html": {
+  "title": "Drawdown in Trading: Depth, Duration, Recovery | Trader Cockpit",
+  "description": "Drawdown is the fall from an equity peak. How to read its depth, how long it lasted and how long recovery took.",
+  "h1": "Drawdown in trading: depth, duration and recovery"
+ },
+ "learn/concepts/selection-bias.html": {
+  "title": "Selection Bias in Backtests: The Multiple Testing Trap | Trader Cockpit",
+  "description": "Test enough strategies and one will look great by luck. Why the best of a large search needs a harder test.",
+  "h1": "Selection bias and multiple testing in backtests"
+ },
+ "learn/concepts/correlation-diversification.html": {
+  "title": "Strategy Correlation and Diversification | Trader Cockpit",
+  "description": "Ten strategies that lose together are one strategy. How to read correlation across strategies before you combine them.",
+  "h1": "Correlation and diversification across strategies"
+ },
+ "learn/concepts/distribution-shape.html": {
+  "title": "Skew and Fat Tails in Trading Returns | Trader Cockpit",
+  "description": "An average hides the shape. How skew and fat tails change what a strategy's results mean.",
+  "h1": "Return distribution shape: skew and fat tails"
+ },
+ "learn/concepts/regime-map.html": {
+  "title": "Market Regimes in Strategy Testing | Trader Cockpit",
+  "description": "A regime is a measured market state, not a label added afterwards. How to use regimes when you test a strategy.",
+  "h1": "Market regimes in strategy testing"
+ },
+ "methods/monte-carlo.html": {
+  "title": "Monte Carlo Method for Backtests | Trader Cockpit",
+  "description": "How Monte Carlo resampling works on a backtest, what each variant assumes, and the mistakes that make it meaningless.",
+  "h1": "Monte Carlo method for backtests"
+ },
+ "methods/validation-foundations.html": {
+  "title": "Strategy Validation: The Stages and What Each Proves | Trader Cockpit",
+  "h1": "Strategy validation: a chain of decisions"
+ },
+ "methods/result-metrics.html": {
+  "title": "Backtest Metrics Explained: Profit Factor, Expectancy, Drawdown",
+  "h1": "Backtest metrics explained"
+ },
+ "methods/chart-evidence.html": {
+  "title": "Reading Charts as Evidence: OHLC, Volume Profile, TPO | Trader Cockpit",
+  "description": "How to read OHLC bars, volume profile, TPO and bar replay without reading more into a chart than it holds.",
+  "h1": "Reading charts as evidence"
+ },
+ "how-to/read-monte-carlo.html": {
+  "title": "How to Read a Monte Carlo Result | Trader Cockpit",
+  "description": "Read a Monte Carlo result in seven steps: name what was shuffled, read the whole spread, and don't treat a percentile as a forecast.",
+  "h1": "How to read a Monte Carlo result"
+ },
+ "how-to/read-staged-validation.html": {
+  "title": "How to Read a Strategy Validation Report | Trader Cockpit",
+  "description": "Read a staged validation result stage by stage, so one passing check doesn't become \"robust\".",
+  "h1": "How to read a strategy validation report"
+ },
+ "how-to/read-result-metrics.html": {
+  "title": "How to Read Backtest Metrics Together | Trader Cockpit",
+  "description": "Read net profit, profit factor, expectancy, return/drawdown and sample size together, without shopping for the best-looking number.",
+  "h1": "How to read backtest metrics together"
+ },
+ "how-to/read-chart-evidence.html": {
+  "title": "How to Read a Chart Without Fooling Yourself | Trader Cockpit",
+  "description": "Read OHLC bars, volume profile, TPO and bar replay in order: the source first, the shape second.",
+  "h1": "How to read chart evidence"
+ },
+ "strategy-claim-audit-checklist.html": {
+  "title": "Backtest Checklist: 1-Page Audit for Any Strategy Claim",
+  "description": "A one-page checklist of questions to ask before you believe any published backtest."
+ },
+ "examples/holdout-selection.html": {
+  "title": "Example: When the Best Backtest Meets Unseen Data | Trader Cockpit",
+  "description": "A worked example: 256 candidates, one winner, and what happens when the winner meets data it never saw.",
+  "h1": "Example: when the best backtest meets unseen data"
+ },
+ "examples/replay-boundary.html": {
+  "title": "Example: Bar Replay and Look-Ahead | Trader Cockpit",
+  "description": "A worked example of what must disappear from a chart when you move a replay cut-off back in time.",
+  "h1": "Example: bar replay and look-ahead"
+ }
+}

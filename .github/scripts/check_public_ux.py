@@ -15,8 +15,7 @@ REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
 DESIGN = REPO / "DESIGN.md"
 CONTRACTS = DOCS.parent / ".github/product/ux-page-contracts.v1.json"
-SITE_STYLE = DOCS / "assets" / "site-v2.css"
-HOME_STYLE = DOCS / "assets" / "reference-site" / "styles.css"
+SITE_STYLE = DOCS / "assets" / "site.css"
 HOME = DOCS / "index.html"
 
 REQUIRED_DIMENSIONS = {
@@ -32,6 +31,7 @@ BANNED_PUBLIC_PHRASES = (
 BANNED_SLOP_PHRASES = (
     "quantitative research.reimagined", "game-changing", "cutting-edge", "revolutionary",
     "unlock your potential", "supercharge your", "seamless experience",
+    "unleash", "seamless", "effortless", "next-level", "world-class", "game-changer", "supercharge", "delve", "look no further",
 )
 
 
@@ -174,32 +174,22 @@ def main() -> int:
         problems.append("homepage hero missing")
     else:
         hero = hero_match.group(1)
-        if len(re.findall(r'class="[^"]*\bgold\b[^"]*"', hero)) != 1:
+        if len(re.findall(r'class="[^"]*\bprimary\b[^"]*"', hero)) != 1:
             problems.append("homepage hero must expose exactly one primary action")
-        if "Join the early access list" not in hero:
-            problems.append("homepage primary action must be the early access list")
-        if "button glass" not in hero:
-            problems.append("homepage secondary hero action must be visually subordinate")
+        if 'fetchpriority="high"' not in hero:
+            problems.append("homepage hero must show a real app screen that loads first")
     if 'class="quant-path"' in home:
         problems.append("homepage retains generic icon-feature row before product proof")
-    public_runtime = "\n".join((DOCS / "assets" / "reference-site" / name).read_text(encoding="utf-8").lower() for name in ("app.js", "journeys.js"))
-    for phrase in ("homepage proof", "not a release candidate", "under visual review", "in this preview", "explore this preview", "this preview does not offer", "this preview does not contain", "the preview does not establish"):
-        if phrase in public_runtime:
-            problems.append(f"homepage runtime contains internal review copy: {phrase}")
 
-    for style_path in (SITE_STYLE, HOME_STYLE):
-        if not style_path.is_file():
-            problems.append(f"missing shared UX stylesheet {style_path.relative_to(REPO)}")
-    if SITE_STYLE.is_file():
+    if not SITE_STYLE.is_file():
+        problems.append(f"missing shared stylesheet {SITE_STYLE.relative_to(REPO)}")
+    else:
         site_css = SITE_STYLE.read_text(encoding="utf-8")
-        for marker in ("--ux-touch-target:44px", "@media (hover:none)", ".control-btn{padding:.68rem .72rem}"):
+        for marker in (":focus-visible", "prefers-reduced-motion", "min-height:44px", "--ink-2"):
             if marker not in site_css:
                 problems.append(f"shared site CSS missing UX contract marker: {marker}")
-    if HOME_STYLE.is_file():
-        home_css = HOME_STYLE.read_text(encoding="utf-8")
-        for marker in (".hero", ".scene-stack", "prefers-reduced-motion"):
-            if marker not in home_css:
-                problems.append(f"homepage CSS missing UX contract marker: {marker}")
+        if re.search(r"https?://", site_css):
+            problems.append("shared site CSS must not load anything from another host")
 
     if problems:
         print("PUBLIC UX: FAIL")

@@ -5,23 +5,29 @@ Every page whose bytes changed gets the stated reason appended to its correction
 change is never recorded silently. Run it after editing published pages, then rerun
 check_reference_site.py. It records structure only; it never grants visual approval.
 
-usage: record_reading_pages.py "reason" [--add docs-relative-path ...] [--drop docs-relative-path ...]
+usage: record_reading_pages.py "reason" [--add docs-relative-path ...] [--drop docs-relative-path ...] [--remove deleted-docs-relative-path ...]
+
+--remove names files that were deleted from docs/: they leave every list and are kept in removed_files.
 """
 from pathlib import Path
-import argparse,hashlib,json,shutil,sys
+import argparse,hashlib,json,sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from reference_content import unwrap_html
 ROOT=Path(__file__).resolve().parents[2];DOCS=ROOT/'docs';MANIFEST=ROOT/'.github/reference-content-manifest.json'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('reason');ap.add_argument('--add',nargs='*',default=[]);ap.add_argument('--drop',nargs='*',default=[])
+    ap=argparse.ArgumentParser();ap.add_argument('reason');ap.add_argument('--add',nargs='*',default=[]);ap.add_argument('--drop',nargs='*',default=[]);ap.add_argument('--remove',nargs='*',default=[])
     args=ap.parse_args();reason=args.reason.strip()
     if not reason:raise SystemExit('A reason is required')
     m=json.loads(MANIFEST.read_text(encoding='utf-8'));changed=[]
+    for name in args.remove:
+        if (DOCS/name).exists():raise SystemExit('Still published, so it cannot be recorded as removed: '+name)
+        for key in ('files','approved_updates','added_files','new_assets'):m.get(key,{}).pop(name,None)
+        m['removed_files']=sorted(set(m.get('removed_files',[]))|{name});changed.append(name)
     home=(DOCS/'index.html').read_bytes()
     if sha(home)!=m['home_sha256']:changed.append('index.html')
-    m['home_sha256']=sha(home);shutil.copyfile(DOCS/'index.html',ROOT/'.github/reference-site/homepage.html')
+    m['home_sha256']=sha(home)
     for name,row in m['files'].items():
         raw=(DOCS/name).read_bytes()
         if sha(raw)==row['after_sha256']:continue

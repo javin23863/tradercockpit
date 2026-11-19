@@ -6,7 +6,6 @@ on:
       - "docs/**"
       - ".github/scripts/**"
       - ".github/reference-site/**"
-      - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
       - "DESIGN.md"
   pull_request:
@@ -14,7 +13,6 @@ on:
       - "docs/**"
       - ".github/scripts/**"
       - ".github/reference-site/**"
-      - ".github/site-build/**"
       - ".github/workflows/website-integrity.yml"
       - "DESIGN.md"
 
@@ -29,13 +27,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Rebuild production WebGL bundle
-        shell: bash
-        run: |
-          set -euo pipefail
-          npm ci --prefix .github/site-build --ignore-scripts --no-audit --no-fund
-          npm run build --prefix .github/site-build
-          git diff --exit-code -- docs/assets/generated/site-webgl-v1.js docs/assets/generated/research-vtk-v1.js docs/assets/generated/research-vtk-v1.LICENSE.txt docs/assets/generated/research-vtk-v1.PROVENANCE.json
       - name: Validate site architecture and registries
         run: python .github/scripts/check_website.py
       - name: Validate public-site hardening contracts
@@ -50,6 +41,7 @@ jobs:
           node .github/scripts/test_custom_domain.mjs
           node .github/scripts/test_early_access.mjs
           python .github/scripts/generate_product_pages.py --check
+          python .github/scripts/site_chrome.py --check
           python .github/scripts/generate_community_pages.py --check
           python .github/scripts/test_community_import.py
           python .github/scripts/check_plan_catalog.py
@@ -62,8 +54,7 @@ jobs:
           npm install --prefix "$RUNNER_TEMP/pp" --no-save --no-audit --no-fund --ignore-scripts puppeteer-core@25.16.0
           export TC_PUPPETEER_MODULE="$RUNNER_TEMP/pp/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js"
           export TC_CHROME="$(command -v google-chrome)"
-          node .github/scripts/test_reference_bridge.mjs
-          node .github/scripts/test_reference_journeys.mjs
+          node .github/scripts/test_site_served.mjs
       - name: Validate all public JavaScript syntax
         shell: bash
         run: |

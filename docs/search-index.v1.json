@@ -3,33 +3,6 @@
   "generated": "2026-10-08",
   "entries": [
     {
-      "id": "research-lab",
-      "title": "Research Lab",
-      "path": "research-lab.html",
-      "kind": "lab",
-      "summary": "Interactive synthetic visualizations for quantitative research concepts.",
-      "terms": [
-        "visual atlas",
-        "synthetic",
-        "quantitative research",
-        "uncertainty"
-      ]
-    },
-    {
-      "id": "research.strategy-universe",
-      "title": "Strategy Universe",
-      "path": "research-lab.html#strategy-universe",
-      "kind": "concept",
-      "summary": "A spatial synthetic candidate field that makes several analytical dimensions visible at once.",
-      "terms": [
-        "candidate population",
-        "dispersion",
-        "drawdown",
-        "out-of-sample",
-        "3d"
-      ]
-    },
-    {
       "id": "research.monte-carlo",
       "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
       "path": "learn/concepts/monte-carlo.html",

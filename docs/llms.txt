@@ -1,10 +1,26 @@
 # Trader Cockpit
 
-> Educational guides to backtesting and trading strategy validation: out-of-sample testing, Monte Carlo analysis, walk-forward analysis, drawdown and selection bias. Trader Cockpit is a Windows desktop app for trading strategy research, in early access. Nothing here is financial advice.
+> Trader Cockpit is a Windows desktop app for building, backtesting and stress-testing trading strategies without code, with charts, order flow, paper trading and broker connections. It also publishes free guides to testing a strategy honestly. Nothing here is financial advice.
 
-The guides are written by the Trader Cockpit team. Examples use synthetic data and are not performance results.
+## What the app does
 
-## Start here
+- [Strategy Builder](https://trader-cockpit.com/features/#builder): Search thousands of rule combinations on the market you pick, with the costs and rules you set.
+- [Workflows and robustness checks](https://trader-cockpit.com/features/#workflows): Put a strategy through ordered steps, unattended, and see why strategies drop out.
+- [Results](https://trader-cockpit.com/features/#results): See how a strategy really traded, with a plain verdict that says so when it's weak.
+- [Portfolio](https://trader-cockpit.com/features/#portfolio): Combine your saved strategies and see their results together.
+- [Charts](https://trader-cockpit.com/features/#charts): A full charting workspace on real market data, with indicators, drawings, watchlists and your own Pine scripts.
+- [Order flow and profiles](https://trader-cockpit.com/features/#order-flow): See what traded inside each bar on crypto charts, recorded from the exchange's public feed.
+- [Apollo assistant](https://trader-cockpit.com/features/#apollo): An assistant beside your work that turns an idea into a strategy you can test. You confirm every change.
+- [Models](https://trader-cockpit.com/features/#models): Machine-learning research on your saved markets or a strategy's trades, judged on data held out from the fit.
+- [Community](https://trader-cockpit.com/features/#community): Indicators, strategies and ideas inside the app. Use one with a click, and publish your own.
+- [Journal](https://trader-cockpit.com/features/#journal): Review executions, research results, routines and decisions in one place, kept on your PC.
+- [Market data and import](https://trader-cockpit.com/features/#data): Connect a broker or exchange, or bring your own files, checked row by row.
+- [Exports](https://trader-cockpit.com/features/#exports): Take a strategy to your platform, or get a clear reason why it can't match.
+- [Paper trading](https://trader-cockpit.com/features/#paper): Practice with simulated money: live on crypto charts, on US stocks with your broker account connected, and on saved history in Bar Replay.
+- [Connect your broker](https://trader-cockpit.com/features/#brokers): 31 brokers connect to Trader Cockpit, and your account activity comes into your Journal.
+- [Your work stays on your PC](https://trader-cockpit.com/features/#save): Strategies, results, charts and data are saved in your own data folder.
+
+## Guides: start here
 
 - [In-Sample vs Out-of-Sample Backtesting](https://trader-cockpit.com/learn/concepts/out-of-sample.html): what counts as unseen data and how a holdout becomes part of the selection
 - [Monte Carlo Simulation for Trading Strategies](https://trader-cockpit.com/learn/concepts/monte-carlo.html): what reshuffling and resampling trades can test, and their limits
@@ -25,12 +41,13 @@ The guides are written by the Trader Cockpit team. Examples use synthetic data a
 
 - [Methods](https://trader-cockpit.com/methods/): assumptions and limits behind each calculation
 - [How-to guides](https://trader-cockpit.com/how-to/): reading backtest metrics, Monte Carlo results, staged validation and charts
-- [Examples](https://trader-cockpit.com/examples/): worked cases on synthetic data
+- [Examples](https://trader-cockpit.com/examples/): worked cases on made-up data, marked as such
 
 ## About
 
-- [Early access](https://trader-cockpit.com/updates/)
-- [Features](https://trader-cockpit.com/features/): what the app does today, shown from the real app on real market data
-- [Early access](https://trader-cockpit.com/early-access.html): join the list for the Windows app
-- [Pricing](https://trader-cockpit.com/pricing/): a Free plan with unlimited paper trading, and four monthly plans
-- [Trust and authorship](https://trader-cockpit.com/trust/)
+- [Features](https://trader-cockpit.com/features/): everything the app does, area by area
+- [Pricing](https://trader-cockpit.com/pricing/): a Free plan and four monthly plans; every paid plan includes every feature
+- [Community](https://trader-cockpit.com/community/): strategies with their rules and backtests, and open-source Pine indicators
+- [Get early access](https://trader-cockpit.com/early-access.html): join the list for the Windows app
+- [FAQ](https://trader-cockpit.com/support/faq.html)
+- [About Trader Cockpit](https://trader-cockpit.com/trust/)
