@@ -19,9 +19,33 @@
       "published": "2026-09-11",
       "modified": "2026-10-05"
     },
+    "how-to/backtest-a-strategy-without-code.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/backtest-pine-script-on-your-own-data.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/export-a-strategy-to-pine-script.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/import-price-data-from-csv.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
     "how-to/index.html": {
       "published": "2026-09-10",
       "modified": "2026-10-12"
+    },
+    "how-to/paper-trade-crypto-and-stocks.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/read-a-footprint-chart.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
     },
     "how-to/read-chart-evidence.html": {
       "published": "2026-09-10",
@@ -34,6 +58,22 @@
     "how-to/read-staged-validation.html": {
       "published": "2026-09-10",
       "modified": "2026-10-12"
+    },
+    "how-to/robustness-test-a-trading-strategy.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/test-a-strategy-against-prop-firm-rules.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/turn-a-trading-idea-into-a-strategy.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/walk-forward-test-a-strategy.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
     },
     "index.html": {
       "published": "2026-09-10",

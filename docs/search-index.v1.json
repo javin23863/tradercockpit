@@ -570,6 +570,156 @@
       ]
     },
     {
+      "id": "how-to.backtest-a-strategy-without-code",
+      "title": "How to Backtest a Trading Strategy Without Code",
+      "path": "how-to/backtest-a-strategy-without-code.html",
+      "kind": "how-to",
+      "summary": "Backtest without writing code: pick a market, set your real costs, let Builder search rule combinations, then read the trades before you trust a number.",
+      "terms": [
+        "backtest without coding",
+        "no code backtest",
+        "strategy builder",
+        "backtest a trading strategy",
+        "no-code"
+      ]
+    },
+    {
+      "id": "how-to.robustness-test-a-trading-strategy",
+      "title": "How to Robustness Test a Trading Strategy",
+      "path": "how-to/robustness-test-a-trading-strategy.html",
+      "kind": "how-to",
+      "summary": "Run a strategy through held-back dates, other markets, other timeframes, worse slippage and Monte Carlo, in order, and see exactly why the weak ones drop out.",
+      "terms": [
+        "robustness test",
+        "overfitting",
+        "curve fitting",
+        "out-of-sample",
+        "monte carlo",
+        "stress test a strategy",
+        "validation workflow"
+      ]
+    },
+    {
+      "id": "how-to.walk-forward-test-a-strategy",
+      "title": "How to Walk-Forward Test a Trading Strategy",
+      "path": "how-to/walk-forward-test-a-strategy.html",
+      "kind": "how-to",
+      "summary": "Walk-forward testing re-fits a strategy on one window and trades it on the next, over and over. How to set the windows, run it and read the score.",
+      "terms": [
+        "walk-forward analysis",
+        "walk forward optimization",
+        "walk-forward matrix",
+        "in-sample out-of-sample windows",
+        "walk forward test"
+      ]
+    },
+    {
+      "id": "how-to.backtest-pine-script-on-your-own-data",
+      "title": "How to Backtest a Pine Script Strategy on Your Own Data",
+      "path": "how-to/backtest-pine-script-on-your-own-data.html",
+      "kind": "how-to",
+      "summary": "Run a Pine v5 or v6 strategy on your own bars: import the data, paste the script, and read the Strategy Tester’s trade list. Lines that can’t run are listed.",
+      "terms": [
+        "pine script backtest",
+        "run pine script outside tradingview",
+        "pine strategy tester",
+        "pine on own data",
+        "pine script desktop"
+      ]
+    },
+    {
+      "id": "how-to.export-a-strategy-to-pine-script",
+      "title": "How to Export a Backtested Strategy to Pine Script",
+      "path": "how-to/export-a-strategy-to-pine-script.html",
+      "kind": "how-to",
+      "summary": "Take a strategy you built without code to TradingView: retest it on bar-close timing, export it as Pine Script v6, and know why a strategy is refused.",
+      "terms": [
+        "export strategy to pine script",
+        "pine script without coding",
+        "builder to tradingview",
+        "convert strategy to pine",
+        "pine v6 export"
+      ]
+    },
+    {
+      "id": "how-to.test-a-strategy-against-prop-firm-rules",
+      "title": "How to Test a Strategy Against Prop Firm Challenge Rules",
+      "path": "how-to/test-a-strategy-against-prop-firm-rules.html",
+      "kind": "how-to",
+      "summary": "Replay your backtested trades against a futures prop firm challenge: profit target, maximum loss, daily loss limit and days to pass, with a pass chance.",
+      "terms": [
+        "prop firm challenge",
+        "prop firm simulator",
+        "daily loss limit",
+        "trailing drawdown",
+        "funded account",
+        "pass a prop firm challenge"
+      ]
+    },
+    {
+      "id": "how-to.read-a-footprint-chart",
+      "title": "How to Read a Footprint Chart: Delta, Imbalance, Value Area",
+      "path": "how-to/read-a-footprint-chart.html",
+      "kind": "how-to",
+      "summary": "A footprint shows what traded at each price inside a bar, split into buying and selling. Turn one on for Bitcoin and other crypto and read it row by row.",
+      "terms": [
+        "footprint chart",
+        "order flow",
+        "delta",
+        "stacked imbalance",
+        "value area",
+        "point of control",
+        "bitcoin footprint"
+      ]
+    },
+    {
+      "id": "how-to.paper-trade-crypto-and-stocks",
+      "title": "How to Paper Trade Crypto and Stocks Without a Broker Account",
+      "path": "how-to/paper-trade-crypto-and-stocks.html",
+      "kind": "how-to",
+      "summary": "Practise on the chart with simulated money: market, limit and stop orders, take profit and stop loss, and a full account history. No broker account needed.",
+      "terms": [
+        "paper trading",
+        "paper trade crypto",
+        "paper trade stocks",
+        "trading simulator",
+        "demo trading",
+        "bar replay",
+        "practice trading"
+      ]
+    },
+    {
+      "id": "how-to.import-price-data-from-csv",
+      "title": "How to Import CSV Price Data for Backtesting",
+      "path": "how-to/import-price-data-from-csv.html",
+      "kind": "how-to",
+      "summary": "Bring your own price history into a backtest: CSV, TSV or a TradingView chart export, checked row by row, with the time zone set right before you save.",
+      "terms": [
+        "import csv",
+        "csv price data",
+        "historical data",
+        "tradingview export",
+        "own data backtest",
+        "time zone",
+        "free historical data"
+      ]
+    },
+    {
+      "id": "how-to.turn-a-trading-idea-into-a-strategy",
+      "title": "How to Turn a Trading Idea Into a Strategy You Can Test",
+      "path": "how-to/turn-a-trading-idea-into-a-strategy.html",
+      "kind": "how-to",
+      "summary": "Describe a trading idea in plain words and get a strategy you can backtest. Apollo drafts the rules and fills in the settings. You confirm every change.",
+      "terms": [
+        "ai strategy builder",
+        "trading idea to strategy",
+        "plain english backtest",
+        "apollo",
+        "ai pine script",
+        "idea to code"
+      ]
+    },
+    {
       "id": "support",
       "title": "Support",
       "path": "support/",

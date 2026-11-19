@@ -7,8 +7,13 @@ def community_pages():
     """Community pages are generated from docs/community/items.v1.json, so their rows follow the files."""
     return sorted(p.relative_to(DOCS).as_posix() for p in (DOCS/'community').rglob('index.html'))
 
+BASELINE_HOW_TO=frozenset({'index.html','read-chart-evidence.html','read-monte-carlo.html','read-result-metrics.html','read-staged-validation.html'})
+def guide_pages():
+    """How-to guides added after the baseline are plain files, so their rows follow the files too."""
+    return sorted('how-to/'+p.name for p in (DOCS/'how-to').glob('*.html') if p.name not in BASELINE_HOW_TO)
+
 # Pages added after the owner's 2026-09-18 visual approval; each waits for its own review.
-PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html','features/index.html','early-access.html',*community_pages()})
+PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html','features/index.html','early-access.html',*community_pages(),*guide_pages()})
 PENDING_AUDIT={'status':'pending_visual_review','visual_approval':False}
 
 def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None):
@@ -72,6 +77,14 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
         page=copy.deepcopy(features);page.update(path=path,route='/'+path.removesuffix('index.html'),title=title,reviewed_h1=h1,kind='landing')
         page['hierarchy'].update(focal_point=h1,primary_action='Open in Trader Cockpit' if path.count('/')==3 and '/authors/' not in path else 'Open a community item')
         page['intent'].update(primary_job='Study shared strategies, indicators and ideas, and open them in Trader Cockpit.',worst_mistake='Treating a shared backtest as a promise of results.')
+        page['audit']=dict(PENDING_AUDIT);data['pages'].append(page)
+    how_to=next((row for row in data['pages'] if row['path']=='how-to/read-monte-carlo.html'),None)
+    for path in guide_pages() if how_to is not None else []:
+        text=(DOCS/path).read_text(encoding='utf-8')
+        title=re.sub(r'<[^>]+>','',re.search(r'<title>(.*?)</title>',text,re.S)[1]);h1=re.sub(r'<[^>]+>','',re.search(r'<h1[^>]*>(.*?)</h1>',text,re.S)[1])
+        page=copy.deepcopy(how_to);page.update(path=path,route='/'+path,title=title,reviewed_h1=h1)
+        page['hierarchy']['focal_point']=h1
+        page['intent'].update(primary_job='Do one job in the Trader Cockpit app by following the steps, and know what the result should look like.',worst_mistake='Treating a backtest, a simulation or a paper trade as a promise of results.')
         page['audit']=dict(PENDING_AUDIT);data['pages'].append(page)
     data['page_count']=len(data['pages'])
     return data

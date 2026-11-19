@@ -27,6 +27,19 @@ The guides are written by the Trader Cockpit team. Examples use synthetic data a
 - [How-to guides](https://trader-cockpit.com/how-to/): reading backtest metrics, Monte Carlo results, staged validation and charts
 - [Examples](https://trader-cockpit.com/examples/): worked cases on synthetic data
 
+## How to do it in the app
+
+- [How to Backtest a Trading Strategy Without Code](https://trader-cockpit.com/how-to/backtest-a-strategy-without-code.html): Backtest without writing code: pick a market, set your real costs, let Builder search rule combinations, then read the trades before you trust a number.
+- [How to Robustness Test a Trading Strategy](https://trader-cockpit.com/how-to/robustness-test-a-trading-strategy.html): Run a strategy through held-back dates, other markets, other timeframes, worse slippage and Monte Carlo, in order, and see exactly why the weak ones drop out.
+- [How to Walk-Forward Test a Trading Strategy](https://trader-cockpit.com/how-to/walk-forward-test-a-strategy.html): Walk-forward testing re-fits a strategy on one window and trades it on the next, over and over. How to set the windows, run it and read the score.
+- [How to Backtest a Pine Script Strategy on Your Own Data](https://trader-cockpit.com/how-to/backtest-pine-script-on-your-own-data.html): Run a Pine v5 or v6 strategy on your own bars: import the data, paste the script, and read the Strategy Tester’s trade list. Lines that can’t run are listed.
+- [How to Export a Backtested Strategy to Pine Script](https://trader-cockpit.com/how-to/export-a-strategy-to-pine-script.html): Take a strategy you built without code to TradingView: retest it on bar-close timing, export it as Pine Script v6, and know why a strategy is refused.
+- [How to Test a Strategy Against Prop Firm Challenge Rules](https://trader-cockpit.com/how-to/test-a-strategy-against-prop-firm-rules.html): Replay your backtested trades against a futures prop firm challenge: profit target, maximum loss, daily loss limit and days to pass, with a pass chance.
+- [How to Read a Footprint Chart: Delta, Imbalance, Value Area](https://trader-cockpit.com/how-to/read-a-footprint-chart.html): A footprint shows what traded at each price inside a bar, split into buying and selling. Turn one on for Bitcoin and other crypto and read it row by row.
+- [How to Paper Trade Crypto and Stocks Without a Broker Account](https://trader-cockpit.com/how-to/paper-trade-crypto-and-stocks.html): Practise on the chart with simulated money: market, limit and stop orders, take profit and stop loss, and a full account history. No broker account needed.
+- [How to Import CSV Price Data for Backtesting](https://trader-cockpit.com/how-to/import-price-data-from-csv.html): Bring your own price history into a backtest: CSV, TSV or a TradingView chart export, checked row by row, with the time zone set right before you save.
+- [How to Turn a Trading Idea Into a Strategy You Can Test](https://trader-cockpit.com/how-to/turn-a-trading-idea-into-a-strategy.html): Describe a trading idea in plain words and get a strategy you can backtest. Apollo drafts the rules and fills in the settings. You confirm every change.
+
 ## About
 
 - [Early access](https://trader-cockpit.com/updates/)
