@@ -22,7 +22,7 @@
  },
  "how-to/index.html": {
   "title": "How-To Guides: Backtest, Stress-Test and Read a Strategy",
-  "description": "Step-by-step guides: backtest without code, robustness tests, Pine scripts on your own data, prop firm rules, footprint charts and paper trading.",
+  "description": "Step-by-step guides to reading a backtest: Monte Carlo results, validation reports, result metrics and chart evidence.",
   "h1": "How-to guides"
  },
  "methods/index.html": {

@@ -55,9 +55,9 @@
     "how-to/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
-      "after_sha256": "ca0aa8eb6350994560868d8a81f587d5eddcd574a7713c2d335ed2eb8f627d71",
+      "after_sha256": "f5b67d453f948fad37178dc015e516ebfc2e66172f7ef3ca2948b025b3b610bf",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
-      "corrected_unwrapped_sha256": "61da7e94e2de533da88cdaab6c58bfffde9b0fd9aef4d986fe6ff564f80d4807"
+      "corrected_unwrapped_sha256": "7a8a86f0afb1f8fb73bc51af8e39a0a876546a109bf8dcdc2ea59ef360f27e53"
     },
     "how-to/read-chart-evidence.html": {
       "kind": "corrected_reading_shell",
@@ -325,7 +325,7 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "d2022684cc5f09e738965b0dba70ac55d710839a4673c87774da3c5303d95829",
+      "after_sha256": "031e279098ed56217e395a3e352e0eab46839a49e9d54b7764aedd632bf7dfdd",
       "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "sitemap.xml": {

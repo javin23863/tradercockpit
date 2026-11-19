@@ -7,7 +7,7 @@
       "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
       "path": "learn/concepts/monte-carlo.html",
       "kind": "concept",
-      "summary": "Monte Carlo synthetic path distributions that illustrate sequence uncertainty rather than a single outcome.",
+      "summary": "Learn what Monte Carlo trade reshuffling and resampling can test, how to interpret simulated drawdowns, and why simulation does not prove a trading edge.",
       "terms": [
         "monte carlo",
         "bootstrap",
@@ -22,7 +22,7 @@
       "title": "In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage",
       "path": "learn/concepts/out-of-sample.html",
       "kind": "concept",
-      "summary": "Why evaluation data should be separated from development and selection decisions.",
+      "summary": "Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.",
       "terms": [
         "holdout",
         "information boundary",
@@ -35,10 +35,10 @@
     },
     {
       "id": "research.walk-forward",
-      "title": "Walk-forward analysis",
+      "title": "Walk-forward analysis for trading strategies",
       "path": "learn/concepts/walk-forward.html",
       "kind": "concept",
-      "summary": "Time-aware repeated training and evaluation windows.",
+      "summary": "Walk-forward analysis re-fits a strategy on one window and tests it on the next, again and again. What it shows, and what it can't.",
       "terms": [
         "anchored window",
         "fold",
@@ -52,10 +52,10 @@
     },
     {
       "id": "research.parameter-robustness",
-      "title": "Parameter robustness",
+      "title": "Parameter robustness: how sensitive is a strategy?",
       "path": "learn/concepts/parameter-robustness.html",
       "kind": "concept",
-      "summary": "Inspect whether behavior persists across a parameter neighborhood rather than a single point.",
+      "summary": "A strategy that only works at one exact setting is fragile. How to read a parameter map and tell a plateau from a spike.",
       "terms": [
         "surface",
         "plateau",
@@ -65,10 +65,10 @@
     },
     {
       "id": "research.drawdown",
-      "title": "Drawdown",
+      "title": "Drawdown in trading: depth, duration and recovery",
       "path": "learn/concepts/drawdown.html",
       "kind": "concept",
-      "summary": "Path-dependent decline from a prior peak, including depth, duration, and recovery context.",
+      "summary": "Drawdown is the fall from an equity peak. How to read its depth, how long it lasted and how long recovery took.",
       "terms": [
         "drawdown valley",
         "peak to trough",
@@ -81,10 +81,10 @@
     },
     {
       "id": "research.correlation",
-      "title": "Correlation and diversification",
+      "title": "Correlation and diversification across strategies",
       "path": "learn/concepts/correlation-diversification.html",
       "kind": "concept",
-      "summary": "Co-movement, clustering, dependence, and why historical correlation is conditional.",
+      "summary": "Ten strategies that lose together are one strategy. How to read correlation across strategies before you combine them.",
       "terms": [
         "network",
         "diversification",
@@ -94,10 +94,10 @@
     },
     {
       "id": "research.selection-bias",
-      "title": "Selection bias and multiple testing",
+      "title": "Selection bias and multiple testing in backtests",
       "path": "learn/concepts/selection-bias.html",
       "kind": "concept",
-      "summary": "Why searching many candidates changes how the selected result should be interpreted.",
+      "summary": "Test enough strategies and one will look great by luck. Why the best of a large search needs a harder test.",
       "terms": [
         "best of many",
         "candidate family",
@@ -137,10 +137,10 @@
     },
     {
       "id": "learn",
-      "title": "Learn",
+      "title": "Learn to test a strategy honestly.",
       "path": "learn/",
       "kind": "learning",
-      "summary": "Structured paths connecting concepts, methods, workflows, and reference material.",
+      "summary": "Free guides to what a backtest can and cannot tell you: out-of-sample testing, Monte Carlo, walk-forward, drawdown and selection bias.",
       "terms": [
         "academy",
         "curriculum",
@@ -150,10 +150,10 @@
     },
     {
       "id": "how-to",
-      "title": "How-Tos and Academy",
+      "title": "How-to guides",
       "path": "how-to/",
       "kind": "how-to",
-      "summary": "Task-focused lessons with written steps, troubleshooting, concepts, and optional video.",
+      "summary": "Step-by-step guides to reading a backtest: Monte Carlo results, validation reports, result metrics and chart evidence.",
       "terms": [
         "tutorial",
         "video",
@@ -167,7 +167,7 @@
       "title": "Documentation",
       "path": "docs/",
       "kind": "reference",
-      "summary": "The public entry point for exact product reference and contextual help.",
+      "summary": "Where to find each answer: guides, methods, how-tos, examples and help for the Windows app.",
       "terms": [
         "docs",
         "reference",
@@ -191,10 +191,10 @@
     },
     {
       "id": "methods",
-      "title": "Research Methods",
+      "title": "Methods: what each test can and cannot tell you",
       "path": "methods/",
       "kind": "method",
-      "summary": "Plain-language explanations of quantitative research assumptions, limitations, and interpretation.",
+      "summary": "What each test assumes and where it stops: Monte Carlo, validation stages, result metrics and chart evidence, in plain language.",
       "terms": [
         "methodology",
         "math",
@@ -204,10 +204,10 @@
     },
     {
       "id": "examples",
-      "title": "Research Examples",
+      "title": "Worked examples",
       "path": "examples/",
       "kind": "example",
-      "summary": "Public-safe end-to-end research stories using synthetic or explicitly publishable evidence.",
+      "summary": "Worked examples that follow one research question from the first result to its limits.",
       "terms": [
         "case study",
         "example",
@@ -216,10 +216,10 @@
     },
     {
       "id": "updates",
-      "title": "Updates",
+      "title": "Trader Cockpit updates",
       "path": "updates/",
       "kind": "updates",
-      "summary": "Public release and availability updates.",
+      "summary": "What's new in Trader Cockpit.",
       "terms": [
         "release notes",
         "status",
@@ -228,10 +228,10 @@
     },
     {
       "id": "research.distribution-shape",
-      "title": "Distribution shape explorer",
+      "title": "Return distribution shape: skew and fat tails",
       "path": "learn/concepts/distribution-shape.html",
       "kind": "concept",
-      "summary": "Compare symmetric, skewed, and heavy-tail synthetic distributions and inspect lower-tail thresholds.",
+      "summary": "An average hides the shape. How skew and fat tails change what a strategy's results mean.",
       "terms": [
         "distribution",
         "histogram",
@@ -243,10 +243,10 @@
     },
     {
       "id": "method.monte-carlo",
-      "title": "Monte Carlo Simulation for Trading Strategies: Uses and Limitations",
+      "title": "Monte Carlo method for backtests",
       "path": "methods/monte-carlo.html",
       "kind": "method",
-      "summary": "Procedure, assumptions, interpretation, and failure modes for Monte Carlo and resampling research.",
+      "summary": "How Monte Carlo resampling works on a backtest, what each variant assumes, and the mistakes that make it meaningless.",
       "terms": [
         "monte carlo method",
         "block bootstrap",
@@ -260,7 +260,7 @@
       "title": "How to read a Monte Carlo result",
       "path": "how-to/read-monte-carlo.html",
       "kind": "how-to",
-      "summary": "A task-focused sequence for interpreting a Monte Carlo distribution without treating a percentile as a forecast.",
+      "summary": "Read a Monte Carlo result in seven steps: name what was shuffled, read the whole spread, and don't treat a percentile as a forecast.",
       "terms": [
         "read monte carlo",
         "interpret percentile",
@@ -271,10 +271,10 @@
     },
     {
       "id": "help.resolver",
-      "title": "Open contextual help",
+      "title": "Opening your help topic",
       "path": "help.html",
       "kind": "reference",
-      "summary": "Go directly from an in-app help link to the matching Concept, Method, How-To, or reference page.",
+      "summary": "Open the Trader Cockpit help topic that matches what you are viewing in the app.",
       "terms": [
         "what is this",
         "help id",
@@ -285,10 +285,10 @@
     },
     {
       "id": "example.holdout-selection",
-      "title": "Synthetic holdout selection example",
+      "title": "Example: when the best backtest meets unseen data",
       "path": "examples/holdout-selection.html",
       "kind": "example",
-      "summary": "An end-to-end synthetic research story connecting selection, preserved holdout evidence, walk-forward checks, Monte Carlo interpretation, limitations, and next questions.",
+      "summary": "A worked example: 256 candidates, one winner, and what happens when the winner meets data it never saw.",
       "terms": [
         "research example",
         "holdout",
@@ -301,10 +301,10 @@
     },
     {
       "id": "research.regime-map",
-      "title": "Market regimes as coordinates",
+      "title": "Market regimes in strategy testing",
       "path": "learn/concepts/regime-map.html",
       "kind": "concept",
-      "summary": "A synthetic 3D market-state cube using direction, volatility, and liquidity-stress coordinates.",
+      "summary": "A regime is a measured market state, not a label added afterwards. How to use regimes when you test a strategy.",
       "terms": [
         "regime",
         "regime map",
@@ -370,10 +370,10 @@
     },
     {
       "id": "validation-foundations",
-      "title": "Validation foundations",
+      "title": "Strategy validation: a chain of decisions",
       "path": "methods/validation-foundations.html",
       "kind": "method",
-      "summary": "Acceptance conditions, calendar-year consistency, and evidence records as separate validation controls.",
+      "summary": "Strategy validation basics: acceptance conditions, higher-precision retesting, calendar-year consistency and keeping a clear record of what was tested.",
       "terms": [
         "validation foundations",
         "acceptance criteria",
@@ -453,10 +453,10 @@
     },
     {
       "id": "how-to.read-staged-validation",
-      "title": "How to read a staged validation chain",
+      "title": "How to read a strategy validation report",
       "path": "how-to/read-staged-validation.html",
       "kind": "how-to",
-      "summary": "A task-focused guide for interpreting a multi-stage validation process without treating stage count as proof.",
+      "summary": "Read a staged validation result stage by stage, so one passing check doesn't become \"robust\".",
       "terms": [
         "staged validation",
         "validation funnel",
@@ -474,7 +474,7 @@
       "title": "How to read backtest metrics together",
       "path": "how-to/read-result-metrics.html",
       "kind": "how-to",
-      "summary": "A task guide for interpreting result metrics together with sample, units, costs, trade count, path, and selection context.",
+      "summary": "Read net profit, profit factor, expectancy, return/drawdown and sample size together, without shopping for the best-looking number.",
       "terms": [
         "backtest metrics",
         "net profit",
@@ -492,7 +492,7 @@
       "path": "methods/chart-evidence.html#ohlc-bars",
       "title": "OHLC bars",
       "kind": "method",
-      "summary": "Product-neutral interpretation guidance for OHLC bars.",
+      "summary": "How to read OHLC bars.",
       "terms": [
         "ohlc",
         "candlestick",
@@ -505,7 +505,7 @@
       "path": "methods/chart-evidence.html#profile-tpo",
       "title": "Volume Profile and TPO",
       "kind": "method",
-      "summary": "Product-neutral interpretation guidance for Volume Profile and TPO.",
+      "summary": "How to read Volume Profile and TPO.",
       "terms": [
         "volume profile",
         "tpo",
@@ -518,7 +518,7 @@
       "path": "methods/chart-evidence.html#historical-replay",
       "title": "Historical replay",
       "kind": "method",
-      "summary": "Product-neutral interpretation guidance for Historical replay.",
+      "summary": "How to read Historical replay.",
       "terms": [
         "historical replay",
         "chart replay",
@@ -531,7 +531,7 @@
       "title": "How to read chart evidence",
       "path": "how-to/read-chart-evidence.html",
       "kind": "how-to",
-      "summary": "A task guide for reading OHLC bars, profiles, events, and replay while preserving source and information context.",
+      "summary": "Read OHLC bars, volume profile, TPO and bar replay in order: the source first, the shape second.",
       "terms": [
         "chart evidence",
         "ohlc bars",
@@ -544,10 +544,10 @@
     },
     {
       "id": "support",
-      "title": "Support",
+      "title": "How can we help?",
       "path": "support/",
       "kind": "support",
-      "summary": "Find the right route for exact documentation, task guidance, research explanations, troubleshooting, and current product status.",
+      "summary": "Help with Trader Cockpit: guides, FAQ and how to reach us.",
       "terms": [
         "support",
         "help",
@@ -560,10 +560,10 @@
     },
     {
       "id": "trust",
-      "title": "Trust",
+      "title": "About Trader Cockpit",
       "path": "trust/",
       "kind": "trust",
-      "summary": "How Trader Cockpit separates evidence records, synthetic examples, product availability, and research interpretation.",
+      "summary": "Who makes Trader Cockpit, how our guides are written and how to reach us.",
       "terms": [
         "trust",
         "evidence",
@@ -576,10 +576,10 @@
     },
     {
       "id": "learn.glossary",
-      "title": "Research Glossary",
+      "title": "Backtesting glossary",
       "path": "learn/glossary.html",
       "kind": "learn",
-      "summary": "Linked quantitative-research vocabulary for concepts, methods, metrics, chart evidence, validation, and uncertainty.",
+      "summary": "Backtesting and strategy-testing terms in plain language, each linked to its full guide.",
       "terms": [
         "glossary",
         "research terms",
@@ -595,10 +595,10 @@
     },
     {
       "id": "support.faq",
-      "title": "Frequently Asked Questions",
+      "title": "Trader Cockpit FAQ",
       "path": "support/faq.html",
       "kind": "support",
-      "summary": "Short public answers about product status, research examples, documentation, video privacy, and evidence interpretation.",
+      "summary": "Answers about Trader Cockpit: what it does, what it runs on, plans, data and how to read a result.",
       "terms": [
         "faq",
         "frequently asked questions",
@@ -615,10 +615,10 @@
     },
     {
       "id": "learn.start-here",
-      "title": "Start Here",
+      "title": "How to judge a backtest: start here",
       "path": "learn/start-here.html",
       "kind": "learn",
-      "summary": "Research-first orientation to questions, information boundaries, metrics, uncertainty, robustness, selection, and evidence identity.",
+      "summary": "The order to ask questions of any backtest: the claim, the sample, the metrics, the uncertainty, and what was tried before it.",
       "terms": [
         "start here",
         "research foundations",
@@ -634,10 +634,10 @@
     },
     {
       "id": "example.replay-boundary",
-      "title": "Synthetic historical replay boundary",
+      "title": "Example: bar replay and look-ahead",
       "path": "examples/replay-boundary.html",
       "kind": "example",
-      "summary": "Interactive synthetic example comparing information-safe replay with an explicitly leaky future-information view.",
+      "summary": "A worked example of what must disappear from a chart when you move a replay cut-off back in time.",
       "terms": [
         "historical replay",
         "replay cutoff",
@@ -649,10 +649,10 @@
     },
     {
       "id": "reference.site-privacy",
-      "title": "Privacy notice",
+      "title": "Your privacy at Trader Cockpit",
       "path": "trust/privacy.html",
       "kind": "reference",
-      "summary": "What the website, Windows app and account service collect: site analytics and YouTube boundaries, sign-in, product key, Apollo, broker connections, payments, and data kept on your PC.",
+      "summary": "What the Trader Cockpit website, Windows app and account service collect, where it goes, and the choices you have.",
       "terms": [
         "account",
         "cookies",
@@ -675,7 +675,7 @@
       "title": "Terms of use",
       "path": "trust/terms.html",
       "kind": "reference",
-      "summary": "Plain-language terms for the website, Windows app and account service: not financial advice, you confirm every order, broker connections, and simulations are simulated.",
+      "summary": "Terms of use for the Trader Cockpit website, Windows app and account service: not financial advice, your trades are yours, and simulations are simulated.",
       "terms": [
         "terms of use",
         "terms",
@@ -692,10 +692,10 @@
     },
     {
       "id": "learn.videos",
-      "title": "Video Lessons",
+      "title": "Video lessons",
       "path": "learn/videos.html",
       "kind": "learn",
-      "summary": "Six long-form Trader Cockpit research lessons plus published YouTube playlists, with an optional click-to-load player.",
+      "summary": "Short video lessons on backtesting and strategy testing, each paired with a written guide.",
       "terms": [
         "video lessons",
         "youtube",
@@ -710,10 +710,10 @@
     },
     {
       "id": "commerce.pricing",
-      "title": "Pricing & Access",
+      "title": "A Free plan and four monthly plans.",
       "path": "pricing/",
       "kind": "reference",
-      "summary": "Current monthly Trader Cockpit billing record, public availability state, and checkout readiness.",
+      "summary": "A Free plan with unlimited paper trading, and four monthly plans from $19.99. Every paid plan includes every feature.",
       "terms": [
         "pricing",
         "price",
@@ -727,10 +727,10 @@
     },
     {
       "id": "product.features",
-      "title": "Features",
+      "title": "Everything Trader Cockpit does.",
       "path": "features/",
       "kind": "reference",
-      "summary": "What Trader Cockpit does today, shown from the real app on real market data.",
+      "summary": "Everything in the app: no-code Strategy Builder, robustness workflows, results with a plain verdict, charts, footprint and profiles, Pine scripts, paper trading.",
       "terms": [
         "features",
         "builder",
@@ -743,10 +743,10 @@
     },
     {
       "id": "product.early-access",
-      "title": "Early access",
+      "title": "Get early access",
       "path": "early-access.html",
       "kind": "reference",
-      "summary": "Join the early access list for the Trader Cockpit Windows app.",
+      "summary": "Join the Trader Cockpit early access list and hear when the Windows app opens.",
       "terms": [
         "early access",
         "waitlist",

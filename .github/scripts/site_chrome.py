@@ -134,7 +134,19 @@ def build():
         if 'http-equiv="refresh"' in html:continue
         if rel in HUBS:html=re.sub(r'<main\b.*?</main>',lambda m:hub_main(rel),html,count=1,flags=re.S)
         out[rel]=apply(html,rel)
+    out['search-index.v1.json']=search_index()
     return out
+
+def search_index():
+    """Search results show each page's own h1 and description, so they can't drift from the page."""
+    data=json.loads(read(DOCS/'search-index.v1.json'))
+    for entry in data['entries']:
+        path=entry['path']
+        if '#' in path:
+            entry['summary']=re.sub(r'^Product-neutral interpretation guidance for (.*)\.$',r'How to read \1.',entry['summary']);continue
+        page=DOCS/(path+'index.html' if path.endswith('/') or not path else path)
+        if page.is_file():entry['title'],entry['summary']=page_line(page)
+    return json.dumps(data,indent=2,ensure_ascii=False)+'\n'
 
 def main():
     check='--check' in sys.argv;stale=[]
