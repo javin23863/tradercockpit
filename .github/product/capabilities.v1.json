@@ -16,15 +16,21 @@
       ],
       "shots": [
         {
-          "src": "assets/features/run-hero.webp",
-          "alt": "A Builder search on GBPUSD hourly bars: 1,626 strategies built and backtested, 66 passed the filters, 1,560 dropped",
-          "w": 882,
-          "h": 250,
+          "src": "assets/features/run-search.webp",
+          "alt": "A 10-minute Builder search on SOL/USD hourly bars: 13,389 tried, 34 passed the filters, 13,355 dropped, 79,855 tried per hour, 45 ms per strategy",
+          "w": 1129,
+          "h": 132,
           "phone": {
-            "src": "assets/features/run-phone.webp",
-            "w": 592,
-            "h": 247
+            "src": "assets/features/run-hero.webp",
+            "w": 677,
+            "h": 132
           }
+        },
+        {
+          "src": "assets/features/run-reasons.webp",
+          "alt": "Why strategies were dropped: profit factor under 1.3, no trades, the initial filters, too few trades a month, return over drawdown",
+          "w": 640,
+          "h": 117
         },
         {
           "src": "assets/features/builder-setup.webp",
@@ -35,17 +41,6 @@
             "src": "assets/features/builder-phone.webp",
             "w": 505,
             "h": 370
-          }
-        },
-        {
-          "src": "assets/features/run-search.webp",
-          "alt": "The search’s figures: tried, passed the filters, dropped, tried per hour and time per strategy",
-          "w": 1480,
-          "h": 250,
-          "phone": {
-            "src": "assets/features/run-phone.webp",
-            "w": 592,
-            "h": 247
           }
         }
       ]
@@ -515,12 +510,7 @@
     }
   ],
   "proofRun": {
-    "market": "six years of GBPUSD hourly bars",
-    "tried": "1,626",
-    "kept": "66",
-    "time": "2:41",
-    "perStrategy": "98 ms",
-    "caption": "A Builder search on six years of GBPUSD hourly bars, 2 minutes 41 seconds in: 1,626 strategies built and backtested, 66 kept, 1,560 dropped with their reasons."
+    "caption": "A 10-minute Builder search on a year of SOL/USD hourly bars: 13,389 strategies built and backtested, 34 kept, and the reasons the other 13,355 were dropped."
   },
   "homeStage": [
     {
@@ -536,18 +526,6 @@
       }
     },
     {
-      "label": "Strategy search",
-      "src": "assets/features/run-full.webp",
-      "alt": "Builder searching GBPUSD hourly bars: 1,626 strategies built and backtested and 66 kept after 2 minutes 41 seconds",
-      "w": 1800,
-      "h": 938,
-      "phone": {
-        "src": "assets/features/run-phone.webp",
-        "w": 592,
-        "h": 247
-      }
-    },
-    {
       "label": "Results",
       "src": "assets/features/verdict.webp",
       "alt": "A strategy verdict: grade C, “Mixed: test it more before you trade it”, with the checks behind it",
@@ -558,6 +536,13 @@
         "w": 438,
         "h": 128
       }
+    },
+    {
+      "label": "Paper trading",
+      "src": "assets/features/paper-crop.webp",
+      "alt": "A BTC/USD chart with the paper order ticket: bid, ask, market, limit and stop orders",
+      "w": 1135,
+      "h": 650
     },
     {
       "label": "Order flow",
@@ -574,7 +559,8 @@
   ],
   "facts": {
     "communityIndicators": "nearly 1,000",
-    "financeMethods": "more than 50"
+    "financeMethods": "more than 50",
+    "unmetered": "Searches and backtests run on your PC with no count or credit limit on any paid plan. A workflow set to repeat stops after an hour."
   },
   "communityPicture": "community/img/063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413.png"
 }

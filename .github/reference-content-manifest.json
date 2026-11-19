@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "da9ffba87c49fabac49343654dc8561d05512ddd49f18d6947ac32a93f0e0021",
+  "home_sha256": "bca4da832594fb830e01a647f23627fbfacea3c3b46acde015beb963c6adbf3b",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -216,9 +216,9 @@
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "0e878d3c2a3e637e980acb810827001504e0af51060004fa09912e3d291f8c78",
+      "corrected_unwrapped_sha256": "ef13e52ad8d5d09328a945b1a5b5967c691d5cb82aff3366ddbaef1558756817",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba Broker section: orders from the chart lists what is proven Market data: no exchange account Paper trading: no broker account Orders from the chart names supported brokers; which are tested Community tab 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Features and Pricing headers shortened; the legal line stays in the footer. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
-      "after_sha256": "ba9685c57ab79b07c2a52081e2107b10e88cb2de3143445f9290cbcadf0314ed"
+      "after_sha256": "271040831cfdef8bdc4d2ef43daebf10d9e81036ecec4b446460ad1307171ef2"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
@@ -237,9 +237,9 @@
     "support/faq.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
-      "after_sha256": "905db5383b3418255a01a4cfa3edc8ed5354bf3aaa87caa1e57460a82a8429ec",
+      "after_sha256": "99126ee44d71bcf70e4ea25b4145f815aced13de0b91862c70f3aa2b216794cf",
       "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
-      "corrected_unwrapped_sha256": "f138488334f965ae2a55744f4d6ddc6e76806af6943e8172fd5a06d3b614d98e"
+      "corrected_unwrapped_sha256": "5dab1801e9eda83e6df4672747ca90cb962c7e559510e682f22a80210bceadcd"
     },
     "support/index.html": {
       "kind": "corrected_reading_shell",
@@ -352,7 +352,7 @@
     "assets/social/tradercockpit-card.png": "6c706f67a589c7c670b3ede65dc41b7a32726f206f69b82f3da6207b61b69065",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "280ab349fc2da7cdd93070b67a868044cc034a09d5b06223aeeeefba95534568",
-    "features/index.html": "2914512b32605f5f47005a92623576e5ed9ed0ab4df03313a3f1b50357708d88",
+    "features/index.html": "abbd941180a941e126f1146f5d01335a2d7446a982e4e22f0a829fa8f3af0b99",
     "early-access.html": "d04eab390147ffc0660864920ca989d9901ba3374f8e1e4e1c026ebad8c6888a",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
@@ -389,9 +389,7 @@
     "assets/help-resolver.js": "2ac3d825bec3e26b1fbaa922830f69700706308bac4f499d3d1274a613df7cc2",
     "assets/features/charts.webp": "2336bd82d449d80e97c8fc9cb1a3aba2911f6e18dcf41808bbdd9af502557487",
     "assets/features/charts-multi.webp": "0d31fc76333c3e50337175391c5aa99cb78022df1d7e612c77a15aa5caee4b7e",
-    "assets/features/run-full.webp": "d2eedb9dc71107debf0555d155e3fb626874b257136293eaca8c12ff228c548f",
-    "assets/features/run-search.webp": "8db6e819ac940f927f7409902f13af7454473461d24d6c5077d6c85e80335256",
-    "assets/features/run-phone.webp": "dd33a501c4c5a6431cf813d3b1ad2ccc3a8ea87370d62d40ef162783067dee14",
+    "assets/features/run-search.webp": "8ac1485f85066bd06acd170c11e96ef9fa96f7c56bc8316f0ef0ad5273ea1913",
     "assets/features/stress-tests.webp": "cd458d555d64c4b47b645506436bd244637bc50f03cd15564da9f4598fd1815b",
     "assets/features/stress-phone.webp": "294ab0ad0c869da211d26c558648b352f5179bd6699e37d5323285691e14cf4e",
     "assets/features/workflow-steps.webp": "6ec09fe6dca52fd7c91eac93126298f38edd5924a1ad93c5f6b222b18fc4864e",
@@ -407,7 +405,7 @@
     "community/strategies/bottom-of-the-10-day-range/index.html": "33e4189e075b970d94afe1b2093902bd4311833fb2cfbb09c13f7c836e3a3b5d",
     "community/strategies/seven-day-low-in-an-uptrend/index.html": "d0c7a047f40a320bb637ffeedb9112caeed445a648998ca79980c6e19b587b37",
     "community/strategies/sharp-drop-rebound/index.html": "aefbf182f5c1a7eb64181f64d55a36d8b7d6dd8ead306307a27e096228d3939c",
-    "assets/features/run-hero.webp": "86e613089951111def8636999ac6b405f78b8ee49934886b4a04a844dd4846c3",
+    "assets/features/run-hero.webp": "7952390b09103f928f67ef0cdb7e35ec3306489a2d9ce072f48a61f25a6d134b",
     "assets/features/journal-crop.webp": "61ad9fc94e1472c16d504a8f9701f7d07d3edb725f25b816dfb65b5a11f180ad",
     "assets/features/paper-crop.webp": "c0736cd4073a05865f2d645336121d4cc1d295a215171f046b66e95b09381972",
     "assets/features/footprint-crop.webp": "5c69d0f0524c1349d3f2e85be6e95ad197f59b67b1923767130537263d7a8725",
@@ -417,7 +415,8 @@
     "assets/features/alerts-crop.webp": "149e83b65d7c087514c257a02ab3331512bd4381b98416d73812377b92760246",
     "assets/features/drawings-crop.webp": "e84a3964c94b0c6685463d3f77e4672eb62ed3b2773968fbd8ddb5be4695947b",
     "assets/features/builder-setup.webp": "1ad9c54f0046ddb1e28d1ebd4b9fe201f5b301ae1bb16f6ac2c9c06133dce2c2",
-    "assets/features/builder-phone.webp": "3638ece6ee8c891207cccf1d66ad7f0cfcf4b5ba66c78a52fdd387955df25a76"
+    "assets/features/builder-phone.webp": "3638ece6ee8c891207cccf1d66ad7f0cfcf4b5ba66c78a52fdd387955df25a76",
+    "assets/features/run-reasons.webp": "d0a608397dcbd5fcd53f20a511eb57ac2fac5d74715ea496352f82aeae6958a7"
   },
   "removed_files": [
     "assets/faq-status.mjs",
@@ -431,6 +430,8 @@
     "assets/features/journal.webp",
     "assets/features/paper.webp",
     "assets/features/results.webp",
+    "assets/features/run-full.webp",
+    "assets/features/run-phone.webp",
     "assets/features/workflows.webp",
     "assets/generated/research-vtk-v1.LICENSE.txt",
     "assets/generated/research-vtk-v1.PROVENANCE.json",
