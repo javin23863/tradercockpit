@@ -327,6 +327,76 @@
       "status": "public"
     },
     {
+      "id": "how-to.practise-trading-with-bar-replay",
+      "kind": "how-to",
+      "path": "how-to/practise-trading-with-bar-replay.html",
+      "title": "Bar Replay: Practise on Historical Data",
+      "status": "public"
+    },
+    {
+      "id": "how-to.volume-profile-vs-tpo-market-profile",
+      "kind": "how-to",
+      "path": "how-to/volume-profile-vs-tpo-market-profile.html",
+      "title": "Volume Profile vs TPO Market Profile",
+      "status": "public"
+    },
+    {
+      "id": "how-to.add-open-source-pine-indicators-to-a-chart",
+      "kind": "how-to",
+      "path": "how-to/add-open-source-pine-indicators-to-a-chart.html",
+      "title": "How to Add Open-Source Pine Indicators",
+      "status": "public"
+    },
+    {
+      "id": "how-to.download-free-crypto-historical-data",
+      "kind": "how-to",
+      "path": "how-to/download-free-crypto-historical-data.html",
+      "title": "How to Download Free Crypto Historical Data",
+      "status": "public"
+    },
+    {
+      "id": "how-to.read-an-order-book-heatmap",
+      "kind": "how-to",
+      "path": "how-to/read-an-order-book-heatmap.html",
+      "title": "How to Read an Order Book Heatmap",
+      "status": "public"
+    },
+    {
+      "id": "how-to.cumulative-volume-delta-explained",
+      "kind": "how-to",
+      "path": "how-to/cumulative-volume-delta-explained.html",
+      "title": "Cumulative Volume Delta (CVD) Explained",
+      "status": "public"
+    },
+    {
+      "id": "how-to.build-a-portfolio-of-trading-strategies",
+      "kind": "how-to",
+      "path": "how-to/build-a-portfolio-of-trading-strategies.html",
+      "title": "How to Build a Portfolio of Trading Strategies",
+      "status": "public"
+    },
+    {
+      "id": "how-to.keep-a-trading-journal",
+      "kind": "how-to",
+      "path": "how-to/keep-a-trading-journal.html",
+      "title": "How to Keep a Trading Journal",
+      "status": "public"
+    },
+    {
+      "id": "how-to.genetic-algorithm-strategy-search",
+      "kind": "how-to",
+      "path": "how-to/genetic-algorithm-strategy-search.html",
+      "title": "How to Run a Genetic Algorithm Strategy Search",
+      "status": "public"
+    },
+    {
+      "id": "how-to.set-commission-spread-and-slippage",
+      "kind": "how-to",
+      "path": "how-to/set-commission-spread-and-slippage.html",
+      "title": "Commission, Spread and Slippage in a Backtest",
+      "status": "public"
+    },
+    {
       "id": "support",
       "kind": "landing",
       "path": "support/",

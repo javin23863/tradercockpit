@@ -19,6 +19,10 @@
       "published": "2026-09-11",
       "modified": "2026-10-05"
     },
+    "how-to/add-open-source-pine-indicators-to-a-chart.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
     "how-to/backtest-a-strategy-without-code.html": {
       "published": "2026-11-19",
       "modified": "2026-11-19"
@@ -27,7 +31,23 @@
       "published": "2026-11-19",
       "modified": "2026-11-19"
     },
+    "how-to/build-a-portfolio-of-trading-strategies.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/cumulative-volume-delta-explained.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/download-free-crypto-historical-data.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
     "how-to/export-a-strategy-to-pine-script.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/genetic-algorithm-strategy-search.html": {
       "published": "2026-11-19",
       "modified": "2026-11-19"
     },
@@ -39,11 +59,23 @@
       "published": "2026-09-10",
       "modified": "2026-10-12"
     },
+    "how-to/keep-a-trading-journal.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
     "how-to/paper-trade-crypto.html": {
       "published": "2026-11-19",
       "modified": "2026-11-19"
     },
+    "how-to/practise-trading-with-bar-replay.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
     "how-to/read-a-footprint-chart.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/read-an-order-book-heatmap.html": {
       "published": "2026-11-19",
       "modified": "2026-11-19"
     },
@@ -63,11 +95,19 @@
       "published": "2026-11-19",
       "modified": "2026-11-19"
     },
+    "how-to/set-commission-spread-and-slippage.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
     "how-to/test-a-strategy-against-prop-firm-rules.html": {
       "published": "2026-11-19",
       "modified": "2026-11-19"
     },
     "how-to/turn-a-trading-idea-into-a-strategy.html": {
+      "published": "2026-11-19",
+      "modified": "2026-11-19"
+    },
+    "how-to/volume-profile-vs-tpo-market-profile.html": {
       "published": "2026-11-19",
       "modified": "2026-11-19"
     },
