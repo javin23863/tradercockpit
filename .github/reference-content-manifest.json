@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "c0e746502c09be82357d208b468dbf20174dd0036c8dc37a7897b912ed38ba0b",
+  "home_sha256": "f6f5e54c2498fe4ddf82d61672164023817b5d966844a64c1362b8c8cf16bd2c",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -384,7 +384,7 @@
     "community/indicators/vaultfy-sentiment-apex/index.html": "607dc80e41fbe9d2459e6411ce2bf11d99142c427827122822a0e9e3ffee68d6",
     "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "83e0a85a83b5b1244103c494a45b92e709293629258cab1dfe1431745afa5ec9",
     "community/indicators/volume-analysis-fixed-range/index.html": "59d3f3550076d438ec1c5cb4e4fa23f64277730cd109f31f61f6fa7b7aed4bc4",
-    "assets/site.css": "6ce64b9067e7b92bdf689de921d50ab070924d8fb52bf4386f9b19f62912f5ac",
+    "assets/site.css": "4bfbbfe18f2eb2d55d360aa97b657dc69c4d5149253dd852ee94f496ec92ae3c",
     "assets/replay-boundary-example.css": "09e1a823f7968719898c1923d36061e201038d0e786294d1055c7bf21dd11bd6",
     "assets/help-resolver.js": "2ac3d825bec3e26b1fbaa922830f69700706308bac4f499d3d1274a613df7cc2",
     "assets/features/charts.webp": "2336bd82d449d80e97c8fc9cb1a3aba2911f6e18dcf41808bbdd9af502557487",
@@ -414,7 +414,9 @@
     "assets/features/drawings-crop.webp": "e84a3964c94b0c6685463d3f77e4672eb62ed3b2773968fbd8ddb5be4695947b",
     "assets/features/builder-setup.webp": "1ad9c54f0046ddb1e28d1ebd4b9fe201f5b301ae1bb16f6ac2c9c06133dce2c2",
     "assets/features/builder-phone.webp": "3638ece6ee8c891207cccf1d66ad7f0cfcf4b5ba66c78a52fdd387955df25a76",
-    "assets/features/run-reasons.webp": "d0a608397dcbd5fcd53f20a511eb57ac2fac5d74715ea496352f82aeae6958a7"
+    "assets/features/run-reasons.webp": "d0a608397dcbd5fcd53f20a511eb57ac2fac5d74715ea496352f82aeae6958a7",
+    "assets/features/builder-search.mp4": "0677afbe40058d50f3278a49721519b17d6e6253d639bd8c2b980f0431463641",
+    "assets/features/builder-search-poster.webp": "21b4eb8bb82ae9b7ca703d2ead3141a6917a28d9856eedeefa0ad6990c7315a0"
   },
   "removed_files": [
     "assets/faq-status.mjs",
