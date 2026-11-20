@@ -89,13 +89,13 @@
       "shots": [
         {
           "src": "assets/features/verdict.webp",
-          "alt": "A strategy verdict after out-of-sample and Monte Carlo tests: grade D, “Weak: don't trade it as it is”, because its Monte Carlo retest fails even with a profit factor of 7.85",
-          "w": 1694,
-          "h": 562,
+          "alt": "A strategy verdict on 1,175 trades, 358 of them out of sample, with a 30-run Monte Carlo test: grade F, “Fails: don't trade it”, because it loses out of sample and the account goes below zero",
+          "w": 1698,
+          "h": 546,
           "phone": {
             "src": "assets/features/verdict-phone.webp",
-            "w": 757,
-            "h": 562
+            "w": 1019,
+            "h": 546
           }
         }
       ]
@@ -542,13 +542,13 @@
     {
       "label": "Results",
       "src": "assets/features/verdict.webp",
-      "alt": "A strategy verdict after out-of-sample and Monte Carlo tests: grade D, “Weak: don't trade it as it is”, because its Monte Carlo retest fails even with a profit factor of 7.85",
-      "w": 1694,
-      "h": 562,
+      "alt": "A strategy verdict on 1,175 trades, 358 of them out of sample, with a 30-run Monte Carlo test: grade F, “Fails: don't trade it”, because it loses out of sample and the account goes below zero",
+      "w": 1698,
+      "h": 546,
       "phone": {
         "src": "assets/features/verdict-phone.webp",
-        "w": 757,
-        "h": 562
+        "w": 1019,
+        "h": 546
       }
     },
     {
