@@ -1,7 +1,7 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "eac5edcdcbae17c356bb5a768c9210690a790651ca53bbd22551ca9d9eaa766c",
+  "home_sha256": "b2edb6f0fcbf541525a48ff83c9c6bc7a767aeba284103ecc16aeb5a7a610e6d",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
@@ -352,7 +352,7 @@
     "assets/social/tradercockpit-card.png": "6c706f67a589c7c670b3ede65dc41b7a32726f206f69b82f3da6207b61b69065",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
     "llms.txt": "280ab349fc2da7cdd93070b67a868044cc034a09d5b06223aeeeefba95534568",
-    "features/index.html": "320a2771bb27f2e80edc94af52537383556cfe39e4d4e6be276a039dcb021afc",
+    "features/index.html": "6b283a10fa7550d6e2eaf239ec7f0aa04a6282df6176fc48a141de6b8d19067a",
     "early-access.html": "d04eab390147ffc0660864920ca989d9901ba3374f8e1e4e1c026ebad8c6888a",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
@@ -391,8 +391,8 @@
     "assets/features/charts-multi.webp": "0d31fc76333c3e50337175391c5aa99cb78022df1d7e612c77a15aa5caee4b7e",
     "assets/features/stress-tests.webp": "cd458d555d64c4b47b645506436bd244637bc50f03cd15564da9f4598fd1815b",
     "assets/features/stress-phone.webp": "294ab0ad0c869da211d26c558648b352f5179bd6699e37d5323285691e14cf4e",
-    "assets/features/workflow-steps.webp": "63c2dbb85f152ca06cad41d7ad7af71657aeac6b0049ec910a047e750151b44b",
-    "assets/features/workflow-phone.webp": "becb939db54d9822acc166efe88ce87d72ad0601021d464de4e596a968760a90",
+    "assets/features/workflow-steps.webp": "ee7407fd32ce07005bc4e745b0e2d7d56e2a9cc6112ba50a66fe6521e980829a",
+    "assets/features/workflow-phone.webp": "f57e5a31a4562613e8e8e4af8142638b887309c74d1f9726dc23d341ced56838",
     "assets/features/verdict.webp": "a1e741966e45f3838fb52eb0879f26c987e26db13d794e88c4c26ed477a837c3",
     "assets/features/verdict-phone.webp": "bd609dab210e2441972fa6ecae05c5b7cb80ecc5cbbac9ca50cd4b46d6ac3c1f",
     "assets/features/pine-editor.webp": "ab61cfcce67751d8ad492e8c7eea324b0f43444b848ccf881bfd7d6e727718e2",
