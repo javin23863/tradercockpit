@@ -4,18 +4,6 @@
   "scope": "public-safe research education",
   "entries": [
     {
-      "id": "research.strategy-universe",
-      "path": "research-lab.html#strategy-universe",
-      "title": "Strategy Universe",
-      "kind": "concept",
-      "status": "public",
-      "aliases": [
-        "candidate universe",
-        "research universe",
-        "multidimensional candidates"
-      ]
-    },
-    {
       "id": "research.monte-carlo",
       "path": "learn/concepts/monte-carlo.html",
       "title": "Monte Carlo uncertainty",

@@ -49,8 +49,8 @@ def main() -> int:
     if not manifest.get("verifiedCapabilities"):
         problems.append("early access manifest must list its verified capabilities")
 
-    if 'id="product-state" role="status">Early access<' not in home:
-        problems.append("homepage static early access status is missing")
+    if 'href="early-access.html"' not in home:
+        problems.append("homepage must offer the early access list while the app is not available")
     if 'action="https://app.kit.com/forms/10131311/subscriptions"' not in read(DOCS / "early-access.html"):
         problems.append("early access form must post to the approved list only")
     if 'type="email"' in home:
@@ -71,24 +71,17 @@ def main() -> int:
         for marker in INTERNAL_MARKERS:
             if marker in text:
                 problems.append(f"internal/local marker leaked to public surface {marker!r}: {path.relative_to(REPO)}")
-    journeys = read(DOCS / "assets" / "reference-site" / "journeys.js").lower()
     privacy = read(DOCS / "trust" / "privacy.html").lower()
-    if "localstorage" in journeys:
-        false_storage_claim = "current public code does not call <code>document.cookie</code>, <code>localstorage</code>"
-        if false_storage_claim in privacy:
-            problems.append("privacy page falsely denies localStorage use while research notes read it")
-        for marker in ("research-notes", "localstorage", "save on this device", "clearing browser data", "not sent to a server"):
-            if marker not in privacy:
-                problems.append(f"privacy page missing research-notes storage disclosure: {marker!r}")
-    lab = read(DOCS / "research-lab.html").lower()
-    for marker in ("synthetic", "not trading recommendations", "no market data"):
-        if marker not in lab:
-            problems.append(f"Research Lab missing public research boundary: {marker}")
+    scripts = "\n".join(read(p).lower() for p in DOCS.rglob("*") if p.suffix in {".js", ".mjs"})
+    if "localstorage" in scripts and "localstorage" not in privacy:
+        problems.append("privacy page must say what the site keeps in the browser")
+    if "localstorage" not in scripts and "research-notes" in privacy:
+        problems.append("privacy page describes saved research notes that the site no longer has")
 
     for page in sorted((DOCS / "learn" / "concepts").glob("*.html")):
         text = read(page).lower()
-        if "keep the context:" not in text or "for trader cockpit controls and workflow details, open docs." not in text:
-            problems.append(f"concept page missing customer-facing context disclosure: {page.relative_to(REPO)}")
+        if "not financial advice" not in text or "/features/#" not in text:
+            problems.append(f"concept page must carry the advice line and link the feature it teaches: {page.relative_to(REPO)}")
 
     for page in sorted((DOCS / "examples").glob("*.html")):
         if page.name == "index.html":

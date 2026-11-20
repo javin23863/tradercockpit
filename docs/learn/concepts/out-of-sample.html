@@ -4,40 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
-  <title>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage — Trader Cockpit Learn</title>
+  <title>In-Sample vs Out-of-Sample Backtesting | Trader Cockpit</title>
   <meta name="description" content="Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.">
   <link rel="canonical" href="https://trader-cockpit.com/learn/concepts/out-of-sample.html">
-  <link rel="stylesheet" href="../../assets/site-v2.css">
-<link data-reference-shell="style" rel="stylesheet" href="../../assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="article"><meta property="og:site_name" content="Trader Cockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage — Trader Cockpit Learn"><meta property="og:description" content="Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage."><meta property="og:url" content="https://trader-cockpit.com/learn/concepts/out-of-sample.html"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trader Cockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage — Trader Cockpit Learn"><meta name="twitter:description" content="Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="Trader Cockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Learn","item":"https://trader-cockpit.com/learn/"},{"@type":"ListItem","position":3,"name":"In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage","item":"https://trader-cockpit.com/learn/concepts/out-of-sample.html"}]}</script><meta property="article:modified_time" content="2026-10-12"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage","description":"Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.","mainEntityOfPage":"https://trader-cockpit.com/learn/concepts/out-of-sample.html","url":"https://trader-cockpit.com/learn/concepts/out-of-sample.html","image":"https://trader-cockpit.com/assets/social/tradercockpit-card.png","inLanguage":"en","isAccessibleForFree":true,"datePublished":"2026-09-10","dateModified":"2026-10-12","author":{"@type":"Organization","name":"Trader Cockpit team","url":"https://trader-cockpit.com/trust/#authorship","parentOrganization":{"@id":"https://trader-cockpit.com/#organization"}},"publisher":{"@type":"Organization","@id":"https://trader-cockpit.com/#organization","name":"Trader Cockpit","logo":{"@type":"ImageObject","url":"https://trader-cockpit.com/assets/social/tradercockpit-logo.png"}}}</script><!-- search-meta:end --></head>
-<body data-reference-content="true">
+  
+<link rel="stylesheet" href="../../assets/site.css"><script type="module" src="../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="article"><meta property="og:site_name" content="Trader Cockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="In-Sample vs Out-of-Sample Backtesting | Trader Cockpit"><meta property="og:description" content="Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage."><meta property="og:url" content="https://trader-cockpit.com/learn/concepts/out-of-sample.html"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trader Cockpit, the Windows app for building, backtesting and stress-testing trading strategies"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="In-Sample vs Out-of-Sample Backtesting | Trader Cockpit"><meta name="twitter:description" content="Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="Trader Cockpit, the Windows app for building, backtesting and stress-testing trading strategies"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Learn","item":"https://trader-cockpit.com/learn/"},{"@type":"ListItem","position":3,"name":"In-Sample vs Out-of-Sample Backtesting","item":"https://trader-cockpit.com/learn/concepts/out-of-sample.html"}]}</script><meta property="article:modified_time" content="2026-10-12"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage","description":"Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.","mainEntityOfPage":"https://trader-cockpit.com/learn/concepts/out-of-sample.html","url":"https://trader-cockpit.com/learn/concepts/out-of-sample.html","image":"https://trader-cockpit.com/assets/social/tradercockpit-card.png","inLanguage":"en","isAccessibleForFree":true,"datePublished":"2026-09-10","dateModified":"2026-10-12","author":{"@type":"Organization","name":"Trader Cockpit team","url":"https://trader-cockpit.com/trust/#authorship","parentOrganization":{"@id":"https://trader-cockpit.com/#organization"}},"publisher":{"@type":"Organization","@id":"https://trader-cockpit.com/#organization","name":"Trader Cockpit","logo":{"@type":"ImageObject","url":"https://trader-cockpit.com/assets/social/tradercockpit-logo.png"}}}</script><!-- search-meta:end --></head>
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"></span>Trader Cockpit</a>
-      <div class="nav-links">
-        <a href="../../research-lab.html">Research Lab</a>
-        <a href="../" aria-current="page">Learn</a>
-        <a href="../../community/">Community</a>
-        <a href="../../docs/">Docs</a>
-        <a href="../../methods/">Methods</a>
-        <a href="../../examples/">Examples</a>
-        <a href="../../updates/">Updates</a>
-      </div>
-    </div>
-  </nav>
+  <nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 28 25"><path d="M3 12v3m6-10v15m6-19v24m6-17v13m5-10v5"/></svg>Trader Cockpit</a><div class="nav-links"><a href="../../features/">Features</a><a href="../../pricing/">Pricing</a><a href="../../community/">Community</a><a href="../../learn/" aria-current="page">Learn</a><a href="../../support/">Support</a></div><a class="btn primary small nav-cta" href="../../early-access.html">Get early access</a></div></nav>
 
   <main id="main" tabindex="-1">
     <section class="article-hero">
       <div class="shell article-hero-inner">
         <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage</span></div>
-        <span class="eyebrow">Concept / research education</span>
         <h1>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage</h1>
         <p>Learn how in-sample and out-of-sample backtesting differ, when a holdout becomes part of selection, and how to recognize data leakage.</p>
-        <p class="micro">By <a href="../../trust/#authorship">the Trader Cockpit team</a> · Updated <time datetime="2026-10-12">2026-10-12</time> · Educational material, not financial advice.</p>
-        <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Research concept</span></div>
+        <p class="micro">By <a href="../../trust/#authorship">the Trader Cockpit team</a>. Educational material, not financial advice.</p>
         <div class="article-actions">
-          <a class="deep-link" href="../../research-lab.html#out-of-sample">Open the visual explanation →</a>
-          <a class="deep-link" href="../../methods/#out-of-sample">Read the method →</a>
+          <a class="deep-link" href="../../methods/#out-of-sample">Read the method</a>
 
         </div>
       </div>
@@ -47,17 +31,14 @@
       <div class="shell article-layout">
         <article class="article-main">
           <section class="article-section" id="definition">
-            <span class="kicker">Plain-language definition</span>
             <h2>What is it?</h2>
             <div class="definition-card"><strong>In-Sample vs Out-of-Sample Backtesting: Avoiding Data Leakage:</strong> In-sample backtesting uses data that helped develop, fit or select the strategy. Out-of-sample backtesting evaluates it on data withheld from those decisions. A holdout stops being unseen for a later decision when its results inform that decision, even if the file is still labelled out-of-sample.</div>
           </section>
           <section class="article-section" id="research-question">
-            <span class="kicker">Research question</span>
             <h2>What question does it help answer?</h2>
             <p>What evidence was genuinely withheld from the decisions that created or selected the candidate?</p>
           </section>
           <section class="article-section" id="can-tell">
-            <span class="kicker">Bounded interpretation</span>
             <h2>What can it tell you?</h2>
             <ul>
             <li>Whether evaluation evidence was separated from the decisions being assessed.</li>
@@ -66,7 +47,6 @@
             </ul>
           </section>
           <section class="article-section" id="cannot-tell">
-            <span class="kicker">Limitations</span>
             <h2>What can it not tell you?</h2>
             <ul>
             <li>A holdout cannot erase bias already introduced by data cleaning, feature design, universe selection, or repeated experimentation.</li>
@@ -74,30 +54,23 @@
             <li>Calling a dataset OOS does not make it independent if it influenced the process indirectly.</li>
             </ul>
           </section>
-          <section class="article-section" id="synthetic-example">
-            <span class="kicker">Synthetic example</span>
-            <h2>A holdout becomes feedback.</h2>
-            <p>Synthetic example: a researcher develops a moving-average rule on 2020–2023 data and reserves 2024 for one final test. After seeing a losing month in 2024, the researcher changes the entry threshold and reruns 2024 until the result improves. The first test evaluated the frozen rule; the improved rerun now evaluates a rule selected with knowledge of 2024. Renaming that year OOS does not restore its independence. Record the original result and the change, then evaluate the revised rule on a genuinely untouched later period under a predeclared protocol.</p>
-            <a class="deep-link" href="../../research-lab.html#out-of-sample">Open this concept in Research Lab →</a>
-          </section>
-          <section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>            <li>Split time in order and freeze the strategy, parameter search, scoring rule, data preparation and execution assumptions before the final evaluation.</li>
+          <section class="article-section" id="example"><h2>A holdout becomes feedback.</h2><p>Synthetic example: a researcher develops a moving-average rule on 2020–2023 data and reserves 2024 for one final test. After seeing a losing month in 2024, the researcher changes the entry threshold and reruns 2024 until the result improves. The first test evaluated the frozen rule; the improved rerun now evaluates a rule selected with knowledge of 2024. Renaming that year OOS does not restore its independence. Record the original result and the change, then evaluate the revised rule on a genuinely untouched later period under a predeclared protocol.</p></section>
+          <section class="article-section" id="assumptions"><h2>What the test assumes</h2><ul>            <li>Split time in order and freeze the strategy, parameter search, scoring rule, data preparation and execution assumptions before the final evaluation.</li>
             <li>Indicators, universe membership, corporate-action data and features must use information actually available at each simulated decision time. Fit preprocessing on development data only.</li>
             <li>Account for overlapping labels, trades crossing a split and temporal dependence. A chronological split alone does not remove every route for leakage.</li>
             <li>Record every candidate tried and every consultation of validation data. Data used for model selection is validation data, not an untouched final test.</li></ul></section>
-          <section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul><li><a href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">scikit-learn: data leakage</a> — Explains why fitting preprocessing and choosing models using test data can bias evaluation.</li><li><a href="https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf">Bailey, Borwein, López de Prado and Zhu: The Probability of Backtest Overfitting</a> — Examines selection across many investment backtests and the limits of standard holdout evaluation.</li></ul></section>
-          <section class="article-section" id="about-the-team"><span class="kicker">About the authors</span><h2>About the Trader Cockpit team</h2><p>We build Trader Cockpit, a Windows desktop app for trading strategy research that is in early access, and we write these guides to explain the methods behind testing a strategy. <a href="../../trust/#authorship">How we write and correct the guides →</a></p><p class="micro">Educational material, not financial advice. No backtest or simulation guarantees future results.</p></section>
-          <section class="article-section" id="product-boundary">
-            <span class="kicker">Apply the concept</span>
-            <h2>Use the idea without turning it into a shortcut.</h2>
-            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For Trader Cockpit controls and workflow details, open Docs. The app is in early access; these examples are educational.</div>
+          <section class="article-section" id="references"><h2>Sources</h2><ul><li><a href="https://scikit-learn.org/stable/common_pitfalls.html#data-leakage">scikit-learn: data leakage</a> — Explains why fitting preprocessing and choosing models using test data can bias evaluation.</li><li><a href="https://www.davidhbailey.com/dhbpapers/backtest-prob.pdf">Bailey, Borwein, López de Prado and Zhu: The Probability of Backtest Overfitting</a> — Examines selection across many investment backtests and the limits of standard holdout evaluation.</li></ul></section>
+          <section class="article-section" id="in-the-app">
+            <h2>Do this in Trader Cockpit</h2>
+            <p>Workflows hold back out-of-sample periods and test a strategy on them without you setting up each run.</p>
+            <div class="article-actions"><a class="deep-link" href="../../features/#workflows">Workflows and robustness checks</a><a class="deep-link" href="../../pricing/">Pricing</a><a class="deep-link" href="../../early-access.html">Get early access</a></div>
           </section>
           <section class="article-section" id="related">
-            <span class="kicker">Continue learning</span>
             <h2>Related concepts</h2>
             <div class="related-grid">
-          <a class="related-link" href="walk-forward.html"><strong>Walk-forward analysis</strong><span>Continue to the related public concept.</span></a>
-          <a class="related-link" href="selection-bias.html"><strong>Selection bias</strong><span>Continue to the related public concept.</span></a>
-          <a class="related-link" href="monte-carlo.html"><strong>Monte Carlo uncertainty</strong><span>Continue to the related public concept.</span></a>
+          <a class="related-link" href="walk-forward.html"><strong>Walk-forward analysis</strong></a>
+          <a class="related-link" href="selection-bias.html"><strong>Selection bias</strong></a>
+          <a class="related-link" href="monte-carlo.html"><strong>Monte Carlo uncertainty</strong></a>
             </div>
           </section>
         </article>
@@ -110,15 +83,13 @@
               <li><a href="#research-question">Research question</a></li>
               <li><a href="#can-tell">What it can tell you</a></li>
               <li><a href="#cannot-tell">Limitations</a></li>
-              <li><a href="#synthetic-example">Synthetic example</a></li>
+              <li><a href="#example">Example</a></li>
               <li><a href="#related">Related concepts</a></li>
             </ul>
           </div>
           <div class="side-panel">
             <h2>Go deeper</h2>
-            <p class="micro">Concept pages explain intuition. Methods explain assumptions and calculation. Research Lab makes the geometry visible.</p>
-            <a class="deep-link" href="../../methods/#out-of-sample">Method →</a>
-            <a class="deep-link" href="../../research-lab.html#out-of-sample">Visual →</a>
+            <a class="deep-link" href="../../methods/#out-of-sample">Method</a>
 
           </div>
         </aside>
@@ -126,7 +97,7 @@
     </section>
   </main>
 
-  <footer><div class="footer-inner"><div>Trader Cockpit · evidence-first research education · no performance promised.</div><div class="footer-links"><a href="../../index.html">Home</a><a href="../">Learn</a><a href="../../methods/">Methods</a></div></div></footer>
-  <script src="../../assets/site-search.js" defer></script>
-</body>
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-cols"><div class="footer-brand"><a class="brand" href="../../"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 28 25"><path d="M3 12v3m6-10v15m6-19v24m6-17v13m5-10v5"/></svg>Trader Cockpit</a><p>Build, backtest and stress-test trading strategies on your own PC.</p><p class="actions"><a href="../../early-access.html">Get early access</a><a href="https://www.youtube.com/@Thetradercockpit" target="_blank" rel="noopener noreferrer">YouTube</a></p></div><div><h2>Product</h2><ul><li><a href="../../features/">Features</a></li><li><a href="../../pricing/">Pricing</a></li><li><a href="../../community/">Community</a></li><li><a href="../../updates/">Updates</a></li></ul></div><div><h2>Guides</h2><ul><li><a href="../../learn/">Learn</a></li><li><a href="../../how-to/">How-to guides</a></li><li><a href="../../methods/">Methods</a></li><li><a href="../../examples/">Worked examples</a></li><li><a href="../../strategy-claim-audit-checklist.html">Backtest checklist</a></li></ul></div><div><h2>Company</h2><ul><li><a href="../../trust/">About</a></li><li><a href="../../support/">Support</a></li><li><a href="../../support/faq.html">FAQ</a></li><li><a href="../../trust/privacy.html">Privacy</a></li><li><a href="../../trust/terms.html">Terms</a></li><li><a href="../../refund-policy.html">Purchases and refunds</a></li></ul></div></div><p class="footer-legal">Trader Cockpit is research software. It does not give financial advice, and no backtest or simulation predicts future results.</p></div></footer>
+  
+<script src="../../assets/site-search.js" defer></script></body>
 </html>

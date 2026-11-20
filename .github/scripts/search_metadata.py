@@ -20,12 +20,13 @@ SITE = 'https://trader-cockpit.com/'
 ORG_ID = SITE + '#organization'
 TEAM = 'Trader Cockpit team'
 IMAGE = SITE + 'assets/social/tradercockpit-card.png'
-IMAGE_ALT = 'Trader Cockpit: backtesting and strategy validation guides, beside an early access Charts capture'
+IMAGE_ALT = 'Trader Cockpit, the Windows app for building, backtesting and stress-testing trading strategies'
 LOGO = SITE + 'assets/social/tradercockpit-logo.png'
 SAME_AS = ['https://www.youtube.com/@Thetradercockpit']
+ALT_NAMES = ['TraderCockpit', 'Trader-Cockpit']
 START, END = '<!-- search-meta:start -->', '<!-- search-meta:end -->'
 SECTIONS = {'learn': 'Learn', 'methods': 'Methods', 'how-to': 'How-to guides', 'examples': 'Examples', 'docs': 'Documentation',
-            'support': 'Support', 'trust': 'Trust', 'pricing': 'Pricing', 'updates': 'Updates', 'community': 'Community'}
+            'support': 'Support', 'trust': 'About', 'pricing': 'Pricing', 'updates': 'Updates', 'community': 'Community'}
 SKIP = {'404.html', 'confirmed.html', 'thanks.html', 'help.html'}
 
 
@@ -64,13 +65,13 @@ def breadcrumbs(rel: str, title: str, url: str):
         section_url = SITE + parts[0] + '/'
         if url != section_url:
             items.append({'@type': 'ListItem', 'position': 2, 'name': SECTIONS[parts[0]], 'item': section_url})
-    items.append({'@type': 'ListItem', 'position': len(items) + 1, 'name': title.split(' — ')[0], 'item': url})
+    items.append({'@type': 'ListItem', 'position': len(items) + 1, 'name': title.split(' | ')[0], 'item': url})
     return {'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': items}
 
 
 def organization():
-    return {'@type': 'Organization', '@id': ORG_ID, 'name': 'Trader Cockpit', 'url': SITE, 'logo': {'@type': 'ImageObject', 'url': LOGO, 'width': 512, 'height': 512}, 'sameAs': SAME_AS,
-            'description': 'Trader Cockpit publishes educational guides to backtesting and strategy validation and is building a Windows desktop app for trading strategy research.'}
+    return {'@type': 'Organization', '@id': ORG_ID, 'name': 'Trader Cockpit', 'alternateName': ALT_NAMES, 'url': SITE, 'email': 'support@trader-cockpit.com', 'logo': {'@type': 'ImageObject', 'url': LOGO, 'width': 512, 'height': 512}, 'sameAs': SAME_AS,
+            'description': 'Trader Cockpit makes a Windows desktop app for building, backtesting and stress-testing trading strategies, and publishes guides to testing a strategy honestly.'}
 
 
 def block_for(rel: str, text: str, cfg: dict) -> str | None:
@@ -99,18 +100,23 @@ def block_for(rel: str, text: str, cfg: dict) -> str | None:
     if rel == 'index.html':
         graph = {'@context': 'https://schema.org', '@graph': [
             organization(),
-            {'@type': 'WebSite', '@id': SITE + '#website', 'name': 'Trader Cockpit', 'url': SITE, 'inLanguage': 'en', 'publisher': {'@id': ORG_ID}},
+            {'@type': 'WebSite', '@id': SITE + '#website', 'name': 'Trader Cockpit', 'alternateName': ALT_NAMES, 'url': SITE, 'inLanguage': 'en', 'publisher': {'@id': ORG_ID}},
             {'@type': 'SoftwareApplication', '@id': SITE + '#app', 'name': 'Trader Cockpit', 'applicationCategory': 'FinanceApplication', 'operatingSystem': 'Windows',
-             'description': 'A Windows desktop app for trading strategy research: charts, strategy building and testing, and validation. Early access; not yet released.',
+             'description': desc, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'},
+             'featureList': [a['title'] for a in json.loads((ROOT / '.github/product/capabilities.v1.json').read_text(encoding='utf-8'))['areas']],
              'url': SITE, 'publisher': {'@id': ORG_ID}, 'image': IMAGE},
         ]}
         tags.append(ld(graph))
     else:
         tags.append(ld(breadcrumbs(rel, title, url)))
+    questions = re.findall(r'<details class="qa"><summary>(.*?)</summary><div>(.*?)</div></details>', text, re.S) if rel == 'support/faq.html' else []
+    if questions:
+        plain = lambda v: htmllib.unescape(re.sub(r'<[^>]+>', ' ', v)).split()
+        tags.append(ld({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': ' '.join(plain(q)), 'acceptedAnswer': {'@type': 'Answer', 'text': ' '.join(plain(a))}} for q, a in questions]}))
     if article:
         dates = cfg['dates'].get(rel) or cfg['dates']['default']
         tags.append(f'<meta property="article:modified_time" content="{dates["modified"]}">')
-        tags.append(ld({'@context': 'https://schema.org', '@type': 'Article', 'headline': (h1 or title.split(' — ')[0])[:110], 'description': desc,
+        tags.append(ld({'@context': 'https://schema.org', '@type': 'Article', 'headline': (h1 or title.split(' | ')[0])[:110], 'description': desc,
                         'mainEntityOfPage': url, 'url': url, 'image': IMAGE, 'inLanguage': 'en', 'isAccessibleForFree': True,
                         'datePublished': dates.get('published', dates['modified']), 'dateModified': dates['modified'],
                         'author': {'@type': 'Organization', 'name': TEAM, 'url': SITE + 'trust/#authorship', 'parentOrganization': {'@id': ORG_ID}},

@@ -7,6 +7,8 @@ from pathlib import Path
 import argparse
 import json
 import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_chrome import apply as chrome, cta
 
 REPO = Path(__file__).resolve().parents[2]
 DOCS = REPO / "docs"
@@ -25,25 +27,42 @@ def render_list(items: list[str]) -> str:
 
 def render_related(items: list[dict]) -> str:
     return "\n".join(
-        f'          <a class="related-link" href="{esc(item["path"])}"><strong>{esc(item["title"])}</strong><span>Continue to the related public concept.</span></a>'
+        f'          <a class="related-link" href="{esc(item["path"])}"><strong>{esc(item["title"])}</strong></a>'
         for item in items
     )
 
+# Where each idea is used in the app: (features anchor, its name, one line).
+FEATURES = {
+    "monte-carlo": ("results", "Results", "Results runs Monte Carlo tests on a strategy's own trades and shows the spread of outcomes."),
+    "out-of-sample": ("workflows", "Workflows and robustness checks", "Workflows hold back out-of-sample periods and test a strategy on them without you setting up each run."),
+    "walk-forward": ("workflows", "Workflows and robustness checks", "Workflows run walk-forward windows and recompute them when you change the windows."),
+    "parameter-robustness": ("workflows", "Workflows and robustness checks", "Robustness checks retest a strategy on other markets, other timeframes and with slippage."),
+    "drawdown": ("results", "Results", "Results shows each strategy's drawdown beside its trades, equity and results by period."),
+    "selection-bias": ("workflows", "Workflows and robustness checks", "After a search, workflows put every kept strategy through tests it was not built on."),
+    "correlation-diversification": ("portfolio", "Portfolio", "Portfolio combines your saved strategies and shows their results together."),
+    "distribution-shape": ("results", "Results", "Results shows trade excursions and results by period, so you see more than the average."),
+    "regime-map": ("results", "Results", "Results breaks a strategy's results down by period and by market."),
+}
+
+
 def render(entry: dict) -> str:
     slug = entry["slug"]
+    cta_href, cta_label = cta("../../")
     title = entry["title"]
     canonical = f"{SITE}learn/concepts/{slug}.html"
     related = render_related(entry["related"])
     tells = render_list(entry["tells"])
     cannot = render_list(entry["cannot"])
     how_to = entry.get("howTo")
-    how_to_action = f'          <a class="deep-link" href="{esc(how_to)}">Open the How-To →</a>' if how_to else ""
-    how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-To →</a>' if how_to else ""
+    how_to_action = f'          <a class="deep-link" href="{esc(how_to)}">Read the how-to guide</a>' if how_to else ""
+    how_to_aside = f'            <a class="deep-link" href="{esc(how_to)}">How-to guide</a>' if how_to else ""
     modified = entry.get('dateModified')
-    authorship = f'<p class="micro">By <a href="../../trust/#authorship">the Trader Cockpit team</a> · Updated <time datetime="{esc(modified)}">{esc(modified)}</time> · Educational material, not financial advice.</p>' if modified else ''
-    about = '<section class="article-section" id="about-the-team"><span class="kicker">About the authors</span><h2>About the Trader Cockpit team</h2><p>We build Trader Cockpit, a Windows desktop app for trading strategy research that is in early access, and we write these guides to explain the methods behind testing a strategy. <a href="../../trust/#authorship">How we write and correct the guides →</a></p><p class="micro">Educational material, not financial advice. No backtest or simulation guarantees future results.</p></section>' if modified else ''
-    assumptions = '<section class="article-section" id="assumptions"><span class="kicker">Assumptions</span><h2>Record what the test assumes.</h2><ul>'+render_list(entry['assumptions'])+'</ul></section>' if entry.get('assumptions') else ''
-    references = '<section class="article-section" id="references"><span class="kicker">Primary references</span><h2>Read the supporting sources.</h2><ul>'+''.join(f'<li><a href="{esc(ref["url"])}">{esc(ref["title"])}</a> — {esc(ref["scope"])}</li>' for ref in entry.get('references',[]))+'</ul></section>' if entry.get('references') else ''
+    authorship = '<p class="micro">By <a href="../../trust/#authorship">the Trader Cockpit team</a>. Educational material, not financial advice.</p>'
+    feature, feature_name, feature_line = FEATURES[slug]
+    example = f'<section class="article-section" id="example"><h2>{esc(entry.get("exampleTitle") or "An example")}</h2><p>{esc(entry["example"])}</p></section>' if entry.get('example') else ''
+    example_link = '<li><a href="#example">Example</a></li>' if entry.get('example') else ''
+    assumptions = '<section class="article-section" id="assumptions"><h2>What the test assumes</h2><ul>'+render_list(entry['assumptions'])+'</ul></section>' if entry.get('assumptions') else ''
+    references = '<section class="article-section" id="references"><h2>Sources</h2><ul>'+''.join(f'<li><a href="{esc(ref["url"])}">{esc(ref["title"])}</a> — {esc(ref["scope"])}</li>' for ref in entry.get('references',[]))+'</ul></section>' if entry.get('references') else ''
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -76,14 +95,11 @@ def render(entry: dict) -> str:
     <section class="article-hero">
       <div class="shell article-hero-inner">
         <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>{esc(title)}</span></div>
-        <span class="eyebrow">Concept / research education</span>
         <h1>{esc(title)}</h1>
         <p>{esc(entry['description'])}</p>
         {authorship}
-        <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Research concept</span></div>
         <div class="article-actions">
-          <a class="deep-link" href="{esc(entry['visual'])}">Open the visual explanation →</a>
-          <a class="deep-link" href="{esc(entry['method'])}">Read the method →</a>
+          <a class="deep-link" href="{esc(entry['method'])}">Read the method</a>
 {how_to_action}
         </div>
       </div>
@@ -93,45 +109,34 @@ def render(entry: dict) -> str:
       <div class="shell article-layout">
         <article class="article-main">
           <section class="article-section" id="definition">
-            <span class="kicker">Plain-language definition</span>
             <h2>What is it?</h2>
             <div class="definition-card"><strong>{esc(title)}:</strong> {esc(entry['definition'])}</div>
           </section>
           <section class="article-section" id="research-question">
-            <span class="kicker">Research question</span>
             <h2>What question does it help answer?</h2>
             <p>{esc(entry['question'])}</p>
           </section>
           <section class="article-section" id="can-tell">
-            <span class="kicker">Bounded interpretation</span>
             <h2>What can it tell you?</h2>
             <ul>
 {tells}
             </ul>
           </section>
           <section class="article-section" id="cannot-tell">
-            <span class="kicker">Limitations</span>
             <h2>What can it not tell you?</h2>
             <ul>
 {cannot}
             </ul>
           </section>
-          <section class="article-section" id="synthetic-example">
-            <span class="kicker">Synthetic example</span>
-            <h2>{esc(entry.get('exampleTitle','See the shape before reading the formula.'))}</h2>
-            <p>{esc(entry['example'])}</p>
-            <a class="deep-link" href="{esc(entry['visual'])}">Open this concept in Research Lab →</a>
-          </section>
+          {example}
           {assumptions}
           {references}
-          {about}
-          <section class="article-section" id="product-boundary">
-            <span class="kicker">Apply the concept</span>
-            <h2>Use the idea without turning it into a shortcut.</h2>
-            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For Trader Cockpit controls and workflow details, open Docs. The app is in early access; these examples are educational.</div>
+          <section class="article-section" id="in-the-app">
+            <h2>Do this in Trader Cockpit</h2>
+            <p>{feature_line}</p>
+            <div class="article-actions"><a class="deep-link" href="../../features/#{feature}">{feature_name}</a><a class="deep-link" href="../../pricing/">Pricing</a><a class="deep-link" href="{cta_href}">{cta_label}</a></div>
           </section>
           <section class="article-section" id="related">
-            <span class="kicker">Continue learning</span>
             <h2>Related concepts</h2>
             <div class="related-grid">
 {related}
@@ -147,15 +152,13 @@ def render(entry: dict) -> str:
               <li><a href="#research-question">Research question</a></li>
               <li><a href="#can-tell">What it can tell you</a></li>
               <li><a href="#cannot-tell">Limitations</a></li>
-              <li><a href="#synthetic-example">Synthetic example</a></li>
+              {example_link}
               <li><a href="#related">Related concepts</a></li>
             </ul>
           </div>
           <div class="side-panel">
             <h2>Go deeper</h2>
-            <p class="micro">Concept pages explain intuition. Methods explain assumptions and calculation. Research Lab makes the geometry visible.</p>
-            <a class="deep-link" href="{esc(entry['method'])}">Method →</a>
-            <a class="deep-link" href="{esc(entry['visual'])}">Visual →</a>
+            <a class="deep-link" href="{esc(entry['method'])}">Method</a>
 {how_to_aside}
           </div>
         </aside>
@@ -192,9 +195,8 @@ def main() -> int:
     for entry in entries:
         target = OUTPUT / f"{entry['slug']}.html"
         sys.path.insert(0,str(Path(__file__).resolve().parent))
-        from reference_content import wrap_html
         from search_metadata import apply as search_meta
-        content = search_meta(wrap_html(render(entry), f"learn/concepts/{entry['slug']}.html"), f"learn/concepts/{entry['slug']}.html")
+        content = search_meta(chrome(render(entry), f"learn/concepts/{entry['slug']}.html"), f"learn/concepts/{entry['slug']}.html")
         if args.check:
             if not target.is_file():
                 problems.append(f"missing generated concept page: {target.relative_to(REPO)}")

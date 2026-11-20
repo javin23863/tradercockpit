@@ -2,34 +2,79 @@
   "schema": "tc.public-capabilities.v1",
   "areas": [
     {
-      "id": "builder", "title": "Strategy Builder", "kicker": "Build",
+      "id": "builder",
+      "title": "Strategy Builder",
       "lead": "Search thousands of rule combinations on the market you pick, with the costs and rules you set.",
-      "image": "assets/features/builder.webp", "alt": "Builder’s setup: the market list, trading rules, money management, what to search for, scoring and filters", "caption": "Builder’s setup: pick the market, then the rules a strategy must pass.",
       "items": [
         "Genetic, random or sequential search over the rule space, with progress you can watch as it runs.",
         "Rule parts for conditions and price levels, built on the app's own indicator math.",
         "Your own trading rules, costs and money management on each step, with a reset to default for any part.",
         "Strategy templates and build recipes to start from, with a template's rules shown in plain lines before you use it.",
         "Crypto markets get sensible starting exits and costs, and the app tells you what it changed.",
-        "Saved research ideas and candidates, and a retest of any strategy with its saved settings."
+        "Saved research ideas and candidates, and a retest of any strategy with its saved settings.",
+        "One button on the first screen saves the day's prices, opens Builder on BTC/USD and starts a strategy search."
+      ],
+      "shots": [
+        {
+          "src": "assets/features/run-reasons.webp",
+          "alt": "Builder’s own list of why strategies were dropped in a 10-minute SOL/USD search: profit factor, no trades, starting filters, trades a month, return over drawdown",
+          "w": 640,
+          "h": 117
+        },
+        {
+          "src": "assets/features/builder-setup.webp",
+          "alt": "Builder’s setup: the market, the trading rules, money management and what to search for",
+          "w": 1410,
+          "h": 485,
+          "phone": {
+            "src": "assets/features/builder-phone.webp",
+            "w": 505,
+            "h": 370
+          }
+        }
       ]
     },
     {
-      "id": "workflows", "title": "Workflows and robustness checks", "kicker": "Test",
+      "id": "workflows",
+      "title": "Workflows and robustness checks",
       "lead": "Put a strategy through ordered steps, unattended, and see why strategies drop out.",
-      "image": "assets/features/workflows.webp", "alt": "A twelve-step Workflow on Dow Jones 4-hour bars: build, out-of-sample, other markets, timeframes, slippage and Monte Carlo", "caption": "A twelve-step Workflow on Dow Jones, 4 hour.",
       "items": [
         "Ordered steps that run on their own: create, edit, save and reopen a workflow.",
         "A library of ready-made validation workflows and strategy recipes, with search by market and timeframe.",
         "Robustness checks on your results: out-of-sample periods, other markets, higher and lower timeframes, slippage and Monte Carlo.",
         "Walk-forward windows, with a recompute when you change them.",
-        "Move a copy of a workflow to your saved market in one click. Each step keeps its own timeframe where the bars allow, and tells you when it can't."
+        "Move a copy of a workflow to your saved market in one click. Each step keeps its own timeframe where the bars allow, and tells you when it can't.",
+        "Retest steps for other markets and extra held-back periods."
+      ],
+      "shots": [
+        {
+          "src": "assets/features/workflow-steps.webp",
+          "alt": "A ready-made Library workflow after a full run on EURUSD hourly bars: 136 strategies built, 13 passed the later held-back period, 4 the earlier one, 1 the first Monte Carlo test and none the second",
+          "w": 1800,
+          "h": 463,
+          "phone": {
+            "src": "assets/features/workflow-phone.webp",
+            "w": 329,
+            "h": 870
+          }
+        },
+        {
+          "src": "assets/features/stress-tests.webp",
+          "alt": "Builder’s stress tests: finer price data, Monte Carlo, leave-out, other markets, walk-forward optimization and matrix, settings sweep",
+          "w": 1450,
+          "h": 1000,
+          "phone": {
+            "src": "assets/features/stress-phone.webp",
+            "w": 680,
+            "h": 1000
+          }
+        }
       ]
     },
     {
-      "id": "results", "title": "Results", "kicker": "Read",
+      "id": "results",
+      "title": "Results",
       "lead": "See how a strategy really traded, with a plain verdict that says so when it's weak.",
-      "image": "assets/features/results.webp", "alt": "A strategy’s results on GBP/USD hourly bars, graded C: Mixed, test it more before you trade it", "caption": "A verdict on GBP/USD, 1 hour: graded C, capped because nothing has tested it outside the data it was built on.",
       "items": [
         "One verdict for a strategy, with the reasons behind it.",
         "Summary, trades, equity, results by period and by market, and trade excursions.",
@@ -38,97 +83,234 @@
         "Prop-firm challenge and funded-phase simulators, with rules and payouts per symbol.",
         "Compare two runs side by side, and analysis tools for drawdown, edge decay and news impact.",
         "Show a strategy on its chart, with where each entry and exit rule was true and why it traded or didn't.",
-        "The strategy written as code in EasyLanguage, MetaTrader, Pine or Python."
+        "The strategy written as code in EasyLanguage, MetaTrader, Pine or Python.",
+        "Tick strategies and send them to a retest: on other markets, on extra held-back periods, or only the ones you selected."
+      ],
+      "shots": [
+        {
+          "src": "assets/features/verdict.webp",
+          "alt": "A strategy verdict on 1,175 trades, 358 of them out of sample, with a 30-run Monte Carlo test: grade F, “Fails: don't trade it”, because it loses out of sample and the account goes below zero",
+          "w": 1698,
+          "h": 546,
+          "phone": {
+            "src": "assets/features/verdict-phone.webp",
+            "w": 1019,
+            "h": 546
+          }
+        }
       ]
     },
     {
-      "id": "portfolio", "title": "Portfolio", "kicker": "Combine",
+      "id": "portfolio",
+      "title": "Portfolio",
       "lead": "Combine your saved strategies and see their results together.",
       "items": [
         "Auto build: build portfolios from your saved strategies, and send strategies straight from Results.",
-        "Compose: pick strategies yourself, with a weight for each, and see the combined results."
+        "Compose: pick strategies yourself, with a weight for each, and see the combined results.",
+        "Let the app search for the best weights and see every mix it tried on a chart.",
+        "Add a buy-and-hold position beside your strategies."
       ]
     },
     {
-      "id": "charts", "title": "Charts", "kicker": "See",
-      "lead": "A full charting workspace on real market data, with indicators, drawings and your own Pine scripts.",
-      "image": "assets/features/tpo.webp", "alt": "A TPO market profile on Coinbase BTC/USD hourly bars with volume below", "caption": "TPO market profile on Coinbase BTC/USD, 1 hour.",
+      "id": "charts",
+      "title": "Charts",
+      "lead": "A full charting workspace on real market data, with indicators, drawings, watchlists and your own Pine scripts.",
       "items": [
         "Chart types: bars, candles, hollow candles, volume candles, line, line with markers, step line, area, HLC area, baseline, columns, high-low, Heikin Ashi, Renko, line break, Kagi and range.",
-        "One grouped indicator list: TradingView's built-ins at their defaults, the Builder's own indicators, patterns and profiles, and your own.",
-        "1,014 open-source community indicators in the same list, by category and search. Each runs on the chart and opens its code as a copy.",
+        "One grouped indicator list: the standard built-in indicators at their usual settings, the Builder's own indicators, patterns and profiles, and your own.",
+        "{CommunityIndicators} open-source community indicators in the same list, by category and search. Each runs on the chart and opens its code as a copy.",
         "Drawings: trend line, ray, extended line, rectangle, horizontal line and ray.",
         "VWAP with bands, anchored, rolling and from earnings dates; sessions, killzones and opening range breakouts in New York time; a smart-money study.",
         "Machine-learning buy and sell signals with a read-out of how they would have done on the visible bars.",
-        "Your own Pine v5 or v6 indicators and strategies run on the chart, with a Strategy Tester. Anything that can't run is listed by line.",
-        "Alerts on price, values, indicator lines and drawings, with notices and sounds.",
-        "Watchlists for any market: drag to reorder, flags, notes, several lists, an alert on a whole list, and hotlists that rank a whole exchange.",
+        "Your own Pine v5 or v6 indicators and strategies run on the chart. Anything that can't run is listed by line.",
+        "Ten ready-made strategies to run on any chart. The Strategy Tester shows returns, drawdowns, a buy-and-hold comparison and a sortable trade list you can download.",
+        "Run a strategy on the daily chart of a future, a forex pair or a US share. Futures use the contract's own tick size and point value.",
+        "Live US stock charts with your Alpaca account connected: today's daily candle as it forms, and 1, 5, 15 and 30 minute charts through the trading day.",
+        "Symbol search across markets: type a stock, future, forex pair, index or coin, including micro and mini futures by name.",
+        "Watchlists for any market: your own columns, grouping by exchange or kind of market, flags, notes, several lists, an alert on a whole list, and hotlists that rank a whole exchange. Right-click a row to add it to another list, and move with the arrow keys. Import, export or copy a list as text.",
+        "Live stock prices in the watchlist with your Alpaca account connected: the last price and the day’s change.",
+        "A ready-made Markets list of stocks, indices, forex pairs and futures. One click opens the daily chart with up to twenty years of history.",
+        "Alerts on price, values, indicator lines and drawings, with notices and sounds, and a log of what fired.",
+        "Side panels that drag wider or fold away: a data window and an object tree for your drawings and indicators.",
+        "Backtest this market: one button on a Coinbase or Kraken chart opens Builder on that market, with its fees already set.",
         "Bar Replay, saved views, compare charts, and up to 16 charts at once on a paid plan."
+      ],
+      "shots": [
+        {
+          "src": "assets/features/charts.webp",
+          "alt": "A BTC/USD hourly chart in Trader Cockpit with VWAP bands, a moving average and volume",
+          "w": 1800,
+          "h": 1125,
+          "phone": {
+            "src": "assets/features/chart-phone.webp",
+            "w": 1170,
+            "h": 1030
+          }
+        },
+        {
+          "src": "assets/features/charts-multi.webp",
+          "alt": "Four charts at once: ETH, BTC, SOL and XRP on hourly candles",
+          "w": 1800,
+          "h": 1125,
+          "phone": {
+            "src": "assets/features/multi-phone.webp",
+            "w": 960,
+            "h": 630
+          }
+        },
+        {
+          "src": "assets/features/indicators-crop.webp",
+          "alt": "The indicator list, grouped into built-in and community categories with search",
+          "w": 1200,
+          "h": 996
+        },
+        {
+          "src": "assets/features/watchlist.webp",
+          "alt": "A watchlist of crypto markets with last price and the day’s change beside the chart",
+          "w": 1120,
+          "h": 800
+        },
+        {
+          "src": "assets/features/drawings-crop.webp",
+          "alt": "A trend line, a rectangle and a horizontal line drawn on a BTC/USD chart",
+          "w": 1800,
+          "h": 900
+        },
+        {
+          "src": "assets/features/alerts-crop.webp",
+          "alt": "The alert dialog for a price alert on BTC/USD",
+          "w": 715,
+          "h": 1260
+        },
+        {
+          "src": "assets/features/pine-editor.webp",
+          "alt": "A Pine strategy in the editor",
+          "w": 768,
+          "h": 425
+        }
       ]
     },
     {
-      "id": "order-flow", "title": "Order flow and profiles", "kicker": "Look inside the bar",
-      "lead": "See what traded inside each bar, recorded from the exchange's public feed.",
-      "image": "assets/features/footprint.webp", "alt": "A footprint chart on Coinbase BTC/USD 5-minute bars with delta and volume in each cell, and a stacked imbalance alert", "caption": "Footprint on Coinbase BTC/USD, 5 minutes, with a stacked imbalance alert.",
+      "id": "order-flow",
+      "title": "Order flow and profiles",
+      "lead": "See what traded inside each bar on crypto charts, recorded from the exchange's public feed.",
       "items": [
         "Footprint with per-bar delta and volume, value area, stacked imbalance and row size in ticks.",
         "TPO market profile, with letters, colours by time, volume, trades or delta, and trading hours.",
         "Volume profile: fixed range, session and periodic, with value area and point of control.",
         "Measured delta, cumulative delta, trade counts, volume tails and bar statistics.",
         "An order book heatmap: resting bids and offers over time under the candles, from Kraken or Coinbase, with the largest walls named.",
-        "A liquidation heatmap on crypto charts: real liquidation prints, and an estimate of the price levels where leveraged positions would be liquidated.",
+        "Order book detail: large orders added and pulled, absorption and sweeps flagged, and a depth pane under the chart.",
+        "A liquidation heatmap: real liquidation prints, and an estimate of the price levels where leveraged positions would be liquidated.",
         "Gamma exposure by strike, drawn from an option chain file you import."
+      ],
+      "shots": [
+        {
+          "src": "assets/features/footprint.webp",
+          "alt": "A BTC/USD footprint chart with bid and ask volume inside each bar and stacked imbalances marked",
+          "w": 1540,
+          "h": 690,
+          "phone": {
+            "src": "assets/features/footprint-crop.webp",
+            "w": 890,
+            "h": 380
+          }
+        },
+        {
+          "src": "assets/features/tpo.webp",
+          "alt": "A BTC/USD chart with TPO market profiles and volume",
+          "w": 1510,
+          "h": 690
+        }
       ]
     },
     {
-      "id": "apollo", "title": "Apollo assistant", "kicker": "Ask",
+      "id": "apollo",
+      "title": "Apollo assistant",
       "lead": "An assistant beside your work that turns an idea into a strategy you can test. You confirm every change.",
-      "image": "assets/reference-site/original-models.png", "alt": "The Apollo panel beside a BTC/USD chart", "caption": "Apollo in a panel beside a BTC/USD chart.",
       "items": [
         "Describe an idea in plain words and get a Builder rule part, or a Pine script that's checked before you see it.",
         "It fills in Builder settings for you to review, and asks before it compiles or starts a run.",
         "It recommends a validation workflow for your market and timeframe, and reads your strategy's results with you: the same figures and trades you see.",
         "It proposes one chart change at a time, shown as a card you apply yourself.",
-        "It writes custom indicators for your charts, and does the maths with 25 built-in finance methods.",
+        "It writes custom indicators for your charts, and does the maths with {financeMethods} built-in finance methods: position size, margin, risk of ruin, option Greeks and more.",
         "Attach a trade log, a PDF or a chart picture. Your chats are saved and can be exported.",
         "Turn an open-source Pine indicator into a Builder building block. Apollo checks it against the original bar for bar on your saved bars before you save it.",
         "Apollo never sends live broker orders. It runs on Apollo credits, included with each paid plan."
       ]
     },
     {
-      "id": "models", "title": "Models", "kicker": "Research",
+      "id": "models",
+      "title": "Models",
       "lead": "Machine-learning research on your saved markets or a strategy's trades, judged on data held out from the fit.",
       "items": [
         "Studies with purged cross-validation, the deflated Sharpe ratio and triple-barrier labels.",
         "Your chart indicators as features, or a strategy's own trades as the data.",
         "Held-out forecasts shown on the chart, and a route from a model to a Builder strategy and a Library validation.",
+        "Any model you name, such as ARIMA or EGARCH, or one you describe to Apollo: fitted on the earlier bars, checked on the later bars against a baseline, and explained in plain words.",
         "A sample study with clearly labelled made-up trades, so you can learn the page before using your own data."
       ]
     },
     {
-      "id": "journal", "title": "Journal", "kicker": "Review",
+      "id": "community",
+      "title": "Community",
+      "lead": "Indicators, strategies and ideas inside the app. Use one with a click, and publish your own.",
+      "items": [
+        "Browse, search and sort indicators, strategies and ideas. An indicator goes on your chart in one click; a strategy opens in the tester.",
+        "Tested strategies come with their rules, a results table per market and an A to F grade that says so when a result is weak.",
+        "Test a community strategy on your own chart, or re-run its published test on your PC and see your numbers under the published ones.",
+        "Every community indicator shows a picture of what it draws and one line saying what it does.",
+        "Editors’ picks, “Used by” counts on every card, and sorts for trending this week, most liked, most used and newest. Every author has a page.",
+        "Like an item, follow its author, comment and reply. Comments stay on markets and trading: insults, sales pitches and links are refused before they post, and anyone can report a comment.",
+        "Star an item to keep it under Saved. A saved indicator also shows under Favorites in the chart’s indicator list.",
+        "Publish your own indicator, chart idea or tested strategy. Each is reviewed before it goes public, and you can update it later.",
+        "On a paid plan, publish a tested strategy straight from Results, or build a community strategy with Apollo."
+      ],
+      "shots": [
+        {
+          "src": "community/img/063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413.png",
+          "alt": "Account curves of a Community strategy on the three micro index futures",
+          "w": 960,
+          "h": 540
+        }
+      ]
+    },
+    {
+      "id": "journal",
+      "title": "Journal",
       "lead": "Review executions, research results, routines and decisions in one place, kept on your PC.",
-      "image": "assets/features/journal.webp", "alt": "The Journal's trade calendar and daily note", "caption": "The Journal's calendar and daily note.",
       "items": [
         "Trades, a calendar with daily notes, reports, a notebook, playbooks, routines and prop-firm tracking.",
         "Import statements from many broker file formats.",
         "Attach files to notes, use note templates, or draft a note with Apollo."
+      ],
+      "shots": [
+        {
+          "src": "assets/features/journal-crop.webp",
+          "alt": "The Journal’s tabs and its trade calendar",
+          "w": 795,
+          "h": 552
+        }
       ]
     },
     {
-      "id": "data", "title": "Market data and import", "kicker": "Bring your data",
+      "id": "data",
+      "title": "Market data and import",
       "lead": "Connect a broker or exchange, or bring your own files, checked row by row.",
       "items": [
         "Coinbase and Kraken: free public history and live prices with no exchange account, at any chart timeframe; Builder takes M2 to D5.",
+        "Daily history for stocks, indices, forex pairs and futures, from the watchlist or the symbol box.",
         "Forex, metals and index history downloaded inside the app, at no charge, with every timeframe built from it.",
         "Your own price files: CSV in common layouts and TradingView's chart export, checked row by row.",
         "MetaTrader 5 history and quotes from your own terminal.",
         "Option chain files with open interest, one per underlying.",
-        "A readiness check on your saved data, and saved history kept in your data folder."
+        "Daily bars cut on the exchange's own trading day from a futures or forex file of shorter bars, with holiday sessions handled. Futures files are matched to the exact contract (micro, mini or standard) and show its point value.",
+        "Saved history kept in your own data folder."
       ]
     },
     {
-      "id": "exports", "title": "Exports", "kicker": "Take it with you",
+      "id": "exports",
+      "title": "Exports",
       "lead": "Take a strategy to your platform, or get a clear reason why it can't match.",
       "items": [
         "TradingView: retest a strategy on TradingView's bar-close timing, then export it as Pine. It refuses what can't match, with the reason.",
@@ -138,46 +320,261 @@
       ]
     },
     {
-      "id": "paper", "title": "Paper trading", "kicker": "Practice",
-      "lead": "Practice on any chart without risking money, on live prices where the market has a live feed.",
-      "image": "assets/features/paper.webp", "alt": "A paper order ticket and trade history on Coinbase BTC/USD hourly bars", "caption": "A paper trade on live Coinbase BTC/USD prices.",
+      "id": "paper",
+      "title": "Paper trading",
+      "lead": "Practice with simulated money: live on crypto charts, on US stocks with an Alpaca paper account connected, and on saved history in Bar Replay.",
       "items": [
-        "Our own order simulator on every chart and market, with commission, leverage and shorting.",
+        "Our own order simulator, with commission, leverage and shorting. Orders fill at the live bid and ask on crypto charts with no broker account.",
+        "US stocks at the live bid and ask while the market is open, with an Alpaca paper account connected. The ticket shows how old its price is and won't open a position on a stale one.",
         "Buy and sell on the chart, with order and position lines, take profit and stop loss, and a mark on the bar for each fill.",
+        "A price ladder beside the chart: click a price to place a limit or a stop, and buy or sell at market from the top.",
+        "Right-click the chart or the price scale to buy or sell at that price.",
+        "Take profit and stop loss as a price, a distance, a percent or an amount of money. Save your own exit sets per market and apply one with a click. Four quick sizes, and the ticket remembers your last size per market.",
+        "Order lifetimes: good till cancelled, day, week, month, good till a date, immediate or cancel, fill or kill.",
+        "A plain warning before you confirm when an order would fill at once, when the bid and ask are wide, or when a stop is on the wrong side of the price.",
         "An account panel with positions, orders, order history, balance history, activity, trades and analytics, plus CSV.",
-        "Practice orders on saved bars in Bar Replay."
+        "Practice orders on saved bars in Bar Replay, and pick the practice up where you left it."
+      ],
+      "shots": [
+        {
+          "src": "assets/features/paper-crop.webp",
+          "alt": "A BTC/USD chart with the paper order ticket: bid, ask, market, limit and stop orders",
+          "w": 1135,
+          "h": 650
+        }
       ]
     },
     {
-      "id": "brokers", "title": "Connect your broker", "kicker": "Connect",
+      "id": "brokers",
+      "title": "Connect your broker",
       "how": "You sign in with your broker in your own browser, and your password never goes into Trader Cockpit."
     },
     {
-      "id": "save", "title": "Save and restore", "kicker": "Keep your work",
-      "lead": "Your work stays on your PC, and you can back it up.",
+      "id": "save",
+      "title": "Your work stays on your PC",
+      "lead": "Your work stays on your PC, in a folder you own.",
       "items": [
-        "Strategies, results, charts and data are saved in your own data folder.",
-        "Copy your data folder while the app is closed to back it up, and copy it back to restore."
+        "Searches and backtests run on your computer, and your strategies, results, charts and data are saved in your own folder.",
+        "What you publish to the Community and what you ask Apollo are sent to our service."
       ]
     }
   ],
   "paidByArea": {},
-  "freeByArea": {"charts": "Part", "order-flow": "Part", "journal": "Yes", "data": "Part", "exports": "Part", "paper": "Yes", "save": "Part"},
+  "freeByArea": {
+    "charts": "Yes, without Builder’s own indicators and live stock charts",
+    "order-flow": "Yes",
+    "community": "Yes, except publishing a strategy",
+    "journal": "Yes",
+    "data": "Yes",
+    "exports": "Chart data and images",
+    "paper": "Crypto and Bar Replay",
+    "save": "Yes"
+  },
   "plans": [
-    {"id": "free", "name": "Free", "price": 0, "summary": "Charts and paper trading, after a free sign-in. No payment.",
-     "facts": [["Charts at once", "1"], ["Indicators per chart", "3"], ["Saved chart layouts", "1"], ["Chart alerts", "3"], ["Paper trading", "Unlimited"], ["Apollo credits", "None"]],
-     "included": ["Charts with live crypto prices, with no exchange account", "Unlimited paper trading on live prices", "Your Journal", "Chart data and image exports", "Reading Results and chart layouts you saved on a paid plan (read only)"],
-     "excluded": ["Strategy Builder and backtests", "Workflows and robustness checks", "Results research and retests", "Portfolio", "Apollo", "Models", "Connecting a broker account ({brokers} brokers)", "Pine and MetaTrader exports", "Builder indicators on charts"]},
-    {"id": "core", "commerce": "Core", "name": "Core", "summary": "Everything, for one job at a time.",
-     "credits": 4000, "jobs": 1, "modelsBatch": 1},
-    {"id": "trader", "commerce": "Trader", "name": "Trader", "summary": "Everything, with more Apollo credits and more jobs at once.",
-     "credits": 10000, "jobs": 2, "modelsBatch": 5},
-    {"id": "quant", "commerce": "Quant", "name": "Quant", "summary": "Everything, for heavier research.",
-     "credits": 20000, "jobs": 4, "modelsBatch": 20},
-    {"id": "apollo-pro", "commerce": "ApolloPro", "name": "Apollo Pro", "summary": "Everything, with the most Apollo credits and jobs at once.",
-     "credits": 30000, "jobs": 6, "modelsBatch": 50}
+    {
+      "id": "free",
+      "name": "Free",
+      "price": 0,
+      "summary": "Charts, order flow, paper trading, the Community and your Journal, after a free sign-in. No payment.",
+      "facts": [
+        [
+          "Charts at once",
+          "4"
+        ],
+        [
+          "Indicators per chart",
+          "10"
+        ],
+        [
+          "Saved chart layouts",
+          "1"
+        ],
+        [
+          "Chart alerts",
+          "3"
+        ],
+        [
+          "Paper trading",
+          "Unlimited"
+        ],
+        [
+          "Apollo credits",
+          "None"
+        ]
+      ],
+      "included": [
+        "Charts with live crypto prices and no exchange account, in all seventeen chart types, with drawings",
+        "The built-in indicators, the community indicators and your own Pine indicators",
+        "Order flow and profiles on crypto charts: footprint, market profile, volume profile, delta and the order book heatmap",
+        "Unlimited paper trading on live crypto prices, with the full ticket, the price ladder and the account panel",
+        "Bar Replay practice on saved history",
+        "Watchlists, the Markets list, symbol search, and daily prices for stocks, indices, forex pairs and futures",
+        "The Community: browse, save, add to your chart, like, follow and comment",
+        "Your Journal",
+        "Your own price files and free history downloads",
+        "Chart data and image exports",
+        "Results and chart layouts you saved on a paid plan (read only)"
+      ],
+      "excluded": [
+        "Strategy Builder and backtests",
+        "Workflows and robustness checks",
+        "Results research and retests",
+        "Portfolio",
+        "Apollo",
+        "Models",
+        "Connecting a broker account ({brokers} brokers), which live US stock charts and stock paper trading run on",
+        "Pine and MetaTrader exports",
+        "Builder’s own indicators and strategy signals on charts",
+        "Backtest this market"
+      ]
+    },
+    {
+      "id": "core",
+      "commerce": "Core",
+      "name": "Core",
+      "summary": "Everything, with one Apollo task at a time.",
+      "credits": 4000,
+      "jobs": 1,
+      "modelsBatch": 1
+    },
+    {
+      "id": "trader",
+      "commerce": "Trader",
+      "name": "Trader",
+      "summary": "Everything, with more Apollo credits and two Apollo tasks at a time.",
+      "credits": 10000,
+      "jobs": 2,
+      "modelsBatch": 5
+    },
+    {
+      "id": "quant",
+      "commerce": "Quant",
+      "name": "Quant",
+      "summary": "Everything, for heavier research with Apollo and Models.",
+      "credits": 20000,
+      "jobs": 4,
+      "modelsBatch": 20
+    },
+    {
+      "id": "apollo-pro",
+      "commerce": "ApolloPro",
+      "name": "Apollo Pro",
+      "summary": "Everything, with the most Apollo credits and tasks at a time.",
+      "credits": 30000,
+      "jobs": 6,
+      "modelsBatch": 50
+    }
   ],
-  "paidLimits": [["Workflow stages", "32"], ["Indicators per chart", "100"], ["Charts at once", "16"], ["Saved chart layouts", "16"], ["Chart alerts", "200"]],
+  "paidLimits": [
+    [
+      "Workflow stages",
+      "32"
+    ],
+    [
+      "Indicators per chart",
+      "100"
+    ],
+    [
+      "Charts at once",
+      "16"
+    ],
+    [
+      "Saved chart layouts",
+      "16"
+    ],
+    [
+      "Chart alerts",
+      "200"
+    ]
+  ],
   "runLimitCredits": 2000,
-  "creditPacks": [{"priceCents": 1000, "credits": 8000}, {"priceCents": 2500, "credits": 20000}]
+  "creditPacks": [
+    {
+      "priceCents": 1000,
+      "credits": 8000
+    },
+    {
+      "priceCents": 2500,
+      "credits": 20000
+    }
+  ],
+  "proofRun": {
+    "caption": "A 10-minute Builder search on a year of SOL/USD hourly bars: 13,389 strategies built and backtested, 34 kept, and the reasons the other 13,355 were dropped.",
+    "tried": "13,389",
+    "kept": "34",
+    "dropped": "13,355",
+    "reasons": [
+      [
+        "Profit factor at or below 1.3",
+        67.09
+      ],
+      [
+        "No trades",
+        18.73
+      ],
+      [
+        "Failed the starting population’s filters",
+        8.63
+      ],
+      [
+        "Under one trade a month on average",
+        5.3
+      ],
+      [
+        "Return over drawdown at or below 4",
+        0.25
+      ]
+    ]
+  },
+  "homeStage": [
+    {
+      "label": "Charts",
+      "src": "assets/features/charts-multi.webp",
+      "alt": "Four charts at once in Trader Cockpit: ETH, BTC, SOL and XRP on hourly candles",
+      "w": 1800,
+      "h": 1125,
+      "phone": {
+        "src": "assets/features/multi-phone.webp",
+        "w": 960,
+        "h": 630
+      }
+    },
+    {
+      "label": "Results",
+      "src": "assets/features/verdict.webp",
+      "alt": "A strategy verdict on 1,175 trades, 358 of them out of sample, with a 30-run Monte Carlo test: grade F, “Fails: don't trade it”, because it loses out of sample and the account goes below zero",
+      "w": 1698,
+      "h": 546,
+      "phone": {
+        "src": "assets/features/verdict-phone.webp",
+        "w": 1019,
+        "h": 546
+      }
+    },
+    {
+      "label": "Paper trading",
+      "src": "assets/features/paper-crop.webp",
+      "alt": "A BTC/USD chart with the paper order ticket: bid, ask, market, limit and stop orders",
+      "w": 1135,
+      "h": 650
+    },
+    {
+      "label": "Order flow",
+      "src": "assets/features/footprint.webp",
+      "alt": "A BTC/USD footprint chart with bid and ask volume inside each bar and stacked imbalances marked",
+      "w": 1540,
+      "h": 690,
+      "phone": {
+        "src": "assets/features/footprint-crop.webp",
+        "w": 890,
+        "h": 380
+      }
+    }
+  ],
+  "facts": {
+    "communityIndicators": "nearly 1,000",
+    "financeMethods": "more than 50",
+    "unmetered": "Searches and backtests run on your PC with no count or credit limit on any paid plan. A workflow set to repeat stops after an hour."
+  },
+  "communityPicture": "community/img/063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413.png"
 }

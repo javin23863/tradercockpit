@@ -13,7 +13,7 @@
 
   function fail(message) {
     status.textContent = message;
-    direct.textContent = 'Browse Docs →';
+    direct.textContent = 'Open Documentation';
     direct.href = new URL('docs/', siteRoot).href;
   }
 
@@ -43,7 +43,7 @@
       }
 
       status.textContent = `Opening ${entry.title}.`;
-      direct.textContent = `Open ${entry.title} →`;
+      direct.textContent = `Open ${entry.title}`;
       direct.href = target.href;
       window.location.replace(target.href);
     })

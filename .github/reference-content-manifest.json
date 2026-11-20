@@ -1,314 +1,302 @@
 {
   "schema": "tradercockpit.reference-reading-shell/v1",
   "base_commit": "aceeef931a54d230133e53296fb810d94e0dd0a7",
-  "home_sha256": "7fa29966b8b2aab1f0e25f3625a857afb570bdaa96c772b1ae504443384501e6",
+  "home_sha256": "b2edb6f0fcbf541525a48ff83c9c6bc7a767aeba284103ecc16aeb5a7a610e6d",
   "files": {
     "404.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7a534afcded123790db17bd7eeae83996d2d62bbac3dc9213b598ed2fb123224",
-      "after_sha256": "dfbe831daac1b2e3e5576d686f16062d015b5d5e959e73540a6d1543ad36a426",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "3c1cd953ae8483179d4a47dd4f8027fa0029f477704bf590f641674c540a87cc"
+      "after_sha256": "72be30eafcc51009130e48fa0a3f1e2fc3b0d7298cf38b56ce2478c469812e43",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "cd2867c149a1e1552e73ac6d64791639b4d9f50789d0640f30b91ec16d442c65"
     },
     "confirmed.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "ce4cad2aea3c81c68c35f3bc2a4e4751c4d469d6af5efaccb6a35d078c385a3c",
-      "after_sha256": "410e2c82c381c0d4f85ba105eadb1608d54225b11562e9b9cf67e7a7b9e13031",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "e5483140ddfeacbe4163674c31d174b824f753fe235b3b475abb4f5515627d35"
+      "after_sha256": "a0ba0843c3e4c88870fbc0bb795857c77fdfe984df1e3a75af2e021ccf71e86d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "66c348d255a1fab891b83a317e0b10cace07a0552f44debbe3b1c1e7f8620d5c"
     },
     "docs/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "f24f8660892730ab6ebb2edfa4158735cc2aec34c5bb20268b2e027b28a881d0",
-      "after_sha256": "1b499ac4351c07ecbf1e378c49f8595923a2999f86f742732900b9e1c043d7e8",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "72ccd537176a86ca4bc9079a5d4022b45263712ace1a81de64441e88e7ccb6d9"
+      "after_sha256": "1aac1c746b1954f5ef0cc5e7b027184b239dfbc6fc882963a8d158b31dd03122",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "4131aa68728a725e7d0dbf1eda7397ae1e6548e608b3b654be21da65fc0329da"
     },
     "examples/holdout-selection.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "81fab7d1fffe4e830455256cc728a2a0e3f6ec5fcc40abb7c6c59f5a47889d85",
-      "after_sha256": "6130b68612565b04897f5ff2d7623c1e6df14a28e8a4e273ab785f0f27790958",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "ccd7e98c3c4c038bab66dc4f2f15f4dbeee643939eb914510dfba68efb5df24c"
+      "after_sha256": "6e9efbb0b14bd8c498ca5fd33e2d064f6e9ea588191e4c58bef8ea44bfc7210a",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "5e6182c5df2c23a8e2f4512a3e5972dadd494b75f8d45a2d54cecef3d802111d"
     },
     "examples/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "60ada0e34432da39ba418840da16ad33e64925f8e5caf43333754a2af1fe8668",
-      "after_sha256": "011e61ed87ef0f40e751979a55e3414db413f0929c41d899fb18040cd6318fce",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "a99a160b33d5c088bd6b9651783e76db4c18e68d70844552180009730334eed7"
+      "after_sha256": "7b4aa20041da74569259a6ade922d9670bf44e6110ce37af1cd488b6701db8bd",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "0fae4126395cd77cb834a5737e25a4185b9d85d5902f6fa889a421189fd37076"
     },
     "examples/replay-boundary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "871d30a3d96b15bf39dc2b202990074cae6f243fe7a0d0d5b0cd1c5d65c6bd79",
-      "after_sha256": "b6bd26dd8335bd5e0d39236c27e1b56119f454b268e4124e803645c177106690",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "aaf47559d07074be73dd48737c7e4d91da24203874696dcc749445dfdab70512"
+      "after_sha256": "1eba847a89c0b28b960846f8d85dfaef18c2f3b178466f26a30463ce7bfc89dc",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "f49959ae5ccb9b39d0bac458d1fe56da067a1c1b9aefdede9568e01d91f4c7ac"
     },
     "help.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3f6e4a64ff3340a5c191d0dd305c9ffebcafb2fba3cf575e3c42955f70a6f999",
-      "after_sha256": "38dd338f0e9920ece04ad3360965fc0715427550635f4e12535981c3580a7e33",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "d55ce605891ba30c09e0956906923b9dbae4e3c218d25ceb97d02ad72c024989"
+      "after_sha256": "ab1e3ed6776c06450d9061e136ede0dad503ba6a6334a0823fac91b482d1b087",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "53ebae802a9ecfab95f22f4d47d391e2b3f3c7eebbefa75831efd0ade5c3d4c0"
     },
     "how-to/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "4cb4f858ae50b24a50fde6dc09514cd3490150f2486315e783156256d4930c1c",
-      "after_sha256": "01824e831671efd66d60d5096add673bcdeb3ab87ccb64c16949caf52419c5fe",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "5ae24b59f6a708edc4a9f4a63cb8d71c747753131be01cbc44fd84d307c2a4d0"
+      "after_sha256": "f5b67d453f948fad37178dc015e516ebfc2e66172f7ef3ca2948b025b3b610bf",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "7a8a86f0afb1f8fb73bc51af8e39a0a876546a109bf8dcdc2ea59ef360f27e53"
     },
     "how-to/read-chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "270f1c9e2da3e18562f5e0e5925f87468627dbf9177b4ecce5cd93e1f4b408f3",
-      "after_sha256": "be68240fc502dfdeabed02b970480b2c279465f85a1c16a9333671efa3b88afb",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "a3d24d81adfe67360789cefa2b5d58a8556487de9314360ac7245fb4bef9b641"
+      "after_sha256": "57b6aee97bcdee04ffc8cbf461f03caf755c3fd390b235097d96c064b032648f",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "4c01e164e3c3e342eb70ebd9919f4a4c7e30ae7453298d5104a25062acf99bda"
     },
     "how-to/read-monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "30e4e512c0a8d1c8d6dec53fbcbba649d1687c1d358ca9658ab601ad00b2e404",
-      "after_sha256": "0d11b229c0ab115092a9c230b87e753d7a18527e05ec23e8b505a3bfd919fce1",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "5720be253bba48e95518976163daa8741158342be8f8120273ba428e6d69741c"
+      "after_sha256": "49a579bbc234907ae875830d18c7dbad4558d4ec44189e79f0b4ff5c49867546",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "65a919be875e63f00fe9f23ede0d3fa0d70bcdc186ade585dd41fbdae41dfddd"
     },
     "how-to/read-result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "3685e7835d85abfffc34da49a56a3defbce41fc145587b003219d8df4697f833",
-      "after_sha256": "eff3b8506679b6fa8222dc0cd9b81ea618bc81df558e8382f465b9fc19033b77",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "c8309b3052326e440a05a8ffe5cbdbeeaede9f7ec9a41e165eb596a6f02150bf"
+      "after_sha256": "250c0e93319533d740ce42e76b0340f57997f31e7aaa35710abc93c20fa0ce7d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "107e1f1ae14e79ce06d2531b43e0f6bb5c5d8a674b4470b43062325efe08aa3b"
     },
     "how-to/read-staged-validation.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7450948fe8da68a496f01a9687d4d88227ac811f253017978c6024dc7508b4d5",
-      "after_sha256": "2714805b4aa9793700a804930bd3213ad9e5aec757433a8b86a6e534d88933bd",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "9ff64efbd405bf06e5e954cee64c2b3ab6cefb67b220ef2560185572b2e464b4"
+      "after_sha256": "491a9737336063ed096f9fdca4fd60afd74c079d5d5c4060ee375acb7b1e8b8c",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "30f562074f75cbc82eb148c1dcdd46c821cae73bcbb3b42c0b0a118de964457e"
     },
     "learn/concepts/correlation-diversification.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "a2460ed1ca37cc1fed1dbd3bf564d354843cf05b2916dac4a270f0b9493893ab",
-      "after_sha256": "c5f92262e38724dbff8d55f4a6121581307db40a93db8f528aafd4d9d15236e7",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "eefbf3504a1eb250be79c03996fd72489a50a34bdb1ca3c26437ca957ed1f184"
+      "after_sha256": "bc84fc259cddbbd905929c1bc56c0d1ca5fb7bd57c0136c000b02c677bc64830",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "bc84fc259cddbbd905929c1bc56c0d1ca5fb7bd57c0136c000b02c677bc64830"
     },
     "learn/concepts/distribution-shape.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "be0860f900a271b71a22721f904aef73dfe1737ad589580475b4d11b613ece44",
-      "after_sha256": "ee4bebec727f857fe646f813316fbdf512fecd482e6bcb9147bc02d4d589e266",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "253d34d32e1afc33286763c722dfc4c17eefa5a005ddb23c70424242d7ff8623"
+      "after_sha256": "3be0502f2681886c42a18dbc09edd225c1e8707c8473339d7c20daa42ff08f05",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "3be0502f2681886c42a18dbc09edd225c1e8707c8473339d7c20daa42ff08f05"
     },
     "learn/concepts/drawdown.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "d6a63393492a3a25497bdc1283b517622c7a2c682730987fcb6656d0f0c0a0f1",
-      "after_sha256": "9b372fc8bdc00c63442e6e273db4c36fd99a786e54ad64d735d422108912c767",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "ee64c6251226daad4f61c3addf14f50cfdc8e7393382957092b3e65ba55fb279"
+      "after_sha256": "49add57888a57a89021e474ccced0ae6674e27106f244a0436816a1ab86dd8d4",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "49add57888a57a89021e474ccced0ae6674e27106f244a0436816a1ab86dd8d4"
     },
     "learn/concepts/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6e3f51c527177c355262b635824aa4a3ad3004686711081972a7fde552439fce",
-      "after_sha256": "f66c07d2f55acaaf880c93757fe8b3b2bbda2d38704d6c355cc9d06b259bf580",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "e992c9963c38c84d2856d9d68ed5c4add0691a3d3ceb61d0a58eea2096b8d2a4"
+      "after_sha256": "e6281211f01898a68a9f928f88c350264634b693e72d2b27317a83d49dbe65be",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "e6281211f01898a68a9f928f88c350264634b693e72d2b27317a83d49dbe65be"
     },
     "learn/concepts/out-of-sample.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b38d48b3ce6696868ee13396ac4a3f9afa0450abb32d28ace8742bd7e7cf7727",
-      "after_sha256": "c050f74603df0b0319676e841d65fe88541024911e51c59257aeb5077f1ea373",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "df9c6d47805ded3ce2502498c80f31f108acdfe59740022dbf3f278488b6f660"
+      "after_sha256": "a9feb61506923615a11f4e08e5e8c3a013969554fd35791a34abdf676732168d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "a9feb61506923615a11f4e08e5e8c3a013969554fd35791a34abdf676732168d"
     },
     "learn/concepts/parameter-robustness.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "dc5c0f490aad5853bec61cd26c452d2e5af26b61959c49034c3a84ba03855f4b",
-      "after_sha256": "b25d7281926ceea4d1c5059c1faa25f5113de510e7d14334acdaa3f308de5aed",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "46a6b080db8a94627a29a11a692b67a5c9ef7cdc46fa7573261d3bfbe933b5b9"
+      "after_sha256": "a7b399035c02d0612351ce13c07c7a4579febdf9b700e93c9e99b618f79c551d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "a7b399035c02d0612351ce13c07c7a4579febdf9b700e93c9e99b618f79c551d"
     },
     "learn/concepts/regime-map.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "da9fe6e10e859dee603ea47fcd58d175a69b99616eb071df76da5fee2c360b3b",
-      "after_sha256": "df4f058e5aa6dbb459871a21ebdf97cec6f44d9b3d7a824c86f36cd16ec0793f",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "1697aa93f521a286e80d9b5a8b1103ed10544f4db83e9a50b8987e9f7b7d209e"
+      "after_sha256": "39c8535b675f2fed33e351b3451a01743576d8ee66850a466aa2b6143e2aa6d5",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "39c8535b675f2fed33e351b3451a01743576d8ee66850a466aa2b6143e2aa6d5"
     },
     "learn/concepts/selection-bias.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b8436ac304c7afdd63a6116e61c3b73234926d09f4ada6a22aa66f8836165fd",
-      "after_sha256": "a16519fd12662a08f9b535de67f15198ed3db1fd72d608174a6a930fc8c871a2",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "85908abc60292bf3060ce784b7a9dae0133d56c8da293ab45d56230bb9fb7962"
+      "after_sha256": "825702ec5baa599c639ac738fa873e33b6af7fb76cc97407bbd3378d1a1c7251",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "825702ec5baa599c639ac738fa873e33b6af7fb76cc97407bbd3378d1a1c7251"
     },
     "learn/concepts/walk-forward.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a80dc8678d704509ba6bb1087c4ed5ac66d802809e2bc2176b90e72a1da10e4",
-      "after_sha256": "7e452e75151e5bdf6387a47665a71aacfdd187062e88c7c07c845a58f05820d9",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "3e5563a2268695f1f835ad7e79911addffca7cd8c9b65269cad309950b971b60"
+      "after_sha256": "23489e7c6f4e781385552608cc7ac46623fa7ffb684cb69b0ce331ac8cb3ff3b",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "23489e7c6f4e781385552608cc7ac46623fa7ffb684cb69b0ce331ac8cb3ff3b"
     },
     "learn/glossary.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2a2aa38211933c21f3fdb04d89134bdbb250168aa4c05604ce3aa3cd4b3ca335",
-      "after_sha256": "3a819b19e5106552718457fff9f58d1723abe3f125db08d75090225cf66958c7",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "623606bf8a554a2e542d6522703c04cd217d83c0264f7d6386f204b7b931f8f9"
+      "after_sha256": "064a06fdc02954ebd97a78c9f7ade4cda544a1ced0d25d189c9cacab15ddc481",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "f6d744758d26d0d696d6b9e10f6554e34d7b59d9be97033d1ea8d4af3d4e40f9"
     },
     "learn/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "56f6163320b79bcd78110e210b78f4a875c3cad03e36fbd8b5b2cfde1a339b31",
-      "after_sha256": "4d7adc27ae6e1cc19660d2b74515b524dc3900c235d363852d1659f179653fd5",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "d0b961b4a778edc2881a48da489afd7ba7f398fed6624460ddeea7f1db2641a7"
+      "after_sha256": "27b3a136fdc9093d7fe8f55d389637b883c2cb7221b1af5e4f83a5205bc71169",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "edec1d135596875d27d6aceafa05d7fb5f15bf8aed98187dae237bd899f32157"
     },
     "learn/start-here.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "5ec0bb3476f460ddfb4a61e38d3301e37d92e5923174614d1127b316869c7de3",
-      "after_sha256": "afcc6d7cb368002e024eb1a0417183e758bed696f2c2fe990fbe4496d9e0fde6",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "d140761772870321385ce7411a3b544ff5a65fbb7da1f8179c2d5c0745825306"
+      "after_sha256": "d9599e5e34be1209d8c0a3085ae25bd2f0f22e4628eaa86fc813a033cf2cefaf",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "4ed5a9941e10e20b9cc830bf457094d54551b43840a873ffc57b0a24b8f29a83"
     },
     "learn/videos.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "ac744ff241d35c402eac8e9a16a495d2a1f4895908e25899777b42b4f22b3a17",
-      "after_sha256": "bfbf2f9cd81b0cc799f42a27098b549dc7736518d5f5afcf07a42ef80aa4620b",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "0598b067705e0f04b1a6471b387e573dd85d771ec97f2df212576ba18e02668e"
+      "after_sha256": "bbdf9606011553f869eb2e6ac053b54ae1abd71ff7bfbc793f2bdd0299a194ee",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "e028b9d1fdba5df54bcdcc2dea0cccb393b5264e693dcb3e965501a15f69c606"
     },
     "methods/chart-evidence.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "cb2d9dd343490b1b49d4943aac0f4ea6b1c26b72ca90ecae18b99529a05513d8",
-      "after_sha256": "103cb8acdc431db503541ea486f5cac4aa74b9c62770fa06e73fbe28598b37e8",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "bdeb5a8840ee4d9850251d805324ae449d62edd9dfb46ab9d1ec4c6bb10ca091"
+      "after_sha256": "343e24d641b44af1eab6bf68a3e2a784f09a6b907b56d9ec5ab8612db5b8998d",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "cecb12f1c89e997b883e2cf0897f11271340a79f012a733cbf6942d0cdfb9dea"
     },
     "methods/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0689e1b3324eeef298f4ca4718b7e9818ec2efff791b0a4beffa222a59667553",
-      "after_sha256": "e3defb9cc11f606ccccbbb0d68b7300d4beada118d9e5cf9b663beb689064d86",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "d05b56317e641740d920b8de83d879cca171c02b4cf3e43e926e9ac690e21a99"
+      "after_sha256": "fd457197b9fbeab9fce720c3f681de1b920e7c22ab51b5fa43e8185c55063be9",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "b5c9aea8b392cd386afaa58e0295b4735016522bed66fdca075d7ba9b3e4aa4d"
     },
     "methods/monte-carlo.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "6cb4fa48322eb261bf81995a0bd0fc3afa0a69b1e53087320c225aafa8feafb0",
-      "after_sha256": "f165a27d7fde3919d94e406c27f263ae17845a23a88944d264a50e3deb18023c",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "4fa1bb7bf8d880c4e07780c8aeb1ec98a97d53751ef05942cb991552f4161d78"
+      "after_sha256": "ceaa2b9a7f2c0fdbcee55a55a5844473a4b9f03832d6dda36742d3e3e23e0839",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "a9076a3de64409af160a22b25489c5e0e7e7835fb5dede8bf8bff20302f37161"
     },
     "methods/result-metrics.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9e2af4a06553e80cd5efcaaddaaacb86b227400b2eb2f0527c493d725906b8d1",
-      "after_sha256": "b762b8beb0443cdfc35c7172a04b0e8d2f47f123ee6f14d166017c66565a4cf7",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "a0a1d6d3fc19d9a47583b07cb490af0d52cd91f2c68be76c3cb7b18e5c82aa65"
+      "after_sha256": "0d6f271490e8042ea9373edf07959059e781a617db172941ca45404f6bb331b6",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "d0c5a083c41cdc7459cb516fa541903f26ff61c13d15b3fb172e638a1076a003"
     },
     "methods/validation-foundations.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "9f1921f7a1ccd18e1032eda84cbff09dfcf92f13faed119087961d95424d44aa",
-      "after_sha256": "f3fb5480beae4a232ef9e0dbe23592c19d6506415eb96e1262666428da5aa255",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "c82e6955a37123853ffa46801e7d4511cc9aebbb3dd7bb7d9e432e406f5cedf7"
+      "after_sha256": "95be557298351167ace02eaf48cfc5789fc6baa24664e3b0befc7e064db69339",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "f5a205aed0eef3803f4f7185cf496dfd724ca5264a0e129a0ee96a70197b3fbb"
     },
     "pricing/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "75dcb26f3f6033b0802668d4aa788d9546a8fdcf39805eeda311c85a93dbe8e5",
-      "corrected_unwrapped_sha256": "41b73bf5c8018b42de5a26866e1ce966413a6282b4d6c254ae43d5682c9e7844",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba Broker section: orders from the chart lists what is proven Market data: no exchange account Paper trading: no broker account Orders from the chart names supported brokers; which are tested Community tab 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Features and Pricing headers shortened; the legal line stays in the footer.",
-      "after_sha256": "4c53561685090793a2837f4102f86348d0caf4ebb33ca14081def7edd7b459a7"
+      "corrected_unwrapped_sha256": "ef13e52ad8d5d09328a945b1a5b5967c691d5cb82aff3366ddbaef1558756817",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Free plan card, published after the app side merged (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Owner 2 Nov 2026: what a person receives is shown in credits. Connect your broker section: brokers from one file Alpaca Paper line: drop our test note Public wording sweep: no suppliers or background Features: community indicators and fill marks from main 92d74c4ba Broker section: orders from the chart lists what is proven Market data: no exchange account Paper trading: no broker account Orders from the chart names supported brokers; which are tested Community tab 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Features and Pricing headers shortened; the legal line stays in the footer. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "after_sha256": "271040831cfdef8bdc4d2ef43daebf10d9e81036ecec4b446460ad1307171ef2"
     },
     "refund-policy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "427dbd7d33a45c376dacee264f98169b33fe26aa7274cc40339b5ba91e856752",
-      "after_sha256": "78ec26f22986995a6edd27e809c2bb031dd03d4c939b78f7db85eacbdfd9a4ab",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "28dfe00f60bd16a320a7f90893e33d92e35a1d0ad12b8bd90cfc71d4985cde15"
+      "after_sha256": "44566be2a97c443d5df6d7884fe00f9343a0fdb6d5b0de26c1f54679b17d43fc",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "911723c404474edba35fe885f08867035bf7835a6edbd19976006b532ac99f56"
     },
     "strategy-claim-audit-checklist.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "2b505cd96ba95b3e431e65558dedaf5b72057d71a934208bee7b3eb076c9b514",
-      "after_sha256": "0d2b72893ef909089437650a48c1879b9fb1275d15fa9bacd61ef63ca14f2fd8",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "f890e95779180d97b7860908e712452a60667918bad289e9af5654578cbcc85b"
+      "after_sha256": "742655f12e42777012b16c5d2021db01718ad000140dbb052c5162715caf8ea5",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "1235ab70a012f742ff48bbfd613d8117b93c2cd0d0f4baa845ff44d4f33171d8"
     },
     "support/faq.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "38591ddbb9fb80de6c4f21d2bf29e2a30b12d9c633167c7b7b6567aa7636bcbf",
-      "after_sha256": "65cd3cfd3fee9f66f398fb6fd00f27dbb83cadb7100115d34eafd97df0cdf723",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "221212aa12d491a233bbffcd4ffaaaaa3e79711116ad210de6449e82cfb34e9d"
+      "after_sha256": "99126ee44d71bcf70e4ea25b4145f815aced13de0b91862c70f3aa2b216794cf",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "5dab1801e9eda83e6df4672747ca90cb962c7e559510e682f22a80210bceadcd"
     },
     "support/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0dceeb4d047f0ad782c443e1136877ea0343df00f5bb38dd5e74b3fc4c0f1bc0",
-      "after_sha256": "7aa969936b5967caf5ee8f86b19a17345d0fdcba7f3db180919bffba4e2a163a",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "0f3e3989753058d9a423c0e547dd4651ddab5034fb87ad18f284789838f459f3"
+      "after_sha256": "de775eaefa4ef2bf101a002ba3a5ea69cf623c7e9b0d16744ea5767d3abaf6b3",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "eab049b016088ae6713b9fa70e8201ca45edbe5ee96f2baf83a797d396b7e005"
     },
     "thanks.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "7044bbe001264811706c0c3a3d72513c419b61b2314a7e3c97e19a8bedf4a077",
-      "after_sha256": "aeb9901b2fb18cdc161c1fc0cf0ad84983b5068dc40271d5e785d3648b2805fa",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "d931facda82229218e88196a6edbfd0d32a63ab1788f7236b49d632864489368"
+      "after_sha256": "b20e7d8c32bdd57be1320dc12a0cdbad3e700968dc523e86dc83933b2773ea47",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "3de4c12ceeee67dad3a800c9704e3e146541bbb3eb071d25f03eeadddb032c26"
     },
     "trust/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "e121a83231ee9f21e3a945482f4fef8a1faabd684ea4174123f488c33e6657bc",
-      "after_sha256": "5266c427ecc6a903cd3a25012c0e6f5f8450ac82bee0e3d61f021d155b0b4d45",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "09bb80a44904296b7ade35b78e17e05698b1f8c29e4022c0599ae89bd864f297"
+      "after_sha256": "2a5ff19a26709b04e9f00ad070b1a74265731971a6ba87fcb33fd82b2361a047",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "56a82bd178c8c38d027f4a6173b8ccb79fcd5ff001ba47e252fc289f151a0e9f"
     },
     "trust/privacy.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "0508d3911548c2f629a5556a10d57b947b8857b2ae5d36a3af332cb381d544a4",
-      "after_sha256": "325100f6dc52d0af53d2ca1f57a941e812aebb9efa078e9b27e1ee0d64262d4c",
-      "corrected_unwrapped_sha256": "a79b3ba02d6e0ebfbb2a3a7283553b111e6bd550d0f926dd9564967464c14dcc",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's."
+      "after_sha256": "612c007c89dbf860e3d2060005f9803d85bc029dae6d5becff726ebc6b667ec4",
+      "corrected_unwrapped_sha256": "09c7e388624c1ab01efa5ebe6ebb6a233873882725127c80b397267205b4f5f4",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "updates/index.html": {
       "kind": "corrected_reading_shell",
       "before_sha256": "b2e02803c05542a87219de7fa266b0bf3f2537ff680380d05f28bd3bf18c11e3",
-      "after_sha256": "d0615588d8182e84c0bb3cb1aa50609004dbbc55859ab57caa5f62575845457b",
-      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's.",
-      "corrected_unwrapped_sha256": "2d02c1da5d804835a80c0054fd59602d914379505bd06853f59ffe507f6adc12"
+      "after_sha256": "e7b3d09ab63be5c7f4889aff93c779ec0454338ac3268a13e89b4ddefc8cd623",
+      "correction": "User-approved search preparation: custom-domain metadata, optional analytics, development status, and guide/authorship corrections where applicable. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed.",
+      "corrected_unwrapped_sha256": "c48f422dcd29c1c3339e8e563eb2d68ce27f5f896a155b63740f6e5e4ce1cb28"
     }
   },
-  "new_assets": {
-    "assets/reference-site/content.css": "be658ba7b74ccdf456d9d24061e80e4e1efe45f713cf6afb33d734ad3390713d"
-  },
+  "new_assets": {},
   "content_preservation": "Removing only the declared additive shell and labelled media restores the exact previous HTML bytes. Search change only prevents decorative hero SVG insertion.",
   "visual_approval": true,
   "visual_approval_source": "owner",
   "visual_approval_date": "2026-09-18",
   "approved_updates": {
-    "assets/faq-status.mjs": {
-      "before_sha256": "60ef1485d6fc005893c67ed6ced932095cf4e5e5ad9dec6ddb68475ec0c0b736",
-      "after_sha256": "0d991251666b055126522aacc713c73970edc5e2113e347f5bc4d6f9407c47df",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Owner plan 2 Nov 2026: early access wording, Features and early access pages. Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's."
-    },
-    "assets/home-v3.js": {
-      "before_sha256": "4085ebcdf6ec42014e85cb1db50e76b8c76279da66155ccede768a0224326a08",
-      "after_sha256": "6da6fda3b2a13efee4f4ee254d977c9c0a265efc2b150846b39b3ad5f4cefd1a",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Owner plan 2 Nov 2026: early access wording, Features and early access pages."
-    },
     "concepts.v1.json": {
       "before_sha256": "3ae970be5cfcc13e5e0762dc511c637261d033f87afe0b72fa8c37ebfee60103",
-      "after_sha256": "e40ab355fe5a35459989407ba4a3b54289245de68f69fa0626e41cb9f3b9dd5c",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12)."
+      "after_sha256": "061a5d9d8c4365972900e8414f088351c2212bcc5cf174a3e0acc68e36ace4bc",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "content-registry.v1.json": {
       "before_sha256": "83b02fda5bb273fada943bc672386d6d2f12cb5bc19a18f511b7e443dc180382",
-      "after_sha256": "c851a1e6caf7dadc717b1d2d3abba531fda405652fe6a8a4e533bfffc2c51f8e",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background"
+      "after_sha256": "f37f775438ddbe0dcc1236de78a7fb898c85df75f04ce2947d7520d6c58b761f",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "help-registry.v1.json": {
       "before_sha256": "00836b9f92d92fb780b603d80e1cbb587b8d3a436dea0d1e140ce69c9b227271",
-      "after_sha256": "ca81e0fc1b4e1f6e1698aef3a4ac362c1d0c58001a141544c3af5db1e92ee063",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12)."
+      "after_sha256": "bcf916ee564f79c760f746f21696d2bf15b50fc1bd1bbb10675ec697beaffad9",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "prelaunch-config.mjs": {
       "before_sha256": "970111ce96d32e56dcee429f55b3b9dea6673a30724d4db6ae5d51328f1207fe",
@@ -322,13 +310,13 @@
     },
     "product-manifest.v1.json": {
       "before_sha256": "58b96cd926cb5fa15bb7be0f55678fea5121626545872407df03f797d5a23820",
-      "after_sha256": "783cf6cbe85c2370ef1775c7f66164b46e27a18b243b0293086cb33c29475a93",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Connect your broker section: brokers from one file Public wording sweep: no suppliers or background Broker section: orders from the chart lists what is proven Market data: no exchange account Orders from the chart names supported brokers; which are tested 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's."
+      "after_sha256": "4b5bf8824a066f40bbcf2ab9b151702121c3f04fc0616d57351900bd932e412e",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Owner 2 Nov 2026: new home, full Features and plan details. Connect your broker section: brokers from one file Public wording sweep: no suppliers or background Broker section: orders from the chart lists what is proven Market data: no exchange account Orders from the chart names supported brokers; which are tested 10 Nov 2026: claims match the app today (no author shown on community indicators, web search and Yahoo removed, bring your own data); adds watchlists, liquidation heatmap, history download and Pine indicator to Builder block Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "research-lab.html": {
       "before_sha256": "0c0883a01c84341928f261af0a890b91c581c506d25e19a7ee8a494ccc82aad3",
-      "after_sha256": "4ebf0606836bb4f56755adfc1d3d749c34ebdfe938b4be51ee353539f046e228",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Same reading surface as the other pages: the site navigation, type and panels; the synthetic diagrams keep their colors (2026-10-13). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's."
+      "after_sha256": "dc137faa48823ae780322a22437922a61c096c19a9d08f7cc8137abd8e8ef685",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Same reading surface as the other pages: the site navigation, type and panels; the synthetic diagrams keep their colors (2026-10-13). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "robots.txt": {
       "before_sha256": "e86d231f2ec238989449c6b59cae81b8760a86100f4ceb21d693b62fcd1f36c5",
@@ -337,18 +325,18 @@
     },
     "search-index.v1.json": {
       "before_sha256": "325cca6c385630d0fed97771188df697ad75abef53b530d18a244b0ab5ad8d6a",
-      "after_sha256": "79a94bb26118709a9bdaeca3cc4dcd287b8bbb53527b4cd21b3c43f4783db31e",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's."
+      "after_sha256": "031e279098ed56217e395a3e352e0eab46839a49e9d54b7764aedd632bf7dfdd",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Current development-build captures, plain-language wording and Apollo Pro naming (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Public wording sweep: no suppliers or background Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "sitemap.xml": {
       "before_sha256": "215884f91bd39f79113c7fa0171bd6c4de332562669700a2ea63f3b32797b6b7",
-      "after_sha256": "9ffd78eb6175248916412e5ea45a2d51eadd9998cadda80be0b88191675f80c1",
-      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's."
+      "after_sha256": "3db5cc9e243c8fdd79ddc3b0d5a786743b9c96a382febfa750687623a53789d5",
+      "reason": "User-approved funnel retirement and search preparation; historical initial-import identity retained. Custom domain trader-cockpit.com, terms of use, and app and account privacy (owner-approved 2026-10-08). Search metadata, titles and descriptions, team byline and favicon (2026-10-12). Owner plan 2 Nov 2026: early access wording, Features and early access pages. Community tab Home rebuilt as a product page; the name is spelled Trader Cockpit; seeded Community items read as Trader Cockpit's. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "assets/site-search.js": {
       "before_sha256": "4bc0d26ee9e1e6f3bd35aaecb279c052573d213cf056b01a7d62b430d06ba486",
-      "after_sha256": "a875d92aaeeebc629bba366f9f6757898dd60684c179f307bf08ac0f3be53c51",
-      "reason": "Owner plan 10 Nov 2026: the name is spelled Trader Cockpit, as the app spells it; historical initial-import identity retained."
+      "after_sha256": "ec7132a9a4a9baced8bf49980c248faadcfe8414695128186dc804fb218315b6",
+      "reason": "Owner plan 10 Nov 2026: the name is spelled Trader Cockpit, as the app spells it; historical initial-import identity retained. Site rebuilt to one design system: shared header, footer and stylesheet; Research Lab removed."
     },
     "assets/video-slot.js": {
       "before_sha256": "571ffd17d4137c544b16fca57b4c9314527b155a05b280a3272de71c067b76c8",
@@ -360,54 +348,130 @@
     "assets/analytics.mjs": "b119f9825e54e34edc7542084c403ea7c6b0fb971a044a4cd0c41fc45b93a959",
     "BingSiteAuth.xml": "a44787436e972d0fac6afbc2024ba31e31e066fbd622fa124e7cfd2d6fedb12d",
     "CNAME": "9313e2519f057f2811630b279ade88b9ce8fdf31ab6f02f56e3f9f8be6335613",
-    "trust/terms.html": "b3c0d3cb28124871cb9f470de4ba6ec56e10285bf33878eb6250321a9e0f4bed",
-    "assets/reference-site/research.webp": "dfad20ac17930a740125d2da201ffeba94af7fdfc1534466b35b3944699c8af6",
-    "assets/social/tradercockpit-card.png": "5ccca02cf0967e8a75642351c59a539f979555b6a69401e3ed2a92ed33f84da9",
+    "trust/terms.html": "b3d3144a116439d637f77e7136d0757020f4fc7d48d3e49c93decf0e7b4b4fed",
+    "assets/social/tradercockpit-card.png": "6c706f67a589c7c670b3ede65dc41b7a32726f206f69b82f3da6207b61b69065",
     "assets/social/tradercockpit-logo.png": "64d3d40428ffd6a85014536b3552d12fa21d4e20e6c7631f73e9e2036eef5cf6",
-    "llms.txt": "a4b397837cae7c1d209f04c08d6da2fab4a83806d2521064f5265ea4b8bd2fab",
-    "features/index.html": "bb2bbb1d22a4474fde84dd1f759b85e5a6a73776b0aac0a3a343fc7a474708d5",
-    "early-access.html": "6a98fbbb322340cfa1af0ddddcc3bd392b52602934cfcb4f82828ac4d134d14e",
+    "llms.txt": "280ab349fc2da7cdd93070b67a868044cc034a09d5b06223aeeeefba95534568",
+    "features/index.html": "6b283a10fa7550d6e2eaf239ec7f0aa04a6282df6176fc48a141de6b8d19067a",
+    "early-access.html": "d04eab390147ffc0660864920ca989d9901ba3374f8e1e4e1c026ebad8c6888a",
     "assets/early-access.mjs": "88de202347c4e3028998df9d9fed3820519b20be97d58d262fea26e96d2c94ce",
-    "assets/features/builder.webp": "8ab87ad969e2974e3db0c47363728e587f28e9efd0b6785c09c0046f9a7e0048",
-    "assets/features/workflows.webp": "f95136d7aa758ca6b7725cdb11a692ae976a85b68b79d3925601e7b2b1e0e91f",
-    "assets/features/results.webp": "8a76037ef359925afbcb1c9c7dc6e8c4caf8d9c5461c817307000334f049294b",
-    "assets/features/paper.webp": "01528aa9ad91ab103fbfc40ad4805ec33b61dc8a79f3e48a947eac7323ff5f60",
-    "assets/product-pages.css": "14f3c7087e889777d4e60e3600e87805a7bd8d739dc991c1b919ae467b81ca31",
     "assets/features/tpo.webp": "dcb62a0ff08660ffc3a12d8687b496cb4e3b963d7745408169da039435257ec0",
     "assets/features/footprint.webp": "0d11366033351595c33f283005b5147ad94f9ad962b05a86d467ab1dd6b3707e",
-    "assets/features/journal.webp": "f2af3b581c57e450030b52e10a8a2524d7fc6d2965943b9fe4bbe0f991a04326",
-    "community/index.html": "70deca12d6e13d8e38b4a1fef4ec1a2cfe16484a7e64b272067eda6f434647e1",
-    "community/items.v1.json": "f67ba0a64d129355c2e0fd3f198c363eb41976c09feb59ac915b9848fab5f6e7",
-    "community/img/0e9d01adfdd0378140b88f96c5732a70a66a1f5027f7c9439fe0a1078ae20f68.png": "1c8b832b7f1139f41b9d1121b68be92f5f6e2ae066a507bb804ff6f2ba532308",
-    "community/img/1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46.png": "8628503364585e8a8d6ea5d0244c9c3284a04f30bd2c6096f7b60d3d93b43f4a",
-    "community/authors/tradercockpit/index.html": "12f3d150bdff1d772bf7c3a007f128bad5cb4a1e5c54db50e02ea4cf225f0214",
-    "community/indicators/close-strength/index.html": "82ad83d55404ff05f1f287ca6c5207430529d56be45023d7acbce248242f5398",
-    "community/indicators/colored-adx-di-crossings-w-options-llipe/index.html": "64c856ac5e06905f1569a103b2abeb5dee047cf740f4b00c376094807e17579f",
-    "community/indicators/custom-session-ohl/index.html": "577ffc27fb80246ac80da25cd326ca193a2d6a3631c96aabbefdd0436ae45cb0",
-    "community/indicators/day-trading-reversal-system/index.html": "ec4cb3c9dbb055223549d989e11859c242d0044b2bdd7ac75b9c3c366c0aa02e",
-    "community/indicators/detrended-cvd-z-score-oscillator/index.html": "6194d5505ad198c7626527a378ec6ab0f7d1bf0ac18d63146242b23bec5806df",
-    "community/indicators/diy-volume-profile/index.html": "537e97fbc2773ba1cdde4870742ea4fb01056aeff53e9afca37422368a3c28ea",
-    "community/indicators/john-f-ehlers-zero-mean-roofing-filter/index.html": "1ea4305cc079c9cdda591fe6b2df91cddbbbecf93410b280b365b473b4d3da19",
-    "community/indicators/marubozu-candle/index.html": "67a0a4fcaa0842675202abe3ca6865e561691829e25cdfe4d5e68276e10239c3",
-    "community/indicators/mtf-bollinger-bands-trend-stop/index.html": "1ae88338ebf14ef26827f4982d3979a85227b8747efb048005482c542fba10fc",
-    "community/indicators/parabolic-stop-and-reverse-trend-following/index.html": "a15e28b77a46597c828f52690b7e4e002a2e4faefd8f4d2a50636538c99f4be1",
-    "community/indicators/r2-adaptive-regression/index.html": "29b1085383b51bc673b5a1d4d541f4e1d3bd3847530554b82104e7e5a3b7f094",
-    "community/indicators/relative-liquidity-index/index.html": "4649c82bd364930b387acbb21f0b3d9bba51706c176e5dae6e801a75bf816cd9",
-    "community/indicators/rsi-emas-for-bootsie-strategy/index.html": "fc27e2bd3a42594ddda38cd2c818908d629f60831112aedb8068d20d603a187f",
-    "community/indicators/s-r-levels/index.html": "f32d1d3119f2059481ca718086401984643b69fe052cc969e4621012ea3355cd",
-    "community/indicators/sma-50-100-150-200-ssma-360/index.html": "9f40ac6daf881e7c0584a1ff63d5bd361b51441da4825d2df072c29b75c485a9",
-    "community/indicators/standardized-ma-difference/index.html": "96115907c6bf83999e00871095562e37e2e627e5ec24a6521fc2d72f5fd4d4d3",
-    "community/indicators/super-trend-bands-stbands/index.html": "3bca8e58ebdeb3bca5761d3acb1a076ed590b74247db27cd55445fc8d1a8e0cb",
-    "community/indicators/supertrend-macd-ema/index.html": "c063a4c75b24753ac45940b14f1ec97ed4b64b9694fcb502f4afceba384c46f7",
-    "community/indicators/swing-high-low-detection/index.html": "c2c834efc502e37743b799f6a92d3b837f16fd0a570b824a8f52f2bd169c4d03",
-    "community/indicators/swing-levels/index.html": "8ea9bfcf952802afe35ebb97d66dd31f1855528408ae8e4a304d18a27e9ca623",
-    "community/indicators/time-series-forecast-tsf/index.html": "10dc30d76ab19269fe39e44e5c39845bab3e05961ca9bb339e24dffa86967adb",
-    "community/indicators/trend-line-and-res-line/index.html": "2affc3cb62b573de806a02dee2fb1836f6baac7ecb8b1e4c3308d6e67141d0d5",
-    "community/indicators/vaultfy-sentiment-apex/index.html": "3e1aa5b967027ae558140e865eb3195068277ad152216465cfae57896419e627",
-    "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "782ef2b56d11675b29f8b11ecda6a7f2075d30e52e8d082b36816bab53759906",
-    "assets/features/hero.webp": "e6b2767d80d65d8c207e947350897b4a3e2bbc710e4a01600bf78cbaa2ad26a5",
-    "community/indicators/volume-analysis-fixed-range/index.html": "eec3b9254c0b6758943e08218ca6ac3f0896c9a2d837bb7e27bc12eccbeace5b",
-    "community/strategies/20-50-moving-average-cross-tested-on-es/index.html": "d3a2a8f41eaa71549bacee44249288122d4c3c42b32419933a9d52a153dfa1cd",
-    "community/strategies/200-day-breakout-tested-on-es/index.html": "b464ba41fa7a4c4a6228a476b1dda29784461c0c2cd37acfcb7e8cf843a33e51"
-  }
+    "community/index.html": "e5b218872a4f1e1943742a72566832a1268b174426ddaf1da447b46430b9b8eb",
+    "community/items.v1.json": "57450a8975091aa0b6861bb4b713a06b3c1695e7538905a9f0adcbaabcb16b32",
+    "community/indicators/close-strength/index.html": "a7befd61bb7802cbb1d6305b96a372aa76b80ceb2b360a4bceb996d859b80eee",
+    "community/indicators/colored-adx-di-crossings-w-options-llipe/index.html": "0f3da8ca6d8b01497d6685df7f7b940bd796d7cc6dc7f4f657af9ef4f84ad144",
+    "community/indicators/custom-session-ohl/index.html": "f17667f07117a616796ae7f05306893035c62c1f8a1efc3d70e9f30e2b391662",
+    "community/indicators/day-trading-reversal-system/index.html": "f03c45170158841b82244f6ea154c99c91ece869271056c6198890f08dd51259",
+    "community/indicators/detrended-cvd-z-score-oscillator/index.html": "2e4331486693a0b9402075033273f489515944f0f0e969a4be58319c413b42b4",
+    "community/indicators/diy-volume-profile/index.html": "92aa2f592ff4c2d7f01c5fe747aa43a97f907c69b6db2a9ed13a5d589d67583f",
+    "community/indicators/john-f-ehlers-zero-mean-roofing-filter/index.html": "c58b0f9a35272ab3e9b25537fa3cbd2d96c2123dcae07faa0ee95980727fdf26",
+    "community/indicators/marubozu-candle/index.html": "22dfb76cd73edabea53972a528fb47ba1512cc4a6fd41685a37bac73137ce389",
+    "community/indicators/mtf-bollinger-bands-trend-stop/index.html": "dfe1d0f4e2718ff4287dd21379088acb750c850f28e5ac755b4aae1916348ac4",
+    "community/indicators/parabolic-stop-and-reverse-trend-following/index.html": "b4be2de0298498a9b757dcaaa228083a1c2ffd94fa03df028e66e75d9d8ed298",
+    "community/indicators/r2-adaptive-regression/index.html": "ce4680b91fdb1932de11b1024de5696b5d6b93fccb07735bc92a68a2b5eeaf8b",
+    "community/indicators/relative-liquidity-index/index.html": "455bc012546764f009ec968f6c2e8430571e7b3f50bf17b3a1b63278ba8775bd",
+    "community/indicators/rsi-emas-for-bootsie-strategy/index.html": "2f6e5d87f998ad895b8491e5650c65190287c7190777f2eff492c204be68d7c6",
+    "community/indicators/s-r-levels/index.html": "719ee56050a065afbb47431d03675d0c501c78e7467954d478ef78e1d8c38b6c",
+    "community/indicators/sma-50-100-150-200-ssma-360/index.html": "b27ea73a3f9732fafe818dea065cc656a37ae533f8e03a4731d79a7ae0c88c9a",
+    "community/indicators/standardized-ma-difference/index.html": "d4ddbd2ad26dcf0460d866c82deb9b1b15293151c2056fb3e0b49ea64e3451ab",
+    "community/indicators/super-trend-bands-stbands/index.html": "e66df56c40e2a4da1c36669f35db0040998dbedd4bffd4a559feb7bd06a880d6",
+    "community/indicators/supertrend-macd-ema/index.html": "5af4a43dd3b93e183c9f71166c6815029330e7fe1c54e0c75e5c247d6fa3cb2c",
+    "community/indicators/swing-high-low-detection/index.html": "8fa841c17d03b21e36a7ab3dc0835618131ee04e83d8c2520bd38949ac361490",
+    "community/indicators/swing-levels/index.html": "2051fd40fea638ea38c2faf906409c39f17b983d285c090235812ed840a5401b",
+    "community/indicators/time-series-forecast-tsf/index.html": "8cc9f6e9a69e789dc498e5b7b2dff2492cf8233d19e3b9bb7aef21f48b322bb3",
+    "community/indicators/trend-line-and-res-line/index.html": "3213ff000ce1821cfa2f2b8b4f4169068d06fc3a0e5824845201ff2b8fb7b460",
+    "community/indicators/vaultfy-sentiment-apex/index.html": "607dc80e41fbe9d2459e6411ce2bf11d99142c427827122822a0e9e3ffee68d6",
+    "community/indicators/volatility-adjusted-momentum-oscillator-vamo/index.html": "83e0a85a83b5b1244103c494a45b92e709293629258cab1dfe1431745afa5ec9",
+    "community/indicators/volume-analysis-fixed-range/index.html": "59d3f3550076d438ec1c5cb4e4fa23f64277730cd109f31f61f6fa7b7aed4bc4",
+    "assets/site.css": "4bfbbfe18f2eb2d55d360aa97b657dc69c4d5149253dd852ee94f496ec92ae3c",
+    "assets/replay-boundary-example.css": "09e1a823f7968719898c1923d36061e201038d0e786294d1055c7bf21dd11bd6",
+    "assets/help-resolver.js": "2ac3d825bec3e26b1fbaa922830f69700706308bac4f499d3d1274a613df7cc2",
+    "assets/features/charts.webp": "2336bd82d449d80e97c8fc9cb1a3aba2911f6e18dcf41808bbdd9af502557487",
+    "assets/features/charts-multi.webp": "0d31fc76333c3e50337175391c5aa99cb78022df1d7e612c77a15aa5caee4b7e",
+    "assets/features/stress-tests.webp": "cd458d555d64c4b47b645506436bd244637bc50f03cd15564da9f4598fd1815b",
+    "assets/features/stress-phone.webp": "294ab0ad0c869da211d26c558648b352f5179bd6699e37d5323285691e14cf4e",
+    "assets/features/workflow-steps.webp": "ee7407fd32ce07005bc4e745b0e2d7d56e2a9cc6112ba50a66fe6521e980829a",
+    "assets/features/workflow-phone.webp": "f57e5a31a4562613e8e8e4af8142638b887309c74d1f9726dc23d341ced56838",
+    "assets/features/verdict.webp": "a1e741966e45f3838fb52eb0879f26c987e26db13d794e88c4c26ed477a837c3",
+    "assets/features/verdict-phone.webp": "bd609dab210e2441972fa6ecae05c5b7cb80ecc5cbbac9ca50cd4b46d6ac3c1f",
+    "assets/features/pine-editor.webp": "ab61cfcce67751d8ad492e8c7eea324b0f43444b848ccf881bfd7d6e727718e2",
+    "assets/features/watchlist.webp": "5ff85b69d05c7674b9a21ddba9e6eec1dca96a2272b701647aee33d1d29078ee",
+    "community/img/063aea0d058bada37e6c316654ecb099d0eeaa6892690e673b972ea2e5b25413.png": "50c6055a7dc22b2297462b8e3adc29a9c70df3331dc44e0b157ed0938676efc1",
+    "community/img/18dd2fabd8e3e2758e816a5515e2c519b12f4bd43f76059fb8f16d2515fcf8cb.png": "ce08a9a6aeabfe158870e9237ff219560e9ee5220c3bcb7cd142b35d2ffce780",
+    "community/img/3644b0e48067969c2ccaf1d72009ef96394e93bbfa9791856c8ee795cd70c926.png": "4ba6df96c1c79616184791d4179fb8ec740cdfc808213ca122e935c5869b7526",
+    "community/authors/trader-cockpit-b2cfa4/index.html": "86d40b2ed9490ad4b25da21644c903e64c6ce6f0cf794a6aa7add0f345ca6275",
+    "community/strategies/bottom-of-the-10-day-range/index.html": "33e4189e075b970d94afe1b2093902bd4311833fb2cfbb09c13f7c836e3a3b5d",
+    "community/strategies/seven-day-low-in-an-uptrend/index.html": "d0c7a047f40a320bb637ffeedb9112caeed445a648998ca79980c6e19b587b37",
+    "community/strategies/sharp-drop-rebound/index.html": "aefbf182f5c1a7eb64181f64d55a36d8b7d6dd8ead306307a27e096228d3939c",
+    "assets/features/journal-crop.webp": "61ad9fc94e1472c16d504a8f9701f7d07d3edb725f25b816dfb65b5a11f180ad",
+    "assets/features/paper-crop.webp": "c0736cd4073a05865f2d645336121d4cc1d295a215171f046b66e95b09381972",
+    "assets/features/footprint-crop.webp": "5c69d0f0524c1349d3f2e85be6e95ad197f59b67b1923767130537263d7a8725",
+    "assets/features/chart-phone.webp": "83e217d89be1efb3351403fa076641830e75785113c5dea642019ed6a17ae00d",
+    "assets/features/multi-phone.webp": "37c953a8d51428c80de5979512517d90caf886628d99bc5b939a8433e78ad1f1",
+    "assets/features/indicators-crop.webp": "784af117395ca0db5834d3b4c2798c0456a9b744111ac9ad848db9d789e08ab6",
+    "assets/features/alerts-crop.webp": "149e83b65d7c087514c257a02ab3331512bd4381b98416d73812377b92760246",
+    "assets/features/drawings-crop.webp": "e84a3964c94b0c6685463d3f77e4672eb62ed3b2773968fbd8ddb5be4695947b",
+    "assets/features/builder-setup.webp": "1ad9c54f0046ddb1e28d1ebd4b9fe201f5b301ae1bb16f6ac2c9c06133dce2c2",
+    "assets/features/builder-phone.webp": "3638ece6ee8c891207cccf1d66ad7f0cfcf4b5ba66c78a52fdd387955df25a76",
+    "assets/features/run-reasons.webp": "d0a608397dcbd5fcd53f20a511eb57ac2fac5d74715ea496352f82aeae6958a7",
+    "assets/features/builder-search.mp4": "0677afbe40058d50f3278a49721519b17d6e6253d639bd8c2b980f0431463641",
+    "assets/features/builder-search-poster.webp": "21b4eb8bb82ae9b7ca703d2ead3141a6917a28d9856eedeefa0ad6990c7315a0"
+  },
+  "removed_files": [
+    "assets/faq-status.mjs",
+    "assets/features/builder.webp",
+    "assets/features/charts-alerts.webp",
+    "assets/features/charts-drawings.webp",
+    "assets/features/charts-indicators.webp",
+    "assets/features/charts-replay.webp",
+    "assets/features/charts-watchlist.webp",
+    "assets/features/hero.webp",
+    "assets/features/journal.webp",
+    "assets/features/paper.webp",
+    "assets/features/results.webp",
+    "assets/features/run-full.webp",
+    "assets/features/run-hero.webp",
+    "assets/features/run-phone.webp",
+    "assets/features/run-search.webp",
+    "assets/features/workflows.webp",
+    "assets/generated/research-vtk-v1.LICENSE.txt",
+    "assets/generated/research-vtk-v1.PROVENANCE.json",
+    "assets/generated/research-vtk-v1.js",
+    "assets/generated/site-webgl-v1.js",
+    "assets/home-v2.css",
+    "assets/home-v2.js",
+    "assets/home-v3.css",
+    "assets/home-v3.js",
+    "assets/product-pages.css",
+    "assets/reference-site/app.js",
+    "assets/reference-site/builder.webp",
+    "assets/reference-site/capture-overrides.js",
+    "assets/reference-site/content.css",
+    "assets/reference-site/integration.css",
+    "assets/reference-site/integration.mjs",
+    "assets/reference-site/journeys.css",
+    "assets/reference-site/journeys.js",
+    "assets/reference-site/laptop-scene.webp",
+    "assets/reference-site/laptop-screen.webp",
+    "assets/reference-site/original-charts.png",
+    "assets/reference-site/original-models.png",
+    "assets/reference-site/pricing.css",
+    "assets/reference-site/product-charts.webp",
+    "assets/reference-site/product-models.webp",
+    "assets/reference-site/research.webp",
+    "assets/reference-site/room-scene.webp",
+    "assets/reference-site/room-screen.webp",
+    "assets/reference-site/styles.css",
+    "assets/research-lab-depth.js",
+    "assets/research-lab-regime.js",
+    "assets/research-lab-risk.js",
+    "assets/research-lab-validation.js",
+    "assets/research-lab.js",
+    "assets/site-v2.css",
+    "community/img/0e9d01adfdd0378140b88f96c5732a70a66a1f5027f7c9439fe0a1078ae20f68.png",
+    "community/img/1babc264140e5e32df702a2e0daf41ae04e084f62052edba31c55d3518b22d46.png",
+    "community/strategies/20-50-moving-average-cross-tested-on-es/index.html",
+    "community/strategies/200-day-breakout-tested-on-es/index.html"
+  ]
 }

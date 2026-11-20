@@ -1,5 +1,5 @@
 """Keep structural page contracts separate from human visual approval."""
-import copy,json,re
+import copy,html,json,re
 from pathlib import Path
 DOCS=Path(__file__).resolve().parents[2]/'docs'
 
@@ -7,8 +7,8 @@ def community_pages():
     """Community pages are generated from docs/community/items.v1.json, so their rows follow the files."""
     return sorted(p.relative_to(DOCS).as_posix() for p in (DOCS/'community').rglob('index.html'))
 
-# Pages added after the owner's 2026-09-18 visual approval; each waits for its own review.
-PENDING_OWNER_VISUAL_REVIEW=frozenset({'trust/terms.html','features/index.html','early-access.html',*community_pages()})
+# Every page was rebuilt on one design system (19 Nov 2026), so every page waits for the owner's review.
+PENDING_OWNER_VISUAL_REVIEW=frozenset(p.relative_to(DOCS).as_posix() for p in DOCS.rglob('*.html'))
 PENDING_AUDIT={'status':'pending_visual_review','visual_approval':False}
 
 def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None):
@@ -73,6 +73,17 @@ def refresh_contracts(original, *, owner_visual_approval=False, approved_at=None
         page['hierarchy'].update(focal_point=h1,primary_action='Open in Trader Cockpit' if path.count('/')==3 and '/authors/' not in path else 'Open a community item')
         page['intent'].update(primary_job='Study shared strategies, indicators and ideas, and open them in Trader Cockpit.',worst_mistake='Treating a shared backtest as a promise of results.')
         page['audit']=dict(PENDING_AUDIT);data['pages'].append(page)
+    # The record follows the page: title and h1 are read from the published file, and the review state from the set above.
+    for row in data['pages']:
+        page=DOCS/row['path']
+        if page.is_file():
+            text=page.read_text(encoding='utf-8');plain=lambda v:html.unescape(re.sub(r'<[^>]+>','',v)).strip()
+            title=re.search(r'<title>(.*?)</title>',text,re.S);h1=re.search(r'<h1[^>]*>(.*?)</h1>',text,re.S)
+            if title:row['title']=plain(title[1])
+            if h1:row['reviewed_h1']=plain(h1[1]);row['hierarchy']['focal_point']=row['reviewed_h1']
+        if row['path'] in PENDING_OWNER_VISUAL_REVIEW:row['audit']=dict(PENDING_AUDIT)
+    home=next((row for row in data['pages'] if row['path']=='index.html'),None)
+    if home is not None:home['hierarchy']['primary_action']='Get early access'
     data['page_count']=len(data['pages'])
     return data
 

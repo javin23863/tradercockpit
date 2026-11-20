@@ -4,40 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="/assets/reference-site/mark.svg" type="image/svg+xml">
-  <title>Market Regimes as Coordinates for Strategy Research — Trader Cockpit Learn</title>
-  <meta name="description" content="Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight.">
+  <title>Market Regimes in Strategy Testing | Trader Cockpit</title>
+  <meta name="description" content="A regime is a measured market state, not a label added afterwards. How to use regimes when you test a strategy.">
   <link rel="canonical" href="https://trader-cockpit.com/learn/concepts/regime-map.html">
-  <link rel="stylesheet" href="../../assets/site-v2.css">
-<link data-reference-shell="style" rel="stylesheet" href="../../assets/reference-site/content.css" media="screen"><meta data-reference-shell="theme" name="theme-color" content="#080b0b"><script data-reference-shell="analytics" type="module" src="../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="article"><meta property="og:site_name" content="Trader Cockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Market Regimes as Coordinates for Strategy Research — Trader Cockpit Learn"><meta property="og:description" content="Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight."><meta property="og:url" content="https://trader-cockpit.com/learn/concepts/regime-map.html"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trader Cockpit: backtesting and strategy validation guides, beside an early access Charts capture"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Market Regimes as Coordinates for Strategy Research — Trader Cockpit Learn"><meta name="twitter:description" content="Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="Trader Cockpit: backtesting and strategy validation guides, beside an early access Charts capture"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Learn","item":"https://trader-cockpit.com/learn/"},{"@type":"ListItem","position":3,"name":"Market Regimes as Coordinates for Strategy Research","item":"https://trader-cockpit.com/learn/concepts/regime-map.html"}]}</script><meta property="article:modified_time" content="2026-10-05"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Market regimes as coordinates","description":"Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight.","mainEntityOfPage":"https://trader-cockpit.com/learn/concepts/regime-map.html","url":"https://trader-cockpit.com/learn/concepts/regime-map.html","image":"https://trader-cockpit.com/assets/social/tradercockpit-card.png","inLanguage":"en","isAccessibleForFree":true,"datePublished":"2026-09-10","dateModified":"2026-10-05","author":{"@type":"Organization","name":"Trader Cockpit team","url":"https://trader-cockpit.com/trust/#authorship","parentOrganization":{"@id":"https://trader-cockpit.com/#organization"}},"publisher":{"@type":"Organization","@id":"https://trader-cockpit.com/#organization","name":"Trader Cockpit","logo":{"@type":"ImageObject","url":"https://trader-cockpit.com/assets/social/tradercockpit-logo.png"}}}</script><!-- search-meta:end --></head>
-<body data-reference-content="true">
+  
+<link rel="stylesheet" href="../../assets/site.css"><script type="module" src="../../assets/analytics.mjs"></script><!-- search-meta:start --><meta property="og:type" content="article"><meta property="og:site_name" content="Trader Cockpit"><meta property="og:locale" content="en_US"><meta property="og:title" content="Market Regimes in Strategy Testing | Trader Cockpit"><meta property="og:description" content="A regime is a measured market state, not a label added afterwards. How to use regimes when you test a strategy."><meta property="og:url" content="https://trader-cockpit.com/learn/concepts/regime-map.html"><meta property="og:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Trader Cockpit, the Windows app for building, backtesting and stress-testing trading strategies"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Market Regimes in Strategy Testing | Trader Cockpit"><meta name="twitter:description" content="A regime is a measured market state, not a label added afterwards. How to use regimes when you test a strategy."><meta name="twitter:image" content="https://trader-cockpit.com/assets/social/tradercockpit-card.png"><meta name="twitter:image:alt" content="Trader Cockpit, the Windows app for building, backtesting and stress-testing trading strategies"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://trader-cockpit.com/"},{"@type":"ListItem","position":2,"name":"Learn","item":"https://trader-cockpit.com/learn/"},{"@type":"ListItem","position":3,"name":"Market Regimes in Strategy Testing","item":"https://trader-cockpit.com/learn/concepts/regime-map.html"}]}</script><meta property="article:modified_time" content="2026-10-05"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Market regimes in strategy testing","description":"A regime is a measured market state, not a label added afterwards. How to use regimes when you test a strategy.","mainEntityOfPage":"https://trader-cockpit.com/learn/concepts/regime-map.html","url":"https://trader-cockpit.com/learn/concepts/regime-map.html","image":"https://trader-cockpit.com/assets/social/tradercockpit-card.png","inLanguage":"en","isAccessibleForFree":true,"datePublished":"2026-09-10","dateModified":"2026-10-05","author":{"@type":"Organization","name":"Trader Cockpit team","url":"https://trader-cockpit.com/trust/#authorship","parentOrganization":{"@id":"https://trader-cockpit.com/#organization"}},"publisher":{"@type":"Organization","@id":"https://trader-cockpit.com/#organization","name":"Trader Cockpit","logo":{"@type":"ImageObject","url":"https://trader-cockpit.com/assets/social/tradercockpit-logo.png"}}}</script><!-- search-meta:end --></head>
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true"></span>Trader Cockpit</a>
-      <div class="nav-links">
-        <a href="../../research-lab.html">Research Lab</a>
-        <a href="../" aria-current="page">Learn</a>
-        <a href="../../community/">Community</a>
-        <a href="../../docs/">Docs</a>
-        <a href="../../methods/">Methods</a>
-        <a href="../../examples/">Examples</a>
-        <a href="../../updates/">Updates</a>
-      </div>
-    </div>
-  </nav>
+  <nav class="site-nav" aria-label="Primary"><div class="nav-inner"><a class="brand" href="../../"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 28 25"><path d="M3 12v3m6-10v15m6-19v24m6-17v13m5-10v5"/></svg>Trader Cockpit</a><div class="nav-links"><a href="../../features/">Features</a><a href="../../pricing/">Pricing</a><a href="../../community/">Community</a><a href="../../learn/" aria-current="page">Learn</a><a href="../../support/">Support</a></div><a class="btn primary small nav-cta" href="../../early-access.html">Get early access</a></div></nav>
 
   <main id="main" tabindex="-1">
     <section class="article-hero">
       <div class="shell article-hero-inner">
         <div class="breadcrumb"><a href="../">Learn</a><span>/</span><span>Concepts</span><span>/</span><span>Market regimes as coordinates</span></div>
-        <span class="eyebrow">Concept / research education</span>
-        <h1>Market regimes as coordinates</h1>
+        <h1>Market regimes in strategy testing</h1>
         <p>Understand a market regime as an explicit grouping of measured state variables rather than a label pasted onto hindsight.</p>
-
-        <div class="article-meta"><span>Synthetic examples only</span><span>No performance promised</span><span>Research concept</span></div>
+        <p class="micro">By <a href="../../trust/#authorship">the Trader Cockpit team</a>. Educational material, not financial advice.</p>
         <div class="article-actions">
-          <a class="deep-link" href="../../research-lab.html#regime-map">Open the visual explanation →</a>
-          <a class="deep-link" href="../../methods/#regime-map">Read the method →</a>
+          <a class="deep-link" href="../../methods/#regime-map">Read the method</a>
 
         </div>
       </div>
@@ -47,17 +31,14 @@
       <div class="shell article-layout">
         <article class="article-main">
           <section class="article-section" id="definition">
-            <span class="kicker">Plain-language definition</span>
             <h2>What is it?</h2>
             <div class="definition-card"><strong>Market regimes as coordinates:</strong> A regime is a grouping of observations that share defined market-state characteristics. Useful regime analysis starts with explicit variables and rules or a documented model; the label itself is only a compressed description of those coordinates.</div>
           </section>
           <section class="article-section" id="research-question">
-            <span class="kicker">Research question</span>
             <h2>What question does it help answer?</h2>
             <p>Which state variables define the regime, how were thresholds chosen, and does the label remain useful outside the sample that suggested it?</p>
           </section>
           <section class="article-section" id="can-tell">
-            <span class="kicker">Bounded interpretation</span>
             <h2>What can it tell you?</h2>
             <ul>
             <li>How several state variables can be viewed jointly instead of one at a time.</li>
@@ -66,7 +47,6 @@
             </ul>
           </section>
           <section class="article-section" id="cannot-tell">
-            <span class="kicker">Limitations</span>
             <h2>What can it not tell you?</h2>
             <ul>
             <li>A regime label does not predict how long the state will persist or what returns will follow.</li>
@@ -74,27 +54,20 @@
             <li>Three variables cannot represent every relevant feature of liquidity, volatility, trend, or market structure.</li>
             </ul>
           </section>
-          <section class="article-section" id="synthetic-example">
-            <span class="kicker">Synthetic example</span>
-            <h2>See the shape before reading the formula.</h2>
-            <p>The Research Lab places 96 deterministic synthetic observations in a three-dimensional cube whose axes are directional tendency, volatility, and liquidity stress. Simple thresholds assign descriptive labels only to make the information compression visible.</p>
-            <a class="deep-link" href="../../research-lab.html#regime-map">Open this concept in Research Lab →</a>
-          </section>
 
 
 
-          <section class="article-section" id="product-boundary">
-            <span class="kicker">Apply the concept</span>
-            <h2>Use the idea without turning it into a shortcut.</h2>
-            <div class="boundary-card"><strong>Keep the context:</strong> use this concept to interpret evidence and assumptions. For Trader Cockpit controls and workflow details, open Docs. The app is in early access; these examples are educational.</div>
+          <section class="article-section" id="in-the-app">
+            <h2>Do this in Trader Cockpit</h2>
+            <p>Results breaks a strategy's results down by period and by market.</p>
+            <div class="article-actions"><a class="deep-link" href="../../features/#results">Results</a><a class="deep-link" href="../../pricing/">Pricing</a><a class="deep-link" href="../../early-access.html">Get early access</a></div>
           </section>
           <section class="article-section" id="related">
-            <span class="kicker">Continue learning</span>
             <h2>Related concepts</h2>
             <div class="related-grid">
-          <a class="related-link" href="correlation-diversification.html"><strong>Correlation and diversification</strong><span>Continue to the related public concept.</span></a>
-          <a class="related-link" href="distribution-shape.html"><strong>Distribution shape</strong><span>Continue to the related public concept.</span></a>
-          <a class="related-link" href="walk-forward.html"><strong>Walk-forward analysis</strong><span>Continue to the related public concept.</span></a>
+          <a class="related-link" href="correlation-diversification.html"><strong>Correlation and diversification</strong></a>
+          <a class="related-link" href="distribution-shape.html"><strong>Distribution shape</strong></a>
+          <a class="related-link" href="walk-forward.html"><strong>Walk-forward analysis</strong></a>
             </div>
           </section>
         </article>
@@ -107,15 +80,13 @@
               <li><a href="#research-question">Research question</a></li>
               <li><a href="#can-tell">What it can tell you</a></li>
               <li><a href="#cannot-tell">Limitations</a></li>
-              <li><a href="#synthetic-example">Synthetic example</a></li>
+
               <li><a href="#related">Related concepts</a></li>
             </ul>
           </div>
           <div class="side-panel">
             <h2>Go deeper</h2>
-            <p class="micro">Concept pages explain intuition. Methods explain assumptions and calculation. Research Lab makes the geometry visible.</p>
-            <a class="deep-link" href="../../methods/#regime-map">Method →</a>
-            <a class="deep-link" href="../../research-lab.html#regime-map">Visual →</a>
+            <a class="deep-link" href="../../methods/#regime-map">Method</a>
 
           </div>
         </aside>
@@ -123,7 +94,7 @@
     </section>
   </main>
 
-  <footer><div class="footer-inner"><div>Trader Cockpit · evidence-first research education · no performance promised.</div><div class="footer-links"><a href="../../index.html">Home</a><a href="../">Learn</a><a href="../../methods/">Methods</a></div></div></footer>
-  <script src="../../assets/site-search.js" defer></script>
-</body>
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-cols"><div class="footer-brand"><a class="brand" href="../../"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 28 25"><path d="M3 12v3m6-10v15m6-19v24m6-17v13m5-10v5"/></svg>Trader Cockpit</a><p>Build, backtest and stress-test trading strategies on your own PC.</p><p class="actions"><a href="../../early-access.html">Get early access</a><a href="https://www.youtube.com/@Thetradercockpit" target="_blank" rel="noopener noreferrer">YouTube</a></p></div><div><h2>Product</h2><ul><li><a href="../../features/">Features</a></li><li><a href="../../pricing/">Pricing</a></li><li><a href="../../community/">Community</a></li><li><a href="../../updates/">Updates</a></li></ul></div><div><h2>Guides</h2><ul><li><a href="../../learn/">Learn</a></li><li><a href="../../how-to/">How-to guides</a></li><li><a href="../../methods/">Methods</a></li><li><a href="../../examples/">Worked examples</a></li><li><a href="../../strategy-claim-audit-checklist.html">Backtest checklist</a></li></ul></div><div><h2>Company</h2><ul><li><a href="../../trust/">About</a></li><li><a href="../../support/">Support</a></li><li><a href="../../support/faq.html">FAQ</a></li><li><a href="../../trust/privacy.html">Privacy</a></li><li><a href="../../trust/terms.html">Terms</a></li><li><a href="../../refund-policy.html">Purchases and refunds</a></li></ul></div></div><p class="footer-legal">Trader Cockpit is research software. It does not give financial advice, and no backtest or simulation predicts future results.</p></div></footer>
+  
+<script src="../../assets/site-search.js" defer></script></body>
 </html>

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Reference-import integrity only. Does not award visual or release approval."""
+"""Page-record integrity: every published file is listed with its fingerprint, and plan prices agree everywhere.
+
+Does not award visual or release approval.
+"""
 from pathlib import Path
-from html.parser import HTMLParser
-import hashlib,json,re,sys
+import hashlib,json,sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from check_reference_content import validate_content
 ROOT=Path(__file__).resolve().parents[2];DOCS=ROOT/'docs'
@@ -12,61 +14,26 @@ def validate(root=ROOT):
   if not ok: errors.append(why)
  def read(p): return (root/p).read_text(encoding='utf-8')
  receipt=json.loads(read('.github/reference-import-receipt.json'))
- production=json.loads(read('.github/reference-site/provenance/production-screen-layers.json'))
- need(receipt['source_archive_sha256']=='0b0ee403e7f21773a1fb1c61520f467c39987a1dce44c7ed69aca8e5599f3a4c','Wrong input archive identity')
- content_manifest=json.loads(read('.github/reference-content-manifest.json'))
+ manifest=json.loads(read('.github/reference-content-manifest.json'))
  errors.extend(validate_content(root))
- expected_files=set(receipt['unchanged']) | {p[5:] for p in receipt['outputs'] if p.startswith('docs/')} | set(content_manifest.get('added_files',{})) | {'assets/reference-site/original-charts.png','assets/reference-site/original-models.png','assets/reference-site/pricing.css','assets/reference-site/content.css'}
+ # Files of the first import that the rebuild removed are named in removed_files, so nothing leaves unrecorded.
+ removed=set(manifest.get('removed_files',[]))
+ expected_files=(set(receipt['unchanged']) | {p[5:] for p in receipt['outputs'] if p.startswith('docs/')} | set(manifest.get('added_files',{}))) - removed
  actual_files={p.relative_to(docs).as_posix() for p in docs.rglob('*') if p.is_file()}
  need(actual_files==expected_files,'Unlisted or missing publishing files: '+str(sorted(actual_files ^ expected_files)))
- for name,item in receipt['outputs'].items():
-  if name.endswith(('.webp','.svg')) and not name.endswith(('room-screen.webp','laptop-screen.webp')):
-   p=root/name;need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==item['sha256'],'Source artwork changed: '+name)
  for name,digest in receipt['unchanged'].items():
-  if name=='pricing/index.html' or name in content_manifest['files'] or name in content_manifest.get('approved_updates',{}):continue
+  if name=='pricing/index.html' or name in removed or name in manifest['files'] or name in manifest.get('approved_updates',{}) or name in manifest.get('added_files',{}):continue
   p=docs/name;need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==digest,'Existing public file changed: '+name)
- need(production.get('schema')=='tradercockpit.production-screen-layers/v1' and production.get('quality')=='FULL_RESOLUTION_CAPTURE_SOURCE','Production screen-layer provenance missing or downgraded')
- need(hashlib.sha256((root/'.github/scripts/generate_reference_screen_layers.mjs').read_bytes()).hexdigest()==production.get('generator_sha256'),'Screen-layer generator identity changed')
- need(hashlib.sha256((root/'.github/reference-site/provenance/screen-placement.json').read_bytes()).hexdigest()==production.get('placement_sha256'),'Screen placement authority changed')
- expected_layers={'room':('charts','original-charts.png','room-screen.webp','e0d15fd681f288beaa9465c02b0834d6d9ff015a4c1601c6dcff103ea9d3cde0'),'laptop':('models','original-models.png','laptop-screen.webp','ead9665eb3bc3996945bcd32ace49e8139ce0c353dc5ac64d571988b55b0870e')}
- layers={item.get('scene'):item for item in production.get('layers',[])}
- need(set(layers)==set(expected_layers),'Production screen layers must be room and laptop only')
- for scene,(capture,source,output,source_hash) in expected_layers.items():
-  item=layers.get(scene,{})
-  src=docs/'assets/reference-site'/source;out=docs/'assets/reference-site'/output
-  need(item.get('capture')==capture and item.get('source_asset')=='docs/assets/reference-site/'+source,'Screen layer must use verified original: '+scene)
-  need(src.is_file() and hashlib.sha256(src.read_bytes()).hexdigest()==source_hash==item.get('source_sha256'),'Full-resolution screen source identity: '+scene)
-  need(out.is_file() and hashlib.sha256(out.read_bytes()).hexdigest()==item.get('output_sha256'),'Generated screen-layer identity: '+scene)
-  need(item.get('generator')=='.github/scripts/generate_reference_screen_layers.mjs' and item.get('release_approved') is False,'Screen layer provenance boundary: '+scene)
- records=json.loads(read('.github/reference-site/provenance/product-captures.json'))['captures']
- for r in records:
-  p=docs/'assets/reference-site'/('original-'+r['id']+'.png')
-  need(p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r['original_sha256'],'Original capture identity: '+r['id'])
  commerce=json.loads(read('docs/commerce-public.v1.json'));tiers=commerce.get('tiers',[])
  need([(x['name'],x['unitAmount']) for x in tiers]==[('Core',1999),('Trader',4999),('Quant',9999),('ApolloPro',15000)],'Four approved tier prices drifted')
  need(commerce['checkout']=={'enabled':False,'url':None,'reason':'Checkout is not open yet.'},'Checkout boundary changed')
- html=read('docs/index.html');bridge=read('docs/assets/reference-site/integration.mjs');app=read('docs/assets/reference-site/app.js');journeys=read('docs/assets/reference-site/journeys.js')
- template_bridge=read('.github/reference-site/integration.mjs')
- need(bridge==template_bridge,'Public integration runtime drifted from reviewed fail-closed template')
- public_runtime=(html+'\n'+app+'\n'+journeys).lower()
+ html=read('docs/index.html')
  need('noindex' not in html.lower() and 'nofollow' not in html.lower(),'Public homepage must remain indexable')
  for marker in ['property="og:type"','property="og:site_name"','property="og:title"','property="og:description"','property="og:url"','name="twitter:card"','type="application/ld+json"']:
   need(marker in html,'Public homepage metadata missing: '+marker)
- for phrase in ['search this preview','about this preview','homepage proof','not a release candidate','under visual review','in this preview','explore this preview','this preview does not offer','this preview does not contain','the preview does not establish']:
-  need(phrase not in public_runtime,'Internal review wording leaked to public surface: '+phrase)
- need('assets/generated/site-webgl-v1.js' not in html and 'quant-universe' not in html,'Retired hero reintroduced')
  need('assets/features/' in html,'Homepage must show real app screens')
- for marker in ['loadProductManifest','loadPrelaunchConfig','activatePrelaunch','commerce-public.v1.json']:
-  need(marker in bridge,'Missing product/commerce integration: '+marker)
- need('prefers-reduced-motion' in app and 'visibilitychange' in app,'Scene accessibility safeguards missing')
- need('synthetic' in app.lower(),'Capture limitations missing')
- need('github.com/javin23863/tradercockpit/blob/' not in journeys,'Enhanced public journey evidence links must stay on the current local site')
- for name in ['product-state','product-heading','product-summary','manifest-capabilities','manifest-detail','product-cta','youtube-cta','purchase-support']:
-  need('id="'+name+'"' in html,'Missing functional access element: '+name)
  need('<form' not in html and 'type="email"' not in html,'Email capture reintroduced')
- need(re.search(r'<a[^>]*id="product-cta"[^>]*href="early-access.html"',html) is not None and 'href="strategy-claim-audit-checklist.html"' in html,'Early access link or educational checklist missing')
- need('href="learn/" data-journey="#/learn"' in html,'No-JavaScript learning route missing')
- need('href="docs/"' in html and 'href="trust/privacy.html"' in html,'No-JavaScript documents missing')
+ need('href="learn/"' in html and 'href="strategy-claim-audit-checklist.html"' in html,'Guides or the backtest checklist missing from the homepage')
  pricing=read('docs/pricing/index.html')
  for tier in tiers:
   amount=('$'+format(tier['unitAmount']/100,'.2f')).removesuffix('.00')
@@ -79,6 +46,6 @@ def validate(root=ROOT):
 if __name__=='__main__':
  try: errors=validate()
  except (OSError,ValueError,KeyError,TypeError) as e:errors=[str(e)]
- print('REFERENCE INTEGRITY: '+('FAIL' if errors else 'PASS (original scene bytes; labelled original captures; preserved routes; commerce; no-JS access)'))
+ print('PAGE RECORDS: '+('FAIL' if errors else 'PASS (every published file listed; prices agree; no email form on home)'))
  for error in errors:print('- '+error)
  raise SystemExit(bool(errors))

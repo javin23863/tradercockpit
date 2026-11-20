@@ -43,3 +43,9 @@ record for accessibility, but integrity checks must keep that mirror exact; page
 independent commerce authority. The current records are non-transactional pre-launch records:
 capabilities must be published as verified by the product repository before this site may present
 them as available, and checkout remains closed until its public commerce record enables it.
+
+## How pages are built
+
+`DESIGN.md` holds the design rules and the order to run the generators in. Product facts live in
+`.github/product/capabilities.v1.json`; the header, footer and stylesheet every page shares come from
+`.github/scripts/site_chrome.py` and `docs/assets/site.css`.

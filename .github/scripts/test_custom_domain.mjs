@@ -28,6 +28,6 @@ try {
   assert.deepEqual(relative,[],'404.html is shown at any depth, so its links and assets must be root-absolute');
   const deep=await fetch(new URL('learn/old/page',host.base));
   assert.equal(deep.status,404);
-  for(const asset of ['assets/site-v2.css','assets/site-search.js','assets/analytics.mjs'])assert.equal((await fetch(new URL('/'+asset,host.base))).status,200,asset+' must load from the root for the 404 page');
+  for(const asset of ['assets/site.css','assets/site-search.js','assets/analytics.mjs'])assert.equal((await fetch(new URL('/'+asset,host.base))).status,200,asset+' must load from the root for the 404 page');
   console.log(`PUBLICATION URLS: PASS (${urls.length} sitemap destinations served from the root of ${DOMAIN})`);
 } finally {await host.close();}
