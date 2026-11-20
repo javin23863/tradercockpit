@@ -49,13 +49,13 @@
       "shots": [
         {
           "src": "assets/features/workflow-steps.webp",
-          "alt": "A workflow after its run on SOL/USD hourly candles: build strategies, then a Monte Carlo retest, one pass each",
-          "w": 1216,
-          "h": 318,
+          "alt": "A ready-made Library workflow after a full run on EURUSD hourly bars: 136 strategies built, 13 passed the later held-back period, 4 the earlier one, 1 the first Monte Carlo test and none the second",
+          "w": 1800,
+          "h": 463,
           "phone": {
             "src": "assets/features/workflow-phone.webp",
-            "w": 526,
-            "h": 252
+            "w": 329,
+            "h": 870
           }
         },
         {
